@@ -13,7 +13,9 @@
         "endOfLine": "auto",
         "semi": false
       }
-    ]
+    ],
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
   },
   "overrides": [
     // configuration for typescript files
