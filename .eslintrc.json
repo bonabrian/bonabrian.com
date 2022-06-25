@@ -55,7 +55,8 @@
           "error",
           { "argsIgnorePattern": "^_" }
         ],
-        "jsx-quotes": ["error", "prefer-single"]
+        "jsx-quotes": ["error", "prefer-single"],
+        "react/display-name": "off"
       }
     },
     // configuration for testing
