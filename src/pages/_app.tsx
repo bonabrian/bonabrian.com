@@ -1,7 +1,8 @@
 import type { EmotionCache } from '@emotion/cache'
-import { CacheProvider, ThemeProvider } from '@emotion/react'
+import { CacheProvider } from '@emotion/react'
 import type { AppProps } from 'next/app'
 
+import Layout from '@/common/components/layout'
 import { createEmotionCache } from '@/common/utils'
 import { GlobalStyles } from '@/styles'
 
@@ -19,9 +20,9 @@ const MyApp = ({
   return (
     <CacheProvider value={emotionCache}>
       <GlobalStyles />
-      <ThemeProvider theme={{ theme: 'dark' }}>
+      <Layout>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </Layout>
     </CacheProvider>
   )
 }
