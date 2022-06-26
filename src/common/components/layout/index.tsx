@@ -9,14 +9,14 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
-const LayoutWrapper = styled.div`
-  background-color: var(--background-color);
-  color: var(--text-color);
-  min-height: 100vh;
-  padding-top: 6rem;
-  padding-bottom: 0.5rem;
-  transition: 0.4s ease-out;
-`
+const LayoutWrapper = styled.div({
+  backgroundColor: 'var(--background-color)',
+  color: 'var(--text-color)',
+  minHeight: '100vh',
+  paddingTop: '6rem',
+  paddingBottom: '0.5rem',
+  transition: '0.4s ease-out',
+})
 
 const Layout = ({ children }: LayoutProps) => {
   return (
