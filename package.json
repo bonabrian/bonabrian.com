@@ -9,6 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
     "build-stats": "cross-env ANALYZE=true next build",
     "clean": "rimraf .next out",
     "lint": "next lint",
@@ -17,7 +18,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/cache": "^11.9.3",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.9.3",
     "next": "12.1.6",
+    "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
