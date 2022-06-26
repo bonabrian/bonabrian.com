@@ -2,6 +2,24 @@ import { Global } from '@emotion/react'
 
 import CSSReset from './CSSReset'
 
+interface Theme {
+  backgroundColor: string
+  textColor: string
+  headerBackground: string
+}
+
+const darkTheme: Theme = {
+  backgroundColor: '#1A202C',
+  textColor: 'rgba(255, 255, 255, 0.92)',
+  headerBackground: 'rgba(26, 32, 44, .8)',
+}
+
+const lightTheme: Theme = {
+  backgroundColor: '#FFFFFF',
+  textColor: '#1A202C',
+  headerBackground: 'rgba(247, 250, 252, .8)',
+}
+
 const fontPrimary = 'Recursive, sans-serif'
 
 export const GlobalStyles = () => {
@@ -12,9 +30,27 @@ export const GlobalStyles = () => {
         styles={{
           ':root': {
             '--font-primary': fontPrimary,
+            '--line-height-base': '1.5',
           },
+          '[data-theme="dark"]': {
+            '--background-color': darkTheme.backgroundColor,
+            '--text-color': darkTheme.textColor,
+            '--header-background': darkTheme.headerBackground,
+          },
+          '[data-theme="light"]': {
+            '--background-color': lightTheme.backgroundColor,
+            '--text-color': lightTheme.textColor,
+            '--header-background': lightTheme.headerBackground,
+          },
+          // base
           body: {
             fontFamily: 'var(--font-primary)',
+            color: 'var(--text-color)',
+            backgroundColor: 'var(--background-color)',
+            transitionProperty: 'background-color',
+            transitionDuration: '200ms',
+            WebkitTextSizeAdjust: '100%',
+            lineHeight: 'var(--line-height-base)',
           },
         }}
       />
