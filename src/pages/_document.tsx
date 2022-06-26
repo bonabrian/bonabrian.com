@@ -43,13 +43,32 @@ class MyDocument extends Document {
   }
 
   render(): JSX.Element {
-    const getThemeMode = `
-      const getThemeMode = () => {
-        const theme = window.localStorage.getItem('theme')
-        return theme || 'dark'
+    function setInitialThemeMode() {
+      const getInitialThemeMode = () => {
+        const persistedThemePreference = window.localStorage.getItem('theme')
+        const hasPersistedPreference =
+          typeof persistedThemePreference === 'string'
+
+        if (hasPersistedPreference) return persistedThemePreference
+
+        const mql = window.matchMedia('(prefers-color-scheme: dark)')
+        const hasMediaQueryPreference = typeof mql.matches === 'boolean'
+
+        if (hasMediaQueryPreference) return mql.matches ? 'dark' : 'light'
+
+        // set default to dark
+        return 'dark'
       }
 
-      document.body.dataset.theme = getThemeMode()
+      document.body.dataset.theme = getInitialThemeMode()
+    }
+
+    const blockSetInitialThemeMode = `(() => {
+      ${setInitialThemeMode.toString()}
+      setInitialThemeMode();
+    })()
+
+    // IIFE!
     `
 
     return (
@@ -122,8 +141,10 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          {/* eslint-disable-next-line react/no-danger */}
-          <script dangerouslySetInnerHTML={{ __html: getThemeMode }} />
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: blockSetInitialThemeMode }}
+          />
           <Main />
           <NextScript />
         </body>
