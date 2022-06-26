@@ -14,12 +14,12 @@ class MyDocument extends Document {
     const cache = createEmotionCache()
     const { extractCriticalToChunks } = createEmotionServer(cache)
 
-    // const originalRenderPage = ctx.renderPage
-    // ctx.renderPage = () =>
-    //   originalRenderPage({
-    //     enhanceApp: (App) => (props: any) =>
-    //       <App emotionCache={cache} {...props} />,
-    //   })
+    const originalRenderPage = ctx.renderPage
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props: any) =>
+          <App emotionCache={cache} {...props} />,
+      })
 
     const initialProps = await Document.getInitialProps(ctx)
     const emotionStyles = extractCriticalToChunks(initialProps.html)
