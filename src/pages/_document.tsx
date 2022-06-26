@@ -43,6 +43,15 @@ class MyDocument extends Document {
   }
 
   render(): JSX.Element {
+    const getThemeMode = `
+      const getThemeMode = () => {
+        const theme = window.localStorage.getItem('theme')
+        return theme || 'dark'
+      }
+
+      document.body.dataset.theme = getThemeMode()
+    `
+
     return (
       <Html>
         <Head>
@@ -113,6 +122,8 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          {/* eslint-disable-next-line react/no-danger */}
+          <script dangerouslySetInnerHTML={{ __html: getThemeMode }} />
           <Main />
           <NextScript />
         </body>
