@@ -3,21 +3,24 @@ import { Global } from '@emotion/react'
 import CSSReset from './CSSReset'
 
 interface Theme {
-  backgroundColor: string
-  textColor: string
-  headerBackground: string
+  backgroundColor?: string
+  textColor?: string
+  headerBackground?: string
+  toggleHoverBackground?: string
 }
 
 const darkTheme: Theme = {
   backgroundColor: '#1A202C',
   textColor: 'rgba(255, 255, 255, 0.92)',
   headerBackground: 'rgba(26, 32, 44, .8)',
+  toggleHoverBackground: 'rgba(255, 255, 255, 0.16)',
 }
 
 const lightTheme: Theme = {
   backgroundColor: '#FFFFFF',
   textColor: '#1A202C',
   headerBackground: 'rgba(247, 250, 252, .8)',
+  toggleHoverBackground: '#E2E8F0',
 }
 
 const fontPrimary = 'Recursive, sans-serif'
@@ -36,11 +39,13 @@ export const GlobalStyles = () => {
             '--background-color': darkTheme.backgroundColor,
             '--text-color': darkTheme.textColor,
             '--header-background': darkTheme.headerBackground,
+            '--toggle-hover-background': darkTheme.toggleHoverBackground,
           },
           '[data-theme="light"]': {
             '--background-color': lightTheme.backgroundColor,
             '--text-color': lightTheme.textColor,
             '--header-background': lightTheme.headerBackground,
+            '--toggle-hover-background': lightTheme.toggleHoverBackground,
           },
           // base
           body: {

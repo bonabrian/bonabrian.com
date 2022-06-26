@@ -5,14 +5,14 @@ import { breakpoints } from '@/common/utils'
 
 import ThemeToggle from './ThemeToggle'
 
-const HeaderWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  z-index: 5;
-  background-color: var(--header-background);
-  backdrop-filter: blur(6px);
-  width: 100%;
-`
+const HeaderWrapper = styled.div({
+  position: 'fixed',
+  top: 0,
+  zIndex: 5,
+  backgroundColor: 'var(--header-background)',
+  backdropFilter: 'blur(6px)',
+  width: '100%',
+})
 
 const HeaderInner = styled.header`
   @media (min-width: ${breakpoints.sm}) {
