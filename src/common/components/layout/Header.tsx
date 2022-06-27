@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { breakpoints } from '@/common/utils'
 
+import Navigation from './navigation'
 import ThemeToggle from './ThemeToggle'
 
 const HeaderWrapper = styled.div({
@@ -42,7 +43,9 @@ const Brand = styled.a`
   }
   cursor: pointer;
   font-size: 1rem;
-  font-weight: bolder;
+  font-weight: 600;
+  min-width: 2.5rem;
+  height: 2.5rem;
 `
 
 const Header = () => {
@@ -52,6 +55,7 @@ const Header = () => {
         <Link href='/' passHref>
           <Brand>b.</Brand>
         </Link>
+        <Navigation />
         <ThemeToggle />
       </HeaderInner>
     </HeaderWrapper>

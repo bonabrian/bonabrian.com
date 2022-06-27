@@ -2,9 +2,11 @@ import styled from '@emotion/styled'
 import * as React from 'react'
 
 import Meta from '@/common/components/Meta'
+import { useMediaQuery } from '@/common/hooks'
 import { breakpoints } from '@/common/utils'
 
 import Header from './Header'
+import MobileNavigation from './navigation/MobileNavigation'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -27,7 +29,7 @@ const Container = styled.div`
     max-width: 85vw;
   }
   @media (min-width: ${breakpoints.lg}) {
-    max-width: 45vw;
+    max-width: 800px;
   }
   display: flex;
   flex-direction: column;
@@ -38,10 +40,12 @@ const Container = styled.div`
 `
 
 const Layout = ({ children }: LayoutProps) => {
+  const isMobileView = useMediaQuery('(max-width: 767px)')
+
   return (
     <LayoutWrapper>
       <Meta />
-      <Header />
+      {isMobileView ? <MobileNavigation /> : <Header />}
       <Container>{children}</Container>
     </LayoutWrapper>
   )
