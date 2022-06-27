@@ -23,7 +23,7 @@ const lightTheme: Theme = {
   toggleHoverBackground: '#E2E8F0',
 }
 
-const fontPrimary = 'Recursive, sans-serif'
+const fontPrimary = 'Montserrat, sans-serif'
 
 export const GlobalStyles = () => {
   return (

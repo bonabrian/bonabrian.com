@@ -136,7 +136,7 @@ class MyDocument extends Document {
             href='/favicon-16x16.png'
           />
           <link
-            href='https://fonts.googleapis.com/css2?family=Recursive:wght@400;600;700&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;500&display=swap'
             rel='stylesheet'
           />
         </Head>
