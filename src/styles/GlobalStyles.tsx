@@ -2,21 +2,14 @@ import { Global } from '@emotion/react'
 
 import CSSReset from './CSSReset'
 
-interface Theme {
-  backgroundColor?: string
-  textColor?: string
-  headerBackground?: string
-  toggleHoverBackground?: string
-}
-
-const darkTheme: Theme = {
+const darkTheme = {
   backgroundColor: '#1A202C',
   textColor: 'rgba(255, 255, 255, 0.92)',
   headerBackground: 'rgba(26, 32, 44, .8)',
   toggleHoverBackground: 'rgba(255, 255, 255, 0.16)',
 }
 
-const lightTheme: Theme = {
+const lightTheme = {
   backgroundColor: '#FFFFFF',
   textColor: '#1A202C',
   headerBackground: 'rgba(247, 250, 252, .8)',
