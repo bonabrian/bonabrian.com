@@ -1,4 +1,4 @@
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 const HamburgerWrapper = styled.div({
@@ -24,11 +24,11 @@ const Line = styled.div`
 
 const Hamburger = ({ isOpen, setIsOpen }: any) => {
   return (
-    <div className={css({ display: 'inline-block', marginLeft: '1rem' })}>
+    <div css={css({ display: 'inline-block', marginLeft: '1rem' })}>
       <HamburgerWrapper>
         <LineWrapper
           onClick={() => setIsOpen(!isOpen)}
-          className={
+          css={
             isOpen
               ? css({
                   transition: 'all 300ms ease-in-out',
@@ -39,7 +39,7 @@ const Hamburger = ({ isOpen, setIsOpen }: any) => {
           }
         >
           <Line
-            className={
+            css={
               isOpen
                 ? css({
                     transitionDelay: '300ms',
@@ -48,9 +48,9 @@ const Hamburger = ({ isOpen, setIsOpen }: any) => {
                 : ''
             }
           />
-          <Line className={isOpen ? css({ width: 0 }) : ''} />
+          <Line css={isOpen ? css({ width: 0 }) : ''} />
           <Line
-            className={
+            css={
               isOpen
                 ? css({
                     transitionDelay: '300ms',

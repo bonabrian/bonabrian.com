@@ -1,9 +1,6 @@
-import createEmotionServer from '@emotion/server/create-instance'
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
-
-import { createEmotionCache } from '@/common/utils'
 
 const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME
 
@@ -11,35 +8,8 @@ class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext,
   ): Promise<DocumentInitialProps> {
-    const cache = createEmotionCache()
-    const { extractCriticalToChunks } = createEmotionServer(cache)
-
-    // const originalRenderPage = ctx.renderPage
-    // ctx.renderPage = () =>
-    //   originalRenderPage({
-    //     enhanceApp: (App) => (props: any) =>
-    //       <App emotionCache={cache} {...props} />,
-    //   })
-
     const initialProps = await Document.getInitialProps(ctx)
-    const emotionStyles = extractCriticalToChunks(initialProps.html)
-    const emotionStyleTags = emotionStyles.styles.map((style) => (
-      <React.Fragment key={style.key}>
-        <style
-          data-emotion-css={`${style.key} ${style.ids.join(' ')}`}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: style.css }}
-        />
-      </React.Fragment>
-    ))
-
-    return {
-      ...initialProps,
-      styles: [
-        ...React.Children.toArray(initialProps.styles),
-        ...emotionStyleTags,
-      ],
-    }
+    return { ...initialProps }
   }
 
   render(): JSX.Element {
@@ -88,7 +58,7 @@ class MyDocument extends Document {
 
           {/* Open Graph / Facebook */}
           <meta property='og:type' content='website' />
-          <meta property='og:url' content='https://bonabrian.github.io' />
+          <meta property='og:url' content='https://bonabrian.com' />
           <meta property='og:title' content='bonabrian | portfolio' />
           <meta property='og:description' content="bonabrian's portfolio" />
           {/* TODO: add og:image */}
@@ -96,7 +66,7 @@ class MyDocument extends Document {
 
           {/* Twitter */}
           <meta property='twitter:card' content='summary_large_image' />
-          <meta property='twitter:url' content='https://bonabrian.github.io' />
+          <meta property='twitter:url' content='https://bonabrian.com' />
           <meta property='twitter:site' content='bonabrian_' />
           <meta property='twitter:title' content='bonabrian | portfolio' />
           <meta

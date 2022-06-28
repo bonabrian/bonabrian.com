@@ -1,4 +1,4 @@
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -71,12 +71,12 @@ const NavItems = ({ isOpen, setIsOpen }: any) => {
   })
 
   return (
-    <NavItemsWrapper className={isOpen ? css({ left: 0 }) : ''}>
+    <NavItemsWrapper css={isOpen ? css({ left: 0 }) : ''}>
       {mobileNavItems.map((item) => {
         return (
           <Link key={item.label} href={item.href} passHref>
             <ItemLink
-              className={css({
+              css={css({
                 color: `${
                   router.pathname === `${item.href}`
                     ? 'var(--active-nav-item-color)'
