@@ -39,7 +39,10 @@ const HeaderInner = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
+  padding-inline: 22px;
   margin-inline: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   max-width: 800px;
 `
 
