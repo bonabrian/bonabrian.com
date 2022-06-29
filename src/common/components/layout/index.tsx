@@ -39,6 +39,21 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
+const Main = styled.main`
+  @media (min-width: ${breakpoints.sm}) {
+    padding-inline-start: 22px;
+    padding-inline-end: 22px;
+  }
+  @media (min-width: ${breakpoints.md}) {
+    padding-inline-start: 11px;
+    padding-inline-end: 11px;
+  }
+  padding-top: 22px;
+  padding-bottom: 22px;
+  padding-inline-start: 22px;
+  padding-inline-end: 22px;
+`
+
 const Layout = ({ children }: LayoutProps) => {
   const isMobileView = useMediaQuery('(max-width: 767px)')
 
@@ -46,7 +61,9 @@ const Layout = ({ children }: LayoutProps) => {
     <LayoutWrapper>
       <Meta />
       {isMobileView ? <MobileNavigation /> : <Header />}
-      <Container>{children}</Container>
+      <Container>
+        <Main>{children}</Main>
+      </Container>
     </LayoutWrapper>
   )
 }
