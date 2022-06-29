@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
+import ThemeToggle from '@/common/components/ThemeToggle'
 import { mobileNavItems } from '@/common/config'
 import { breakpoints } from '@/common/utils'
 
-import ThemeToggle from '../ThemeToggle'
 import Hamburger from './Hamburger'
 
 const Brand = styled.a({

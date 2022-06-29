@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
 
+import ThemeToggle from '@/common/components/ThemeToggle'
 import { breakpoints } from '@/common/utils'
 
 import Navigation from './navigation'
-import ThemeToggle from './ThemeToggle'
 
 const HeaderWrapper = styled.div({
   position: 'fixed',
