@@ -14,7 +14,7 @@ Router.events.on('routeChangeComplete', nProgress.done)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute='data-theme' defaultTheme='dark'>
       <GlobalStyles />
       <Layout>
         <Component {...pageProps} />

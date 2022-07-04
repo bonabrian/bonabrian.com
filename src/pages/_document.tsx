@@ -1,6 +1,5 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import * as React from 'react'
 
 const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME
 
@@ -13,34 +12,6 @@ class MyDocument extends Document {
   }
 
   render(): JSX.Element {
-    function setInitialThemeMode() {
-      const getInitialThemeMode = () => {
-        const persistedThemePreference = window.localStorage.getItem('theme')
-        const hasPersistedPreference =
-          typeof persistedThemePreference === 'string'
-
-        if (hasPersistedPreference) return persistedThemePreference
-
-        const mql = window.matchMedia('(prefers-color-scheme: dark)')
-        const hasMediaQueryPreference = typeof mql.matches === 'boolean'
-
-        if (hasMediaQueryPreference) return mql.matches ? 'dark' : 'light'
-
-        // set default to dark
-        return 'dark'
-      }
-
-      document.body.dataset.theme = getInitialThemeMode()
-    }
-
-    const blockSetInitialThemeMode = `(() => {
-      ${setInitialThemeMode.toString()}
-      setInitialThemeMode();
-    })()
-
-    // IIFE!
-    `
-
     return (
       <Html>
         <Head>
@@ -117,10 +88,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <script
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: blockSetInitialThemeMode }}
-          />
           <Main />
           <NextScript />
         </body>

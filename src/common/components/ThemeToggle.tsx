@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
-
-import { useTheme } from '@/common/hooks'
 
 const ToggleButton = styled.button({
   display: 'inline-flex',
@@ -36,30 +35,15 @@ const ToggleButton = styled.button({
 })
 
 const ThemeToggle = () => {
-  const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined)
-  const { theme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
+  const [loaded, setLoaded] = useState(false)
+  const isDark = (resolvedTheme || theme) === 'dark'
 
-  useEffect(() => {
-    setDarkTheme(theme === 'dark')
-  }, [])
-
-  useEffect(() => {
-    if (darkTheme !== undefined) {
-      const activeTheme = darkTheme ? 'dark' : 'light'
-      document.body.dataset.theme = activeTheme
-      window.localStorage.setItem('theme', activeTheme)
-    }
-  }, [darkTheme])
-
-  useEffect(() => {
-    if (theme) setDarkTheme(theme === 'dark')
-  }, [theme])
-
-  const handleThemeSwitch = () => setDarkTheme(!darkTheme)
+  useEffect(() => setLoaded(true), [setLoaded])
 
   return (
-    <ToggleButton onClick={handleThemeSwitch}>
-      {darkTheme ? <RiSunFill /> : <RiMoonFill />}
+    <ToggleButton onClick={() => setTheme(isDark ? 'light' : 'dark')}>
+      {loaded && (isDark ? <RiSunFill /> : <RiMoonFill />)}
     </ToggleButton>
   )
 }
