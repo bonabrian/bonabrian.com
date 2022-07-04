@@ -18,7 +18,7 @@ const lightTheme = {
   primary: '#7b61ff',
 }
 
-const fontPrimary = 'Montserrat, sans-serif'
+const fontPrimary = 'Noto Sans, sans-serif'
 
 export const GlobalStyles = () => {
   return (
