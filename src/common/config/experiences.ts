@@ -42,14 +42,4 @@ export const experiences: Array<Experience> = [
       'Coded an internal application for Human Resources, General Affair to manage data using PHP (Laravel).',
     ],
   },
-  {
-    organization: 'Pupuk Kujang',
-    role: 'Web Developer Internship',
-    link: 'https://www.pupuk-kujang.co.id',
-    date: 'October 2016 - February 2017',
-    content: [
-      'Working with Manager to plan requirements.',
-      'Designed and developed an internal application from scratch to manage employees, events, etc using PHP native in server-side and JQuery, Bootstrap in client-side.',
-    ],
-  },
 ]
