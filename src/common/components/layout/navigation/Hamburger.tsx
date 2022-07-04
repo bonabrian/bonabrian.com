@@ -16,7 +16,7 @@ const LineWrapper = styled.div({
 const Line = styled.div`
   width: 35px;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--text-primary);
   display: block;
   margin: 8px auto;
   transition: all ease-in-out 300ms;

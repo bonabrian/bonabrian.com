@@ -105,8 +105,14 @@ class MyDocument extends Document {
             sizes='16x16'
             href='/favicon-16x16.png'
           />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
-            href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;500&display=swap'
+            rel='preconnect'
+            href='https://fonts.gstatic.com'
+            crossOrigin='anonymous'
+          />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap'
             rel='stylesheet'
           />
         </Head>

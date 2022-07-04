@@ -10,7 +10,7 @@ const HeaderWrapper = styled.div({
   position: 'fixed',
   top: 0,
   zIndex: 5,
-  backgroundColor: 'var(--header-background)',
+  backgroundColor: 'var(--header-bg)',
   backdropFilter: 'blur(6px)',
   width: '100%',
 })
