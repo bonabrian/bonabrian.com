@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div({
   position: 'fixed',
   top: 0,
   zIndex: 5,
-  backgroundColor: 'var(--header-background)',
+  backgroundColor: 'var(--header-bg)',
   backdropFilter: 'blur(6px)',
   width: '100%',
 })
@@ -56,19 +56,21 @@ const NavItemsWrapper = styled.div({
   width: '100%',
   zIndex: 1000,
   top: '84px',
-  backgroundColor: 'var(--background-color)',
-  color: 'var(--text-color)',
-  height: '100%',
+  backgroundColor: 'var(--bg-primary)',
+  color: 'var(--text-primary)',
+  height: 'calc(100% - 84px)',
+})
+
+const ItemLink = styled.a({
+  fontSize: '1.5rem',
+  fontWeight: 600,
+  margin: '1.25rem auto',
+  position: 'relative',
+  ':hover': { color: 'var(--color-primary)' },
 })
 
 const NavItems = ({ isOpen, setIsOpen }: any) => {
   const router = useRouter()
-
-  const ItemLink = styled.a({
-    fontSize: '1.5rem',
-    fontWeight: 600,
-    margin: '1.25rem auto',
-  })
 
   return (
     <NavItemsWrapper css={isOpen ? css({ left: 0 }) : ''}>
@@ -76,13 +78,22 @@ const NavItems = ({ isOpen, setIsOpen }: any) => {
         return (
           <Link key={item.label} href={item.href} passHref>
             <ItemLink
-              css={css({
-                color: `${
-                  router.pathname === `${item.href}`
-                    ? 'var(--active-nav-item-color)'
-                    : 'var(--text-color)'
-                }`,
-              })}
+              css={
+                router.pathname === item.href
+                  ? css({
+                      color: 'var(--color-primary)',
+                      ':before': {
+                        zIndex: 5,
+                        content: '""',
+                        width: '100%',
+                        height: '3px',
+                        position: 'absolute',
+                        background: 'var(--color-primary)',
+                        bottom: 0,
+                      },
+                    })
+                  : {}
+              }
               onClick={() => setIsOpen(!isOpen)}
             >
               {item.label}

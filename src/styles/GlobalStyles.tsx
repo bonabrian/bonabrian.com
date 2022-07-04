@@ -3,19 +3,23 @@ import { Global } from '@emotion/react'
 import CSSReset from './CSSReset'
 
 const darkTheme = {
-  backgroundColor: '#1A202C',
-  textColor: 'rgba(255, 255, 255, 0.92)',
-  headerBackground: 'rgba(26, 32, 44, .8)',
-  toggleHoverBackground: 'rgba(255, 255, 255, 0.16)',
-  primary: '#c8c0f6',
+  bgPrimary: 'rgb(17, 17, 17)',
+  bgSecondary: 'rgb(25, 25, 25)',
+  headerBg: 'rgba(17, 17, 17, 0.8)',
+  textPrimary: 'rgb(255, 255, 255)',
+  textSecondary: 'rgba(255, 255, 255, 0.6)',
+  colorPrimary: 'rgb(255, 196, 255)',
+  boxBg: 'rgb(43, 43, 43)',
 }
 
 const lightTheme = {
-  backgroundColor: '#FFFFFF',
-  textColor: '#1A202C',
-  headerBackground: 'rgba(247, 250, 252, .8)',
-  toggleHoverBackground: '#E2E8F0',
-  primary: '#7b61ff',
+  bgPrimary: 'rgb(255, 255, 255)',
+  bgSecondary: 'rgb(247, 247, 247)',
+  headerBg: 'rgba(255, 255, 255, 0.8)',
+  textPrimary: 'rgb(17, 17, 17)',
+  textSecondary: 'rgba(17, 17, 17, 0.6)',
+  colorPrimary: 'rgb(216, 91, 216)',
+  boxBg: 'rgb(230, 230, 230)',
 }
 
 const fontPrimary = 'Noto Sans, sans-serif'
@@ -31,26 +35,28 @@ export const GlobalStyles = () => {
             '--line-height-base': '1.5',
           },
           '[data-theme="dark"]': {
-            '--background-color': darkTheme.backgroundColor,
-            '--text-color': darkTheme.textColor,
-            '--primary-color': darkTheme.primary,
-            '--header-background': darkTheme.headerBackground,
-            '--toggle-hover-background': darkTheme.toggleHoverBackground,
-            '--active-nav-item-color': darkTheme.primary,
+            '--bg-primary': darkTheme.bgPrimary,
+            '--bg-secondary': darkTheme.bgSecondary,
+            '--header-bg': darkTheme.headerBg,
+            '--text-primary': darkTheme.textPrimary,
+            '--text-secondary': darkTheme.textSecondary,
+            '--color-primary': darkTheme.colorPrimary,
+            '--box-bg': darkTheme.boxBg,
           },
           '[data-theme="light"]': {
-            '--background-color': lightTheme.backgroundColor,
-            '--text-color': lightTheme.textColor,
-            '--primary-color': lightTheme.primary,
-            '--header-background': lightTheme.headerBackground,
-            '--toggle-hover-background': lightTheme.toggleHoverBackground,
-            '--active-nav-item-color': lightTheme.primary,
+            '--bg-primary': lightTheme.bgPrimary,
+            '--bg-secondary': lightTheme.bgSecondary,
+            '--header-bg': lightTheme.headerBg,
+            '--text-primary': lightTheme.textPrimary,
+            '--text-secondary': lightTheme.textSecondary,
+            '--color-primary': lightTheme.colorPrimary,
+            '--box-bg': lightTheme.boxBg,
           },
           // base
           body: {
             fontFamily: 'var(--font-primary)',
-            color: 'var(--text-color)',
-            backgroundColor: 'var(--background-color)',
+            color: 'var(--text-primary)',
+            backgroundColor: 'var(--bg-primary)',
             transitionProperty: 'background-color',
             transitionDuration: '200ms',
             WebkitTextSizeAdjust: '100%',

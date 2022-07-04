@@ -31,7 +31,7 @@ const ToggleButton = styled.button({
   padding: '0px',
   backgroundColor: 'transparent',
   ':hover': {
-    background: 'var(--toggle-hover-background)',
+    background: 'var(--bg-secondary)',
   },
 })
 

@@ -13,8 +13,8 @@ type LayoutProps = {
 }
 
 const LayoutWrapper = styled.div({
-  backgroundColor: 'var(--background-color)',
-  color: 'var(--text-color)',
+  backgroundColor: 'var(--bg-primary)',
+  color: 'var(--text-primary)',
   minHeight: '100vh',
   paddingTop: '6rem',
   paddingBottom: '0.5rem',
