@@ -20,6 +20,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "framer-motion": "^6.3.16",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
     "nprogress": "^0.2.0",
