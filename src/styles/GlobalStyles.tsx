@@ -3,12 +3,11 @@ import { Global } from '@emotion/react'
 import CSSReset from './CSSReset'
 
 const darkTheme = {
-  bgPrimary: 'rgb(17, 17, 17)',
-  bgSecondary: 'rgb(25, 25, 25)',
+  bgPrimary: 'rgb(0, 0, 0)',
+  bgSecondary: 'rgb(39, 39, 42)',
   headerBg: 'rgba(17, 17, 17, 0.8)',
   textPrimary: 'rgb(255, 255, 255)',
   textSecondary: 'rgba(255, 255, 255, 0.6)',
-  colorPrimary: 'rgb(255, 196, 255)',
   boxBg: 'rgb(43, 43, 43)',
 }
 
@@ -18,7 +17,6 @@ const lightTheme = {
   headerBg: 'rgba(255, 255, 255, 0.8)',
   textPrimary: 'rgb(17, 17, 17)',
   textSecondary: 'rgba(17, 17, 17, 0.6)',
-  colorPrimary: 'rgb(216, 91, 216)',
   boxBg: 'rgb(230, 230, 230)',
 }
 
@@ -33,6 +31,8 @@ export const GlobalStyles = () => {
           ':root': {
             '--font-primary': fontPrimary,
             '--line-height-base': '1.5',
+            '--font-size-base': '1rem',
+            '--color-primary': 'rgb(222, 29, 141)',
           },
           '[data-theme="dark"]': {
             '--bg-primary': darkTheme.bgPrimary,
@@ -40,8 +40,8 @@ export const GlobalStyles = () => {
             '--header-bg': darkTheme.headerBg,
             '--text-primary': darkTheme.textPrimary,
             '--text-secondary': darkTheme.textSecondary,
-            '--color-primary': darkTheme.colorPrimary,
             '--box-bg': darkTheme.boxBg,
+            '--menu-hover': 'rgb(63, 63, 70)',
           },
           '[data-theme="light"]': {
             '--bg-primary': lightTheme.bgPrimary,
@@ -49,8 +49,8 @@ export const GlobalStyles = () => {
             '--header-bg': lightTheme.headerBg,
             '--text-primary': lightTheme.textPrimary,
             '--text-secondary': lightTheme.textSecondary,
-            '--color-primary': lightTheme.colorPrimary,
             '--box-bg': lightTheme.boxBg,
+            '--menu-hover': 'rgb(212, 212, 212)',
           },
           // base
           body: {
