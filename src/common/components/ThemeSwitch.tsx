@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
 
-const ToggleButton = styled.button({
+const SwitchButton = styled(motion.button)({
+  margin: 'auto 0.25rem',
   display: 'inline-flex',
   appearance: 'none',
   alignItems: 'center',
@@ -21,8 +23,8 @@ const ToggleButton = styled.button({
   transitionProperty:
     'background-color,border-color,color,fill,stroke,opacity,box-shadow,transform',
   transitionDuration: '200ms',
-  height: '2.5rem',
-  minWidth: '2.5rem',
+  height: '2rem',
+  minWidth: '2rem',
   fontSize: '1rem',
   paddingInlineStart: '1rem',
   paddingInlineEnd: '1rem',
@@ -34,18 +36,28 @@ const ToggleButton = styled.button({
   },
 })
 
-const ThemeToggle = () => {
+const ThemeSwitch = () => {
+  const [mounted, setMounted] = useState(false)
   const { theme, resolvedTheme, setTheme } = useTheme()
-  const [loaded, setLoaded] = useState(false)
   const isDark = (resolvedTheme || theme) === 'dark'
 
-  useEffect(() => setLoaded(true), [setLoaded])
+  useEffect(() => setMounted(true), [])
+
+  const switchTheme = () => {
+    setTheme(isDark ? 'light' : 'dark')
+  }
 
   return (
-    <ToggleButton onClick={() => setTheme(isDark ? 'light' : 'dark')}>
-      {loaded && (isDark ? <RiSunFill /> : <RiMoonFill />)}
-    </ToggleButton>
+    <SwitchButton
+      whileTap={{ scale: 0.7, rotate: 360 }}
+      whileHover={mounted ? { scale: 1.1 } : {}}
+      transition={{ duration: 0.2, ease: 'easeIn' }}
+      type='button'
+      onClick={() => switchTheme()}
+    >
+      {mounted && (isDark ? <RiSunFill /> : <RiMoonFill />)}
+    </SwitchButton>
   )
 }
 
-export default ThemeToggle
+export default ThemeSwitch
