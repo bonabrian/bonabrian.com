@@ -22,7 +22,7 @@ const lightTheme = {
   boxBg: 'rgb(230, 230, 230)',
 }
 
-const fontPrimary = 'Noto Sans, sans-serif'
+const fontPrimary = 'Montserrat, sans-serif'
 
 export const GlobalStyles = () => {
   return (
