@@ -8,7 +8,7 @@ const Divider = () => {
         borderStyle: 'solid',
         borderBottomWidth: '1px',
         width: '100%',
-        margin: '1rem 0',
+        margin: '0.5rem 0',
       }}
     />
   )
