@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import Meta from '@/common/components/Meta'
-import { Hero } from '@/modules/home/components'
+import { Hero } from '@/lib/home/components'
 
 const Home: NextPage = () => {
   return (
