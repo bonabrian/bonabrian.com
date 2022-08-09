@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 import Meta from '@/common/components/Meta'
-import { Content, Meta as ResumeMeta } from '@/lib/resume/components'
+import { Content, Meta as ResumeMeta } from '@/modules/resume/components'
 
 const ResumeWrapper = styled.div({
   display: 'flex',
