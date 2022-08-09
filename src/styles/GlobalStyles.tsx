@@ -15,12 +15,12 @@ const lightTheme = {
   bgPrimary: 'rgb(255, 255, 255)',
   bgSecondary: 'rgb(247, 247, 247)',
   headerBg: 'rgba(255, 255, 255, 0.8)',
-  textPrimary: 'rgb(17, 17, 17)',
+  textPrimary: 'rgb(0, 0, 0)',
   textSecondary: 'rgba(17, 17, 17, 0.6)',
   boxBg: 'rgb(230, 230, 230)',
 }
 
-const fontPrimary = 'Montserrat, sans-serif'
+const fontPrimary = 'Poppins, sans-serif'
 
 export const GlobalStyles = () => {
   return (
