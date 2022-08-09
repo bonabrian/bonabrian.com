@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { menuItems } from '../data'
+import menuItems from '../data/menuItems'
 import { breakpoints } from '../utils'
 import Dropdown from './Dropdown'
 import Logo from './Logo'

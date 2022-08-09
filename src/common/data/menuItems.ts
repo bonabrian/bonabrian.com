@@ -20,7 +20,7 @@ export type MenuItem = {
   showOnNavigation?: boolean
 }
 
-export const menuItems: MenuItem[] = [
+const menuItems: MenuItem[] = [
   {
     href: '/',
     label: 'Home',
@@ -81,3 +81,5 @@ export const menuItems: MenuItem[] = [
     icon: RiDoubleQuotesR,
   },
 ]
+
+export default menuItems

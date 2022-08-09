@@ -8,7 +8,7 @@ import nProgress from 'nprogress'
 
 import Analytics from '@/common/components/Analytics'
 import Layout from '@/common/components/Layout'
-import { metadata } from '@/common/data'
+import siteMetadata from '@/common/data/siteMetadata'
 import { GlobalStyles } from '@/styles'
 
 Router.events.on('routeChangeStart', nProgress.start)
@@ -18,7 +18,7 @@ Router.events.on('routeChangeComplete', nProgress.done)
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
-      <ThemeProvider attribute='data-theme' defaultTheme={metadata.theme}>
+      <ThemeProvider attribute='data-theme' defaultTheme={siteMetadata.theme}>
         <GlobalStyles />
         <Analytics />
         <Layout>

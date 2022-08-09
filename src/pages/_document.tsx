@@ -15,35 +15,12 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name='title' content='bonabrian | portfolio' />
-          <meta name='description' content="bonabrian's portfolio" />
           <meta
             name='keywords'
             content='NextJS portfolio, typescript portfolio, developer portfolio, react portfolio'
           />
-          <meta name='robots' content='index, follow' />
           <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
-
-          <meta name='author' content='Bona Brian Siagian' />
           <meta httpEquiv='content-language' content='en' />
-
-          {/* Open Graph / Facebook */}
-          <meta property='og:type' content='website' />
-          <meta property='og:url' content='https://bonabrian.com' />
-          <meta property='og:title' content='bonabrian | portfolio' />
-          <meta property='og:description' content="bonabrian's portfolio" />
-          {/* TODO: add og:image */}
-          {/* <meta property='og:image' content='' /> */}
-
-          {/* Twitter */}
-          <meta property='twitter:card' content='summary_large_image' />
-          <meta property='twitter:url' content='https://bonabrian.com' />
-          <meta property='twitter:site' content='bonabrian_' />
-          <meta property='twitter:title' content='bonabrian | portfolio' />
-          <meta
-            property='twitter:description'
-            content="bonabrian's portfolio"
-          />
 
           <meta name='application-name' content={APP_NAME} />
           <meta name='apple-mobile-web-app-capable' content='yes' />
@@ -54,7 +31,16 @@ class MyDocument extends Document {
           <meta name='apple-mobile-web-app-title' content={APP_NAME} />
           <meta name='format-detection' content='telephone=no' />
           <meta name='mobile-web-app-capable' content='yes' />
-          <meta name='theme-color' content='#444444' />
+          <meta
+            name='theme-color'
+            media='(prefers-color-scheme: light)'
+            content='#fff'
+          />
+          <meta
+            name='theme-color'
+            media='(prefers-color-scheme: dark)'
+            content='#000'
+          />
 
           {/* TODO: add app-icon */}
           <link rel='icon' href='/favicon.ico' />

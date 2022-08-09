@@ -5,7 +5,7 @@ import React from 'react'
 // import { useSession } from 'next-auth/react'
 import { RiMenuFill } from 'react-icons/ri'
 
-import { menuItems } from '../data'
+import menuItems from '../data/menuItems'
 import { useOutsideClick } from '../hooks'
 import Divider from './Divider'
 import Link from './Link'

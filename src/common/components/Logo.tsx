@@ -2,14 +2,14 @@ import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import TypewriterComponent from 'typewriter-effect'
 
-import { metadata } from '../data'
+import siteMetadata from '../data/siteMetadata'
 import Link from './Link'
 
 const Logo = () => {
   const router = useRouter()
 
   return (
-    <Link href='/' aria-label={metadata.title}>
+    <Link href='/' aria-label={siteMetadata.title}>
       <div
         css={css({
           fontWeight: '600',

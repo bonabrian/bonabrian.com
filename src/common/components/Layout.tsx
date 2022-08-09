@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import Container from './Container'
 import Header from './Header'
-import Meta from './Meta'
+import { PageMeta } from './Meta'
 
 type Props = {
   children: React.ReactNode
@@ -18,7 +18,7 @@ const LayoutWrapper = styled.div({
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Meta />
+      <PageMeta />
       <Container>
         <LayoutWrapper>
           <Header />

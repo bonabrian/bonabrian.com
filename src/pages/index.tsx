@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
 
-import Meta from '@/common/components/Meta'
+import { PageMeta } from '@/common/components/Meta'
 import { Hero } from '@/modules/home/components'
 
 const Home: NextPage = () => {
   return (
     <>
-      <Meta />
+      <PageMeta title='Home' />
       <Hero />
     </>
   )
