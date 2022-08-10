@@ -1,6 +1,6 @@
 {
   "name": "nextjs-app-starter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Next.js, Typescript, ESLint, Prettier, Husky, Lint-Staged, Jest, Testing Library, Commitlint",
   "author": "Bona Brian Siagian",
   "license": "MIT",
