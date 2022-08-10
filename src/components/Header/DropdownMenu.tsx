@@ -20,15 +20,14 @@ const DropdownMenu = () => {
         {/* @ts-expect-error */}
         <Menu.Button className='ml-4 cursor-pointer rounded-full transition-all hover:bg-gray-200 dark:hover:bg-gray-800'>
           {isMounted && (
-            <motion.button
+            <motion.span
               className='flex h-8 w-8 items-center justify-center text-xl'
               whileTap={{ scale: 0.5 }}
               transition={{ duration: 0.1, ease: 'easeIn' }}
               aria-label='Toggle Menu'
-              type='button'
             >
               <RiMenuFill />
-            </motion.button>
+            </motion.span>
           )}
         </Menu.Button>
       </div>
