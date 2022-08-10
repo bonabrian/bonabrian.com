@@ -33,7 +33,7 @@ const navItems: NavItem[] = [
   },
   {
     href: '/projects',
-    label: 'Project',
+    label: 'Projects',
     icon: RiNodeTree,
   },
   {
