@@ -2,8 +2,9 @@ import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import TypewriterComponent from 'typewriter-effect'
 
+import Link from '@/components/Link'
+
 import siteMetadata from '../data/siteMetadata'
-import Link from './Link'
 
 const Logo = () => {
   const router = useRouter()

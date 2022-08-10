@@ -3,12 +3,19 @@ const siteMetadata = {
   author: 'Bona Brian Siagian',
   description: "bonabrian's Personal websites",
   theme: 'system', // app theme: 'system' | 'dark' | 'light'
+  language: 'en-us',
   siteName: 'bonabrian.com',
   siteUrl: 'https://bonabrian.com',
-  analytics: process.env.NEXT_PUBLIC_GA_ID,
+  siteRepo: 'https://github.com/bonabrian/portfolio',
+  gaId: process.env.NEXT_PUBLIC_GA_ID,
+  siteLogo: '',
+  socialBanner: '',
   robots: 'follow, index',
   twitter: '',
-  socialBanner: '',
+  email: 'bonabriansiagian@gmail.com',
+  github: 'https://github.com/bonabrian',
+  linkedin: '',
+  locale: 'en-US',
 }
 
 export default siteMetadata

@@ -312,5 +312,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 }

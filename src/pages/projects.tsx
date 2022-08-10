@@ -1,5 +1,5 @@
-const Work = () => (
-  <div className='work'>
+const Projects = () => (
+  <div className='projects'>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nam
       dicta quia ipsam quae reiciendis quaerat illo consequatur repellendus
@@ -9,4 +9,4 @@ const Work = () => (
   </div>
 )
 
-export default Work
+export default Projects

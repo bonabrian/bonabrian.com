@@ -1,13 +1,13 @@
 import Script from 'next/script'
 
-import siteMetadata from '../data/siteMetadata'
+import siteMetadata from '@/data/siteMetadata'
 
 const GoogleAnalytic = () => {
   return (
     <>
       <Script
         strategy='lazyOnload'
-        src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.analytics}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.gaId}`}
       />
 
       <Script strategy='lazyOnload' id='#ga'>
@@ -16,7 +16,7 @@ const GoogleAnalytic = () => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${siteMetadata.analytics}', {
+          gtag('config', '${siteMetadata.gaId}', {
             page_path: window.location.pathname,
           });
         `}
@@ -25,10 +25,4 @@ const GoogleAnalytic = () => {
   )
 }
 
-const Analytics = () => {
-  const isProduction = process.env.NODE_ENV === 'production'
-
-  return <>{isProduction && siteMetadata.analytics && <GoogleAnalytic />}</>
-}
-
-export default Analytics
+export default GoogleAnalytic

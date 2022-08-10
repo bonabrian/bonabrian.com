@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
-import { PageMeta } from '@/common/components/Meta'
+import { PageMeta } from '@/components/Meta'
 import { Content, Meta as ResumeMeta } from '@/modules/resume/components'
 
 const ResumeWrapper = styled.div({

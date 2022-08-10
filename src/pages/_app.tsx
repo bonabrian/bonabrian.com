@@ -1,32 +1,47 @@
-import '@/styles/tailwind.css'
-import '@/styles/nprogress.css'
+import '@/styles/app.css'
 
 import type { AppProps } from 'next/app'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
 import nProgress from 'nprogress'
+import { useEffect } from 'react'
 
-import Analytics from '@/common/components/Analytics'
-import Layout from '@/common/components/Layout'
 import siteMetadata from '@/common/data/siteMetadata'
-import { GlobalStyles } from '@/styles'
+import GoogleAnalytic from '@/components/GoogleAnalytic'
+import Layout from '@/components/Layout'
+import { pageView } from '@/lib/gtag'
 
 Router.events.on('routeChangeStart', nProgress.start)
 Router.events.on('routeChangeError', nProgress.done)
 Router.events.on('routeChangeComplete', nProgress.done)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageView(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
+  const { session, ...rest } = pageProps
+
   return (
-    <SessionProvider session={pageProps.session}>
+    <>
       <ThemeProvider attribute='class' defaultTheme={siteMetadata.theme}>
-        <GlobalStyles />
-        <Analytics />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SessionProvider session={session}>
+          <Layout>
+            <Component {...rest} />
+          </Layout>
+        </SessionProvider>
       </ThemeProvider>
-    </SessionProvider>
+      <GoogleAnalytic />
+    </>
   )
 }
 

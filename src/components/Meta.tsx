@@ -1,14 +1,15 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import siteMetadata from '../data/siteMetadata'
-import type { OpenGraph } from '../types'
+import siteMetadata from '@/data/siteMetadata'
+
+export type OpenGraph = 'website' | 'article'
 
 type CommonMetaProps = {
   title?: string
   description?: string
   ogType?: OpenGraph
-  ogImage?: Array<string> | string
+  ogImage?: string | { url: string }[]
   twImage?: string
   canonicalUrl?: string
 }
@@ -25,23 +26,23 @@ const CommonMeta = (props: CommonMetaProps) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta name='robots' content={siteMetadata.robots} />
       <meta name='description' content={description} />
+      <meta name='author' content={siteMetadata.author} />
+      <meta name='robots' content={siteMetadata.robots} />
       <meta
         property='og:url'
         content={`${siteMetadata.siteUrl}${router.asPath}`}
       />
-      <meta name='author' content={siteMetadata.author} />
       <meta property='og:type' content={props.ogType} />
       <meta property='og:site_name' content={siteMetadata.siteName} />
       <meta property='og:description' content={description} />
       <meta property='og:title' content={title} />
-      {Array.isArray(props.ogImage) ? (
-        props.ogImage.map((image) => (
-          <meta property='og:image' content={image} key={image} />
-        ))
-      ) : (
+      {typeof props.ogImage === 'string' ? (
         <meta property='og:image' content={props.ogImage} />
+      ) : (
+        props.ogImage?.map(({ url }) => (
+          <meta property='og:image' content={url} key={url} />
+        ))
       )}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content={siteMetadata.twitter} />
@@ -58,14 +59,14 @@ type PageMetaProps = {
   description?: string
 }
 
-export const PageMeta = (props: PageMetaProps) => {
+export const PageMeta = ({ title, description }: PageMetaProps) => {
   const ogImageUrl = `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`
   const twImageUrl = `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`
 
   return (
     <CommonMeta
-      title={props.title}
-      description={props.description}
+      title={title}
+      description={description}
       ogType='website'
       ogImage={ogImageUrl}
       twImage={twImageUrl}

@@ -1,56 +1,32 @@
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import type { NextPage } from 'next'
 
-import { PageMeta } from '@/common/components/Meta'
-import { breakpoints } from '@/common/utils'
-
-const Intro = styled.div({
-  display: 'flex',
-  padding: '1rem 0',
-  flexDirection: 'column',
-})
-
-const Heading = styled.div`
-  margin: 1.5rem 0;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  @media (min-width: ${breakpoints.md}) {
-    font-size: 2.5rem;
-    line-height: 2.75rem;
-  }
-  @media (min-width: ${breakpoints.lg}) {
-    font-size: 3.5rem;
-    line-height: 3.75rem;
-  }
-`
+import { PageMeta } from '@/components/Meta'
 
 const Home: NextPage = () => {
   return (
     <>
       <PageMeta title='Home' />
-      <Intro>
-        <Heading>
-          Hi, I&apos;m{' '}
-          <span css={css({ color: 'var(--color-primary)' })}>
-            Bona Brian Siagian
-          </span>
-          <span css={css({ display: 'block' })}>Full Stack Developer</span>
-        </Heading>
-        <p
-          css={css`
-            font-size: 1rem;
-            @media (min-width: ${breakpoints.sm}) {
-              font-size: 1.25rem;
-            }
-          `}
-        >
-          I like making interactive things with code. I also talk and write
-          about those things.
-        </p>
-      </Intro>
+      <div className='flex flex-col justify-around w-full h-content sm:h-content-sm'>
+        <div className='flex flex-col'>
+          <h1 className='my-5 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'>
+            Hi, I&apos;m{' '}
+            <span className='text-primary-500 dark:text-primary-500'>
+              Bona Brian Siagian
+            </span>
+            <span className='block'>Full Stack Developer</span>
+          </h1>
+          <div className='text-base sm:text-xl'>
+            <p>
+              I&apos;m from{' '}
+              <span className='font-semibold'>Jakarta, Indonesia</span>.
+            </p>
+            <p>
+              I like to build interactive things with code. I also talk and
+              write about those things.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
