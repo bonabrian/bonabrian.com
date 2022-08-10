@@ -1,3 +1,4 @@
+import '@/styles/tailwind.css'
 import '@/styles/nprogress.css'
 
 import type { AppProps } from 'next/app'
@@ -18,7 +19,7 @@ Router.events.on('routeChangeComplete', nProgress.done)
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
-      <ThemeProvider attribute='data-theme' defaultTheme={siteMetadata.theme}>
+      <ThemeProvider attribute='class' defaultTheme={siteMetadata.theme}>
         <GlobalStyles />
         <Analytics />
         <Layout>
