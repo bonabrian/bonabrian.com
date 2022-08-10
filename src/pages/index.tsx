@@ -37,19 +37,10 @@ const Home: NextPage = () => {
           <span css={css({ color: 'var(--color-primary)' })}>
             Bona Brian Siagian
           </span>
-          <span
-            css={css({
-              display: 'block',
-              WebkitTextStroke: '1px var(--text-primary)',
-              color: 'transparent',
-            })}
-          >
-            Full Stack Developer
-          </span>
+          <span css={css({ display: 'block' })}>Full Stack Developer</span>
         </Heading>
         <p
           css={css`
-            font-family: 'Courier New';
             font-size: 1rem;
             @media (min-width: ${breakpoints.sm}) {
               font-size: 1.25rem;
