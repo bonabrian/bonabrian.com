@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
+import Link from '@/components/Link'
 import { PageMeta } from '@/components/Meta'
 import PageTitle from '@/components/PageTitle'
 import SocialIcon from '@/components/SocialIcon'
-import TextLink from '@/components/TextLink'
 import siteMetadata from '@/data/siteMetadata'
 
 const About = () => {
@@ -58,7 +58,7 @@ const About = () => {
           <p>
             Here&apos;s a brief timeline of my life events. If you want to know
             more about me as a professional programmer, see{' '}
-            <TextLink href='/resume' label='my resume' />
+            <Link href='/resume'>my resume</Link>
           </p>
           <h3>2022</h3>
           <p>
