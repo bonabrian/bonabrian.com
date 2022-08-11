@@ -1,6 +1,7 @@
 import type { LinkProps as NextLinkProps } from 'next/link'
 import NextLink from 'next/link'
 import { forwardRef } from 'react'
+import { HiOutlineExternalLink } from 'react-icons/hi'
 
 type LinkProps = {
   href: string
@@ -32,13 +33,15 @@ const Link = forwardRef<any, LinkProps>(({ href, children, ...rest }, ref) => {
 
   return (
     <a
+      className='flex items-center'
       ref={ref}
       target={'_blank'}
       rel={'noopener noreferrer'}
       href={href}
       {...rest}
     >
-      {children}
+      <span>{children}</span>
+      <HiOutlineExternalLink className='inline-block ml-0.5' />
     </a>
   )
 })
