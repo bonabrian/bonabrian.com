@@ -1,4 +1,5 @@
 import Container from './Container'
+import Footer from './Footer'
 import Header from './Header'
 
 type LayoutProps = {
@@ -13,6 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className='flex flex-col justify-between min-h-screen'>
           <main>{children}</main>
         </div>
+        <Footer />
       </Container>
     </>
   )
