@@ -14,7 +14,7 @@ const siteMetadata = {
   twitter: '',
   email: 'bonabriansiagian@gmail.com',
   github: 'https://github.com/bonabrian',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/bonabrian',
   locale: 'en-US',
 }
 
