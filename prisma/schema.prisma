@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model View {
+  slug    String  @id @db.VarChar(128)
+  count   BigInt  @default(1)
+
+  @@map(name: "views")
+}
+
+model Guestbook {
+  id        BigInt    @id @default(autoincrement())
+  body      String    @db.VarChar(1024)
+  updatedAt DateTime  @default(now()) @db.DateTime(6)
+
+  user      User?     @relation(fields: [userId], references: [id])
+  userId    String?
+
+  @@map(name: "guestbook")
+}
+
+model Account {
+  id                    String  @id @default(cuid())
+  userId                String
+  type                  String
+  provider              String
+  providerAccountId     String
+  refreshToken          String?
+  accessToken           String? @db.VarChar(4096)
+  refreshTokenExpiresIn Int?
+  expiresAt             Int?
+  tokenType             String?
+  scope                 String?
+  tokenId               String? @db.VarChar(4096)
+  sessionState          String?
+  oauthTokenSecret      String?
+  oauthToken            String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map(name: "accounts")
+}
+
+model Session {
+  id            String  @id @default(cuid())
+  sessionToken  String  @unique
+  userId        String
+  expires       DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map(name: "sessions")
+}
+
+model SkillCategory {
+  id                BigInt  @id @default(autoincrement())
+  name              String  @db.VarChar(255)
+  skillsInCategory  Skill[]
+
+  @@map(name: "skill_categories")
+}
+
+model Skill {
+  id              BigInt        @id @default(autoincrement())
+  name            String        @db.VarChar(255)
+  endorsements    Endorsement[]
+  skillCategoryId BigInt?
+  skillCategory   SkillCategory?  @relation(fields: [skillCategoryId], references: [id])
+
+  @@unique([name])
+  @@map(name: "skills")
+}
+
+model Endorsement {
+  id          BigInt    @id @default(autoincrement())
+  skillId     BigInt?
+  skill       Skill?    @relation(fields: [skillId], references: [id])
+  updatedAt   DateTime  @default(now()) @db.DateTime(6)
+
+  userId      String?
+  user        User?     @relation(fields: [userId], references: [id])
+
+  @@map(name: "endorsements")
+}
+
+model User {
+  id            String      @id @default(cuid())
+  name          String?
+  email         String?     @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  endorsements  Endorsement[]
+  guestbook     Guestbook[]
+
+  @@map(name: "users")
+}
+
+model VerificationToken {
+  identifier  String
+  token       String  @unique
+  expires     DateTime
+
+  @@unique([identifier, token])
+  @@map(name: "verification_tokens")
+}
