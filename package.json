@@ -17,7 +17,9 @@
     "test": "jest",
     "prepare": "husky install",
     "prisma:generate": "npx prisma generate",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "pscale:main": "pscale connect bonabrian main --port 3310",
+    "pscale:shadow": "pscale connect bonabrian shadow --port 3309"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
