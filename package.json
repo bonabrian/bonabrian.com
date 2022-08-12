@@ -18,8 +18,8 @@
     "prepare": "husky install",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
-    "pscale:main": "pscale connect bonabrian main --port 3310",
-    "pscale:shadow": "pscale connect bonabrian shadow --port 3309"
+    "pscale:main": "pscale connect portfolio main --port 3309",
+    "pscale:shadow": "pscale connect portfolio shadow --port 3310"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
