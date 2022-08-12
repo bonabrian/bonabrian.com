@@ -29,6 +29,7 @@
     "@mdx-js/react": "^2.1.2",
     "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.2.1",
+    "@sentry/nextjs": "^7.10.0",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.8",
     "esbuild": "^0.15.0",

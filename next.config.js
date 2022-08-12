@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
+const { withSentryConfig } = require('@sentry/nextjs')
+
+const SentryWebpackPluginOptions = { silent: true }
+
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
@@ -24,4 +30,6 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = isDevelopment
+  ? nextConfig
+  : withSentryConfig(nextConfig, SentryWebpackPluginOptions)
