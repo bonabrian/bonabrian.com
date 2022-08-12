@@ -57,7 +57,8 @@
           { "argsIgnorePattern": "^_" }
         ],
         "jsx-quotes": ["error", "prefer-single"],
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "no-nested-ternary": "off"
       }
     },
     // configuration for testing
