@@ -7,9 +7,9 @@ import { ThemeProvider } from 'next-themes'
 import nProgress from 'nprogress'
 import { useEffect } from 'react'
 
-import siteMetadata from '@/common/data/siteMetadata'
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
+import siteMetadata from '@/data/siteMetadata'
 import { pageView } from '@/lib/gtag'
 
 Router.events.on('routeChangeStart', nProgress.start)
