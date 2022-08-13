@@ -2,13 +2,13 @@ import { PageMeta } from '@/components/Meta'
 import { UnderDevelopment } from '@/components/UnderDevelopment'
 import siteMetadata from '@/data/siteMetadata'
 
-const Blog = () => {
+const Stats = () => {
   return (
     <>
-      <PageMeta title='Blog' description={siteMetadata.description} />
+      <PageMeta title='Stats' description={siteMetadata.description} />
       <UnderDevelopment />
     </>
   )
 }
 
-export default Blog
+export default Stats

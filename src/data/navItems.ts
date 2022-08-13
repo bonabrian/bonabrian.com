@@ -2,11 +2,11 @@ import type { IconType } from 'react-icons'
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
 import {
   RiChat1Line,
-  RiDoubleQuotesR,
+  // RiDoubleQuotesR,
   RiHashtag,
   RiHome3Line,
   RiLineChartLine,
-  RiLinkM,
+  // RiLinkM,
   RiNodeTree,
   RiPencilLine,
   RiUserLine,
@@ -52,12 +52,12 @@ const navItems: NavItem[] = [
     label: 'About',
     icon: RiUserLine,
   },
-  {
-    href: '/contact',
-    label: 'Contact',
-    icon: RiLinkM,
-    onlyOnDropdownMenu: true,
-  },
+  // {
+  //   href: '/contact',
+  //   label: 'Contact',
+  //   icon: RiLinkM,
+  //   onlyOnDropdownMenu: true,
+  // },
   {
     href: '/tags',
     label: 'Tags',
@@ -70,12 +70,12 @@ const navItems: NavItem[] = [
     icon: RiLineChartLine,
     onlyOnDropdownMenu: true,
   },
-  {
-    href: '/quotes',
-    label: 'Quotes',
-    icon: RiDoubleQuotesR,
-    onlyOnDropdownMenu: true,
-  },
+  // {
+  //   href: '/quotes',
+  //   label: 'Quotes',
+  //   icon: RiDoubleQuotesR,
+  //   onlyOnDropdownMenu: true,
+  // },
 ]
 
 export default navItems
