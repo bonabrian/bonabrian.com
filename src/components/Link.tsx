@@ -41,12 +41,12 @@ const Link = forwardRef<any, LinkProps>(
         href={href}
         {...rest}
       >
-        <div className={'flex items-center'}>
+        <span className={'items-center inline-flex'}>
           <span>{children}</span>
           {showExternalLinkIcon && (
             <HiOutlineExternalLink className='inline-block ml-0.5' />
           )}
-        </div>
+        </span>
       </a>
     )
   },
