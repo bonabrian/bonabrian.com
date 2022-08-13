@@ -17,10 +17,6 @@ const Home: NextPage = () => {
           </h1>
           <div className='text-base sm:text-xl'>
             <p>
-              I&apos;m from{' '}
-              <span className='font-semibold'>Jakarta, Indonesia</span>.
-            </p>
-            <p>
               I like to build interactive things with code. I also talk and
               write about those things.
             </p>

@@ -15,7 +15,7 @@ const siteMetadata = {
   email: 'bonabriansiagian@gmail.com',
   github: 'https://github.com/bonabrian',
   linkedin: 'https://www.linkedin.com/in/bonabrian',
-  locale: 'en-US',
+  locale: 'en-ID',
 }
 
 export default siteMetadata

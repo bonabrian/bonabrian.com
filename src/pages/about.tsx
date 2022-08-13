@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import Experiences from '@/components/Experiences'
 import Link from '@/components/Link'
 import { PageMeta } from '@/components/Meta'
 import PageTitle from '@/components/PageTitle'
@@ -7,9 +8,6 @@ import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetadata'
 
 const About = () => {
-  const yearExperience =
-    new Date().getFullYear() - new Date('2018-06-25').getFullYear()
-
   return (
     <>
       <PageMeta
@@ -45,56 +43,39 @@ const About = () => {
         </div>
         <div className='py-8 prose dark:prose-dark max-w-none xl:col-span-2'>
           <p>
-            {`
-              Full-stack developer with ${yearExperience}+ years of experience using a range of
-              Frontend and Backend technologies like Java/Kotlin (Spring), PHP
-              (Laravel), Javascript/Typescript (Vue, React). Developed scalable
-              applications with specifications and business requirements. Perform
-              technical analysis and testing to deliver business value through
-              quality software.
-            `}
+            I&apos;m Full-stack developer focused on solving problems with
+            digital products. I currently work at{' '}
+            <Link href={'https://investree.id'}>Investree</Link> based in{' '}
+            <Link
+              href={
+                'https://www.google.com/maps/place/Jakarta,+Daerah+Khusus+Ibukota+Jakarta/@-6.2293866,106.6890864,11z'
+              }
+            >
+              Jakarta, Indonesia.
+            </Link>{' '}
+            Developed scalable software with specifications and business
+            requirements. Perform technical analysis and testing to deliver
+            business value through quality software.
           </p>
-          <h2>Timeline</h2>
           <p>
-            Here&apos;s a brief timeline of my life events. If you want to know
-            more about me as a professional programmer, see{' '}
-            <Link href='/resume'>my resume</Link>
+            I consider myself a curious and inquisitive person and a continuous
+            learner, so on my spare time I like to work on side projects and try
+            to keep learning new stuff to improve my skill set.
           </p>
-          <h3>2022</h3>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-            quaerat aliquam est mollitia rerum fuga dolor, aut delectus repellat
-            cumque, sunt ex aliquid consequuntur quod adipisci possimus
-            repellendus. Nostrum, dolorum.
+            Besides hacking, I also enjoy playing video games, and listening to
+            music.
           </p>
-          <h3>2021</h3>
+          <h2>Experience</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odio
-            distinctio explicabo, facilis consequuntur labore, quidem mollitia
-            alias magnam eveniet voluptates itaque maiores corporis ad, dolores
-            aspernatur nihil tempora eos?
+            Here&apos;s a brief timeline of my careers. If you want to know more
+            about me as a professional programmer, see{' '}
+            <Link href='https://drive.google.com/file/d/15U3JhtsQqeemOEcNaNS17QGbTnXEu3Gk/view?usp=sharing'>
+              my resume
+            </Link>
           </p>
-          <h3>2020</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-            voluptate earum nam ullam enim impedit repellendus nobis corporis
-            consequatur magni dolore officia facilis, quisquam tempore. Eos ad
-            doloremque corrupti maxime!
-          </p>
-          <h3>2019</h3>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-            nesciunt quia aspernatur qui veniam quisquam voluptatum dignissimos
-            nisi rerum vel eum dolore eaque amet, delectus modi iste esse,
-            molestias recusandae.
-          </p>
-          <h3>2018</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga unde
-            atque explicabo soluta! Dignissimos dolores magnam totam repellat ab
-            maiores sed, ullam eos velit ratione facilis mollitia perferendis
-            sit perspiciatis?
-          </p>
+
+          <Experiences />
         </div>
       </div>
     </>
