@@ -37,11 +37,6 @@ const navItems: NavItem[] = [
     icon: RiNodeTree,
   },
   {
-    href: '/about',
-    label: 'About',
-    icon: RiUserLine,
-  },
-  {
     href: '/endorsements',
     label: 'Endorsements',
     icon: HiOutlineBadgeCheck,
@@ -51,6 +46,11 @@ const navItems: NavItem[] = [
     label: 'Guestbook',
     icon: RiChat1Line,
     onlyOnDropdownMenu: true,
+  },
+  {
+    href: '/about',
+    label: 'About',
+    icon: RiUserLine,
   },
   {
     href: '/contact',
