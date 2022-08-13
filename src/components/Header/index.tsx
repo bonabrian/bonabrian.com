@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import ThemeSwitch from '@/common/components/ThemeSwitch'
 import siteMetadata from '@/data/siteMetadata'
 
 import Link from '../Link'
@@ -41,7 +40,6 @@ const Header = () => {
         </Link>
         <div className='flex items-center text-base leading-5'>
           <Navigation />
-          <ThemeSwitch />
           <DropdownMenu />
         </div>
       </div>

@@ -17,7 +17,6 @@ const DropdownMenu = () => {
   return (
     <Menu as='div' className='relative inline-block text-left'>
       <div>
-        {/* @ts-expect-error */}
         <Menu.Button className='ml-4 cursor-pointer rounded-full transition-all hover:bg-gray-200 dark:hover:bg-gray-800'>
           {isMounted && (
             <motion.span
@@ -32,7 +31,6 @@ const DropdownMenu = () => {
         </Menu.Button>
       </div>
 
-      {/* @ts-expect-error */}
       <Transition
         as={Fragment}
         enter='transition ease-out duration-100'
@@ -42,15 +40,12 @@ const DropdownMenu = () => {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        {/* @ts-expect-error */}
         <Menu.Items className='absolute right-0 mt-2 w-56 origin-top-right divide-y rounded-md bg-white shadow-lg ring-1 ring-gray-800 ring-opacity-5 focus:outline-none dark:bg-gray-900'>
           <div className='py-1'>
             {navItems.map(({ href, label, icon: Icon }) => (
-              // @ts-expect-error
               <Menu.Item key={label} as={Link} href={href}>
                 {({ active }) => (
                   <React.Fragment>
-                    {/* <Link href={href}> */}
                     <div
                       className={`
                       ${
