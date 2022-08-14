@@ -6,8 +6,10 @@ declare const window: Window &
     gtag: any
   }
 
-export const pageView = (url: string) => {
-  window.gtag('config', GA_TRACKING_ID, {
-    page_path: url,
-  })
+export const trackPageView = (url: string) => {
+  if (window && window.gtag) {
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url,
+    })
+  }
 }

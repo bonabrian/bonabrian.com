@@ -5,6 +5,7 @@ import fetcher from '@/lib/fetcher'
 import type { SkillCategory } from '@/types/skill'
 
 import ErrorMessage from '../ErrorMessage'
+import LoginView from '../LoginView'
 import Badge from './Badge'
 
 type Props = {
@@ -21,6 +22,7 @@ const Skills = ({ fallbackData }: Props) => {
 
   return (
     <div className='prose dark:prose-dark lg:prose-xl'>
+      <LoginView message='Login to give endorsements.' />
       {error && (
         <ErrorMessage>
           An unexpected error occured. The entries are not available for now.

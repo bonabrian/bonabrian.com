@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
 import siteMetadata from '@/data/siteMetadata'
-import { pageView } from '@/lib/gtag'
+import { trackPageView } from '@/lib/gtag'
 
 Router.events.on('routeChangeStart', nProgress.start)
 Router.events.on('routeChangeError', nProgress.done)
@@ -21,7 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      pageView(url)
+      trackPageView(url)
     }
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
