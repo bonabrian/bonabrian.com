@@ -8,6 +8,14 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  images: {
+    domains: [
+      // google avatar
+      'lh3.googleusercontent.com',
+      // github avatar
+      'avatars.githubusercontent.com',
+    ],
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
