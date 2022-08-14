@@ -21,32 +21,32 @@ model View {
 }
 
 model Guestbook {
-  id        BigInt    @id @default(autoincrement())
-  body      String    @db.VarChar(1024)
-  updatedAt DateTime  @default(now()) @db.DateTime(6)
+  id          BigInt    @id @default(autoincrement())
+  body        String    @db.VarChar(1024)
+  updated_at  DateTime  @default(now()) @db.DateTime(6)
 
-  user      User?     @relation(fields: [userId], references: [id])
-  userId    String?
+  user        User?     @relation(fields: [userId], references: [id])
+  userId      String?
 
   @@map(name: "guestbook")
 }
 
 model Account {
-  id                    String  @id @default(cuid())
-  userId                String
-  type                  String
-  provider              String
-  providerAccountId     String
-  refreshToken          String?
-  accessToken           String? @db.VarChar(4096)
-  refreshTokenExpiresIn Int?
-  expiresAt             Int?
-  tokenType             String?
-  scope                 String?
-  tokenId               String? @db.VarChar(4096)
-  sessionState          String?
-  oauthTokenSecret      String?
-  oauthToken            String?
+  id                        String  @id @default(cuid())
+  userId                    String
+  type                      String
+  provider                  String
+  providerAccountId         String
+  refresh_token             String?
+  access_token              String? @db.VarChar(4096)
+  refresh_token_expires_in  Int?
+  expires_at                Int?
+  token_type                String?
+  scope                     String?
+  id_token                  String? @db.VarChar(4096)
+  session_state             String?
+  oauth_token_secret        String?
+  oauth_token               String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -66,32 +66,32 @@ model Session {
 }
 
 model SkillCategory {
-  id                BigInt  @id @default(autoincrement())
-  name              String  @db.VarChar(255)
-  skillsInCategory  Skill[]
+  id                  BigInt  @id @default(autoincrement())
+  name                String  @db.VarChar(255)
+  skills_in_category  Skill[]
 
   @@map(name: "skill_categories")
 }
 
 model Skill {
-  id              BigInt        @id @default(autoincrement())
-  name            String        @db.VarChar(255)
-  endorsements    Endorsement[]
-  skillCategoryId BigInt?
-  skillCategory   SkillCategory?  @relation(fields: [skillCategoryId], references: [id])
+  id                BigInt        @id @default(autoincrement())
+  name              String        @db.VarChar(255)
+  endorsements      Endorsement[]
+  skill_category    SkillCategory?  @relation(fields: [skill_category_id], references: [id])
+  skill_category_id BigInt?
 
   @@unique([name])
   @@map(name: "skills")
 }
 
 model Endorsement {
-  id          BigInt    @id @default(autoincrement())
-  skillId     BigInt?
-  skill       Skill?    @relation(fields: [skillId], references: [id])
-  updatedAt   DateTime  @default(now()) @db.DateTime(6)
+  id            BigInt    @id @default(autoincrement())
+  skill         Skill?    @relation(fields: [skill_id], references: [id])
+  skill_id      BigInt?
+  updatedAt     DateTime  @default(now()) @db.DateTime(6)
 
-  userId      String?
-  user        User?     @relation(fields: [userId], references: [id])
+  userId        String?
+  user          User?     @relation(fields: [userId], references: [id])
 
   @@map(name: "endorsements")
 }
@@ -100,7 +100,7 @@ model User {
   id              String      @id @default(cuid())
   name            String?
   email           String?     @unique
-  emailVerifiedAt DateTime?
+  emailVerified   DateTime?
   image           String?
   accounts        Account[]
   sessions        Session[]

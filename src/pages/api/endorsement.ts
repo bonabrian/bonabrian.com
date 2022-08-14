@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { skillId } = req.body
     await prisma.endorsement.create({
       data: {
-        skillId: Number(skillId),
+        skill_id: Number(skillId),
         userId: session.id as string,
       },
     })

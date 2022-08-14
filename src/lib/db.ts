@@ -7,7 +7,7 @@ export const getSkillsByCategory = async () => {
   try {
     const skillsByCategory = await prisma.skillCategory.findMany({
       include: {
-        skillsInCategory: {
+        skills_in_category: {
           include: {
             endorsements: {
               include: {
@@ -21,7 +21,7 @@ export const getSkillsByCategory = async () => {
 
     return skillsByCategory.map<SkillCategory>((category) => ({
       name: category.name,
-      skills: category.skillsInCategory.map<Skill>((skill) => ({
+      skills: category.skills_in_category.map<Skill>((skill) => ({
         id: skill.id.toString(),
         name: skill.name,
         users: skill.endorsements
