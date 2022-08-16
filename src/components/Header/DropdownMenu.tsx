@@ -1,24 +1,21 @@
 import { Menu, Transition } from '@headlessui/react'
 import { motion } from 'framer-motion'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import { RiMenuFill } from 'react-icons/ri'
 
 import navItems from '@/data/navItems'
+import { useMounted } from '@/hooks'
 
 import Link from '../Link'
 
 const DropdownMenu = () => {
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
+  const mounted = useMounted()
 
   return (
     <Menu as='div' className='relative inline-block text-left'>
       <div>
         <Menu.Button className='ml-4 cursor-pointer rounded-full transition-all hover:bg-gray-200 dark:hover:bg-gray-800'>
-          {isMounted && (
+          {mounted && (
             <motion.span
               className='flex h-8 w-8 items-center justify-center text-xl'
               whileTap={{ scale: 0.5 }}

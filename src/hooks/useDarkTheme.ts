@@ -1,11 +1,10 @@
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+
+import { useMounted } from './useMounted'
 
 export const useDarkTheme = () => {
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const { theme, resolvedTheme, setTheme } = useTheme()
-
-  useEffect(() => setMounted(true), [])
 
   const isDark = mounted && (resolvedTheme || theme) === 'dark'
   return {
