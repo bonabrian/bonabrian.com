@@ -4,6 +4,7 @@ const { withSentryConfig } = require('@sentry/nextjs')
 const SentryWebpackPluginOptions = { silent: true }
 
 const isDevelopment = process.env.NODE_ENV === 'development'
+const appHeaders = require('./headers')
 
 const nextConfig = {
   reactStrictMode: true,
@@ -35,6 +36,9 @@ const nextConfig = {
     })
 
     return config
+  },
+  async headers() {
+    return appHeaders
   },
 }
 
