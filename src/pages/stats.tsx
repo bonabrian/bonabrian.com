@@ -1,11 +1,11 @@
-import { PageMeta } from '@/components/Meta'
+import { PageSeo } from '@/components/Seo'
 import { UnderDevelopment } from '@/components/UnderDevelopment'
 import siteMetadata from '@/data/siteMetadata'
 
 const Stats = () => {
   return (
     <>
-      <PageMeta title='Stats' description={siteMetadata.description} />
+      <PageSeo title='Stats' description={siteMetadata.description} />
       <UnderDevelopment />
     </>
   )

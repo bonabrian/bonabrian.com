@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import { PageMeta } from '@/components/Meta'
 import PageTitle from '@/components/PageTitle'
+import { PageSeo } from '@/components/Seo'
 import Skills from '@/components/Skills'
 import { getSkillsByCategory } from '@/lib/db'
 
@@ -21,7 +21,11 @@ const Endorsements = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <PageMeta title='Endorsements' description={"bonabrian's Endorsements"} />
+      <PageSeo
+        title={'Endorsements'}
+        description={"Endorse bonabrian's skill"}
+        keywords={['skills', 'endorsements', 'programming']}
+      />
       <div className='flex flex-col items-start justify-center max-w-2xl pt-6 pb-8 space-y-2 md:space-y-5'>
         <PageTitle>Endorsements</PageTitle>
         <p className='text-lg leading-7 text-gray-500 dark:text-gray-400 xl:text-xl'>

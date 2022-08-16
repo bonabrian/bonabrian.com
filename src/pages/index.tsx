@@ -1,11 +1,24 @@
 import type { NextPage } from 'next'
 
-import { PageMeta } from '@/components/Meta'
+import { PageSeo } from '@/components/Seo'
 
 const Home: NextPage = () => {
   return (
     <>
-      <PageMeta title='Home' />
+      <PageSeo
+        keywords={[
+          'bona',
+          'bonabrian',
+          'bonabriansiagian',
+          'Bona Brian Siagian',
+          'full-stack',
+          'back-end',
+          'front-end',
+          'portfolio',
+          'developer',
+          'development',
+        ]}
+      />
       <div className='flex flex-col justify-around w-full h-content sm:h-content-sm'>
         <div className='flex flex-col'>
           <h1 className='my-5 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'>

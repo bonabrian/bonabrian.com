@@ -2,17 +2,18 @@ import Image from 'next/image'
 
 import Experiences from '@/components/Experiences'
 import Link from '@/components/Link'
-import { PageMeta } from '@/components/Meta'
 import PageTitle from '@/components/PageTitle'
+import { PageSeo } from '@/components/Seo'
 import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetadata'
 
 const About = () => {
   return (
     <>
-      <PageMeta
-        title='About'
-        description={`About me - ${siteMetadata.author}`}
+      <PageSeo
+        title={'About'}
+        description={'Learn a bit about me, careers, and more'}
+        keywords={['bio', 'biography', 'information', 'about']}
       />
       <div className='pt-6 pb-8 space-y-2 md:space-y-5'>
         <PageTitle>About</PageTitle>

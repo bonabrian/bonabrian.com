@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Portfolio',
   author: 'Bona Brian Siagian',
-  description: "bonabrian's Personal websites",
+  description: 'Passionate Full-stack developer based in Jakarta',
   theme: 'system', // app theme: 'system' | 'dark' | 'light'
   language: 'en-us',
   siteName: 'bonabrian.com',

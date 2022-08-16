@@ -6,8 +6,8 @@ import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import LoginButton from '@/components/LoginButton'
-import { PageMeta } from '@/components/Meta'
 import PageTitle from '@/components/PageTitle'
+import { PageSeo } from '@/components/Seo'
 import siteMetadata from '@/data/siteMetadata'
 
 // import type { Awaited } from '@/types/common'
@@ -29,7 +29,7 @@ const SignIn = ({
 
   return (
     <>
-      <PageMeta
+      <PageSeo
         title='Sign In'
         description={`Sign In - ${siteMetadata.author}`}
       />
