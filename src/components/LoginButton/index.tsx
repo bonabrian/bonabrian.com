@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
-import { useDarkTheme } from '@/hooks/useDarkTheme'
+import { useDarkTheme } from '@/hooks'
 
 import Github from './github.svg'
 import GithubDark from './github-dark.svg'

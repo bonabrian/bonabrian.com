@@ -1,7 +1,7 @@
 import { Switch } from '@headlessui/react'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
 
-import { useDarkTheme } from '@/hooks/useDarkTheme'
+import { useDarkTheme } from '@/hooks'
 
 const ThemeSwitch = () => {
   const { isDark, mounted, setTheme } = useDarkTheme()
