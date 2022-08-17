@@ -7,7 +7,7 @@ const siteMetadata = {
   siteName: 'bonabrian.com',
   siteUrl: 'https://bonabrian.com',
   siteRepo: 'https://github.com/bonabrian/portfolio',
-  gaId: process.env.NEXT_PUBLIC_GA_ID,
+  gaId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
   siteLogo: '',
   socialBanner: '',
   robots: 'follow, index',
