@@ -85,7 +85,7 @@ export const PageSeo = ({
       <meta property={'og:type'} content={ogType} />
       <meta property={'og:url'} content={exactUrl} />
       <meta property={'og:description'} content={metaDescription} />
-      <meta property={'og:site_name'} content={title} />
+      <meta property={'og:site_name'} content={metaTitle} />
 
       <meta property={'twitter:url'} name={'twitter:url'} content={exactUrl} />
       <meta
