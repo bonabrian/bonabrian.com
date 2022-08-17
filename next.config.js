@@ -6,6 +6,8 @@ const SentryWebpackPluginOptions = { silent: true }
 const isDevelopment = process.env.NODE_ENV === 'development'
 const appHeaders = require('./headers')
 
+const { withContentlayer } = require('next-contentlayer')
+
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
@@ -43,5 +45,5 @@ const nextConfig = {
 }
 
 module.exports = isDevelopment
-  ? nextConfig
-  : withSentryConfig(nextConfig, SentryWebpackPluginOptions)
+  ? withContentlayer(nextConfig)
+  : withSentryConfig(withContentlayer(nextConfig), SentryWebpackPluginOptions)
