@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react'
 
 import { useRequest } from '@/hooks'
-import type { SkillCategory } from '@/types/skill'
+import type { SkillCategory } from '@/types'
 
 import ErrorMessage from '../ErrorMessage'
 import LoginView from '../LoginView'

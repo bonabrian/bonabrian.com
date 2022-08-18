@@ -7,8 +7,8 @@ import { RiUserLine } from 'react-icons/ri'
 import { useSWRConfig } from 'swr'
 
 import fireConfetti from '@/lib/confetti'
-import { FormState } from '@/types/form'
-import type { Skill } from '@/types/skill'
+import type { Skill } from '@/types'
+import { FormState } from '@/types'
 
 import ErrorMessage from '../ErrorMessage'
 import LoadingSpinner from '../LoadingSpinner'

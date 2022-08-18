@@ -2,7 +2,7 @@ import { withSentry } from '@sentry/nextjs'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { getGroupedSkillsByCategory } from '@/services/skills'
-import type { SkillCategory } from '@/types/skill'
+import type { SkillCategory } from '@/types'
 
 const handler = async (
   req: NextApiRequest,
