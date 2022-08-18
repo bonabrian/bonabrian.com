@@ -1,25 +1,22 @@
+import prisma from '@/lib/prisma'
 import type { Skill, SkillCategory } from '@/types/skill'
 import type { User } from '@/types/user'
 
-import prisma from './prisma'
-
-export const getSkillsByCategory = async () => {
+export const getGroupedSkillsByCategory = async () => {
   try {
-    const skillsByCategory = await prisma.skillCategory.findMany({
+    const data = await prisma.skillCategory.findMany({
       include: {
         skills_in_category: {
           include: {
             endorsements: {
-              include: {
-                user: true,
-              },
+              include: { user: true },
             },
           },
         },
       },
     })
 
-    return skillsByCategory.map<SkillCategory>((category) => ({
+    return data.map<SkillCategory>((category) => ({
       name: category.name,
       skills: category.skills_in_category.map<Skill>((skill) => ({
         id: skill.id.toString(),
@@ -33,9 +30,10 @@ export const getSkillsByCategory = async () => {
           })),
       })),
     }))
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error('Error getting skills: ', err)
-    return []
+  } catch (e) {
+    throw Error(
+      // @ts-ignore
+      err?.message || err?.stackTrace.toString() || 'Unexpected error',
+    )
   }
 }

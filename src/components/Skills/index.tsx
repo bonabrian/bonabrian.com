@@ -1,22 +1,17 @@
 import { useSession } from 'next-auth/react'
-import useSWR from 'swr'
 
-import fetcher from '@/lib/fetcher'
+import { useRequest } from '@/hooks'
 import type { SkillCategory } from '@/types/skill'
 
 import ErrorMessage from '../ErrorMessage'
 import LoginView from '../LoginView'
 import Badge from './Badge'
+import type { SkillsProps } from './types'
 
-type Props = {
-  fallbackData: SkillCategory[]
-}
-
-const Skills = ({ fallbackData }: Props) => {
+const Skills = ({ fallbackData }: SkillsProps) => {
   const { data: session } = useSession()
-  const { data: categories, error } = useSWR<SkillCategory[]>(
-    '/api/skill-category',
-    fetcher,
+  const { data: categories, error } = useRequest<Array<SkillCategory>>(
+    '/api/skills',
     { fallbackData },
   )
 

@@ -3,14 +3,14 @@ import type { InferGetStaticPropsType } from 'next'
 import PageTitle from '@/components/PageTitle'
 import { PageSeo } from '@/components/Seo'
 import Skills from '@/components/Skills'
-import { getSkillsByCategory } from '@/lib/db'
+import { getGroupedSkillsByCategory } from '@/services/skills'
 
 export const getStaticProps = async () => {
-  const skillsByCategory = await getSkillsByCategory()
+  const skills = await getGroupedSkillsByCategory()
 
   return {
     props: {
-      fallbackData: skillsByCategory,
+      fallbackData: skills,
     },
     revalidate: 60,
   }

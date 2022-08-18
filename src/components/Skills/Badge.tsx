@@ -27,7 +27,7 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
   const onEndorse = async (skillId: string) => {
     setState(FormState.LOADING)
 
-    const res = await fetch('/api/endorsement', {
+    const res = await fetch('/api/endorsements', {
       body: JSON.stringify({ skillId }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
@@ -40,7 +40,7 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
       return
     }
 
-    mutate('/api/skill-category')
+    mutate('/api/skills')
     setState(FormState.SUCCESS)
     fireConfetti()
   }
