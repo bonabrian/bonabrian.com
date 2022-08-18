@@ -20,7 +20,7 @@ const Skills = ({ fallbackData }: SkillsProps) => {
       <LoginView message='Login to give endorsements.' />
       {error && (
         <ErrorMessage>
-          An unexpected error occured. The entries are not available for now.
+          An unexpected error occurred. The entries are not available for now.
           Please try again later
         </ErrorMessage>
       )}
