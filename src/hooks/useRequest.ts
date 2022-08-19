@@ -15,7 +15,7 @@ interface SwrData<T = unknown> {
 
 export const useRequest = <T>(
   url: string,
-  options: SWRConfiguration,
+  options?: SWRConfiguration,
 ): SwrData<T> => {
   const { data, error, mutate } = useSWR<T>(url, fetcher, options)
   return {
