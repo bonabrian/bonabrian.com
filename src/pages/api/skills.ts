@@ -15,12 +15,12 @@ const handler = async (
     }
 
     return res.status(405).send({
-      error: 'Method not allowed',
+      message: 'Method not allowed',
     })
   } catch (err) {
     return res.status(500).send({
       // @ts-ignore
-      error: err?.message || err?.stackTrace.toString() || 'Unexpected error',
+      message: err?.message || err?.stackTrace.toString() || 'Unexpected error',
     })
   }
 }
