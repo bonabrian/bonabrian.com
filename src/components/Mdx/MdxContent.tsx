@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { formatDate } from '@/utils'
+import { formatDate, getDomainFromUrl } from '@/utils'
 
+import Link from '../Link'
 import type { Content, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
 
@@ -13,6 +15,7 @@ const getContentFields = (content: Content): ContentFields => {
   if ('date' in content) fields.date = content.date
   if ('hero' in content) fields.hero = content.hero
   if ('heroMeta' in content) fields.heroMeta = content.heroMeta
+  if ('heroSource' in content) fields.heroSource = content.heroSource
   if ('readingTime' in content) fields.readingTime = content.readingTime
   if ('tags' in content) fields.tags = content.tags
   if ('draft' in content) fields.draft = content.draft
@@ -21,10 +24,18 @@ const getContentFields = (content: Content): ContentFields => {
 }
 
 export const MdxContent = ({ content, children }: MdxContentProps) => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const { title, slug, date, hero, heroMeta, readingTime, tags, draft } =
-    getContentFields(content)
-  // eslint-disable-next-line unused-imports/no-unused-vars
+  const {
+    title,
+    slug,
+    date,
+    hero,
+    heroMeta,
+    heroSource,
+    readingTime,
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    tags,
+    draft,
+  } = getContentFields(content)
   const extraHeroProps = useMemo(() => {
     if (heroMeta && heroMeta.blur64) {
       return {
@@ -54,7 +65,31 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
             </div>
           </div>
         </header>
-        <div className='prose dark:prose-dark max-w-none'>{children}</div>
+        <div className='prose dark:prose-dark max-w-none'>
+          {hero && (
+            <figure>
+              {/* @ts-ignore */}
+              <Image
+                src={hero || ''}
+                alt={`Cover image for article "${title}"`}
+                priority
+                {...extraHeroProps}
+                quality={100}
+                className='rounded-xl'
+                layout='responsive'
+              />
+              {heroSource && (
+                <figcaption className='text-gray-500 text-center'>
+                  Source{' '}
+                  <Link href={heroSource} title={heroSource}>
+                    {getDomainFromUrl(heroSource)}
+                  </Link>
+                </figcaption>
+              )}
+            </figure>
+          )}
+          {children}
+        </div>
       </article>
     </div>
   )

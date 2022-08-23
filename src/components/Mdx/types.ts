@@ -11,6 +11,7 @@ export interface ContentFields {
   date?: string
   hero?: string
   heroMeta?: HeroMeta
+  heroSource?: string
   readingTime?: IReadTimeResults | null
   tags?: Array<string>
   draft?: boolean

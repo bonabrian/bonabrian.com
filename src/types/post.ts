@@ -12,6 +12,7 @@ export interface Post {
   excerpt?: string
   hero?: string
   heroMeta?: HeroMeta
+  heroSource?: string
   readingTime?: IReadTimeResults | null
   keywords?: Array<string>
   tags?: Array<string>

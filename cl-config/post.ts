@@ -76,6 +76,7 @@ const Post = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' } },
     hero: { type: 'string' },
     heroMeta: { type: 'json' },
+    heroSource: { type: 'string' },
     draft: { type: 'boolean', default: false },
   },
   computedFields,
