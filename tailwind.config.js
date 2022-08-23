@@ -12,6 +12,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      maxWidth: {
+        'article-thumb': '12rem',
+      },
       spacing: {
         '9/16': '56.25%',
         0.75: '0.1875rem',
@@ -313,5 +316,5 @@ module.exports = {
     },
   },
   // eslint-disable-next-line global-require
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
