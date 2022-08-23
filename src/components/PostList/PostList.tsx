@@ -31,14 +31,16 @@ const PostList = ({ post }: PostListProps) => {
       <div className='relative overflow-hidden hover:scale-105 hover:rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 px-4 py-4 -mr-4 -mx-4 transition ease-in-out duration-200'>
         <article className='flex flex-col sm:flex-row gap-3'>
           <div className='flex items-center max-w-full sm:max-w-article-thumb'>
-            <Image
-              src={hero || ''}
-              alt={`Cover image for article "${title}"`}
-              width={heroMeta?.size?.width || 144}
-              height={heroMeta?.size?.height || 72}
-              {...extraHeroProps}
-              className='rounded-xl max-w-xs'
-            />
+            {hero && (
+              <Image
+                src={hero || ''}
+                alt={`Cover image for article "${title}"`}
+                width={heroMeta?.size?.width || 144}
+                height={heroMeta?.size?.height || 72}
+                {...extraHeroProps}
+                className='rounded-xl max-w-xs'
+              />
+            )}
           </div>
           <div className='flex flex-col'>
             {tags && (
