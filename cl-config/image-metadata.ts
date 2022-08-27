@@ -16,7 +16,7 @@ interface ImageNode {
     src: string
     height?: number
     width?: number
-    blurDataUrl?: string
+    blurDataURL?: string
     placeholder?: 'blur' | 'empty'
     loading?: 'lazy' | 'eager'
   }
@@ -97,7 +97,7 @@ const addProps = async (node: ImageNode): Promise<ImageNode> => {
     ...node.properties,
     width: res.size.width,
     height: res.size.height,
-    blurDataUrl: res.blur64,
+    blurDataURL: res.blur64,
     placeholder: 'blur',
     loading: 'lazy',
   }

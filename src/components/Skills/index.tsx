@@ -1,22 +1,17 @@
 import { useSession } from 'next-auth/react'
-import useSWR from 'swr'
 
-import fetcher from '@/lib/fetcher'
-import type { SkillCategory } from '@/types/skill'
+import { useRequest } from '@/hooks'
+import type { SkillCategory } from '@/types'
 
 import ErrorMessage from '../ErrorMessage'
 import LoginView from '../LoginView'
 import Badge from './Badge'
+import type { SkillsProps } from './types'
 
-type Props = {
-  fallbackData: SkillCategory[]
-}
-
-const Skills = ({ fallbackData }: Props) => {
+const Skills = ({ fallbackData }: SkillsProps) => {
   const { data: session } = useSession()
-  const { data: categories, error } = useSWR<SkillCategory[]>(
-    '/api/skill-category',
-    fetcher,
+  const { data: categories, error } = useRequest<Array<SkillCategory>>(
+    '/api/skills',
     { fallbackData },
   )
 
@@ -25,7 +20,7 @@ const Skills = ({ fallbackData }: Props) => {
       <LoginView message='Login to give endorsements.' />
       {error && (
         <ErrorMessage>
-          An unexpected error occured. The entries are not available for now.
+          An unexpected error occurred. The entries are not available for now.
           Please try again later
         </ErrorMessage>
       )}

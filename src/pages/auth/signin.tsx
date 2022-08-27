@@ -10,7 +10,6 @@ import PageTitle from '@/components/PageTitle'
 import { PageSeo } from '@/components/Seo'
 import siteMetadata from '@/data/siteMetadata'
 
-// import type { Awaited } from '@/types/common'
 import { authOptions } from '../api/auth/[...nextauth]'
 
 const SignIn = ({
