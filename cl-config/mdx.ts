@@ -22,8 +22,8 @@ interface RehypeElement {
 const customizeTOC = (toc: RehypeElement): RehypeElement | null => {
   try {
     const { children } = toc
-    const childrenOfChildren = children?.[0]?.children
-    if (!children?.length || !childrenOfChildren?.length) return null
+    const descendant = children?.[0]?.children
+    if (!children?.length || !descendant?.length) return null
   } catch (error) {
     return null
   }
@@ -36,7 +36,7 @@ const customizeTOC = (toc: RehypeElement): RehypeElement | null => {
       {
         type: 'element',
         tagName: 'p',
-        properties: { className: 'title' },
+        properties: { className: 'title font-medium' },
         children: [{ type: 'text', value: 'Table of Contents' }],
       },
       ...(toc.children || []),
