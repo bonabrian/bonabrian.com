@@ -50,13 +50,13 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <article>
+      <article className='article'>
         <header className='pt-6 xl:pb-8'>
           <div className='space-1 text-center'>
             <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100'>
               {title}
             </h1>
-            <div className='mt-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
+            <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
               <span>{formatDate(date)}</span>
               <span>•</span>
               <span>{readingTime?.text}</span>
