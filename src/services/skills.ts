@@ -29,7 +29,7 @@ export const getGroupedSkillsByCategory = async () => {
           })),
       })),
     }))
-  } catch (e) {
+  } catch (err) {
     throw Error(
       // @ts-ignore
       err?.message || err?.stackTrace.toString() || 'Unexpected error',
