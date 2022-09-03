@@ -1,6 +1,6 @@
 @import 'tailwind.css';
 @import 'nprogress.css';
-@import 'toc.css';
+@import 'content.css';
 
 .link-underline {
   position: relative;

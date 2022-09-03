@@ -1,12 +1,13 @@
 import type { IReadTimeResults } from 'reading-time'
 
-import type { HeroMeta, Post } from '@/types'
+import type { HeroMeta, Post, Snippet } from '@/types'
 
 // TODO: add Project content type
-export type Content = Post
+export type Content = Post | Snippet
 
 export interface ContentFields {
   title: string
+  description?: string
   slug?: string
   date?: string
   hero?: string

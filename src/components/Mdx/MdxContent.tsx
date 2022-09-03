@@ -13,6 +13,7 @@ const getContentFields = (content: Content): ContentFields => {
   const fields: ContentFields = {
     title: content.title,
   }
+  if ('description' in content) fields.description = content.description
   if ('slug' in content) fields.slug = content.slug
   if ('date' in content) fields.date = content.date
   if ('hero' in content) fields.hero = content.hero
@@ -28,13 +29,13 @@ const getContentFields = (content: Content): ContentFields => {
 export const MdxContent = ({ content, children }: MdxContentProps) => {
   const {
     title,
+    description,
     slug,
     date,
     hero,
     heroMeta,
     heroSource,
     readingTime,
-    // eslint-disable-next-line unused-imports/no-unused-vars
     tags,
     draft,
   } = getContentFields(content)
@@ -58,6 +59,9 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
             <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100'>
               {title}
             </h1>
+            {description && (
+              <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+            )}
             <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
               <span>{formatDate(date)}</span>
               <span>•</span>

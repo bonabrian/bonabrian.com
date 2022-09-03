@@ -22,6 +22,12 @@ const Footer = () => {
             >
               Tags
             </Link>
+            <Link
+              href='/snippets'
+              className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
+            >
+              Snippets
+            </Link>
           </div>
 
           <div className='flex flex-col space-y-4 md:items-start'>
