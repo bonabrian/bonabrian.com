@@ -22,7 +22,10 @@ const Home: NextPage = () => {
       />
       <div className='flex flex-col justify-evenly items-center w-full h-content sm:h-content-sm'>
         <div className='flex flex-col'>
-          <h1 className='my-5 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'>
+          <h1
+            className='my-5 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'
+            data-nosnippet
+          >
             Hi, I&apos;m{' '}
             <span className='text-primary-500 dark:text-primary-500'>
               Bona Brian Siagian
