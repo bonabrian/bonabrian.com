@@ -127,7 +127,10 @@ export const PageSeo = ({
       <meta name={'msapplication-navbutton-color'} content={color} />
       <meta name={'apple-mobile-web-app-status-bar-style'} content={color} />
 
-      <meta name='robots' content='max-snippet:-1' />
+      <meta
+        name='robots'
+        content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      />
     </Head>
   )
 }
