@@ -4,7 +4,7 @@ description: 'Trick for writing cleaner conditional rendering'
 date: '2022-09-03'
 ---
 
-```typescript:RenderIf.tsx
+```ts showLineNumbers title="RenderIf.tsx"
 type Props = {
   children: React.ReactNode
   isTrue: boolean
@@ -17,7 +17,7 @@ export const RenderIf = ({children, isTrue}: Props) => {
 <br />
 Usage
 
-```javascript
+```ts showLineNumbers {10-12}
 import { useState } from 'react'
 import { RenderIf } from '@/components/RenderIf'
 
