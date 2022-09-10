@@ -1,3 +1,4 @@
+/* eslint-disable import/newline-after-import */
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/no-extraneous-dependencies */
 import { writeFileSync } from 'fs'
@@ -6,7 +7,7 @@ import prettier from 'prettier'
 
 import { allPosts } from './../.contentlayer/generated/index.mjs'
 
-(async () => {
+;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc')
 
   const pages = await globby([
