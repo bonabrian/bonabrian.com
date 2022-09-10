@@ -45,7 +45,7 @@ const SinglePost = ({
     }
 
     return (
-      <MdxContent content={post as Post}>
+      <MdxContent backHref='/blog' content={post as Post}>
         <MdxComponent components={{ ...mdxComponents } as any} />
       </MdxContent>
     )

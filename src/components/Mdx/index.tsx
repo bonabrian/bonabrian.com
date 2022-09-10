@@ -1,12 +1,15 @@
 import Link from '../Link'
-import Pre from './Pre'
+import { Image } from './Image'
+import { Pre } from './Pre'
 
 export const mdxComponents = {
   hr: <hr className='border-gray-200 dark:border-gray-700' />,
   a: Link,
   pre: Pre,
+  Image,
 }
 
+export * from './Image'
 export * from './MdxContent'
-export { default } from './Pre'
+export * from './Pre'
 export * from './ViewsCounter'

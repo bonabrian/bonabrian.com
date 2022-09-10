@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useMemo } from 'react'
 
 import { formatDate, getDomainFromUrl } from '@/utils'
@@ -6,6 +5,7 @@ import { formatDate, getDomainFromUrl } from '@/utils'
 import Divider from '../Divider'
 import Link from '../Link'
 import Tag from '../Tag'
+import { Image } from './Image'
 import type { Content, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
 
@@ -26,7 +26,11 @@ const getContentFields = (content: Content): ContentFields => {
   return fields
 }
 
-export const MdxContent = ({ content, children }: MdxContentProps) => {
+export const MdxContent = ({
+  backHref,
+  content,
+  children,
+}: MdxContentProps) => {
   const {
     title,
     description,
@@ -53,6 +57,7 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
 
   return (
     <div className='flex flex-col min-h-screen'>
+      {backHref && <Link href={backHref}>← Back</Link>}
       <article className='article'>
         <header className='pt-6 xl:pb-8'>
           <div className='space-1 text-center'>
@@ -81,7 +86,6 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
                 priority
                 {...extraHeroProps}
                 quality={100}
-                className='rounded-xl'
                 layout='responsive'
               />
               {heroSource && (

@@ -188,3 +188,16 @@
 .token.italic {
   font-style: italic;
 }
+
+.lightbox-overlay {
+  @apply w-screen;
+}
+
+.lightbox-loading,
+.lightbox-loading * {
+  @apply cursor-wait;
+}
+
+.prevent-scroll {
+  @apply overflow-y-hidden;
+}
