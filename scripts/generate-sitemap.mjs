@@ -33,7 +33,7 @@ import { allPosts } from './../.contentlayer/generated/index.mjs'
       .replace('.mdx', '')
       .replace('.js', '')
       .replace('.ts', '')
-      .replace('.md')
+      .replace('.md', '')
 
     if (path === '/index') {
       actualRoutes.splice(0, 0, '/')
