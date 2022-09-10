@@ -71,17 +71,18 @@ const buildFeed = (posts) => {
 
   feedItems.push(
     ...sortedPosts.map((post) => {
-      const description = post.html ? post.html : { _cdata: post.description }
+      const description = post.html ? { _cdata: post.html } : post.description
 
       const actualItem = {
         title: post.title,
+        author: 'Bona Brian Siagian',
         pubDate: new Date(post.date).toUTCString(),
         url: `https://bonabrian.com/blog/${post.slug}`,
         guid: {
           _attr: { isPermaLink: true },
           guid: `https://bonabrian.com/blog/${post.slug}`,
         },
-        description: { _attr: { type: 'html' }, description },
+        description,
         featured_image: formatImageUrl(post.hero),
       }
 
@@ -139,8 +140,6 @@ const defaultChannel = {
     ],
   }
 
-  const feed = `<?xml version="1.0" encoding="UTF-8" ?>\n${xml(feedObject, {
-    indent: '  ',
-  })}`
+  const feed = xml(feedObject, { indent: true, declaration: true })
   writeFileSync('./public/feed.xml', feed)
 })()
