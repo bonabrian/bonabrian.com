@@ -75,7 +75,6 @@ const buildFeed = (posts) => {
 
       const actualItem = {
         title: post.title,
-        author: 'Bona Brian Siagian',
         pubDate: new Date(post.date).toUTCString(),
         url: `https://bonabrian.com/blog/${post.slug}`,
         guid: {
@@ -110,7 +109,6 @@ const defaultChannel = {
   link: 'https://bonabrian.com',
   title: 'Bona Brian Siagian',
   description: 'Passionate Full-stack developer based in Jakarta',
-  image_url: 'https://bonabrian.com/static/images/logo.png',
   image: {
     title: 'Bona Brian Siagian',
     link: 'https://bonabrian.com',
