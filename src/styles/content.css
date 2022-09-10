@@ -18,12 +18,8 @@
 .article ol > li::before {
   content: counter(list-item, decimal) '.';
   color: rgb(115, 115, 115) !important;
-  position: absolute;
-  left: 0;
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
   font-weight: inherit;
+  @apply absolute left-0 flex items-center text-base;
 }
 
 .article ol > li > ol > li::before,
@@ -32,18 +28,11 @@
 }
 
 .article a.anchor {
-  visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  text-decoration: none;
-  margin-left: -1.25em;
-  padding-right: 0.75em;
+  @apply absolute w-full h-full cursor-pointer -ml-[1.25em] pr-[0.75em] invisible no-underline;
 }
 
 .article a.anchor::after {
-  text-decoration: none;
+  @apply no-underline;
   content: '#';
 }
 
@@ -59,134 +48,41 @@
 .article h5:focus > a.anchor,
 .article h6:hover > a.anchor,
 .article h6:focus > a.anchor {
-  visibility: visible;
+  @apply visible;
 }
 
-.rehype-code-title {
+[data-rehype-pretty-code-title] {
   @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-gray-700 rounded-t;
 }
 
-.rehype-code-title + div > pre {
-  @apply mt-0 rounded-t-none;
+[data-rehype-pretty-code-title] + div > pre {
+  @apply my-0 rounded-t-none;
 }
 
-.code-highlight {
+[data-rehype-pretty-code-fragment] .code-highlight {
   @apply min-w-full;
 }
 
-.code-line {
-  @apply block pl-4 pr-4;
+[data-rehype-pretty-code-fragment] .code-line {
+  @apply flex w-full;
 }
 
-.highlight-line {
-  @apply -mx-4 bg-gray-700 bg-opacity-50 border-l-4 border-primary-500;
+div[data-rehype-pretty-code-fragment] .line {
+  @apply w-full border-l-4 border-l-transparent pl-2 pr-3;
 }
 
-.line-number::before {
-  @apply pr-4 -ml-2 text-gray-400;
-  content: attr(line);
+div[data-rehype-pretty-code-fragment] .line--highlighted {
+  @apply border-l-purple-400 bg-gray-100/10;
 }
 
-.token.comment,
-.token.prolog,
-.token.cdata {
-  @apply text-gray-400;
-  font-style: italic;
+code[data-line-numbers] {
+  counter-reset: lineNumber;
 }
 
-.namespace {
-  color: rgb(178, 204, 214);
-}
-
-.token.deleted {
-  color: rgba(239, 83, 80, 0.56);
-  font-style: italic;
-}
-
-.token.symbol,
-.token.property {
-  color: rgb(128, 203, 196);
-}
-
-.token.keyword {
-  @apply text-pink-500;
-}
-
-.token.keyword.module {
-  @apply text-teal-500;
-}
-
-.token.parameter {
-  @apply text-red-500;
-}
-
-.token.parameter > .token.punctuation {
-  @apply text-purple-500;
-}
-
-.token.punctuation {
-  @apply text-yellow-500;
-}
-
-.token.tag,
-.token.operator {
-  color: rgb(127, 219, 202);
-}
-
-.token.boolean {
-  color: rgb(255, 88, 116);
-}
-
-.token.number {
-  color: rgb(247, 140, 108);
-}
-
-.token.constant,
-.token.function,
-.token.builtin,
-.token.char {
-  color: rgb(130, 170, 255);
-}
-
-.token.selector,
-.token.doctype {
-  color: rgb(199, 146, 234);
-  font-style: italic;
-}
-
-.token.attr-name,
-.token.inserted {
-  color: rgb(173, 219, 103);
-  font-style: italic;
-}
-
-.token.string,
-.token.url,
-.token.entity,
-.language-css .token.string,
-.style .token.string {
-  color: rgb(173, 219, 103);
-}
-
-.token.class-name,
-.token.atrule,
-.token.attr-value {
-  color: rgb(255, 203, 139);
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: rgb(214, 222, 235);
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
+code[data-line-numbers] .line::before {
+  counter-increment: lineNumber;
+  content: counter(lineNumber);
+  @apply inline-block text-right mr-3 w-4 text-white/20;
 }
 
 .lightbox-overlay {
