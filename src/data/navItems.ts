@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons'
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
 import {
+  RiBracesLine,
   RiChat1Line,
   // RiDoubleQuotesR,
   RiHashtag,
@@ -30,6 +31,11 @@ const navItems: NavItem[] = [
     href: '/blog',
     label: 'Blog',
     icon: RiPencilLine,
+  },
+  {
+    href: '/snippets',
+    label: 'Snippets',
+    icon: RiBracesLine,
   },
   {
     href: '/projects',
