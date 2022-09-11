@@ -1,0 +1,92 @@
+---
+title: 'Building My Website'
+excerpt: 'I thought I would set myself a challenge to recreate my own personal website to centralised place for all of my work.'
+date: '2022-09-11 15:19:00'
+keywords: [website, portfolio, next.js, typescript, tailwind]
+tags: [code]
+draft: false
+hero: building-my-website/hero.jpg
+---
+
+# Get Started
+In an attempt to build my personal brand as a Full-stack developer and also create a centralised place for all of my work, accomplishments, learnings, writing and personal side projects I decided to build my own personal site.
+
+I wanted one place on the internet that I could aggregate everything and not have multiple locations I needed to constantly keep up to date. A place where people could find me with similar interests.
+
+Another reason, previously I have made my own website at [bonabrian.github.io](https://bonabrian.github.io) using [GitHub Pages](https://pages.github.com/) I think the way I created and structured the project was not the best and caused it to be a bit complex to updated or maintained. That's why I decided to build this website from scratch.
+
+# Tech Stack
+<figure>
+  <Image
+    src='/static/images/blog/building-my-website/tech-stack.jpg'
+    alt='Tech stack'
+    layout={'responsive'}
+    width={920}
+    height={320}
+  />
+  <figcaption className='text-center'>
+    Source [Unsplash.com](https://unsplash.com/photos/R5A_YlcSJwA)
+  </figcaption>
+</figure>
+Here's tech stack that I used to build this website
+
+## TypeScript
+I think [TypeScript](https://www.typescriptlang.org/) is easy to read and debug.
+
+## Next.js
+[Next.js](https://nextjs.org/) is simple to set up and get started with.
+
+## Authentication
+Using [next-auth](https://next-auth.js.org/) for authentication.
+
+## PlanetScale
+[PlanetScale](https://planetscale.com/) is a serverless database platform that is gaining interest amongst hobbyists in the industry lately for many good reasons: a generous free tier, the exciting [database branching model](https://planetscale.com/docs/concepts/branching), the scaling possibility, etc.
+
+## Prisma
+[Prisma](https://www.prisma.io/) is a collection of tools that abstract away the complex works when working with a database for you: migrations, safe-typing, etc. It is a great complementary to TypeScript applications.
+
+## Tailwind CSS
+[Tailwind CSS](https://tailwindcss.com/) makes it easy to break down a styles into small reusable components.
+
+## Hosting
+Hosted on [Vercel](https://vercel.com/).
+
+## Google Analytics
+This website is integrated with [Google Analytics](https://analytics.google.com/)
+
+## Monitoring with Sentry
+[Sentry](https://sentry.io) is a developer-first error tracking and performance monitoring platform that helps developers see what actually matters, solve quicker, and learn continuously about their applications. The steps are:
+
+- Go to [https://sentry.io](https://sentry.io) to register for a free tier account.
+- Add Sentry integration to Vercel.
+- Install package
+
+```shell
+yarn add @sentry/nextjs
+```
+
+In this case, I only want Sentry in production and I do this to my `next.config.js`
+```js
+const { withSentryConfig } = require('@sentry/nextjs')
+
+const SentryWebpackPluginOptions = { silent: true }
+
+const isDevelopment = process.env.NODE_ENV === 'development'
+
+const nextConfig = {
+  ...
+}
+
+module.exports = isDevelopment
+  ? nextConfig
+  : withSentryConfig(nextConfig, SentryWebpackPluginOptions)
+```
+<br/>
+
+# Conclusion
+
+I love to build my sweet home on the internet, because I learned a lot from other people to building this site. I hope the future updates will be better and with more original ideas.
+
+I hope you enjoyed and learned something from this post. Thank you! 🎉
+
+The source code of this site is available on [GitHub](https://github.com/bonabrian/bonabrian.com).
