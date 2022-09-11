@@ -1,0 +1,30 @@
+---
+title: useHasMounted
+description: Avoid weird SSR issues whether you're rendering on the client or server
+date: 2022-09-11T00:00:00.000Z
+---
+
+```ts
+export const useHasMounted = () => {
+  const [hasMounted, setHasMounted] = useState(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  return hasMounted
+}
+```
+
+# Usage
+```ts
+const SomeClientSideOnlyComponent = () => {
+  const hasMounted = useHasMounted()
+
+  if (!hasMounted) {
+    return null
+  }
+
+  return <div>This is client only!</div>
+}
+```
