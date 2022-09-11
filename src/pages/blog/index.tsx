@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
@@ -81,8 +82,17 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       </div>
       <div className='flex flex-col'>
         <div className='space-y-2 sm:space-y-4'>
-          {filteredPosts.map((post) => {
-            return <PostList key={post.slug} post={post} />
+          {filteredPosts.map((post, index) => {
+            return (
+              <motion.div
+                key={post.slug}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, delay: index / 10 }}
+              >
+                <PostList post={post} />
+              </motion.div>
+            )
           })}
         </div>
       </div>
