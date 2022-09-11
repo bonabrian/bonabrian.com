@@ -9,6 +9,7 @@ import { useMemo } from 'react'
 
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { mdxComponents, MdxContent } from '@/components/Mdx'
+import ScrollProgressBar from '@/components/ScrollProgressBar'
 import { PageSeo } from '@/components/Seo'
 import { useMDXComponent } from '@/hooks'
 import { getAllSnippets } from '@/services/snippets'
@@ -44,9 +45,12 @@ const SnippetDetail = ({
     }
 
     return (
-      <MdxContent content={snippet as Snippet}>
-        <MdxComponent components={{ ...mdxComponents } as any} />
-      </MdxContent>
+      <>
+        <ScrollProgressBar />
+        <MdxContent content={snippet as Snippet}>
+          <MdxComponent components={{ ...mdxComponents } as any} />
+        </MdxContent>
+      </>
     )
   }
 

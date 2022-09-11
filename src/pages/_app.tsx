@@ -1,20 +1,18 @@
 import '@/styles/app.css'
 
+import { AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
-import nProgress from 'nprogress'
 import { useEffect } from 'react'
 
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
+import ProgressBar from '@/components/ProgressBar'
+import { ScrollObserver } from '@/components/ScrollObserver'
 import siteMetadata from '@/data/siteMetadata'
 import { trackPageView } from '@/lib/gtag'
-
-Router.events.on('routeChangeStart', nProgress.start)
-Router.events.on('routeChangeError', nProgress.done)
-Router.events.on('routeChangeComplete', nProgress.done)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
@@ -35,9 +33,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <ThemeProvider attribute='class' defaultTheme={siteMetadata.theme}>
         <SessionProvider session={session}>
-          <Layout>
-            <Component {...rest} />
-          </Layout>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <ScrollObserver>
+              <ProgressBar />
+              <Layout>
+                <Component {...rest} />
+              </Layout>
+            </ScrollObserver>
+          </AnimatePresence>
         </SessionProvider>
       </ThemeProvider>
       <GoogleAnalytic />
