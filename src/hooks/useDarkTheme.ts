@@ -1,15 +1,15 @@
 import { useTheme } from 'next-themes'
 
-import { useMounted } from './useMounted'
+import { useHasMounted } from './useHasMounted'
 
 export const useDarkTheme = () => {
-  const mounted = useMounted()
+  const hasMounted = useHasMounted()
   const { theme, resolvedTheme, setTheme } = useTheme()
 
-  const isDark = mounted && (resolvedTheme || theme) === 'dark'
+  const isDark = hasMounted && (resolvedTheme || theme) === 'dark'
   return {
     isDark,
-    mounted,
+    hasMounted,
     setTheme,
   }
 }

@@ -6,7 +6,7 @@ import { useDarkTheme } from '@/hooks'
 import type { ImageLightBoxProps } from './types'
 
 const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
-  const { isDark, mounted } = useDarkTheme()
+  const { isDark, hasMounted } = useDarkTheme()
   const [imageLoaded, setImageLoaded] = useState(false)
   const [close, setClose] = useState(false)
 
@@ -32,7 +32,7 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
   }, [handleKeydown])
 
   const style = {
-    '--tw-bg-opacity': mounted && isDark ? 0.7 : 0.8,
+    '--tw-bg-opacity': hasMounted && isDark ? 0.7 : 0.8,
     opacity: !close && imageLoaded ? 1 : 0,
   } as React.CSSProperties
 
