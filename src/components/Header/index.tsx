@@ -35,7 +35,7 @@ const Header = () => {
       <div className='flex items-center justify-between w-full max-w-2xl px-4 mx-auto sm:px-6 sm:py-2 xl:max-w-3xl xl:px-0'>
         <Link href='/' aria-label={siteMetadata.title}>
           <div className='text-primary-color dark:text-primary-color-dark flex items-center justify-between text-xl font-bold'>
-            {'</>'}
+            {'b.'}
           </div>
         </Link>
         <div className='flex items-center text-base leading-5'>
