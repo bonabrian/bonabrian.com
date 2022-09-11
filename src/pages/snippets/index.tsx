@@ -52,7 +52,7 @@ const Snippets = ({
             <Link
               key={slug}
               href={`/snippets/${slug}`}
-              className='border border-grey-200 dark:border-gray-800 rounded p-4 w-full hover:border-primary-400 dark:hover:border-primary-500'
+              className='border border-grey-200 dark:border-gray-800 rounded p-4 w-full hover:border-primary-400 dark:hover:border-primary-500 hover:scale-105 transition-all'
             >
               <h3 className='text-lg font-bold text-left'>{title}</h3>
               <p className='mt-1 text-gray-500 dark:text-gray-400'>
