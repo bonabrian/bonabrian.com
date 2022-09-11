@@ -49,7 +49,7 @@ const DropdownMenu = () => {
                         active
                           ? 'bg-gray-200 dark:bg-gray-800'
                           : 'bg-white hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800'
-                      } text-base px-4 py-2 text-sm`}
+                      } text-base px-4 py-2`}
                     >
                       <div className='flex flex-row items-center'>
                         <Icon className='mr-2' />
