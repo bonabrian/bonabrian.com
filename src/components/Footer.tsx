@@ -17,16 +17,16 @@ const Footer = () => {
               Blog
             </Link>
             <Link
-              href='/tags'
-              className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
-            >
-              Tags
-            </Link>
-            <Link
               href='/snippets'
               className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
             >
               Snippets
+            </Link>
+            <Link
+              href='/tags'
+              className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
+            >
+              Tags
             </Link>
           </div>
 
