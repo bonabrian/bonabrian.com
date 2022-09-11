@@ -101,9 +101,10 @@ export const MdxContent = ({
           {children}
         </div>
         <footer>
+          <Divider />
           <div className='text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2'>
             {tags && (
-              <div className='py-4 xl:py-8'>
+              <div className='py-4'>
                 <div className='flex flex-wrap'>
                   {tags.map((tag) => (
                     <Tag key={tag} text={tag} />
@@ -112,7 +113,6 @@ export const MdxContent = ({
               </div>
             )}
           </div>
-          <Divider />
         </footer>
       </article>
     </div>
