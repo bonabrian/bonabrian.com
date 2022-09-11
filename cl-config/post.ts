@@ -18,7 +18,7 @@ const generateRandomId = (length: number = 6) => {
 }
 
 const getActualHeroUrl = (hero?: string) =>
-  hero ? (hero.startsWith('http') ? hero : `/static/blog/${hero}`) : ''
+  hero ? (hero.startsWith('http') ? hero : `/static/images/blog/${hero}`) : ''
 
 const secretId = generateRandomId()
 
