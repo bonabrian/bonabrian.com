@@ -17,6 +17,8 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       // github avatar
       'avatars.githubusercontent.com',
+      'i.scdn.co',
+      'spotify.com',
     ],
   },
   webpack: (config) => {

@@ -2,6 +2,7 @@ import ThemeSwitch from '@/components/ThemeSwitch'
 import siteMetadata from '@/data/siteMetadata'
 
 import Link from './Link'
+import NowPlaying from './NowPlaying'
 
 const Footer = () => {
   return (
@@ -64,6 +65,7 @@ const Footer = () => {
         </nav>
         <div className='flex justify-between w-full'>
           <div className='w-full truncate'>
+            <NowPlaying />
             <div className='flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400'>
               <div>Copyright</div>
               <div>{`© ${new Date().getFullYear()}`}</div>

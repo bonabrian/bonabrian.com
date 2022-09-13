@@ -106,6 +106,7 @@ module.exports = {
         yellow: colors.amber,
         purple: colors.violet,
         gray: colors.neutral,
+        spotify: '#1DB954',
       },
       typography: (theme) => ({
         DEFAULT: {
