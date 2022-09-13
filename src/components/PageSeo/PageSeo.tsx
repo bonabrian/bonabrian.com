@@ -21,7 +21,7 @@ const mapKeywords = (keywords?: string | Array<string> | null): string => {
   return keywords
 }
 
-export const PageSeo = ({
+const PageSeo = ({
   title,
   description,
   keywords: initialKeywords = [],
@@ -134,3 +134,5 @@ export const PageSeo = ({
     </Head>
   )
 }
+
+export default PageSeo

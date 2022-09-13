@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 import Experiences from '@/components/Experiences'
 import Link from '@/components/Link'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import { PageSeo } from '@/components/Seo'
 import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetadata'
 

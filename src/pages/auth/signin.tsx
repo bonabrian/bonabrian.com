@@ -6,8 +6,8 @@ import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import LoginButton from '@/components/LoginButton'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import { PageSeo } from '@/components/Seo'
 import siteMetadata from '@/data/siteMetadata'
 
 import { authOptions } from '../api/auth/[...nextauth]'

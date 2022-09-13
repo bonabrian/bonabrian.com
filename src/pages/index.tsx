@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import DiscoverMore from '@/components/DiscoverMore'
-import { PageSeo } from '@/components/Seo'
+import PageSeo from '@/components/PageSeo'
 
 const Home: NextPage = () => {
   return (

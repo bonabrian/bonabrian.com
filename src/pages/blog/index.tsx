@@ -3,9 +3,9 @@ import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import PostList from '@/components/PostList'
-import { PageSeo } from '@/components/Seo'
 import { filterPosts, getAllPosts } from '@/services/posts'
 
 export const getStaticProps = async () => {

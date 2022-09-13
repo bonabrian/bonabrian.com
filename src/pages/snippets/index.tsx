@@ -1,9 +1,9 @@
 import type { InferGetStaticPropsType } from 'next'
 
 import Link from '@/components/Link'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import RenderIf from '@/components/RenderIf'
-import { PageSeo } from '@/components/Seo'
 import { getAllSnippets } from '@/services/snippets'
 
 export const getStaticProps = async () => {
