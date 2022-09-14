@@ -4,7 +4,7 @@ import type { IReadTimeResults } from 'reading-time'
 import type { HeroMeta, Post, Snippet } from '@/types'
 
 // TODO: add Project content type
-export type Content = Post | Snippet
+export type ContentData = Post | Snippet
 
 export interface ContentFields {
   title: string
@@ -21,7 +21,7 @@ export interface ContentFields {
 
 export type MdxContentProps = {
   backHref?: string
-  content: Content
+  content: ContentData
   children?: React.ReactNode
 }
 

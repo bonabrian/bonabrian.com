@@ -7,6 +7,7 @@ export type PickRequired<T> = {
 }
 export type ConvertPick<T> = ConvertUndefined<T> & PickRequired<T>
 
+export * from './content'
 export * from './form'
 export * from './post'
 export * from './skill'

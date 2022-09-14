@@ -6,10 +6,10 @@ import Divider from '../Divider'
 import Link from '../Link'
 import Tag from '../Tag'
 import { Image } from './Image'
-import type { Content, ContentFields, MdxContentProps } from './types'
+import type { ContentData, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
 
-const getContentFields = (content: Content): ContentFields => {
+const getContentFields = (content: ContentData): ContentFields => {
   const fields: ContentFields = {
     title: content.title,
   }

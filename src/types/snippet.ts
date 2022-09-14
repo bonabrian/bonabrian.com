@@ -1,9 +1,5 @@
-import type { IReadTimeResults } from 'reading-time'
+import type { Content } from './content'
 
-export interface Snippet {
-  slug: string
-  title: string
+export interface Snippet extends Content {
   description?: string
-  date: string
-  readingTime?: IReadTimeResults | null
 }
