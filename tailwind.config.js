@@ -12,9 +12,6 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      maxWidth: {
-        'article-thumb': '12rem',
-      },
       spacing: {
         '9/16': '56.25%',
         0.75: '0.1875rem',
