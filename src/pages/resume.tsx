@@ -16,8 +16,8 @@ const Resume = () => {
       <div className='pt-6 pb-8 space-y-2 md:space-y-5 flex justify-between items-center'>
         <PageTitle>Resume</PageTitle>
         <Link
-          href='/cv'
-          className='flex items-center border-dotted border-b-2 mt-0 sm:text-lg'
+          href='/resume/download'
+          className='flex items-center border-dotted border-b-2 mt-0 sm:text-lg hover:text-primary-500 dark:hover:text-primary-600 hover:border-primary-500 dark:hover:border-primary-600'
         >
           <RiFileTextLine className='mr-1' /> Download Resume
         </Link>
