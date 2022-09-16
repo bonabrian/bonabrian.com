@@ -8,6 +8,10 @@ const appHeaders = require('./headers')
 
 const { withContentlayer } = require('next-contentlayer')
 
+const redirect = (source, destination, permanent = true) => {
+  return { source, destination, permanent }
+}
+
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
@@ -43,6 +47,9 @@ const nextConfig = {
   },
   async headers() {
     return appHeaders
+  },
+  async redirects() {
+    return [redirect('/resume/download', '/share/resume.pdf')]
   },
 }
 
