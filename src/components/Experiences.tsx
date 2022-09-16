@@ -21,7 +21,7 @@ const Experiences = () => {
               />
             </span>
             <span className='flex flex-col md:flex-row items-start md:items-center justify-between mb-1 gap-2'>
-              <h3 className='text-lg lg:text-xl font-semibold mt-0'>
+              <h3 className='text-lg lg:text-xl font-semibold mt-0 mb-0'>
                 {experience.role}
                 <Link
                   href={experience.organization.url}
@@ -30,10 +30,24 @@ const Experiences = () => {
                   {`@${experience.organization.name}`}
                 </Link>
               </h3>
+              <p className='text-sm leading-none text-gray-400 dark:text-gray-500 mb-0 mt-0'>
+                {experience.date}
+              </p>
             </span>
-            <p className='text-sm leading-none text-gray-400 dark:text-gray-500'>
-              {experience.date}
-            </p>
+            <span className='flex flex-row flex-wrap gap-2 mt-4 mb-5'>
+              {experience.stacks.map((stack) => (
+                <span
+                  key={stack.name}
+                  className='text-sm font-medium px-2.5 py-0.5 rounded-full'
+                  style={{
+                    backgroundColor: stack.bgColor,
+                    color: stack.color,
+                  }}
+                >
+                  {stack.name}
+                </span>
+              ))}
+            </span>
             <ul>
               {experience.accomplishments.map((accomplishment) => (
                 <li key={accomplishment} className='text-base'>
