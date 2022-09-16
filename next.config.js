@@ -49,7 +49,10 @@ const nextConfig = {
     return appHeaders
   },
   async redirects() {
-    return [redirect('/resume/download', '/share/resume.pdf')]
+    return [
+      redirect('/feed', '/feed.xml'),
+      redirect('/resume/download', '/share/resume.pdf'),
+    ]
   },
 }
 
