@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import Experiences from '@/components/Experiences'
 import Link from '@/components/Link'
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
@@ -11,8 +10,8 @@ const About = () => {
   return (
     <>
       <PageSeo
-        title={'About'}
-        description={'Learn a bit about me, careers, and more'}
+        title='About'
+        description='Learn a bit about me, careers, and more'
         keywords={['bio', 'biography', 'information', 'about']}
       />
       <div className='pt-6 pb-8 space-y-2 md:space-y-5'>
@@ -43,9 +42,11 @@ const About = () => {
           </div>
         </div>
         <div className='py-8 prose dark:prose-dark max-w-none xl:col-span-2'>
+          {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
           <p>
-            I&apos;m Full-stack developer focused on solving problems with
-            digital products. I currently work at{' '}
+            Hi Visitor 👋, My name is Bona Brian Siagian as a Full-stack
+            developer who focused on solving problems with digital products. I
+            currently work at{' '}
             <Link href={'https://investree.id'}>Investree</Link> based in{' '}
             <Link
               href={
@@ -53,10 +54,13 @@ const About = () => {
               }
             >
               Jakarta, Indonesia.
-            </Link>{' '}
-            Developed scalable software with specifications and business
+            </Link>
+          </p>
+          <p>
+            I craft scalable software with specifications and business
             requirements. Perform technical analysis and testing to deliver
-            business value through quality software.
+            business value through quality software. I enjoy creating things
+            that live on the internet.
           </p>
           <p>
             I consider myself a curious and inquisitive person and a continuous
@@ -67,16 +71,11 @@ const About = () => {
             Besides hacking, I also enjoy playing video games, and listening to
             music.
           </p>
-          <h2>Experience</h2>
           <p>
             Here&apos;s a brief timeline of my careers. If you want to know more
             about me as a professional programmer, see{' '}
-            <Link href='https://drive.google.com/file/d/15U3JhtsQqeemOEcNaNS17QGbTnXEu3Gk/view?usp=sharing'>
-              my resume
-            </Link>
+            <Link href='/resume'>my resume</Link>
           </p>
-
-          <Experiences />
         </div>
       </div>
     </>

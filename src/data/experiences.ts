@@ -1,5 +1,11 @@
-export type Experience = {
-  organization: string
+interface Organization {
+  name: string
+  logo: string
+  url: string
+}
+
+export interface Experience {
+  organization: Organization
   role: string
   url?: string
   date: string
@@ -8,9 +14,12 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    organization: 'Investree',
+    organization: {
+      name: 'Investree',
+      logo: '/static/images/resume/investree.png',
+      url: 'https://investree.id',
+    },
     role: 'Full-stack Engineer',
-    url: 'https://investree.id',
     date: 'November 2020 - Present',
     accomplishments: [
       'Mainly working in Kotlin (Spring) for Back-end and PHP (Laravel) for Legacy, and Javascript (Vue) for Front-end.',
@@ -25,9 +34,12 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    organization: 'Varnion',
+    organization: {
+      name: 'Varnion',
+      logo: '/static/images/resume/varnion.png',
+      url: 'https://www.varnion.com',
+    },
     role: 'Full-stack Engineer',
-    url: 'https://www.varnion.com',
     date: 'June 2018 - August 2020',
     accomplishments: [
       'Maintain and update old codebases to following design pattern.',
