@@ -5,7 +5,7 @@ import { RiSearch2Line } from 'react-icons/ri'
 
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import PostList from '@/components/PostList'
+import PostCard from '@/components/PostCard'
 import { filterPosts, getAllPosts } from '@/services/posts'
 
 export const getStaticProps = async () => {
@@ -81,7 +81,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         {renderSearchComponent()}
       </div>
       <div className='flex flex-col'>
-        <div className='space-y-2 sm:space-y-4'>
+        <div className='space-y-1 flex flex-col'>
           {filteredPosts.map((post, index) => {
             return (
               <motion.div
@@ -90,7 +90,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index / 10 }}
               >
-                <PostList post={post} />
+                <PostCard post={post} />
               </motion.div>
             )
           })}

@@ -1,5 +1,5 @@
 import type { Post } from '@/types'
 
-export type PostListProps = {
+export type PostCardProps = {
   post: Post
 }
