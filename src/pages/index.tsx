@@ -29,7 +29,7 @@ const Home: NextPage = () => {
             </span>
             <span className='block'>Full Stack Developer</span>
           </h1>
-          <div className='text-base sm:text-xl'>
+          <div className='text-base sm:text-xl' data-nosnippet>
             <p>
               I like to build interactive things with code. I also talk and
               write about those things.
