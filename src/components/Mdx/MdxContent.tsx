@@ -15,7 +15,7 @@ const getContentFields = (content: ContentData): ContentFields => {
   }
   if ('description' in content) fields.description = content.description
   if ('slug' in content) fields.slug = content.slug
-  if ('date' in content) fields.date = content.date
+  if ('date' in content) fields.date = content.date || ''
   if ('hero' in content) fields.hero = content.hero
   if ('heroMeta' in content) fields.heroMeta = content.heroMeta
   if ('heroSource' in content) fields.heroSource = content.heroSource
@@ -68,8 +68,12 @@ export const MdxContent = ({
               <p className='text-gray-600 dark:text-gray-400'>{description}</p>
             )}
             <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
-              <span>{formatDate(date)}</span>
-              <span>•</span>
+              {date && (
+                <>
+                  <span>{formatDate(date)}</span>
+                  <span>•</span>
+                </>
+              )}
               <span>{readingTime?.text}</span>
               <span>•</span>
               <ViewsCounter slug={slug} draft={draft} />

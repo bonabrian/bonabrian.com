@@ -1,5 +1,5 @@
 export const formatDate = (
-  preDate?: string,
+  preDate?: string | null,
   options: Intl.DateTimeFormatOptions | undefined | null = {},
 ) => {
   if (!preDate || preDate.length <= 0) return ''

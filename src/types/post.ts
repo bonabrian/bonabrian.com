@@ -1,9 +1,4 @@
-import type { Content } from './content'
-
-export interface HeroMeta {
-  size: { width: number; height: number }
-  blur64?: string
-}
+import type { Content, HeroMeta } from './content'
 
 export interface Post extends Content {
   excerpt?: string
