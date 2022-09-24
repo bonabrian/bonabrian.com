@@ -10,6 +10,7 @@ export type ConvertPick<T> = ConvertUndefined<T> & PickRequired<T>
 export * from './content'
 export * from './form'
 export * from './post'
+export * from './project'
 export * from './skill'
 export * from './snippet'
 export * from './user'
