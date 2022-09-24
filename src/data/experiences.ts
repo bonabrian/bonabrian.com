@@ -61,8 +61,7 @@ export const experiences: Experience[] = [
       },
     ],
     accomplishments: [
-      'Mainly working in Kotlin (Spring) for Back-end and PHP (Laravel) for Legacy, and Javascript (Vue) for Front-end.',
-      'Built configurable loan automation process to improve business operations.',
+      'Built configurable automation process to improve business operations.',
       'Perform unit tests for every new feature and enhancement.',
       'Move storage into proper and more secure.',
       'Help establish technical standards, best practices, and design patterns.',
