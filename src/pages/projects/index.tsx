@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
-import { RiSearch2Line } from 'react-icons/ri'
 
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
@@ -17,6 +16,7 @@ export const getStaticProps = async () => {
     'hero',
     'heroMeta',
     'url',
+    'category',
   ])
 
   return {
@@ -27,24 +27,44 @@ export const getStaticProps = async () => {
 const Projects = ({
   projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [search, setSearch] = useState('')
-  const filteredProjects = useMemo(() => {
-    return filterProjects(projects, search)
-  }, [projects, search])
+  const [category, setCategory] = useState('')
 
-  const renderSearchComponent = () => {
+  const filteredProjects = useMemo(() => {
+    return filterProjects(projects, category)
+  }, [projects, category])
+
+  const categories = [
+    { key: '', label: 'All' },
+    { key: 'product', label: 'Products' },
+    { key: 'personal', label: 'Personal' },
+  ]
+
+  const filter = (key: string) => {
+    if (key === category) return
+    setCategory(key)
+  }
+
+  const renderFilterComponent = () => {
     return (
       <>
-        <div className='relative w-full'>
-          <input
-            aria-label='Search'
-            type='text'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder='Search'
-            className='block w-full px-10 py-2 text-gray-800 dark:text-gray-200 bg-transparent border border-gray-200 dark:border-gray-600 focus:border-primary-400 dark:focus:border-primary-600 focus:ring-primary-400 dark:focus:ring-primary-600 rounded-md transition ease-in-out duration-200'
-          />
-          <RiSearch2Line className='absolute w-5 h-5 text-gray-400 dark:text-gray-700 fill-current top-3 left-3' />
+        <div className='flex justify-center items-center space-x-4'>
+          {categories.map((it) => {
+            return (
+              <div
+                className={`px-5 py-2 rounded-full select-none ${
+                  it.key === category
+                    ? 'cursor-default text-white bg-primary-400 dark:bg-primary-600'
+                    : 'cursor-pointer'
+                }`}
+                key={it.key}
+                onClick={() => filter(it.key)}
+                role='button'
+                tabIndex={-1}
+              >
+                {it.label}
+              </div>
+            )
+          })}
         </div>
         <RenderIf isTrue={(filteredProjects?.length || 0) <= 0}>
           <div className='flex items-center justify-center py-3'>
@@ -72,27 +92,23 @@ const Projects = ({
           'software',
         ]}
       />
-      <div className='pt-6 pb-8 space-y-2 md:space-y-5'>
+      <div className='pt-6 pb-8 space-y-3 md:space-y-5'>
         <PageTitle>Projects</PageTitle>
         <p className='text-gray-600 dark:text-gray-400'>
           A collection of finest projects that I have built.
         </p>
-        {renderSearchComponent()}
+        {renderFilterComponent()}
       </div>
-      <div className='grid w-full grid-cols-1 gap-10 my-2 mt-4 sm:grid-cols-2'>
-        {filteredProjects.map((project, index) => {
-          return (
-            <motion.div
-              key={project.slug}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: index / 10 }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          )
-        })}
-      </div>
+      <motion.div
+        className='grid w-full grid-cols-1 gap-10 my-2 mt-4 sm:grid-cols-2'
+        layout
+      >
+        <AnimatePresence>
+          {filteredProjects.map((project) => {
+            return <ProjectCard key={project.slug} project={project} />
+          })}
+        </AnimatePresence>
+      </motion.div>
     </>
   )
 }

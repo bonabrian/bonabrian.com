@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
@@ -18,14 +19,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   }, [heroMeta])
 
   return (
-    <>
+    <motion.div
+      layout
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.8, opacity: 0 }}
+    >
       <Link href={url || `projects/${slug}`} showExternalLinkIcon={false}>
         <div className='relative hover:scale-105 transform duration-300'>
           <Image
             src={hero || ''}
             alt={`Thumbnail "${title}"`}
             width={600}
-            height={900}
+            height={800}
             {...extraHeroProps}
             className='rounded-lg h-5'
             objectFit='cover'
@@ -38,7 +44,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
         </div>
       </Link>
-    </>
+    </motion.div>
   )
 }
 

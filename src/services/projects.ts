@@ -19,16 +19,13 @@ export const getAllProjects = (
 
 export const filterProjects = (
   projects: Array<Project> | undefined,
-  query: string | undefined | null = null,
+  category: string | undefined | null = null,
 ): Array<Project> => {
   if (!projects) return []
 
-  const filteredProjects = !query
+  const filteredProjects = !category
     ? projects
-    : projects?.filter((it: Project) => {
-        const searchContent = it?.title + it?.description
-        return searchContent.toLocaleLowerCase().includes(query.toLowerCase())
-      })
+    : projects?.filter((it: Project) => it.category === category)
 
   return filteredProjects
 }
