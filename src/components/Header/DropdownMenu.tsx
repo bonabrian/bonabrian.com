@@ -12,7 +12,7 @@ const DropdownMenu = () => {
   const hasMounted = useHasMounted()
 
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative inline-block sm:hidden text-left'>
       <div>
         <Menu.Button className='ml-4 cursor-pointer rounded-full transition-all hover:bg-gray-200 dark:hover:bg-gray-800'>
           {hasMounted && (
