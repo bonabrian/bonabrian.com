@@ -5,4 +5,5 @@ export interface Project extends Content {
   hero?: string
   heroMeta?: HeroMeta
   url?: string
+  category: string
 }
