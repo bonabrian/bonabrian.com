@@ -2,7 +2,6 @@ import type { IconType } from 'react-icons'
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
 import {
   RiBracesLine,
-  RiChat1Line,
   // RiDoubleQuotesR,
   RiHashtag,
   RiHome3Line,
@@ -47,12 +46,12 @@ const navItems: NavItem[] = [
     label: 'Endorsements',
     icon: HiOutlineBadgeCheck,
   },
-  {
-    href: '/guestbook',
-    label: 'Guestbook',
-    icon: RiChat1Line,
-    onlyOnDropdownMenu: true,
-  },
+  // {
+  //   href: '/guestbook',
+  //   label: 'Guestbook',
+  //   icon: RiChat1Line,
+  //   onlyOnDropdownMenu: true,
+  // },
   {
     href: '/about',
     label: 'About',
