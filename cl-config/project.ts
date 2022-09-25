@@ -39,7 +39,7 @@ const Project = defineDocumentType(() => ({
     hero: { type: 'string' },
     heroMeta: { type: 'json' },
     draft: { type: 'boolean', default: false },
-    url: { type: 'string', required: true },
+    url: { type: 'string' },
   },
   computedFields,
 }))

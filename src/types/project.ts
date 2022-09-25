@@ -4,5 +4,5 @@ export interface Project extends Content {
   description?: string
   hero?: string
   heroMeta?: HeroMeta
-  url: string
+  url?: string
 }
