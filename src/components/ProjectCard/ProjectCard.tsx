@@ -25,7 +25,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.8, opacity: 0 }}
     >
-      <Link href={url || `projects/${slug}`} showExternalLinkIcon={false}>
+      <Link href={url || `/projects/${slug}`} showExternalLinkIcon={false}>
         <div className='relative hover:scale-105 transform duration-300'>
           <Image
             src={hero || ''}
