@@ -8,6 +8,13 @@ import { authOptions } from './auth/[...nextauth]'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    if (req.method === 'GET') {
+      const totalEndorsements = await prisma.endorsement.count()
+      return res.status(200).json({
+        total: (totalEndorsements || 0).toString(),
+      })
+    }
+
     if (req.method === 'POST') {
       const session = await unstable_getServerSession(req, res, authOptions)
       if (!session) {
