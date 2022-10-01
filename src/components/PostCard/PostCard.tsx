@@ -27,7 +27,7 @@ const PostCard = ({ post }: PostCardProps) => {
   }, [heroMeta])
 
   return (
-    <article className='flex flex-col sm:flex-row sm:gap-4 hover:bg-gray-100 dark:hover:bg-gray-900 hover:-translate-y-2 transform duration-300 sm:px-4 py-4 sm:-mx-4 rounded-lg'>
+    <article className='flex flex-col sm:flex-row sm:gap-4 hover:bg-gray-100 dark:hover:bg-gray-900 hover:-translate-y-2 transform duration-300 px-2 -mx-2 sm:px-4 py-4 sm:-mx-4 rounded-lg'>
       <div className='flex items-start max-w-full sm:max-w-[10rem]'>
         {hero && (
           <Link href={`/blog/${slug}`}>

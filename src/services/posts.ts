@@ -31,3 +31,21 @@ export const filterPosts = (
 
   return filteredPosts
 }
+
+export const getRecentPosts = (maxDisplay: number = 2): Array<Post> => {
+  const posts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'excerpt',
+    'tags',
+    'readingTime',
+    'draft',
+    'hero',
+    'heroMeta',
+  ])
+
+  if (!posts) return []
+
+  return posts.slice(0, maxDisplay)
+}

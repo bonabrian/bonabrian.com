@@ -100,7 +100,7 @@ const Projects = ({
         {renderFilterComponent()}
       </div>
       <motion.div
-        className='grid w-full grid-cols-1 gap-10 my-2 mt-4 sm:grid-cols-2'
+        className='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2'
         layout
       >
         <AnimatePresence>

@@ -29,3 +29,23 @@ export const filterProjects = (
 
   return filteredProjects
 }
+
+export const getFeaturedProjects = (maxDisplay: number = 2): Array<Project> => {
+  const projects = getAllProjects([
+    'title',
+    'description',
+    'slug',
+    'hero',
+    'heroMeta',
+    'url',
+    'category',
+  ])
+
+  if (!projects) return []
+
+  const featured = ['yummybros', 'transaxi']
+
+  return projects
+    ?.filter((it: Project) => featured.includes(it.slug))
+    .slice(0, maxDisplay)
+}
