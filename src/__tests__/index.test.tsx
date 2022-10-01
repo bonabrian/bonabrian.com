@@ -5,7 +5,7 @@ import Index from '@/pages/index'
 describe('Index page', () => {
   describe('Render method', () => {
     it('should have a text `Welcome to', () => {
-      render(<Index />)
+      render(<Index featuredProjects={[]} recentPosts={[]} />)
       const paragraph = screen.getByText(/Welcome to/)
 
       expect(paragraph).toBeInTheDocument()
