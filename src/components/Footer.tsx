@@ -11,12 +11,6 @@ const Footer = () => {
         <nav className='flex flex-col justify-between w-full max-w-2xl gap-4 pb-8 mx-auto mt-4 xl:max-w-3xl sm:gap-0 sm:flex-row'>
           <div className='flex flex-col space-y-4 md:items-start'>
             <Link
-              href='/'
-              className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
-            >
-              Home
-            </Link>
-            <Link
               href='/projects'
               className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
             >
@@ -42,12 +36,6 @@ const Footer = () => {
               className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
             >
               Snippets
-            </Link>
-            <Link
-              href='/tags'
-              className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
-            >
-              Tags
             </Link>
           </div>
 
