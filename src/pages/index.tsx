@@ -47,7 +47,7 @@ const Home = ({
             Hi, I&apos;m{' '}
             <span className='text-primary-500 dark:text-primary-500'>
               Bona Brian Siagian
-            </span>
+            </span>{' '}
             <span className='block'>Full Stack Developer</span>
           </h1>
           <div className='text-base sm:text-xl'>
