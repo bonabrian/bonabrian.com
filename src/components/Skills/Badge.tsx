@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { DefaultSession } from 'next-auth'
+import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { BsPlusSquare } from 'react-icons/bs'
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
@@ -24,8 +25,16 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
   const [state, setState] = useState<FormState>(FormState.INITIAL)
   const { mutate } = useSWRConfig()
 
+  const isUserEndorsed = skill?.users?.find((u) => u.id === currentUserId)
+  const isLoggedIn = Boolean(user)
+
   const onEndorse = async (skillId: string) => {
     setState(FormState.LOADING)
+
+    if (!isLoggedIn) {
+      await signIn()
+      return
+    }
 
     const res = await fetch('/api/endorsements', {
       body: JSON.stringify({ skillId }),
@@ -45,9 +54,6 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
     fireConfetti()
   }
 
-  const isUserEndorsed = skill?.users?.find((u) => u.id === currentUserId)
-  const isLoggedIn = Boolean(user)
-
   return (
     <div className='space-y-4'>
       <div className='flex items-center text-base font-semibold'>
@@ -66,8 +72,7 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
         ) : (
           <button
             className='font-semibold disabled:hover:cursor-not-allowed text-primary-600 dark:text-primary-400 hover:text-gray-700 dark:hover:text-gray-300 disabled:text-gray-700 dark:disabled:text-gray-300'
-            disabled={!isLoggedIn}
-            title={!isLoggedIn ? 'Please login first' : `Endorse ${skill.name}`}
+            title={`Endorse ${skill.name}`}
             onClick={() => onEndorse(skill.id)}
           >
             <BsPlusSquare className='inline w-8 h-8 fill-current' />
