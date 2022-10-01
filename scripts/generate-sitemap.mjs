@@ -5,7 +5,7 @@ import { writeFileSync } from 'fs'
 import { globby } from 'globby'
 import prettier from 'prettier'
 
-import { allPosts } from './../.contentlayer/generated/index.mjs'
+import { allPosts, allProjects, allSnippets } from './../.contentlayer/generated/index.mjs'
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc')
@@ -45,13 +45,38 @@ import { allPosts } from './../.contentlayer/generated/index.mjs'
 
   actualRoutes.push('/feed')
 
+  const tags = []
   const postsRoutes = await Promise.all(
-    allPosts.filter((it) => !it.draft).map((it) => `/blog/${it.slug}`),
+    allPosts.filter((it) => !it.draft).map((it) => {
+      it.tags?.map((tag) => {
+        if (!tags.includes(tag)) {
+          tags.push(tag)
+        }
+        return tags
+      })
+      return `/blog/${it.slug}`
+    }),
+  )
+
+  const tagsRoutes = tags.map((tag) => `/tags/${tag}`)
+
+  const projectsRoutes = await Promise.all(
+    allProjects.filter((it) => !it.draft).map((it) => `/projects/${it.slug}`),
+  )
+
+  const snippetsRoutes = await Promise.all(
+    allSnippets.map((it) => `/snippets/${it.slug}`),
   )
 
   const now = new Date().toISOString()
   const lastmod = `${now.substring(0, now.lastIndexOf('.'))}+00:00`
-  const xmlRoutes = [...actualRoutes, ...postsRoutes]
+  const xmlRoutes = [
+    ...actualRoutes,
+    ...postsRoutes,
+    ...tagsRoutes,
+    ...projectsRoutes,
+    ...snippetsRoutes,
+  ]
     .map((route) => {
       const slashCount = (route.match(/\//g) || []).length
       let priority = 1 - 0.2 * slashCount
