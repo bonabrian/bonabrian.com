@@ -50,7 +50,53 @@
     SPOTIFY_CLIENT_REFRESH_TOKEN=#SPOTIFY_CLIENT_REFRESH_TOKEN
    ```
 
-5. Run
+5. Start hacking
    ```bash
    yarn dev
    ```
+
+## Files to customize
+
+- `config/*` - contains most of the site related information which should modified for a user's need.
+- `pages/about.tsx` - update with yours.
+- `public/share/resume.pdf` - replace with your best resume.
+- `public/static` - store assets such as images and favicons.
+- `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
+- `content` - replace with your blog posts, projects, and snippets.
+- `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains. 
+
+## Stack
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: [PlanetScale](https://planetscale.com)
+- **ORM**: [Prisma](https://prisma.io/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Content**: [MDX](https://github.com/mdx-js/mdx), [contentlayer](https://github.com/contentlayerdev/contentlayer)
+- **Monitoring**: [Sentry](https://sentry.io)
+
+## Contributing
+Contributions make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **really appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue and don't forget to give the project a star!
+
+1. Fork the Project
+2. Commit your Changes
+
+   ```bash
+   git commit -m 'Add some amazing feature'
+   ```
+
+3. Push to the Branch
+
+   ```bash
+   git push origin main
+   ```
+
+4. Open a Pull Request
+
+<div align="center">
+
+[![PRs Welcome](https://img.shields.io/badge/PR-Welcome-8865ff?style=for-the-badge)](https://makeapullrequest.com)
+
+</div>
