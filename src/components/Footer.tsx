@@ -1,5 +1,5 @@
 import ThemeSwitch from '@/components/ThemeSwitch'
-import siteMetadata from '@/data/siteMetadata'
+import { defaultSeo, socialLinks } from '@/config'
 
 import Link from './Link'
 import NowPlaying from './NowPlaying'
@@ -56,13 +56,13 @@ const Footer = () => {
 
           <div className='flex flex-col space-y-4 md:items-start'>
             <Link
-              href={siteMetadata.github}
+              href={socialLinks.github}
               className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
             >
               Github
             </Link>
             <Link
-              href={siteMetadata.linkedin}
+              href={socialLinks.linkedin}
               className='text-sm hover:text-primary-600 dark:hover:text-primary-400'
             >
               LinkedIn
@@ -79,7 +79,7 @@ const Footer = () => {
                 href='/'
                 className='text-black dark:text-white hover:text-primary-600 dark:hover:text-primary-400'
               >
-                {siteMetadata.author}
+                {defaultSeo.author}
               </Link>
             </div>
           </div>

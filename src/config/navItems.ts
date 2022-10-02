@@ -3,7 +3,7 @@ import { HiOutlineBadgeCheck } from 'react-icons/hi'
 import {
   RiBracesLine,
   // RiDoubleQuotesR,
-  RiHashtag,
+  // RiHashtag,
   RiHome3Line,
   RiLineChartLine,
   // RiLinkM,
@@ -19,7 +19,7 @@ type NavItem = {
   onlyOnDropdownMenu?: boolean
 }
 
-const navItems: NavItem[] = [
+export const navItems: NavItem[] = [
   {
     href: '/',
     label: 'Home',
@@ -32,14 +32,14 @@ const navItems: NavItem[] = [
     icon: RiPencilLine,
   },
   {
-    href: '/snippets',
-    label: 'Snippets',
-    icon: RiBracesLine,
-  },
-  {
     href: '/projects',
     label: 'Projects',
     icon: RiNodeTree,
+  },
+  {
+    href: '/snippets',
+    label: 'Snippets',
+    icon: RiBracesLine,
   },
   {
     href: '/endorsements',
@@ -63,12 +63,12 @@ const navItems: NavItem[] = [
   //   icon: RiLinkM,
   //   onlyOnDropdownMenu: true,
   // },
-  {
-    href: '/tags',
-    label: 'Tags',
-    icon: RiHashtag,
-    onlyOnDropdownMenu: true,
-  },
+  // {
+  //   href: '/tags',
+  //   label: 'Tags',
+  //   icon: RiHashtag,
+  //   onlyOnDropdownMenu: true,
+  // },
   {
     href: '/stats',
     label: 'Stats',
@@ -82,5 +82,3 @@ const navItems: NavItem[] = [
   //   onlyOnDropdownMenu: true,
   // },
 ]
-
-export default navItems

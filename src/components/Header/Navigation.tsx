@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import navItems from '@/data/navItems'
+import { navItems } from '@/config'
 
 import Link from '../Link'
 

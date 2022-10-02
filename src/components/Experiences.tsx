@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
-import { experiences } from '@/data/experiences'
-import siteMetadata from '@/data/siteMetadata'
+import { defaultSeo, experiences } from '@/config'
 
 import Divider from './Divider'
 import Link from './Link'
@@ -64,7 +63,7 @@ const Experiences = () => {
           Last updated at{' '}
           <time dateTime='2022-08-13 22:00:00'>
             {new Date('2022-08-13 22:00:00').toLocaleDateString(
-              siteMetadata.locale,
+              defaultSeo.locale,
               {
                 year: 'numeric',
                 month: 'long',

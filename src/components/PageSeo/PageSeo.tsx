@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
-import siteMetadata from '@/data/siteMetadata'
+import { defaultSeo } from '@/config'
 import { useDarkTheme } from '@/hooks'
 import { unique } from '@/utils'
 
@@ -32,14 +32,12 @@ const PageSeo = ({
 }: SeoProps) => {
   const router = useRouter()
 
-  const metaTitle = title
-    ? `${title} | ${siteMetadata.author}`
-    : `${siteMetadata.author} | Full-stack Developer`
-  const metaDescription = description || siteMetadata.description
+  const metaTitle = title ? `${title} | ${defaultSeo.author}` : defaultSeo.title
+  const metaDescription = description || defaultSeo.description
   const keywords = useMemo<string>(() => {
     return mapKeywords(initialKeywords)
   }, [initialKeywords])
-  const exactUrl = canonicalUrl || `${siteMetadata.siteUrl}${router.asPath}`
+  const exactUrl = canonicalUrl || `${defaultSeo.url}${router.asPath}`
 
   const actualDefaultImage = useMemo<string>(
     () => (metaImageStyle === 'summary' ? defaultLogoImage : defaultImage),
@@ -74,7 +72,7 @@ const PageSeo = ({
       <meta name={'title'} content={metaTitle} />
       <meta name={'description'} content={metaDescription} />
       <meta name={'keywords'} content={keywords} />
-      <meta name={'author'} content={siteMetadata.author} />
+      <meta name={'author'} content={defaultSeo.author} />
 
       <meta itemProp={'name'} content={metaTitle} />
       <meta itemProp={'description'} content={metaDescription} />

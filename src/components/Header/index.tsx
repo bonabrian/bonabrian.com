@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import siteMetadata from '@/data/siteMetadata'
+import { defaultSeo } from '@/config'
 
 import Link from '../Link'
 import DropdownMenu from './DropdownMenu'
@@ -33,7 +33,7 @@ const Header = () => {
       } w-full sticky z-20 top-0 items-center flex justify-between py-4 bg-white bg-opacity-30 dark:bg-black dark:bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
     >
       <div className='flex items-center justify-between w-full max-w-2xl px-4 mx-auto sm:px-6 sm:py-2 xl:max-w-3xl xl:px-0'>
-        <Link href='/' aria-label={siteMetadata.title}>
+        <Link href='/' aria-label={defaultSeo.author}>
           <div className='text-primary-color dark:text-primary-color-dark flex items-center justify-between text-xl font-bold'>
             {'b.'}
           </div>

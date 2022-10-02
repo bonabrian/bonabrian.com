@@ -1,13 +1,13 @@
 import Script from 'next/script'
 
-import siteMetadata from '@/data/siteMetadata'
-
 const GoogleAnalytic = () => {
+  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+
   return (
     <>
       <Script
         strategy='lazyOnload'
-        src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.gaId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
       />
 
       <Script strategy='lazyOnload' id='gtag'>
@@ -16,7 +16,7 @@ const GoogleAnalytic = () => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${siteMetadata.gaId}', {
+          gtag('config', '${gaId}', {
             page_path: window.location.pathname,
           });
         `}

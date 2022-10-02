@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import React, { Fragment } from 'react'
 import { RiMenuFill } from 'react-icons/ri'
 
-import navItems from '@/data/navItems'
+import { navItems } from '@/config'
 import { useHasMounted } from '@/hooks'
 
 import Link from '../Link'

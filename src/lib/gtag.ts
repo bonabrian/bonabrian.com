@@ -1,6 +1,4 @@
-import siteMetadata from '@/data/siteMetadata'
-
-const GA_TRACKING_ID = siteMetadata.gaId
+const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 declare const window: Window &
   typeof globalThis & {
     gtag: any

@@ -8,7 +8,6 @@ import { Fragment, useEffect, useState } from 'react'
 import LoginButton from '@/components/LoginButton'
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import siteMetadata from '@/data/siteMetadata'
 
 import { authOptions } from '../api/auth/[...nextauth]'
 
@@ -28,10 +27,7 @@ const SignIn = ({
 
   return (
     <>
-      <PageSeo
-        title='Sign In'
-        description={`Sign In - ${siteMetadata.author}`}
-      />
+      <PageSeo title='Sign In' description='Sign In' />
       <div className='pt-6 pb-4 space-y-2 md:space-y-5'>
         <PageTitle>Sign In</PageTitle>
       </div>
