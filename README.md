@@ -1,27 +1,13 @@
-# Starter for Next.js with Typescript
+<h1 align="center">
+  My Own Digital Home on the Internet
+</h1>
 
-### Features:
+<p align="center">
+  This is my personal website built with <a href="https://nextjs.org/" target="_blank">Next.js</a>, <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>, and hosted on <a href="https://www.vercel.com/" target="_blank">Vercel</a>
+</p>
 
-- 🚀 [Next.js](https://nextjs.org)
-- 🔥 [TypeScript](https://www.typescriptlang.org)
-- 🔖 [ESLint](https://eslint.org) (Next.js, Next.js Core Web Vitals, and Airbnb configuration)
-- 💖 [Prettier](https://prettier.io) for code formatter
-- 🦊 [Husky](https://typicode.github.io/husky) to improves your commits
-- 👌 [Lint-staged](https://github.com/okonet/lint-staged) to makes more sense when run before committing your code
-- 💡 [Commitlint](https://commitlint.js.org) lint git commit with Commitlint
-
-### Getting started
-
-Run the following command on your local environment:
-
-```shell
-git clone --depth=1 https://github.com/bonabrian/nextjs-app-starter.git your-project-name
-cd your-project-name
-yarn
-```
-
-Then, you can run locally in development mode with live reload:
-
-```shell
-yarn dev
-```
+<br/>
+<div align="center">
+  <a href="https://bonabrian.com">![View Demo](https://img.shields.io/badge/View%20Demo-8865FF?style=for-the-badge)</a>
+  <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=" target="_blank">![Report Bug](https://img.shields.io/badge/Report%20Bug-ff5432?style=for-the-badge)</a>
+</div>
