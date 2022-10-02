@@ -12,3 +12,23 @@
   <a href="https://bonabrian.com" target="_blank">![View Demo](https://img.shields.io/badge/View%20Demo-8865ff?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=" target="_blank">![Report Bug](https://img.shields.io/badge/Report%20Bug-ff5432?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=&template=feature_request.md&title=" target="_blank">![Request Feature](https://img.shields.io/badge/Request%20Feature-96d117?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/fork" target="_blank">![Forks](https://img.shields.io/github/forks/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/stargazers" target="_blank">![Stars](https://img.shields.io/github/stars/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a>
 
 </div>
+
+## Running Locally
+1. Clone this repository
+   ```bash
+   git clone https://github.com/bonabrian/bonabrian.com.git
+   ```
+2. Change directory
+   ```bash
+   cd bonabrian.com
+   ```
+3. Install dependencies
+   ```bash
+   yarn
+   ```
+4. Create a `.env` file similar to [`.env.example`](https://github.com/bonabrian/bonabrian.com/blob/main/.env.example) and input environment variables
+
+5. Run
+   ```bash
+   yarn dev
+   ```
