@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react'
 import { useRequest } from '@/hooks'
 import type { SkillCategory } from '@/types'
 
-import ErrorMessage from '../ErrorMessage'
+import Alert from '../Alert'
 import LoginView from '../LoginView'
 import Badge from './Badge'
 import type { SkillsProps } from './types'
@@ -19,10 +19,10 @@ const Skills = ({ fallbackData }: SkillsProps) => {
     <div className='prose dark:prose-dark lg:prose-xl'>
       <LoginView message='Login to give endorsements.' />
       {error && (
-        <ErrorMessage>
-          An unexpected error occurred. The entries are not available for now.
-          Please try again later
-        </ErrorMessage>
+        <Alert
+          message='An unexpected error occurred. The entries are not available for now. Please try again later'
+          type='error'
+        />
       )}
       {categories && !error && (
         <div className='mb-10'>

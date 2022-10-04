@@ -11,9 +11,8 @@ import fireConfetti from '@/lib/confetti'
 import type { Skill } from '@/types'
 import { FormState } from '@/types'
 
-import ErrorMessage from '../ErrorMessage'
+import Alert from '../Alert'
 import LoadingSpinner from '../LoadingSpinner'
-import SuccessMessage from '../SuccessMessage'
 
 type BadgeProps = {
   skill: Skill
@@ -111,10 +110,10 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
         </p>
       )}
       {state === FormState.ERROR && (
-        <ErrorMessage>An unexpected error occurred.</ErrorMessage>
+        <Alert message='An unexpected error occurred.' type='error' />
       )}
       {state === FormState.SUCCESS && (
-        <SuccessMessage>Thank you for your endorsement!</SuccessMessage>
+        <Alert message='Thank you for your endorsement!' />
       )}
     </div>
   )
