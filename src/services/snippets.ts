@@ -1,7 +1,7 @@
 import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 
-import { pick } from '@/utils/object'
+import { pick } from '@/utils'
 
 export const getAllSnippets = (
   fields: (keyof Snippet)[] = [],

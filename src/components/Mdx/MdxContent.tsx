@@ -55,6 +55,8 @@ export const MdxContent = ({
     return {}
   }, [heroMeta])
 
+  const createdAt = formatDate({ timestamp: date })
+
   return (
     <div className='flex flex-col min-h-screen'>
       {backHref && <Link href={backHref}>← Back</Link>}
@@ -70,7 +72,7 @@ export const MdxContent = ({
             <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
               {date && (
                 <>
-                  <span>{formatDate(date)}</span>
+                  <span title={createdAt.raw}>{createdAt.formatted}</span>
                   <span>•</span>
                 </>
               )}

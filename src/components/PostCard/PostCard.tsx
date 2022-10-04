@@ -26,6 +26,8 @@ const PostCard = ({ post }: PostCardProps) => {
     return {}
   }, [heroMeta])
 
+  const publishedAt = formatDate({ timestamp: date, month: 'short' })
+
   return (
     <article className='flex flex-col sm:flex-row sm:gap-4 hover:bg-gray-100 dark:hover:bg-gray-900 hover:-translate-y-2 transform duration-300 px-2 -mx-2 sm:px-4 py-4 sm:-mx-4 rounded-lg'>
       <div className='flex items-start max-w-full sm:max-w-[10rem]'>
@@ -57,7 +59,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className='flex items-center flex-wrap text-sm mt-3 text-gray-400 dark:text-gray-500 w-full'>
           <span className='flex items-center space-x-1'>
             <RiCalendarLine />
-            <span>{formatDate(date, { month: 'short' })}</span>
+            <span title={publishedAt.raw}>{publishedAt.formatted}</span>
           </span>
           <span className='mx-2'>•</span>
           <span className='flex items-center space-x-1'>

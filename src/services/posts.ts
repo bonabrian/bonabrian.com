@@ -1,7 +1,7 @@
 import type { Post } from 'contentlayer/generated'
 import { allPosts } from 'contentlayer/generated'
 
-import { pick } from '@/utils/object'
+import { pick } from '@/utils'
 
 export const getAllPosts = (fields: (keyof Post)[] = []): Array<Post> => {
   const filteredPosts = allPosts

@@ -2,8 +2,12 @@ import type { ComputedFields } from 'contentlayer/source-files'
 import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 
-import { excerptText, randomize, unique } from '../src/utils'
+import { excerptText, unique } from '../src/utils'
 import { getBlurData } from './image-metadata'
+
+const randomize = (items: string[]): string => {
+  return items[Math.floor(Math.random() * items.length)]
+}
 
 const chars =
   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('')

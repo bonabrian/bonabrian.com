@@ -1,7 +1,7 @@
 import type { Project } from 'contentlayer/generated'
 import { allProjects } from 'contentlayer/generated'
 
-import { pick } from '@/utils/object'
+import { pick } from '@/utils'
 
 export const getAllProjects = (
   fields: (keyof Project)[] = [],
