@@ -17,41 +17,33 @@ const Link = forwardRef<any, LinkProps>(
 
     if (isInternalLink) {
       return (
-        <NextLink href={href}>
-          <a ref={ref} {...rest}>
-            {children}
-          </a>
+        <NextLink href={href} ref={ref} {...rest}>
+          {children}
         </NextLink>
       )
     }
 
     if (isAnchorLink) {
       return (
-        <a ref={ref} href={href} {...rest}>
+        <NextLink ref={ref} href={href} {...rest}>
           {children}
-        </a>
+        </NextLink>
       )
     }
 
     return (
-      <a
+      <NextLink
         ref={ref}
         target="_blank"
         rel="noopener noreferrer"
         href={href}
         {...rest}
       >
-        <span
-          className={`items-center ${
-            showExternalLinkIcon ? 'inline-flex' : ''
-          }`}
-        >
-          <span>{children}</span>
-          {showExternalLinkIcon && (
-            <HiOutlineExternalLink className="inline-block ml-0.5" />
-          )}
-        </span>
-      </a>
+        {children}
+        {showExternalLinkIcon && (
+          <HiOutlineExternalLink className="inline-block ml-0.5 align-middle" />
+        )}
+      </NextLink>
     )
   },
 )
