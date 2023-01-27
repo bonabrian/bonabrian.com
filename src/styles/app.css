@@ -1,27 +1,3 @@
 @import 'tailwind.css';
 @import 'nprogress.css';
 @import 'content.css';
-
-.link-underline {
-  position: relative;
-}
-
-.link-underline:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: linear-gradient(transparent, transparent), linear-gradient(to right, #A88BFF, #8865FF);
-  transition: width 0.25s ease;
-  -webkit-transition: width 0.25s ease;
-}
-
-.link-underline:hover:after,
-.link-underline.active:after {
-  width: 100%;
-  left: 0;
-  background: linear-gradient(transparent, transparent), linear-gradient(to right, #A88BFF, #8865FF);
-}
