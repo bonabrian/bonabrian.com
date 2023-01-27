@@ -1,11 +1,8 @@
+import { pick } from 'contentlayer/client'
 import type { Project } from 'contentlayer/generated'
 import { allProjects } from 'contentlayer/generated'
 
-import { pick } from '@/utils'
-
-export const getAllProjects = (
-  fields: (keyof Project)[] = [],
-): Array<Project> => {
+export const getProjects = (fields: (keyof Project)[] = []): Array<Project> => {
   const filteredProjects = allProjects
     .sort((a, b) => a.order - b.order)
     .filter(
@@ -19,19 +16,20 @@ export const getAllProjects = (
 
 export const filterProjects = (
   projects: Array<Project> | undefined,
-  category: string | undefined | null = null,
+  filterKey: keyof Project,
+  filterValue: string = '',
 ): Array<Project> => {
   if (!projects) return []
 
-  const filteredProjects = !category
+  const filteredProjects = !filterValue
     ? projects
-    : projects?.filter((it: Project) => it.category === category)
+    : projects?.filter((it: Project) => it[filterKey] === filterValue)
 
   return filteredProjects
 }
 
 export const getFeaturedProjects = (maxDisplay: number = 2): Array<Project> => {
-  const projects = getAllProjects([
+  const projects = getProjects([
     'title',
     'description',
     'slug',
@@ -43,9 +41,9 @@ export const getFeaturedProjects = (maxDisplay: number = 2): Array<Project> => {
 
   if (!projects) return []
 
-  const featured = ['yummybros', 'transaxi']
+  const defaultFeaturedProjects = ['bonabrian', 'yummybros']
 
   return projects
-    ?.filter((it: Project) => featured.includes(it.slug))
+    ?.filter((it: Project) => defaultFeaturedProjects.includes(it.slug))
     .slice(0, maxDisplay)
 }

@@ -6,10 +6,10 @@ import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import { ProjectCard } from '@/components/ProjectCard'
 import RenderIf from '@/components/RenderIf'
-import { filterProjects, getAllProjects } from '@/services/projects'
+import { filterProjects, getProjects } from '@/lib/contentlayer'
 
 export const getStaticProps = async () => {
-  const allProjects = getAllProjects([
+  const allProjects = getProjects([
     'title',
     'description',
     'slug',
@@ -30,7 +30,7 @@ const Projects = ({
   const [category, setCategory] = useState('')
 
   const filteredProjects = useMemo(() => {
-    return filterProjects(projects, category)
+    return filterProjects(projects, 'category', category)
   }, [projects, category])
 
   const categories = [
