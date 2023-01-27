@@ -9,8 +9,8 @@ import { useMemo } from 'react'
 
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { mdxComponents, MdxContent } from '@/components/Mdx'
-import PageSeo from '@/components/PageSeo'
-import ScrollProgressBar from '@/components/ScrollProgressBar'
+import { PageSeo } from '@/components/PageSeo'
+import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import { useMDXComponent } from '@/hooks'
 import { getAllSnippets } from '@/services/snippets'
 import type { Snippet } from '@/types'
@@ -67,7 +67,7 @@ const SnippetDetail = ({
           'shorthand',
           'scripts',
         ]}
-        ogType='article'
+        ogType="article"
       />
       {renderContent()}
     </>

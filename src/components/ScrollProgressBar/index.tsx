@@ -1,1 +1,1 @@
-export { default } from './ScrollProgressBar'
+export { default as ScrollProgressBar } from './ScrollProgressBar'

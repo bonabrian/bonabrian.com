@@ -10,8 +10,8 @@ import { useMemo } from 'react'
 
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { mdxComponents, MdxContent } from '@/components/Mdx'
-import PageSeo from '@/components/PageSeo'
-import ScrollProgressBar from '@/components/ScrollProgressBar'
+import { PageSeo } from '@/components/PageSeo'
+import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import { useMDXComponent } from '@/hooks'
 import { getAllPosts } from '@/services/posts'
 import type { Post } from '@/types'
@@ -48,7 +48,7 @@ const SinglePost = ({
     return (
       <>
         <ScrollProgressBar />
-        <MdxContent backHref='/blog' content={post as Post}>
+        <MdxContent backHref="/blog" content={post as Post}>
           <MdxComponent components={{ ...mdxComponents } as any} />
         </MdxContent>
       </>
@@ -69,7 +69,7 @@ const SinglePost = ({
           'news',
           'thoughts',
         ]}
-        ogType='article'
+        ogType="article"
       />
       {renderContent()}
     </>

@@ -38,20 +38,20 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
 
   return (
     <div
-      role='button'
+      role="button"
       tabIndex={0}
-      className='lightbox-overlay fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out'
+      className="lightbox-overlay fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out"
       style={style}
       onClick={handleClose}
       onKeyDown={handleKeydown}
     >
-      <div className='w-full h-full relative flex justify-center items-center'>
+      <div className="w-full h-full relative flex justify-center items-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src.toString()}
           onLoad={() => setImageLoaded(true)}
-          className='cursor-zoom-out max-w-[90vw] max-h-[80vh]'
-          alt='lightbox'
+          className="cursor-zoom-out max-w-[90vw] max-h-[80vh]"
+          alt="lightbox"
         />
       </div>
     </div>

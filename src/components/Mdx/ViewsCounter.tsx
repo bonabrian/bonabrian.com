@@ -32,7 +32,11 @@ export const ViewsCounter = ({ slug, draft }: ViewsCounterProps) => {
 
   return (
     <span>
-      {isLoadViews ? <LoadingSpinner /> : <>{`${views?.total} views`}</>}
+      {isLoadViews ? (
+        <LoadingSpinner />
+      ) : (
+        <span>{`${views?.total} views`}</span>
+      )}
     </span>
   )
 }

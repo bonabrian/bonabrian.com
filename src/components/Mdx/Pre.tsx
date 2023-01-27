@@ -34,13 +34,13 @@ export const Pre = ({ children }: PreProps) => {
       ref={textInput}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className='relative'
+      className="relative"
     >
       {hovered && (
         <button
-          aria-label='Copy'
+          aria-label="Copy"
           onClick={onCopy}
-          type='button'
+          type="button"
           className={`absolute flex items-center justify-center right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-200 dark:bg-gray-800 ${
             copied
               ? 'focus:outline-none focus:border-green-600 border-green-600 dark:focus:border-green-400 dark:border-green-400'
@@ -48,7 +48,7 @@ export const Pre = ({ children }: PreProps) => {
           }`}
         >
           {copied ? (
-            <BsClipboardCheck className='text-green-600 dark:text-green-400' />
+            <BsClipboardCheck className="text-green-600 dark:text-green-400" />
           ) : (
             <BsClipboard />
           )}

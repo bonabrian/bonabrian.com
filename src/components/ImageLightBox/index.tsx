@@ -1,1 +1,1 @@
-export { default } from './ImageLightBox'
+export { default as ImageLightBox } from './ImageLightBox'

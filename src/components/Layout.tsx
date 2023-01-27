@@ -19,11 +19,11 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Header />
       <Container>
-        <div className='flex flex-col justify-between min-h-screen'>
+        <div className="flex flex-col justify-between min-h-screen">
           <motion.main
-            initial='hidden'
-            animate='enter'
-            exit='exit'
+            initial="hidden"
+            animate="enter"
+            exit="exit"
             variants={variants}
             transition={{ type: 'linear' }}
           >

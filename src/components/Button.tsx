@@ -7,7 +7,8 @@ interface ButtonProps
 const Button = ({ type = 'button', children, ...rest }: ButtonProps) => {
   return (
     <button
-      className='px-4 py-2 w-24 h-12 flex items-center justify-center my-4 font-semibold text-lg text-white bg-primary-400 dark:bg-primary-600 hover:bg-primary-500 dark:hover:bg-primary-500 rounded'
+      className="px-4 py-2 w-24 h-12 flex items-center justify-center my-4 font-semibold text-lg text-white bg-primary-400 dark:bg-primary-600 hover:bg-primary-500 dark:hover:bg-primary-500 rounded"
+      // eslint-disable-next-line react/button-has-type
       type={type}
       {...rest}
     >

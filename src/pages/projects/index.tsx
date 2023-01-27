@@ -2,9 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 
-import PageSeo from '@/components/PageSeo'
+import { PageSeo } from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import ProjectCard from '@/components/ProjectCard'
+import { ProjectCard } from '@/components/ProjectCard'
 import RenderIf from '@/components/RenderIf'
 import { filterProjects, getAllProjects } from '@/services/projects'
 
@@ -47,9 +47,10 @@ const Projects = ({
   const renderFilterComponent = () => {
     return (
       <>
-        <div className='flex justify-center items-center space-x-4'>
+        <div className="flex justify-center items-center space-x-4">
           {categories.map((it) => {
             return (
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events
               <div
                 className={`px-5 py-2 rounded-full select-none ${
                   it.key === category
@@ -58,7 +59,7 @@ const Projects = ({
                 }`}
                 key={it.key}
                 onClick={() => filter(it.key)}
-                role='button'
+                role="button"
                 tabIndex={-1}
               >
                 {it.label}
@@ -67,8 +68,8 @@ const Projects = ({
           })}
         </div>
         <RenderIf isTrue={(filteredProjects?.length || 0) <= 0}>
-          <div className='flex items-center justify-center py-3'>
-            <h3 className='text-gray-400 dark:text-gray-300'>
+          <div className="flex items-center justify-center py-3">
+            <h3 className="text-gray-400 dark:text-gray-300">
               No projects found.
             </h3>
           </div>
@@ -80,8 +81,8 @@ const Projects = ({
   return (
     <>
       <PageSeo
-        title='Projects'
-        description='A collection of finest projects that I have built.'
+        title="Projects"
+        description="A collection of finest projects that I have built."
         keywords={[
           'project',
           'development',
@@ -92,15 +93,15 @@ const Projects = ({
           'software',
         ]}
       />
-      <div className='pt-6 pb-8 space-y-3 md:space-y-5'>
+      <div className="pt-6 pb-8 space-y-3 md:space-y-5">
         <PageTitle>Projects</PageTitle>
-        <p className='text-gray-600 dark:text-gray-400'>
+        <p className="text-gray-600 dark:text-gray-400">
           A collection of finest projects that I have built.
         </p>
         {renderFilterComponent()}
       </div>
       <motion.div
-        className='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2'
+        className="grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2"
         layout
       >
         <AnimatePresence>

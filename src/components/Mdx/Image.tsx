@@ -1,7 +1,7 @@
 import NextImage from 'next/image'
 import { useState } from 'react'
 
-import ImageLightBox from '../ImageLightBox'
+import { ImageLightBox } from '../ImageLightBox'
 import type { DimensionProps, ImageProps, SizeProps } from './types'
 
 export const Image = ({ shouldOpenLightBox = true, ...props }: ImageProps) => {
@@ -20,7 +20,7 @@ export const Image = ({ shouldOpenLightBox = true, ...props }: ImageProps) => {
         width={width}
         height={height}
         loading={props.priority ? undefined : props.loading}
-        decoding='async'
+        decoding="async"
         className={`rounded-xl object-cover object-center ${
           shouldOpenLightBox ? `cursor-zoom-in` : ''
         }`}

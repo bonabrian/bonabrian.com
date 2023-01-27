@@ -19,7 +19,7 @@ const LoginView = ({ message }: LoginViewProps) => {
   }
 
   return (
-    <div className='prose dark:prose-dark lg:prose-xl'>
+    <div className="prose dark:prose-dark lg:prose-xl">
       {session?.user ? (
         <div>
           Logged in as <strong>{session.user.name}</strong>{' '}
@@ -27,8 +27,8 @@ const LoginView = ({ message }: LoginViewProps) => {
             <LoadingSpinner />
           ) : (
             <Link
-              className='font-semibold'
-              href='api/auth/signout'
+              className="font-semibold"
+              href="api/auth/signout"
               onClick={async (e) => {
                 e.preventDefault()
                 setIsLoading(true)
@@ -41,14 +41,14 @@ const LoginView = ({ message }: LoginViewProps) => {
           )}
         </div>
       ) : (
-        <div className='mb-10 border-2 border-primary-400 dark:border-primary-600 rounded-md p-6'>
-          <h5 className='text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100'>
+        <div className="mb-10 border-2 border-primary-400 dark:border-primary-600 rounded-md p-6">
+          <h5 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100">
             {message}
           </h5>
           <Button onClick={onSignIn}>
             {isLoading ? <LoadingSpinner /> : 'Login'}
           </Button>
-          <p className='text-base text-gray-600 dark:text-gray-400'>
+          <p className="text-base text-gray-600 dark:text-gray-400">
             Your information is only used to display your name and profile
             picture.
           </p>

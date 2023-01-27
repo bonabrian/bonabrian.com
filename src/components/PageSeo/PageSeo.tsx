@@ -69,65 +69,61 @@ const PageSeo = ({
     <Head>
       <title>{metaTitle}</title>
 
-      <meta name={'title'} content={metaTitle} />
-      <meta name={'description'} content={metaDescription} />
-      <meta name={'keywords'} content={keywords} />
-      <meta name={'author'} content={defaultSeo.author} />
+      <meta name="title" content={metaTitle} />
+      <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={defaultSeo.author} />
 
-      <meta itemProp={'name'} content={metaTitle} />
-      <meta itemProp={'description'} content={metaDescription} />
-      <link rel={'canonical'} href={exactUrl} />
+      <meta itemProp="name" content={metaTitle} />
+      <meta itemProp="description" content={metaDescription} />
+      <link rel="canonical" href={exactUrl} />
 
-      <meta property={'og:locale'} content={'en_US'} />
-      <meta property={'og:title'} content={metaTitle} />
-      <meta property={'og:type'} content={ogType} />
-      <meta property={'og:url'} content={exactUrl} />
-      <meta property={'og:description'} content={metaDescription} />
-      <meta property={'og:site_name'} content={metaTitle} />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={exactUrl} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:site_name" content={metaTitle} />
 
-      <meta property={'twitter:url'} name={'twitter:url'} content={exactUrl} />
+      <meta property="twitter:url" name="twitter:url" content={exactUrl} />
+      <meta property="twitter:title" name="twitter:title" content={metaTitle} />
       <meta
-        property={'twitter:title'}
-        name={'twitter:title'}
-        content={metaTitle}
-      />
-      <meta
-        property={'twitter:description'}
-        name={'twitter:description'}
+        property="twitter:description"
+        name="twitter:description"
         content={metaDescription}
       />
 
       {/* image meta */}
-      <meta itemProp={'image'} content={actualImage} />
-      <meta property={'og:image'} content={actualImage} />
+      <meta itemProp="image" content={actualImage} />
+      <meta property="og:image" content={actualImage} />
 
       <meta
-        property={'twitter:card'}
-        name={'twitter:card'}
+        property="twitter:card"
+        name="twitter:card"
         content={actualMetaImageStyle}
       />
 
       <meta
-        property={'twitter:image'}
-        name={'twitter:image'}
+        property="twitter:image"
+        name="twitter:image"
         content={actualImage}
       />
 
       <meta
-        property={'twitter:image:src'}
-        name={'twitter:image:src'}
+        property="twitter:image:src"
+        name="twitter:image:src"
         content={actualImage}
       />
 
       {/* color meta */}
-      <meta name={'theme-color'} media={schema} content={color} />
-      <meta name={'msapplication-TileColor'} content={color} />
-      <meta name={'msapplication-navbutton-color'} content={color} />
-      <meta name={'apple-mobile-web-app-status-bar-style'} content={color} />
+      <meta name="theme-color" media={schema} content={color} />
+      <meta name="msapplication-TileColor" content={color} />
+      <meta name="msapplication-navbutton-color" content={color} />
+      <meta name="apple-mobile-web-app-status-bar-style" content={color} />
 
       <meta
-        name='robots'
-        content='index, follow, max-image-preview:large, max-video-preview:-1'
+        name="robots"
+        content="index, follow, max-image-preview:large, max-video-preview:-1"
       />
     </Head>
   )

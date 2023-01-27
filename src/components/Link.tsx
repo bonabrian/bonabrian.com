@@ -36,8 +36,8 @@ const Link = forwardRef<any, LinkProps>(
     return (
       <a
         ref={ref}
-        target={'_blank'}
-        rel={'noopener noreferrer'}
+        target="_blank"
+        rel="noopener noreferrer"
         href={href}
         {...rest}
       >
@@ -48,7 +48,7 @@ const Link = forwardRef<any, LinkProps>(
         >
           <span>{children}</span>
           {showExternalLinkIcon && (
-            <HiOutlineExternalLink className='inline-block ml-0.5' />
+            <HiOutlineExternalLink className="inline-block ml-0.5" />
           )}
         </span>
       </a>

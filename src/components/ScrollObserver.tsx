@@ -30,6 +30,7 @@ export const ScrollObserver = ({ children }: ScrollObserverProps) => {
   }, [handleScroll])
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <ScrollContext.Provider value={{ scrollY, scrollHeight }}>
       {children}
     </ScrollContext.Provider>

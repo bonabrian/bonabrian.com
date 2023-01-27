@@ -13,15 +13,15 @@ export const GitHubCard = () => {
   return (
     <>
       <MetricCard
-        link='https://github.com/bonabrian?tab=repositories'
-        text='stars on GitHub'
+        link="https://github.com/bonabrian?tab=repositories"
+        text="stars on GitHub"
         value={`${data?.stars?.toLocaleString() || ''}`}
         icon={AiOutlineStar}
         loading={loading}
       />
       <MetricCard
-        link='https://github.com/bonabrian'
-        text='followers on GitHub'
+        link="https://github.com/bonabrian"
+        text="followers on GitHub"
         value={`${data?.followers?.toLocaleString() || ''}`}
         icon={RiGithubLine}
         loading={loading}

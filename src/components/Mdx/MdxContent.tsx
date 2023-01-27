@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 
 import { formatDate, getDomainFromUrl } from '@/utils'
 
-import Divider from '../Divider'
+import { Divider } from '../Divider'
 import Link from '../Link'
-import Tag from '../Tag'
+import { Tag } from '../Tag'
 import { Image } from './Image'
 import type { ContentData, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
@@ -58,18 +58,18 @@ export const MdxContent = ({
   const createdAt = formatDate({ timestamp: date })
 
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className="flex flex-col min-h-screen">
       {backHref && <Link href={backHref}>← Back</Link>}
-      <article className='article'>
-        <header className='pt-6 xl:pb-8'>
-          <div className='space-1 text-center'>
-            <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100'>
+      <article className="article">
+        <header className="pt-6 xl:pb-8">
+          <div className="space-1 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100">
               {title}
             </h1>
             {description && (
-              <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+              <p className="text-gray-600 dark:text-gray-400">{description}</p>
             )}
-            <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
+            <div className="my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center">
               {date && (
                 <>
                   <span title={createdAt.raw}>{createdAt.formatted}</span>
@@ -82,7 +82,7 @@ export const MdxContent = ({
             </div>
           </div>
         </header>
-        <div className='prose dark:prose-dark max-w-none'>
+        <div className="prose dark:prose-dark max-w-none">
           {hero && (
             <figure>
               {/* @ts-ignore */}
@@ -92,10 +92,10 @@ export const MdxContent = ({
                 priority
                 {...extraHeroProps}
                 quality={100}
-                layout='responsive'
+                layout="responsive"
               />
               {heroSource && (
-                <figcaption className='text-gray-500 text-center'>
+                <figcaption className="text-gray-500 text-center">
                   Source{' '}
                   <Link href={heroSource} title={heroSource}>
                     {getDomainFromUrl(heroSource)}
@@ -108,10 +108,10 @@ export const MdxContent = ({
         </div>
         <footer>
           <Divider />
-          <div className='text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2'>
+          <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
             {tags && (
-              <div className='py-4'>
-                <div className='flex flex-wrap'>
+              <div className="py-4">
+                <div className="flex flex-wrap">
                   {tags.map((tag) => (
                     <Tag key={tag} text={tag} />
                   ))}

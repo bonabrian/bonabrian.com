@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
-import ProgressBar from '@/components/ProgressBar'
+import { ProgressBar } from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { defaultSeo } from '@/config'
 import { trackPageView } from '@/lib/gtag'
@@ -31,9 +31,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute='class' defaultTheme={defaultSeo.theme}>
+      <ThemeProvider attribute="class" defaultTheme={defaultSeo.theme}>
         <SessionProvider session={session}>
-          <AnimatePresence exitBeforeEnter initial={false}>
+          <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>
               <ProgressBar />
               <Layout>

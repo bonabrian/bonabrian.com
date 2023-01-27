@@ -8,7 +8,7 @@ const Navigation = () => {
   const router = useRouter()
 
   return (
-    <nav className='hidden sm:block'>
+    <nav className="hidden sm:block">
       {navItems
         .filter((x) => !x.onlyOnDropdownMenu)
         .map(({ href, label }) => (

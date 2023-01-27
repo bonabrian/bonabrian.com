@@ -8,7 +8,7 @@ export const getAllTags = () => {
   const tagsCount: Record<string, number> = {}
 
   allPosts.forEach((post) => {
-    const tags = post.tags
+    const { tags } = post
     if (tags) {
       tags.forEach((tag: string) => {
         const formattedTag = kebabCase(tag)

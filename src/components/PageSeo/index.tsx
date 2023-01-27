@@ -1,1 +1,1 @@
-export { default } from './PageSeo'
+export { default as PageSeo } from './PageSeo'

@@ -26,21 +26,21 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       exit={{ scale: 0.8, opacity: 0 }}
     >
       <Link href={url || `/projects/${slug}`} showExternalLinkIcon={false}>
-        <div className='relative hover:scale-105 transform duration-300'>
+        <div className="relative hover:scale-105 transform duration-300">
           <Image
             src={hero || ''}
             alt={`Thumbnail "${title}"`}
             width={600}
             height={800}
             {...extraHeroProps}
-            className='rounded-lg h-5'
-            objectFit='cover'
+            className="rounded-lg h-5"
+            objectFit="cover"
           />
-          <div className='absolute bottom-0 right-0 p-6 text-right'>
-            <h1 className='mb-0 text-2xl font-bold leading-8 tracking-tight text-white'>
+          <div className="absolute bottom-0 right-0 p-6 text-right">
+            <h1 className="mb-0 text-2xl font-bold leading-8 tracking-tight text-white">
               {title}
             </h1>
-            <p className='mb-0 text-gray-100'>{description}</p>
+            <p className="mb-0 text-gray-100">{description}</p>
           </div>
         </div>
       </Link>

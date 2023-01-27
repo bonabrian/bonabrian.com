@@ -25,6 +25,7 @@ export const filterPosts = (
     ? posts
     : posts?.filter((post) => {
         const searchContent =
+          // eslint-disable-next-line no-unsafe-optional-chaining
           post?.title + post?.excerpt + post?.tags?.join(' ')
         return searchContent.toLocaleLowerCase().includes(query.toLowerCase())
       })

@@ -13,9 +13,9 @@ const Alert = ({ message, type = 'success' }: AlertProps) => {
       className={`flex items-center text-sm font-bold my-1 sm:my-2 ${classes}`}
     >
       {isError ? (
-        <RiErrorWarningFill className='mr-2 h-4 w-4' />
+        <RiErrorWarningFill className="mr-2 h-4 w-4" />
       ) : (
-        <RiCheckboxCircleFill className='mr-2 h-4 w-4' />
+        <RiCheckboxCircleFill className="mr-2 h-4 w-4" />
       )}
       {message}
     </p>

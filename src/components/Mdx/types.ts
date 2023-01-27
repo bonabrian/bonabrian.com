@@ -31,10 +31,10 @@ export type ViewsCounterProps = {
 }
 
 type BaseImageProps = Omit<NextImageProps, 'width' | 'height'>
-export type SizeProps = BaseImageProps & { size?: number | string }
+export type SizeProps = BaseImageProps & { size?: number }
 export type DimensionProps = BaseImageProps & {
-  width?: number | string
-  height?: number | string
+  width?: number
+  height?: number
 }
 
 export type ImageProps = (SizeProps | DimensionProps) & {
