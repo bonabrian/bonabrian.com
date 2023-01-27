@@ -5,6 +5,7 @@ import { writeFileSync } from 'fs'
 import { globby } from 'globby'
 import prettier from 'prettier'
 
+// eslint-disable-next-line import/no-useless-path-segments, import/no-relative-packages
 import { allPosts, allProjects, allSnippets } from './../.contentlayer/generated/index.mjs'
 
 ;(async () => {

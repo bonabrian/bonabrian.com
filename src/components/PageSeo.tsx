@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 
 import { siteMetaData } from '@/data'
 import { useDarkTheme } from '@/hooks'
-import { unique } from '@/utils'
+import { unique } from '@/lib/utils'
 
 type OpenGraph = 'website' | 'article'
 

@@ -1,5 +1,3 @@
-// import { getAllPosts } from '@/services/posts'
-
 import { motion } from 'framer-motion'
 import type {
   GetStaticPaths,
@@ -11,10 +9,10 @@ import { RiSearch2Line } from 'react-icons/ri'
 
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import { PostCard } from '@/components/PostCard'
-import { filterPosts, getAllPosts } from '@/services/posts'
+import PostCard from '@/components/PostCard'
+import { filterPosts, getPosts } from '@/lib/contentlayer'
+import { kebabCase } from '@/lib/utils'
 import { getAllTags } from '@/services/tags'
-import { kebabCase } from '@/utils'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
@@ -30,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const allPosts = getAllPosts([
+  const allPosts = getPosts([
     'title',
     'date',
     'slug',
