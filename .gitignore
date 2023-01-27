@@ -40,3 +40,4 @@ yarn-error.log*
 .contentlayer
 
 public/*.xml
+public/**/*/raw.png
