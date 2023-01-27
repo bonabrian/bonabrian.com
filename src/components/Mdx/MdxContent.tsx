@@ -16,9 +16,9 @@ const getContentFields = (content: ContentData): ContentFields => {
   if ('description' in content) fields.description = content.description
   if ('slug' in content) fields.slug = content.slug
   if ('date' in content) fields.date = content.date || ''
-  if ('hero' in content) fields.hero = content.hero
-  if ('heroMeta' in content) fields.heroMeta = content.heroMeta
-  if ('heroSource' in content) fields.heroSource = content.heroSource
+  if ('image' in content) fields.image = content.image
+  if ('imageMeta' in content) fields.imageMeta = content.imageMeta
+  if ('imageSource' in content) fields.imageSource = content.imageSource
   if ('readingTime' in content) fields.readingTime = content.readingTime
   if ('tags' in content) fields.tags = content.tags
   if ('draft' in content) fields.draft = content.draft
@@ -36,24 +36,24 @@ export const MdxContent = ({
     description,
     slug,
     date,
-    hero,
-    heroMeta,
-    heroSource,
+    image,
+    imageMeta,
+    imageSource,
     readingTime,
     tags,
     draft,
   } = getContentFields(content)
-  const extraHeroProps = useMemo(() => {
-    if (heroMeta && heroMeta.blur64) {
+  const extraImageProps = useMemo(() => {
+    if (imageMeta && imageMeta.blur64) {
       return {
         placeholder: 'blur',
-        blurDataURL: heroMeta.blur64,
-        width: heroMeta.size.width || 665,
-        height: heroMeta.size.height || 375,
+        blurDataURL: imageMeta.blur64,
+        width: imageMeta.size.width || 665,
+        height: imageMeta.size.height || 375,
       }
     }
     return {}
-  }, [heroMeta])
+  }, [imageMeta])
 
   const createdAt = formatDate({ timestamp: date })
 
@@ -83,22 +83,22 @@ export const MdxContent = ({
           </div>
         </header>
         <div className="prose dark:prose-dark max-w-none">
-          {hero && (
+          {image && (
             <figure>
               {/* @ts-ignore */}
               <Image
-                src={hero || ''}
+                src={image || ''}
                 alt={`Cover image for article "${title}"`}
                 priority
-                {...extraHeroProps}
+                {...extraImageProps}
                 quality={100}
                 layout="responsive"
               />
-              {heroSource && (
+              {imageSource && (
                 <figcaption className="text-gray-500 text-center">
                   Source{' '}
-                  <Link href={heroSource} title={heroSource}>
-                    {getDomainFromUrl(heroSource)}
+                  <Link href={imageSource} title={imageSource}>
+                    {getDomainFromUrl(imageSource)}
                   </Link>
                 </figcaption>
               )}

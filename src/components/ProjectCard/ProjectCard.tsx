@@ -6,17 +6,17 @@ import Link from '../Link'
 import type { ProjectCardProps } from './types'
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { title, slug, description, hero, heroMeta, url } = project
+  const { title, slug, description, image, imageMeta, url } = project
 
-  const extraHeroProps = useMemo(() => {
-    if (heroMeta && heroMeta.blur64) {
-      return { placeholder: 'blur', blurDataURL: heroMeta?.blur64 } as {
+  const extraImageProps = useMemo(() => {
+    if (imageMeta && imageMeta.blur64) {
+      return { placeholder: 'blur', blurDataURL: imageMeta?.blur64 } as {
         placeholder: 'blur' | 'empty'
         blurDataURL?: string
       }
     }
     return {}
-  }, [heroMeta])
+  }, [imageMeta])
 
   return (
     <motion.div
@@ -28,11 +28,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <Link href={url || `/projects/${slug}`} showExternalLinkIcon={false}>
         <div className="relative hover:scale-105 transform duration-300">
           <Image
-            src={hero || ''}
+            src={image || ''}
             alt={`Thumbnail "${title}"`}
             width={600}
             height={800}
-            {...extraHeroProps}
+            {...extraImageProps}
             className="rounded-lg h-5"
             objectFit="cover"
           />

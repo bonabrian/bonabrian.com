@@ -11,34 +11,35 @@ import { Tag } from '../Tag'
 import type { PostCardProps } from './types'
 
 const PostCard = ({ post }: PostCardProps) => {
-  const { slug, title, date, excerpt, tags, readingTime, hero, heroMeta } = post
+  const { slug, title, date, excerpt, tags, readingTime, image, imageMeta } =
+    post
   const { data: views, loading: isLoadViews } = useRequest<{ total?: string }>(
     `api/views/${slug}`,
   )
 
-  const extraHeroProps = useMemo(() => {
-    if (heroMeta && heroMeta.blur64) {
-      return { placeholder: 'blur', blurDataURL: heroMeta?.blur64 } as {
+  const extraImageProps = useMemo(() => {
+    if (imageMeta && imageMeta.blur64) {
+      return { placeholder: 'blur', blurDataURL: imageMeta?.blur64 } as {
         placeholder: 'blur' | 'empty'
         blurDataURL?: string
       }
     }
     return {}
-  }, [heroMeta])
+  }, [imageMeta])
 
   const publishedAt = formatDate({ timestamp: date, month: 'short' })
 
   return (
     <article className="flex flex-col sm:flex-row sm:gap-4 hover:bg-gray-100 dark:hover:bg-gray-900 hover:-translate-y-2 transform duration-300 px-2 -mx-2 sm:px-4 py-4 sm:-mx-4 rounded-lg">
       <div className="flex items-start max-w-full sm:max-w-[10rem]">
-        {hero && (
+        {image && (
           <Link href={`/blog/${slug}`}>
             <Image
-              src={hero || ''}
+              src={image || ''}
               alt={`Cover image for article "${title}"`}
-              width={heroMeta?.size?.width || 144}
-              height={heroMeta?.size?.height || 72}
-              {...extraHeroProps}
+              width={imageMeta?.size?.width || 144}
+              height={imageMeta?.size?.height || 72}
+              {...extraImageProps}
               className="rounded-lg"
             />
           </Link>

@@ -4,11 +4,11 @@ import readingTime from 'reading-time'
 
 import { getBlurData } from './image-metadata'
 
-const getActualHeroUrl = (hero?: string) =>
-  hero
-    ? hero.startsWith('http')
-      ? hero
-      : `/static/images/projects/${hero}`
+const getActualImageUrl = (image?: string) =>
+  image
+    ? image.startsWith('http')
+      ? image
+      : `/static/images/projects/${image}`
     : ''
 
 const computedFields: ComputedFields = {
@@ -18,13 +18,13 @@ const computedFields: ComputedFields = {
     // eslint-disable-next-line no-underscore-dangle
     resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
   },
-  hero: {
+  image: {
     type: 'string',
-    resolve: (doc) => getActualHeroUrl(doc.hero),
+    resolve: (doc) => getActualImageUrl(doc.image),
   },
-  heroMeta: {
+  imageMeta: {
     type: 'json',
-    resolve: async (doc) => getBlurData(getActualHeroUrl(doc.hero)),
+    resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
   },
 }
 
@@ -36,8 +36,8 @@ const Project = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     order: { type: 'number', required: true },
-    hero: { type: 'string' },
-    heroMeta: { type: 'json' },
+    image: { type: 'string' },
+    imageMeta: { type: 'json' },
     draft: { type: 'boolean', default: false },
     url: { type: 'string' },
     category: { type: 'string', required: true },

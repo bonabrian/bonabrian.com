@@ -42,8 +42,8 @@ export const getRecentPosts = (maxDisplay: number = 2): Array<Post> => {
     'tags',
     'readingTime',
     'draft',
-    'hero',
-    'heroMeta',
+    'image',
+    'imageMeta',
   ])
 
   if (!posts) return []

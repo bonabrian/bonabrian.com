@@ -13,8 +13,8 @@ export const getStaticProps = async () => {
     'title',
     'description',
     'slug',
-    'hero',
-    'heroMeta',
+    'image',
+    'imageMeta',
     'url',
     'category',
   ])

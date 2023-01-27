@@ -17,8 +17,8 @@ export const getStaticProps = async () => {
     'tags',
     'readingTime',
     'draft',
-    'hero',
-    'heroMeta',
+    'image',
+    'imageMeta',
   ])
 
   return {

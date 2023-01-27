@@ -38,8 +38,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'tags',
     'readingTime',
     'draft',
-    'hero',
-    'heroMeta',
+    'image',
+    'imageMeta',
   ])
 
   const tag = params?.tag as string
