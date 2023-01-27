@@ -1,4 +1,4 @@
-import { kebabCase } from '@/utils'
+import { kebabCase } from '@/lib/utils'
 
 import Link from '../Link'
 

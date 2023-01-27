@@ -8,6 +8,25 @@ type FormatDateProps = {
   day?: 'numeric' | '2-digit'
 }
 
+export const unique = <T, Key extends keyof T>(
+  array: Array<T> | T[],
+  property?: Key,
+): Array<T> => {
+  if (!property) return Array.from(new Set([...array]))
+
+  const set = new Set()
+  return array.filter((o: T) => {
+    return !set.has(o[property]) && set.add(o[property])
+  })
+}
+
+export const kebabCase = (str: string) =>
+  str &&
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    ?.map((x) => x.toLowerCase())
+    .join('-')
+
 export const formatDate = ({
   timestamp = null,
   locale = 'en-Us',

@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
-import { formatDate } from '@/utils'
+import { formatDate } from '@/lib/utils'
 
 import Link from '../Link'
 import LoadingSpinner from '../LoadingSpinner'

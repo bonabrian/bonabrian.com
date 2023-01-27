@@ -2,7 +2,8 @@ import type { ComputedFields } from 'contentlayer/source-files'
 import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 
-import { excerptText, unique } from '../src/utils'
+import { excerptText, unique } from '@/lib/utils'
+
 import { getBlurData } from './image-metadata'
 
 const randomize = (items: string[]): string => {

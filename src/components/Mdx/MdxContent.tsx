@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { formatDate, getDomainFromUrl } from '@/utils'
+import { formatDate, getDomainFromUrl } from '@/lib/utils'
 
 import Divider from '../Divider'
 import Link from '../Link'

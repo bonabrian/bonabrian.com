@@ -12,9 +12,9 @@ import { RiSearch2Line } from 'react-icons/ri'
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import { PostCard } from '@/components/PostCard'
+import { kebabCase } from '@/lib/utils'
 import { filterPosts, getAllPosts } from '@/services/posts'
 import { getAllTags } from '@/services/tags'
-import { kebabCase } from '@/utils'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
