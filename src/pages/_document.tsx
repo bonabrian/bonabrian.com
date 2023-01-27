@@ -16,9 +16,8 @@ class MyDocument extends Document {
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta httpEquiv="content-language" content="en" />
 
-          {/* TODO: add app-icon */}
           <link rel="icon" href="/favicon.ico" />
-          {/* <link rel='manifest' href='manifest.json' /> */}
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
