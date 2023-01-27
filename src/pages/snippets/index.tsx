@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType } from 'next'
 
 import Link from '@/components/Link'
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import RenderIf from '@/components/RenderIf'
 import { getAllSnippets } from '@/services/snippets'

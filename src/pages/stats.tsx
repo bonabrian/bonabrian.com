@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 import { EndorsementsCard, GitHubCard, ViewsCard } from '@/components/Metrics'
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 
 const Stats = () => {

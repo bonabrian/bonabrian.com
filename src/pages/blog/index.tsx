@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import { PostCard } from '@/components/PostCard'
 import { filterPosts, getAllPosts } from '@/services/posts'

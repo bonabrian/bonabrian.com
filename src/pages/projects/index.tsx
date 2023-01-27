@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import { ProjectCard } from '@/components/ProjectCard'
 import RenderIf from '@/components/RenderIf'

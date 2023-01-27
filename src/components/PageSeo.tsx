@@ -2,11 +2,27 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
-import { defaultSeo } from '@/config'
+import { siteMetaData } from '@/data'
 import { useDarkTheme } from '@/hooks'
 import { unique } from '@/utils'
 
-import type { MetaColor, MetaImageStyle, SeoProps } from './types'
+type OpenGraph = 'website' | 'article'
+
+type MetaImageStyle = 'summary_large_image' | 'summary'
+type MetaColor = {
+  color?: string
+  schema?: string
+}
+
+interface SeoProps {
+  title?: string
+  description?: string
+  keywords?: string | Array<string> | null
+  canonical?: string
+  ogType?: OpenGraph
+  image?: string
+  metaImageStyle?: MetaImageStyle
+}
 
 // TODO: add logo
 const defaultImage = 'placeholder'
@@ -25,19 +41,22 @@ const PageSeo = ({
   title,
   description,
   keywords: initialKeywords = [],
-  canonicalUrl,
+  canonical,
   ogType = 'website',
   image,
   metaImageStyle = 'summary_large_image',
 }: SeoProps) => {
   const router = useRouter()
 
-  const metaTitle = title ? `${title} | ${defaultSeo.author}` : defaultSeo.title
-  const metaDescription = description || defaultSeo.description
+  const titleTemplate = title
+    ? siteMetaData.title.replace('%s', title)
+    : siteMetaData.defaultTitle
+
+  const metaDescription = description || siteMetaData.description
   const keywords = useMemo<string>(() => {
     return mapKeywords(initialKeywords)
   }, [initialKeywords])
-  const exactUrl = canonicalUrl || `${defaultSeo.url}${router.asPath}`
+  const canonicalUrl = canonical || `${siteMetaData.canonical}${router.asPath}`
 
   const actualDefaultImage = useMemo<string>(
     () => (metaImageStyle === 'summary' ? defaultLogoImage : defaultImage),
@@ -67,26 +86,30 @@ const PageSeo = ({
 
   return (
     <Head>
-      <title>{metaTitle}</title>
+      <title>{titleTemplate}</title>
 
-      <meta name="title" content={metaTitle} />
+      <meta name="title" content={titleTemplate} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content={defaultSeo.author} />
+      <meta name="author" content={siteMetaData.author} />
 
-      <meta itemProp="name" content={metaTitle} />
+      <meta itemProp="name" content={titleTemplate} />
       <meta itemProp="description" content={metaDescription} />
-      <link rel="canonical" href={exactUrl} />
+      <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:locale" content="en_US" />
-      <meta property="og:title" content={metaTitle} />
+      <meta property="og:title" content={titleTemplate} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={exactUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:site_name" content={metaTitle} />
+      <meta property="og:site_name" content={titleTemplate} />
 
-      <meta property="twitter:url" name="twitter:url" content={exactUrl} />
-      <meta property="twitter:title" name="twitter:title" content={metaTitle} />
+      <meta property="twitter:url" name="twitter:url" content={canonicalUrl} />
+      <meta
+        property="twitter:title"
+        name="twitter:title"
+        content={titleTemplate}
+      />
       <meta
         property="twitter:description"
         name="twitter:description"
@@ -121,9 +144,13 @@ const PageSeo = ({
       <meta name="msapplication-navbutton-color" content={color} />
       <meta name="apple-mobile-web-app-status-bar-style" content={color} />
 
-      <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-video-preview:-1"
+      <meta name="robots" content={siteMetaData.robots} />
+
+      <link
+        rel="alternate"
+        href="/feed.xml"
+        type="application/rss+xml"
+        title={`${siteMetaData.author} (RSS)`}
       />
     </Head>
   )

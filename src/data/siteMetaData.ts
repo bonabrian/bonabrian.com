@@ -8,4 +8,7 @@ export const siteMetaData = {
   email: 'bonabriansiagian@gmail.com',
   github: 'https://github.com/bonabrian',
   linkedin: 'https://www.linkedin.com/in/bonabrian',
+  robots: 'follow, index',
+  locale: 'en-ID',
+  theme: 'system', // app theme: 'system' | 'dark' | 'light'
 }

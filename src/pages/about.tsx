@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import Link from '@/components/Link'
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import SocialIcon from '@/components/SocialIcon'
 import { defaultSeo, socialLinks } from '@/config'
