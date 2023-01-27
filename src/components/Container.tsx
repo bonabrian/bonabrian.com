@@ -1,15 +1,18 @@
-import * as React from 'react'
+import classnames from 'classnames'
+import { forwardRef } from 'react'
 
-type Props = {
-  children: React.ReactNode
-}
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const Container = ({ children }: Props) => {
-  return (
-    <div className="max-w-2xl px-4 mx-auto sm:px-6 xl:max-w-3xl xl:px-0 flex flex-col gap-10 sm:gap-14">
-      {children}
-    </div>
-  )
-}
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={classnames('container mx-auto px-4 md:px-0', className)}
+      />
+    )
+  },
+)
 
 export default Container

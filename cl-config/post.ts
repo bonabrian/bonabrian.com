@@ -21,8 +21,12 @@ const generateRandomId = (length: number = 6) => {
   return retVal
 }
 
-const getActualHeroUrl = (hero?: string) =>
-  hero ? (hero.startsWith('http') ? hero : `/static/images/blog/${hero}`) : ''
+const getActualImageUrl = (image?: string) =>
+  image
+    ? image.startsWith('http')
+      ? image
+      : `/static/images/blog/${image}`
+    : ''
 
 const secretId = generateRandomId()
 
@@ -39,9 +43,9 @@ const computedFields: ComputedFields = {
       return secretSlug
     },
   },
-  hero: {
+  image: {
     type: 'string',
-    resolve: (doc) => getActualHeroUrl(doc.hero),
+    resolve: (doc) => getActualImageUrl(doc.image),
   },
   keywords: {
     type: 'list',
@@ -62,9 +66,9 @@ const computedFields: ComputedFields = {
     resolve: (doc) =>
       excerptText(doc.body.raw, doc.excerpt || doc.description, true),
   },
-  heroMeta: {
+  imageMeta: {
     type: 'json',
-    resolve: async (doc) => getBlurData(getActualHeroUrl(doc.hero)),
+    resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
   },
 }
 
@@ -78,9 +82,9 @@ const Post = defineDocumentType(() => ({
     excerpt: { type: 'string' },
     keywords: { type: 'list', of: { type: 'string' } },
     tags: { type: 'list', of: { type: 'string' } },
-    hero: { type: 'string' },
-    heroMeta: { type: 'json' },
-    heroSource: { type: 'string' },
+    image: { type: 'string' },
+    imageMeta: { type: 'json' },
+    imageSource: { type: 'string' },
     draft: { type: 'boolean', default: false },
   },
   computedFields,

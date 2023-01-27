@@ -16,9 +16,8 @@ class MyDocument extends Document {
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta httpEquiv="content-language" content="en" />
 
-          {/* TODO: add app-icon */}
           <link rel="icon" href="/favicon.ico" />
-          {/* <link rel='manifest' href='manifest.json' /> */}
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -42,12 +41,8 @@ class MyDocument extends Document {
             href="https://fonts.gstatic.com"
             crossOrigin="anonymous"
           />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-          />
         </Head>
-        <body className="antialiased text-black bg-white dark:bg-black dark:text-white">
+        <body className="antialiased text-black bg-slate-100 dark:bg-gray-900 dark:text-slate-100">
           <Main />
           <NextScript />
         </body>

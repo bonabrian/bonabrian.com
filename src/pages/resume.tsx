@@ -2,7 +2,7 @@ import { RiFileTextLine } from 'react-icons/ri'
 
 import Experiences from '@/components/Experiences'
 import Link from '@/components/Link'
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 
 const Resume = () => {

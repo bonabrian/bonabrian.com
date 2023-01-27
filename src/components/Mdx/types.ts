@@ -1,7 +1,7 @@
 import type { ImageProps as NextImageProps } from 'next/image'
 import type { IReadTimeResults } from 'reading-time'
 
-import type { HeroMeta, Post, Snippet } from '@/types'
+import type { ImageMeta, Post, Snippet } from '@/types'
 
 // TODO: add Project content type
 export type ContentData = Post | Snippet
@@ -11,9 +11,9 @@ export interface ContentFields {
   description?: string
   slug?: string
   date?: string
-  hero?: string
-  heroMeta?: HeroMeta
-  heroSource?: string
+  image?: string
+  imageMeta?: ImageMeta
+  imageSource?: string
   readingTime?: IReadTimeResults | null
   tags?: Array<string>
   draft?: boolean

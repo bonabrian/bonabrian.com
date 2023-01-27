@@ -35,8 +35,8 @@ export const getFeaturedProjects = (maxDisplay: number = 2): Array<Project> => {
     'title',
     'description',
     'slug',
-    'hero',
-    'heroMeta',
+    'image',
+    'imageMeta',
     'url',
     'category',
   ])

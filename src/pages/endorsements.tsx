@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import { PageSeo } from '@/components/PageSeo'
+import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import Skills from '@/components/Skills'
 import { getGroupedSkillsByCategory } from '@/services/skills'
