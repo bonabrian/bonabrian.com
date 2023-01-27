@@ -1,5 +1,7 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
+import { routePaths } from '@/data'
+
 import CtaButton from './CtaButton'
 
 const Introduction = () => {
@@ -18,7 +20,7 @@ const Introduction = () => {
           about those things.
         </p>
       </div>
-      <CtaButton href="/about">
+      <CtaButton href={routePaths.ABOUT}>
         Discover More <RiArrowRightSLine className="ml-1" />
       </CtaButton>
     </div>

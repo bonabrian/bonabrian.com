@@ -1,5 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
+import { routePaths } from '@/data'
 import type { Project } from '@/types'
 
 import CtaButton from './CtaButton'
@@ -41,7 +42,7 @@ const FeaturedProjects = ({
           </div>
 
           <div className="flex justify-center items-center my-6">
-            <CtaButton href="/projects">
+            <CtaButton href={routePaths.PROJECTS}>
               All Projects <RiArrowRightSLine className="ml-1" />
             </CtaButton>
           </div>

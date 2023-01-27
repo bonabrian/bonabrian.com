@@ -1,5 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
+import { routePaths } from '@/data'
 import type { Post } from '@/types'
 
 import CtaButton from './CtaButton'
@@ -39,7 +40,7 @@ const RecentPosts = ({
           </div>
 
           <div className="flex justify-center items-center my-6">
-            <CtaButton href="/blog">
+            <CtaButton href={routePaths.BLOG}>
               All Posts <RiArrowRightSLine className="ml-1" />
             </CtaButton>
           </div>

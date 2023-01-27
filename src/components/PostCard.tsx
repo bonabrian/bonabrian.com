@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useMemo } from 'react'
 import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
 
+import { routePaths } from '@/data'
 import { useRequest } from '@/hooks'
 import { formatDate, kebabCase } from '@/lib/utils'
 import type { Post } from '@/types'
@@ -54,7 +55,7 @@ const PostCard = ({ post }: PostCardProps) => {
       className="flex flex-col sm:flex-row items-stretch flex-nowrap shadow-sm dark:shadow-gray-800/40"
     >
       <Link
-        href={`/blog/${slug}`}
+        href={`${routePaths.BLOG}/${slug}`}
         className="aspect-video w-full relative overflow-hidden bg-no-repeat bg-cover basis-full sm:basis-1/2"
       >
         <div className="absolute w-full h-full" />
@@ -76,7 +77,7 @@ const PostCard = ({ post }: PostCardProps) => {
           </div>
         )}
         <Link
-          href={`/blog/${slug}`}
+          href={`${routePaths.BLOG}/${slug}`}
           className="text-md sm:text-lg md:text-xl font-semibold tracking-tighter mb-5"
         >
           {title}
