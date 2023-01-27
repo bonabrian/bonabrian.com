@@ -13,7 +13,7 @@ import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import { useMDXComponent } from '@/hooks'
-import { getAllPosts } from '@/services/posts'
+import { getPosts } from '@/lib/contentlayer'
 import type { Post } from '@/types'
 
 const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
@@ -80,7 +80,7 @@ export default SinglePost
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getAllPosts().map((it: ContentLayerPost) => ({
+    paths: getPosts().map((it: ContentLayerPost) => ({
       params: { slug: it.slug },
     })),
     fallback: true,
@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const allPosts = getAllPosts()
+  const allPosts = getPosts()
   const post = allPosts.find((it: ContentLayerPost) => it.slug === params?.slug)
 
   if (!post) {

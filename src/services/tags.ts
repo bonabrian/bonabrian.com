@@ -1,9 +1,8 @@
+import { getPosts } from '@/lib/contentlayer'
 import { kebabCase } from '@/lib/utils'
 
-import { getAllPosts } from './posts'
-
 export const getAllTags = () => {
-  const allPosts = getAllPosts(['tags'])
+  const allPosts = getPosts(['tags'])
 
   const tagsCount: Record<string, number> = {}
 

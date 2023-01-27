@@ -7,8 +7,7 @@ import Introduction from '@/components/Introduction'
 import Link from '@/components/Link'
 import PageSeo from '@/components/PageSeo'
 import { PostCard } from '@/components/PostCard'
-import { getFeaturedProjects } from '@/lib/contentlayer'
-import { getRecentPosts } from '@/services/posts'
+import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
 
 const MAX_DISPLAY = 2
 
