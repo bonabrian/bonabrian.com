@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 
 import { DiscoverMore } from '@/components/DiscoverMore'
-import { Divider } from '@/components/Divider'
+import Divider from '@/components/Divider'
 import Link from '@/components/Link'
 import PageSeo from '@/components/PageSeo'
 import { PostCard } from '@/components/PostCard'

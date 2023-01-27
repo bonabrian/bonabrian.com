@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 
 import { formatDate, getDomainFromUrl } from '@/utils'
 
-import { Divider } from '../Divider'
+import Divider from '../Divider'
 import Link from '../Link'
 import { Tag } from '../Tag'
 import { Image } from './Image'

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { experiences } from '@/config'
 import { siteMetaData } from '@/data'
 
-import { Divider } from './Divider'
+import Divider from './Divider'
 import Link from './Link'
 
 const Experiences = () => {
