@@ -5,7 +5,7 @@ import { RiSearch2Line } from 'react-icons/ri'
 
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
-import { PostCard } from '@/components/PostCard'
+import PostCard from '@/components/PostCard'
 import { filterPosts, getPosts } from '@/lib/contentlayer'
 
 export const getStaticProps = async () => {
