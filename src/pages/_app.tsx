@@ -11,7 +11,7 @@ import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
 import { ProgressBar } from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
-import { defaultSeo } from '@/config'
+import { siteMetaData } from '@/data'
 import { trackPageView } from '@/lib/gtag'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -31,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme={defaultSeo.theme}>
+      <ThemeProvider attribute="class" defaultTheme={siteMetaData.theme}>
         <SessionProvider session={session}>
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>

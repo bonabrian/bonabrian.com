@@ -4,7 +4,7 @@ import Link from '@/components/Link'
 import PageSeo from '@/components/PageSeo'
 import PageTitle from '@/components/PageTitle'
 import SocialIcon from '@/components/SocialIcon'
-import { defaultSeo, socialLinks } from '@/config'
+import { siteMetaData } from '@/data'
 
 const About = () => {
   return (
@@ -31,15 +31,15 @@ const About = () => {
             objectFit="cover"
           />
           <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
-            {defaultSeo.author}
+            {siteMetaData.author}
           </h3>
           <div className="text-gray-500 dark:text-gray-400">
             Full Stack Developer
           </div>
           <div className="flex items-center justify-center pt-6 space-x-3">
-            <SocialIcon kind="mail" href={`mailto:${socialLinks.email}`} />
-            <SocialIcon kind="github" href={socialLinks.github} />
-            <SocialIcon kind="linkedin" href={socialLinks.linkedin} />
+            <SocialIcon kind="mail" href={`mailto:${siteMetaData.email}`} />
+            <SocialIcon kind="github" href={siteMetaData.github} />
+            <SocialIcon kind="linkedin" href={siteMetaData.linkedin} />
           </div>
         </div>
         <div className="py-8 prose dark:prose-dark max-w-none xl:col-span-2">
