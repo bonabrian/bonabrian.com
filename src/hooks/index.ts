@@ -1,5 +1,5 @@
 export * from './useDarkTheme'
-export * from './useHasMounted'
 export * from './useMDXComponent'
+export * from './useMounted'
 export * from './useNowPlaying'
 export * from './useRequest'

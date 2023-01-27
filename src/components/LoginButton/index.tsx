@@ -38,13 +38,13 @@ const providerStyleGuides: { [key: string]: StyleGuide } = {
 }
 
 const LoginButton = ({ provider }: { provider: ClientSafeProvider }) => {
-  const { isDark, hasMounted } = useDarkTheme()
+  const { isDark, mounted } = useDarkTheme()
   const { Logo, LogoDark, bg, bgDark, text, textDark } =
     providerStyleGuides[provider.id]
   const router = useRouter()
   const { callbackUrl } = router.query
 
-  if (!hasMounted) return null
+  if (!mounted) return null
 
   return (
     <div key={provider.name}>

@@ -57,13 +57,13 @@ const PageSeo = ({
     [actualImage, metaImageStyle],
   )
 
-  const { isDark, hasMounted } = useDarkTheme()
+  const { isDark, mounted } = useDarkTheme()
   const { color, schema } = useMemo<MetaColor>(() => {
-    if (!hasMounted || !isDark) {
+    if (!mounted || !isDark) {
       return { color: '#ffffff', schema: '(prefers-color-scheme: light)' }
     }
     return { color: '#000000', schema: '(prefers-color-scheme: dark)' }
-  }, [hasMounted, isDark])
+  }, [mounted, isDark])
 
   return (
     <Head>
