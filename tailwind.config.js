@@ -7,7 +7,7 @@ module.exports = {
   content: [
     './src/pages/**/*.tsx',
     './src/components/**/*.tsx',
-    './src/lib/**/*.ts',
+    './src/layouts/**/*.tsx',
   ],
   darkMode: 'class',
   theme: {
