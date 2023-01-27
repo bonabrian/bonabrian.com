@@ -1,14 +1,13 @@
 import { SiSpotify } from 'react-icons/si'
 
-import { useNowPlaying } from '@/hooks'
-
-import Link from '../Link'
+import { useNowPlaying } from '../hooks'
+import Link from './Link'
 
 const NowPlaying = () => {
   const { data } = useNowPlaying()
 
   return (
-    <div className="flex items-center w-full gap-1 mb-2 sm:gap-2">
+    <div className="flex items-center w-full gap-1 sm:gap-2">
       <SiSpotify
         fill="#1ED760"
         className={`${data?.isPlaying ? 'animate-spin' : ''}`}
@@ -27,7 +26,7 @@ const NowPlaying = () => {
             </div>
           </Link>
         ) : (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-900/50 dark:text-white/60">
             Not playing
           </p>
         )}

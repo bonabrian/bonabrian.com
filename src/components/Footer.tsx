@@ -1,91 +1,114 @@
-import ThemeSwitch from '@/components/ThemeSwitch'
-import { defaultSeo, socialLinks } from '@/config'
+import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
+import { routePaths, siteMetaData } from '@/data'
+
+import Container from './Container'
 import Link from './Link'
-import { NowPlaying } from './NowPlaying'
+import NowPlaying from './NowPlaying'
+import ThemeSwitch from './ThemeSwitch'
+
+const footerLinks = [
+  [
+    {
+      title: 'Projects',
+      url: routePaths.PROJECTS,
+    },
+    {
+      title: 'About',
+      url: routePaths.ABOUT,
+    },
+  ],
+  [
+    {
+      title: 'Blog',
+      url: routePaths.BLOG,
+    },
+    {
+      title: 'Snippets',
+      url: routePaths.SNIPPETS,
+    },
+  ],
+  [
+    {
+      title: 'Endorsements',
+      url: routePaths.ENDORSEMENTS,
+    },
+    {
+      title: 'Stats',
+      url: routePaths.STATS,
+    },
+  ],
+]
+
+const iconLinks = [
+  {
+    title: 'Github',
+    url: siteMetaData.github,
+    icon: RiGithubLine,
+  },
+  {
+    title: 'LinkedIn',
+    url: siteMetaData.linkedin,
+    icon: RiLinkedinLine,
+  },
+  {
+    title: 'RSS Feed',
+    url: '/feed.xml',
+    icon: RiRssLine,
+  },
+]
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="flex flex-col items-center pb-8">
-        <nav className="flex flex-col justify-between w-full max-w-2xl gap-4 pb-8 mx-auto mt-4 xl:max-w-3xl sm:gap-0 sm:flex-row">
-          <div className="flex flex-col space-y-4 md:items-start">
-            <Link
-              href="/projects"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              About
-            </Link>
-          </div>
-
-          <div className="flex flex-col space-y-4 md:items-start">
-            <Link
-              href="/blog"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/snippets"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Snippets
-            </Link>
-          </div>
-
-          <div className="flex flex-col space-y-4 md:items-start">
-            <Link
-              href="/endorsements"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Endorsements
-            </Link>
-            <Link
-              href="/stats"
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Stats
-            </Link>
-          </div>
-
-          <div className="flex flex-col space-y-4 md:items-start">
-            <Link
-              href={socialLinks.github}
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              Github
-            </Link>
-            <Link
-              href={socialLinks.linkedin}
-              className="text-sm hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              LinkedIn
-            </Link>
+    <footer className="py-8 text-sm border-t dark:border-gray-800">
+      <Container>
+        <nav className="flex flex-col justify-between sm:items-center gap-6 sm:gap-4 w-full sm:flex-row mb-4 text-gray-900/50 dark:text-white/60">
+          {footerLinks.map((groups, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} className="flex flex-col space-y-4 md:items-start">
+              {groups.map(({ title, url }) => (
+                <Link
+                  key={title}
+                  href={url}
+                  className="hover:text-primary-500 transition-all ease-in-out duration-150"
+                >
+                  {title}
+                </Link>
+              ))}
+            </div>
+          ))}
+          <div className="flex flex-row gap-4">
+            {iconLinks.map(({ title, url, icon: Icon }) => (
+              <Link
+                key={title}
+                href={url}
+                showExternalLinkIcon={false}
+                title={title}
+              >
+                <Icon
+                  size={24}
+                  className="text-gray-900 dark:text-slate-100 hover:fill-primary-500 transition-all ease-in-out duration-150"
+                />
+              </Link>
+            ))}
           </div>
         </nav>
-        <div className="flex justify-between w-full">
-          <div className="w-full truncate">
+        <div className="flex flex-col gap-y-2 mt-6">
+          <div className="flex items-center justify-between">
             <NowPlaying />
-            <div className="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-              <div>Copyright</div>
-              <div>{`© ${new Date().getFullYear()}`}</div>
-              <Link
-                href="/"
-                className="text-black dark:text-white hover:text-primary-600 dark:hover:text-primary-400"
-              >
-                {defaultSeo.author}
-              </Link>
-            </div>
+            <ThemeSwitch />
           </div>
-          <ThemeSwitch />
+          <div className="flex items-center space-x-2 text-gray-900/50 dark:text-white/60">
+            <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
+            <Link
+              href="/"
+              className="font-medium text-gray-900 dark:text-slate-100 hover:text-primary-500"
+            >
+              {siteMetaData.author}
+            </Link>
+          </div>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }
