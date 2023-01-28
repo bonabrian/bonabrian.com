@@ -6,21 +6,24 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import { useRouter } from 'next/router'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import LoadingSpinner from '@/components/LoadingSpinner'
 import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import { ScrollProgressBar } from '@/components/ScrollProgressBar'
+import Spinner from '@/components/Spinner'
 import { useMDXComponent } from '@/hooks'
+import { ContentLayout } from '@/layouts'
 import { getPosts } from '@/lib/contentlayer'
 import type { Post } from '@/types'
+import type { PageWithLayout } from '@/types/layout'
 
 const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
   if (!post) return null
   return { ...post } as Post
 }
-const SinglePost = ({
+
+const SinglePost: PageWithLayout = ({
   post: contentLayerPost,
   previousPost,
   nextPost,
@@ -38,7 +41,7 @@ const SinglePost = ({
     }
 
     if (router.isFallback) {
-      return <LoadingSpinner />
+      return <Spinner />
     }
 
     if (!post || !MdxComponent) {
@@ -48,7 +51,7 @@ const SinglePost = ({
     return (
       <>
         <ScrollProgressBar />
-        <MdxContent backHref="/blog" content={post as Post}>
+        <MdxContent content={post as Post}>
           <MdxComponent components={{ ...mdxComponents } as any} />
         </MdxContent>
       </>
@@ -108,4 +111,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const nextPost = allPosts[index - 1] || null
 
   return { props: { post, previousPost, nextPost } }
+}
+
+SinglePost.getLayout = (page: React.ReactElement) => {
+  return <ContentLayout>{page}</ContentLayout>
 }
