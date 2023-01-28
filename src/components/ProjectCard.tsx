@@ -53,7 +53,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             alt={title}
             fill
             className="object-cover rounded-t-3xl group-hover:scale-110 transition duration-500 ease-in-out"
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             {...extraImageProps}
           />
         </Link>
