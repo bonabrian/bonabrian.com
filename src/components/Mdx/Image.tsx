@@ -41,8 +41,8 @@ export const Image = ({
     >
       <NextImage
         {...rest}
-        width={width || 0}
-        height={height || 0}
+        width={width || undefined}
+        height={height || undefined}
         loading={props.priority ? undefined : props.loading}
         decoding="async"
         className={classnames(
