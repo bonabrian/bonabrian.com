@@ -1,12 +1,34 @@
+import classnames from 'classnames'
+import type { ImageProps as NextImageProps } from 'next/image'
 import NextImage from 'next/image'
 import { useState } from 'react'
 
 import { ImageLightBox } from '../ImageLightBox'
-import type { DimensionProps, ImageProps, SizeProps } from './types'
 
-export const Image = ({ shouldOpenLightBox = true, ...props }: ImageProps) => {
+type BaseImageProps = Omit<NextImageProps, 'width' | 'height' | 'fill'>
+type SizeProps = BaseImageProps & { size?: number }
+type DimensionProps = BaseImageProps & {
+  width?: number
+  height?: number
+  fill?: boolean
+}
+
+type ImageProps = (SizeProps | DimensionProps) & {
+  shouldOpenLightBox?: boolean
+}
+
+export const Image = ({
+  shouldOpenLightBox = true,
+  className,
+  ...props
+}: ImageProps) => {
   const { size = 0, ...otherProps } = props as SizeProps
-  const { width = size, height = size, ...rest } = otherProps as DimensionProps
+  const {
+    width = size,
+    height = size,
+    fill = true,
+    ...rest
+  } = otherProps as DimensionProps
 
   const [openLightBox, setOpenLightBox] = useState(false)
   const handleOpenLightBox = () => {
@@ -14,21 +36,25 @@ export const Image = ({ shouldOpenLightBox = true, ...props }: ImageProps) => {
   }
 
   return (
-    <>
+    <figure
+      className={classnames(fill ? 'relative aspect-video' : '', className)}
+    >
       <NextImage
         {...rest}
-        width={width}
-        height={height}
+        width={width || 0}
+        height={height || 0}
         loading={props.priority ? undefined : props.loading}
         decoding="async"
-        className={`rounded-xl object-cover object-center ${
-          shouldOpenLightBox ? `cursor-zoom-in` : ''
-        }`}
+        className={classnames(
+          'object-cover rounded-xl',
+          shouldOpenLightBox ? 'cursor-zoom-in' : '',
+        )}
         onClick={handleOpenLightBox}
+        fill={fill}
       />
       {openLightBox && (
         <ImageLightBox closeLightBox={() => setOpenLightBox(false)} {...rest} />
       )}
-    </>
+    </figure>
   )
 }

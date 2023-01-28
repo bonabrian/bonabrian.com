@@ -1,13 +1,36 @@
 import { useMemo } from 'react'
+import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
+import type { IReadTimeResults } from 'reading-time'
 
 import { formatDate, getDomainFromUrl } from '@/lib/utils'
+import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../Divider'
 import Link from '../Link'
 import { Tag } from '../Tag'
 import { Image } from './Image'
-import type { ContentData, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
+
+// TODO: add Project content type
+type ContentData = Post | Snippet
+
+interface ContentFields {
+  title: string
+  description?: string
+  slug?: string
+  date?: string
+  image?: string
+  imageMeta?: ImageMeta
+  imageSource?: string
+  readingTime?: IReadTimeResults | null
+  tags?: Array<string>
+  draft?: boolean
+}
+
+type MdxContentProps = {
+  content: ContentData
+  children?: React.ReactNode
+}
 
 const getContentFields = (content: ContentData): ContentFields => {
   const fields: ContentFields = {
@@ -26,11 +49,7 @@ const getContentFields = (content: ContentData): ContentFields => {
   return fields
 }
 
-export const MdxContent = ({
-  backHref,
-  content,
-  children,
-}: MdxContentProps) => {
+export const MdxContent = ({ content, children }: MdxContentProps) => {
   const {
     title,
     description,
@@ -48,8 +67,6 @@ export const MdxContent = ({
       return {
         placeholder: 'blur',
         blurDataURL: imageMeta.blur64,
-        width: imageMeta.size.width || 665,
-        height: imageMeta.size.height || 375,
       }
     }
     return {}
@@ -58,68 +75,65 @@ export const MdxContent = ({
   const createdAt = formatDate({ timestamp: date })
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {backHref && <Link href={backHref}>← Back</Link>}
+    <div className="flex flex-col">
       <article className="article">
-        <header className="pt-6 xl:pb-8">
-          <div className="space-1 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100">
-              {title}
-            </h1>
-            {description && (
-              <p className="text-gray-600 dark:text-gray-400">{description}</p>
-            )}
-            <div className="my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center">
-              {date && (
-                <>
-                  <span title={createdAt.raw}>{createdAt.formatted}</span>
-                  <span>•</span>
-                </>
-              )}
-              <span>{readingTime?.text}</span>
-              <span>•</span>
+        <div className="flex flex-col justify-center sm:items-center gap-y-4 my-4">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl leading-9 sm:leading-10 md:leading-14 mb-0 tracking-tight mt-2">
+            {title}
+          </h1>
+          {description && (
+            <p className="text-sm sm:text-base text-gray-900/80 dark:text-white/80 sm:text-center">
+              {description}
+            </p>
+          )}
+          <div className="flex items-center flex-wrap text-xs gap-y-1 sm:gap-y-0 text-gray-900/50 dark:text-white/60">
+            <div className="flex items-center space-x-1 after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base">
+              <RiCalendarLine />
+              <span title={createdAt.raw}>{createdAt.formatted}</span>
+            </div>
+            <div className="flex items-center space-x-1 after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base">
+              <RiTimeLine />
+              <span title="Estimated read time">{readingTime?.text}</span>
+            </div>
+            <div className="flex items-center space-x-1">
               <ViewsCounter slug={slug} draft={draft} />
             </div>
           </div>
-        </header>
+        </div>
         <div className="prose dark:prose-dark max-w-none">
           {image && (
-            <figure>
+            <>
               {/* @ts-ignore */}
               <Image
                 src={image || ''}
                 alt={`Cover image for article "${title}"`}
+                fill
                 priority
+                className="object-cover"
                 {...extraImageProps}
-                quality={100}
-                layout="responsive"
               />
               {imageSource && (
-                <figcaption className="text-gray-500 text-center">
+                <figcaption className="text-gray-900/50 dark:text-white/60">
                   Source{' '}
                   <Link href={imageSource} title={imageSource}>
                     {getDomainFromUrl(imageSource)}
                   </Link>
                 </figcaption>
               )}
-            </figure>
+            </>
           )}
           {children}
         </div>
-        <footer>
+        <div>
+          {tags && (
+            <div className="flex flex-wrap gap-4 py-4">
+              {tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+          )}
           <Divider />
-          <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
-            {tags && (
-              <div className="py-4">
-                <div className="flex flex-wrap">
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </footer>
+        </div>
       </article>
     </div>
   )
