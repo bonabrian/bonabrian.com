@@ -7,6 +7,7 @@ import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../Divider'
 import Link from '../Link'
+import ShareArticle from '../ShareArticle'
 import { Tag } from '../Tag'
 import { Image } from './Image'
 import { ViewsCounter } from './ViewsCounter'
@@ -132,6 +133,10 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
               ))}
             </div>
           )}
+          <div className="flex flex-col justify-center items-center my-4">
+            <p className="text-base my-4">Share this article</p>
+            <ShareArticle slug={slug} title={title} description={description} />
+          </div>
           <Divider />
         </div>
       </article>
