@@ -56,7 +56,7 @@ const PageSeo = ({
   const keywords = useMemo<string>(() => {
     return mapKeywords(initialKeywords)
   }, [initialKeywords])
-  const canonicalUrl = canonical || `${siteMetaData.canonical}${router.asPath}`
+  const canonicalUrl = canonical || `${siteMetaData.siteUrl}${router.asPath}`
 
   const actualDefaultImage = useMemo<string>(
     () => (metaImageStyle === 'summary' ? defaultLogoImage : defaultImage),
