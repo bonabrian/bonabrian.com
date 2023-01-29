@@ -7,7 +7,7 @@ module.exports = {
   content: [
     './src/pages/**/*.tsx',
     './src/components/**/*.tsx',
-    './src/lib/**/*.ts',
+    './src/layouts/**/*.tsx',
   ],
   darkMode: 'class',
   theme: {
@@ -39,6 +39,17 @@ module.exports = {
           700: '#6249B7',
           800: '#422E93',
           900: '#2C1B7A',
+        },
+        pink: {
+          100: '#FEE9E7',
+          200: '#FECFD0',
+          300: '#FCB7BF',
+          400: '#FAA4B7',
+          500: '#F786AA',
+          600: '#D46191',
+          700: '#B1437C',
+          800: '#8F2A68',
+          900: '#76195B',
         },
         success: {
           100: '#F4FCCF',

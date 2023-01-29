@@ -1,5 +1,6 @@
+import classnames from 'classnames'
 import { useRef, useState } from 'react'
-import { BsClipboard, BsClipboardCheck } from 'react-icons/bs'
+import { HiOutlineClipboard, HiOutlineClipboardCheck } from 'react-icons/hi'
 
 type PreProps = {
   children: React.ReactNode
@@ -41,20 +42,18 @@ export const Pre = ({ children }: PreProps) => {
           aria-label="Copy"
           onClick={onCopy}
           type="button"
-          className={`absolute flex items-center justify-center right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-200 dark:bg-gray-800 ${
-            copied
-              ? 'focus:outline-none focus:border-green-600 border-green-600 dark:focus:border-green-400 dark:border-green-400'
-              : 'border-gray-300'
-          }`}
+          className={classnames(
+            'absolute flex items-center justify-center right-2 top-2 w-8 h-8 text-white',
+          )}
         >
           {copied ? (
-            <BsClipboardCheck className="text-green-600 dark:text-green-400" />
+            <HiOutlineClipboardCheck className="text-primary-500" size={24} />
           ) : (
-            <BsClipboard />
+            <HiOutlineClipboard size={24} />
           )}
         </button>
       )}
-      <pre>{children}</pre>
+      <pre className="bg-[#23283d]">{children}</pre>
     </div>
   )
 }

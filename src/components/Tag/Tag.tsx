@@ -4,10 +4,11 @@ import Link from '../Link'
 
 const Tag = ({ text }: { text: string }) => {
   return (
-    <Link href={`/tags/${kebabCase(text)}`} className="no-underline">
-      <span className="inline-flex text-sm lowercase bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded-full">
-        {text}
-      </span>
+    <Link
+      href={`/tags/${kebabCase(text)}`}
+      className="rounded-2xl font-semibold uppercase px-4 py-2 tracking-tighter text-white bg-pink-500 hover:bg-pink-600 dark:hover:bg-pink-400 text-xs"
+    >
+      {text}
     </Link>
   )
 }

@@ -63,9 +63,9 @@ const PostCard = ({ post }: PostCardProps) => {
           src={image || ''}
           alt={title}
           fill
-          {...extraImageProps}
           className="object-cover hover:scale-110 transition duration-500 ease-in-out"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          {...extraImageProps}
         />
       </Link>
       <div className="basis-full sm:basis-1/2 flex flex-col p-8">

@@ -1,7 +1,7 @@
 // import rehypeToc from '@jsdevtools/rehype-toc'
 import type { MDXOptions } from 'contentlayer/core'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
@@ -78,14 +78,14 @@ const mdx: MDXOptions = {
       },
     ],
     [rehypePrism, { ignoreMissing: true }],
-    [
-      rehypeAutolinkHeadings,
-      {
-        properties: {
-          className: ['anchor'],
-        },
-      },
-    ],
+    // [
+    //   rehypeAutolinkHeadings,
+    //   {
+    //     properties: {
+    //       className: ['anchor'],
+    //     },
+    //   },
+    // ],
     // [
     //   rehypeToc,
     //   {

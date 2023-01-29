@@ -3,7 +3,6 @@ export const siteMetaData = {
   defaultTitle: 'Bona Brian Siagian | Full-stack Developer',
   description:
     'Passionate Full-stack developer who focused on solving problems with digital products.',
-  canonical: 'https://bonabrian.com',
   author: 'Bona Brian Siagian',
   email: 'bonabriansiagian@gmail.com',
   github: 'https://github.com/bonabrian',
@@ -11,4 +10,7 @@ export const siteMetaData = {
   robots: 'follow, index',
   locale: 'en-ID',
   theme: 'system', // app theme: 'system' | 'dark' | 'light'
+  siteUrl: 'https://bonabrian.com',
+  avatarUrl:
+    'https://res.cloudinary.com/bonabrian/image/upload/v1675009995/avatar_davtqo.png',
 }

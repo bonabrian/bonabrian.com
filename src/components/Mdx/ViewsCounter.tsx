@@ -3,7 +3,11 @@ import { useEffect } from 'react'
 import { useRequest } from '@/hooks'
 
 import LoadingSpinner from '../LoadingSpinner'
-import type { ViewsCounterProps } from './types'
+
+export type ViewsCounterProps = {
+  slug?: string
+  draft?: boolean
+}
 
 export const ViewsCounter = ({ slug, draft }: ViewsCounterProps) => {
   // fix useEffect called twice
