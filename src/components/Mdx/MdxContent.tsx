@@ -17,7 +17,7 @@ type ContentData = Post | Snippet
 interface ContentFields {
   title: string
   description?: string
-  slug?: string
+  slug: string
   date?: string
   image?: string
   imageMeta?: ImageMeta
@@ -35,9 +35,9 @@ type MdxContentProps = {
 const getContentFields = (content: ContentData): ContentFields => {
   const fields: ContentFields = {
     title: content.title,
+    slug: content.slug,
   }
   if ('description' in content) fields.description = content.description
-  if ('slug' in content) fields.slug = content.slug
   if ('date' in content) fields.date = content.date || ''
   if ('image' in content) fields.image = content.image
   if ('imageMeta' in content) fields.imageMeta = content.imageMeta
