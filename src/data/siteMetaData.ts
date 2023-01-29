@@ -11,4 +11,7 @@ export const siteMetaData = {
   robots: 'follow, index',
   locale: 'en-ID',
   theme: 'system', // app theme: 'system' | 'dark' | 'light'
+  siteUrl: 'https://bonabrian.com',
+  avatarUrl:
+    'https://res.cloudinary.com/bonabrian/image/upload/v1675009995/avatar_davtqo.png',
 }
