@@ -30,7 +30,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       }
     }
     return {}
-  }, [imageMeta])
+  }, [image, imageMeta])
 
   const projectUrl = url || `${routePaths}/${slug}`
 
