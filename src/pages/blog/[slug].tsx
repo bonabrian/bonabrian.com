@@ -12,6 +12,7 @@ import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import Spinner from '@/components/Spinner'
+import { siteMetaData } from '@/data'
 import { useMDXComponent } from '@/hooks'
 import { ContentLayout } from '@/layouts'
 import { getPosts } from '@/lib/contentlayer'
@@ -73,6 +74,7 @@ const SinglePost: PageWithLayout = ({
           'thoughts',
         ]}
         ogType="article"
+        image={`${siteMetaData.siteUrl}${post?.image}`}
       />
       {renderContent()}
     </>
