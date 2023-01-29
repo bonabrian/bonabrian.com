@@ -38,7 +38,7 @@ const mapKeywords = (keywords?: string | Array<string> | null): string => {
 }
 
 const PageSeo = ({
-  title,
+  title: titleProp,
   description,
   keywords: initialKeywords = [],
   canonical,
@@ -48,8 +48,8 @@ const PageSeo = ({
 }: SeoProps) => {
   const router = useRouter()
 
-  const titleTemplate = title
-    ? siteMetaData.title.replace('%s', title)
+  const titleTemplate = titleProp
+    ? siteMetaData.title.replace('%s', titleProp)
     : siteMetaData.defaultTitle
 
   const metaDescription = description || siteMetaData.description
@@ -75,6 +75,15 @@ const PageSeo = ({
         : metaImageStyle || 'summary_large_image',
     [actualImage, metaImageStyle],
   )
+
+  const isArticle = ogType === 'article'
+  const imageSource = `${
+    siteMetaData.siteUrl
+  }/api/og?title=${encodeURIComponent(titleProp || '')}${
+    isArticle ? '&article' : ''
+  }${
+    actualImage ? `&imageSource=${actualImage}` : ''
+  }&description=${encodeURIComponent(metaDescription)}`
 
   const { isDark, mounted } = useDarkTheme()
   const { color, schema } = useMemo<MetaColor>(() => {
@@ -117,8 +126,8 @@ const PageSeo = ({
       />
 
       {/* image meta */}
-      <meta itemProp="image" content={actualImage} />
-      <meta property="og:image" content={actualImage} />
+      <meta itemProp="image" content={imageSource} />
+      <meta property="og:image" content={imageSource} />
 
       <meta
         property="twitter:card"
@@ -129,13 +138,13 @@ const PageSeo = ({
       <meta
         property="twitter:image"
         name="twitter:image"
-        content={actualImage}
+        content={imageSource}
       />
 
       <meta
         property="twitter:image:src"
         name="twitter:image:src"
-        content={actualImage}
+        content={imageSource}
       />
 
       {/* color meta */}

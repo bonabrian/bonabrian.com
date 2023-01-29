@@ -23,6 +23,7 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'i.scdn.co',
       'spotify.com',
+      'res.cloudinary.com',
     ],
   },
   webpack: (config) => {
