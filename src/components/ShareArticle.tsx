@@ -1,7 +1,7 @@
 import { RiLinkedinFill, RiTwitterFill } from 'react-icons/ri'
 import { LinkedinShareButton, TwitterShareButton } from 'react-share'
 
-import { routePaths, siteMetaData } from '@/data'
+import { routePaths, siteMetadata } from '@/data'
 
 interface ShareArticleProps {
   slug: string
@@ -10,7 +10,7 @@ interface ShareArticleProps {
 }
 
 const getArticlePublicUrl = (slug: string) => {
-  return `${siteMetaData.siteUrl}${routePaths.BLOG}/${slug}`
+  return `${siteMetadata.siteUrl}${routePaths.BLOG}/${slug}`
 }
 
 const ShareArticle = ({ slug, title, description }: ShareArticleProps) => {

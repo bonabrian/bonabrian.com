@@ -2,7 +2,7 @@ import { ImageResponse } from '@vercel/og'
 import type { PageConfig } from 'next'
 import type { NextRequest } from 'next/server'
 
-import { siteMetaData } from '@/data'
+import { siteMetadata } from '@/data'
 
 export const config: PageConfig = {
   runtime: 'edge',
@@ -145,7 +145,7 @@ const handler = async (req: NextRequest) => {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         tw="rounded-full h-14 w-14 mr-4"
-                        src={siteMetaData.avatarUrl}
+                        src={siteMetadata.avatarUrl}
                         alt="Profile Picture"
                       />
                       <div tw="flex flex-col">
@@ -153,7 +153,7 @@ const handler = async (req: NextRequest) => {
                           tw="m-0 text-2xl"
                           style={{ fontFamily: 'Montserrat-Bold' }}
                         >
-                          {siteMetaData.author}
+                          {siteMetadata.author}
                         </h1>
                         <h2
                           tw="m-0"

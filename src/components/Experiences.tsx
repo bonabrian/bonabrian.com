@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { experiences } from '@/config'
-import { siteMetaData } from '@/data'
+import { siteMetadata } from '@/data'
 
 import Divider from './Divider'
 import Link from './Link'
@@ -64,7 +64,7 @@ const Experiences = () => {
           Last updated at{' '}
           <time dateTime="2022-08-13 22:00:00">
             {new Date('2022-08-13 22:00:00').toLocaleDateString(
-              siteMetaData.locale,
+              siteMetadata.locale,
               {
                 year: 'numeric',
                 month: 'long',

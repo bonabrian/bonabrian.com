@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import { ProgressBar } from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
-import { siteMetaData } from '@/data'
+import { siteMetadata } from '@/data'
 import { MainLayout } from '@/layouts'
 import { trackPageView } from '@/lib/gtag'
 import type { PageWithLayout } from '@/types/layout'
@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme={siteMetaData.theme}>
+      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
         <SessionProvider session={session}>
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>

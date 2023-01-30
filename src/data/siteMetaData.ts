@@ -1,4 +1,4 @@
-export const siteMetaData = {
+export const siteMetadata = {
   title: '%s | Full-stack Developer',
   defaultTitle: 'Bona Brian Siagian | Full-stack Developer',
   description:
