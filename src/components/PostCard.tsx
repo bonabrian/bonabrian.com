@@ -86,7 +86,7 @@ const PostCard = ({ post }: PostCardProps) => {
           {excerpt}
         </p>
         <div className="before:content-[''] before:block before:w-16 before:h-px before:bg-primary-500 before:mb-4">
-          <div className="flex flex-row text-sm text-gray-900/50 dark:text-white/60">
+          <div className="flex flex-row text-xs text-gray-900/50 dark:text-white/60">
             <div className="flex items-center space-x-1 after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base">
               <RiCalendarLine />
               <span title={publishedAt.raw}>{publishedAt.formatted}</span>
