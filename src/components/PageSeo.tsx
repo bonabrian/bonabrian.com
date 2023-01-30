@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
-import { siteMetaData } from '@/data'
+import { siteMetadata } from '@/data'
 import { useDarkTheme } from '@/hooks'
 import { unique } from '@/lib/utils'
 
@@ -49,14 +49,14 @@ const PageSeo = ({
   const router = useRouter()
 
   const titleTemplate = titleProp
-    ? siteMetaData.title.replace('%s', titleProp)
-    : siteMetaData.defaultTitle
+    ? siteMetadata.title.replace('%s', titleProp)
+    : siteMetadata.defaultTitle
 
-  const metaDescription = description || siteMetaData.description
+  const metaDescription = description || siteMetadata.description
   const keywords = useMemo<string>(() => {
     return mapKeywords(initialKeywords)
   }, [initialKeywords])
-  const canonicalUrl = canonical || `${siteMetaData.siteUrl}${router.asPath}`
+  const canonicalUrl = canonical || `${siteMetadata.siteUrl}${router.asPath}`
 
   const actualDefaultImage = useMemo<string>(
     () => (metaImageStyle === 'summary' ? defaultLogoImage : defaultImage),
@@ -78,7 +78,7 @@ const PageSeo = ({
 
   const isArticle = ogType === 'article'
   const imageSource = `${
-    siteMetaData.siteUrl
+    siteMetadata.siteUrl
   }/api/og?title=${encodeURIComponent(titleProp || '')}${
     isArticle ? '&article' : ''
   }${
@@ -100,7 +100,7 @@ const PageSeo = ({
       <meta name="title" content={titleTemplate} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content={siteMetaData.author} />
+      <meta name="author" content={siteMetadata.author} />
 
       <meta itemProp="name" content={titleTemplate} />
       <meta itemProp="description" content={metaDescription} />
@@ -153,13 +153,13 @@ const PageSeo = ({
       <meta name="msapplication-navbutton-color" content={color} />
       <meta name="apple-mobile-web-app-status-bar-style" content={color} />
 
-      <meta name="robots" content={siteMetaData.robots} />
+      <meta name="robots" content={siteMetadata.robots} />
 
       <link
         rel="alternate"
         href="/feed.xml"
         type="application/rss+xml"
-        title={`${siteMetaData.author} (RSS)`}
+        title={`${siteMetadata.author} (RSS)`}
       />
     </Head>
   )

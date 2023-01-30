@@ -1,4 +1,4 @@
-import { siteMetaData } from '@/data'
+import { siteMetadata } from '@/data'
 import { useDarkTheme } from '@/hooks'
 
 import Link from '../Link'
@@ -11,7 +11,7 @@ const Logo = () => {
   const LogoSvg = isDark ? LogoDark : LogoLight
 
   return (
-    <Link href="/" aria-label={siteMetaData.author}>
+    <Link href="/" aria-label={siteMetadata.author}>
       <LogoSvg className="fill-current h-8" />
     </Link>
   )
