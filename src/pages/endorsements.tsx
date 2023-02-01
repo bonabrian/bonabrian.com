@@ -1,10 +1,12 @@
 import type { InferGetStaticPropsType } from 'next'
-import { useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { useState } from 'react'
 
 import EndorsementsBadge from '@/components/EndorsementsBadge'
-import LoginView from '@/components/LoginView'
+import Link from '@/components/Link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
+import Spinner from '@/components/Spinner'
 import { useSkillCategories } from '@/hooks'
 import getSkillCategories from '@/lib/getSkillCategories'
 
@@ -25,6 +27,13 @@ const Endorsements = ({
   const { data: session } = useSession()
 
   const { categories, error } = useSkillCategories({ fallbackData })
+  const [isLoading, setIsLoading] = useState(false)
+
+  const onSignIn = async () => {
+    setIsLoading(true)
+    await signIn()
+    setIsLoading(false)
+  }
 
   return (
     <>
@@ -38,8 +47,49 @@ const Endorsements = ({
           title="Endorsements"
           description="Please consider endorsing my technical skills and abilities based on your personal experience working with me. Your endorsement will be greatly appreciated."
         />
+        {session?.user ? (
+          <div className="mb-10 border-2 border-primary-500 rounded-md p-6 inline-flex flex-col items-start">
+            <p>
+              You are currently logged in as{' '}
+              <strong>{session.user.name}</strong>
+            </p>
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <Link
+                href="/api/auth/signout"
+                className="font-medium underline"
+                onClick={async (e) => {
+                  e.preventDefault()
+                  setIsLoading(true)
+                  await signOut()
+                  setIsLoading(false)
+                }}
+              >
+                Logout
+              </Link>
+            )}
+          </div>
+        ) : (
+          <div className="mb-10 border-2 border-primary-500 rounded-md p-6 inline-flex flex-col items-start max-w-2xl">
+            <h2 className="text-base font-bold mb-4">
+              Please log in to provide your valuable endorsement.
+            </h2>
+            <button
+              className="relative px-8 text-xs sm:text-sm overflow-hidden inline-flex uppercase font-semibold -tracking-tighter h-12 justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:[&:not(:disabled)]:bg-primary-500 hover:text-white disabled:cursor-not-allowed border-2 border-solid border-gray-900 dark:border-slate-100 rounded-full shadow-[4px_4px_rgb(0_0_0_/_20%)] dark:shadow-[4px_4px_rgb(163_163_163_/_20%)]"
+              onClick={onSignIn}
+              disabled={isLoading}
+            >
+              {isLoading ? <Spinner /> : 'Login'}
+            </button>
+            <p className="text-sm mt-4 text-gray-900/50 dark:text-white/60">
+              Your information, including your name and profile picture, will
+              only be utilized for he purpose of properly displaying your
+              identity as an endorser.
+            </p>
+          </div>
+        )}
       </div>
-      <LoginView message="Login to give endorsements." />
 
       <div className="my-12">
         {categories && !error && (
