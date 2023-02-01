@@ -36,7 +36,7 @@ const Endorsements = ({
       <div className="my-8 space-y-3 md:space-y-5">
         <PageHeader
           title="Endorsements"
-          description="Since you're here, I invite you to give me endorsement(s) based on the experience you had with me in tech."
+          description="Please consider endorsing my technical skills and abilities based on your personal experience working with me. Your endorsement will be greatly appreciated."
         />
       </div>
       <LoginView message="Login to give endorsements." />
