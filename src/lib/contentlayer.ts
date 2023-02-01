@@ -1,6 +1,6 @@
 import { pick } from 'contentlayer/client'
-import type { Post, Project } from 'contentlayer/generated'
-import { allPosts, allProjects } from 'contentlayer/generated'
+import type { Post, Project, Snippet } from 'contentlayer/generated'
+import { allPosts, allProjects, allSnippets } from 'contentlayer/generated'
 
 export const getProjects = (fields: (keyof Project)[] = []): Array<Project> => {
   const filteredProjects = allProjects
@@ -94,4 +94,14 @@ export const getRecentPosts = (maxDisplay: number = 2): Array<Post> => {
   if (!posts) return []
 
   return posts.slice(0, maxDisplay)
+}
+
+export const getSnippets = (fields: (keyof Snippet)[] = []): Array<Snippet> => {
+  const filteredSnippets = allSnippets
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+    .filter((it: Snippet) => it.title?.length > 0 && it.slug?.length > 0)
+
+  return fields && fields.length
+    ? filteredSnippets.map((it: Snippet) => pick(it, fields))
+    : filteredSnippets
 }

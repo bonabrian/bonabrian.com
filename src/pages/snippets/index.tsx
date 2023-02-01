@@ -1,13 +1,14 @@
 import type { InferGetStaticPropsType } from 'next'
 
 import Link from '@/components/Link'
+import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
-import PageTitle from '@/components/PageTitle'
-import RenderIf from '@/components/RenderIf'
-import { getAllSnippets } from '@/services/snippets'
+import { routePaths } from '@/data'
+import { getSnippets } from '@/lib/contentlayer'
+import { formatDate } from '@/lib/utils'
 
 export const getStaticProps = async () => {
-  const allSnippets = getAllSnippets(['title', 'description', 'slug'])
+  const allSnippets = getSnippets(['title', 'description', 'slug', 'date'])
 
   return {
     props: { snippets: allSnippets },
@@ -31,37 +32,37 @@ const Snippets = ({
           'scripts',
         ]}
       />
-      <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-        <PageTitle>Code Snippets</PageTitle>
-        <p className="text-gray-600 dark:text-gray-400">
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          These are a collection of code snippets I've used in the past and
-          saved.
-        </p>
-        <RenderIf isTrue={(snippets?.length || 0) <= 0}>
-          <div className="flex items-center justify-center py-3">
-            <h3 className="text-gray-400 dark:text-gray-300">
-              No snippets found.
-            </h3>
-          </div>
-        </RenderIf>
+      <div className="my-4 space-y-3 md:space-y-5">
+        <PageHeader
+          title="Snippets"
+          description="A repository of previously utilized and saved code snippets which can be copied and pasted."
+        />
       </div>
-      <div className="grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2">
-        {snippets.map(({ slug, title, description }) => {
-          return (
-            <Link
-              key={slug}
-              href={`/snippets/${slug}`}
-              className="border border-grey-200 dark:border-gray-800 rounded p-4 w-full hover:border-primary-400 dark:hover:border-primary-500 hover:scale-105 transition-all"
-            >
-              <h3 className="text-lg font-bold text-left">{title}</h3>
-              <p className="mt-1 text-gray-500 dark:text-gray-400">
-                {description}
-              </p>
-            </Link>
-          )
-        })}
-      </div>
+      {snippets.length ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-auto gap-4">
+          {snippets.map(({ slug, title, description, date }) => {
+            const lastUpdated = formatDate({ timestamp: date, month: 'short' })
+            return (
+              <Link
+                key={slug}
+                href={`${routePaths.SNIPPETS}/${slug}`}
+                className="flex flex-col justify-between border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 transition-all"
+              >
+                <h3 className="font-bold mb-1 text-base sm:text-lg">{title}</h3>
+                <p className="text-base">{description}</p>
+                <p
+                  className="mt-4 text-sm text-gray-900/50 dark:text-white/60 text-right"
+                  title={lastUpdated.raw}
+                >
+                  {lastUpdated.formatted}
+                </p>
+              </Link>
+            )
+          })}
+        </div>
+      ) : (
+        <p className="text-center">No snippets.</p>
+      )}
     </>
   )
 }
