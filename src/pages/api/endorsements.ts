@@ -22,6 +22,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
       const { skillId } = req.body
+      const isExists = await prisma.endorsement.findFirst({
+        where: {
+          skill_id: Number(skillId),
+          userId: session.id as string,
+        },
+      })
+
+      if (isExists) {
+        return res.status(409).json({
+          message: 'You already endorse this skill',
+        })
+      }
+
       await prisma.endorsement.create({
         data: {
           skill_id: Number(skillId),
