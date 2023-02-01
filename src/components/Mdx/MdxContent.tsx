@@ -74,6 +74,7 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
   }, [imageMeta])
 
   const createdAt = formatDate({ timestamp: date })
+  const isSnippet = content.type === 'Snippet'
 
   return (
     <div className="flex flex-col">
@@ -133,10 +134,16 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
               ))}
             </div>
           )}
-          <div className="flex flex-col justify-center items-center my-4">
-            <p className="text-base my-4">Share this article</p>
-            <ShareArticle slug={slug} title={title} description={description} />
-          </div>
+          {!isSnippet && (
+            <div className="flex flex-col justify-center items-center my-4">
+              <p className="text-base my-4">Share this article</p>
+              <ShareArticle
+                slug={slug}
+                title={title}
+                description={description}
+              />
+            </div>
+          )}
           <Divider />
         </div>
       </article>
