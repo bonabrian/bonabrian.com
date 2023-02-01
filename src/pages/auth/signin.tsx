@@ -5,9 +5,9 @@ import { unstable_getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import LoginButton from '@/components/LoginButton'
+import LoginProviderButton from '@/components/LoginProviderButton'
+import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
-import PageTitle from '@/components/PageTitle'
 
 import { authOptions } from '../api/auth/[...nextauth]'
 
@@ -28,18 +28,18 @@ const SignIn = ({
   return (
     <>
       <PageSeo title="Sign In" description="Sign In" />
-      <div className="pt-6 pb-4 space-y-2 md:space-y-5">
-        <PageTitle>Sign In</PageTitle>
+      <div className="mt-8 space-y-3 md:space-y-5">
+        <PageHeader
+          title="Sign In"
+          description="Please sign in using one of the following providers"
+        />
       </div>
       <div className="flex flex-col items-center space-y-2 justify-items-center xl:space-y-0">
         <div className="p-8 prose dark:prose-dark max-w-none">
           <div className="flex flex-col items-center justify-between gap-4">
-            <p className="text-center sm:text-left">
-              Sign in with one of these providers:
-            </p>
             {providers &&
               Object.values(providers).map((provider) => (
-                <LoginButton key={provider.id} provider={provider} />
+                <LoginProviderButton key={provider.id} provider={provider} />
               ))}
           </div>
         </div>

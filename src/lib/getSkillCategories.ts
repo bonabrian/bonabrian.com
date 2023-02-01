@@ -1,7 +1,7 @@
 import prisma from '@/lib/prisma'
 import type { Skill, SkillCategory, User } from '@/types'
 
-export const getGroupedSkillsByCategory = async () => {
+const getSkillCategories = async () => {
   try {
     const data = await prisma.skillCategory.findMany({
       include: {
@@ -36,3 +36,5 @@ export const getGroupedSkillsByCategory = async () => {
     )
   }
 }
+
+export default getSkillCategories
