@@ -1,6 +1,7 @@
 import type { Content, ImageMeta } from './content'
 
 export interface Post extends Content {
+  readonly type?: 'Post'
   excerpt?: string
   image?: string
   imageMeta?: ImageMeta

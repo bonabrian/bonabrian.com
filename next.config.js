@@ -13,7 +13,10 @@ const redirect = (source, destination, permanent = true) => {
 }
 
 const nextConfig = {
+  swcMinify: true,
+  compress: true,
   reactStrictMode: true,
+  crossOrigin: 'anonymous',
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   images: {
     domains: [

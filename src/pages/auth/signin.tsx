@@ -28,7 +28,7 @@ const SignIn = ({
   return (
     <>
       <PageSeo title="Sign In" description="Sign In" />
-      <div className="mt-8 space-y-3 md:space-y-5">
+      <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Sign In"
           description="Please sign in using one of the following providers"

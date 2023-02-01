@@ -42,7 +42,7 @@ const Endorsements = ({
         description={"Endorse bonabrian's skill"}
         keywords={['skills', 'endorsements', 'programming']}
       />
-      <div className="my-8 space-y-3 md:space-y-5">
+      <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Endorsements"
           description="Please consider endorsing my technical skills and abilities based on your personal experience working with me. Your endorsement will be greatly appreciated."

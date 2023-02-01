@@ -65,7 +65,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           'development',
         ]}
       />
-      <div className="my-8 space-y-3 md:space-y-5">
+      <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Blog"
           description="The place where I share my thoughts, ideas and experiences about software development."
