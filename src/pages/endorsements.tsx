@@ -69,7 +69,6 @@ const Endorsements = ({
           </div>
         )}
       </div>
-      {/* <Skills fallbackData={fallbackData} /> */}
     </>
   )
 }
