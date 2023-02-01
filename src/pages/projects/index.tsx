@@ -84,7 +84,7 @@ const Projects = ({
           'software',
         ]}
       />
-      <div className="my-8 space-y-3 md:space-y-5">
+      <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Projects"
           description="A collection of finest projects that I have built. ❤️️"
