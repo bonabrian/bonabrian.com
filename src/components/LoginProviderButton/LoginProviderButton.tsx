@@ -37,7 +37,11 @@ const providerStyleGuides: { [key: string]: StyleGuide } = {
   },
 }
 
-const LoginButton = ({ provider }: { provider: ClientSafeProvider }) => {
+const LoginProviderButton = ({
+  provider,
+}: {
+  provider: ClientSafeProvider
+}) => {
   const { isDark, mounted } = useDarkTheme()
   const { Logo, LogoDark, bg, bgDark, text, textDark } =
     providerStyleGuides[provider.id]
@@ -68,4 +72,4 @@ const LoginButton = ({ provider }: { provider: ClientSafeProvider }) => {
   )
 }
 
-export default LoginButton
+export default LoginProviderButton
