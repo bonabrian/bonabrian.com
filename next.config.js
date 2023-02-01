@@ -24,6 +24,7 @@ const nextConfig = {
       'i.scdn.co',
       'spotify.com',
       'res.cloudinary.com',
+      'ui-avatars.com',
     ],
   },
   webpack: (config) => {
