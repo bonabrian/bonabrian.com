@@ -1,6 +1,6 @@
 import { kebabCase } from '@/lib/utils'
 
-import Link from '../Link'
+import Link from './Link'
 
 const Tag = ({ text }: { text: string }) => {
   return (

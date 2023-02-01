@@ -8,7 +8,7 @@ import type { ImageMeta, Post, Snippet } from '@/types'
 import Divider from '../Divider'
 import Link from '../Link'
 import ShareArticle from '../ShareArticle'
-import { Tag } from '../Tag'
+import Tag from '../Tag'
 import { Image } from './Image'
 import { ViewsCounter } from './ViewsCounter'
 
