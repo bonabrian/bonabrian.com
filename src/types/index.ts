@@ -1,5 +1,4 @@
 export * from './content'
-export * from './form'
 export * from './post'
 export * from './project'
 export * from './skill'
