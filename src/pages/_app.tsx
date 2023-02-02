@@ -8,21 +8,13 @@ import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 
 import GoogleAnalytic from '@/components/GoogleAnalytic'
+import Layout from '@/components/Layout'
 import { ProgressBar } from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { siteMetadata } from '@/data'
-import { MainLayout } from '@/layouts'
 import { trackPageView } from '@/lib/gtag'
-import type { PageWithLayout } from '@/types/layout'
 
-type AppPropsWithLayout = AppProps & {
-  Component: PageWithLayout
-}
-
-const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout =
-    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>)
-
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -44,7 +36,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>
               <ProgressBar />
-              {getLayout(<Component {...rest} />)}
+              <Layout>
+                <Component {...rest} />
+              </Layout>
             </ScrollObserver>
           </AnimatePresence>
         </SessionProvider>

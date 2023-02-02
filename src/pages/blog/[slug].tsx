@@ -14,17 +14,15 @@ import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import Spinner from '@/components/Spinner'
 import { siteMetadata } from '@/data'
 import { useMDXComponent } from '@/hooks'
-import { ContentLayout } from '@/layouts'
 import { getPosts } from '@/lib/contentlayer'
 import type { Post } from '@/types'
-import type { PageWithLayout } from '@/types/layout'
 
 const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
   if (!post) return null
   return { ...post } as Post
 }
 
-const SinglePost: PageWithLayout = ({
+const SinglePost = ({
   post: contentLayerPost,
   previousPost,
   nextPost,
@@ -113,8 +111,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const nextPost = allPosts[index - 1] || null
 
   return { props: { post, previousPost, nextPost } }
-}
-
-SinglePost.getLayout = (page: React.ReactElement) => {
-  return <ContentLayout>{page}</ContentLayout>
 }

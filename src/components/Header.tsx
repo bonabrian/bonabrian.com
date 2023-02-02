@@ -2,7 +2,6 @@ import classnames from 'classnames'
 
 import { useScrollTop } from '@/hooks'
 
-import Container from './Container'
 import DropdownMenu from './DropdownMenu'
 import Logo from './Logo'
 import Navigation from './Navigation'
@@ -19,15 +18,13 @@ const Header = () => {
         isTop ? 'border-none' : 'border-b border-gray-200 dark:border-gray-800',
       )}
     >
-      <Container>
-        <div className="flex items-center py-6 justify-between">
-          <Logo />
-          <div className="px-2">
-            <Navigation />
-            <DropdownMenu />
-          </div>
+      <div className="flex items-center py-6 justify-between w-full max-w-6xl mx-auto px-4">
+        <Logo />
+        <div className="px-2">
+          <Navigation />
+          <DropdownMenu />
         </div>
-      </Container>
+      </div>
     </header>
   )
 }
