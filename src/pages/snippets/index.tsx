@@ -46,7 +46,7 @@ const Snippets = ({
               <Link
                 key={slug}
                 href={`${routePaths.SNIPPETS}/${slug}`}
-                className="flex flex-col justify-between border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 transition-all"
+                className="flex flex-col justify-between border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 dark:hover:border-primary-500 transition-all"
               >
                 <h3 className="font-bold mb-1 text-base sm:text-lg">{title}</h3>
                 <p className="text-base">{description}</p>
