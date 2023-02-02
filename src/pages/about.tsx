@@ -20,7 +20,7 @@ const About = () => {
 
       <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
         <div className="flex flex-col items-center xl:sticky xl:top-24">
-          <div className="relative w-52 h-52 xl:w-88 xl:h-88">
+          <div className="relative w-52 h-52 xl:w-72 xl:h-72">
             <Image
               src={siteMetadata.avatarUrl}
               alt={siteMetadata.author}
