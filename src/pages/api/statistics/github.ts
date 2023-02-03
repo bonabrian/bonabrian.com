@@ -1,11 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { PageConfig } from 'next'
 
 const userApiUrl = 'https://api.github.com/users/bonabrian'
-
-export const config: PageConfig = {
-  runtime: 'edge',
-}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -24,8 +19,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
         0,
       )
-
-      console.log(user)
 
       res.setHeader(
         'Cache-Control',
