@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
       },
     ],
     accomplishments: [
-      'Collaborated closely with cross-functional teams, including designers, product managers, and stakeholders to ensure seamless integration and implementation of new features',
+      'Collaborated closely with cross-functional teams, including designers, product managers, and stakeholders to ensure seamless integration and implementation of new features.',
       'Developed a flexible and configurable automation process to streamline business operations.',
       'Developed and maintaining robust and scalable server-side applications.',
       'Contributed to the development of technical standards, best practices, and design patterns.',
