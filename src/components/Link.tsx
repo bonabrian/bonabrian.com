@@ -41,7 +41,10 @@ const Link = forwardRef<any, LinkProps>(
       >
         {children}
         {showExternalLinkIcon && (
-          <HiOutlineExternalLink className="inline-block ml-0.5 align-middle" />
+          <HiOutlineExternalLink
+            size={12}
+            className="inline-block ml-0.5 align-middle"
+          />
         )}
       </NextLink>
     )

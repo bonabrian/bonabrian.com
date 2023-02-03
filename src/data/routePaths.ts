@@ -5,4 +5,5 @@ export const routePaths = {
   ENDORSEMENTS: '/endorsements',
   ABOUT: '/about',
   STATS: '/stats',
+  RESUME: '/resume',
 }

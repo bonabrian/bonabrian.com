@@ -12,17 +12,15 @@ import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import { ScrollProgressBar } from '@/components/ScrollProgressBar'
 import { useMDXComponent } from '@/hooks'
-import { ContentLayout } from '@/layouts'
 import { getSnippets } from '@/lib/contentlayer'
 import type { Snippet } from '@/types'
-import type { PageWithLayout } from '@/types/layout'
 
 const mapContentLayerSnippet = (snippet?: GeneratedSnippet): Snippet | null => {
   if (!snippet) return null
   return { ...snippet } as Snippet
 }
 
-const SnippetPage: PageWithLayout = ({
+const SnippetPage = ({
   snippet: generatedSnippet,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const MdxComponent = useMDXComponent(generatedSnippet?.body?.code || '')
@@ -107,7 +105,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default SnippetPage
-
-SnippetPage.getLayout = (page: React.ReactElement) => {
-  return <ContentLayout>{page}</ContentLayout>
-}
