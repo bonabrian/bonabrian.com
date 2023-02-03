@@ -3,28 +3,28 @@ import { RiGithubLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 
-import { MetricCard } from './MetricCard'
+import { StatisticsCard } from './StatisticsCard'
 
-export const GitHubCard = () => {
+export const GithubStats = () => {
   const { data, loading } = useRequest<{ followers?: number; stars?: number }>(
-    '/api/github',
+    '/api/statistics/github',
   )
 
   return (
     <>
-      <MetricCard
+      <StatisticsCard
         link="https://github.com/bonabrian?tab=repositories"
-        text="stars on GitHub"
-        value={`${data?.stars?.toLocaleString() || ''}`}
+        text="Stars on Github"
+        value={`${data?.stars?.toLocaleString() || '-'}`}
+        loading={loading}
         icon={AiOutlineStar}
-        loading={loading}
       />
-      <MetricCard
+      <StatisticsCard
         link="https://github.com/bonabrian"
-        text="followers on GitHub"
-        value={`${data?.followers?.toLocaleString() || ''}`}
-        icon={RiGithubLine}
+        text="Github Followers"
+        value={`${data?.followers?.toLocaleString() || '-'}`}
         loading={loading}
+        icon={RiGithubLine}
       />
     </>
   )
