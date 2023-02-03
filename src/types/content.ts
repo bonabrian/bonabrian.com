@@ -8,7 +8,7 @@ export interface Content {
   draft?: boolean
 }
 
-export interface HeroMeta {
+export interface ImageMeta {
   size: { width: number; height: number }
   blur64?: string
 }

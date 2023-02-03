@@ -12,7 +12,7 @@ import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import ScrollProgressBar from '@/components/ScrollProgressBar'
 import { useMDXComponent } from '@/hooks'
-import { getAllSnippets } from '@/services/snippets'
+import { getSnippets } from '@/lib/contentlayer'
 import type { Snippet } from '@/types'
 
 const mapContentLayerSnippet = (snippet?: GeneratedSnippet): Snippet | null => {
@@ -20,7 +20,7 @@ const mapContentLayerSnippet = (snippet?: GeneratedSnippet): Snippet | null => {
   return { ...snippet } as Snippet
 }
 
-const SnippetDetail = ({
+const SnippetPage = ({
   snippet: generatedSnippet,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const MdxComponent = useMDXComponent(generatedSnippet?.body?.code || '')
@@ -67,7 +67,7 @@ const SnippetDetail = ({
           'shorthand',
           'scripts',
         ]}
-        ogType='article'
+        ogType="article"
       />
       {renderContent()}
     </>
@@ -76,7 +76,7 @@ const SnippetDetail = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getAllSnippets([]).map((it: GeneratedSnippet) => ({
+    paths: getSnippets([]).map((it: GeneratedSnippet) => ({
       params: { slug: it.slug },
     })),
     fallback: true,
@@ -84,7 +84,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const allSnippets = getAllSnippets()
+  const allSnippets = getSnippets()
   const snippet = allSnippets.find(
     (it: GeneratedSnippet) => it.slug === params?.slug,
   )
@@ -104,4 +104,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { snippet } }
 }
 
-export default SnippetDetail
+export default SnippetPage

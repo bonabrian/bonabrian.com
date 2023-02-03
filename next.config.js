@@ -13,7 +13,10 @@ const redirect = (source, destination, permanent = true) => {
 }
 
 const nextConfig = {
+  swcMinify: true,
+  compress: true,
   reactStrictMode: true,
+  crossOrigin: 'anonymous',
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   images: {
     domains: [
@@ -23,6 +26,8 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'i.scdn.co',
       'spotify.com',
+      'res.cloudinary.com',
+      'ui-avatars.com',
     ],
   },
   webpack: (config) => {

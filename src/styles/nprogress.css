@@ -2,7 +2,7 @@
 
 /* Make clicks pass-through */
 #nprogress {
-  pointer-events: none;
+  @apply pointer-events-none;
 }
 
 #nprogress .bar {
@@ -11,15 +11,7 @@
 
 /* Fancy blur effect */
 #nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  /* box-shadow: 0 0 10px #de1d8d, 0 0 5px #de1d8d; */
-  box-shadow: none;
-  opacity: 1;
-
+  @apply block absolute right-0 w-[100px] h-full shadow-none opacity-100;
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);

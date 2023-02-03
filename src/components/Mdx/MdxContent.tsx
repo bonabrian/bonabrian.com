@@ -1,24 +1,48 @@
 import { useMemo } from 'react'
+import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
+import type { IReadTimeResults } from 'reading-time'
 
-import { formatDate, getDomainFromUrl } from '@/utils'
+import { formatDate, getDomainFromUrl } from '@/lib/utils'
+import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../Divider'
 import Link from '../Link'
+import ShareArticle from '../ShareArticle'
 import Tag from '../Tag'
 import { Image } from './Image'
-import type { ContentData, ContentFields, MdxContentProps } from './types'
 import { ViewsCounter } from './ViewsCounter'
+
+// TODO: add Project content type
+type ContentData = Post | Snippet
+
+interface ContentFields {
+  title: string
+  description?: string
+  slug: string
+  date?: string
+  image?: string
+  imageMeta?: ImageMeta
+  imageSource?: string
+  readingTime?: IReadTimeResults | null
+  tags?: Array<string>
+  draft?: boolean
+}
+
+type MdxContentProps = {
+  content: ContentData
+  children?: React.ReactNode
+}
 
 const getContentFields = (content: ContentData): ContentFields => {
   const fields: ContentFields = {
     title: content.title,
+    slug: content.slug,
   }
   if ('description' in content) fields.description = content.description
-  if ('slug' in content) fields.slug = content.slug
   if ('date' in content) fields.date = content.date || ''
-  if ('hero' in content) fields.hero = content.hero
-  if ('heroMeta' in content) fields.heroMeta = content.heroMeta
-  if ('heroSource' in content) fields.heroSource = content.heroSource
+  if ('image' in content) fields.image = content.image
+  if ('imageMeta' in content) fields.imageMeta = content.imageMeta
+  if ('imageSource' in content) fields.imageSource = content.imageSource
   if ('readingTime' in content) fields.readingTime = content.readingTime
   if ('tags' in content) fields.tags = content.tags
   if ('draft' in content) fields.draft = content.draft
@@ -26,100 +50,102 @@ const getContentFields = (content: ContentData): ContentFields => {
   return fields
 }
 
-export const MdxContent = ({
-  backHref,
-  content,
-  children,
-}: MdxContentProps) => {
+export const MdxContent = ({ content, children }: MdxContentProps) => {
   const {
     title,
     description,
     slug,
     date,
-    hero,
-    heroMeta,
-    heroSource,
+    image,
+    imageMeta,
+    imageSource,
     readingTime,
     tags,
     draft,
   } = getContentFields(content)
-  const extraHeroProps = useMemo(() => {
-    if (heroMeta && heroMeta.blur64) {
+  const extraImageProps = useMemo(() => {
+    if (imageMeta && imageMeta.blur64) {
       return {
         placeholder: 'blur',
-        blurDataURL: heroMeta.blur64,
-        width: heroMeta.size.width || 665,
-        height: heroMeta.size.height || 375,
+        blurDataURL: imageMeta.blur64,
       }
     }
     return {}
-  }, [heroMeta])
+  }, [imageMeta])
 
   const createdAt = formatDate({ timestamp: date })
+  const isSnippet = content.type === 'Snippet'
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      {backHref && <Link href={backHref}>← Back</Link>}
-      <article className='article'>
-        <header className='pt-6 xl:pb-8'>
-          <div className='space-1 text-center'>
-            <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100'>
-              {title}
-            </h1>
-            {description && (
-              <p className='text-gray-600 dark:text-gray-400'>{description}</p>
-            )}
-            <div className='my-2 space-x-1 sm:space-x-2 text-gray-500 dark:text-gray-400 text-sm flex justify-center items-center'>
-              {date && (
-                <>
-                  <span title={createdAt.raw}>{createdAt.formatted}</span>
-                  <span>•</span>
-                </>
-              )}
-              <span>{readingTime?.text}</span>
-              <span>•</span>
+    <div className="flex flex-col">
+      <article className="article">
+        <div className="flex flex-col justify-center sm:items-center gap-y-4 my-4">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl leading-9 sm:leading-10 md:leading-14 mb-0 tracking-tight mt-2">
+            {title}
+          </h1>
+          {description && (
+            <p className="text-sm sm:text-base text-gray-900/80 dark:text-white/80 sm:text-center">
+              {description}
+            </p>
+          )}
+          <div className="flex items-center flex-wrap text-xs gap-y-1 sm:gap-y-0 text-gray-900/50 dark:text-white/60">
+            <div className="flex items-center space-x-1 after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base">
+              <RiCalendarLine />
+              <span title={createdAt.raw}>{createdAt.formatted}</span>
+            </div>
+            <div className="flex items-center space-x-1 after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base">
+              <RiTimeLine />
+              <span title="Estimated read time">{readingTime?.text}</span>
+            </div>
+            <div className="flex items-center space-x-1">
               <ViewsCounter slug={slug} draft={draft} />
             </div>
           </div>
-        </header>
-        <div className='prose dark:prose-dark max-w-none'>
-          {hero && (
-            <figure>
+        </div>
+        <div className="prose dark:prose-dark max-w-none">
+          {image && (
+            <>
               {/* @ts-ignore */}
               <Image
-                src={hero || ''}
+                src={image || ''}
                 alt={`Cover image for article "${title}"`}
+                fill
                 priority
-                {...extraHeroProps}
-                quality={100}
-                layout='responsive'
+                className="object-cover"
+                {...extraImageProps}
               />
-              {heroSource && (
-                <figcaption className='text-gray-500 text-center'>
+              {imageSource && (
+                <figcaption className="text-gray-900/50 dark:text-white/60">
                   Source{' '}
-                  <Link href={heroSource} title={heroSource}>
-                    {getDomainFromUrl(heroSource)}
+                  <Link href={imageSource} title={imageSource}>
+                    {getDomainFromUrl(imageSource)}
                   </Link>
                 </figcaption>
               )}
-            </figure>
+            </>
           )}
           {children}
         </div>
-        <footer>
+        <div>
+          {tags && (
+            <div className="flex flex-wrap gap-4 py-4">
+              {tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+          )}
+          {!isSnippet && (
+            <div className="flex flex-col justify-center items-center my-4">
+              <p className="text-base my-4">Share this article</p>
+              <ShareArticle
+                slug={slug}
+                title={title}
+                description={description}
+              />
+            </div>
+          )}
           <Divider />
-          <div className='text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2'>
-            {tags && (
-              <div className='py-4'>
-                <div className='flex flex-wrap'>
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </footer>
+        </div>
       </article>
     </div>
   )

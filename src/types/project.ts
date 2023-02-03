@@ -1,9 +1,9 @@
-import type { Content, HeroMeta } from './content'
+import type { Content, ImageMeta } from './content'
 
 export interface Project extends Content {
   description?: string
-  hero?: string
-  heroMeta?: HeroMeta
+  image?: string
+  imageMeta?: ImageMeta
   url?: string
   category: string
 }

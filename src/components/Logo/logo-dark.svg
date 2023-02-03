@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 144.514 500 216.882" xmlns="http://www.w3.org/2000/svg" xmlnsBs="https://bonabrian.com">
+  <defs>
+    <style bsFonts="Poppins">@import url(https://fonts.googleapis.com/css2?family=Poppins%3Aital%2Cwght%400%2C100%3B0%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C200%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900&amp;display=swap);</style>
+  </defs>
+  <ellipse style="paint-order: stroke; fill: rgb(177, 145, 255);" cx="140" cy="245" rx="90" ry="90"/>
+  <text style="fill: rgb(241, 245, 249); font-family: Poppins; font-size: 180px; white-space: pre;" transform="matrix(1.234105, 0, 0, 1.191875, -159.272232, -66.459358)" x="340.517" y="328.814">b.</text>
+</svg>

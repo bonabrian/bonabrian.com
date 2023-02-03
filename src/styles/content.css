@@ -52,7 +52,7 @@
 }
 
 [data-rehype-pretty-code-title] {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-gray-700 rounded-t;
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-[#1e2336] rounded-t;
 }
 
 [data-rehype-pretty-code-title] + div > pre {
@@ -60,7 +60,7 @@
 }
 
 [data-rehype-pretty-code-fragment] pre {
-  @apply py-2 px-0;
+  @apply py-4 px-0;
 }
 
 [data-rehype-pretty-code-fragment] .code-highlight {

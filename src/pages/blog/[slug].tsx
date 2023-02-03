@@ -6,20 +6,22 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import { useRouter } from 'next/router'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import LoadingSpinner from '@/components/LoadingSpinner'
 import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
 import ScrollProgressBar from '@/components/ScrollProgressBar'
+import Spinner from '@/components/Spinner'
+import { siteMetadata } from '@/data'
 import { useMDXComponent } from '@/hooks'
-import { getAllPosts } from '@/services/posts'
+import { getPosts } from '@/lib/contentlayer'
 import type { Post } from '@/types'
 
 const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
   if (!post) return null
   return { ...post } as Post
 }
+
 const SinglePost = ({
   post: contentLayerPost,
   previousPost,
@@ -38,7 +40,7 @@ const SinglePost = ({
     }
 
     if (router.isFallback) {
-      return <LoadingSpinner />
+      return <Spinner />
     }
 
     if (!post || !MdxComponent) {
@@ -48,7 +50,7 @@ const SinglePost = ({
     return (
       <>
         <ScrollProgressBar />
-        <MdxContent backHref='/blog' content={post as Post}>
+        <MdxContent content={post as Post}>
           <MdxComponent components={{ ...mdxComponents } as any} />
         </MdxContent>
       </>
@@ -69,7 +71,8 @@ const SinglePost = ({
           'news',
           'thoughts',
         ]}
-        ogType='article'
+        ogType="article"
+        image={`${siteMetadata.siteUrl}${post?.image}`}
       />
       {renderContent()}
     </>
@@ -80,7 +83,7 @@ export default SinglePost
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getAllPosts().map((it: ContentLayerPost) => ({
+    paths: getPosts().map((it: ContentLayerPost) => ({
       params: { slug: it.slug },
     })),
     fallback: true,
@@ -88,7 +91,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const allPosts = getAllPosts()
+  const allPosts = getPosts()
   const post = allPosts.find((it: ContentLayerPost) => it.slug === params?.slug)
 
   if (!post) {

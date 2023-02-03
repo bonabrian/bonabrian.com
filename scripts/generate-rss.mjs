@@ -3,6 +3,7 @@
 import { writeFileSync } from 'fs'
 import xml from 'xml'
 
+// eslint-disable-next-line import/no-useless-path-segments, import/no-relative-packages
 import { allPosts } from './../.contentlayer/generated/index.mjs'
 
 const formatImageUrl = (url) => {
@@ -18,8 +19,8 @@ const buildDescriptionHtml = (post) => {
 
   description += `<b><a href="https://bonabrian.com/blog/${post.slug}">Read more...</a></b><br/><br/>`
 
-  if (post.hero) {
-    description += `<p><img src="${formatImageUrl(post.hero)}" alt="${post.title}"></p>`
+  if (post.image) {
+    description += `<p><img src="${formatImageUrl(post.image)}" alt="${post.title}"></p>`
   }
 
   return description
@@ -34,7 +35,7 @@ const getAllPostRssData = async (post) => {
     description: post.excerpt,
     html: descriptionHtml,
     slug: post.slug,
-    hero: post.hero,
+    image: post.image,
   }
 }
 
@@ -82,7 +83,7 @@ const buildFeed = (posts) => {
           guid: `https://bonabrian.com/blog/${post.slug}`,
         },
         description,
-        featured_image: formatImageUrl(post.hero),
+        featured_image: formatImageUrl(post.image),
       }
 
       const feedItem = {
