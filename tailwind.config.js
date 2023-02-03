@@ -15,16 +15,6 @@ module.exports = {
       spacing: {
         content: 'calc(100vh - 4rem)',
       },
-      width: {
-        84: '21rem',
-        88: '22rem',
-        92: '23rem',
-      },
-      height: {
-        84: '21rem',
-        88: '22rem',
-        92: '23rem',
-      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
