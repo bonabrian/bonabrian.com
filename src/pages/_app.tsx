@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 
 import GoogleAnalytic from '@/components/GoogleAnalytic'
 import Layout from '@/components/Layout'
-import { ProgressBar } from '@/components/ProgressBar'
+import ProgressBar from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { siteMetadata } from '@/data'
 import { trackPageView } from '@/lib/gtag'

@@ -3,7 +3,7 @@ import type { ImageProps as NextImageProps } from 'next/image'
 import NextImage from 'next/image'
 import { useState } from 'react'
 
-import { ImageLightBox } from '../ImageLightBox'
+import ImageLightBox from '../ImageLightbox'
 
 type BaseImageProps = Omit<NextImageProps, 'width' | 'height' | 'fill'>
 type SizeProps = BaseImageProps & { size?: number }

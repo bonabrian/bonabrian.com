@@ -10,7 +10,7 @@ import React, { useMemo } from 'react'
 
 import { mdxComponents, MdxContent } from '@/components/Mdx'
 import PageSeo from '@/components/PageSeo'
-import { ScrollProgressBar } from '@/components/ScrollProgressBar'
+import ScrollProgressBar from '@/components/ScrollProgressBar'
 import Spinner from '@/components/Spinner'
 import { siteMetadata } from '@/data'
 import { useMDXComponent } from '@/hooks'

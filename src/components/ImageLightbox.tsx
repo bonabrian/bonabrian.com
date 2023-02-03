@@ -1,9 +1,12 @@
+import type { ImageProps as NextImageProps } from 'next/image'
 import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useDarkTheme } from '@/hooks'
 
-import type { ImageLightBoxProps } from './types'
+export interface ImageLightBoxProps extends Pick<NextImageProps, 'src'> {
+  closeLightBox: () => void
+}
 
 const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
   const { isDark, mounted } = useDarkTheme()
