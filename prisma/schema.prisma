@@ -12,11 +12,15 @@ datasource db {
   relationMode = "prisma"
 }
 
-model View {
+model Counter {
   slug    String  @id @db.VarChar(128)
-  count   BigInt  @default(1)
+  views     BigInt  @default(0)
+  loves     BigInt  @default(0)
+  likes     BigInt  @default(0)
+  claps     BigInt  @default(0)
+  bookmarks BigInt  @default(0)
 
-  @@map(name: "views")
+  @@map(name: "counters")
 }
 
 model Guestbook {

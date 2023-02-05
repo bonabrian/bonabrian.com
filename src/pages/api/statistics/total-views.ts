@@ -5,9 +5,9 @@ import prisma from '@/lib/prisma'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === 'GET') {
-      const totalViews = await prisma.view.aggregate({
+      const totalViews = await prisma.counter.aggregate({
         _sum: {
-          count: true,
+          views: true,
         },
       })
 
@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         res
           .status(200)
           // eslint-disable-next-line no-underscore-dangle
-          .json({ total: (totalViews._sum.count || 0).toString() })
+          .json({ total: (totalViews._sum.views || 0).toString() })
       )
     }
 

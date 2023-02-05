@@ -7,23 +7,23 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const slug: string = (req.query.slug || '').toString()
 
     if (req.method === 'POST') {
-      const insertOrUpdateViews = await prisma.view.upsert({
+      const insertOrUpdateViews = await prisma.counter.upsert({
         where: { slug },
-        create: { slug, count: 1 },
-        update: { count: { increment: 1 } },
+        create: { slug, views: 1 },
+        update: { views: { increment: 1 } },
       })
 
       return res
         .status(200)
-        .json({ total: insertOrUpdateViews.count.toString() })
+        .json({ total: insertOrUpdateViews.views.toString() })
     }
 
     if (req.method === 'GET') {
-      const views = await prisma.view.findUnique({
+      const counter = await prisma.counter.findUnique({
         where: { slug },
       })
 
-      return res.status(200).json({ total: (views?.count || 0).toString() })
+      return res.status(200).json({ total: (counter?.views || 0).toString() })
     }
 
     return res.status(405).send({
