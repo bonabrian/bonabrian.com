@@ -1,0 +1,2 @@
+ALTER TABLE `counters`
+  ADD COLUMN `stars` BIGINT NOT NULL DEFAULT 1;

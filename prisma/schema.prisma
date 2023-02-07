@@ -17,8 +17,7 @@ model Counter {
   views     BigInt  @default(0)
   loves     BigInt  @default(0)
   likes     BigInt  @default(0)
-  claps     BigInt  @default(0)
-  bookmarks BigInt  @default(0)
+  stars     BigInt  @default(0)
 
   @@map(name: "counters")
 }

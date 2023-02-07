@@ -84,6 +84,17 @@ module.exports = {
           800: '#125093',
           900: '#0B387A',
         },
+        yellow: {
+          100: '#FEF7CC',
+          200: '#FEEC9A',
+          300: '#FEDE68',
+          400: '#FDD042',
+          500: '#FCBA04',
+          600: '#D89902',
+          700: '#B57B02',
+          800: '#925F01',
+          900: '#784B00',
+        },
         gray: colors.neutral,
       },
       typography: (theme) => ({
