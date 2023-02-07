@@ -23,7 +23,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       // @ts-ignore
       objectToUpdate[reaction] = { increment: modifiedReaction }
 
-      console.log(objectToUpdate)
       const counters = await prisma.counter.upsert({
         where: { slug },
         create: { slug, [reaction]: modifiedReaction },
