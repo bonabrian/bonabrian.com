@@ -1,5 +1,7 @@
 import removeMarkdown from 'remove-markdown'
 
+import type { ReactionType } from '@/types'
+
 type FormatDateProps = {
   timestamp?: string | null
   locale?: string
@@ -111,4 +113,12 @@ export const getDomainFromUrl = (url?: string | null): string | null => {
     .replace(/(^\w+:|^)\/\//, '')
     .replace(/\//g, '')
     .toLocaleLowerCase()
+}
+
+type Reaction = 'loves' | 'likes' | 'stars'
+
+export const reactionMapper: { [key in ReactionType]: Reaction } = {
+  loved: 'loves',
+  liked: 'likes',
+  starred: 'stars',
 }
