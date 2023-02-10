@@ -36,7 +36,7 @@ const About = () => {
               {siteMetadata.author}
             </h3>
             <h4 className="text-base font-medium text-gray-900/50 dark:text-white/60">
-              Full-stack Developer
+              Full-stack Engineer
             </h4>
             <div className="flex items-center justify-center gap-4 my-2">
               <Link href={siteMetadata.github} showExternalLinkIcon={false}>
@@ -53,7 +53,7 @@ const About = () => {
         </div>
         <div className="prose dark:prose-dark max-w-none xl:col-span-2 text-justify">
           <p>
-            Hello! I am Bona Brian Siagian, a Full-Stack Developer with a focus
+            Hello! I am Bona Brian Siagian, a Full-Stack Engineer with a focus
             on delivering innovative digital solutions that drive business
             value. I am currently working at{' '}
             <Link href="https://investree.id">Investree</Link>, a well-regarded
@@ -81,7 +81,7 @@ const About = () => {
             organizations.
           </p>
           <p>
-            As a Full-Stack Developer, I am responsible for designing,
+            As a Full-Stack Engineer, I am responsible for designing,
             developing, and maintaining software that meets both technical
             specifications and business requirements. I understand the
             importance of delivering high-quality products that not only meet

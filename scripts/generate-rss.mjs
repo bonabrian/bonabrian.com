@@ -109,7 +109,7 @@ const defaultChannel = {
   language: 'en-US',
   link: 'https://bonabrian.com',
   title: 'Bona Brian Siagian',
-  description: 'Passionate Full-stack developer based in Jakarta',
+  description: 'Passionate Full-stack engineer based in Jakarta',
   image: {
     title: 'Bona Brian Siagian',
     link: 'https://bonabrian.com',
