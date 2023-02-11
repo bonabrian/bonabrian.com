@@ -1,8 +1,8 @@
 export const siteMetadata = {
-  title: '%s | Full-stack Developer',
-  defaultTitle: 'Bona Brian Siagian | Full-stack Developer',
+  title: '%s | Full-stack Engineer',
+  defaultTitle: 'Bona Brian Siagian | Full-stack Engineer',
   description:
-    'Passionate Full-stack developer who focused on solving problems with digital products.',
+    'Passionate Full-stack engineer who focused on solving problems with digital products.',
   author: 'Bona Brian Siagian',
   email: 'bonabriansiagian@gmail.com',
   github: 'https://github.com/bonabrian',
