@@ -19,7 +19,7 @@ const ProjectTag = ({ category }: { category: string }) => {
   )
 }
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
   const { title, slug, description, image, imageMeta, category, url } = project
 
   const extraImageProps = useMemo(() => {
@@ -74,3 +74,5 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
     </motion.div>
   )
 }
+
+export default ProjectCard

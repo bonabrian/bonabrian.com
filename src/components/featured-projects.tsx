@@ -4,7 +4,7 @@ import { routePaths } from '@/data'
 import type { Project } from '@/types'
 
 import CallToAction from './call-to-action'
-import { ProjectCard } from './ProjectCard'
+import ProjectCard from './project-card'
 
 interface FeaturedProjectsProps {
   projects: Array<Project>

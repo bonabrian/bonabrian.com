@@ -5,7 +5,7 @@ import type { IReadTimeResults } from 'reading-time'
 import { formatDate, getDomainFromUrl } from '@/lib/utils'
 import type { ImageMeta, Post, Snippet } from '@/types'
 
-import Divider from '../Divider'
+import Divider from '../divider'
 import Link from '../link'
 import Reactions from '../Reactions'
 import ShareArticle from '../ShareArticle'

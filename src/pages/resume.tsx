@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { RiFileTextLine } from 'react-icons/ri'
 
 import CallToAction from '@/components/call-to-action'
-import Divider from '@/components/Divider'
+import Divider from '@/components/divider'
 import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'

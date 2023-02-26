@@ -1,10 +1,10 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import Divider from '@/components/Divider'
-import FeaturedProjects from '@/components/FeaturedProjects'
-import Introduction from '@/components/Introduction'
+import Divider from '@/components/divider'
+import FeaturedProjects from '@/components/featured-projects'
+import Introduction from '@/components/introduction'
 import PageSeo from '@/components/PageSeo'
-import RecentPosts from '@/components/RecentPosts'
+import RecentPosts from '@/components/recent-posts'
 import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
 
 const MAX_DISPLAY = 2

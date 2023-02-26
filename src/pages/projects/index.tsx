@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
-import { ProjectCard } from '@/components/ProjectCard'
+import ProjectCard from '@/components/project-card'
 import { filterProjects, getProjects } from '@/lib/contentlayer'
 
 export const getStaticProps = async () => {

@@ -4,7 +4,7 @@ import { routePaths } from '@/data'
 import type { Post } from '@/types'
 
 import CallToAction from './call-to-action'
-import PostCard from './PostCard'
+import PostCard from './post-card'
 
 interface RecentPostsProps {
   posts: Array<Post>
