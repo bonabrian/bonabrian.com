@@ -8,10 +8,10 @@ import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 
 import Footer from '@/components/footer'
-import GoogleAnalytic from '@/components/GoogleAnalytic'
+import GoogleAnalytics from '@/components/google-analytics'
 import Navigation from '@/components/navigation'
-import ProgressBar from '@/components/ProgressBar'
-import { ScrollObserver } from '@/components/ScrollObserver'
+import ProgressBar from '@/components/progress-bar'
+import { ScrollObserver } from '@/components/scroll-observer'
 import { siteMetadata } from '@/data'
 import { trackPageView } from '@/lib/gtag'
 
@@ -51,7 +51,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           </AnimatePresence>
         </SessionProvider>
       </ThemeProvider>
-      <GoogleAnalytic />
+      <GoogleAnalytics />
     </>
   )
 }

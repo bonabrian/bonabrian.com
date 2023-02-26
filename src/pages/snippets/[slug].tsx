@@ -7,10 +7,10 @@ import type {
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
-import LoadingSpinner from '@/components/LoadingSpinner'
-import { mdxComponents, MdxContent } from '@/components/Mdx'
-import PageSeo from '@/components/PageSeo'
-import ScrollProgressBar from '@/components/ScrollProgressBar'
+import { mdxComponents, MdxContent } from '@/components/mdx'
+import PageSeo from '@/components/page-seo'
+import ScrollProgressBar from '@/components/scroll-progress-bar'
+import Spinner from '@/components/spinner'
 import { useMDXComponent } from '@/hooks'
 import { getSnippets } from '@/lib/contentlayer'
 import type { Snippet } from '@/types'
@@ -37,7 +37,7 @@ const SnippetPage = ({
     }
 
     if (router.isFallback) {
-      return <LoadingSpinner />
+      return <Spinner />
     }
 
     if (!snippet || !MdxComponent) {

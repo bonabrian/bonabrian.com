@@ -32,7 +32,7 @@ const Reactions = ({ slug }: { slug: string }) => {
   )
 
   const baseStyle =
-    'py-2 px-3 border border-gray-200 dark:border-gray-700 rounded-full inline-flex items-center gap-x-1 text-sm font-semibold transition-all ease-in-out duration-150'
+    'py-2 px-3 border rounded-full inline-flex items-center gap-x-1 text-sm font-semibold transition-all ease-in-out duration-150'
 
   return (
     <div className="flex items-center gap-x-4">

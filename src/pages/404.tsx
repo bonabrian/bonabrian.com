@@ -1,5 +1,5 @@
 import Link from '@/components/link'
-import PageSeo from '@/components/PageSeo'
+import PageSeo from '@/components/page-seo'
 
 import FourZeroFourImage from '../../public/static/404.svg'
 

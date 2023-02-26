@@ -7,8 +7,8 @@ import type {
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 import PostCard from '@/components/post-card'
 import { filterPosts, getPosts } from '@/lib/contentlayer'
 import { kebabCase } from '@/lib/utils'

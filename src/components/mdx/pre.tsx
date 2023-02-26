@@ -6,7 +6,7 @@ type PreProps = {
   children: React.ReactNode
 }
 
-export const Pre = ({ children }: PreProps) => {
+const Pre = ({ children }: PreProps) => {
   const textInput = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -57,3 +57,5 @@ export const Pre = ({ children }: PreProps) => {
     </div>
   )
 }
+
+export default Pre

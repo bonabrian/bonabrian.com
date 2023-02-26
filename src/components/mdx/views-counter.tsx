@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 
 import { useRequest } from '@/hooks'
 
-import LoadingSpinner from '../LoadingSpinner'
+import Spinner from '../spinner'
 
-export type ViewsCounterProps = {
+interface ViewsCounterProps {
   slug?: string
   draft?: boolean
 }
 
-export const ViewsCounter = ({ slug, draft }: ViewsCounterProps) => {
+const ViewsCounter = ({ slug, draft }: ViewsCounterProps) => {
   // fix useEffect called twice
   // https://github.com/facebook/react/issues/24502#issuecomment-1118867879
   let ignored = false
@@ -36,11 +36,9 @@ export const ViewsCounter = ({ slug, draft }: ViewsCounterProps) => {
 
   return (
     <span>
-      {isLoadViews ? (
-        <LoadingSpinner />
-      ) : (
-        <span>{`${views?.total} views`}</span>
-      )}
+      {isLoadViews ? <Spinner /> : <span>{`${views?.total} views`}</span>}
     </span>
   )
 }
+
+export default ViewsCounter

@@ -10,7 +10,7 @@ import { useSWRConfig } from 'swr'
 import fireConfetti from '@/lib/confetti'
 import type { Skill } from '@/types'
 
-import Spinner from './Spinner'
+import Spinner from './spinner'
 
 interface EndorsementsBadgeProps {
   skill: Skill

@@ -1,10 +1,10 @@
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 import {
   GithubStats,
   TotalEndorsements,
   TotalViews,
-} from '@/components/Statistics'
+} from '@/components/statistics'
 
 const Stats = () => {
   return (

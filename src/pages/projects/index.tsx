@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 import ProjectCard from '@/components/project-card'
 import { filterProjects, getProjects } from '@/lib/contentlayer'
 

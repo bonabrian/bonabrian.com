@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const GoogleAnalytic = () => {
+const GoogleAnalytics = () => {
   const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 
   return (
@@ -25,4 +25,4 @@ const GoogleAnalytic = () => {
   )
 }
 
-export default GoogleAnalytic
+export default GoogleAnalytics

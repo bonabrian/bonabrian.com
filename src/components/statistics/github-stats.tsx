@@ -3,7 +3,7 @@ import { RiGithubLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './StatisticsCard'
+import { StatisticsCard } from './statistics-card'
 
 export const GithubStats = () => {
   const { data, loading } = useRequest<{ followers?: number; stars?: number }>(

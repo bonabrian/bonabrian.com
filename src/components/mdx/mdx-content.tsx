@@ -7,11 +7,11 @@ import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../divider'
 import Link from '../link'
-import Reactions from '../Reactions'
-import ShareArticle from '../ShareArticle'
-import Tag from '../Tag'
-import { Image } from './Image'
-import { ViewsCounter } from './ViewsCounter'
+import Reactions from '../reactions'
+import ShareArticle from '../share-article'
+import Tag from '../tag'
+import Image from './image'
+import ViewsCounter from './views-counter'
 
 // TODO: add Project content type
 type ContentData = Post | Snippet
@@ -51,7 +51,7 @@ const getContentFields = (content: ContentData): ContentFields => {
   return fields
 }
 
-export const MdxContent = ({ content, children }: MdxContentProps) => {
+const MdxContent = ({ content, children }: MdxContentProps) => {
   const {
     title,
     description,
@@ -144,3 +144,5 @@ export const MdxContent = ({ content, children }: MdxContentProps) => {
     </div>
   )
 }
+
+export default MdxContent

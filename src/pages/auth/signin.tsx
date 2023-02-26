@@ -5,9 +5,9 @@ import { unstable_getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import LoginProviderButton from '@/components/LoginProviderButton'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import LoginProviderButton from '@/components/login-provider-button'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 
 import { authOptions } from '../api/auth/[...nextauth]'
 

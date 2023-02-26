@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType } from 'next'
 import Divider from '@/components/divider'
 import FeaturedProjects from '@/components/featured-projects'
 import Introduction from '@/components/introduction'
-import PageSeo from '@/components/PageSeo'
+import PageSeo from '@/components/page-seo'
 import RecentPosts from '@/components/recent-posts'
 import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
 

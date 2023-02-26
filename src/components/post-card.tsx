@@ -9,7 +9,7 @@ import { formatDate, kebabCase } from '@/lib/utils'
 import type { Post } from '@/types'
 
 import Link from './link'
-import Spinner from './Spinner'
+import Spinner from './spinner'
 
 interface PostCardProps {
   post: Post

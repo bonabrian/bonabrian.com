@@ -1,7 +1,7 @@
 import type { IconType } from 'react-icons'
 
 import Link from '../link'
-import Spinner from '../Spinner'
+import Spinner from '../spinner'
 
 interface StatisticsCardProps {
   link: string

@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 
 import Link from '@/components/link'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 import { routePaths, siteMetadata } from '@/data'
 
 const About = () => {

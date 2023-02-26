@@ -2,7 +2,7 @@ import { HiOutlineBadgeCheck } from 'react-icons/hi'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './StatisticsCard'
+import { StatisticsCard } from './statistics-card'
 
 export const TotalEndorsements = () => {
   const { data, loading } = useRequest<{ total?: number }>(

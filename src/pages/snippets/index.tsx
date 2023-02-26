@@ -1,8 +1,8 @@
 import type { InferGetStaticPropsType } from 'next'
 
 import Link from '@/components/link'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import PageHeader from '@/components/page-header'
+import PageSeo from '@/components/page-seo'
 import { routePaths } from '@/data'
 import { getSnippets } from '@/lib/contentlayer'
 import { formatDate } from '@/lib/utils'
