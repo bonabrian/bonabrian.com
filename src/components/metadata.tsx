@@ -119,7 +119,7 @@ export const Metadata = ({
   }/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(
     description,
   )}${openGraph?.type === 'article' ? '&article' : ''}${
-    actualImage ? `&imageSource=${actualImage}` : ''
+    actualImage ? `&image=${actualImage}` : ''
   }`
 
   return (
