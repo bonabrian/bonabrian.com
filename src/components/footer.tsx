@@ -3,7 +3,7 @@ import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 import { routePaths, siteMetadata } from '@/data'
 
 import Link from './link'
-import NowPlaying from './NowPlaying'
+import NowPlaying from './now-playing'
 import ThemeSwitch from './ThemeSwitch'
 
 const footerLinks = [
