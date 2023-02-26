@@ -1,10 +1,10 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import Divider from '@/components/Divider'
-import FeaturedProjects from '@/components/FeaturedProjects'
-import Introduction from '@/components/Introduction'
-import PageSeo from '@/components/PageSeo'
-import RecentPosts from '@/components/RecentPosts'
+import Divider from '@/components/divider'
+import FeaturedProjects from '@/components/featured-projects'
+import Introduction from '@/components/introduction'
+import { Metadata } from '@/components/metadata'
+import RecentPosts from '@/components/recent-posts'
 import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
 
 const MAX_DISPLAY = 2
@@ -24,20 +24,7 @@ const Home = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <PageSeo
-        keywords={[
-          'bona',
-          'bonabrian',
-          'bonabriansiagian',
-          'Bona Brian Siagian',
-          'full-stack',
-          'back-end',
-          'front-end',
-          'portfolio',
-          'developer',
-          'development',
-        ]}
-      />
+      <Metadata />
 
       <Introduction />
 

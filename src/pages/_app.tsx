@@ -7,11 +7,12 @@ import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 
-import GoogleAnalytic from '@/components/GoogleAnalytic'
-import Layout from '@/components/Layout'
-import ProgressBar from '@/components/ProgressBar'
-import { ScrollObserver } from '@/components/ScrollObserver'
-import { siteMetadata } from '@/data'
+import Footer from '@/components/footer'
+import GoogleAnalytics from '@/components/google-analytics'
+import { defaultMetadata } from '@/components/metadata'
+import Navigation from '@/components/navigation'
+import ProgressBar from '@/components/progress-bar'
+import { ScrollObserver } from '@/components/scroll-observer'
 import { trackPageView } from '@/lib/gtag'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -31,19 +32,29 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme={defaultMetadata.themeColor}
+      >
         <SessionProvider session={session}>
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>
               <ProgressBar />
-              <Layout>
-                <Component {...rest} />
-              </Layout>
+              <Navigation />
+              <main
+                className="flex flex-col mx-auto max-w-6xl justify-center py-10 px-4"
+                role="main"
+              >
+                <div className="min-h-screen">
+                  <Component {...rest} />
+                </div>
+              </main>
+              <Footer />
             </ScrollObserver>
           </AnimatePresence>
         </SessionProvider>
       </ThemeProvider>
-      <GoogleAnalytic />
+      <GoogleAnalytics />
     </>
   )
 }

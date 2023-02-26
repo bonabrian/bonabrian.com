@@ -5,9 +5,9 @@ import { unstable_getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import LoginProviderButton from '@/components/LoginProviderButton'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import LoginProviderButton from '@/components/login-provider-button'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
 
 import { authOptions } from '../api/auth/[...nextauth]'
 
@@ -27,7 +27,7 @@ const SignIn = ({
 
   return (
     <>
-      <PageSeo title="Sign In" description="Sign In" />
+      <Metadata title="Sign In" description="Sign In" />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Sign In"

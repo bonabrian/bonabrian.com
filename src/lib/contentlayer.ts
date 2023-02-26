@@ -2,6 +2,8 @@ import { pick } from 'contentlayer/client'
 import type { Post, Project, Snippet } from 'contentlayer/generated'
 import { allPosts, allProjects, allSnippets } from 'contentlayer/generated'
 
+import { kebabCase } from './utils'
+
 export const getProjects = (fields: (keyof Project)[] = []): Array<Project> => {
   const filteredProjects = allProjects
     .sort((a, b) => a.order - b.order)
@@ -104,4 +106,27 @@ export const getSnippets = (fields: (keyof Snippet)[] = []): Array<Snippet> => {
   return fields && fields.length
     ? filteredSnippets.map((it: Snippet) => pick(it, fields))
     : filteredSnippets
+}
+
+export const getTags = () => {
+  const allPosts = getPosts(['tags'])
+
+  const tagsCount: Record<string, number> = {}
+
+  allPosts.forEach((post) => {
+    const { tags } = post
+    if (tags) {
+      tags.forEach((tag: string) => {
+        const formattedTag = kebabCase(tag)
+        if (formattedTag) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          formattedTag in tagsCount
+            ? (tagsCount[formattedTag] += 1)
+            : (tagsCount[formattedTag] = 1)
+        }
+      })
+    }
+  })
+
+  return tagsCount
 }

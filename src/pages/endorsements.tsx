@@ -2,11 +2,11 @@ import type { InferGetStaticPropsType } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-import EndorsementsBadge from '@/components/EndorsementsBadge'
-import Link from '@/components/Link'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
-import Spinner from '@/components/Spinner'
+import EndorsementsBadge from '@/components/endorsements-badge'
+import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
+import Spinner from '@/components/spinner'
 import { useSkillCategories } from '@/hooks'
 import getSkillCategories from '@/lib/getSkillCategories'
 
@@ -37,9 +37,9 @@ const Endorsements = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Endorsements"
-        description={"Endorse bonabrian's skill"}
+        description="Endorse my technical skills and abilities based on your personal experience working with me."
         keywords={['skills', 'endorsements', 'programming']}
       />
       <div className="my-4 space-y-3 md:space-y-5">

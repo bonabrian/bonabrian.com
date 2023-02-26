@@ -1,4 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
 import type { Post as ContentLayerPost } from 'contentlayer/generated'
 import type {
   GetStaticPaths,
@@ -8,13 +7,13 @@ import type {
 import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'
 
-import { mdxComponents, MdxContent } from '@/components/Mdx'
-import PageSeo from '@/components/PageSeo'
-import ScrollProgressBar from '@/components/ScrollProgressBar'
-import Spinner from '@/components/Spinner'
-import { siteMetadata } from '@/data'
+import { mdxComponents, MdxContent } from '@/components/mdx'
+import { defaultMetadata, Metadata } from '@/components/metadata'
+import ScrollProgressBar from '@/components/scroll-progress-bar'
+import Spinner from '@/components/spinner'
 import { useMDXComponent } from '@/hooks'
 import { getPosts } from '@/lib/contentlayer'
+import { formatDate } from '@/lib/utils'
 import type { Post } from '@/types'
 
 const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
@@ -24,10 +23,10 @@ const mapContentLayerPost = (post?: ContentLayerPost): Post | null => {
 
 const SinglePost = ({
   post: contentLayerPost,
-  previousPost,
-  nextPost,
+  _previousPost,
+  _nextPost,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const MdxComponent = useMDXComponent(contentLayerPost?.body?.code || '')
+  const MdxComponent = useMDXComponent(contentLayerPost?.body?.code)
   const post = useMemo(
     () => mapContentLayerPost(contentLayerPost),
     [contentLayerPost],
@@ -57,9 +56,11 @@ const SinglePost = ({
     )
   }
 
+  const publishedDate = formatDate({ timestamp: post?.date })
+
   return (
     <>
-      <PageSeo
+      <Metadata
         title={post?.title}
         description={post?.excerpt}
         keywords={[
@@ -71,8 +72,11 @@ const SinglePost = ({
           'news',
           'thoughts',
         ]}
-        ogType="article"
-        image={`${siteMetadata.siteUrl}${post?.image}`}
+        openGraph={{
+          type: 'article',
+          publishedTime: publishedDate.formatted,
+          image: `${defaultMetadata.siteUrl}${post?.image}`,
+        }}
       />
       {renderContent()}
     </>

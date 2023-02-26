@@ -7,10 +7,10 @@ import type {
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
-import LoadingSpinner from '@/components/LoadingSpinner'
-import { mdxComponents, MdxContent } from '@/components/Mdx'
-import PageSeo from '@/components/PageSeo'
-import ScrollProgressBar from '@/components/ScrollProgressBar'
+import { mdxComponents, MdxContent } from '@/components/mdx'
+import { Metadata } from '@/components/metadata'
+import ScrollProgressBar from '@/components/scroll-progress-bar'
+import Spinner from '@/components/spinner'
 import { useMDXComponent } from '@/hooks'
 import { getSnippets } from '@/lib/contentlayer'
 import type { Snippet } from '@/types'
@@ -23,7 +23,7 @@ const mapContentLayerSnippet = (snippet?: GeneratedSnippet): Snippet | null => {
 const SnippetPage = ({
   snippet: generatedSnippet,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const MdxComponent = useMDXComponent(generatedSnippet?.body?.code || '')
+  const MdxComponent = useMDXComponent(generatedSnippet?.body?.code)
   const snippet = useMemo(
     () => mapContentLayerSnippet(generatedSnippet),
     [generatedSnippet],
@@ -37,7 +37,7 @@ const SnippetPage = ({
     }
 
     if (router.isFallback) {
-      return <LoadingSpinner />
+      return <Spinner />
     }
 
     if (!snippet || !MdxComponent) {
@@ -56,7 +56,7 @@ const SnippetPage = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title={snippet?.title}
         description={snippet?.description}
         keywords={[
@@ -67,7 +67,6 @@ const SnippetPage = ({
           'shorthand',
           'scripts',
         ]}
-        ogType="article"
       />
       {renderContent()}
     </>

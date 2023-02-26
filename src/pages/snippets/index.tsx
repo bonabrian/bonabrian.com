@@ -1,8 +1,8 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import Link from '@/components/Link'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
 import { routePaths } from '@/data'
 import { getSnippets } from '@/lib/contentlayer'
 import { formatDate } from '@/lib/utils'
@@ -20,7 +20,7 @@ const Snippets = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Snippets"
         description="A collection of code snippets"
         keywords={[

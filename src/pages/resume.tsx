@@ -1,23 +1,23 @@
 import Image from 'next/image'
 import { RiFileTextLine } from 'react-icons/ri'
 
-import CtaButton from '@/components/CtaButton'
-import Divider from '@/components/Divider'
-import Link from '@/components/Link'
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
-import { experiences, siteMetadata } from '@/data'
+import CallToAction from '@/components/call-to-action'
+import Divider from '@/components/divider'
+import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
+import { experiences } from '@/data'
 import { formatDate } from '@/lib/utils'
 
 const Resume = () => {
   const lastUpdated = formatDate({
     timestamp: '2023-02-03T15:06:00.000Z',
-    locale: siteMetadata.locale,
+    locale: 'en-ID',
   })
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Resume"
         description="Check out how my journey have been like over the years"
         keywords={['resume', 'biography', 'cv']}
@@ -27,9 +27,9 @@ const Resume = () => {
           title="Resume"
           description="A brief overview of my professional journey and career milestones."
         />
-        <CtaButton href="/resume/download">
+        <CallToAction href="/resume/download">
           <RiFileTextLine className="mr-1" /> Download Resume
-        </CtaButton>
+        </CallToAction>
       </div>
       <div className="py-8 px-4 prose dark:prose-dark max-w-none">
         <ol className="relative border-l-2 border-primary-500 list-none">

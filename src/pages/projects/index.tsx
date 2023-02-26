@@ -3,9 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
-import { ProjectCard } from '@/components/ProjectCard'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
+import ProjectCard from '@/components/project-card'
 import { filterProjects, getProjects } from '@/lib/contentlayer'
 
 export const getStaticProps = async () => {
@@ -71,7 +71,7 @@ const Projects = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Projects"
         description="A collection of finest projects that I have built."
         keywords={[

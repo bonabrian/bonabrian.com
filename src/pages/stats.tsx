@@ -1,15 +1,15 @@
-import PageHeader from '@/components/PageHeader'
-import PageSeo from '@/components/PageSeo'
+import { Metadata } from '@/components/metadata'
+import PageHeader from '@/components/page-header'
 import {
   GithubStats,
   TotalEndorsements,
   TotalViews,
-} from '@/components/Statistics'
+} from '@/components/statistics'
 
 const Stats = () => {
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Stats"
         description="Statistics about my digital home, Github, and more"
         keywords={['statistics', 'stats', 'dashboard', 'github']}
