@@ -8,10 +8,10 @@ import { RiMenuFill } from 'react-icons/ri'
 import { navItems } from '@/data'
 import { useDarkTheme, useMounted, useScrollTop } from '@/hooks'
 
-import Link from '../link'
-import { defaultMetadata } from '../metadata'
-import LogoDark from './logo-dark.svg'
-import LogoLight from './logo-light.svg'
+import LogoDark from '../../assets/images/logo-dark.svg'
+import LogoLight from '../../assets/images/logo-light.svg'
+import Link from './link'
+import { defaultMetadata } from './metadata'
 
 const Navigation = () => {
   const isTop = useScrollTop()

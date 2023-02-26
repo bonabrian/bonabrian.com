@@ -9,13 +9,13 @@ export const config: PageConfig = {
 }
 
 const fontBold = fetch(
-  new URL('../../../assets/Montserrat-Bold.ttf', import.meta.url),
+  new URL('../../../assets/fonts/Montserrat-Bold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 const fontRegular = fetch(
-  new URL('../../../assets/Montserrat-Regular.ttf', import.meta.url),
+  new URL('../../../assets/fonts/Montserrat-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 const fontMedium = fetch(
-  new URL('../../../assets/Montserrat-Medium.ttf', import.meta.url),
+  new URL('../../../assets/fonts/Montserrat-Medium.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 
 const handler = async (req: NextRequest) => {

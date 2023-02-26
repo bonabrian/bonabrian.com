@@ -4,10 +4,10 @@ import { signIn } from 'next-auth/react'
 
 import { useDarkTheme } from '@/hooks'
 
-import Github from './github.svg'
-import GithubDark from './github-dark.svg'
-import Google from './google.svg'
-import GoogleDark from './google-dark.svg'
+import Github from '../../assets/images/github.svg'
+import GithubDark from '../../assets/images/github-dark.svg'
+import Google from '../../assets/images/google.svg'
+import GoogleDark from '../../assets/images/google-dark.svg'
 
 interface StyleGuide {
   Logo: any
