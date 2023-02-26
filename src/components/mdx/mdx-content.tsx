@@ -1,14 +1,16 @@
+import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
 import type { IReadTimeResults } from 'reading-time'
 
+import { siteMetadata } from '@/data'
 import { formatDate, getDomainFromUrl } from '@/lib/utils'
 import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../divider'
 import Link from '../link'
 import Reactions from '../reactions'
-import ShareArticle from '../share-article'
+import ShareButtons from '../share-buttons'
 import Tag from '../tag'
 import Image from './image'
 import ViewsCounter from './views-counter'
@@ -76,6 +78,9 @@ const MdxContent = ({ content, children }: MdxContentProps) => {
 
   const createdAt = formatDate({ timestamp: date })
 
+  const router = useRouter()
+  const contentUrl = `${siteMetadata.siteUrl}${router.asPath}`
+
   return (
     <div className="flex flex-col">
       <article className="article">
@@ -136,7 +141,11 @@ const MdxContent = ({ content, children }: MdxContentProps) => {
           )}
           <div className="flex justify-between items-center my-4">
             <Reactions slug={slug} />
-            <ShareArticle slug={slug} title={title} description={description} />
+            <ShareButtons
+              url={contentUrl}
+              title={title}
+              description={description}
+            />
           </div>
           <Divider />
         </div>

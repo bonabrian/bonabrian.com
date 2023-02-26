@@ -1,30 +1,22 @@
 import { RiLinkedinFill, RiTwitterFill } from 'react-icons/ri'
 import { LinkedinShareButton, TwitterShareButton } from 'react-share'
 
-import { routePaths, siteMetadata } from '@/data'
-
-interface ShareArticleProps {
-  slug: string
+interface ShareButtonsProps {
+  url: string
   title: string
   description?: string
 }
 
-const getArticlePublicUrl = (slug: string) => {
-  return `${siteMetadata.siteUrl}${routePaths.BLOG}/${slug}`
-}
-
-const ShareArticle = ({ slug, title, description }: ShareArticleProps) => {
-  const publicUrl = getArticlePublicUrl(slug)
-
+const ShareButtons = ({ url, title, description }: ShareButtonsProps) => {
   return (
     <div className="flex items-center justify-center gap-3">
-      <TwitterShareButton url={publicUrl} title={title} via="bonabrian_">
+      <TwitterShareButton url={url} title={title} via="bonabrian_">
         <RiTwitterFill
           className="hover:fill-primary-500 transition-all ease-in-out duration-150"
           size={24}
         />
       </TwitterShareButton>
-      <LinkedinShareButton url={publicUrl} title={title} summary={description}>
+      <LinkedinShareButton url={url} title={title} summary={description}>
         <RiLinkedinFill
           className="hover:fill-primary-500 transition-all ease-in-out duration-150"
           size={24}
@@ -34,4 +26,4 @@ const ShareArticle = ({ slug, title, description }: ShareArticleProps) => {
   )
 }
 
-export default ShareArticle
+export default ShareButtons
