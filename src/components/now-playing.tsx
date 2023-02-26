@@ -18,7 +18,7 @@ const NowPlaying = () => {
             title={data.title || ''}
             showExternalLinkIcon={false}
           >
-            <div className="flex gap-4 pr-4 bg-white/30 dark:bg-black/10 rounded-md">
+            <div className="flex gap-4 pr-4 dark:bg-black/10 rounded-md">
               <div className="relative w-16 h-16">
                 <Image
                   src={data.image?.url || ''}
