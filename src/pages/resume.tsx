@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { RiFileTextLine } from 'react-icons/ri'
 
-import CtaButton from '@/components/CtaButton'
+import CallToAction from '@/components/call-to-action'
 import Divider from '@/components/Divider'
 import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
@@ -27,9 +27,9 @@ const Resume = () => {
           title="Resume"
           description="A brief overview of my professional journey and career milestones."
         />
-        <CtaButton href="/resume/download">
+        <CallToAction href="/resume/download">
           <RiFileTextLine className="mr-1" /> Download Resume
-        </CtaButton>
+        </CallToAction>
       </div>
       <div className="py-8 px-4 prose dark:prose-dark max-w-none">
         <ol className="relative border-l-2 border-primary-500 list-none">

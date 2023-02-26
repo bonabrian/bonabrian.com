@@ -1,11 +1,11 @@
 import Link from './link'
 
-interface CtaButtonProps {
+interface CallToActionProps {
   children: React.ReactNode
   href: string
 }
 
-const CtaButton = ({ children, href }: CtaButtonProps) => {
+const CallToAction = ({ children, href }: CallToActionProps) => {
   return (
     <Link
       href={href}
@@ -16,4 +16,4 @@ const CtaButton = ({ children, href }: CtaButtonProps) => {
   )
 }
 
-export default CtaButton
+export default CallToAction

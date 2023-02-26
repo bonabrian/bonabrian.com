@@ -3,7 +3,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import { routePaths } from '@/data'
 import type { Project } from '@/types'
 
-import CtaButton from './CtaButton'
+import CallToAction from './call-to-action'
 import { ProjectCard } from './ProjectCard'
 
 interface FeaturedProjectsProps {
@@ -42,9 +42,9 @@ const FeaturedProjects = ({
           </div>
 
           <div className="flex justify-center items-center my-6">
-            <CtaButton href={routePaths.PROJECTS}>
+            <CallToAction href={routePaths.PROJECTS}>
               All Projects <RiArrowRightSLine className="ml-1" />
-            </CtaButton>
+            </CallToAction>
           </div>
         </>
       ) : (
