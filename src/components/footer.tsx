@@ -4,7 +4,7 @@ import { routePaths, siteMetadata } from '@/data'
 
 import Link from './link'
 import NowPlaying from './now-playing'
-import ThemeSwitch from './ThemeSwitch'
+import ThemeSwitch from './theme-switch'
 
 const footerLinks = [
   [
