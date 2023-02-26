@@ -6,7 +6,6 @@ import Link from './link'
 
 const NowPlaying = () => {
   const { data } = useNowPlaying()
-  console.log(data)
 
   return (
     <div className="flex items-center gap-1 sm:gap-2 mb-4">
