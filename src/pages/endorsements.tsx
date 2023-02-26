@@ -39,7 +39,7 @@ const Endorsements = ({
     <>
       <Metadata
         title="Endorsements"
-        description={"Endorse bonabrian's skill"}
+        description="Endorse my technical skills and abilities based on your personal experience working with me."
         keywords={['skills', 'endorsements', 'programming']}
       />
       <div className="my-4 space-y-3 md:space-y-5">
