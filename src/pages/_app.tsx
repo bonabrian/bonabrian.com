@@ -7,8 +7,9 @@ import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 
+import Footer from '@/components/footer'
 import GoogleAnalytic from '@/components/GoogleAnalytic'
-import Layout from '@/components/Layout'
+import Navigation from '@/components/navigation'
 import ProgressBar from '@/components/ProgressBar'
 import { ScrollObserver } from '@/components/ScrollObserver'
 import { siteMetadata } from '@/data'
@@ -36,9 +37,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>
               <ProgressBar />
-              <Layout>
-                <Component {...rest} />
-              </Layout>
+              <Navigation />
+              <main
+                className="flex flex-col mx-auto max-w-6xl justify-center py-10 px-4"
+                role="main"
+              >
+                <div className="min-h-screen">
+                  <Component {...rest} />
+                </div>
+              </main>
+              <Footer />
             </ScrollObserver>
           </AnimatePresence>
         </SessionProvider>
