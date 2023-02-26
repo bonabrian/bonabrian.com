@@ -2,14 +2,14 @@ import Image from 'next/image'
 import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 
 import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import PageSeo from '@/components/page-seo'
 import { routePaths, siteMetadata } from '@/data'
 
 const About = () => {
   return (
     <>
-      <PageSeo
+      <Metadata
         title="About"
         description="Learn a bit about me, careers, and more"
         keywords={['bio', 'biography', 'information', 'about']}

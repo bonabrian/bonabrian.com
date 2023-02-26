@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
 import { mdxComponents, MdxContent } from '@/components/mdx'
-import PageSeo from '@/components/page-seo'
+import { Metadata } from '@/components/metadata'
 import ScrollProgressBar from '@/components/scroll-progress-bar'
 import Spinner from '@/components/spinner'
 import { useMDXComponent } from '@/hooks'
@@ -56,7 +56,7 @@ const SnippetPage = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title={snippet?.title}
         description={snippet?.description}
         keywords={[
@@ -67,7 +67,6 @@ const SnippetPage = ({
           'shorthand',
           'scripts',
         ]}
-        ogType="article"
       />
       {renderContent()}
     </>

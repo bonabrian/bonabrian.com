@@ -7,8 +7,8 @@ import type {
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
+import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import PageSeo from '@/components/page-seo'
 import PostCard from '@/components/post-card'
 import { filterPosts, getPosts, getTags } from '@/lib/contentlayer'
 import { kebabCase } from '@/lib/utils'
@@ -75,7 +75,7 @@ const Tag = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title={tag}
         description={`${tag} tags`}
         keywords={[

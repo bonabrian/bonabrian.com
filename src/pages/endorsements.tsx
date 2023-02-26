@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import EndorsementsBadge from '@/components/endorsements-badge'
 import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import PageSeo from '@/components/page-seo'
 import Spinner from '@/components/spinner'
 import { useSkillCategories } from '@/hooks'
 import getSkillCategories from '@/lib/getSkillCategories'
@@ -37,7 +37,7 @@ const Endorsements = ({
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Endorsements"
         description={"Endorse bonabrian's skill"}
         keywords={['skills', 'endorsements', 'programming']}

@@ -1,12 +1,12 @@
 import Link from '@/components/link'
-import PageSeo from '@/components/page-seo'
+import { Metadata } from '@/components/metadata'
 
 import FourZeroFourImage from '../../public/static/404.svg'
 
 const FourZeroFour = () => {
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Page Not Found"
         description="The page you're looking for doesn't exists or has been moved."
         keywords={['404', 'not found', 'page not found']}

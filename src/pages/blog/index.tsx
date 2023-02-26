@@ -3,8 +3,8 @@ import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
+import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import PageSeo from '@/components/page-seo'
 import PostCard from '@/components/post-card'
 import { filterPosts, getPosts } from '@/lib/contentlayer'
 
@@ -50,7 +50,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Blog"
         description="Blog posts by Bona Brian Siagian. Here I share some thoughts, stories, information, and more about software development"
         keywords={[

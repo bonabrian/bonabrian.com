@@ -4,8 +4,8 @@ import { RiFileTextLine } from 'react-icons/ri'
 import CallToAction from '@/components/call-to-action'
 import Divider from '@/components/divider'
 import Link from '@/components/link'
+import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import PageSeo from '@/components/page-seo'
 import { experiences, siteMetadata } from '@/data'
 import { formatDate } from '@/lib/utils'
 
@@ -17,7 +17,7 @@ const Resume = () => {
 
   return (
     <>
-      <PageSeo
+      <Metadata
         title="Resume"
         description="Check out how my journey have been like over the years"
         keywords={['resume', 'biography', 'cv']}
