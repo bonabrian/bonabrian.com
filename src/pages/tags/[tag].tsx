@@ -10,12 +10,11 @@ import { RiSearch2Line } from 'react-icons/ri'
 import PageHeader from '@/components/page-header'
 import PageSeo from '@/components/page-seo'
 import PostCard from '@/components/post-card'
-import { filterPosts, getPosts } from '@/lib/contentlayer'
+import { filterPosts, getPosts, getTags } from '@/lib/contentlayer'
 import { kebabCase } from '@/lib/utils'
-import { getAllTags } from '@/services/tags'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const tags = getAllTags()
+  const tags = getTags()
 
   return {
     paths: Object.keys(tags).map((tag) => ({
