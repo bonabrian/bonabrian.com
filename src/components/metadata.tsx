@@ -49,7 +49,14 @@ export const defaultMetadata = {
   titleTemplate: '%s | Bona Brian Siagian',
   description:
     'Passionate Full-stack engineer who focused on solving problems with digital products.',
-  author: 'Bona Brian Siagian',
+  author: {
+    name: 'Bona Brian Siagian',
+    email: 'bonabriansiagian@gmail.com',
+    github: 'https://github.com/bonabrian',
+    linkedin: 'https://www.linkedin.com/in/bonabrian',
+    avatar:
+      'https://res.cloudinary.com/bonabrian/image/upload/v1675009995/avatar_davtqo.png',
+  },
   siteUrl: isDevelopment ? 'http://localhost:3000' : 'https://bonabrian.com',
   themeColor: 'dark',
   keywords: [
@@ -136,7 +143,7 @@ export const Metadata = ({
         rel="alternate"
         href="/feed.xml"
         type="application/rss+xml"
-        title={`${defaultMetadata.author} (RSS)`}
+        title={`${defaultMetadata.author.name} (RSS)`}
       />
 
       <meta name="robots" content="index,follow" />

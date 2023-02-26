@@ -3,12 +3,12 @@ import { useMemo } from 'react'
 import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
 import type { IReadTimeResults } from 'reading-time'
 
-import { siteMetadata } from '@/data'
 import { formatDate, getDomainFromUrl } from '@/lib/utils'
 import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../divider'
 import Link from '../link'
+import { defaultMetadata } from '../metadata'
 import Reactions from '../reactions'
 import ShareButtons from '../share-buttons'
 import Tag from '../tag'
@@ -79,7 +79,7 @@ const MdxContent = ({ content, children }: MdxContentProps) => {
   const createdAt = formatDate({ timestamp: date })
 
   const router = useRouter()
-  const contentUrl = `${siteMetadata.siteUrl}${router.asPath}`
+  const contentUrl = `${defaultMetadata.siteUrl}${router.asPath}`
 
   return (
     <div className="flex flex-col">

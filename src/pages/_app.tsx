@@ -9,10 +9,10 @@ import { useEffect } from 'react'
 
 import Footer from '@/components/footer'
 import GoogleAnalytics from '@/components/google-analytics'
+import { defaultMetadata } from '@/components/metadata'
 import Navigation from '@/components/navigation'
 import ProgressBar from '@/components/progress-bar'
 import { ScrollObserver } from '@/components/scroll-observer'
-import { siteMetadata } from '@/data'
 import { trackPageView } from '@/lib/gtag'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -32,7 +32,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme={defaultMetadata.themeColor}
+      >
         <SessionProvider session={session}>
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>

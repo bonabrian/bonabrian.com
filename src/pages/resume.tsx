@@ -6,13 +6,13 @@ import Divider from '@/components/divider'
 import Link from '@/components/link'
 import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { experiences, siteMetadata } from '@/data'
+import { experiences } from '@/data'
 import { formatDate } from '@/lib/utils'
 
 const Resume = () => {
   const lastUpdated = formatDate({
     timestamp: '2023-02-03T15:06:00.000Z',
-    locale: siteMetadata.locale,
+    locale: 'en-ID',
   })
 
   return (

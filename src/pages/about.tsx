@@ -2,9 +2,9 @@ import Image from 'next/image'
 import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 
 import Link from '@/components/link'
-import { Metadata } from '@/components/metadata'
+import { defaultMetadata, Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { routePaths, siteMetadata } from '@/data'
+import { routePaths } from '@/data'
 
 const About = () => {
   return (
@@ -22,8 +22,8 @@ const About = () => {
         <div className="flex flex-col items-center xl:sticky xl:top-24">
           <div className="relative w-52 h-52 xl:w-72 xl:h-72">
             <Image
-              src={siteMetadata.avatarUrl}
-              alt={siteMetadata.author}
+              src={defaultMetadata.author.avatar}
+              alt={defaultMetadata.author.name}
               className="rounded-full xl:rounded-xl object-cover"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -33,19 +33,28 @@ const About = () => {
           </div>
           <div className="flex flex-col items-center py-4">
             <h3 className="text-xl font-bold leading-8 tracking-tight">
-              {siteMetadata.author}
+              {defaultMetadata.author.name}
             </h3>
             <h4 className="text-base font-medium text-gray-900/50 dark:text-white/60">
               Full-stack Engineer
             </h4>
             <div className="flex items-center justify-center gap-4 my-2">
-              <Link href={siteMetadata.github} showExternalLinkIcon={false}>
+              <Link
+                href={defaultMetadata.author.github}
+                showExternalLinkIcon={false}
+              >
                 <RiGithubFill className="w-7 h-7 hover:fill-primary-500 transition-all ease-in-out duration-150" />
               </Link>
-              <Link href={siteMetadata.linkedin} showExternalLinkIcon={false}>
+              <Link
+                href={defaultMetadata.author.linkedin}
+                showExternalLinkIcon={false}
+              >
                 <RiLinkedinFill className="w-7 h-7 hover:fill-primary-500 transition-all ease-in-out duration-150" />
               </Link>
-              <Link href={siteMetadata.github} showExternalLinkIcon={false}>
+              <Link
+                href={`mailto:${defaultMetadata.author.email}`}
+                showExternalLinkIcon={false}
+              >
                 <RiMailFill className="w-7 h-7 hover:fill-primary-500 transition-all ease-in-out duration-150" />
               </Link>
             </div>

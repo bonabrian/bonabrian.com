@@ -1,8 +1,9 @@
 import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
-import { routePaths, siteMetadata } from '@/data'
+import { routePaths } from '@/data'
 
 import Link from './link'
+import { defaultMetadata } from './metadata'
 import NowPlaying from './now-playing'
 import ThemeSwitch from './theme-switch'
 
@@ -42,12 +43,12 @@ const footerLinks = [
 const iconLinks = [
   {
     title: 'Github',
-    url: siteMetadata.github,
+    url: defaultMetadata.author.github,
     icon: RiGithubLine,
   },
   {
     title: 'LinkedIn',
-    url: siteMetadata.linkedin,
+    url: defaultMetadata.author.linkedin,
     icon: RiLinkedinLine,
   },
   {
@@ -102,7 +103,7 @@ const Footer = () => {
             href="/"
             className="font-medium text-gray-900 dark:text-slate-100 hover:text-primary-500"
           >
-            {siteMetadata.author}
+            {defaultMetadata.author.name}
           </Link>
         </div>
       </div>

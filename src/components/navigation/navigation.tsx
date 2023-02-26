@@ -5,10 +5,11 @@ import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { RiMenuFill } from 'react-icons/ri'
 
-import { navItems, siteMetadata } from '@/data'
+import { navItems } from '@/data'
 import { useDarkTheme, useMounted, useScrollTop } from '@/hooks'
 
 import Link from '../link'
+import { defaultMetadata } from '../metadata'
 import LogoDark from './logo-dark.svg'
 import LogoLight from './logo-light.svg'
 
@@ -31,7 +32,7 @@ const Navigation = () => {
       )}
     >
       <div className="flex items-center py-6 justify-between w-full max-w-6xl mx-auto px-4">
-        <Link href="/" aria-label={siteMetadata.author}>
+        <Link href="/" aria-label={defaultMetadata.author.name}>
           <LogoSvg className="fill-current h-8" />
         </Link>
         <div className="py-2">
