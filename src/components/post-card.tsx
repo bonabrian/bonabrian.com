@@ -31,7 +31,7 @@ const PostCard = ({ post }: PostCardProps) => {
     post
 
   const { data: views, loading: isLoadViews } = useRequest<{ total?: string }>(
-    `api/views/${slug}`,
+    `/api/views/${slug}`,
   )
 
   const extraImageProps = useMemo(() => {
