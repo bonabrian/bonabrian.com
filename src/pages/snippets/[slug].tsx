@@ -23,7 +23,7 @@ const mapContentLayerSnippet = (snippet?: GeneratedSnippet): Snippet | null => {
 const SnippetPage = ({
   snippet: generatedSnippet,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const MdxComponent = useMDXComponent(generatedSnippet?.body?.code || '')
+  const MdxComponent = useMDXComponent(generatedSnippet?.body?.code)
   const snippet = useMemo(
     () => mapContentLayerSnippet(generatedSnippet),
     [generatedSnippet],

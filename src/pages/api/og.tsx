@@ -1,11 +1,11 @@
 import { ImageResponse } from '@vercel/og'
-import type { PageConfig } from 'next'
 import type { NextRequest } from 'next/server'
 
 import { defaultMetadata } from '@/components/metadata'
 
-export const config: PageConfig = {
+export const config = {
   runtime: 'edge',
+  unstable_allowDynamic: ['/node_modules/next-contentlayer/**'],
 }
 
 const fontBold = fetch(

@@ -26,7 +26,7 @@ const SinglePost = ({
   _previousPost,
   _nextPost,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const MdxComponent = useMDXComponent(contentLayerPost?.body?.code || '')
+  const MdxComponent = useMDXComponent(contentLayerPost?.body?.code)
   const post = useMemo(
     () => mapContentLayerPost(contentLayerPost),
     [contentLayerPost],
