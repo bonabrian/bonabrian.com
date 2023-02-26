@@ -1,6 +1,6 @@
 import type { IconType } from 'react-icons'
 
-import Link from '../Link'
+import Link from '../link'
 import Spinner from '../Spinner'
 
 interface StatisticsCardProps {

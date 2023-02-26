@@ -11,36 +11,24 @@ type LinkProps = {
   NextLinkProps
 
 const Link = forwardRef<any, LinkProps>(
-  ({ href, children, showExternalLinkIcon = true, ...rest }, ref) => {
-    const isInternalLink = href && href.startsWith('/')
-    const isAnchorLink = href && href.startsWith('#')
-
-    if (isInternalLink) {
-      return (
-        <NextLink href={href} ref={ref} {...rest}>
-          {children}
-        </NextLink>
-      )
-    }
-
-    if (isAnchorLink) {
-      return (
-        <NextLink ref={ref} href={href} {...rest}>
-          {children}
-        </NextLink>
-      )
-    }
+  (
+    { href, children, className, showExternalLinkIcon = true, ...rest },
+    ref,
+  ) => {
+    const isExternal =
+      href && (href.startsWith('https') || href.startsWith('http'))
 
     return (
       <NextLink
-        ref={ref}
-        target="_blank"
-        rel="noopener noreferrer"
         href={href}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener' : undefined}
+        ref={ref}
+        className={className}
         {...rest}
       >
         {children}
-        {showExternalLinkIcon && (
+        {showExternalLinkIcon && isExternal && (
           <HiOutlineExternalLink
             size={12}
             className="inline-block ml-0.5 align-middle"

@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType } from 'next'
 
-import Link from '@/components/Link'
+import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
 import { routePaths } from '@/data'

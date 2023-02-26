@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import { navItems } from '@/data'
 
-import Link from './Link'
+import Link from './link'
 
 const Navigation = () => {
   const router = useRouter()

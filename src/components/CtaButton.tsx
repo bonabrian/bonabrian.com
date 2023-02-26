@@ -1,4 +1,4 @@
-import Link from './Link'
+import Link from './link'
 
 interface CtaButtonProps {
   children: React.ReactNode

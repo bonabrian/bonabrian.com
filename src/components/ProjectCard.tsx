@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { routePaths } from '@/data'
 import type { Project } from '@/types'
 
-import Link from './Link'
+import Link from './link'
 
 interface ProjectCardProps {
   project: Project

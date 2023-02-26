@@ -8,7 +8,7 @@ import { useRequest } from '@/hooks'
 import { formatDate, kebabCase } from '@/lib/utils'
 import type { Post } from '@/types'
 
-import Link from './Link'
+import Link from './link'
 import Spinner from './Spinner'
 
 interface PostCardProps {

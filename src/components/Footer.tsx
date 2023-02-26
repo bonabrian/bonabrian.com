@@ -2,7 +2,7 @@ import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
 import { routePaths, siteMetadata } from '@/data'
 
-import Link from './Link'
+import Link from './link'
 import NowPlaying from './NowPlaying'
 import ThemeSwitch from './ThemeSwitch'
 

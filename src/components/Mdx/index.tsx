@@ -1,4 +1,4 @@
-import Link from '../Link'
+import Link from '../link'
 import { Image } from './Image'
 import { Pre } from './Pre'
 

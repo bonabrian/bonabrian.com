@@ -1,7 +1,7 @@
 import { siteMetadata } from '@/data'
 import { useDarkTheme } from '@/hooks'
 
-import Link from '../Link'
+import Link from '../link'
 import LogoDark from './logo-dark.svg'
 import LogoLight from './logo-light.svg'
 

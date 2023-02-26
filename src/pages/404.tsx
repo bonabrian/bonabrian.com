@@ -1,4 +1,4 @@
-import Link from '@/components/Link'
+import Link from '@/components/link'
 import PageSeo from '@/components/PageSeo'
 
 import FourZeroFourImage from '../../public/static/404.svg'

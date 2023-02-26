@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 
-import Link from '@/components/Link'
+import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
 import { routePaths, siteMetadata } from '@/data'

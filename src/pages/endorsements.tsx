@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import EndorsementsBadge from '@/components/EndorsementsBadge'
-import Link from '@/components/Link'
+import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
 import Spinner from '@/components/Spinner'

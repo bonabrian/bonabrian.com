@@ -3,7 +3,7 @@ import { RiFileTextLine } from 'react-icons/ri'
 
 import CtaButton from '@/components/CtaButton'
 import Divider from '@/components/Divider'
-import Link from '@/components/Link'
+import Link from '@/components/link'
 import PageHeader from '@/components/PageHeader'
 import PageSeo from '@/components/PageSeo'
 import { experiences, siteMetadata } from '@/data'

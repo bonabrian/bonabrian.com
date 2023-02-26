@@ -1,7 +1,7 @@
 import { SiSpotify } from 'react-icons/si'
 
 import { useNowPlaying } from '../hooks'
-import Link from './Link'
+import Link from './link'
 
 const NowPlaying = () => {
   const { data } = useNowPlaying()

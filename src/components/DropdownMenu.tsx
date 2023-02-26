@@ -7,7 +7,7 @@ import { RiMenuFill } from 'react-icons/ri'
 import { navItems } from '@/data'
 import { useMounted } from '@/hooks'
 
-import Link from './Link'
+import Link from './link'
 
 const DropdownMenu = () => {
   const mounted = useMounted()
