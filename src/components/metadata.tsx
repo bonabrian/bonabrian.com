@@ -33,12 +33,18 @@ interface ThemeColorMeta {
   schema?: string
 }
 
+interface Robots {
+  index?: boolean
+  follow?: boolean
+}
+
 interface MetadataProps {
   title?: string
   description?: string
   keywords?: string | Array<string> | null
   openGraph?: OpenGraphMetadata
   twitter?: TwitterMetadata
+  robots?: Robots
 }
 
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -91,6 +97,7 @@ export const Metadata = ({
   keywords: initialKeywords = defaultMetadata.keywords,
   openGraph,
   twitter,
+  robots = { index: true, follow: true },
 }: MetadataProps) => {
   const router = useRouter()
   const updatedTitle = defaultMetadata.titleTemplate.replace(/%s/g, title)
@@ -122,6 +129,12 @@ export const Metadata = ({
     actualImage ? `&image=${actualImage}` : ''
   }`
 
+  const index = robots.index
+  const follow = robots.follow
+  const robotsParams = `${index ? 'index' : 'noindex'},${
+    follow ? 'follow' : 'nofollow'
+  }`
+
   return (
     <Head>
       <title key="title">{updatedTitle}</title>
@@ -146,7 +159,7 @@ export const Metadata = ({
         title={`${defaultMetadata.author.name} (RSS)`}
       />
 
-      <meta name="robots" content="index,follow" />
+      <meta name="robots" content={robotsParams} />
 
       <meta
         key="og:site_name"
