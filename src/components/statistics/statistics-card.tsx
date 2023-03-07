@@ -4,11 +4,34 @@ import Link from '../link'
 import Spinner from '../spinner'
 
 interface StatisticsCardProps {
-  link: string
+  link?: string
   text: string
   value: string
   icon?: IconType
   loading?: boolean
+}
+
+const Box = ({
+  link,
+  children,
+}: {
+  link?: string
+  children?: React.ReactNode
+}) => {
+  const className =
+    'flex flex-row sm:flex-col items-center sm:items-start space-x-2 sm:space-x-0 border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 dark:hover:border-primary-500 transition-all overflow-hidden relative'
+
+  return (
+    <>
+      {link ? (
+        <Link href={link} showExternalLinkIcon={false} className={className}>
+          {children}
+        </Link>
+      ) : (
+        <div className={className}>{children}</div>
+      )}
+    </>
+  )
 }
 
 export const StatisticsCard = ({
@@ -21,11 +44,7 @@ export const StatisticsCard = ({
   const IconPath = icon ?? 'svg'
 
   return (
-    <Link
-      href={link}
-      showExternalLinkIcon={false}
-      className="flex flex-row sm:flex-col items-center sm:items-start space-x-2 sm:space-x-0 border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 dark:hover:border-primary-500 transition-all overflow-hidden relative"
-    >
+    <Box link={link}>
       {loading ? (
         <div className="flex items-center h-8">
           <Spinner />
@@ -39,6 +58,6 @@ export const StatisticsCard = ({
       {icon && (
         <IconPath className="inline-flex absolute top-3 right-3 text-2xl items-center justify-center" />
       )}
-    </Link>
+    </Box>
   )
 }
