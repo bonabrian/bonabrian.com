@@ -21,6 +21,7 @@ const Resume = () => {
         title="Resume"
         description="Check out how my journey have been like over the years"
         keywords={['resume', 'biography', 'cv']}
+        robots={{ index: false, follow: false }}
       />
       <div className="my-4 flex flex-col items-start sm:flex-row sm:items-center justify-between">
         <PageHeader
