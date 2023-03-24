@@ -1,7 +1,7 @@
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
-  child-src *.google.com *.spotify.com;
+  worker-src 'self' blob:;
   style-src 'self' *.googleapis.com 'unsafe-inline' 'unsafe-eval';
   img-src 'self' *.gstatic.com * blob: data:;
   object-src 'none';
