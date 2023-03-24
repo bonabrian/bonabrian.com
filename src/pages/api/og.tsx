@@ -8,9 +8,6 @@ export const config = {
   unstable_allowDynamic: ['/node_modules/next-contentlayer/**'],
 }
 
-const fontBold = fetch(
-  new URL('../../../assets/fonts/Montserrat-Bold.ttf', import.meta.url),
-).then((res) => res.arrayBuffer())
 const fontRegular = fetch(
   new URL('../../../assets/fonts/Montserrat-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
@@ -19,7 +16,6 @@ const fontMedium = fetch(
 ).then((res) => res.arrayBuffer())
 
 const handler = async (req: NextRequest) => {
-  const fontDataBold = await fontBold
   const fontDataRegular = await fontRegular
   const fontDataMedium = await fontMedium
 
@@ -123,7 +119,7 @@ const handler = async (req: NextRequest) => {
                   <h2
                     tw="flex flex-col text-5xl tracking-tight text-left max-w-3/5"
                     style={{
-                      fontFamily: 'Montserrat-Bold',
+                      fontFamily: 'Montserrat-Medium',
                       lineHeight: '55px',
                     }}
                   >
@@ -138,7 +134,7 @@ const handler = async (req: NextRequest) => {
                   <div tw="flex flex-col mt-16">
                     <h1
                       tw="m-0 text-2xl mb-0"
-                      style={{ fontFamily: 'Montserrat-Bold' }}
+                      style={{ fontFamily: 'Montserrat-Medium' }}
                     >
                       {defaultMetadata.author.name}
                     </h1>
@@ -156,11 +152,6 @@ const handler = async (req: NextRequest) => {
         width: 1200,
         height: 630,
         fonts: [
-          {
-            name: 'Montserrat-Bold',
-            data: fontDataBold,
-            style: 'normal',
-          },
           {
             name: 'Montserrat-Regular',
             data: fontDataRegular,
