@@ -60,7 +60,7 @@ const EndorsementsBadge = ({
       return
     }
 
-    mutate('/api/skills')
+    mutate('/api/endorsements')
     setState(STATES.SUCCESS)
     fireConfetti()
   }

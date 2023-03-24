@@ -7,15 +7,15 @@ import Link from '@/components/link'
 import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
 import Spinner from '@/components/spinner'
-import { useSkillCategories } from '@/hooks'
-import getSkillCategories from '@/lib/getSkillCategories'
+import { useEndorsements } from '@/hooks'
+import { getEndorsements } from '@/lib/db'
 
 export const getStaticProps = async () => {
-  const skillCategories = await getSkillCategories()
+  const endorsements = await getEndorsements()
 
   return {
     props: {
-      fallbackData: skillCategories,
+      fallbackData: endorsements,
     },
     revalidate: 60,
   }
@@ -26,7 +26,7 @@ const Endorsements = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { data: session } = useSession()
 
-  const { categories, error } = useSkillCategories({ fallbackData })
+  const { endorsements, error } = useEndorsements({ fallbackData })
   const [isLoading, setIsLoading] = useState(false)
 
   const onSignIn = async () => {
@@ -92,13 +92,13 @@ const Endorsements = ({
       </div>
 
       <div className="my-12">
-        {categories && !error && (
+        {endorsements && !error && (
           <div className="flex flex-col">
             <h3 className="text-2xl font-bold leading-8 tracking-tight">
               Skills
             </h3>
             <div className="mt-8 space-y-8 divide-y divide-slate-200 dark:divide-gray-800">
-              {categories.map((category) => (
+              {endorsements.map((category) => (
                 <div key={category.name}>
                   <h4 className="my-4 font-semibold leading-5 text-lg md:text-xl">
                     {category.name}

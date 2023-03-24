@@ -6,18 +6,20 @@ interface Props {
   fallbackData: Array<SkillCategory>
 }
 
-export const useSkillCategories = ({ fallbackData }: Props) => {
+export const useEndorsements = ({ fallbackData }: Props) => {
   const {
-    data: categories,
+    data: endorsements,
     loading,
     error,
-  } = useRequest<Array<SkillCategory>>('/api/skills', {
+    mutate,
+  } = useRequest<Array<SkillCategory>>('/api/endorsements', {
     fallbackData,
   })
 
   return {
-    categories,
+    endorsements,
     loading,
     error,
+    mutate,
   }
 }
