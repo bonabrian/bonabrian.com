@@ -29,7 +29,6 @@
 4. Create a `.env` file similar to [`.env.example`](https://github.com/bonabrian/bonabrian.com/blob/main/.env.example) and input environment variables
    ```txt
     # Google
-    NEXT_PUBLIC_GOOGLE_ANALYTICS=G-0X0X0X
     GOOGLE_ID=#GOOGLE_ID
     GOOGLE_SECRET=#GOOGLE_SECRET
 

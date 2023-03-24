@@ -1,13 +1,12 @@
 const ContentSecurityPolicy = `
-  default-src 'self';
-  worker-src 'self' blob:;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
+  default-src 'self' vercel.live;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
   child-src *.google.com *.spotify.com;
   style-src 'self' *.googleapis.com 'unsafe-inline' 'unsafe-eval';
   img-src 'self' *.gstatic.com * blob: data:;
   object-src 'none';
   base-uri 'none';
-  media-src 'self' *.cdninstagram.com;
+  media-src 'self';
   connect-src *;
   font-src 'self' *.gstatic.com data:;
 `
