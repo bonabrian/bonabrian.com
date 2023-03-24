@@ -31,7 +31,7 @@ const Navigation = () => {
         isTop ? 'border-none' : 'border-b border-gray-200 dark:border-gray-800',
       )}
     >
-      <div className="flex items-center py-6 justify-between w-full max-w-6xl mx-auto px-4">
+      <div className="flex items-center py-6 justify-between w-full max-w-5xl mx-auto px-4">
         <Link href="/" aria-label={defaultMetadata.author.name}>
           <LogoSvg className="fill-current h-8" />
         </Link>

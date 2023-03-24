@@ -42,7 +42,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
               <ProgressBar />
               <Navigation />
               <main
-                className="flex flex-col mx-auto max-w-6xl justify-center py-10 px-4"
+                className="flex flex-col mx-auto max-w-5xl justify-center py-10 px-4"
                 role="main"
               >
                 <div className="min-h-screen">
