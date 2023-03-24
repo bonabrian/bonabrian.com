@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server'
-
+import { response } from '@/lib/api'
 import { getNowPlaying } from '@/lib/spotify'
 
 export const GET = async () => {
@@ -7,11 +6,11 @@ export const GET = async () => {
     const track = await getNowPlaying()
 
     if (!track || !track.isPlaying) {
-      return NextResponse.json({ isPlaying: false })
+      return response({ isPlaying: false })
     }
 
-    return NextResponse.json(track)
+    return response(track)
   } catch {
-    return NextResponse.json({ isPlaying: false })
+    return response({ isPlaying: false })
   }
 }

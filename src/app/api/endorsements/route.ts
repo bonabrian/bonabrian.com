@@ -1,7 +1,6 @@
-import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 
-import { defaultHeaders, getErrorMessage } from '@/lib/api'
+import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 import { getEndorsements } from '@/lib/db'
 import prisma from '@/lib/prisma'
@@ -11,10 +10,7 @@ export const POST = async (req: Request) => {
     const session = await getServerSession(authOptions)
 
     if (!session) {
-      return new NextResponse(JSON.stringify({ message: 'Unauthenticated' }), {
-        status: 401,
-        headers: defaultHeaders,
-      })
+      return response({ message: 'Unauthenticated' }, 401)
     }
 
     const body = await req.json()
@@ -28,10 +24,7 @@ export const POST = async (req: Request) => {
     })
 
     if (isExists) {
-      return new NextResponse(
-        JSON.stringify({ message: 'You already endorse this skill' }),
-        { status: 409, headers: defaultHeaders },
-      )
+      return response({ message: 'You already endorse this skill' }, 409)
     }
 
     await prisma.endorsement.create({
@@ -41,12 +34,9 @@ export const POST = async (req: Request) => {
       },
     })
 
-    return new NextResponse('', { status: 201, headers: defaultHeaders })
+    return response({}, 201)
   } catch (err) {
-    return new NextResponse(getErrorMessage(err), {
-      status: 500,
-      headers: defaultHeaders,
-    })
+    return response({ message: getErrorMessage(err) }, 500)
   }
 }
 
@@ -54,11 +44,8 @@ export const GET = async () => {
   try {
     const endorsements = await getEndorsements()
 
-    return NextResponse.json(endorsements)
+    return response(endorsements)
   } catch (err) {
-    return new NextResponse(getErrorMessage(err), {
-      status: 500,
-      headers: defaultHeaders,
-    })
+    return response({ message: getErrorMessage(err) }, 500)
   }
 }
