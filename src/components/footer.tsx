@@ -1,9 +1,9 @@
 import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
+import { defaultMetadata } from '@/lib/metadata'
 
 import Link from './link'
-import { defaultMetadata } from './metadata'
 import NowPlaying from './now-playing'
 import ThemeSwitch from './theme-switch'
 

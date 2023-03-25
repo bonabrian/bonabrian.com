@@ -1,31 +1,20 @@
-import type { InferGetStaticPropsType } from 'next'
+import type { Metadata } from 'next'
 
 import Divider from '@/components/divider'
 import FeaturedProjects from '@/components/featured-projects'
 import Introduction from '@/components/introduction'
-import { Metadata } from '@/components/metadata'
 import RecentPosts from '@/components/recent-posts'
 import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
+import { getMetadata } from '@/lib/metadata'
 
-const MAX_DISPLAY = 2
+export const metadata: Metadata = getMetadata()
 
-export const getStaticProps = async () => {
-  const featuredProjects = getFeaturedProjects(MAX_DISPLAY)
-  const recentPosts = getRecentPosts(MAX_DISPLAY)
+const Home = async () => {
+  const featuredProjects = getFeaturedProjects()
+  const recentPosts = getRecentPosts()
 
-  return {
-    props: { featuredProjects, recentPosts },
-  }
-}
-
-const Home = ({
-  featuredProjects,
-  recentPosts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Metadata />
-
       <Introduction />
 
       <Divider />

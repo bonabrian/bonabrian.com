@@ -1,7 +1,9 @@
+'use client'
+
 import { Menu, Transition } from '@headlessui/react'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { Fragment } from 'react'
 import type { IconType } from 'react-icons'
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
@@ -17,11 +19,11 @@ import {
 
 import { useDarkTheme, useMounted, useScrollTop } from '@/hooks'
 import { routes } from '@/lib/constants'
+import { defaultMetadata } from '@/lib/metadata'
 
 import LogoDark from '../../assets/images/logo-dark.svg'
 import LogoLight from '../../assets/images/logo-light.svg'
 import Link from './link'
-import { defaultMetadata } from './metadata'
 
 interface Nav {
   path: string
@@ -73,7 +75,7 @@ export const navItems: Nav[] = [
 const Navbar = () => {
   const isTop = useScrollTop()
   const { isDark } = useDarkTheme()
-  const { pathname } = useRouter()
+  const pathname = usePathname()
   const mounted = useMounted()
 
   const baseStyle =

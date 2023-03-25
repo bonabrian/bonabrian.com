@@ -122,3 +122,8 @@ export const reactionMapper: { [key in ReactionType]: Reaction } = {
   liked: 'likes',
   starred: 'stars',
 }
+
+export const getBaseUrl = () => {
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  return isDevelopment ? 'http://localhost:3000' : 'https://bonabrian.com'
+}

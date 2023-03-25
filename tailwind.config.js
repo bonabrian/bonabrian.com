@@ -4,11 +4,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  content: [
-    './src/pages/**/*.tsx',
-    './src/components/**/*.tsx',
-    './src/layouts/**/*.tsx',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -25,7 +21,8 @@ module.exports = {
         tightest: '-0.075rem',
       },
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        // uses `next/font` see `app/layout.tsx`
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         // Generated from https://colors.eva.design/
