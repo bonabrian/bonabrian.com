@@ -9,9 +9,7 @@ export const ReactionStats = () => {
     loves?: number
     likes?: number
     stars?: number
-  }>('/api/statistics/total-reactions')
-
-  console.log(data)
+  }>('/api/statistics/reactions')
 
   return (
     <>

@@ -6,7 +6,7 @@ import { StatisticsCard } from './statistics-card'
 
 export const TotalViews = () => {
   const { data, loading } = useRequest<{ total?: number }>(
-    '/api/statistics/total-views',
+    '/api/statistics/views',
   )
   return (
     <StatisticsCard

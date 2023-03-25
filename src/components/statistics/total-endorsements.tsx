@@ -6,7 +6,7 @@ import { StatisticsCard } from './statistics-card'
 
 export const TotalEndorsements = () => {
   const { data, loading } = useRequest<{ total?: number }>(
-    '/api/statistics/total-endorsements',
+    '/api/statistics/endorsements',
   )
   return (
     <StatisticsCard
