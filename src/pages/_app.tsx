@@ -8,7 +8,7 @@ import { ThemeProvider } from 'next-themes'
 
 import Footer from '@/components/footer'
 import { defaultMetadata } from '@/components/metadata'
-import Navigation from '@/components/navigation'
+import Navbar from '@/components/navbar'
 import ProgressBar from '@/components/progress-bar'
 import { ScrollObserver } from '@/components/scroll-observer'
 
@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <AnimatePresence mode="wait" initial={false}>
             <ScrollObserver>
               <ProgressBar />
-              <Navigation />
+              <Navbar />
               <main
                 className="flex flex-col mx-auto max-w-5xl justify-center py-10 px-4"
                 role="main"

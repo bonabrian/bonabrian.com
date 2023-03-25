@@ -3,9 +3,19 @@ import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
-import { RiMenuFill } from 'react-icons/ri'
+import type { IconType } from 'react-icons'
+import { HiOutlineBadgeCheck } from 'react-icons/hi'
+import {
+  RiBracesLine,
+  RiHome3Line,
+  RiLineChartLine,
+  RiMenuFill,
+  RiNodeTree,
+  RiPencilLine,
+  RiUserLine,
+} from 'react-icons/ri'
 
-import { navItems } from '@/data'
+import { routes } from '@/data'
 import { useDarkTheme, useMounted, useScrollTop } from '@/hooks'
 
 import LogoDark from '../../assets/images/logo-dark.svg'
@@ -13,7 +23,54 @@ import LogoLight from '../../assets/images/logo-light.svg'
 import Link from './link'
 import { defaultMetadata } from './metadata'
 
-const Navigation = () => {
+interface Nav {
+  path: string
+  label: string
+  icon: IconType
+  onlyShowOnDropdownMenu?: boolean
+}
+
+export const navItems: Nav[] = [
+  {
+    path: '/',
+    label: 'Home',
+    icon: RiHome3Line,
+    onlyShowOnDropdownMenu: true,
+  },
+  {
+    path: routes.BLOG,
+    label: 'Blog',
+    icon: RiPencilLine,
+  },
+  {
+    path: routes.PROJECTS,
+    label: 'Projects',
+    icon: RiNodeTree,
+  },
+  {
+    path: routes.SNIPPETS,
+    label: 'Snippets',
+    icon: RiBracesLine,
+  },
+  {
+    path: routes.ENDORSEMENTS,
+    label: 'Endorsements',
+    icon: HiOutlineBadgeCheck,
+  },
+  {
+    path: routes.ABOUT,
+    label: 'About',
+    icon: RiUserLine,
+  },
+  {
+    path: routes.STATS,
+    label: 'Stats',
+    icon: RiLineChartLine,
+    onlyShowOnDropdownMenu: true,
+  },
+]
+
+const Navbar = () => {
   const isTop = useScrollTop()
   const { isDark } = useDarkTheme()
   const { pathname } = useRouter()
@@ -105,4 +162,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Navbar
