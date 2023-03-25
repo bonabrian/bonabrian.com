@@ -1,15 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import type { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
-import { unstable_getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
 import LoginProviderButton from '@/components/login-provider-button'
 import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-
-import { authOptions } from '../api/auth/[...nextauth]'
+import { authOptions } from '@/lib/auth'
 
 const SignIn = ({
   providers,
@@ -108,7 +107,7 @@ export const getServerSideProps = async ({
   req,
   res,
 }: GetServerSidePropsContext) => {
-  const session = await unstable_getServerSession(req, res, authOptions)
+  const session = await getServerSession(req, res, authOptions)
   if (session) {
     return {
       redirect: {
