@@ -1,4 +1,4 @@
-export const routePaths = {
+export const routes = {
   BLOG: '/blog',
   PROJECTS: '/projects',
   SNIPPETS: '/snippets',

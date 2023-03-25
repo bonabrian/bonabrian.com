@@ -1,6 +1,6 @@
 import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
-import { routePaths } from '@/data'
+import { routes } from '@/data'
 
 import Link from './link'
 import { defaultMetadata } from './metadata'
@@ -11,31 +11,31 @@ const footerLinks = [
   [
     {
       title: 'Projects',
-      url: routePaths.PROJECTS,
+      url: routes.PROJECTS,
     },
     {
       title: 'About',
-      url: routePaths.ABOUT,
+      url: routes.ABOUT,
     },
   ],
   [
     {
       title: 'Blog',
-      url: routePaths.BLOG,
+      url: routes.BLOG,
     },
     {
       title: 'Snippets',
-      url: routePaths.SNIPPETS,
+      url: routes.SNIPPETS,
     },
   ],
   [
     {
       title: 'Endorsements',
-      url: routePaths.ENDORSEMENTS,
+      url: routes.ENDORSEMENTS,
     },
     {
       title: 'Stats',
-      url: routePaths.STATS,
+      url: routes.STATS,
     },
   ],
 ]

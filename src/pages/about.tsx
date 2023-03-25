@@ -4,7 +4,7 @@ import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 import Link from '@/components/link'
 import { defaultMetadata, Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { routePaths } from '@/data'
+import { routes } from '@/data'
 
 const About = () => {
   return (
@@ -118,7 +118,7 @@ const About = () => {
           <p>
             If you're interested in learning more about my professional
             background and qualifications, I encourage you to review{' '}
-            <Link href={routePaths.RESUME}>my resume.</Link>
+            <Link href={routes.RESUME}>my resume.</Link>
           </p>
         </div>
       </div>

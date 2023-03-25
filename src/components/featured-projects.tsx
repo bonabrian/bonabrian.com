@@ -1,6 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-import { routePaths } from '@/data'
+import { routes } from '@/data'
 import type { Project } from '@/types'
 
 import CallToAction from './call-to-action'
@@ -42,7 +42,7 @@ const FeaturedProjects = ({
           </div>
 
           <div className="flex justify-center items-center my-6">
-            <CallToAction href={routePaths.PROJECTS}>
+            <CallToAction href={routes.PROJECTS}>
               All Projects <RiArrowRightSLine className="ml-1" />
             </CallToAction>
           </div>

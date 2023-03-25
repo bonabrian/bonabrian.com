@@ -9,7 +9,7 @@ import {
   RiUserLine,
 } from 'react-icons/ri'
 
-import { routePaths } from './routePaths'
+import { routes } from './routes'
 
 export type Nav = {
   path: string
@@ -26,32 +26,32 @@ export const navItems: Nav[] = [
     onlyShowOnDropdownMenu: true,
   },
   {
-    path: routePaths.BLOG,
+    path: routes.BLOG,
     label: 'Blog',
     icon: RiPencilLine,
   },
   {
-    path: routePaths.PROJECTS,
+    path: routes.PROJECTS,
     label: 'Projects',
     icon: RiNodeTree,
   },
   {
-    path: routePaths.SNIPPETS,
+    path: routes.SNIPPETS,
     label: 'Snippets',
     icon: RiBracesLine,
   },
   {
-    path: routePaths.ENDORSEMENTS,
+    path: routes.ENDORSEMENTS,
     label: 'Endorsements',
     icon: HiOutlineBadgeCheck,
   },
   {
-    path: routePaths.ABOUT,
+    path: routes.ABOUT,
     label: 'About',
     icon: RiUserLine,
   },
   {
-    path: routePaths.STATS,
+    path: routes.STATS,
     label: 'Stats',
     icon: RiLineChartLine,
     onlyShowOnDropdownMenu: true,

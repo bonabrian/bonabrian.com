@@ -1,6 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-import { routePaths } from '@/data'
+import { routes } from '@/data'
 import type { Post } from '@/types'
 
 import CallToAction from './call-to-action'
@@ -40,7 +40,7 @@ const RecentPosts = ({
           </div>
 
           <div className="flex justify-center items-center my-6">
-            <CallToAction href={routePaths.BLOG}>
+            <CallToAction href={routes.BLOG}>
               All Posts <RiArrowRightSLine className="ml-1" />
             </CallToAction>
           </div>

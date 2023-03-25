@@ -1,6 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-import { routePaths } from '@/data'
+import { routes } from '@/data'
 
 import CallToAction from './call-to-action'
 
@@ -20,7 +20,7 @@ const Introduction = () => {
           about those things.
         </p>
       </div>
-      <CallToAction href={routePaths.ABOUT}>
+      <CallToAction href={routes.ABOUT}>
         Discover More <RiArrowRightSLine className="ml-1" />
       </CallToAction>
     </div>
