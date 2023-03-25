@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType } from 'next'
 import Link from '@/components/link'
 import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { routes } from '@/data'
+import { routes } from '@/lib/constants'
 import { getSnippets } from '@/lib/contentlayer'
 import { formatDate } from '@/lib/utils'
 

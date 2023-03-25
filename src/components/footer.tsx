@@ -1,6 +1,6 @@
 import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
-import { routes } from '@/data'
+import { routes } from '@/lib/constants'
 
 import Link from './link'
 import { defaultMetadata } from './metadata'

@@ -15,8 +15,8 @@ import {
   RiUserLine,
 } from 'react-icons/ri'
 
-import { routes } from '@/data'
 import { useDarkTheme, useMounted, useScrollTop } from '@/hooks'
+import { routes } from '@/lib/constants'
 
 import LogoDark from '../../assets/images/logo-dark.svg'
 import LogoLight from '../../assets/images/logo-light.svg'

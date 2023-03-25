@@ -4,7 +4,7 @@ import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 import Link from '@/components/link'
 import { defaultMetadata, Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { routes } from '@/data'
+import { routes } from '@/lib/constants'
 
 const About = () => {
   return (

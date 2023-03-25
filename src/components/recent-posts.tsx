@@ -1,6 +1,6 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-import { routes } from '@/data'
+import { routes } from '@/lib/constants'
 import type { Post } from '@/types'
 
 import CallToAction from './call-to-action'

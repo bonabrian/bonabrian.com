@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { routes } from '@/data'
+import { routes } from '@/lib/constants'
 import type { Project } from '@/types'
 
 import Link from './link'

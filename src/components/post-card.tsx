@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { useMemo } from 'react'
 import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
 
-import { routes } from '@/data'
 import { useRequest } from '@/hooks'
+import { routes } from '@/lib/constants'
 import { formatDate, kebabCase } from '@/lib/utils'
 import type { Post } from '@/types'
 
