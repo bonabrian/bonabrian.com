@@ -1,12 +1,9 @@
 import { ImageResponse } from '@vercel/og'
-import type { PageConfig } from 'next'
 import type { NextRequest } from 'next/server'
 
 import { getErrorMessage, response } from '@/lib/api'
 
-export const config: PageConfig = {
-  runtime: 'edge',
-}
+export const runtime = 'edge'
 
 const fontRegular = fetch(
   new URL('../../../../assets/fonts/Montserrat-Regular.ttf', import.meta.url),
