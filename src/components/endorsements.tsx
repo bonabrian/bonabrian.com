@@ -1,29 +1,21 @@
-import type { InferGetStaticPropsType } from 'next'
+'use client'
+
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-import EndorsementsBadge from '@/components/endorsements-badge'
-import Link from '@/components/link'
-import { Metadata } from '@/components/metadata'
-import PageHeader from '@/components/page-header'
-import Spinner from '@/components/spinner'
 import { useEndorsements } from '@/hooks'
-import { getEndorsements } from '@/lib/db'
+import type { SkillCategory } from '@/types'
 
-export const getStaticProps = async () => {
-  const endorsements = await getEndorsements()
+import EndorsementsBadge from './endorsements-badge'
+import Link from './link'
+import PageHeader from './page-header'
+import Spinner from './spinner'
 
-  return {
-    props: {
-      fallbackData: endorsements,
-    },
-    revalidate: 60,
-  }
+interface EndorsementsProps {
+  fallbackData: Array<SkillCategory>
 }
 
-const Endorsements = ({
-  fallbackData,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Endorsements = ({ fallbackData }: EndorsementsProps) => {
   const { data: session } = useSession()
 
   const { endorsements, error } = useEndorsements({ fallbackData })
@@ -37,11 +29,6 @@ const Endorsements = ({
 
   return (
     <>
-      <Metadata
-        title="Endorsements"
-        description="Endorse my technical skills and abilities based on your personal experience working with me."
-        keywords={['skills', 'endorsements', 'programming']}
-      />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Endorsements"
