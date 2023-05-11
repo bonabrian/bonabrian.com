@@ -34,7 +34,7 @@ const Box = ({
   )
 }
 
-export const StatisticsCard = ({
+const StatisticsCard = ({
   link,
   text,
   value,
@@ -61,3 +61,5 @@ export const StatisticsCard = ({
     </Box>
   )
 }
+
+export default StatisticsCard

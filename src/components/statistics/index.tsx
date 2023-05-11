@@ -1,5 +1,13 @@
-export * from './github-stats'
-export * from './reaction-stats'
-export * from './statistics-card'
-export * from './total-endorsements'
-export * from './total-views'
+import GithubStats from './github-stats'
+import ReactionStats from './reaction-stats'
+import StatisticsCard from './statistics-card'
+import TotalEndorsements from './total-endorsements'
+import TotalViews from './total-views'
+
+export {
+  GithubStats,
+  ReactionStats,
+  StatisticsCard,
+  TotalEndorsements,
+  TotalViews,
+}

@@ -4,9 +4,9 @@ import { RiEyeLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './statistics-card'
+import StatisticsCard from './statistics-card'
 
-export const TotalViews = () => {
+const TotalViews = () => {
   const { data, loading } = useRequest<{ total?: number }>(
     '/api/statistics/views',
   )
@@ -20,3 +20,5 @@ export const TotalViews = () => {
     />
   )
 }
+
+export default TotalViews
