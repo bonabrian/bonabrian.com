@@ -37,7 +37,11 @@ export const metadata: Metadata = getMetadata({
 const BlogPage = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PostList posts={posts} />
+      <PostList
+        title="Blog"
+        description="The place where I share my thoughts, ideas and experiences about software development."
+        posts={posts}
+      />
     </Suspense>
   )
 }

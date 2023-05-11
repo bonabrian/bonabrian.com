@@ -11,10 +11,12 @@ import PageHeader from './page-header'
 import PostCard from './post-card'
 
 interface PostListProps {
+  title: string
+  description?: string
   posts: Array<Post>
 }
 
-const PostList = ({ posts }: PostListProps) => {
+const PostList = ({ title, description, posts }: PostListProps) => {
   const [search, setSearch] = useState('')
   const filteredPosts = useMemo(() => {
     return filterPosts(posts, search)
@@ -39,10 +41,7 @@ const PostList = ({ posts }: PostListProps) => {
   return (
     <>
       <div className="my-4 space-y-3 md:space-y-5">
-        <PageHeader
-          title="Blog"
-          description="The place where I share my thoughts, ideas and experiences about software development."
-        />
+        <PageHeader title={title} description={description} />
         {renderSearchComponent()}
       </div>
       {filteredPosts.length ? (
