@@ -1,23 +1,24 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { RiGithubFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri'
 
 import Link from '@/components/link'
-import { defaultMetadata, Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
 import { routes } from '@/lib/constants'
+import { defaultMetadata, getMetadata } from '@/lib/metadata'
 
-const About = () => {
+export const metadata: Metadata = getMetadata({
+  title: 'About',
+  description: 'Learn a bit about me, careers, and more',
+  keywords: ['bio', 'biography', 'information', 'about'],
+})
+
+const AboutPage = () => {
   return (
     <>
-      <Metadata
-        title="About"
-        description="Learn a bit about me, careers, and more"
-        keywords={['bio', 'biography', 'information', 'about']}
-      />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader title="About" />
       </div>
-
       <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
         <div className="flex flex-col items-center xl:sticky xl:top-24">
           <div className="relative w-52 h-52 xl:w-72 xl:h-72">
@@ -126,4 +127,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutPage
