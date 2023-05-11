@@ -1,11 +1,12 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { RiFileTextLine } from 'react-icons/ri'
 
 import CallToAction from '@/components/call-to-action'
 import Divider from '@/components/divider'
 import Link from '@/components/link'
-import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
+import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'
 
 interface Organization {
@@ -129,7 +130,14 @@ const experiences: Experience[] = [
   },
 ]
 
-const Resume = () => {
+export const metadata: Metadata = getMetadata({
+  title: 'Resume',
+  description: 'Check out how my journey have been like over the years',
+  keywords: ['resume', 'biography', 'cv'],
+  robots: { index: false, follow: false },
+})
+
+const ResumePage = () => {
   const lastUpdated = formatDate({
     timestamp: '2023-02-03T15:06:00.000Z',
     locale: 'en-ID',
@@ -137,12 +145,6 @@ const Resume = () => {
 
   return (
     <>
-      <Metadata
-        title="Resume"
-        description="Check out how my journey have been like over the years"
-        keywords={['resume', 'biography', 'cv']}
-        robots={{ index: false, follow: false }}
-      />
       <div className="my-4 flex flex-col items-start sm:flex-row sm:items-center justify-between">
         <PageHeader
           title="Resume"
@@ -217,4 +219,4 @@ const Resume = () => {
   )
 }
 
-export default Resume
+export default ResumePage
