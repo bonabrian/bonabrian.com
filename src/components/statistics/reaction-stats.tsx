@@ -1,3 +1,5 @@
+'use client'
+
 import { RiHeart3Line, RiStarLine, RiThumbUpLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'

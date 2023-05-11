@@ -1,3 +1,5 @@
+'use client'
+
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
 
 import { useRequest } from '@/hooks'

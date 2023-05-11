@@ -1,3 +1,5 @@
+'use client'
+
 import { RiEyeLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'

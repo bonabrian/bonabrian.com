@@ -1,3 +1,5 @@
+'use client'
+
 import { AiOutlineStar } from 'react-icons/ai'
 import { RiGithubLine } from 'react-icons/ri'
 

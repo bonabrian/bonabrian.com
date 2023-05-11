@@ -1,4 +1,5 @@
-import { Metadata } from '@/components/metadata'
+import type { Metadata } from 'next'
+
 import PageHeader from '@/components/page-header'
 import {
   GithubStats,
@@ -6,15 +7,17 @@ import {
   TotalEndorsements,
   TotalViews,
 } from '@/components/statistics'
+import { getMetadata } from '@/lib/metadata'
 
-const Stats = () => {
+export const metadata: Metadata = getMetadata({
+  title: 'Stats',
+  description: 'Statistics about my digital home, Github, and more',
+  keywords: ['statistics', 'stats', 'dashboard', 'github'],
+})
+
+const StatsPage = () => {
   return (
     <>
-      <Metadata
-        title="Stats"
-        description="Statistics about my digital home, Github, and more"
-        keywords={['statistics', 'stats', 'dashboard', 'github']}
-      />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader title="Stats" />
       </div>
@@ -30,4 +33,4 @@ const Stats = () => {
   )
 }
 
-export default Stats
+export default StatsPage
