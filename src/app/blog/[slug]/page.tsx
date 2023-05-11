@@ -40,7 +40,7 @@ export const generateMetadata = async ({
   })
 }
 
-const SinglePost = ({ params }: { params: { slug: string } }) => {
+const PostPage = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((it: ContentLayerPost) => it.slug === params?.slug)
 
   if (!post) notFound()
@@ -57,4 +57,4 @@ const SinglePost = ({ params }: { params: { slug: string } }) => {
   )
 }
 
-export default SinglePost
+export default PostPage

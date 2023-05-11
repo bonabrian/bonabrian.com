@@ -23,7 +23,7 @@ export const metadata: Metadata = getMetadata({
   ],
 })
 
-const Snippets = async () => {
+const SnippetsPage = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="my-4 space-y-3 md:space-y-5">
@@ -63,4 +63,4 @@ const Snippets = async () => {
   )
 }
 
-export default Snippets
+export default SnippetsPage

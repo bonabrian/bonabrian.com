@@ -29,7 +29,7 @@ export const metadata: Metadata = getMetadata({
   ],
 })
 
-const Projects = async () => {
+const ProjectsPage = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ProjectList projects={projects} />
@@ -37,4 +37,4 @@ const Projects = async () => {
   )
 }
 
-export default Projects
+export default ProjectsPage
