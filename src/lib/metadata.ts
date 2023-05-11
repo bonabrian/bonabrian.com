@@ -97,7 +97,7 @@ export const getMetadata = ({
     ogImage ? `&image=${ogImage}` : ''
   }`
 
-  const baseOpenGraph: OpenGraph = {
+  const updatedOpenGraph: OpenGraph = {
     siteName: openGraph?.siteName || defaultMetadata.applicationName,
     title: openGraph?.title || updatedTitle,
     description: openGraph?.description || description,
@@ -124,8 +124,8 @@ export const getMetadata = ({
     },
     robots,
     openGraph: {
-      ...baseOpenGraph,
       ...openGraph,
+      ...updatedOpenGraph,
     },
     twitter: {
       title: updatedTitle,
