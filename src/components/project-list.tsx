@@ -1,34 +1,21 @@
-import classnames from 'classnames'
+'use client'
+
+import cx from 'classnames'
+import type { Project } from 'contentlayer/generated'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { InferGetStaticPropsType } from 'next'
 import { useMemo, useState } from 'react'
 
-import { Metadata } from '@/components/metadata'
-import PageHeader from '@/components/page-header'
-import ProjectCard from '@/components/project-card'
-import { filterProjects, getProjects } from '@/lib/contentlayer'
+import { filterProjects } from '@/lib/contentlayer'
 
-export const getStaticProps = async () => {
-  const allProjects = getProjects([
-    'title',
-    'description',
-    'slug',
-    'image',
-    'imageMeta',
-    'url',
-    'category',
-  ])
+import PageHeader from './page-header'
+import ProjectCard from './project-card'
 
-  return {
-    props: { projects: allProjects },
-  }
+interface ProjectListProps {
+  projects: Array<Project>
 }
 
-const Projects = ({
-  projects,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const ProjectList = ({ projects }: ProjectListProps) => {
   const [category, setCategory] = useState('')
-
   const filteredProjects = useMemo(() => {
     return filterProjects(projects, 'category', category)
   }, [projects, category])
@@ -51,7 +38,7 @@ const Projects = ({
           return (
             <div
               key={it.key}
-              className={classnames(
+              className={cx(
                 'px-5 py-2 rounded-full hover:font-medium transition-all ease-in-out duration-100',
                 it.key === category
                   ? 'cursor-default text-white bg-primary-500 pointer-events-none'
@@ -71,19 +58,6 @@ const Projects = ({
 
   return (
     <>
-      <Metadata
-        title="Projects"
-        description="A collection of finest projects that I have built."
-        keywords={[
-          'project',
-          'development',
-          'app',
-          'portfolio',
-          'programming',
-          'tech',
-          'software',
-        ]}
-      />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Projects"
@@ -109,4 +83,4 @@ const Projects = ({
   )
 }
 
-export default Projects
+export default ProjectList
