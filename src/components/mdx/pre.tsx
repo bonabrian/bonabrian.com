@@ -1,3 +1,5 @@
+'use client'
+
 import classnames from 'classnames'
 import { useRef, useState } from 'react'
 import { HiOutlineClipboard, HiOutlineClipboardCheck } from 'react-icons/hi'

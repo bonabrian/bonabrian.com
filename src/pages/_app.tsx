@@ -10,7 +10,7 @@ import Footer from '@/components/footer'
 import { defaultMetadata } from '@/components/metadata'
 import Navbar from '@/components/navbar'
 import ProgressBar from '@/components/progress-bar'
-import { ScrollObserver } from '@/components/scroll-observer'
+import ScrollObserver from '@/components/scroll-observer'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { session, ...rest } = pageProps
