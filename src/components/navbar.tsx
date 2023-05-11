@@ -104,7 +104,9 @@ const Navbar = () => {
                   href={path}
                   className={cx(
                     'relative py-1 font-medium after:content-[""] after:absolute after:block after:w-full after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300',
-                    pathname === path ? 'after:scale-x-100' : '',
+                    pathname === path || pathname?.startsWith(path)
+                      ? 'after:scale-x-100'
+                      : '',
                   )}
                 >
                   {label}
