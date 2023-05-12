@@ -94,10 +94,6 @@ export const getNowPlaying = async (): Promise<NowPlaying> => {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
-    next: {
-      revalidate: 10,
-    },
-    cache: 'no-store',
   })
 
   return nowPlayingDataSelector(response)
