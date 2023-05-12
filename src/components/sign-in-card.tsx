@@ -1,32 +1,34 @@
+'use client'
+
 import { Dialog, Transition } from '@headlessui/react'
-import type { GetServerSidePropsContext } from 'next'
-import { useRouter } from 'next/router'
-import { getServerSession } from 'next-auth'
-import { getProviders } from 'next-auth/react'
+import { useSearchParams } from 'next/navigation'
+import type { BuiltInProviderType } from 'next-auth/providers'
+import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import LoginProviderButton from '@/components/login-provider-button'
-import { Metadata } from '@/components/metadata'
 import PageHeader from '@/components/page-header'
-import { authOptions } from '@/lib/auth'
 
-const SignIn = ({
+import LoginProviderButton from './login-provider-button'
+
+const SignInCard = ({
   providers,
 }: {
-  providers: Awaited<ReturnType<typeof getProviders>>
+  providers: Record<
+    LiteralUnion<BuiltInProviderType>,
+    ClientSafeProvider
+  > | null
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (router.query.error) {
+    if (searchParams?.get('error')) {
       setIsOpen(true)
     }
-  }, [router])
+  }, [searchParams])
 
   return (
     <>
-      <Metadata title="Sign In" description="Sign In" />
       <div className="my-4 space-y-3 md:space-y-5">
         <PageHeader
           title="Sign In"
@@ -83,12 +85,15 @@ const SignIn = ({
                     An unexpected problem occurred while I&apos;m trying to log
                     you in. Please try with another providers.
                   </p>
+                  <code className="text-sm text-red-500">
+                    Error: {searchParams?.get('error')}
+                  </code>
                 </div>
 
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-success-900 bg-success-100 hover:bg-success-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-success-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                     onClick={() => setIsOpen(false)}
                   >
                     OK
@@ -103,24 +108,4 @@ const SignIn = ({
   )
 }
 
-export const getServerSideProps = async ({
-  req,
-  res,
-}: GetServerSidePropsContext) => {
-  const session = await getServerSession(req, res, authOptions)
-  if (session) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: '/',
-      },
-    }
-  }
-
-  const providers = await getProviders()
-  return {
-    props: { providers },
-  }
-}
-
-export default SignIn
+export default SignInCard
