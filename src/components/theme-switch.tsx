@@ -1,3 +1,5 @@
+'use client'
+
 import { Switch } from '@headlessui/react'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
 

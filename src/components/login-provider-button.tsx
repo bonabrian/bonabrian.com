@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router'
+'use client'
+
+import { useSearchParams } from 'next/navigation'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
@@ -45,8 +47,8 @@ const LoginProviderButton = ({
   const { isDark, mounted } = useDarkTheme()
   const { Logo, LogoDark, bg, bgDark, text, textDark } =
     providerStyleGuides[provider.id]
-  const router = useRouter()
-  const { callbackUrl } = router.query
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams?.get('callbackUrl')
 
   if (!mounted) return null
 

@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router'
+'use client'
+
+import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
 import type { IReadTimeResults } from 'reading-time'
@@ -78,8 +80,8 @@ const MdxContent = ({ content, children }: MdxContentProps) => {
 
   const createdAt = formatDate({ timestamp: date })
 
-  const router = useRouter()
-  const contentUrl = `${defaultMetadata.siteUrl}${router.asPath}`
+  const pathname = usePathname()
+  const contentUrl = `${defaultMetadata.siteUrl}${pathname}`
 
   return (
     <div className="flex flex-col">

@@ -1,12 +1,14 @@
+'use client'
+
 import { HiOutlineBadgeCheck } from 'react-icons/hi'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './statistics-card'
+import StatisticsCard from './statistics-card'
 
-export const TotalEndorsements = () => {
+const TotalEndorsements = () => {
   const { data, loading } = useRequest<{ total?: number }>(
-    '/api/statistics/total-endorsements',
+    '/api/statistics/endorsements',
   )
   return (
     <StatisticsCard
@@ -18,3 +20,5 @@ export const TotalEndorsements = () => {
     />
   )
 }
+
+export default TotalEndorsements

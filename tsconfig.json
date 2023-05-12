@@ -18,7 +18,12 @@
     "paths": {
       "@/*": ["./src/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["./out/**/*", "./node_modules/**/*", "**/*.test.ts"],
   "include": [
@@ -26,6 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
-    "./.contentlayer/generated"
+    "./.contentlayer/generated",
+    ".next/types/**/*.ts"
   ]
 }

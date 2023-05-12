@@ -1,8 +1,10 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { routePaths } from '@/data'
+import { routes } from '@/lib/constants'
 import type { Project } from '@/types'
 
 import Link from './link'
@@ -32,7 +34,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     return {}
   }, [image, imageMeta])
 
-  const projectUrl = url || `${routePaths}/${slug}`
+  const projectUrl = url || `${routes.PROJECTS}/${slug}`
 
   return (
     <motion.div

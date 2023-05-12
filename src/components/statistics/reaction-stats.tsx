@@ -1,17 +1,17 @@
+'use client'
+
 import { RiHeart3Line, RiStarLine, RiThumbUpLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './statistics-card'
+import StatisticsCard from './statistics-card'
 
-export const ReactionStats = () => {
+const ReactionStats = () => {
   const { data, loading } = useRequest<{
     loves?: number
     likes?: number
     stars?: number
-  }>('/api/statistics/total-reactions')
-
-  console.log(data)
+  }>('/api/statistics/reactions')
 
   return (
     <>
@@ -36,3 +36,5 @@ export const ReactionStats = () => {
     </>
   )
 }
+
+export default ReactionStats

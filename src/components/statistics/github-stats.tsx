@@ -1,11 +1,13 @@
+'use client'
+
 import { AiOutlineStar } from 'react-icons/ai'
 import { RiGithubLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 
-import { StatisticsCard } from './statistics-card'
+import StatisticsCard from './statistics-card'
 
-export const GithubStats = () => {
+const GithubStats = () => {
   const { data, loading } = useRequest<{ followers?: number; stars?: number }>(
     '/api/statistics/github',
   )
@@ -29,3 +31,5 @@ export const GithubStats = () => {
     </>
   )
 }
+
+export default GithubStats

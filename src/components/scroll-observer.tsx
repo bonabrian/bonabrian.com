@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useCallback, useEffect, useState } from 'react'
 
 interface ScrollValue {
@@ -14,7 +16,7 @@ interface ScrollObserverProps {
   children: React.ReactNode
 }
 
-export const ScrollObserver = ({ children }: ScrollObserverProps) => {
+const ScrollObserver = ({ children }: ScrollObserverProps) => {
   const [scrollY, setScrollY] = useState(0)
   const [scrollHeight, setScrollHeight] = useState(0)
 
@@ -36,3 +38,5 @@ export const ScrollObserver = ({ children }: ScrollObserverProps) => {
     </ScrollContext.Provider>
   )
 }
+
+export default ScrollObserver
