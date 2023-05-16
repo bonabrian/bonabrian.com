@@ -59,9 +59,6 @@ const nextConfig = {
       redirect('/resume/download', '/share/resume.pdf'),
     ]
   },
-  experimental: {
-    appDir: true,
-  },
 }
 
 module.exports = isDevelopment
