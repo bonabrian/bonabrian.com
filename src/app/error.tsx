@@ -7,7 +7,7 @@ interface ErrorProps {
   reset: () => void
 }
 // eslint-disable-next-line unused-imports/no-unused-vars
-const Error = ({ error, reset }: ErrorProps) => {
+const ErrorPage = ({ error, reset: _reset }: ErrorProps) => {
   useEffect(() => {
     // log the error to error reporting service
     console.log(error)
@@ -20,4 +20,4 @@ const Error = ({ error, reset }: ErrorProps) => {
   )
 }
 
-export default Error
+export default ErrorPage

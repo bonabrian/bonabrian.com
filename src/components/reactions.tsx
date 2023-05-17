@@ -22,9 +22,9 @@ const Reactions = ({ slug }: { slug: string }) => {
   }
 
   const handleReaction = useDebounce(
-    (action: ReactionType, isActive: boolean) => {
+    async (action: ReactionType, isActive: boolean) => {
       const modifier = getModifier(isActive)
-      onReacted(action, modifier)
+      await onReacted(action, modifier)
       if (modifier === 'increment') {
         fireConfetti()
       }

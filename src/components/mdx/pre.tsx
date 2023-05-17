@@ -22,10 +22,10 @@ const Pre = ({ children }: PreProps) => {
     setCopied(false)
   }
 
-  const onCopy = () => {
+  const onCopy = async () => {
     if (textInput.current?.textContent) {
       setCopied(true)
-      navigator.clipboard.writeText(textInput.current.textContent)
+      await navigator.clipboard.writeText(textInput.current.textContent)
       setTimeout(() => {
         setCopied(false)
       }, 2000)

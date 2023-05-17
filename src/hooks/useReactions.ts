@@ -71,7 +71,7 @@ export const useReactions = (slug: string) => {
       0,
       currentReactionCount + modifiedReaction,
     )
-    mutate({ ...data, [reaction]: newReactionCount })
+    await mutate({ ...data, [reaction]: newReactionCount })
   }
 
   const { loved, liked, starred } = reactionState
