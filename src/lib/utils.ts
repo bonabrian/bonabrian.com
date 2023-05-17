@@ -68,7 +68,7 @@ export const excerptText = (
     ?.join('\n')
     ?.split('\n')
     ?.map((it: string) => (it || '').trim())
-    ?.filter((it: string) => it && it.length)
+    ?.filter((it: string) => it?.length)
     ?.map((it: string) =>
       removeMarkdown(it, { gfm: true, useImgAltText: true }),
     )
@@ -101,9 +101,11 @@ export const excerptText = (
   }
 
   excerpt = excerpt.trim()
-  return excerpt.length > 0
-    ? `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
-    : defaultExcerpt || ''
+  if (excerpt.length > 0) {
+    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
+  }
+
+  return defaultExcerpt ?? ''
 }
 
 export const getDomainFromUrl = (url?: string | null): string | null => {
