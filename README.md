@@ -15,6 +15,22 @@
 
 </div>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/bonabrian/bonabrian.com/badge)](https://www.codefactor.io/repository/github/bonabrian/bonabrian.com)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=bugs)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com)
+
+
+## Features
+- 🔥 [Next.js](https://nextjs.org/docs/app) with app router directory structure
+- ⚛️ [React](https://react.dev/)
+- ⚡️ [Typescript](https://www.typescriptlang.org/)
+- 💅 [Tailwind CSS](https://tailwindcss.com/)
+- 🧩 [Contentlayer](https://www.contentlayer.dev/) with MDX plugins
+- ⚙️ SEO metadata
+- 📏 [ESLint](https://eslint.org/) — Find and fix problems in your code
+- 💖 [Prettier](https://prettier.io/) — Format your code consistently
+- 🐶 [Husky](https://typicode.github.io/husky/#/) & [Lint Staged](https://github.com/okonet/lint-staged) — Run scripts on your staged files before they are committed
+- 🤖 [Conventional Commit Lint](https://github.com/conventional-changelog/conventional-changelog)
+
 ## Running Locally
 1. Clone this repository
    ```bash
@@ -26,10 +42,13 @@
    ```
 3. Install dependencies
    ```bash
-   yarn
+   yarn install
    ```
 4. Create a `.env` file similar to [`.env.example`](https://github.com/bonabrian/bonabrian.com/blob/main/.env.example) and input environment variables
    ```txt
+    NEXTAUTH_URL=http://localhost:3000
+    NEXTAUTH_SECRET=#GENERATE_YOUR_AUTH_SECRET
+
     # Google
     GOOGLE_ID=#GOOGLE_ID
     GOOGLE_SECRET=#GOOGLE_SECRET
@@ -58,9 +77,10 @@
 
 ## Files to customize
 
-- `config/*` - contains most of the site related information which should modified for a user's need.
-- `pages/about.tsx` - update with yours.
-- `public/share/resume.pdf` - replace with your best resume.
+- `lib/metadata.ts` - update `defaultMetadata` with yours.
+- `app/about/page.tsx` - update with yours.
+- `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
+- `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/static` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
 - `content` - replace with your blog posts, projects, and snippets.
