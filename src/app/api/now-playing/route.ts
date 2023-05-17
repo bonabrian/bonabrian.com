@@ -7,7 +7,7 @@ export const GET = async () => {
   try {
     const track = await getNowPlaying()
 
-    if (!track || !track.isPlaying) {
+    if (!track?.isPlaying) {
       return response({ isPlaying: false })
     }
 

@@ -17,19 +17,19 @@ const ReactionStats = () => {
     <>
       <StatisticsCard
         text="Loves"
-        value={`${data?.loves?.toLocaleString() || '-'}`}
+        value={`${data?.loves?.toLocaleString() ?? '-'}`}
         icon={RiHeart3Line}
         loading={loading}
       />
       <StatisticsCard
         text="Likes"
-        value={`${data?.likes?.toLocaleString() || '-'}`}
+        value={`${data?.likes?.toLocaleString() ?? '-'}`}
         icon={RiThumbUpLine}
         loading={loading}
       />
       <StatisticsCard
         text="Stars"
-        value={`${data?.stars?.toLocaleString() || '-'}`}
+        value={`${data?.stars?.toLocaleString() ?? '-'}`}
         icon={RiStarLine}
         loading={loading}
       />

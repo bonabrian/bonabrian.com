@@ -17,14 +17,14 @@ const GithubStats = () => {
       <StatisticsCard
         link="https://github.com/bonabrian?tab=repositories"
         text="Stars on Github"
-        value={`${data?.stars?.toLocaleString() || '-'}`}
+        value={`${data?.stars?.toLocaleString() ?? '-'}`}
         loading={loading}
         icon={AiOutlineStar}
       />
       <StatisticsCard
         link="https://github.com/bonabrian"
         text="Github Followers"
-        value={`${data?.followers?.toLocaleString() || '-'}`}
+        value={`${data?.followers?.toLocaleString() ?? '-'}`}
         loading={loading}
         icon={RiGithubLine}
       />

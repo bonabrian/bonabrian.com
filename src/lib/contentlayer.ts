@@ -11,7 +11,7 @@ export const getProjects = (fields: (keyof Project)[] = []): Array<Project> => {
       (it: Project) => it.title.length > 0 && it.slug.length > 0 && !it.draft,
     )
 
-  return fields && fields.length
+  return fields?.length
     ? filteredProjects.map((it: Project) => pick(it, fields))
     : filteredProjects
 }
@@ -57,7 +57,7 @@ export const getPosts = (fields: (keyof Post)[] = []): Array<Post> => {
       (it: Post) => it.title?.length > 0 && it.slug?.length > 0 && !it.draft,
     )
 
-  return fields && fields.length
+  return fields?.length
     ? filteredPosts.map((it: Post) => pick(it, fields))
     : filteredPosts
 }
@@ -103,7 +103,7 @@ export const getSnippets = (fields: (keyof Snippet)[] = []): Array<Snippet> => {
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
     .filter((it: Snippet) => it.title?.length > 0 && it.slug?.length > 0)
 
-  return fields && fields.length
+  return fields?.length
     ? filteredSnippets.map((it: Snippet) => pick(it, fields))
     : filteredSnippets
 }

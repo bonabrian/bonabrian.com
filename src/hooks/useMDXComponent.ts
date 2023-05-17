@@ -2,7 +2,7 @@ import { useMDXComponent as useContentLayerMDXComponent } from 'next-contentlaye
 
 export const useMDXComponent = (code?: string) => {
   const Component = useContentLayerMDXComponent(
-    code || 'var Component = () => { return null }; return Component',
+    code ?? 'var Component = () => { return null }; return Component',
   )
 
   return Component

@@ -5,8 +5,7 @@ import { useMemo } from 'react'
 import { RiCalendarLine, RiTimeLine } from 'react-icons/ri'
 import type { IReadTimeResults } from 'reading-time'
 
-import { formatDate, getDomainFromUrl } from '@/lib/utils'
-import { getBaseUrl } from '@/lib/utils'
+import { formatDate, getBaseUrl, getDomainFromUrl } from '@/lib/utils'
 import type { ImageMeta, Post, Snippet } from '@/types'
 
 import Divider from '../divider'
@@ -44,7 +43,7 @@ const getContentFields = (content: ContentData): ContentFields => {
     slug: content.slug,
   }
   if ('description' in content) fields.description = content.description
-  if ('date' in content) fields.date = content.date || ''
+  if ('date' in content) fields.date = content.date ?? ''
   if ('image' in content) fields.image = content.image
   if ('imageMeta' in content) fields.imageMeta = content.imageMeta
   if ('imageSource' in content) fields.imageSource = content.imageSource
@@ -69,7 +68,7 @@ const MdxContent = ({ content, children }: MdxContentProps) => {
     draft,
   } = getContentFields(content)
   const extraImageProps = useMemo(() => {
-    if (imageMeta && imageMeta.blur64) {
+    if (imageMeta?.blur64) {
       return {
         placeholder: 'blur',
         blurDataURL: imageMeta.blur64,

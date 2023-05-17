@@ -22,7 +22,7 @@ export const useReactions = (slug: string) => {
   const [reactionState, setReactionState] = useState<ReactionState>(() => {
     try {
       return JSON.parse(
-        localStorage.getItem(slug) || JSON.stringify(initialReactionState),
+        localStorage.getItem(slug) ?? JSON.stringify(initialReactionState),
       )
     } catch (error) {
       return initialReactionState

@@ -12,18 +12,18 @@ const NowPlaying = () => {
   return (
     <div className="flex items-center gap-1 sm:gap-2 mb-4">
       <div className="flex max-w-full truncate">
-        {data && data.isPlaying ? (
+        {data?.isPlaying ? (
           <Link
             className="text-sm truncate max-w-max hover:text-spotify"
-            href={data.url || ''}
-            title={data.title || ''}
+            href={data.url ?? ''}
+            title={data.title ?? ''}
             showExternalLinkIcon={false}
           >
             <div className="flex gap-4 pr-4 dark:bg-black/10 rounded-md">
               <div className="relative w-16 h-16">
                 <Image
-                  src={data.image?.url || ''}
-                  alt={data.title || ''}
+                  src={data.image?.url ?? ''}
+                  alt={data.title ?? ''}
                   fill
                   className="rounded-md"
                   sizes="(max-width: 768px) 100vw, 50vw"

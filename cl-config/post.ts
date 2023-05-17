@@ -21,12 +21,13 @@ const generateRandomId = (length: number = 6) => {
   return retVal
 }
 
-const getActualImageUrl = (image?: string) =>
-  image
-    ? image.startsWith('http')
-      ? image
-      : `/static/images/blog/${image}`
-    : ''
+const getActualImageUrl = (image?: string) => {
+  if (image) {
+    return image.startsWith('http') ? image : `/static/images/blog/${image}`
+  }
+
+  return ''
+}
 
 const secretId = generateRandomId()
 

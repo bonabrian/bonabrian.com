@@ -63,8 +63,10 @@ const Footer = () => {
     <footer className="py-8 text-sm border-t dark:border-gray-800 max-w-6xl mx-auto px-4">
       <nav className="flex flex-col justify-between sm:items-center gap-6 sm:gap-4 w-full sm:flex-row mb-4 text-gray-900/50 dark:text-white/60">
         {footerLinks.map((groups, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={index} className="flex flex-col space-y-4 md:items-start">
+          <div
+            key={`group-${index}`}
+            className="flex flex-col space-y-4 md:items-start"
+          >
             {groups.map(({ title, url }) => (
               <Link
                 key={title}

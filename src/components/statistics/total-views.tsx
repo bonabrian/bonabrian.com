@@ -14,7 +14,7 @@ const TotalViews = () => {
     <StatisticsCard
       link="/"
       text="All-Time Views"
-      value={`${data?.total?.toLocaleString() || '-'}`}
+      value={`${data?.total?.toLocaleString() ?? '-'}`}
       loading={loading}
       icon={RiEyeLine}
     />

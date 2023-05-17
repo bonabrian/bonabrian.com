@@ -14,7 +14,7 @@ const TotalEndorsements = () => {
     <StatisticsCard
       link="/endorsements"
       text="Total Endorsements"
-      value={`${data?.total?.toLocaleString() || '-'}`}
+      value={`${data?.total?.toLocaleString() ?? '-'}`}
       loading={loading}
       icon={HiOutlineBadgeCheck}
     />

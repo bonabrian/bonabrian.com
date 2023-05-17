@@ -37,7 +37,7 @@ const PostCard = ({ post }: PostCardProps) => {
   )
 
   const extraImageProps = useMemo(() => {
-    if (imageMeta && imageMeta.blur64) {
+    if (imageMeta?.blur64) {
       return { placeholder: 'blur', blurDataURL: imageMeta?.blur64 } as {
         placeholder: 'blur' | 'empty'
         blurDataURL?: string
@@ -62,7 +62,7 @@ const PostCard = ({ post }: PostCardProps) => {
       >
         <div className="absolute w-full h-full" />
         <Image
-          src={image || ''}
+          src={image ?? ''}
           alt={title}
           fill
           className="object-cover hover:scale-110 transition duration-500 ease-in-out"

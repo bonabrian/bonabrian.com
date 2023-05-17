@@ -75,35 +75,39 @@ const EndorsementsBadge = ({
         <div className="font-bold">{skill.name}</div>
         {state === STATES.LOADING ? (
           <Spinner />
-        ) : isMySelf ? (
-          <button
-            type="button"
-            className="relative px-3 py-1 text-sm gap-1 overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-slate-200 dark:hover:bg-gray-800 rounded-full cursor-not-allowed"
-            disabled
-          >
-            <BiParty size={14} className="fill-primary-500" />
-          </button>
         ) : (
           <>
-            {isEndorsedByUser ? (
+            {isMySelf ? (
               <button
                 type="button"
                 className="relative px-3 py-1 text-sm gap-1 overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-slate-200 dark:hover:bg-gray-800 rounded-full cursor-not-allowed"
-                title="You already endorsed this skill!"
                 disabled
               >
-                <span>Endorsed</span>
-                <BsPatchCheckFill size={14} className="fill-blue-500" />
+                <BiParty size={14} className="fill-primary-500" />
               </button>
             ) : (
-              <button
-                type="button"
-                className="relative px-3 py-1 text-sm overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-primary-500 hover:text-white border border-solid border-gray-900 dark:border-slate-100 rounded-full shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(163_163_163_/_20%)]"
-                title={`Endorse ${skill.name}`}
-                onClick={() => onEndorse(skill.id)}
-              >
-                Endorse
-              </button>
+              <>
+                {isEndorsedByUser ? (
+                  <button
+                    type="button"
+                    className="relative px-3 py-1 text-sm gap-1 overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-slate-200 dark:hover:bg-gray-800 rounded-full cursor-not-allowed"
+                    title="You already endorsed this skill!"
+                    disabled
+                  >
+                    <span>Endorsed</span>
+                    <BsPatchCheckFill size={14} className="fill-blue-500" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="relative px-3 py-1 text-sm overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-primary-500 hover:text-white border border-solid border-gray-900 dark:border-slate-100 rounded-full shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(163_163_163_/_20%)]"
+                    title={`Endorse ${skill.name}`}
+                    onClick={() => onEndorse(skill.id)}
+                  >
+                    Endorse
+                  </button>
+                )}
+              </>
             )}
           </>
         )}

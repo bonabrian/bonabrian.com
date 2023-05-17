@@ -4,12 +4,13 @@ import readingTime from 'reading-time'
 
 import { getBlurData } from './image-metadata'
 
-const getActualImageUrl = (image?: string) =>
-  image
-    ? image.startsWith('http')
-      ? image
-      : `/static/images/projects/${image}`
-    : ''
+const getActualImageUrl = (image?: string) => {
+  if (image) {
+    return image.startsWith('http') ? image : `/static/images/projects/${image}`
+  }
+
+  return ''
+}
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },

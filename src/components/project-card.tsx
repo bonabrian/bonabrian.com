@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     return {}
   }, [image, imageMeta])
 
-  const projectUrl = url || `${routes.PROJECTS}/${slug}`
+  const projectUrl = url ?? `${routes.PROJECTS}/${slug}`
 
   return (
     <motion.div
@@ -51,7 +51,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         >
           <div className="absolute w-full h-full" />
           <Image
-            src={image || ''}
+            src={image ?? ''}
             alt={title}
             fill
             className="object-cover rounded-t-3xl group-hover:scale-110 transition duration-500 ease-in-out"
