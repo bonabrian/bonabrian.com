@@ -1,7 +1,7 @@
 'use client'
 
 import type { Post } from 'contentlayer/generated'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
@@ -64,14 +64,14 @@ const PostList = ({ title, description, posts }: PostListProps) => {
         <div className="flex flex-col gap-8 py-8">
           {filteredPosts.map((post, index) => {
             return (
-              <motion.div
+              <m.div
                 key={post.slug}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index / 10 }}
               >
                 <PostCard post={post} />
-              </motion.div>
+              </m.div>
             )
           })}
         </div>

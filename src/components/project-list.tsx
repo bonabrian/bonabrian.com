@@ -2,7 +2,7 @@
 
 import cx from 'classnames'
 import type { Project } from 'contentlayer/generated'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
 import PageHeader from './page-header'
@@ -78,7 +78,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
         {renderFilterComponent()}
       </div>
       {filteredProjects.length ? (
-        <motion.div
+        <m.div
           className="grid grid-cols-1 md:grid-cols-2 auto-cols-fr gap-x-16 gap-y-8 w-full py-8"
           layout
         >
@@ -87,7 +87,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
               return <ProjectCard key={project.slug} project={project} />
             })}
           </AnimatePresence>
-        </motion.div>
+        </m.div>
       ) : (
         <p className="text-center">No projects found.</p>
       )}

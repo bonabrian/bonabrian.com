@@ -1,7 +1,7 @@
 'use client'
 
 import type { Project } from 'contentlayer/generated'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
@@ -27,7 +27,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   if (playStoreUrl) projectUrl = playStoreUrl
 
   return (
-    <motion.div
+    <m.div
       layout
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
@@ -62,7 +62,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </p>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 

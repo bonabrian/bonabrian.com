@@ -1,7 +1,7 @@
 'use client'
 
 import type { Post } from 'contentlayer/generated'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
@@ -33,7 +33,7 @@ const PostCard = ({ post }: { post: Post }) => {
   const publishedAt = formatDate({ timestamp: date, month: 'short' })
 
   return (
-    <motion.article
+    <m.article
       layout
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
@@ -85,7 +85,7 @@ const PostCard = ({ post }: { post: Post }) => {
           </div>
         </div>
       </div>
-    </motion.article>
+    </m.article>
   )
 }
 

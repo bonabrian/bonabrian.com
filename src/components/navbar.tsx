@@ -2,7 +2,7 @@
 
 import { Menu, Transition } from '@headlessui/react'
 import cx from 'classnames'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { Fragment } from 'react'
 import type { IconType } from 'react-icons'
@@ -117,14 +117,14 @@ const Navbar = () => {
             <>
               <Menu.Button className="rounded-full transition-all hover:bg-slate-200 dark:hover:bg-gray-800">
                 {mounted && (
-                  <motion.span
+                  <m.span
                     className="flex h-8 w-8 items-center justify-center text-xl"
                     whileTap={{ scale: 0.5 }}
                     transition={{ duration: 0.1, ease: 'easeIn' }}
                     aria-label="Toggle Menu"
                   >
                     <RiMenuFill />
-                  </motion.span>
+                  </m.span>
                 )}
               </Menu.Button>
               <Transition
