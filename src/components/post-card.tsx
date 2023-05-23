@@ -1,5 +1,6 @@
 'use client'
 
+import type { Post } from 'contentlayer/generated'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
@@ -7,30 +8,13 @@ import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
 
 import { useRequest } from '@/hooks'
 import { routes } from '@/lib/constants'
-import { formatDate, kebabCase } from '@/lib/utils'
-import type { Post } from '@/types'
+import { formatDate } from '@/lib/utils'
 
 import Link from './link'
 import Spinner from './spinner'
 
-interface PostCardProps {
-  post: Post
-}
-
-const PostTag = ({ tag }: { tag: string }) => {
-  return (
-    <Link
-      href={`/tags/${kebabCase(tag)}`}
-      className="rounded-2xl font-semibold uppercase px-3 py-1 tracking-tighter text-white bg-pink-500 text-xs"
-    >
-      {tag}
-    </Link>
-  )
-}
-
-const PostCard = ({ post }: PostCardProps) => {
-  const { slug, title, date, excerpt, tags, readingTime, image, imageMeta } =
-    post
+const PostCard = ({ post }: { post: Post }) => {
+  const { slug, title, date, excerpt, readingTime, image, imageMeta } = post
 
   const { data: views, loading: isLoadViews } = useRequest<{ total?: string }>(
     `/api/views/${slug}`,
@@ -54,30 +38,23 @@ const PostCard = ({ post }: PostCardProps) => {
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.8, opacity: 0 }}
-      className="flex flex-col sm:flex-row items-stretch flex-nowrap shadow-sm dark:shadow-gray-800/40"
+      className="flex flex-col sm:flex-row items-stretch flex-nowrap shadow-sm dark:shadow-gray-800/40 rounded-lg"
     >
       <Link
         href={`${routes.BLOG}/${slug}`}
-        className="aspect-video w-full relative overflow-hidden bg-no-repeat bg-cover basis-full sm:basis-1/2"
+        className="aspect-video w-full relative overflow-hidden bg-no-repeat bg-cover basis-full sm:basis-1/2 rounded-lg"
       >
         <div className="absolute w-full h-full" />
         <Image
           src={image ?? ''}
           alt={title}
           fill
-          className="object-cover hover:scale-110 transition duration-500 ease-in-out"
+          className="object-cover hover:scale-105 transition duration-500 ease-in-out rounded-t-lg"
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
         />
       </Link>
       <div className="basis-full sm:basis-1/2 flex flex-col p-8">
-        {tags && (
-          <div className="flex flex-wrap gap-4 mb-2">
-            {tags?.map((tag) => (
-              <PostTag key={tag} tag={tag} />
-            ))}
-          </div>
-        )}
         <Link
           href={`${routes.BLOG}/${slug}`}
           className="text-md sm:text-lg md:text-xl font-semibold tracking-tighter mb-5"

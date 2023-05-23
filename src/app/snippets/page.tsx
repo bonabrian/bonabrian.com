@@ -1,14 +1,17 @@
+import type { Snippet } from 'contentlayer/generated'
+import { allSnippets } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
 import { routes } from '@/lib/constants'
-import { getSnippets } from '@/lib/contentlayer'
 import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'
 
-const snippets = getSnippets(['title', 'description', 'slug', 'date'])
+const snippets = allSnippets
+  .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  .filter((snippet: Snippet) => snippet.published)
 
 export const metadata: Metadata = getMetadata({
   title: 'Snippets',

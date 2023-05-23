@@ -43,8 +43,8 @@ const Image = ({
     >
       <NextImage
         {...rest}
-        width={width || undefined}
-        height={height || undefined}
+        width={fill ? undefined : width ?? undefined}
+        height={fill ? undefined : height ?? undefined}
         loading={props.priority ? undefined : props.loading}
         decoding="async"
         className={classnames(

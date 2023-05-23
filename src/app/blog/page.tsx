@@ -1,21 +1,14 @@
+import type { Post } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import PostList from '@/components/post-list'
-import { getPosts } from '@/lib/contentlayer'
 import { getMetadata } from '@/lib/metadata'
 
-const posts = getPosts([
-  'title',
-  'date',
-  'slug',
-  'excerpt',
-  'tags',
-  'readingTime',
-  'draft',
-  'image',
-  'imageMeta',
-])
+const posts = allPosts
+  .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  .filter((post: Post) => post.published)
 
 export const metadata: Metadata = getMetadata({
   title: 'Blog',

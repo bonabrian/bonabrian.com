@@ -28,7 +28,7 @@ export const generateMetadata = async ({
 const TagPage = ({ params }: { params: { tag: string } }) => {
   const tag = params.tag
   const posts = allPosts.filter((post) =>
-    post.tags?.map((t) => kebabCase(t)?.includes(tag)),
+    post.tags?.map((t) => kebabCase(t)?.includes(tag) && post.published),
   )
 
   return (

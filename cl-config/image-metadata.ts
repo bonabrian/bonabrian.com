@@ -1,4 +1,4 @@
-// Code taken from https://github.com/nikolovlazar/nikolovlazar.com/blob/main/src/utils/plugins/image-metadata.ts
+// Code based on https://github.com/nikolovlazar/nikolovlazar.com/blob/main/src/utils/plugins/image-metadata.ts
 import imageSize from 'image-size'
 import type { ISizeCalculationResult } from 'image-size/dist/types/interface'
 import path from 'path'
@@ -10,6 +10,7 @@ import { promisify } from 'util'
 const sizeOf = promisify(imageSize)
 
 interface ImageNode {
+  name: string
   type: 'element' | string
   tagName: 'img' | string
   properties: {
@@ -19,7 +20,15 @@ interface ImageNode {
     blurDataURL?: string
     placeholder?: 'blur' | 'empty'
     loading?: 'lazy' | 'eager'
-  }
+  } & Record<string, unknown>
+  attributes?: Array<{
+    type: string
+    name: string
+    value: {
+      type: string
+      value: unknown
+    }
+  }>
   children?: Array<ImageNode>
   parent?: ImageNode
 }
@@ -43,43 +52,49 @@ interface BlurResult {
 }
 
 export const getBlurData = async (
-  imageSrc?: string,
+  imageSource?: string,
   placeholderSize: number = 12,
 ): Promise<BlurResult | null> => {
-  if (!imageSrc) return null
-  const isExternal = imageSrc.startsWith('http')
+  if (!imageSource) return null
+
+  const isExternal = imageSource.startsWith('http')
   let res: ISizeCalculationResult | undefined
   let blur64: string
 
   if (!isExternal) {
-    res = await sizeOf(path.join(process.cwd(), 'public', imageSrc))
-    const plaiceholderResult = await getPlaiceholder(imageSrc, {
+    res = await sizeOf(path.join(process.cwd(), 'public', imageSource))
+    const plaiceholderResult = await getPlaiceholder(imageSource, {
       size: placeholderSize,
     })
+
     res = {
       ...res,
       width: plaiceholderResult.img.width,
       height: plaiceholderResult.img.height,
     }
+
     blur64 = plaiceholderResult.base64
   } else {
-    const imageRes = await fetch(imageSrc)
+    const imageRes = await fetch(imageSource)
     const arrayBuffer = await imageRes.arrayBuffer()
     const buffer = Buffer.from(arrayBuffer)
 
     res = await imageSize(buffer)
+
     const plaiceholderResult = await getPlaiceholder(buffer, {
       size: placeholderSize,
     })
+
     res = {
       ...res,
       width: plaiceholderResult.img.width,
       height: plaiceholderResult.img.height,
     }
+
     blur64 = plaiceholderResult.base64
   }
 
-  if (!res) throw Error(`Invalid image with src "${imageSrc}"`)
+  if (!res) throw Error(`Invalid image with src "${imageSource}"`)
   return {
     size: { width: res.width || 0, height: res.height || 0 },
     blur64,
@@ -92,7 +107,6 @@ const addProps = async (node: ImageNode): Promise<ImageNode> => {
 
   if (!res) return node
 
-  // eslint-disable-next-line no-param-reassign
   node.properties = {
     ...node.properties,
     width: res.size.width,
@@ -115,9 +129,9 @@ const imageMetaData = () => {
       }
     })
 
-    images.forEach(async (image) => {
+    for (const image of images) {
       await addProps(image)
-    })
+    }
 
     return tree
   }

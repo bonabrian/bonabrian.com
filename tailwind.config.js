@@ -151,6 +151,13 @@ module.exports = {
             'h4,h5,h6': {
               color: theme('colors.slate.100'),
             },
+            blockquote: {
+              color: theme('colors.slate.300'),
+              borderLeftColor: theme('colors.gray.800'),
+            },
+            'p strong': {
+              color: theme('colors.slate.100'),
+            },
           },
         },
       }),

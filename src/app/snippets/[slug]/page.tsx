@@ -1,21 +1,26 @@
-import type { Snippet as GeneratedSnippet } from 'contentlayer/generated'
+import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { mdxComponents, MdxContent } from '@/components/mdx'
+import ContentHeader from '@/components/content-header'
+import Divider from '@/components/divider'
+import Mdx from '@/components/mdx'
+import Reactions from '@/components/reactions'
 import ScrollProgressBar from '@/components/scroll-progress-bar'
-import { getMetadata } from '@/lib/metadata'
-import type { Snippet } from '@/types'
+import { getJsonLd, getMetadata } from '@/lib/metadata'
+import { getBaseUrl } from '@/lib/utils'
+
+const findSnippetBySlug = (slug: string): Snippet | undefined =>
+  allSnippets
+    .filter((post: Snippet) => post.published)
+    .find((post: Snippet) => post.slug === slug)
 
 export const generateMetadata = async ({
   params,
 }: {
   params: { slug: string }
 }) => {
-  const snippet = allSnippets.find(
-    (it: GeneratedSnippet) => it.slug === params?.slug,
-  )
+  const snippet = findSnippetBySlug(params.slug)
 
   if (!snippet) return
 
@@ -34,20 +39,47 @@ export const generateMetadata = async ({
 }
 
 const SnippetPage = ({ params }: { params: { slug: string } }) => {
-  const snippet = allSnippets.find(
-    (it: GeneratedSnippet) => it.slug === params.slug,
-  )
+  const snippet = findSnippetBySlug(params.slug)
 
-  if (!snippet) notFound()
+  if (!snippet) return notFound()
 
-  const MdxComponent = useMDXComponent(snippet?.body?.code)
+  const { title, slug, description, date, readingTime } = snippet
 
   return (
     <>
       <ScrollProgressBar />
-      <MdxContent content={snippet as Snippet}>
-        <MdxComponent components={{ ...mdxComponents } as any} />
-      </MdxContent>
+      <div className="flex flex-col">
+        <article className="article">
+          <ContentHeader
+            title={title}
+            slug={slug}
+            description={description}
+            date={date}
+            readingTime={readingTime}
+          />
+          <div className="prose dark:prose-dark max-w-none">
+            <Mdx code={snippet?.body?.code} />
+          </div>
+          <div className="flex justify-between items-center my-4">
+            <Reactions slug={slug} />
+          </div>
+          <Divider />
+        </article>
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: getJsonLd({
+            title,
+            description,
+            headline: title,
+            datePublished: date,
+            dateModified: date,
+            url: `${getBaseUrl()}/snippet/${snippet.slug}`,
+          }),
+        }}
+        key="post-jsonld"
+      />
     </>
   )
 }

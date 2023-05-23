@@ -1,7 +1,6 @@
 export * from './useDarkTheme'
 export * from './useDebounce'
 export * from './useEndorsements'
-export * from './useMDXComponent'
 export * from './useMounted'
 export * from './useNowPlaying'
 export * from './useReactions'

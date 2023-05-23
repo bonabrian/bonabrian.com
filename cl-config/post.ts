@@ -1,24 +1,66 @@
 import type { ComputedFields } from 'contentlayer/source-files'
 import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
+import removeMarkdown from 'remove-markdown'
 
-import { excerptText, unique } from '../src/lib/utils'
 import { getBlurData } from './image-metadata'
 
-const randomize = (items: string[]): string => {
-  return items[Math.floor(Math.random() * items.length)]
-}
+const getPostExcerpt = (
+  content?: string | null,
+  defaultExcerpt?: string | null,
+  trimLength?: boolean | null,
+  minCharacters: number = 70,
+  maxCharacters: number = 150,
+): string => {
+  if (defaultExcerpt) return defaultExcerpt
 
-const chars =
-  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('')
+  if (!content) return defaultExcerpt || ''
 
-const generateRandomId = (length: number = 6) => {
-  let retVal = ''
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < length; ++i) {
-    retVal += randomize(chars)
+  const text = content
+    ?.split(/[\r\n]+/gm)
+    ?.filter((it: string) => !it.startsWith('#'))
+    ?.join('\n')
+    ?.split('\n')
+    ?.map((it: string) => (it || '').trim())
+    ?.filter((it: string) => it?.length)
+    ?.map((it: string) =>
+      removeMarkdown(it, { gfm: true, useImgAltText: true }),
+    )
+
+  let excerpt = ''
+  if (text) {
+    let lastIndex = 0
+    while (excerpt.length < maxCharacters) {
+      excerpt += `${text[lastIndex]} `
+      lastIndex += 1
+    }
   }
-  return retVal
+
+  if (trimLength) {
+    const allWords = excerpt.split(' ')
+    excerpt = ''
+    let lastIndex = 0
+    while (excerpt.length < maxCharacters) {
+      const word = allWords[lastIndex]
+      excerpt += `${word} `
+      if (
+        word.endsWith('.') &&
+        !word.endsWith('etc.') &&
+        excerpt.length > minCharacters
+      ) {
+        break
+      }
+      lastIndex += 1
+    }
+  }
+
+  excerpt = excerpt.trim()
+
+  if (excerpt.length > 0) {
+    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
+  }
+
+  return defaultExcerpt ?? ''
 }
 
 const getActualImageUrl = (image?: string) => {
@@ -29,20 +71,11 @@ const getActualImageUrl = (image?: string) => {
   return ''
 }
 
-const secretId = generateRandomId()
-
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
     type: 'string',
-    resolve: (doc) => {
-      // eslint-disable-next-line no-underscore-dangle
-      const defaultSlug = doc._raw.sourceFileName.replace(/\.mdx$/, '')
-      if (!doc.draft) return defaultSlug
-
-      const secretSlug = `${defaultSlug}-${secretId}`
-      return secretSlug
-    },
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
   },
   image: {
     type: 'string',
@@ -50,22 +83,21 @@ const computedFields: ComputedFields = {
   },
   keywords: {
     type: 'list',
-    resolve: (doc) => {
-      const docKeywords: Array<string> = (doc?.keywords ?? '') || ''
-      return unique([...docKeywords])
-    },
-  },
-  tags: {
-    type: 'list',
-    resolve: (doc) => {
-      const docTags: Array<string> = (doc?.tags ?? []) || []
-      return unique([...docTags])
-    },
+    resolve: (doc) => doc?.keywords ?? [],
   },
   excerpt: {
     type: 'string',
     resolve: (doc) =>
-      excerptText(doc.body.raw, doc.excerpt || doc.description, true),
+      getPostExcerpt(doc.body.raw, doc.excerpt || doc.description, true),
+  },
+  longExcerpt: {
+    type: 'string',
+    resolve: (doc) =>
+      getPostExcerpt(doc.body.raw, doc.excerpt || doc.description),
+  },
+  tags: {
+    type: 'list',
+    resolve: (doc) => doc?.tags ?? [],
   },
   imageMeta: {
     type: 'json',
@@ -86,7 +118,8 @@ const Post = defineDocumentType(() => ({
     image: { type: 'string' },
     imageMeta: { type: 'json' },
     imageSource: { type: 'string' },
-    draft: { type: 'boolean', default: false },
+    published: { type: 'boolean', default: true },
+    pinned: { type: 'boolean', default: false },
   },
   computedFields,
 }))

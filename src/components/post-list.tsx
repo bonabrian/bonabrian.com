@@ -5,8 +5,6 @@ import { motion } from 'framer-motion'
 import { useMemo, useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 
-import { filterPosts } from '@/lib/contentlayer'
-
 import PageHeader from './page-header'
 import PostCard from './post-card'
 
@@ -14,6 +12,24 @@ interface PostListProps {
   title: string
   description?: string
   posts: Array<Post>
+}
+
+const filterPosts = (
+  posts: Array<Post> | undefined,
+  query: string | undefined | null = null,
+): Array<Post> => {
+  if (!posts) return []
+
+  const filteredPosts = !query
+    ? posts
+    : posts?.filter((post) => {
+        const searchContent =
+          // eslint-disable-next-line no-unsafe-optional-chaining
+          post?.title + post?.excerpt + post?.tags?.join(' ')
+        return searchContent.toLocaleLowerCase().includes(query.toLowerCase())
+      })
+
+  return filteredPosts
 }
 
 const PostList = ({ title, description, posts }: PostListProps) => {

@@ -5,13 +5,25 @@ import type { Project } from 'contentlayer/generated'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
-import { filterProjects } from '@/lib/contentlayer'
-
 import PageHeader from './page-header'
 import ProjectCard from './project-card'
 
 interface ProjectListProps {
   projects: Array<Project>
+}
+
+const filterProjects = (
+  projects: Array<Project> | undefined,
+  filterKey: keyof Project,
+  filterValue: string = '',
+): Array<Project> => {
+  if (!projects) return []
+
+  const filteredProjects = !filterValue
+    ? projects
+    : projects?.filter((it: Project) => it[filterKey] === filterValue)
+
+  return filteredProjects
 }
 
 const ProjectList = ({ projects }: ProjectListProps) => {

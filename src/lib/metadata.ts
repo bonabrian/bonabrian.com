@@ -78,6 +78,65 @@ const mapKeywords = (keywords?: null | string | Array<string>): string => {
   return keywords
 }
 
+export const buildOgImageUrl = (
+  title: string,
+  description: string,
+  image?: string,
+): string => {
+  const baseUrl = getBaseUrl()
+
+  return `${baseUrl}/api/og?title=${encodeURIComponent(
+    title,
+  )}&description=${encodeURIComponent(description)}${
+    image ? `&image=${image}` : ''
+  }`
+}
+
+interface JsonLdAuthor {
+  type: string
+  name: string
+  url?: string
+}
+
+interface JsonLd {
+  title: string
+  description?: string
+  type?: string
+  headline?: string
+  datePublished?: string
+  dateModified?: string
+  image?: string
+  url?: string
+  author?: JsonLdAuthor
+}
+
+export const getJsonLd = ({
+  title,
+  description,
+  type = 'BlogPosting',
+  headline,
+  datePublished,
+  dateModified,
+  image,
+  url,
+  author = {
+    type: 'Person',
+    name: defaultMetadata.author.name,
+    url: defaultMetadata.author.url,
+  },
+}: JsonLd): string =>
+  JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': type,
+    headline,
+    datePublished,
+    dateModified,
+    description,
+    image: buildOgImageUrl(title, description ?? '', image),
+    url,
+    author,
+  })
+
 export const getMetadata = ({
   title = defaultMetadata.title,
   description = defaultMetadata.description,
@@ -91,11 +150,7 @@ export const getMetadata = ({
   const updatedTitle = defaultMetadata.titleTemplate.replace(/%s/g, title)
   const ogImage = openGraph?.images
 
-  const images = `${baseUrl}/api/og?title=${encodeURIComponent(
-    title,
-  )}&description=${encodeURIComponent(description)}${
-    ogImage ? `&image=${ogImage}` : ''
-  }`
+  const images = buildOgImageUrl(title, description, ogImage)
 
   const updatedOpenGraph: OpenGraph = {
     siteName: openGraph?.siteName ?? defaultMetadata.applicationName,
