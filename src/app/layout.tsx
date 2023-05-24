@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={fontSans.variable}>
-      <body className="antialiased text-black bg-slate-100 dark:bg-gray-900 dark:text-slate-100">
+      <body>
         <Providers>
           <ScrollObserver>
             <Navbar />

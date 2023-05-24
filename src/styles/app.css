@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss/base';
+@import './base.css';
+@import 'tailwindcss/components';
+@import './components.css';
 
-@import 'tailwind.css';
-@import 'nprogress.css';
-@import 'content.css';
+@import './nprogress.css';
+@import './content.css';
+
+@import 'tailwindcss/utilities';
