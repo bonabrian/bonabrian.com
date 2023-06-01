@@ -6,8 +6,23 @@
     scroll-behavior: smooth;
   }
 
+  html,
+  body,
+  #__next,
+  #__app {
+    @apply min-h-screen;
+  }
+
+  #__app {
+    @apply flex flex-col font-sans;
+  }
+
   body {
     @apply bg-white text-gray-900;
     @apply dark:bg-gray-900 dark:text-slate-100 dark:[color-scheme:dark];
+  }
+
+  main {
+    @apply flex-1;
   }
 }
