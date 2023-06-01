@@ -8,8 +8,8 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      spacing: {
-        content: 'calc(100vh - 4rem)',
+      maxWidth: {
+        '12xl': '120rem',
       },
       lineHeight: {
         11: '2.75rem',
@@ -27,15 +27,15 @@ module.exports = {
       colors: {
         // Generated from https://colors.eva.design/
         primary: {
-          100: '#F2E9FF',
-          200: '#E3D3FF',
-          300: '#D4BDFF',
-          400: '#C6ACFF',
-          500: '#B191FF',
-          600: '#8769DB',
-          700: '#6249B7',
-          800: '#422E93',
-          900: '#2C1B7A',
+          100: '#f1e9ff',
+          200: '#e3d3ff',
+          300: '#d4bdff',
+          400: '#c6adff',
+          500: '#b192ff',
+          600: '#876adb',
+          700: '#6249b7',
+          800: '#422e93',
+          900: '#2b1c7a',
         },
         pink: {
           100: '#FEE9E7',
