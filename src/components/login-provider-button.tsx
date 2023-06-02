@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
-import { useDarkTheme } from '@/hooks'
+import { useTheme } from '@/hooks'
 
 import Github from '../../assets/images/github.svg'
 import GithubDark from '../../assets/images/github-dark.svg'
@@ -44,7 +44,8 @@ const LoginProviderButton = ({
 }: {
   provider: ClientSafeProvider
 }) => {
-  const { isDark, mounted } = useDarkTheme()
+  const { theme, mounted } = useTheme()
+  const isDark = theme === 'dark'
   const { Logo, LogoDark, bg, bgDark, text, textDark } =
     providerStyleGuides[provider.id]
   const searchParams = useSearchParams()
