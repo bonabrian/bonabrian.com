@@ -1,4 +1,6 @@
 // Code based on https://github.com/nikolovlazar/nikolovlazar.com/blob/main/src/utils/plugins/image-metadata.ts
+import { readFile } from 'node:fs/promises'
+
 import imageSize from 'image-size'
 import type { ISizeCalculationResult } from 'image-size/dist/types/interface'
 import path from 'path'
@@ -62,15 +64,17 @@ export const getBlurData = async (
   let blur64: string
 
   if (!isExternal) {
-    res = await sizeOf(path.join(process.cwd(), 'public', imageSource))
-    const plaiceholderResult = await getPlaiceholder(imageSource, {
+    const filePath = path.join(process.cwd(), 'public', imageSource)
+    res = await sizeOf(filePath)
+    const imageBuffer = await readFile(filePath)
+    const plaiceholderResult = await getPlaiceholder(imageBuffer, {
       size: placeholderSize,
     })
 
     res = {
       ...res,
-      width: plaiceholderResult.img.width,
-      height: plaiceholderResult.img.height,
+      width: plaiceholderResult.metadata.width,
+      height: plaiceholderResult.metadata.height,
     }
 
     blur64 = plaiceholderResult.base64
@@ -87,8 +91,8 @@ export const getBlurData = async (
 
     res = {
       ...res,
-      width: plaiceholderResult.img.width,
-      height: plaiceholderResult.img.height,
+      width: plaiceholderResult.metadata.width,
+      height: plaiceholderResult.metadata.height,
     }
 
     blur64 = plaiceholderResult.base64
