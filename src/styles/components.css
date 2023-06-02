@@ -5,6 +5,7 @@
     @apply flex items-center gap-1 mx-2 text-gray-600 font-semibold;
     @apply dark:text-slate-200;
 
+    &.active,
     &:hover {
       @apply text-primary-600;
       @apply dark:text-primary-400;
