@@ -1,7 +1,5 @@
-'use client'
-
+import cx from 'classnames'
 import type { Project } from 'contentlayer/generated'
-import { m } from 'framer-motion'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
@@ -9,9 +7,25 @@ import { routes } from '@/lib/constants'
 
 import Link from './link'
 
+const getProjectCategoryClasses = (category: string): string => {
+  if (category === 'personal') {
+    return 'bg-primary-100 text-primary-600 dark:bg-primary-600/20 dark:text-primary-300'
+  }
+
+  return 'bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-300'
+}
+
 const ProjectCard = ({ project }: { project: Project }) => {
-  const { title, slug, description, image, imageMeta, url, playStoreUrl } =
-    project
+  const {
+    title,
+    slug,
+    description,
+    image,
+    imageMeta,
+    url,
+    playStoreUrl,
+    category,
+  } = project
 
   const extraImageProps = useMemo(() => {
     if (image && imageMeta?.blur64) {
@@ -27,42 +41,55 @@ const ProjectCard = ({ project }: { project: Project }) => {
   if (playStoreUrl) projectUrl = playStoreUrl
 
   return (
-    <m.div
-      layout
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.8, opacity: 0 }}
+    <div
+      className={cx(
+        'group flex flex-col h-full min-w-0 break-words border border-slate-100 rounded-lg bg-white',
+        'dark:bg-gray-900 dark:border-gray-800',
+      )}
     >
-      <div className="group flex flex-col h-full min-w-0 break-words rounded-lg bg-white/30 dark:bg-black/10">
-        <Link
-          href={projectUrl}
-          showExternalLinkIcon={false}
-          className="aspect-video relative rounded-t-lg overflow-hidden"
-        >
-          <div className="absolute w-full h-full" />
-          <Image
-            src={image ?? ''}
-            alt={title}
-            fill
-            className="object-cover rounded-t-lg group-hover:scale-105 transition duration-500 ease-in-out"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            {...extraImageProps}
-          />
-        </Link>
-        <div className="p-6 flex flex-col">
-          <Link
-            href={projectUrl}
-            showExternalLinkIcon={false}
-            className="text-md sm:text-lg md:text-xl font-semibold tracking-tighter"
+      <Link
+        href={projectUrl}
+        showExternalLinkIcon={false}
+        className={cx('aspect-video relative rounded-t-lg overflow-hidden')}
+      >
+        <div className={cx('absolute w-full h-full')} />
+        <Image
+          src={image ?? ''}
+          alt={title}
+          fill
+          className={cx(
+            'object-cover rounded-t-lg group-hover:scale-105 transition duration-200 ease-in-out',
+          )}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          {...extraImageProps}
+        />
+      </Link>
+      <div className={cx('p-6 flex flex-col')}>
+        <Link href={projectUrl} showExternalLinkIcon={false}>
+          <h2
+            className={cx(
+              'font-semibold text-lg text-gray-700 mb-1',
+              'dark:text-slate-50',
+            )}
           >
             {title}
-          </Link>
-          <p className="text-base text-gray-900/50 dark:text-white/60">
-            {description}
-          </p>
+          </h2>
+        </Link>
+        <p className={cx('text-sm mb-4 text-gray-600', 'dark:text-slate-200')}>
+          {description}
+        </p>
+        <div className={cx('flex text-xs font-semibold')}>
+          <div
+            className={cx(
+              'rounded-full px-2 py-0.5 capitalize',
+              getProjectCategoryClasses(category),
+            )}
+          >
+            {category}
+          </div>
         </div>
       </div>
-    </m.div>
+    </div>
   )
 }
 
