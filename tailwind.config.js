@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+const {
+  default: flattenColorPalette,
+} = require('tailwindcss/lib/util/flattenColorPalette')
+const svgDataUri = require('mini-svg-data-uri')
 
 module.exports = {
   mode: 'jit',
@@ -113,5 +117,23 @@ module.exports = {
     },
   },
   // eslint-disable-next-line global-require
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'grid-pattern': (value) => ({
+            backgroundImage: `url("${svgDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="${value}" stroke-dasharray="6 3" transform="scale(1)"><path d="M36 .5H1.5V36"/></svg>`,
+            )}")`,
+          }),
+        },
+        {
+          values: flattenColorPalette(theme('backgroundColor')),
+          type: 'color',
+        },
+      )
+    },
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 }
