@@ -89,6 +89,7 @@
     "globby": "^13.1.4",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "mini-svg-data-uri": "^1.4.4",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prisma": "^4.15.0",
