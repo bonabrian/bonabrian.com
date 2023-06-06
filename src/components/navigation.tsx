@@ -84,7 +84,7 @@ const Navigation = () => {
   return (
     <header
       className={cx(
-        'sticky top-0 z-50 h-16 bg-white/90 backdrop-blur',
+        'sticky top-0 z-50 h-16 bg-white/90 flex backdrop-blur',
         'dark:bg-gray-900/90',
         isScrolled ? 'shadow-sm' : '',
       )}
