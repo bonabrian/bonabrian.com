@@ -11,4 +11,28 @@
       @apply dark:text-primary-400;
     }
   }
+
+  .bg-pattern {
+    @apply relative z-0;
+
+    &::before {
+      @apply grid-pattern-slate-200/50 absolute inset-0 z-[-1] content-[''];
+      @apply dark:grid-pattern-gray-800/50;
+      mask-image: linear-gradient(transparent, black, transparent);
+    }
+  }
+
+  .button {
+    @apply relative inline-flex px-4 justify-center items-center border-2 border-solid border-transparent text-xs sm:text-sm transition duration-150 font-semibold overflow-hidden h-12 -tracking-tighter;
+
+    &--rounded {
+      @apply rounded-full border-gray-900;
+      @apply dark:border-slate-100;
+      @apply shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(163_163_163_/_20%)];
+
+      &:hover {
+        @apply bg-primary-500 text-gray-900;
+      }
+    }
+  }
 }
