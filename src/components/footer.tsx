@@ -1,11 +1,12 @@
+import cx from 'classnames'
 import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
+import Container from './container'
 import Link from './link'
 import NowPlaying from './now-playing'
-import ThemeSwitch from './theme-switch'
 
 const footerLinks = [
   [
@@ -60,55 +61,58 @@ const iconLinks = [
 
 const Footer = () => {
   return (
-    <footer className="py-8 text-sm border-t dark:border-gray-800 max-w-6xl mx-auto px-4">
-      <nav className="flex flex-col justify-between sm:items-center gap-6 sm:gap-4 w-full sm:flex-row mb-4 text-gray-900/50 dark:text-white/60">
-        {footerLinks.map((groups, index) => (
-          <div
-            key={`group-${index}`}
-            className="flex flex-col space-y-4 md:items-start"
-          >
-            {groups.map(({ title, url }) => (
+    <footer className={cx('bg-pattern border-primary-500 mt-24 pt-16 text-sm')}>
+      <Container>
+        <nav
+          className={cx(
+            'flex flex-col justify-between gap-6 mb-4 text-gray-900',
+            'sm:flex-row sm:items-center sm:gap-4',
+            'dark:text-slate-100',
+          )}
+        >
+          {footerLinks.map((groups, index) => (
+            <div
+              key={`group-${index}`}
+              className={cx('flex flex-col space-y-4', 'md:items-start')}
+            >
+              {groups.map(({ title, url }) => (
+                <Link key={title} href={url} className={cx('nav-link mx-0')}>
+                  {title}
+                </Link>
+              ))}
+            </div>
+          ))}
+          <div className={cx('flex flex-row gap-4')}>
+            {iconLinks.map(({ title, url, icon: Icon }) => (
               <Link
                 key={title}
                 href={url}
-                className="hover:text-primary-500 transition-all ease-in-out duration-150"
+                showExternalLinkIcon={false}
+                title={title}
               >
-                {title}
+                <Icon
+                  size={24}
+                  className={cx(
+                    'hover:fill-primary-500 transition-all ease-in-out duration-150',
+                  )}
+                />
               </Link>
             ))}
           </div>
-        ))}
-        <div className="flex flex-row gap-4">
-          {iconLinks.map(({ title, url, icon: Icon }) => (
-            <Link
-              key={title}
-              href={url}
-              showExternalLinkIcon={false}
-              title={title}
-            >
-              <Icon
-                size={24}
-                className="text-gray-900 dark:text-slate-100 hover:fill-primary-500 transition-all ease-in-out duration-150"
-              />
-            </Link>
-          ))}
-        </div>
-      </nav>
-      <div className="flex flex-col gap-y-2 mt-6">
-        <div className="flex items-center justify-between">
+        </nav>
+        <div className={cx('mt-4')}>
           <NowPlaying />
-          <ThemeSwitch />
+          <div className={cx('flex items-center py-8 space-x-2')}>
+            <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
+            <Link
+              href="/"
+              className={cx('font-semibold hover:text-primary-500')}
+            >
+              {defaultMetadata.author.name}
+            </Link>
+          </div>
         </div>
-        <div className="flex items-center space-x-2 text-gray-900/50 dark:text-white/60">
-          <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
-          <Link
-            href="/"
-            className="font-medium text-gray-900 dark:text-slate-100 hover:text-primary-500"
-          >
-            {defaultMetadata.author.name}
-          </Link>
-        </div>
-      </div>
+      </Container>
     </footer>
   )
 }
