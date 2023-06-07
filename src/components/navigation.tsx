@@ -112,7 +112,7 @@ const Navigation = () => {
                       href={path}
                       className={cx(
                         'nav-link',
-                        pathname === (path || pathname.startsWith(path)) &&
+                        (pathname === path || pathname.startsWith(path)) &&
                           'active',
                       )}
                     >
