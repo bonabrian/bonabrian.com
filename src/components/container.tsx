@@ -1,22 +1,27 @@
 import cx from 'classnames'
+import { forwardRef } from 'react'
 
-interface ContainerProps {
-  children: React.ReactNode
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   wide?: boolean
 }
 
-const Container = ({ children, wide }: ContainerProps) => {
-  return (
-    <div
-      className={cx(
-        'flex flex-col mx-auto w-full px-4',
-        'sm:px-12 md:px-10 lg:px-16 xl:px-6',
-        wide ? 'max-w-12xl' : 'max-w-6xl',
-      )}
-    >
-      {children}
-    </div>
-  )
-}
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ wide, children, className, ...props }, ref) => {
+    return (
+      <div
+        className={cx(
+          'flex flex-col mx-auto w-full px-4',
+          'sm:px-12 md:px-10 lg:px-16 xl:px-6',
+          wide ? 'max-w-12xl' : 'max-w-6xl',
+          className,
+        )}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </div>
+    )
+  },
+)
 
 export default Container
