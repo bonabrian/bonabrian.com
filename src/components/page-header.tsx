@@ -1,19 +1,53 @@
-import classnames from 'classnames'
+'use client'
+
+import cx from 'classnames'
+import { m } from 'framer-motion'
+
+import Container from './container'
 
 interface PageHeaderProps {
   title: string
   description?: string
 }
 
+const animation = {
+  hide: { x: -32, opacity: 0 },
+  show: { x: 0, opacity: 1 },
+}
+
 const PageHeader = ({ title, description }: PageHeaderProps) => {
   return (
     <div
-      className={classnames('flex flex-col', description ? 'pb-4 sm:pb-8' : '')}
+      className={cx('bg-pattern pt-16 pb-12', 'md:pb-16 md:pt-24', 'lg:pt-32')}
     >
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-9 sm:leading-10 md:leading-14 mb-4 sm:mb-6 lg:mb-8 tracking-tight">
-        {title}
-      </h1>
-      {description && <p className="text-base">{description}</p>}
+      <Container
+        className={cx('pointer-events-none select-none overflow-hidden')}
+      >
+        <m.div
+          initial={animation.hide}
+          animate={animation.show}
+          transition={{ delay: 0.1 }}
+        >
+          <h1
+            className={cx(
+              'font-extrabold text-4xl leading-tight',
+              'sm:text-5xl',
+              'lg:text-6xl',
+            )}
+          >
+            {title}
+          </h1>
+        </m.div>
+        {description && (
+          <m.div
+            initial={animation.hide}
+            animate={animation.show}
+            transition={{ delay: 0.2 }}
+          >
+            <p className={cx('mt-4 text-lg', 'md:text-xl')}>{description}</p>
+          </m.div>
+        )}
+      </Container>
     </div>
   )
 }
