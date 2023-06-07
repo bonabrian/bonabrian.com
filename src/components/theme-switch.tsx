@@ -2,9 +2,10 @@
 
 import { Switch } from '@headlessui/react'
 import cx from 'classnames'
-import { RiMoonFill, RiSunFill } from 'react-icons/ri'
 
 import { useTheme } from '@/hooks'
+
+import { Moon, Sun } from './icons'
 
 const ThemeSwitch = () => {
   const { theme, mounted, setTheme } = useTheme()
@@ -17,8 +18,8 @@ const ThemeSwitch = () => {
           checked={isDark}
           onChange={() => setTheme(isDark ? 'light' : 'dark')}
           className={cx(
-            'relative inline-flex shrink-0 h-6 w-12 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 bg-gray-300',
-            'dark:bg-gray-700',
+            'relative inline-flex shrink-0 h-6 w-12 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 bg-slate-200',
+            'dark:bg-gray-600',
           )}
         >
           <span className="sr-only">Use settings</span>
@@ -29,9 +30,9 @@ const ThemeSwitch = () => {
             )}
           >
             {isDark ? (
-              <RiSunFill className={cx('translate-x-6')} />
+              <Sun className={cx('translate-x-6')} />
             ) : (
-              <RiMoonFill className={cx('translate-x-0')} />
+              <Moon className={cx('translate-x-0')} />
             )}
           </div>
           <span
