@@ -73,8 +73,8 @@ const ProjectList = ({ projects }: ProjectListProps) => {
       {filteredProjects.length ? (
         <div
           className={cx(
-            'grid grid-cols-1 auto-cols-fr gap-x-16 gap-y-8 w-full py-8',
-            'md:grid-cols-2',
+            'grid grid-cols-1 auto-cols-fr gap-x-16 gap-y-8 w-full my-8',
+            'md:grid-cols-2 md:my-12',
           )}
         >
           {filteredProjects.map((project) => {
