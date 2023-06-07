@@ -44,18 +44,11 @@
       @apply dark:bg-white;
       @apply animate-equalize;
 
-      &:nth-child(1) {
-        @apply bg-primary-600;
-        @apply dark:bg-primary-400;
-      }
-
       &:nth-child(2) {
         animation-delay: 0.1s;
       }
 
       &:nth-child(3) {
-        @apply bg-primary-600;
-        @apply dark:bg-primary-400;
         animation-delay: 0.2s;
       }
 
@@ -64,8 +57,6 @@
       }
 
       &:nth-child(5) {
-        @apply bg-primary-600;
-        @apply dark:bg-primary-400;
         animation-delay: 0.5s;
       }
     }
