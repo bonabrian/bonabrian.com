@@ -1,16 +1,14 @@
 'use client'
 
+import cx from 'classnames'
 import type { Post } from 'contentlayer/generated'
-import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
-import { RiSearch2Line } from 'react-icons/ri'
 
-import PageHeader from './page-header'
+import Container from './container'
+import { Search } from './icons'
 import PostCard from './post-card'
 
 interface PostListProps {
-  title: string
-  description?: string
   posts: Array<Post>
 }
 
@@ -24,7 +22,6 @@ const filterPosts = (
     ? posts
     : posts?.filter((post) => {
         const searchContent =
-          // eslint-disable-next-line no-unsafe-optional-chaining
           post?.title + post?.excerpt + post?.tags?.join(' ')
         return searchContent.toLocaleLowerCase().includes(query.toLowerCase())
       })
@@ -32,7 +29,7 @@ const filterPosts = (
   return filteredPosts
 }
 
-const PostList = ({ title, description, posts }: PostListProps) => {
+const PostList = ({ posts }: PostListProps) => {
   const [search, setSearch] = useState('')
   const filteredPosts = useMemo(() => {
     return filterPosts(posts, search)
@@ -40,45 +37,37 @@ const PostList = ({ title, description, posts }: PostListProps) => {
 
   const renderSearchComponent = () => {
     return (
-      <div className="relative w-full flex items-center md:max-w-md">
+      <div className={cx('relative w-full flex items-center', 'md:max-w-lg')}>
         <input
           aria-label="Search"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search posts"
-          className="block w-full px-10 py-2 bg-slate-200 dark:bg-gray-800 border border-transparent focus:border-primary-500 focus:ring-primary-500 rounded-full transition ease-in-out duration-200"
+          className={cx(
+            'block w-full px-12 py-4 border bg-white text-sm border-slate-100 focus:border-primary-500 focus:ring-primary-500 rounded-full transition ease-in-out duration-200',
+            'dark:border-gray-800 dark:bg-gray-900',
+          )}
         />
-        <RiSearch2Line className="absolute w-5 h-5 text-gray-400 dark:text-gray-500 fill-current top-3 left-3" />
+        <Search className={cx('absolute text-gray-400 left-4 w-5 h-5')} />
       </div>
     )
   }
 
   return (
-    <>
-      <div className="my-4 space-y-3 md:space-y-5">
-        <PageHeader title={title} description={description} />
-        {renderSearchComponent()}
-      </div>
+    <Container>
+      <div>{renderSearchComponent()}</div>
+
       {filteredPosts.length ? (
-        <div className="flex flex-col gap-8 py-8">
-          {filteredPosts.map((post, index) => {
-            return (
-              <m.div
-                key={post.slug}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index / 10 }}
-              >
-                <PostCard post={post} />
-              </m.div>
-            )
-          })}
+        <div className={cx('flex flex-col gap-8 my-8', 'md:my-12')}>
+          {filteredPosts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
         </div>
       ) : (
-        <p className="text-center">No posts.</p>
+        <p className={cx('text-center my-4', 'md:my-8')}>No posts.</p>
       )}
-    </>
+    </Container>
   )
 }
 

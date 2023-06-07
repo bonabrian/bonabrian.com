@@ -3,6 +3,7 @@ import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import PageHeader from '@/components/page-header'
 import PostList from '@/components/post-list'
 import { getMetadata } from '@/lib/metadata'
 
@@ -30,11 +31,14 @@ export const metadata: Metadata = getMetadata({
 const BlogPage = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PostList
+      <PageHeader
         title="Blog"
         description="The place where I share my thoughts, ideas and experiences about software development."
-        posts={posts}
       />
+
+      <div id="content">
+        <PostList posts={posts} />
+      </div>
     </Suspense>
   )
 }

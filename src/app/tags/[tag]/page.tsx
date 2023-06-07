@@ -33,7 +33,7 @@ const TagPage = ({ params }: { params: { tag: string } }) => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PostList title={`#${tag}`} posts={posts} />
+      <PostList posts={posts} />
     </Suspense>
   )
 }
