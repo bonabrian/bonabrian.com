@@ -2,10 +2,9 @@
 
 import cx from 'classnames'
 import type { Project } from 'contentlayer/generated'
-import { AnimatePresence, m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
-import PageHeader from './page-header'
+import Container from './container'
 import ProjectCard from './project-card'
 
 interface ProjectListProps {
@@ -45,7 +44,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
 
   const renderFilterComponent = () => {
     return (
-      <div className="flex justify-center items-center gap-x-4">
+      <div className={cx('flex justify-center items-center gap-x-4')}>
         {categories.map((it) => {
           return (
             <div
@@ -69,29 +68,23 @@ const ProjectList = ({ projects }: ProjectListProps) => {
   }
 
   return (
-    <>
-      <div className="my-4 space-y-3 md:space-y-5">
-        <PageHeader
-          title="Projects"
-          description="A collection of finest projects that I have built. ❤️️"
-        />
-        {renderFilterComponent()}
-      </div>
+    <Container>
+      <div>{renderFilterComponent()}</div>
       {filteredProjects.length ? (
-        <m.div
-          className="grid grid-cols-1 md:grid-cols-2 auto-cols-fr gap-x-16 gap-y-8 w-full py-8"
-          layout
+        <div
+          className={cx(
+            'grid grid-cols-1 auto-cols-fr gap-x-16 gap-y-8 w-full py-8',
+            'md:grid-cols-2',
+          )}
         >
-          <AnimatePresence>
-            {filteredProjects.map((project) => {
-              return <ProjectCard key={project.slug} project={project} />
-            })}
-          </AnimatePresence>
-        </m.div>
+          {filteredProjects.map((project) => {
+            return <ProjectCard key={project.slug} project={project} />
+          })}
+        </div>
       ) : (
-        <p className="text-center">No projects found.</p>
+        <p className={cx('text-center py-8')}>No projects found.</p>
       )}
-    </>
+    </Container>
   )
 }
 

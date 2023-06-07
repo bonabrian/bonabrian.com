@@ -3,6 +3,7 @@ import { allProjects } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import PageHeader from '@/components/page-header'
 import ProjectList from '@/components/project-list'
 import { getMetadata } from '@/lib/metadata'
 
@@ -27,7 +28,14 @@ export const metadata: Metadata = getMetadata({
 const ProjectsPage = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ProjectList projects={projects} />
+      <PageHeader
+        title="Projects"
+        description="A collection of finest projects that I have built. ❤️️"
+      />
+
+      <div id="content">
+        <ProjectList projects={projects} />
+      </div>
     </Suspense>
   )
 }
