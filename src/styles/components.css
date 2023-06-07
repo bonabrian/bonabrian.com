@@ -35,4 +35,39 @@
       }
     }
   }
+
+  .equalizer {
+    @apply h-4 flex items-center gap-2;
+
+    .bar {
+      @apply w-1 h-4 rounded-md bg-gray-900;
+      @apply dark:bg-white;
+      @apply animate-equalize;
+
+      &:nth-child(1) {
+        @apply bg-primary-600;
+        @apply dark:bg-primary-400;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(3) {
+        @apply bg-primary-600;
+        @apply dark:bg-primary-400;
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      &:nth-child(5) {
+        @apply bg-primary-600;
+        @apply dark:bg-primary-400;
+        animation-delay: 0.5s;
+      }
+    }
+  }
 }

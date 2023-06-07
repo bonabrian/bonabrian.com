@@ -102,17 +102,17 @@ module.exports = {
         },
       }),
       keyframes: {
-        shrink: {
-          '0% , 100%': {
-            height: '0.75rem',
+        equalize: {
+          '0%, 100%': {
+            height: '0px',
           },
           '50%': {
-            height: '0.375rem',
+            height: '1rem',
           },
         },
       },
       animation: {
-        shrink: 'shrink 1.5s infinite',
+        equalize: 'equalize 0.8s infinite',
       },
     },
   },
