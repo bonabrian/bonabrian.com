@@ -1,8 +1,5 @@
-'use client'
-
 import cx from 'classnames'
 import { allPosts, type Post } from 'contentlayer/generated'
-import { m } from 'framer-motion'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
@@ -35,16 +32,11 @@ const RecentPosts = () => {
         </p>
         {posts.length ? (
           <>
-            <m.div
-              initial="hide"
-              animate="show"
-              transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-              className={cx('flex flex-col gap-8 my-4', 'md:my-8')}
-            >
+            <div className={cx('flex flex-col gap-8 my-4', 'md:my-8')}>
               {posts.map((post) => (
                 <PostCard key={post.slug} post={post} />
               ))}
-            </m.div>
+            </div>
             <div className={cx('flex justify-center items-center my-4')}>
               <Link
                 href={routes.BLOG}
@@ -55,7 +47,7 @@ const RecentPosts = () => {
             </div>
           </>
         ) : (
-          <p className={cx('text-center')}>No recent posts.</p>
+          <p className={cx('text-center my-4', 'md:my-8')}>No recent posts.</p>
         )}
       </Container>
     </div>
