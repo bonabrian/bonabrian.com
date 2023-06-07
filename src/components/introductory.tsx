@@ -160,7 +160,8 @@ const HeaderTitle = () => {
       <m.h1
         className={cx(
           'flex flex-col justify-center gap-1 text-4xl tracking-tight font-black mb-4',
-          'sm:text-5xl md:text-5xl lg:text-6xl',
+          'sm:text-5xl',
+          'lg:text-6xl',
         )}
         initial={animation.hide}
         animate={animation.show}
