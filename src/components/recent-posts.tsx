@@ -40,7 +40,7 @@ const RecentPosts = () => {
             <div className={cx('flex justify-center items-center my-4')}>
               <Link
                 href={routes.BLOG}
-                className={cx('button button--rounded gap-1')}
+                className={cx('button button--rounded button--shadow gap-1')}
               >
                 See All Posts <RiArrowRightSLine />
               </Link>

@@ -32,7 +32,10 @@ const CallToAction = () => {
       animate={animation.show}
       transition={{ delay: 0.3 }}
     >
-      <Link href={routes.ABOUT} className={cx('button button--rounded gap-1')}>
+      <Link
+        href={routes.ABOUT}
+        className={cx('button button--rounded button--shadow gap-1')}
+      >
         Explore More <RiArrowRightSLine />
       </Link>
     </m.div>
