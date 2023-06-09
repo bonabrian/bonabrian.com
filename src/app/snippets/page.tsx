@@ -55,8 +55,8 @@ const SnippetsPage = async () => {
                     key={slug}
                     href={`${routes.SNIPPETS}/${slug}`}
                     className={cx(
-                      'flex flex-col justify-between border border-slate-100 rounded-2xl p-6',
-                      'dark:border-gray-800',
+                      'flex flex-col justify-between border border-slate-100 rounded-2xl p-6 hover:border-primary-600',
+                      'dark:border-gray-800 dark:hover:border-primary-400',
                     )}
                   >
                     <h2
