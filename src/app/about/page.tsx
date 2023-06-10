@@ -24,7 +24,7 @@ const AboutPage = () => {
           <div
             className={cx(
               'items-start space-y-2',
-              'xl:grid xl:grid-cols-3 xl:gap-x-4 xl:space-y-0',
+              'xl:grid xl:grid-cols-4 xl:gap-x-6 xl:space-y-0',
             )}
           >
             <div
@@ -33,7 +33,7 @@ const AboutPage = () => {
                 'xl:sticky xl:top-24',
               )}
             >
-              <div className={cx('relative w-52 h-52', 'xl:w-72 xl:h-72')}>
+              <div className={cx('relative w-52 h-52', 'xl:w-64 xl:h-64')}>
                 <Image
                   src={defaultMetadata.author.avatar}
                   alt={defaultMetadata.author.name}
@@ -92,7 +92,7 @@ const AboutPage = () => {
             <div
               className={cx(
                 'prose max-w-none text-justify',
-                'xl:col-span-2',
+                'xl:col-span-3',
                 'dark:prose-dark',
               )}
             >
