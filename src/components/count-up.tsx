@@ -9,7 +9,7 @@ interface CountUpProps {
   duration?: number
 }
 
-const CountUp = ({ from = 0, to, duration = 0.5 }: CountUpProps) => {
+const CountUp = ({ from = 0, to, duration = 1.5 }: CountUpProps) => {
   const nodeRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
