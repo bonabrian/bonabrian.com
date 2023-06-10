@@ -41,3 +41,4 @@ yarn-error.log*
 
 public/*.xml
 public/**/*/raw.png
+prisma/migrations
