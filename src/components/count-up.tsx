@@ -10,18 +10,17 @@ interface CountUpProps {
 }
 
 const CountUp = ({ from = 0, to, duration = 1.5 }: CountUpProps) => {
-  const nodeRef = useRef<HTMLSpanElement>(null)
+  const nodeRef = useRef<HTMLSpanElement | null>(null)
 
   useEffect(() => {
     const node = nodeRef.current
+    if (!node) return
 
     const controls = animate(from, to, {
       duration,
       ease: 'easeOut',
       onUpdate(value) {
-        if (node) {
-          node.textContent = value.toFixed(0)
-        }
+        node.textContent = value.toFixed(0)
       },
     })
 
