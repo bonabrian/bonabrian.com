@@ -1,7 +1,13 @@
 'use client'
 
-import { animate } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import {
+  animate,
+  m,
+  useInView,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 interface CountUpProps {
   from?: number
@@ -10,49 +16,17 @@ interface CountUpProps {
 }
 
 const CountUp = ({ from = 0, to, duration = 1 }: CountUpProps) => {
-  const nodeRef = useRef<HTMLSpanElement | null>(null)
-  const [isInView, setIsInView] = useState(false)
+  const count = useMotionValue(from)
+  const rounded = useTransform(count, (latest) => Math.round(latest))
+
+  const nodeRef = useRef(null)
+  const inView = useInView(nodeRef)
 
   useEffect(() => {
-    const node = nodeRef.current
-    if (!node) return
+    if (inView) animate(count, to, { duration })
+  }, [count, duration, inView, to])
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true)
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    observer.observe(node)
-
-    return () => {
-      observer.unobserve(node)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!isInView) return
-
-    const node = nodeRef.current
-    if (!node) return
-
-    const controls = animate(from, to, {
-      duration,
-      ease: 'easeOut',
-      onUpdate(value) {
-        node.textContent = Math.round(value).toString()
-      },
-    })
-
-    return () => controls.stop()
-  }, [duration, from, isInView, to])
-
-  return <span ref={nodeRef}>{to}</span>
+  return <m.span ref={nodeRef}>{rounded}</m.span>
 }
 
 export default CountUp
