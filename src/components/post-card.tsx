@@ -4,21 +4,20 @@ import cx from 'classnames'
 import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
-import { RiCalendarLine, RiEyeLine, RiTimeLine } from 'react-icons/ri'
 
-import { useRequest } from '@/hooks'
+import { useViews } from '@/hooks'
 import { routes } from '@/lib/constants'
 import { formatDate } from '@/lib/utils'
 
+import CountUp from './count-up'
+import { Calendar, Clock, Eye } from './icons'
 import Link from './link'
 import Spinner from './spinner'
 
 const PostCard = ({ post }: { post: Post }) => {
   const { slug, title, date, excerpt, readingTime, image, imageMeta } = post
 
-  const { data: views, loading: isLoadViews } = useRequest<{ total?: string }>(
-    `/api/views/${slug}`,
-  )
+  const { views, loading: isLoadViews } = useViews({ slug })
 
   const extraImageProps = useMemo(() => {
     if (imageMeta?.blur64) {
@@ -95,7 +94,7 @@ const PostCard = ({ post }: { post: Post }) => {
                 "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
               )}
             >
-              <RiCalendarLine />
+              <Calendar />
               <span title={publishedAt.raw}>{publishedAt.formatted}</span>
             </div>
             <div
@@ -104,15 +103,17 @@ const PostCard = ({ post }: { post: Post }) => {
                 "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
               )}
             >
-              <RiTimeLine />
+              <Clock />
               <span title="Estimated read time">{readingTime?.text}</span>
             </div>
-            <div className={cx('flex items-center space-x-1')}>
-              <RiEyeLine />
+            <div className={cx('flex items-center gap-1')}>
+              <Eye />
               {isLoadViews ? (
                 <Spinner />
               ) : (
-                <span>{`${views?.total}`} views</span>
+                <>
+                  <CountUp to={views?.total || 0} /> views
+                </>
               )}
             </div>
           </div>
