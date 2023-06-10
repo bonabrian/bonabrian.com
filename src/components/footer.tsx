@@ -1,10 +1,10 @@
 import cx from 'classnames'
-import { RiGithubLine, RiLinkedinLine, RiRssLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
 import Container from './container'
+import { GitHub, LinkedIn, RSS } from './icons'
 import Link from './link'
 import NowPlaying from './now-playing'
 
@@ -45,17 +45,17 @@ const iconLinks = [
   {
     title: 'Github',
     url: defaultMetadata.author.github,
-    icon: RiGithubLine,
+    icon: GitHub,
   },
   {
     title: 'LinkedIn',
     url: defaultMetadata.author.linkedin,
-    icon: RiLinkedinLine,
+    icon: LinkedIn,
   },
   {
     title: 'RSS Feed',
     url: '/feed.xml',
-    icon: RiRssLine,
+    icon: RSS,
   },
 ]
 
@@ -89,13 +89,11 @@ const Footer = () => {
                 href={url}
                 showExternalLinkIcon={false}
                 title={title}
+                className={cx(
+                  'hover:text-primary-500 transition-all ease-in-out duration-150',
+                )}
               >
-                <Icon
-                  size={24}
-                  className={cx(
-                    'hover:fill-primary-500 transition-all ease-in-out duration-150',
-                  )}
-                />
+                <Icon className={cx('w-5 h-5')} />
               </Link>
             ))}
           </div>
