@@ -113,3 +113,23 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map(name: "verification_tokens")
 }
+
+model ContentMeta {
+  id          BigInt    @id @default(autoincrement())
+  slug        String    @unique
+  views       View[]
+  createdAt   DateTime  @default(now())
+
+  @@map(name: "content_meta")
+}
+
+model View {
+  id          BigInt        @id @default(autoincrement())
+  userId      String
+  contentId   BigInt
+  content     ContentMeta   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  createdAt   DateTime      @default(now())
+
+  @@map(name: "views")
+  @@index([contentId])
+}
