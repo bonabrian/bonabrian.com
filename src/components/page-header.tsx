@@ -31,8 +31,8 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
           <h1
             className={cx(
               'font-extrabold text-4xl leading-tight',
-              'sm:text-5xl',
-              'lg:text-6xl',
+              'md:text-5xl md:leading-tight',
+              'lg:text-6xl lg:leading-tight',
             )}
           >
             {title}
