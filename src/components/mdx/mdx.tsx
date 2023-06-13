@@ -22,7 +22,7 @@ const Mdx = ({ code, className }: MdxProps) => {
   const MdxComponent = useMDXComponent(code)
 
   return (
-    <div className={cx('mdx-content', className)}>
+    <div className={cx('mdx', className)}>
       <MdxComponent components={{ ...components } as MDXComponents} />
     </div>
   )
