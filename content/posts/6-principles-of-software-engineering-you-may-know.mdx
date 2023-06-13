@@ -8,7 +8,7 @@ pinned: false
 image: 6-principles-of-software-engineering-you-may-know/cover.png
 ---
 
-# Introduction
+## Introduction
 The art of writing clean code is not just a task, but an essential skill that every software engineer should passionately embrace.
 Have you ever realized that becoming a programmer is not as difficult as you imagine? However, becoming a programmer who can create powerful applications with highly efficient code may be challenging.
 
@@ -21,14 +21,14 @@ Have you ever realized that becoming a programmer is not as difficult as you ima
   alt="I will not write any more bad code"
 />
 
+<br />
 How can we develop code that is easily maintainable, readable, and comprehensible to others? What steps can we take to maximize the effectiveness of our code?
 
-## 1. Keep It Simple, Stupid (KISS)
+### 1. Keep It Simple, Stupid (KISS)
 The KISS principle encourages developers to keep things simple when writing code. Instead of overcomplicating things or show off by turning your code into lengthy paragraphs.
 If you can write the code in a single line, go ahead and write it as a single line.
 
-**Example without following the KISS principle:**
-
+Example without following the KISS principle:
 ```ts
 const calculateAverage = (numbers: number[]): number => {
   let sum = 0
@@ -53,8 +53,7 @@ This added complexity can lead to confusion, potential bugs, and difficulties in
 
 Let's make a change
 
-**Example with following the KISS principle:**
-
+Example with following the KISS principle:
 ```ts
 const calculateAverage = (numbers: number[]): number => {
   const sum = numbers.reduce((acc, curr) => acc + curr, 0)
@@ -72,7 +71,7 @@ The **reduce** method is leveraged to compute the sum, and then the average is c
 The code is clear, readable, and achieves the desired result without unnecessary complexity.
 
 
-## 2. Don't Repeat Yourself (DRY)
+### 2. Don't Repeat Yourself (DRY)
 The essence of this principle is not to repeat the same thing.
 Imagine you have a piece of functionality in your software that is used in multiple places.
 Instead of copying and pasting the same code snippet in each location, the DRY principle suggests creating a reusable components, functions, classes, or modules that encapsulates that functionality.
@@ -81,8 +80,7 @@ Instead of copying and pasting the same code snippet in each location, the DRY p
 Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
 </blockquote>
 
-**Example without following the DRY principle:**
-
+Example without following the DRY principle:
 ```ts
 const number1 = 1
 const number2 = 2
@@ -107,8 +105,7 @@ Although it might seem harmless in this simple case, duplicating code can lead t
 
 What if we change it to be like this?
 
-**Example with following the DRY principle:**
-
+Example with following the DRY principle:
 ```ts {1-3}
 const calculateSum = (a: number, b: number): number => {
   return a + b
@@ -129,12 +126,11 @@ By applying the DRY principle, you enhance the overall quality and maintainabili
 It saves time, reduces the risk of introducing bugs, and promotes a more efficient development process.
 Embracing the DRY principle allows you to write clean, concise, and reusable code, making your software more robust and your development workflow more efficient.
 
-## 3. You Aren't Gonna Need It (YAGNI)
+### 3. You Aren't Gonna Need It (YAGNI)
 This is a guiding principle in software development that emphasizes avoiding unnecessary features or functionalities.
 It suggests that developers should only implement what is currently required, rather than speculating and building features that may or may not be needed in the future.
 
-**Example:**
-
+Example:
 Imagine you're developing a basic to-do list application.
 You start by implementing the core functionality, allowing users to add and delete tasks.
 However, as you work on it, you get tempted to add more advanced features like task prioritization, due dates, reminders, and collaboration capabilities.
@@ -143,7 +139,7 @@ By following the YAGNI principle, you resist the temptation to implement these a
 Instead, you focus on delivering a minimal viable product (MVP) that fulfills the immediate needs of managing tasks.
 You recognize that including unnecessary features would increase the development time, complexity, and potential for bugs without providing immediate value to the users.
 
-## 4. SOLID
+### 4. SOLID
 The SOLID principles are a set of five fundamental principles in software development that provide guidelines for designing and developing maintainable and flexible code.
 Each principle focuses on a specific aspect of software design and encourages developers to write code that is modular, extensible, and easy to understand.
 
@@ -153,18 +149,15 @@ Each principle focuses on a specific aspect of software design and encourages de
   width={1200}
   height={280}
   fill={false}
+  source="https://irmakesin.medium.com/solid-design-principles-explained-the-single-responsibility-principle-1cb999aa0aa6"
 />
-<div className="text-center">
-  Source [medium.com](https://irmakesin.medium.com/solid-design-principles-explained-the-single-responsibility-principle-1cb999aa0aa6)
-</div>
 
-### S - Single Responsibility Principle (SRP)
+#### S - Single Responsibility Principle (SRP)
 The SRP states that a class or module should have a single responsibility or reason to change.
 It promotes the idea that a class should only have one primary purpose, making it easier to understand, maintain, and test.
 By separating concerns and avoiding bloated classes, we enhance code readability and achieve better maintainability.
 
-**Example without following the SRP principle:**
-
+Example without following the SRP principle:
 ```kotlin title="Example.kt"
 class TaskManager {
   fun manipulateTask(task: Task, action: String) {
@@ -184,8 +177,7 @@ class TaskManager {
  */
 ```
 
-**Example with following the SRP principle:**
-
+Example with following the SRP principle:
 ```kotlin title="Example.kt"
 class TaskManager {
   fun addTask(task: Task) {
@@ -207,13 +199,12 @@ class TaskManager {
  */
 ```
 
-### O - Open/Closed Principle (OCP)
+#### O - Open/Closed Principle (OCP)
 The OCP emphasizes that software entities (classes, modules, functions) should be open for extension but closed for modification.
 This means that we should design our code in a way that allows new functionality to be added without modifying existing code.
 By relying on abstractions, interfaces, and polymorphism, we can introduce new behaviors without impacting the existing codebase.
 
-**Example without following the OCP principle:**
-
+Example without following the OCP principle:
 ```kotlin title="Example.kt"
 class PaymentProcessor {
   fun processPayment(paymentMethod: String) {
@@ -231,8 +222,7 @@ class PaymentProcessor {
  */
 ```
 
-**Example with following the OCP principle:**
-
+Example with following the OCP principle:
 ```kotlin title="Example.kt"
 interface PaymentProcessor {
   fun processPayment()
@@ -257,13 +247,12 @@ class PaypalProcessor: PaymentProcessor {
  */
 ```
 
-### L - Liskov Substitution Principle (LSP)
+#### L - Liskov Substitution Principle (LSP)
 The LSP states that subtypes must be substitutable for their base types without affecting the correctness of the program.
 In simpler terms, this principle ensures that derived classes should be able to replace their base classes seamlessly, without breaking the expected behavior.
 Adhering to the LSP allows for better code reusability and interchangeability of objects.
 
-**Example without following the LSP principle:**
-
+Example without following the LSP principle:
 ```kotlin title="Example.kt"
 class Vehicle {
   fun startEngine() {
@@ -289,8 +278,7 @@ class Motorcycle: Vehicle {
  */
 ```
 
-**Example with following the LSP principle:**
-
+Example with following the LSP principle:
 ```kotlin title="Example.kt"
 abstract class Vehicle {
   abstract fun startEngine() {
@@ -311,18 +299,18 @@ class Motorcycle: Vehicle {
 }
 
 /**
- * The `Car` and `Motorcycle` classes are substitutable for their base class `Vehicle` without changing the behavior of the program.
+ * The `Car` and `Motorcycle` classes are substitutable for their base class `Vehicle` without
+ * changing the behavior of the program.
  * They both override the `startEngine` method based on their specific implementation.
  */
 ```
 
-### I - Interface Segregation Principle (ISP)
+#### I - Interface Segregation Principle (ISP)
 The ISP suggests that clients should not be forced to depend on interfaces they do not use.
 It advises creating specific, focused interfaces instead of having a single large interface.
 By segregating interfaces based on specific client needs, we prevent unnecessary dependencies and achieve better modularity and flexibility in our code.
 
-**Example without following the ISP principle:**
-
+Example without following the ISP principle:
 ```kotlin title="Example.kt"
 interface PrintAndScan {
   fun print()
@@ -345,8 +333,7 @@ class AllInOnePrinter: PrintAndScan {
  */
 ```
 
-**Example with following the ISP principle:**
-
+Example with following the ISP principle:
 ```kotlin title="Example.kt"
 interface Printer {
   fun print()
@@ -372,13 +359,12 @@ class AllInOnePrinter: Printer, Scanner {
  */
 ```
 
-### D - Dependency Inversion Principle (DIP)
+#### D - Dependency Inversion Principle (DIP)
 The DIP states that high-level modules should not depend on low-level modules both should depend on abstractions.
 It encourages the use of abstractions and dependency injection to decouple modules and promote loose coupling between different components.
 By depending on abstractions, we can easily substitute implementations and achieve more flexible and testable code.
 
-**Example without following the DIP principle:**
-
+Example without following the DIP principle:
 ```kotlin title="Example.kt"
 class EmailService {
   fun sendEmail(message: String) {
@@ -400,8 +386,7 @@ class NotificationService {
  */
 ```
 
-**Example with following the DIP principle:**
-
+Example with following the DIP principle:
 ```kotlin title="Example.kt"
 interface Notifier {
   fun notify(message: String)
@@ -435,23 +420,22 @@ class NotificationService(private val notifier: Notifier) {
 By understanding and applying the SOLID principles, developers can create code that is modular, maintainable, and adaptable to change.
 Following these principles leads to code that is easier to read, test, and extend, resulting in more robust and flexible software systems.
 
-## 5. Separation of Concerns (SOC)
+### 5. Separation of Concerns (SOC)
 The Separation of Concerns (SoC) principle is a fundamental concept in software engineering that promotes dividing a software system into distinct and independent parts, where each part addresses a specific concern or responsibility.
 The goal is to keep different concerns separate to achieve modularity, maintainability, and reusability in the codebase.
 
-**Example:**
-
+Example:
 Imagine you're building a house. The house consists of various components such as the foundation, walls, roof, plumbing, electrical wiring, and interior design.
 Each component has its own specific purpose and responsibility, but they all come together to create a functional and comfortable living space.
 
 Applying the SoC principle in software development is similar.
 Instead of having a monolithic and tightly-coupled codebase, we break down the system into separate modules, classes, or functions, with each one addressing a specific concern.
 
-## 6. Continuous Learning and Adaptability
+### 6. Continuous Learning and Adaptability
 The field of software engineering is a rapidly evolving landscape, where new technologies and practices emerge with regularity.
 A good software engineer understands the significance of continuous learning and embraces adaptability to remain relevant in this ever-changing industry.
 By proactively staying abreast of the latest trends and consistently enhancing their skills, software engineers can confidently deliver cutting-edge and innovative solutions.
 
-# Final Thoughts
+## Final Thoughts
 By understanding and incorporating these principles and concepts into your software development journey, you can elevate the quality of your code, enhance collaboration, and build robust and scalable software systems that stand the test of time.
 Remember, mastering these principles requires practice and experience, so keep exploring, learning, and applying them in your projects. Happy coding 🌻
