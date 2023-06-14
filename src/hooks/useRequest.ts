@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
 
 interface SwrData<T = unknown> {
-  data?: T | null
+  data?: T
   loading: boolean
   error?: string | Error | null
   mutate: (
