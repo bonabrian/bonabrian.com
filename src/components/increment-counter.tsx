@@ -9,13 +9,17 @@ import {
 } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
-interface CountUpProps {
+interface IncrementCounterProps {
   from?: number
   to: number
   duration?: number
 }
 
-const CountUp = ({ from = 0, to, duration = 1 }: CountUpProps) => {
+const IncrementCounter = ({
+  from = 0,
+  to,
+  duration = 1,
+}: IncrementCounterProps) => {
   const count = useMotionValue(from)
   const rounded = useTransform(count, (latest) => Math.round(latest))
 
@@ -29,4 +33,4 @@ const CountUp = ({ from = 0, to, duration = 1 }: CountUpProps) => {
   return <m.span ref={nodeRef}>{rounded}</m.span>
 }
 
-export default CountUp
+export default IncrementCounter

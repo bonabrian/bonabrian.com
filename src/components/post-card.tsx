@@ -9,8 +9,8 @@ import { useViews } from '@/hooks'
 import { routes } from '@/lib/constants'
 import { formatDate } from '@/lib/utils'
 
-import CountUp from './count-up'
 import { Calendar, Clock, Eye } from './icons'
+import IncrementCounter from './increment-counter'
 import Link from './link'
 import Spinner from './spinner'
 
@@ -112,7 +112,7 @@ const PostCard = ({ post }: { post: Post }) => {
                 <Spinner />
               ) : (
                 <>
-                  <CountUp to={views?.total || 0} /> views
+                  <IncrementCounter to={views?.total || 0} /> views
                 </>
               )}
             </div>
