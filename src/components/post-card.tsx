@@ -5,7 +5,7 @@ import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { useViews } from '@/hooks'
+import { useView } from '@/hooks'
 import { routes } from '@/lib/constants'
 import { formatDate } from '@/lib/utils'
 
@@ -17,7 +17,7 @@ import Spinner from './spinner'
 const PostCard = ({ post }: { post: Post }) => {
   const { slug, title, date, excerpt, readingTime, image, imageMeta } = post
 
-  const { views, loading: isLoadViews } = useViews({ slug })
+  const { views, loading: isLoadViews } = useView({ slug })
 
   const extraImageProps = useMemo(() => {
     if (imageMeta?.blur64) {

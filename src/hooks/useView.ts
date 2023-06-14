@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useRequest } from './useRequest'
 
-export const useViews = ({
+export const useView = ({
   slug,
   trackView,
 }: {
