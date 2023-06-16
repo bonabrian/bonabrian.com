@@ -19,9 +19,7 @@
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
     "prisma:generate": "npx prisma generate",
-    "prisma:studio": "npx prisma studio",
-    "pscale:main": "pscale connect portfolio main --port 3309",
-    "pscale:shadow": "pscale connect portfolio shadow --port 3310"
+    "prisma:studio": "npx prisma studio"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
@@ -49,7 +47,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
-    "react-share": "^4.4.1",
     "reading-time": "^1.5.0",
     "rehype": "^12.0.1",
     "rehype-accessible-emojis": "^0.3.2",
