@@ -1,10 +1,10 @@
 import cx from 'classnames'
 import { allPosts, type Post } from 'contentlayer/generated'
-import { RiArrowRightSLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
 
 import Container from './container'
+import { ChevronRight } from './icons'
 import Link from './link'
 import PostCard from './post-card'
 
@@ -42,7 +42,7 @@ const RecentPosts = () => {
                 href={routes.BLOG}
                 className={cx('button button--rounded button--shadow gap-1')}
               >
-                See All Posts <RiArrowRightSLine />
+                See All Posts <ChevronRight />
               </Link>
             </div>
           </>

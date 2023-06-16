@@ -2,12 +2,12 @@
 
 import cx from 'classnames'
 import { m } from 'framer-motion'
-import { RiArrowRightSLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
 
 import Container from './container'
 import {
+  ChevronRight,
   Kotlin,
   Laravel,
   NextJs,
@@ -36,7 +36,7 @@ const CallToAction = () => {
         href={routes.ABOUT}
         className={cx('button button--rounded button--shadow gap-1')}
       >
-        Explore More <RiArrowRightSLine />
+        Explore More <ChevronRight />
       </Link>
     </m.div>
   )

@@ -3,11 +3,11 @@
 import cx from 'classnames'
 import { allProjects, type Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
-import { RiArrowRightSLine } from 'react-icons/ri'
 
 import { routes } from '@/lib/constants'
 
 import Container from './container'
+import { ChevronRight } from './icons'
 import Link from './link'
 import ProjectCard from './project-card'
 
@@ -53,7 +53,7 @@ const HighlightedProjects = () => {
                 href={routes.PROJECTS}
                 className={cx('button button--rounded button--shadow gap-1')}
               >
-                See All Projects <RiArrowRightSLine />
+                See All Projects <ChevronRight />
               </Link>
             </div>
           </>
