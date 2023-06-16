@@ -1,15 +1,17 @@
+import cx from 'classnames'
 import type { Post } from 'contentlayer/generated'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentHeader from '@/components/content-header'
+import Container from '@/components/container'
+import ContentMeta from '@/components/content-meta'
 import Link from '@/components/link'
 import Mdx, { Image } from '@/components/mdx'
+import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
-import ScrollProgressBar from '@/components/scroll-progress-bar'
-import Tag from '@/components/tag'
+import ShareButton from '@/components/share-button'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
-import { formatDate, getBaseUrl, getDomainFromUrl } from '@/lib/utils'
+import { formatDate, getBaseUrl, kebabCase } from '@/lib/utils'
 
 const findPostBySlug = (slug: string): Post | undefined =>
   allPosts
@@ -37,6 +39,20 @@ export const generateMetadata = async ({
       publishedTime: publishedDate.formatted,
     },
   })
+}
+
+const Tag = ({ tag }: { tag: string }) => {
+  return (
+    <Link
+      href={`/tags/${kebabCase(tag)}`}
+      className={cx(
+        'inline-flex h-6 gap-1 px-2 text-xs font-medium bg-primary-100 text-primary-600 rounded-full leading-6',
+        'dark:bg-primary-600/20 dark:text-primary-300',
+      )}
+    >
+      #{tag}
+    </Link>
+  )
 }
 
 const PostPage = ({ params }: { params: { slug: string } }) => {
@@ -67,51 +83,47 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <ScrollProgressBar />
-      <div className="flex flex-col">
-        <article className="article">
-          <ContentHeader
-            title={title}
-            slug={slug}
-            excerpt={excerpt}
-            date={date}
-            readingTime={readingTime}
+      <PageHeader title={title} />
+      <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
+      <Container>
+        <div id="image-cover" className={cx('mb-8')}>
+          <Image
+            src={image ?? ''}
+            alt={title}
+            priority
+            {...extraImageProps}
+            className={cx('object-cover')}
+            source={imageSource}
           />
-          <div className="prose dark:prose-dark max-w-none">
-            {image && (
-              <>
-                <Image
-                  src={image || ''}
-                  alt={`Cover image for article "${title}"`}
-                  priority
-                  className="object-cover"
-                  {...extraImageProps}
-                />
-                {imageSource && (
-                  <figcaption className="text-gray-900/50 dark:text-white/60">
-                    Source{' '}
-                    <Link href={imageSource} title={imageSource}>
-                      {getDomainFromUrl(imageSource)}
-                    </Link>
-                  </figcaption>
-                )}
-              </>
-            )}
-            <Mdx code={post?.body?.code} />
-          </div>
-          {tags && (
-            <div className="flex flex-wrap gap-1 my-4">
-              {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
+        </div>
+        <div className={cx('prose max-w-full', 'dark:prose-dark')}>
+          <Mdx code={post?.body?.code} />
+        </div>
+        {tags && (
+          <div className={cx('mt-16 flex items-center text-sm gap-1')}>
+            Tags:
+            <div className={cx('flex flex-wrap gap-1')}>
+              {tags?.map((tag) => (
+                <Tag key={tag} tag={tag} />
               ))}
             </div>
-          )}
-          {/* <div className="flex justify-between items-center my-4">
+          </div>
+        )}
+
+        <div
+          className={cx('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
+        >
+          <div
+            className={cx(
+              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
+              'dark:border-gray-800',
+            )}
+          >
             <Reactions slug={slug} />
-          </div> */}
-          <Reactions slug={slug} />
-        </article>
-      </div>
+            <ShareButton slug={slug} />
+          </div>
+        </div>
+      </Container>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

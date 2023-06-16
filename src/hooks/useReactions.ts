@@ -1,86 +1,105 @@
-import { useEffect, useState } from 'react'
-
-import { reactionMapper } from '@/lib/utils'
-import type {
-  ReactionModifier,
-  ReactionResponse,
-  ReactionState,
-  ReactionType,
-} from '@/types'
+import type { ReactionType } from '@prisma/client'
+import { useRef } from 'react'
 
 import { useRequest } from './useRequest'
 
-const initialReactionState: ReactionState = {
-  loved: false,
-  liked: false,
-  starred: false,
+type ReactionCounts = Record<ReactionType, number>
+
+type ContentReactions = {
+  reactions: ReactionCounts
+  total: number
+}
+
+type UserReactionStats = {
+  reactions: ReactionCounts
+}
+
+type ReactionData = {
+  content: ContentReactions
+  user: UserReactionStats
+}
+
+const initialValue: ReactionData = {
+  content: {
+    reactions: {
+      LIKED: 0,
+      CLAPPING: 0,
+      LOVED: 0,
+      THINKING: 0,
+    },
+    total: 0,
+  },
+  user: {
+    reactions: {
+      LIKED: 0,
+      CLAPPING: 0,
+      LOVED: 0,
+      THINKING: 0,
+    },
+  },
 }
 
 export const useReactions = (slug: string) => {
-  const [reactions, setReactions] = useState<ReactionResponse | null>()
-
-  const [reactionState, setReactionState] = useState<ReactionState>(() => {
-    try {
-      return JSON.parse(
-        localStorage.getItem(slug) ?? JSON.stringify(initialReactionState),
-      )
-    } catch (error) {
-      return initialReactionState
-    }
+  const timer = useRef<Record<ReactionType, NodeJS.Timeout | undefined>>({
+    LIKED: undefined,
+    CLAPPING: undefined,
+    LOVED: undefined,
+    THINKING: undefined,
   })
 
-  const { data, mutate } = useRequest<ReactionResponse>(
+  const count = useRef<Record<ReactionType, number>>({
+    LIKED: 0,
+    CLAPPING: 0,
+    LOVED: 0,
+    THINKING: 0,
+  })
+
+  const { data, loading, mutate } = useRequest<ReactionData>(
     `/api/reactions/${slug}`,
-    { refreshInterval: 25000 },
+    {
+      fallbackData: initialValue,
+    },
   )
 
-  useEffect(() => {
-    localStorage.setItem(slug, JSON.stringify(reactionState))
-  }, [reactionState, slug])
-
-  useEffect(() => {
-    setReactions(data)
-  }, [data])
-
-  const updateReaction = (action: ReactionType) => {
-    setReactionState((state) => ({
-      ...state,
-      [action]: !state[action],
-    }))
-  }
-
-  const onReacted = async (
-    action: ReactionType,
-    modifier: ReactionModifier,
-  ) => {
-    updateReaction(action)
-
-    await fetch(`/api/reactions/${slug}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        action,
-        modifier,
+  const addReaction = (type: ReactionType) => {
+    // optimistic update
+    mutate(
+      Object.assign({}, data, {
+        content: {
+          reactions: {
+            ...data?.content?.reactions,
+            [type]: (data?.content?.reactions[type] ?? 0) + 1,
+          },
+          total: (data?.content?.total ?? 0) + 1,
+        },
+        user: {
+          reactions: {
+            ...data?.user?.reactions,
+            [type]: (data?.user.reactions[type] ?? 0) + 1,
+          },
+        },
       }),
-    })
-
-    const reaction = reactionMapper[action]
-    const modifiedReaction = modifier === 'decrement' ? -1 : +1
-
-    const currentReactionCount = Number(data?.[reaction]) || 0
-    const newReactionCount = Math.max(
-      0,
-      currentReactionCount + modifiedReaction,
+      false,
     )
-    await mutate({ ...data, [reaction]: newReactionCount })
-  }
 
-  const { loved, liked, starred } = reactionState
+    count.current[type] += 1
+
+    // debounce
+    clearTimeout(timer.current[type])
+    timer.current[type] = setTimeout(() => {
+      fetch(`/api/reactions/${slug}`, {
+        method: 'POST',
+        body: JSON.stringify({ type, count: count.current[type] }),
+      }).finally(() => {
+        // reset click
+        count.current[type] = 0
+      })
+    }, 500)
+  }
 
   return {
-    hasLoved: loved,
-    hasLiked: liked,
-    hasStarred: starred,
-    reactions,
-    onReacted,
+    reactions: data,
+    addReaction,
+    loading,
   }
 }

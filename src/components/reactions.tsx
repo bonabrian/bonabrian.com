@@ -1,101 +1,127 @@
 'use client'
 
-import classnames from 'classnames'
-import {
-  RiHeart3Fill,
-  RiHeart3Line,
-  RiStarFill,
-  RiStarLine,
-  RiThumbUpFill,
-  RiThumbUpLine,
-} from 'react-icons/ri'
+import type { ReactionType } from '@prisma/client'
+import cx from 'classnames'
+import { m, useAnimationControls } from 'framer-motion'
+import { useEffect } from 'react'
 
-import { useDebounce, useMounted, useReactions } from '@/hooks'
-import fireConfetti from '@/lib/confetti'
-import type { ReactionModifier, ReactionType } from '@/types'
+import { useReactions } from '@/hooks'
+import { MAX_REACTIONS_PER_SESSION } from '@/lib/constants'
 
-const Reactions = ({ slug }: { slug: string }) => {
-  const { hasLoved, hasLiked, hasStarred, reactions, onReacted } =
-    useReactions(slug)
-  const mounted = useMounted()
+import Counter from './counter'
+import EmojiReaction from './emoji-reaction'
 
-  const getModifier = (isActive: boolean): ReactionModifier => {
-    return isActive ? 'decrement' : 'increment'
+interface ReactionsProps {
+  slug: string
+}
+
+const Reactions = ({ slug }: ReactionsProps) => {
+  const { reactions, addReaction, loading } = useReactions(slug)
+
+  const controls = useAnimationControls()
+
+  useEffect(() => {
+    if (!loading) {
+      controls.start({
+        y: 0,
+        opacity: 1,
+        pointerEvents: 'auto',
+        transition: {
+          delay: 0.2,
+          duration: 0.15,
+        },
+      })
+    }
+  }, [controls, loading])
+
+  const userReactions = reactions?.user.reactions
+  const contentReactions = reactions?.content.reactions
+
+  const {
+    LIKED = 0,
+    CLAPPING = 0,
+    LOVED = 0,
+    THINKING = 0,
+  } = contentReactions ?? {}
+
+  const getRemainingQuota = (type: ReactionType) => {
+    return MAX_REACTIONS_PER_SESSION - (userReactions?.[type] ?? 0)
   }
 
-  const handleReaction = useDebounce(
-    async (action: ReactionType, isActive: boolean) => {
-      const modifier = getModifier(isActive)
-      await onReacted(action, modifier)
-      if (modifier === 'increment') {
-        fireConfetti()
-      }
-    },
-  )
+  const reachMaximumQuota = (type: ReactionType) => {
+    return getRemainingQuota(type) <= 0
+  }
 
-  const baseStyle =
-    'py-2 px-3 border rounded-full inline-flex items-center gap-x-1 text-sm font-semibold transition-all ease-in-out duration-150'
+  console.log('getRemainingQuota', getRemainingQuota('LIKED'))
 
   return (
-    <div className="flex items-center gap-x-4">
-      {mounted && (
-        <>
-          <button
-            type="button"
-            aria-label="Love"
-            name="Love"
-            title="Love"
-            className={classnames(
-              baseStyle,
-              'hover:text-pink-500 hover:border-pink-500 hover:dark:border-pink-500',
-              hasLoved
-                ? 'text-pink-500 border-pink-500 dark:border-pink-500'
-                : '',
-            )}
-            onClick={() => handleReaction('loved', hasLoved)}
-          >
-            {hasLoved ? <RiHeart3Fill /> : <RiHeart3Line />}
-            <span>{reactions?.loves}</span>
-          </button>
-
-          <button
-            type="button"
-            aria-label="Like"
-            name="Like"
+    <m.div
+      className={cx('relative pointer-events-auto flex items-center')}
+      initial={{
+        y: 16,
+        opacity: 0,
+        pointerEvents: 'none',
+      }}
+      animate={controls}
+    >
+      <div className={cx('flex items-center gap-4')}>
+        <div className={cx('flex flex-col items-center gap-2')}>
+          <EmojiReaction
             title="Like"
-            className={classnames(
-              baseStyle,
-              'hover:text-blue-500 hover:border-blue-500 hover:dark:border-blue-500',
-              hasLiked
-                ? 'text-blue-500 border-blue-500 dark:border-blue-500'
-                : '',
-            )}
-            onClick={() => handleReaction('liked', hasLiked)}
-          >
-            {hasLiked ? <RiThumbUpFill /> : <RiThumbUpLine />}
-            <span>{reactions?.likes}</span>
-          </button>
+            defaultEmoji="/static/emojis/thumbs-up.png"
+            animatedEmoji="/static/emojis/thumbs-up-animated.png"
+            disabledEmoji="/static/emojis/victory-hand.png"
+            disabled={reachMaximumQuota('LIKED')}
+            onClick={() => {
+              addReaction('LIKED')
+            }}
+          />
+          <Counter count={LIKED} />
+        </div>
 
-          <button
-            type="button"
-            aria-label="Star"
-            name="Star"
-            title="Star"
-            className={classnames(
-              baseStyle,
-              'hover:text-yellow-500 hover:border-yellow-500 hover:dark:border-yellow-500',
-              hasStarred
-                ? 'text-yellow-500 border-yellow-500 dark:border-yellow-500'
-                : '',
-            )}
-            onClick={() => handleReaction('starred', hasStarred)}
-          >
-            {hasStarred ? <RiStarFill /> : <RiStarLine />}
-            <span>{reactions?.stars}</span>
-          </button>
-        </>
-      )}
-    </div>
+        <div className={cx('flex flex-col items-center gap-2')}>
+          <EmojiReaction
+            title="Claps"
+            defaultEmoji="/static/emojis/clapping-hands.png"
+            animatedEmoji="/static/emojis/clapping-hands-animated.png"
+            disabledEmoji="/static/emojis/love-you-gesture.png"
+            disabled={reachMaximumQuota('CLAPPING')}
+            onClick={() => {
+              addReaction('CLAPPING')
+            }}
+          />
+          <Counter count={CLAPPING} />
+        </div>
+
+        <div className={cx('flex flex-col items-center gap-2')}>
+          <EmojiReaction
+            title="Love"
+            defaultEmoji="/static/emojis/smiling-face-with-heart-eyes.png"
+            animatedEmoji="/static/emojis/smiling-face-with-heart-eyes-animated.png"
+            disabledEmoji="/static/emojis/smiling-face-with-hearts.png"
+            disabled={reachMaximumQuota('LOVED')}
+            onClick={() => {
+              addReaction('LOVED')
+            }}
+          />
+          <Counter count={LOVED} />
+        </div>
+
+        <div className={cx('flex flex-col items-center gap-2')}>
+          <EmojiReaction
+            title="Think"
+            defaultEmoji="/static/emojis/thinking-face.png"
+            animatedEmoji="/static/emojis/thinking-face-animated.png"
+            disabledEmoji="/static/emojis/face-with-monocle.png"
+            disabled={reachMaximumQuota('THINKING')}
+            onClick={() => {
+              addReaction('THINKING')
+            }}
+          />
+          <Counter count={THINKING} />
+        </div>
+      </div>
+    </m.div>
   )
 }
 
