@@ -1,135 +1,168 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
-  relationMode = "prisma"
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  relationMode      = "prisma"
 }
 
 model Counter {
-  slug    String  @id @db.VarChar(128)
-  views     BigInt  @default(0)
-  loves     BigInt  @default(0)
-  likes     BigInt  @default(0)
-  stars     BigInt  @default(0)
+  slug  String @id @db.VarChar(128)
+  views BigInt @default(0)
+  loves BigInt @default(0)
+  likes BigInt @default(0)
+  stars BigInt @default(0)
 
-  @@map(name: "counters")
+  @@map("counters")
 }
 
 model Account {
-  id                        String  @id @default(cuid())
-  userId                    String
-  type                      String
-  provider                  String
-  providerAccountId         String
-  refresh_token             String?
-  access_token              String? @db.VarChar(4096)
-  refresh_token_expires_in  Int?
-  expires_at                Int?
-  token_type                String?
-  scope                     String?
-  id_token                  String? @db.VarChar(4096)
-  session_state             String?
-  oauth_token_secret        String?
-  oauth_token               String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String?
+  access_token             String? @db.VarChar(4096)
+  refresh_token_expires_in Int?
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String? @db.VarChar(4096)
+  session_state            String?
+  oauth_token_secret       String?
+  oauth_token              String?
+  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map(name: "accounts")
   @@index([userId])
+  @@map("accounts")
 }
 
 model Session {
-  id            String  @id @default(cuid())
-  sessionToken  String  @unique
-  userId        String
-  expires       DateTime
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map(name: "sessions")
   @@index([userId])
+  @@map("sessions")
 }
 
 model SkillCategory {
-  id                  BigInt  @id @default(autoincrement())
-  name                String  @db.VarChar(255)
-  skills_in_category  Skill[]
+  id                 BigInt  @id @default(autoincrement())
+  name               String  @db.VarChar(255)
+  skills_in_category Skill[]
 
-  @@map(name: "skill_categories")
+  @@map("skill_categories")
 }
 
 model Skill {
-  id                BigInt        @id @default(autoincrement())
-  name              String        @db.VarChar(255)
-  endorsements      Endorsement[]
-  skill_category    SkillCategory?  @relation(fields: [skill_category_id], references: [id])
+  id                BigInt         @id @default(autoincrement())
+  name              String         @unique @db.VarChar(255)
   skill_category_id BigInt?
+  endorsements      Endorsement[]
+  skill_category    SkillCategory? @relation(fields: [skill_category_id], references: [id])
 
-  @@unique([name])
-  @@map(name: "skills")
   @@index([skill_category_id])
+  @@map("skills")
 }
 
 model Endorsement {
-  id            BigInt    @id @default(autoincrement())
-  skill         Skill?    @relation(fields: [skill_id], references: [id])
-  skill_id      BigInt?
-  updatedAt     DateTime  @default(now()) @db.DateTime(6)
+  id        BigInt   @id @default(autoincrement())
+  skill_id  BigInt?
+  updatedAt DateTime @default(now()) @db.DateTime(6)
+  userId    String?
+  skill     Skill?   @relation(fields: [skill_id], references: [id])
+  user      User?    @relation(fields: [userId], references: [id])
 
-  userId        String?
-  user          User?     @relation(fields: [userId], references: [id])
-
-  @@map(name: "endorsements")
   @@index([skill_id])
   @@index([userId])
+  @@map("endorsements")
 }
 
 model User {
-  id              String      @id @default(cuid())
-  name            String?
-  email           String?     @unique
-  emailVerified   DateTime?
-  image           String?
-  accounts        Account[]
-  sessions        Session[]
-  endorsements    Endorsement[]
+  id            String        @id @default(cuid())
+  name          String?
+  email         String?       @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  endorsements  Endorsement[]
 
-  @@map(name: "users")
+  @@map("users")
 }
 
 model VerificationToken {
-  identifier  String
-  token       String  @unique
-  expires     DateTime
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
   @@unique([identifier, token])
-  @@map(name: "verification_tokens")
+  @@map("verification_tokens")
 }
 
 model ContentMeta {
-  id          BigInt    @id @default(autoincrement())
-  slug        String    @unique
-  views       View[]
-  createdAt   DateTime  @default(now())
+  id        BigInt   @id @default(autoincrement())
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  views     View[]
+  shares    Share[]
+  reactions Reaction[]
 
-  @@map(name: "content_meta")
+  @@map("content_meta")
 }
 
 model View {
-  id          BigInt        @id @default(autoincrement())
-  userId      String
-  contentId   BigInt
-  content     ContentMeta   @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  createdAt   DateTime      @default(now())
+  id        BigInt      @id @default(autoincrement())
+  sessionId String
+  contentId BigInt
+  createdAt DateTime    @default(now())
+  content   ContentMeta @relation(fields: [contentId], references: [id], onDelete: Cascade)
 
-  @@map(name: "views")
   @@index([contentId])
+  @@map("views")
+}
+
+model Share {
+  id        BigInt      @id @default(autoincrement())
+  sessionId String
+  type      ShareType?  @default(OTHERS)
+  contentId BigInt
+  createdAt DateTime    @default(now())
+  content   ContentMeta @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@index([contentId])
+  @@map("shares")
+}
+
+enum ShareType {
+  CLIPBOARD
+  TWITTER
+  LINKEDIN
+  OTHERS
+}
+
+model Reaction {
+  id        BigInt        @id @default(autoincrement())
+  sessionId String
+  type      ReactionType? @default(LIKED)
+  contentId BigInt
+  count     Int?          @default(1)
+  createdAt DateTime      @default(now())
+  content   ContentMeta   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@index([contentId])
+  @@map("reactions")
+}
+
+enum ReactionType {
+  LIKED
+  CLAPPING
+  LOVED
+  THINKING
 }
