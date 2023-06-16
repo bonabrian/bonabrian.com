@@ -4,17 +4,6 @@ import { Menu } from '@headlessui/react'
 import cx from 'classnames'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import type { IconType } from 'react-icons'
-import { BsCodeSquare } from 'react-icons/bs'
-import { HiOutlineBadgeCheck } from 'react-icons/hi'
-import {
-  RiGitBranchLine,
-  RiHomeLine,
-  RiMenuFill,
-  RiPencilLine,
-  RiUserLine,
-} from 'react-icons/ri'
-import { SiSimpleanalytics } from 'react-icons/si'
 
 import { useOnScroll } from '@/hooks'
 import { routes } from '@/lib/constants'
@@ -22,13 +11,23 @@ import { defaultMetadata } from '@/lib/metadata'
 
 import Logo from '../../assets/images/logo.svg'
 import Container from './container'
+import {
+  AtSign,
+  BarChart,
+  Check,
+  CodeBracket,
+  Hamburger,
+  Home,
+  Layers,
+  Pencil,
+} from './icons'
 import Link from './link'
 import ThemeSwitch from './theme-switch'
 
 interface NavLink {
   path: string
   label: string
-  icon: IconType
+  icon: JSX.Element
   onlyShowOnDropdownMenu?: boolean
 }
 
@@ -36,38 +35,38 @@ const navLinks: NavLink[] = [
   {
     path: '/',
     label: 'Home',
-    icon: RiHomeLine,
+    icon: <Home />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: routes.BLOG,
     label: 'Blog',
-    icon: RiPencilLine,
+    icon: <Pencil />,
   },
   {
     path: routes.PROJECTS,
     label: 'Projects',
-    icon: RiGitBranchLine,
+    icon: <Layers />,
   },
   {
     path: routes.SNIPPETS,
     label: 'Snippets',
-    icon: BsCodeSquare,
+    icon: <CodeBracket />,
   },
   {
     path: routes.ENDORSEMENTS,
     label: 'Endorsements',
-    icon: HiOutlineBadgeCheck,
+    icon: <Check />,
   },
   {
     path: routes.ABOUT,
     label: 'About',
-    icon: RiUserLine,
+    icon: <AtSign />,
   },
   {
     path: routes.STATS,
     label: 'Stats',
-    icon: SiSimpleanalytics,
+    icon: <BarChart />,
     onlyShowOnDropdownMenu: true,
   },
 ]
@@ -133,7 +132,7 @@ const Navigation = () => {
                         aria-label="Menu"
                         className={cx('flex items-center justify-center')}
                       >
-                        <RiMenuFill size={20} />
+                        <Hamburger className={cx('w-5 h-5')} />
                       </Menu.Button>
                       {open && (
                         <Menu.Items
@@ -147,7 +146,7 @@ const Navigation = () => {
                             'dark:bg-gray-800',
                           )}
                         >
-                          {navLinks.map(({ path, label, icon: Icon }) => (
+                          {navLinks.map(({ path, label, icon }) => (
                             <Menu.Item key={path}>
                               {({ active }) => (
                                 <Link
@@ -157,7 +156,7 @@ const Navigation = () => {
                                     active ? 'active' : '',
                                   )}
                                 >
-                                  <Icon />
+                                  {icon}
                                   <span>{label}</span>
                                 </Link>
                               )}

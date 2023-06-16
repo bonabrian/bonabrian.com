@@ -1,7 +1,9 @@
+import cx from 'classnames'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import NextLink from 'next/link'
 import { forwardRef } from 'react'
-import { HiOutlineExternalLink } from 'react-icons/hi'
+
+import { ExternalLink } from './icons'
 
 type LinkProps = {
   href: string
@@ -24,14 +26,13 @@ const Link = forwardRef<any, LinkProps>(
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener' : undefined}
         ref={ref}
-        className={className}
+        className={cx(className)}
         {...rest}
       >
         {children}
         {showExternalLinkIcon && isExternal && (
-          <HiOutlineExternalLink
-            size={12}
-            className="inline-block ml-0.5 align-middle"
+          <ExternalLink
+            className={cx('w-3 h-3 inline-block ml-0.5 align-middle')}
           />
         )}
       </NextLink>
