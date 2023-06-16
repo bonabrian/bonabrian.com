@@ -3,8 +3,8 @@ import { Suspense } from 'react'
 
 import Endorsements from '@/components/endorsements'
 import PageHeader from '@/components/page-header'
-import { getEndorsements } from '@/lib/db'
 import { getMetadata } from '@/lib/metadata'
+import { getEndorsements } from '@/services/endorsements'
 
 export const metadata: Metadata = getMetadata({
   title: 'Endorsements',

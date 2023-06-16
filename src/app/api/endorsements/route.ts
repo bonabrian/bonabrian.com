@@ -2,8 +2,11 @@ import { getServerSession } from 'next-auth'
 
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
-import { getEndorsements } from '@/lib/db'
-import prisma from '@/lib/prisma'
+import {
+  createEndorsement,
+  getEndorsements,
+  isEndorsed,
+} from '@/services/endorsements'
 
 export const POST = async (req: Request) => {
   try {
@@ -16,22 +19,18 @@ export const POST = async (req: Request) => {
     const body = await req.json()
     const { skillId } = body
 
-    const isExists = await prisma.endorsement.findFirst({
-      where: {
-        skill_id: Number(skillId),
-        userId: session.id as string,
-      },
+    const alreadyEndorsed = await isEndorsed({
+      skillId: Number(skillId),
+      userId: session.id as string,
     })
 
-    if (isExists) {
+    if (alreadyEndorsed) {
       return response({ message: 'You already endorse this skill' }, 409)
     }
 
-    await prisma.endorsement.create({
-      data: {
-        skill_id: Number(skillId),
-        userId: session.id as string,
-      },
+    await createEndorsement({
+      skillId: Number(skillId),
+      userId: session.id as string,
     })
 
     return response({}, 201)
