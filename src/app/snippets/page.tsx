@@ -2,7 +2,6 @@ import cx from 'classnames'
 import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
 
 import Container from '@/components/container'
 import Link from '@/components/link'
@@ -30,7 +29,7 @@ export const metadata: Metadata = getMetadata({
 
 const SnippetsPage = async () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <PageHeader
         title="Snippets"
         description="A repository of previously utilized and saved code snippets which can be copied and pasted."
@@ -93,7 +92,7 @@ const SnippetsPage = async () => {
           )}
         </Container>
       </div>
-    </Suspense>
+    </>
   )
 }
 

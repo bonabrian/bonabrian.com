@@ -1,5 +1,4 @@
 import { allPosts } from 'contentlayer/generated'
-import { Suspense } from 'react'
 
 import PostList from '@/components/post-list'
 import { getMetadata } from '@/lib/metadata'
@@ -31,11 +30,7 @@ const TagPage = ({ params }: { params: { tag: string } }) => {
     post.tags?.map((t) => kebabCase(t)?.includes(tag) && post.published),
   )
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PostList posts={posts} />
-    </Suspense>
-  )
+  return <PostList posts={posts} />
 }
 
 export default TagPage

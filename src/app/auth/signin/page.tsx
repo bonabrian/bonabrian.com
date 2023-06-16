@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
-import { Suspense } from 'react'
 
 import SignInCard from '@/components/sign-in-card'
 import { authOptions } from '@/lib/auth'
@@ -19,11 +18,7 @@ const SignInPage = async () => {
   if (session) redirect('/')
 
   const providers = await getProviders()
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SignInCard providers={providers} />
-    </Suspense>
-  )
+  return <SignInCard providers={providers} />
 }
 
 export default SignInPage
