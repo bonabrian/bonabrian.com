@@ -1,12 +1,14 @@
+import cx from 'classnames'
 import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentHeader from '@/components/content-header'
-import Divider from '@/components/divider'
+import Container from '@/components/container'
+import ContentMeta from '@/components/content-meta'
 import Mdx from '@/components/mdx'
+import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
-import ScrollProgressBar from '@/components/scroll-progress-bar'
+import ShareButton from '@/components/share-button'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { getBaseUrl } from '@/lib/utils'
 
@@ -47,25 +49,26 @@ const SnippetPage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <ScrollProgressBar />
-      <div className="flex flex-col">
-        <article className="article">
-          <ContentHeader
-            title={title}
-            slug={slug}
-            description={description}
-            date={date}
-            readingTime={readingTime}
-          />
-          <div className="prose dark:prose-dark max-w-none">
-            <Mdx code={snippet?.body?.code} />
-          </div>
-          <div className="flex justify-between items-center my-4">
+      <PageHeader title={title} description={description} />
+      <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
+      <Container>
+        <div className={cx('prose max-w-full', 'dark:prose-dark')}>
+          <Mdx code={snippet?.body?.code} />
+        </div>
+        <div
+          className={cx('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
+        >
+          <div
+            className={cx(
+              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
+              'dark:border-gray-800',
+            )}
+          >
             <Reactions slug={slug} />
+            <ShareButton slug={slug} />
           </div>
-          <Divider />
-        </article>
-      </div>
+        </div>
+      </Container>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
