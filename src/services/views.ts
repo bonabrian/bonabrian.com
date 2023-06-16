@@ -55,3 +55,7 @@ export const countContentViews = async ({
 
   return result?._count.views ?? 0
 }
+
+export const countAllViews = async (): Promise<number> => {
+  return await prisma.view.count()
+}

@@ -2,23 +2,22 @@
 
 import { useRequest } from '@/hooks'
 
-import { Check } from '../icons'
+import { BarChart } from '../icons'
 import StatisticsCard from './statistics-card'
 
-const TotalEndorsements = () => {
+const TotalReactions = () => {
   const { data, loading } = useRequest<{ total: number }>(
-    '/api/statistics/endorsements',
+    '/api/statistics/reactions',
   )
 
   return (
     <StatisticsCard
-      link="/endorsements"
-      text="Total Endorsements"
+      text="All-Time Reactions"
       value={data?.total ?? 0}
       loading={loading}
-      icon={<Check className="w-5 h-5" />}
+      icon={<BarChart className="w-5 h-5" />}
     />
   )
 }
 
-export default TotalEndorsements
+export default TotalReactions

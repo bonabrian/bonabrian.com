@@ -1,14 +1,12 @@
 'use client'
 
-import { AiOutlineStar } from 'react-icons/ai'
-import { RiGithubLine } from 'react-icons/ri'
-
 import { useRequest } from '@/hooks'
 
+import { GitHub, Star } from '../icons'
 import StatisticsCard from './statistics-card'
 
 const GithubStats = () => {
-  const { data, loading } = useRequest<{ followers?: number; stars?: number }>(
+  const { data, loading } = useRequest<{ followers: number; stars: number }>(
     '/api/statistics/github',
   )
 
@@ -17,16 +15,17 @@ const GithubStats = () => {
       <StatisticsCard
         link="https://github.com/bonabrian?tab=repositories"
         text="Stars on Github"
-        value={`${data?.stars?.toLocaleString() ?? '-'}`}
+        value={data?.stars ?? 0}
         loading={loading}
-        icon={AiOutlineStar}
+        icon={<Star className="w-5 h-5" />}
       />
+
       <StatisticsCard
         link="https://github.com/bonabrian"
         text="Github Followers"
-        value={`${data?.followers?.toLocaleString() ?? '-'}`}
+        value={data?.followers ?? 0}
         loading={loading}
-        icon={RiGithubLine}
+        icon={<GitHub className="w-5 h-5" />}
       />
     </>
   )

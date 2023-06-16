@@ -1,22 +1,21 @@
 'use client'
 
-import { RiEyeLine } from 'react-icons/ri'
-
 import { useRequest } from '@/hooks'
 
+import { Eye } from '../icons'
 import StatisticsCard from './statistics-card'
 
 const TotalViews = () => {
-  const { data, loading } = useRequest<{ total?: number }>(
+  const { data, loading } = useRequest<{ total: number }>(
     '/api/statistics/views',
   )
+
   return (
     <StatisticsCard
-      link="/"
       text="All-Time Views"
-      value={`${data?.total?.toLocaleString() ?? '-'}`}
+      value={data?.total ?? 0}
       loading={loading}
-      icon={RiEyeLine}
+      icon={<Eye className="w-5 h-5" />}
     />
   )
 }

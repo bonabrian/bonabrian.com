@@ -80,3 +80,11 @@ export const getReactions = async ({
 
   return mapReactions(reactions)
 }
+
+export const countAllReactions = async (): Promise<number> => {
+  const count = await prisma.reaction.aggregate({
+    _sum: { count: true },
+  })
+
+  return count._sum.count ?? 0
+}
