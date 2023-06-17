@@ -4,6 +4,7 @@ import cx from 'classnames'
 import Image from 'next/image'
 
 import { useNowPlaying } from '../hooks'
+import { Spotify } from './icons'
 import Link from './link'
 
 const NowPlaying = () => {
@@ -14,7 +15,7 @@ const NowPlaying = () => {
       {data?.isPlaying && (
         <div
           className={cx(
-            'inline-flex items-center gap-1 shadow-sm bg-gray-50 rounded-md p-4',
+            'inline-flex items-center gap-1 shadow bg-slate-50 rounded-md p-4',
             'sm:gap-2',
             'dark:bg-gray-800',
           )}
@@ -35,26 +36,33 @@ const NowPlaying = () => {
                 />
               </div>
               <div className={cx('flex items-center justify-between gap-4')}>
-                <div className={cx('flex flex-col w-40')}>
+                <div className={cx('flex flex-col w-48 gap-1.5')}>
                   <p
                     className={cx(
-                      'flex font-normal text-xs text-gray-900/60',
-                      'dark:text-slate-100/70',
+                      'flex font-normal text-sm text-gray-900',
+                      'dark:text-slate-100',
                     )}
                   >
                     {data.artist}
                   </p>
-                  <p className={cx('font-semibold text-sm truncate')}>
-                    {data.title}
-                  </p>
+                  <div
+                    className={cx('flex items-center gap-1.5 text-[#1DB954]')}
+                  >
+                    <div className={cx('equalizer')}>
+                      <span className={cx('bar bg-[#1DB954]')} />
+                      <span className={cx('bar bg-[#1DB954]')} />
+                      <span className={cx('bar bg-[#1DB954]')} />
+                      <span className={cx('bar bg-[#1DB954]')} />
+                      <span className={cx('bar bg-[#1DB954]')} />
+                    </div>
+                    <div className={cx('text-sm truncate font-bold')}>
+                      {data.title}
+                    </div>
+                  </div>
                 </div>
-                <div className={cx('equalizer')}>
-                  <span className="bar" />
-                  <span className="bar" />
-                  <span className="bar" />
-                  <span className="bar" />
-                  <span className="bar" />
-                </div>
+                <Spotify
+                  className={cx('w-6 h-6 fill-[#1DB954] animate-spin')}
+                />
               </div>
             </div>
           </Link>

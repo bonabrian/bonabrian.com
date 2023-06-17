@@ -107,7 +107,7 @@ module.exports = {
             height: '0px',
           },
           '50%': {
-            height: '1rem',
+            height: '0.75rem',
           },
         },
       },

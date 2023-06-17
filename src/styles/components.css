@@ -40,11 +40,10 @@
   }
 
   .equalizer {
-    @apply h-4 flex items-center gap-2;
+    @apply h-3 flex items-center gap-0.5;
 
     .bar {
-      @apply w-1 h-4 rounded-md bg-gray-900;
-      @apply dark:bg-white;
+      @apply w-0.5 h-4 rounded-md;
       @apply animate-equalize;
 
       &:nth-child(2) {
