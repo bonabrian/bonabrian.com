@@ -1,7 +1,3 @@
-import removeMarkdown from 'remove-markdown'
-
-import type { ReactionType } from '@/types'
-
 type FormatDateProps = {
   timestamp?: string | null
   locale?: string
@@ -53,61 +49,6 @@ export const formatDate = ({
   }
 }
 
-export const excerptText = (
-  content?: string | null,
-  defaultExcerpt?: string | null,
-  trimLength?: boolean | null,
-  minCharacters: number = 70,
-  maxCharacters: number = 150,
-): string => {
-  if (defaultExcerpt) return defaultExcerpt
-
-  const text = content
-    ?.split(/[\r\n]+/gm)
-    ?.filter((it: string) => !it.startsWith('#'))
-    ?.join('\n')
-    ?.split('\n')
-    ?.map((it: string) => (it || '').trim())
-    ?.filter((it: string) => it?.length)
-    ?.map((it: string) =>
-      removeMarkdown(it, { gfm: true, useImgAltText: true }),
-    )
-
-  let excerpt = ''
-  if (text) {
-    let lastIndex = 0
-    while (excerpt.length < maxCharacters) {
-      excerpt += `${text[lastIndex]} `
-      lastIndex += 1
-    }
-  }
-
-  if (trimLength) {
-    const allWords = excerpt.split(' ')
-    excerpt = ''
-    let lastIndex = 0
-    while (excerpt.length < maxCharacters) {
-      const word = allWords[lastIndex]
-      excerpt += `${word} `
-      if (
-        word.endsWith('.') &&
-        !word.endsWith('etc.') &&
-        excerpt.length > minCharacters
-      ) {
-        break
-      }
-      lastIndex += 1
-    }
-  }
-
-  excerpt = excerpt.trim()
-  if (excerpt.length > 0) {
-    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
-  }
-
-  return defaultExcerpt ?? ''
-}
-
 export const getDomainFromUrl = (url?: string | null): string | null => {
   if (!url) return null
   const inx = url.lastIndexOf('/')
@@ -116,14 +57,6 @@ export const getDomainFromUrl = (url?: string | null): string | null => {
     .replace(/(^\w+:|^)\/\//, '')
     .replace(/\//g, '')
     .toLocaleLowerCase()
-}
-
-type Reaction = 'loves' | 'likes' | 'stars'
-
-export const reactionMapper: { [key in ReactionType]: Reaction } = {
-  loved: 'loves',
-  liked: 'likes',
-  starred: 'stars',
 }
 
 export const getBaseUrl = () => {

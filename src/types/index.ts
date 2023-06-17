@@ -4,10 +4,19 @@ declare global {
   }
 }
 
-export * from './content'
-export * from './post'
-export * from './project'
-export * from './reaction'
-export * from './skill'
-export * from './snippet'
-export * from './user'
+export type User = {
+  id: string
+  name: string
+  image: string
+}
+
+export type Skill = {
+  id: string
+  name: string
+  users: User[]
+}
+
+export type SkillCategory = {
+  name: string
+  skills: Skill[]
+}

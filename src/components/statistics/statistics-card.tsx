@@ -1,13 +1,14 @@
-import type { IconType } from 'react-icons'
+import cx from 'classnames'
 
+import IncrementCounter from '../increment-counter'
 import Link from '../link'
 import Spinner from '../spinner'
 
 interface StatisticsCardProps {
   link?: string
   text: string
-  value: string
-  icon?: IconType
+  value: number
+  icon?: JSX.Element
   loading?: boolean
 }
 
@@ -18,19 +19,22 @@ const Box = ({
   link?: string
   children?: React.ReactNode
 }) => {
-  const className =
-    'flex flex-row sm:flex-col items-center sm:items-start space-x-2 sm:space-x-0 border-2 border-solid border-gray-900 dark:border-slate-100 rounded-2xl p-4 w-full hover:border-primary-500 dark:hover:border-primary-500 transition-all overflow-hidden relative'
-
   return (
-    <>
+    <div
+      className={cx(
+        'flex flex-row items-center relative p-4 border-2 rounded-2xl border-slate-100 hover:border-primary-600',
+        'sm:flex-col sm:items-start',
+        'dark:border-gray-800 dark:hover:border-primary-400',
+      )}
+    >
       {link ? (
-        <Link href={link} showExternalLinkIcon={false} className={className}>
+        <Link href={link} showExternalLinkIcon={false} className={cx('w-full')}>
           {children}
         </Link>
       ) : (
-        <div className={className}>{children}</div>
+        <>{children}</>
       )}
-    </>
+    </div>
   )
 }
 
@@ -41,23 +45,42 @@ const StatisticsCard = ({
   icon,
   loading,
 }: StatisticsCardProps) => {
-  const IconPath = icon ?? 'svg'
-
   return (
     <Box link={link}>
-      {loading ? (
-        <div className="flex items-center h-8">
-          <Spinner />
+      <div className={cx('flex justify-between w-full')}>
+        <div className={cx('flex flex-col')}>
+          {loading ? (
+            <div className={cx('flex items-center h-8')}>
+              <Spinner />
+            </div>
+          ) : (
+            <div
+              className={cx(
+                'h-8 font-semibold text-2xl text-gray-700',
+                'dark:text-slate-50',
+              )}
+            >
+              <IncrementCounter to={value} />
+            </div>
+          )}
+          <div
+            className={cx(
+              'text-sm text-ellipsis text-gray-600',
+              'dark:text-slate-200',
+            )}
+          >
+            {text}
+          </div>
         </div>
-      ) : (
-        <span className="leading-tight text-2xl font-semibold h-8">
-          {value}
-        </span>
-      )}
-      <span className="text-sm text-ellipsis">{text}</span>
-      {icon && (
-        <IconPath className="inline-flex absolute top-3 right-3 text-2xl items-center justify-center" />
-      )}
+        <div
+          className={cx(
+            'flex items-center justify-center w-8 h-8 rounded-full bg-slate-100',
+            'dark:bg-gray-800',
+          )}
+        >
+          {icon}
+        </div>
+      </div>
     </Box>
   )
 }

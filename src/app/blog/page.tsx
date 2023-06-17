@@ -1,21 +1,14 @@
+import type { Post } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
 
+import PageHeader from '@/components/page-header'
 import PostList from '@/components/post-list'
-import { getPosts } from '@/lib/contentlayer'
 import { getMetadata } from '@/lib/metadata'
 
-const posts = getPosts([
-  'title',
-  'date',
-  'slug',
-  'excerpt',
-  'tags',
-  'readingTime',
-  'draft',
-  'image',
-  'imageMeta',
-])
+const posts = allPosts
+  .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  .filter((post: Post) => post.published)
 
 export const metadata: Metadata = getMetadata({
   title: 'Blog',
@@ -36,13 +29,16 @@ export const metadata: Metadata = getMetadata({
 
 const BlogPage = async () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PostList
+    <>
+      <PageHeader
         title="Blog"
         description="The place where I share my thoughts, ideas and experiences about software development."
-        posts={posts}
       />
-    </Suspense>
+
+      <div id="content">
+        <PostList posts={posts} />
+      </div>
+    </>
   )
 }
 

@@ -1,20 +1,29 @@
-import type { Post as ContentLayerPost } from 'contentlayer/generated'
+import cx from 'classnames'
+import type { Post } from 'contentlayer/generated'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { mdxComponents, MdxContent } from '@/components/mdx'
-import ScrollProgressBar from '@/components/scroll-progress-bar'
-import { getMetadata } from '@/lib/metadata'
-import { formatDate, getBaseUrl } from '@/lib/utils'
-import type { Post } from '@/types'
+import Container from '@/components/container'
+import ContentMeta from '@/components/content-meta'
+import Link from '@/components/link'
+import Mdx, { Image } from '@/components/mdx'
+import PageHeader from '@/components/page-header'
+import Reactions from '@/components/reactions'
+import ShareButton from '@/components/share-button'
+import { getJsonLd, getMetadata } from '@/lib/metadata'
+import { formatDate, getBaseUrl, kebabCase } from '@/lib/utils'
+
+const findPostBySlug = (slug: string): Post | undefined =>
+  allPosts
+    .filter((post: Post) => post.published)
+    .find((post: Post) => post.slug === slug)
 
 export const generateMetadata = async ({
   params,
 }: {
   params: { slug: string }
 }) => {
-  const post = allPosts.find((it: ContentLayerPost) => it.slug === params?.slug)
+  const post = findPostBySlug(params.slug)
 
   if (!post) return
 
@@ -23,15 +32,7 @@ export const generateMetadata = async ({
   return getMetadata({
     title: post.title,
     description: post.excerpt,
-    keywords: [
-      ...(post.keywords || []),
-      'writing',
-      'content',
-      'article',
-      'story',
-      'news',
-      'thoughts',
-    ],
+    keywords: post.keywords ?? [],
     openGraph: {
       type: 'article',
       images: `${getBaseUrl()}${post.image}`,
@@ -40,19 +41,104 @@ export const generateMetadata = async ({
   })
 }
 
+const Tag = ({ tag }: { tag: string }) => {
+  return (
+    <Link
+      href={`/tags/${kebabCase(tag)}`}
+      className={cx(
+        'inline-flex h-6 gap-1 px-2 text-xs font-medium bg-primary-100 text-primary-600 rounded-full leading-6',
+        'dark:bg-primary-600/20 dark:text-primary-300',
+      )}
+    >
+      #{tag}
+    </Link>
+  )
+}
+
 const PostPage = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((it: ContentLayerPost) => it.slug === params?.slug)
+  const post = findPostBySlug(params.slug)
 
-  if (!post) notFound()
+  if (!post) return notFound()
 
-  const MdxComponent = useMDXComponent(post?.body?.code)
+  const {
+    title,
+    slug,
+    excerpt,
+    readingTime,
+    date,
+    image,
+    imageMeta,
+    imageSource,
+    tags,
+  } = post
+
+  const extraImageProps = imageMeta
+    ? {
+        blurDataURL: imageMeta.blur64,
+        width: imageMeta.size.width,
+        height: imageMeta.size.height,
+        placeholder: 'blur' as const,
+      }
+    : {}
 
   return (
     <>
-      <ScrollProgressBar />
-      <MdxContent content={post as Post}>
-        <MdxComponent components={{ ...mdxComponents } as any} />
-      </MdxContent>
+      <PageHeader title={title} />
+      <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
+      <Container>
+        <div id="image-cover" className={cx('mb-8')}>
+          <Image
+            src={image ?? ''}
+            alt={title}
+            priority
+            {...extraImageProps}
+            className={cx('object-cover')}
+            source={imageSource}
+          />
+        </div>
+        <div className={cx('prose max-w-full', 'dark:prose-dark')}>
+          <Mdx code={post?.body?.code} />
+        </div>
+        {tags && (
+          <div className={cx('mt-16 flex items-center text-sm gap-1')}>
+            Tags:
+            <div className={cx('flex flex-wrap gap-1')}>
+              {tags?.map((tag) => (
+                <Tag key={tag} tag={tag} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div
+          className={cx('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
+        >
+          <div
+            className={cx(
+              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
+              'dark:border-gray-800',
+            )}
+          >
+            <Reactions slug={slug} />
+            <ShareButton slug={slug} />
+          </div>
+        </div>
+      </Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: getJsonLd({
+            title,
+            description: excerpt,
+            headline: title,
+            datePublished: date,
+            dateModified: date,
+            image: `${getBaseUrl()}${image}`,
+            url: `${getBaseUrl()}/blog/${slug}`,
+          }),
+        }}
+        key="post-jsonld"
+      />
     </>
   )
 }

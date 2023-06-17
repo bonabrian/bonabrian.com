@@ -1,7 +1,9 @@
 import type { NextRequest } from 'next/server'
 
 import { getErrorMessage, response } from '@/lib/api'
-import prisma from '@/lib/prisma'
+import { MAX_VIEWS_PER_SESSION } from '@/lib/constants'
+import { getSessionId } from '@/lib/server'
+import { countContentViews, countUserViews, createView } from '@/services/views'
 
 export const GET = async (
   _req: NextRequest,
@@ -9,11 +11,8 @@ export const GET = async (
 ) => {
   try {
     const { slug } = params
-    const counter = await prisma.counter.findUnique({
-      where: { slug },
-    })
-    const total = (counter?.views || 0).toString()
 
+    const total = await countContentViews({ slug })
     return response({ total })
   } catch (err) {
     return response({ message: getErrorMessage(err) }, 500)
@@ -21,18 +20,22 @@ export const GET = async (
 }
 
 export const POST = async (
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: { slug: string } },
 ) => {
   try {
     const { slug } = params
-    const upsertViews = await prisma.counter.upsert({
-      where: { slug },
-      create: { slug, views: 1 },
-      update: { views: { increment: 1 } },
-    })
+    const sessionId = getSessionId(req)
 
-    return response({ total: upsertViews.views.toString() })
+    const currentViews = await countUserViews({ slug, sessionId })
+
+    if (currentViews < MAX_VIEWS_PER_SESSION) {
+      await createView({ slug, sessionId })
+      return response({}, 201)
+    }
+
+    // conflict exceeded maximum limit
+    return response({ message: 'Maximum limit exceeded' }, 409)
   } catch (err) {
     return response({ message: getErrorMessage(err) }, 500)
   }

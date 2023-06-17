@@ -1,31 +1,25 @@
 import type { Metadata } from 'next'
 
 import Divider from '@/components/divider'
-import FeaturedProjects from '@/components/featured-projects'
-import Introduction from '@/components/introduction'
+import HighlightedProjects from '@/components/highlighted-projects'
+import Introductory from '@/components/introductory'
 import RecentPosts from '@/components/recent-posts'
-import { getFeaturedProjects, getRecentPosts } from '@/lib/contentlayer'
 import { getMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = getMetadata()
 
-const Home = async () => {
-  const featuredProjects = getFeaturedProjects()
-  const recentPosts = getRecentPosts()
-
+const HomePage = async () => {
   return (
     <>
-      <Introduction />
+      <Introductory />
+
+      <HighlightedProjects />
 
       <Divider />
 
-      <FeaturedProjects projects={featuredProjects} />
-
-      <Divider />
-
-      <RecentPosts posts={recentPosts} />
+      <RecentPosts />
     </>
   )
 }
 
-export default Home
+export default HomePage

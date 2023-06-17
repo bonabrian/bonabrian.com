@@ -1,17 +1,15 @@
+import cx from 'classnames'
 import Image from 'next/image'
 import type { DefaultSession } from 'next-auth'
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
-import { BiParty } from 'react-icons/bi'
-import { BsPatchCheckFill } from 'react-icons/bs'
-import { GiCheckMark } from 'react-icons/gi'
-import { RiErrorWarningLine } from 'react-icons/ri'
 import { useSWRConfig } from 'swr'
 
 import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
 import type { Skill } from '@/types'
 
+import { Check, CheckBadge, ExclamationCircle, Heart } from './icons'
 import Spinner from './spinner'
 
 interface EndorsementsBadgeProps {
@@ -70,9 +68,14 @@ const EndorsementsBadge = ({
   const isMySelf = user?.email === defaultMetadata.author.email
 
   return (
-    <div className="flex flex-col items-stretch flex-nowrap bg-slate-200/40 dark:bg-gray-800/30 p-4 rounded-lg gap-4">
-      <div className="flex justify-between items-center text-base">
-        <div className="font-bold">{skill.name}</div>
+    <div
+      className={cx(
+        'flex flex-col items-stretch flex-nowrap bg-slate-200/40 p-4 rounded-lg gap-4',
+        'dark:bg-gray-800/30',
+      )}
+    >
+      <div className={cx('flex justify-between items-center')}>
+        <div className={cx('font-bold')}>{skill.name}</div>
         {state === STATES.LOADING ? (
           <Spinner />
         ) : (
@@ -80,27 +83,33 @@ const EndorsementsBadge = ({
             {isMySelf ? (
               <button
                 type="button"
-                className="relative px-3 py-1 text-sm gap-1 overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-slate-200 dark:hover:bg-gray-800 rounded-full cursor-not-allowed"
+                className={cx(
+                  'button button--rounded cursor-not-allowed px-3 py-1 gap-1 border-none hover:bg-transparent',
+                )}
                 disabled
               >
-                <BiParty size={14} className="fill-primary-500" />
+                <Heart className={cx('fill-red-500')} />
               </button>
             ) : (
               <>
                 {isEndorsedByUser ? (
                   <button
                     type="button"
-                    className="relative px-3 py-1 text-sm gap-1 overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-slate-200 dark:hover:bg-gray-800 rounded-full cursor-not-allowed"
+                    className={cx(
+                      'button button--rounded cursor-not-allowed px-3 py-1 gap-1 border-none hover:bg-transparent',
+                    )}
                     title="You already endorsed this skill!"
                     disabled
                   >
                     <span>Endorsed</span>
-                    <BsPatchCheckFill size={14} className="fill-blue-500" />
+                    <CheckBadge className={cx('fill-blue-500')} />
                   </button>
                 ) : (
                   <button
                     type="button"
-                    className="relative px-3 py-1 text-sm overflow-hidden inline-flex -tracking-tighter justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:bg-primary-500 hover:text-white border border-solid border-gray-900 dark:border-slate-100 rounded-full shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(163_163_163_/_20%)]"
+                    className={cx(
+                      'button button--rounded button--shadow px-3 py-1.5 h-8',
+                    )}
                     title={`Endorse ${skill.name}`}
                     onClick={() => onEndorse(skill.id)}
                   >
@@ -112,15 +121,19 @@ const EndorsementsBadge = ({
           </>
         )}
       </div>
-      <div className="flex items-center -space-x-1">
+      <div className={cx('flex items-center -space-x-1')}>
         {skill.users.map((user) => (
-          <div key={user.id} title={user.name} className="relative w-8 h-8">
+          <div
+            key={user.id}
+            title={user.name}
+            className={cx('relative w-8 h-8')}
+          >
             {user.image ? (
               <Image
                 src={user.image}
                 alt={user.name}
                 fill
-                className="rounded-full ring-2 ring-white"
+                className={cx('rounded-full ring-2 ring-white')}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             ) : (
@@ -128,7 +141,7 @@ const EndorsementsBadge = ({
                 src={`https://ui-avatars.com/api?name=${user.name}&background=B191FF&color=fff&rounded=true`}
                 alt={user.name}
                 fill
-                className="rounded-full ring-2 ring-white"
+                className={cx('rounded-full ring-2 ring-white')}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             )}
@@ -136,7 +149,7 @@ const EndorsementsBadge = ({
         ))}
       </div>
       {skill.users.length > 0 && (
-        <div className="text-sm">
+        <div className={cx('text-sm')}>
           <p>
             <strong>{skill.users.length}</strong>{' '}
             {`${skill.name} endorsement${
@@ -147,14 +160,24 @@ const EndorsementsBadge = ({
         </div>
       )}
       {state === STATES.ERROR && (
-        <p className="flex items-center text-sm my-1 sm:my-2 text-red-500 font-medium">
-          <RiErrorWarningLine className="mr-1" size={14} />
+        <p
+          className={cx(
+            'flex items-center text-sm my-1 text-red-500 font-medium',
+            'sm:my-2',
+          )}
+        >
+          <ExclamationCircle className={cx('mr-1')} />
           An unexpected error occurred.
         </p>
       )}
       {state === STATES.SUCCESS && (
-        <p className="flex items-center text-sm my-1 sm:my-2 text-green-500 font-medium">
-          <GiCheckMark className="mr-1" size={14} />
+        <p
+          className={cx(
+            'flex items-center text-sm my-1 text-green-500 font-medium',
+            'sm:my-2',
+          )}
+        >
+          <Check className={cx('mr-1')} />
           Thanks for endorsing me.
         </p>
       )}

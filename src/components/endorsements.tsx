@@ -1,14 +1,15 @@
 'use client'
 
+import cx from 'classnames'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import { useEndorsements } from '@/hooks'
 import type { SkillCategory } from '@/types'
 
+import Container from './container'
 import EndorsementsBadge from './endorsements-badge'
 import Link from './link'
-import PageHeader from './page-header'
 import Spinner from './spinner'
 
 interface EndorsementsProps {
@@ -28,69 +29,106 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
   }
 
   return (
-    <>
-      <div className="my-4 space-y-3 md:space-y-5">
-        <PageHeader
-          title="Endorsements"
-          description="Please consider endorsing my technical skills and abilities based on your personal experience working with me. Your endorsement will be greatly appreciated."
-        />
-        {session?.user ? (
-          <div className="mb-10 border-2 border-primary-500 rounded-md p-6 inline-flex flex-col items-start">
-            <p>
-              You are currently logged in as{' '}
-              <strong>{session.user.name}</strong>
-            </p>
-            {isLoading ? (
-              <Spinner />
-            ) : (
-              <Link
-                href="/api/auth/signout"
-                className="font-medium underline"
-                onClick={async (e) => {
-                  e.preventDefault()
-                  setIsLoading(true)
-                  await signOut()
-                  setIsLoading(false)
-                }}
+    <Container>
+      <div>
+        <div
+          className={cx(
+            'inline-flex flex-col items-start p-6 border-2 border-primary-600 rounded-2xl',
+            'dark:border-primary-400',
+          )}
+        >
+          {session?.user ? (
+            <>
+              <p className={cx('text-gray-700', 'dark:text-slate-50')}>
+                You are currently logged in as{' '}
+                <span className={cx('font-semibold')}>{session.user.name}</span>
+              </p>
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <Link
+                  href="/api/auth/signout"
+                  className={cx('font-semibold underline')}
+                  onClick={async (e) => {
+                    e.preventDefault()
+                    setIsLoading(true)
+                    await signOut()
+                    setIsLoading(false)
+                  }}
+                >
+                  Logout
+                </Link>
+              )}
+            </>
+          ) : (
+            <>
+              <h2
+                className={cx(
+                  'font-semibold text-gray-700',
+                  'dark:text-slate-50',
+                )}
               >
-                Logout
-              </Link>
-            )}
-          </div>
-        ) : (
-          <div className="mb-10 border-2 border-primary-500 rounded-md p-6 inline-flex flex-col items-start max-w-2xl">
-            <h2 className="text-base font-bold mb-4">
-              Please log in to provide your valuable endorsement.
-            </h2>
-            <button
-              className="relative px-8 text-xs sm:text-sm overflow-hidden inline-flex uppercase font-semibold -tracking-tighter h-12 justify-center items-center outline-none transition duration-300 ease-in-out bg-transparent hover:[&:not(:disabled)]:bg-primary-500 hover:text-white disabled:cursor-not-allowed border-2 border-solid border-gray-900 dark:border-slate-100 rounded-full shadow-[4px_4px_rgb(0_0_0_/_20%)] dark:shadow-[4px_4px_rgb(163_163_163_/_20%)]"
-              onClick={onSignIn}
-              disabled={isLoading}
-            >
-              {isLoading ? <Spinner /> : 'Login'}
-            </button>
-            <p className="text-sm mt-4 text-gray-900/50 dark:text-white/60">
-              Your information, including your name and profile picture, will
-              only be utilized for he purpose of properly displaying your
-              identity as an endorser.
-            </p>
-          </div>
-        )}
+                Please log in to provide your valuable endorsement.
+              </h2>
+              <button
+                className={cx(
+                  'button button--rounded button--shadow px-8 my-4',
+                  'disabled:cursor-not-allowed',
+                )}
+                onClick={onSignIn}
+                disabled={isLoading}
+              >
+                {isLoading ? <Spinner /> : 'Login'}
+              </button>
+              <p
+                className={cx(
+                  'text-xs text-gray-900/60',
+                  'dark:text-slate-100/70',
+                )}
+              >
+                Your information, including your name and profile picture, will
+                only be utilized for he purpose of properly displaying your
+                identity as an endorser.
+              </p>
+            </>
+          )}
+        </div>
       </div>
 
-      <div className="my-12">
+      <div className={cx('mt-12')}>
         {endorsements && !error && (
-          <div className="flex flex-col">
-            <h3 className="text-2xl font-bold leading-8 tracking-tight">
+          <div className={cx('flex flex-col')}>
+            <h3
+              className={cx(
+                'font-bold mb-4 text-gray-700 text-xl',
+                'md:text-2xl',
+                'dark:text-slate-50',
+              )}
+            >
               Skills
             </h3>
-            <div className="mt-8 space-y-8 divide-y divide-slate-200 dark:divide-gray-800">
+            <div
+              className={cx(
+                'space-y-8 divide-y divide-slate-200',
+                'dark:divide-gray-800',
+              )}
+            >
               {endorsements.map((category) => (
                 <div key={category.name}>
-                  <h4 className="my-4 font-semibold leading-5 text-lg md:text-xl">
+                  <h4
+                    className={cx(
+                      'my-4 font-semibold leading-5 text-lg',
+                      'md:text-xl',
+                    )}
+                  >
                     {category.name}
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 grid-flow-row auto-rows-auto gap-4">
+                  <div
+                    className={cx(
+                      'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
+                      'md:grid-cols-2',
+                    )}
+                  >
                     {category?.skills?.map((skill) => (
                       <EndorsementsBadge
                         key={skill.id}
@@ -106,7 +144,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
           </div>
         )}
       </div>
-    </>
+    </Container>
   )
 }
 

@@ -2,7 +2,9 @@ import type { NextRequest } from 'next/server'
 
 import { getErrorMessage, response } from '@/lib/api'
 import fetcher from '@/lib/fetcher'
-import prisma from '@/lib/prisma'
+import { countAllEndorsements } from '@/services/endorsements'
+import { countAllReactions } from '@/services/reactions'
+import { countAllViews } from '@/services/views'
 
 export const GET = async (
   _req: NextRequest,
@@ -25,7 +27,7 @@ export const GET = async (
           (repo: { fork: boolean }) => !repo.fork,
         )
 
-        const stars = mine.reduce(
+        const stars: number = mine.reduce(
           (accumulator: number, repository: { stargazers_count: number }) => {
             const { stargazers_count: stargazers = 0 } = repository
             return accumulator + stargazers
@@ -33,39 +35,19 @@ export const GET = async (
           0,
         )
 
-        return response({ followers: user.followers, stars })
+        return response({ followers: user.followers as number, stars })
 
       case 'endorsements':
-        const endorsements = await prisma.endorsement.count()
-        const totalEndorsements = (endorsements || 0).toString()
-
-        return response({ total: totalEndorsements })
+        const endorsements = await countAllEndorsements()
+        return response({ total: endorsements })
 
       case 'views':
-        const viewsData = await prisma.counter.aggregate({
-          _sum: {
-            views: true,
-          },
-        })
-        const totalViews = (viewsData._sum.views || 0).toString()
-        return response({ total: totalViews })
+        const views = await countAllViews()
+        return response({ total: views })
 
       case 'reactions':
-        const reactionsData = await prisma.counter.aggregate({
-          _sum: {
-            loves: true,
-            likes: true,
-            stars: true,
-          },
-        })
-
-        const totalReactions = {
-          loves: (reactionsData._sum.loves || 0).toString(),
-          likes: (reactionsData._sum.likes || 0).toString(),
-          stars: (reactionsData._sum.stars || 0).toString(),
-        }
-
-        return response(totalReactions)
+        const reactions = await countAllReactions()
+        return response({ total: reactions })
 
       default:
         return response({ message: 'Invalid statistics key' }, 409)

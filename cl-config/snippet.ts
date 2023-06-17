@@ -17,8 +17,10 @@ const Snippet = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    description: { type: 'string' },
+    description: { type: 'string', required: true },
     date: { type: 'string', required: true },
+    published: { type: 'boolean', default: true },
+    stacks: { type: 'list', of: { type: 'string' } },
   },
   computedFields,
 }))

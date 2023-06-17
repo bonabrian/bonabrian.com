@@ -1,5 +1,4 @@
 import { allPosts } from 'contentlayer/generated'
-import { Suspense } from 'react'
 
 import PostList from '@/components/post-list'
 import { getMetadata } from '@/lib/metadata'
@@ -28,14 +27,10 @@ export const generateMetadata = async ({
 const TagPage = ({ params }: { params: { tag: string } }) => {
   const tag = params.tag
   const posts = allPosts.filter((post) =>
-    post.tags?.map((t) => kebabCase(t)?.includes(tag)),
+    post.tags?.map((t) => kebabCase(t)?.includes(tag) && post.published),
   )
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PostList title={`#${tag}`} posts={posts} />
-    </Suspense>
-  )
+  return <PostList posts={posts} />
 }
 
 export default TagPage

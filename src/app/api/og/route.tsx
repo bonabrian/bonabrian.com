@@ -6,15 +6,15 @@ import { getErrorMessage, response } from '@/lib/api'
 export const runtime = 'edge'
 
 const fontRegular = fetch(
-  new URL('../../../../assets/fonts/Montserrat-Regular.ttf', import.meta.url),
+  new URL('../../../../assets/fonts/Poppins-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
-const fontMedium = fetch(
-  new URL('../../../../assets/fonts/Montserrat-Medium.ttf', import.meta.url),
+const fontBold = fetch(
+  new URL('../../../../assets/fonts/Poppins-Bold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 
 export const GET = async (req: NextRequest) => {
   const fontDataRegular = await fontRegular
-  const fontDataMedium = await fontMedium
+  const fontDataBold = await fontBold
 
   try {
     const { searchParams } = new URL(req.url)
@@ -32,94 +32,64 @@ export const GET = async (req: NextRequest) => {
 
     return new ImageResponse(
       (
-        <div tw="w-full h-full flex flex-col items-center justify-center relative bg-[#B191FF]">
-          <div tw="flex h-full">
-            <div tw="flex flex-col w-full pl-12">
-              {hasImage ? (
-                <div tw="relative flex w-full">
-                  <div
-                    tw="absolute top-0 right-0 w-[530px] h-[630px]"
-                    style={{
-                      backgroundImage: `url(${image})`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: '1200px 630px',
-                      backgroundPosition: '-50% 100%',
-                    }}
-                  />
-                  <div
-                    style={{
-                      transform: 'skewX(-8deg) rotate(90deg)',
-                    }}
-                    tw="bg-[#B191FF] absolute top-0 left-[-350px] h-[900px] w-full"
-                  />
-                  <div
-                    style={{
-                      transform: 'skewX(-8deg) rotate(90deg)',
-                      backgroundImage:
-                        'linear-gradient(to left, #F786AA, #F786AA 20%, #D46191 70%)',
-                    }}
-                    tw="absolute top-[100px] left-[150px] h-[4px] w-full"
-                  />
-                </div>
-              ) : (
-                <div tw="relative flex w-full">
-                  <div
-                    tw="absolute top-0 right-0 w-[530px] h-[630px]"
-                    style={{
-                      backgroundImage: `url(https://res.cloudinary.com/bonabrian/image/upload/v1675009995/avatar_davtqo.png)`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: '560px 630px',
-                      backgroundPosition: '0 100%',
-                    }}
-                  />
-                  <div
-                    style={{
-                      transform: 'skewX(-8deg) rotate(90deg)',
-                    }}
-                    tw="bg-[#B191FF] absolute top-0 left-[-350px] h-[900px] w-full"
-                  />
-                  <div
-                    style={{
-                      transform: 'skewX(-8deg) rotate(90deg)',
-                      backgroundImage:
-                        'linear-gradient(to left, #F786AA, #F786AA 20%, #D46191 70%)',
-                    }}
-                    tw="absolute top-[100px] left-[150px] h-[4px] w-full"
-                  />
-                </div>
-              )}
-              <div tw="text-white mt-27 flex flex-col justify-between">
-                <div tw="flex flex-col">
-                  <h2
-                    tw="flex flex-col text-5xl tracking-tight text-left max-w-3/5"
-                    style={{
-                      fontFamily: 'Montserrat-Bold',
-                      lineHeight: '55px',
-                    }}
-                  >
-                    {title}
-                  </h2>
-                  <p
-                    tw="mt-4 max-w-3/5 text-xl text-white leading-8 pr-4"
-                    style={{ fontFamily: 'Montserrat-Regular' }}
-                  >
-                    {description}
-                  </p>
-                  <div tw="flex flex-col mt-16">
-                    <h1
-                      tw="m-0 text-2xl mb-0"
-                      style={{ fontFamily: 'Montserrat-Bold' }}
-                    >
-                      Bona Brian Siagian
-                    </h1>
-                    <h2 tw="mt-0" style={{ fontFamily: 'Montserrat-Regular' }}>
-                      bonabrian.com
-                    </h2>
-                  </div>
-                </div>
+        <div
+          style={{
+            backgroundImage:
+              'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjM2IiBmaWxsPSJub25lIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS1kYXNoYXJyYXk9IjYgMyIgdHJhbnNmb3JtPSJzY2FsZSgxKSI+PHBhdGggZD0iTTM2IC41SDEuNVYzNiIvPjwvc3ZnPgo=")',
+            fontFamily: 'Poppins-Regular',
+            backgroundRepeat: 'repeat',
+          }}
+          tw="bg-white flex flex-col relative w-full h-full"
+        >
+          <div tw="flex flex-col w-full h-full">
+            <div tw="flex relative pt-16 pl-12 flex-col h-full">
+              <div tw="flex flex-col">
+                <h2
+                  tw="flex flex-col text-5xl tracking-tight text-left max-w-3/5"
+                  style={{
+                    fontFamily: 'Poppins-Bold',
+                    lineHeight: 1,
+                  }}
+                >
+                  {title}
+                </h2>
+                <p
+                  tw="max-w-3/5 text-xl pr-4"
+                  style={{ fontFamily: 'Montserrat-Regular' }}
+                >
+                  {description}
+                </p>
+              </div>
+            </div>
+            <div tw="absolute flex items-center bottom-12 pl-12">
+              <div tw="flex items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://github.com/bonabrian.png?size=48"
+                  width="48"
+                  height="48"
+                  alt="author"
+                  tw="rounded-full mr-4"
+                />
+                <p style={{ fontFamily: 'Poppins-Bold' }} tw="mb-1">
+                  Bona Brian Siagian
+                </p>
               </div>
             </div>
           </div>
+          {hasImage && (
+            <div
+              tw="absolute top-0 -right-12 w-[420px] h-[630px]"
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '1200px 630px',
+                backgroundPosition: '-50% 100%',
+                transform: 'skewX(-6deg)',
+              }}
+            />
+          )}
+          <div tw="absolute bottom-0 left-0 right-0 bg-[#B191FF] h-4" />
         </div>
       ),
       {
@@ -127,13 +97,13 @@ export const GET = async (req: NextRequest) => {
         height: 630,
         fonts: [
           {
-            name: 'Montserrat-Regular',
+            name: 'Poppins-Regular',
             data: fontDataRegular,
             style: 'normal',
           },
           {
-            name: 'Montserrat-Medium',
-            data: fontDataMedium,
+            name: 'Poppins-Bold',
+            data: fontDataBold,
             style: 'normal',
           },
         ],

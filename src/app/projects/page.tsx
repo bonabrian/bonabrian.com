@@ -1,19 +1,14 @@
+import type { Project } from 'contentlayer/generated'
+import { allProjects } from 'contentlayer/generated'
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
 
+import PageHeader from '@/components/page-header'
 import ProjectList from '@/components/project-list'
-import { getProjects } from '@/lib/contentlayer'
 import { getMetadata } from '@/lib/metadata'
 
-const projects = getProjects([
-  'title',
-  'description',
-  'slug',
-  'image',
-  'imageMeta',
-  'url',
-  'category',
-])
+const projects = allProjects
+  .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  .filter((project: Project) => project.published)
 
 export const metadata: Metadata = getMetadata({
   title: 'Projects',
@@ -31,9 +26,16 @@ export const metadata: Metadata = getMetadata({
 
 const ProjectsPage = async () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ProjectList projects={projects} />
-    </Suspense>
+    <>
+      <PageHeader
+        title="Projects"
+        description="A collection of finest projects that I have built. ❤️️"
+      />
+
+      <div id="content">
+        <ProjectList projects={projects} />
+      </div>
+    </>
   )
 }
 
