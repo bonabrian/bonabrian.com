@@ -30,9 +30,9 @@ export const getEndorsements = async () => {
         users: endorsements
           .filter((endorsement) => endorsement.userId)
           .map<User>(({ user }) => ({
-            id: user!.id,
-            name: user!.name!,
-            image: user!.image!,
+            id: user?.id!,
+            name: user?.name!,
+            image: user?.image!,
           })),
       })),
     }))

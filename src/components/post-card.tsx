@@ -112,7 +112,7 @@ const PostCard = ({ post }: { post: Post }) => {
                 <Spinner />
               ) : (
                 <>
-                  <IncrementCounter to={views?.total || 0} /> views
+                  <IncrementCounter to={views?.total ?? 0} /> views
                 </>
               )}
             </div>

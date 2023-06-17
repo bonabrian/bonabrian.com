@@ -14,14 +14,14 @@ const getPostExcerpt = (
 ): string => {
   if (defaultExcerpt) return defaultExcerpt
 
-  if (!content) return defaultExcerpt || ''
+  if (!content) return defaultExcerpt ?? ''
 
   const text = content
     ?.split(/[\r\n]+/gm)
     ?.filter((it: string) => !it.startsWith('#'))
     ?.join('\n')
     ?.split('\n')
-    ?.map((it: string) => (it || '').trim())
+    ?.map((it: string) => (it ?? '').trim())
     ?.filter((it: string) => it?.length)
     ?.map((it: string) =>
       removeMarkdown(it, { gfm: true, useImgAltText: true }),
