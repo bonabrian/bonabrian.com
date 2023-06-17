@@ -1,13 +1,13 @@
 'use client'
 
 import { Dialog, Transition } from '@headlessui/react'
+import cx from 'classnames'
 import { useSearchParams } from 'next/navigation'
 import type { BuiltInProviderType } from 'next-auth/providers'
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import PageHeader from '@/components/page-header'
-
+import Container from './container'
 import LoginProviderButton from './login-provider-button'
 
 const SignInCard = ({
@@ -28,16 +28,16 @@ const SignInCard = ({
   }, [searchParams])
 
   return (
-    <>
-      <div className="my-4 space-y-3 md:space-y-5">
-        <PageHeader
-          title="Sign In"
-          description="Please sign in using one of the following providers"
-        />
-      </div>
-      <div className="flex flex-col items-center space-y-2 justify-items-center xl:space-y-0">
-        <div className="p-8 prose dark:prose-dark max-w-none">
-          <div className="flex flex-col items-center justify-between gap-4">
+    <Container>
+      <div
+        className={cx(
+          'flex flex-col items-center space-y-2 justify-items-center xl:space-y-0',
+        )}
+      >
+        <div className={cx('p-8 prose max-w-none', 'dark:prose-dark')}>
+          <div
+            className={cx('flex flex-col items-center justify-between gap-4')}
+          >
             {providers &&
               Object.values(providers).map((provider) => (
                 <LoginProviderButton key={provider.id} provider={provider} />
@@ -48,10 +48,10 @@ const SignInCard = ({
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-20 overflow-y-auto"
+          className={cx('fixed inset-0 z-20 overflow-y-auto')}
           onClose={() => setIsOpen(false)}
         >
-          <div className="min-h-screen px-4 text-center">
+          <div className={cx('min-h-screen px-4 text-center')}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -61,7 +61,7 @@ const SignInCard = ({
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0" />
+              <Dialog.Overlay className={cx('fixed inset-0')} />
             </Transition.Child>
 
             <Transition.Child
@@ -73,27 +73,33 @@ const SignInCard = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div
+                className={cx(
+                  'inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl',
+                )}
+              >
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  className={cx('text-lg font-medium leading-6 text-gray-900')}
                 >
                   Problem signing in
                 </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
+                <div className={cx('mt-2')}>
+                  <p className={cx('text-sm text-gray-500')}>
                     An unexpected problem occurred while I&apos;m trying to log
                     you in. Please try with another providers.
                   </p>
-                  <code className="text-sm text-red-500">
+                  <code className={cx('text-sm text-red-500')}>
                     Error: {searchParams?.get('error')}
                   </code>
                 </div>
 
-                <div className="mt-4">
+                <div className={cx('mt-4')}>
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
+                    className={cx(
+                      'inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500',
+                    )}
                     onClick={() => setIsOpen(false)}
                   >
                     OK
@@ -104,7 +110,7 @@ const SignInCard = ({
           </div>
         </Dialog>
       </Transition>
-    </>
+    </Container>
   )
 }
 

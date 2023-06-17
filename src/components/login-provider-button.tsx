@@ -1,5 +1,6 @@
 'use client'
 
+import cx from 'classnames'
 import { useSearchParams } from 'next/navigation'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
@@ -57,17 +58,19 @@ const LoginProviderButton = ({
     <div key={provider.name}>
       <button
         type="button"
-        className={`w-56 h-12 flex items-center gap-3 text-sm font-medium leading-5 transition-colors duration-150 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-primary
-          ${isDark && bgDark ? bgDark : bg}
-          ${isDark && textDark ? textDark : text}`}
+        className={cx(
+          'w-56 h-12 flex items-center gap-3 text-sm font-medium leading-5 transition-colors duration-150 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-primary',
+          isDark && bgDark ? bgDark : bg,
+          isDark && textDark ? textDark : text,
+        )}
         onClick={() =>
           signIn(provider.id, { callbackUrl: callbackUrl as string })
         }
       >
         {isDark && LogoDark ? (
-          <LogoDark className="h-full p-2" />
+          <LogoDark className={cx('h-full p-2')} />
         ) : (
-          <Logo className="h-full p-2" />
+          <Logo className={cx('h-full p-2')} />
         )}
         Sign in with {provider.name}
       </button>

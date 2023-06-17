@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 
+import PageHeader from '@/components/page-header'
 import SignInCard from '@/components/sign-in-card'
 import { authOptions } from '@/lib/auth'
 import { getMetadata } from '@/lib/metadata'
@@ -18,7 +19,18 @@ const SignInPage = async () => {
   if (session) redirect('/')
 
   const providers = await getProviders()
-  return <SignInCard providers={providers} />
+  return (
+    <>
+      <PageHeader
+        title="Sign In"
+        description="Please sign in using one of the following providers"
+      />
+
+      <div id="content">
+        <SignInCard providers={providers} />
+      </div>
+    </>
+  )
 }
 
 export default SignInPage
