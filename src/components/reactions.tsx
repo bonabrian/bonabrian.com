@@ -52,8 +52,6 @@ const Reactions = ({ slug }: ReactionsProps) => {
     return getRemainingQuota(type) <= 0
   }
 
-  console.log('getRemainingQuota', getRemainingQuota('LIKED'))
-
   return (
     <m.div
       className={cx('relative pointer-events-auto flex items-center')}
