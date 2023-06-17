@@ -8,16 +8,6 @@ datasource db {
   relationMode      = "prisma"
 }
 
-model Counter {
-  slug  String @id @db.VarChar(128)
-  views BigInt @default(0)
-  loves BigInt @default(0)
-  likes BigInt @default(0)
-  stars BigInt @default(0)
-
-  @@map("counters")
-}
-
 model Account {
   id                       String  @id @default(cuid())
   userId                   String
