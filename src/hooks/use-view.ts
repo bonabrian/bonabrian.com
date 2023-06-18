@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useRequest } from './useRequest'
+import { useRequest } from './use-request'
 
 export const useView = ({
   slug,

@@ -1,6 +1,6 @@
 import type { ShareType } from '@prisma/client'
 
-import { useRequest } from './useRequest'
+import { useRequest } from './use-request'
 
 export const useShare = (slug: string) => {
   const { data, mutate, loading } = useRequest<{ total: number }>(

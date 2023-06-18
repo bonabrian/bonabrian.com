@@ -1,6 +1,6 @@
 import { useTheme as useNextThemes } from 'next-themes'
 
-import { useMounted } from './useMounted'
+import { useMounted } from './use-mounted'
 
 export const useTheme = () => {
   const mounted = useMounted()

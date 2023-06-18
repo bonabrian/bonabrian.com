@@ -1,7 +1,7 @@
 import type { ReactionType } from '@prisma/client'
 import { useRef } from 'react'
 
-import { useRequest } from './useRequest'
+import { useRequest } from './use-request'
 
 type ReactionCounts = Record<ReactionType, number>
 

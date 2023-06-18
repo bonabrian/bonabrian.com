@@ -1,6 +1,6 @@
 import type { SkillCategory } from '@/types'
 
-import { useRequest } from './useRequest'
+import { useRequest } from './use-request'
 
 interface Props {
   fallbackData: Array<SkillCategory>
