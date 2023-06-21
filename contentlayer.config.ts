@@ -1,9 +1,9 @@
 import { makeSource } from 'contentlayer/source-files'
 
-import mdx from './cl-config/mdx'
-import Post from './cl-config/post'
-import Project from './cl-config/project'
-import Snippet from './cl-config/snippet'
+import mdx from './config/mdx'
+import Post from './config/post'
+import Project from './config/project'
+import Snippet from './config/snippet'
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',

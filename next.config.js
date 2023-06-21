@@ -4,13 +4,10 @@ const { withSentryConfig } = require('@sentry/nextjs')
 const SentryWebpackPluginOptions = { silent: true }
 
 const isDevelopment = process.env.NODE_ENV === 'development'
-const appHeaders = require('./headers')
+const appHeaders = require('./config/next/headers')
+const redirects = require('./config/next/redirects')
 
 const { withContentlayer } = require('next-contentlayer')
-
-const redirect = (source, destination, permanent = true) => {
-  return { source, destination, permanent }
-}
 
 const nextConfig = {
   swcMinify: true,
@@ -54,10 +51,7 @@ const nextConfig = {
     return appHeaders
   },
   async redirects() {
-    return [
-      redirect('/feed', '/feed.xml'),
-      redirect('/resume/download', '/share/resume.pdf'),
-    ]
+    return redirects
   },
 }
 

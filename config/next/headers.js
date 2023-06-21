@@ -44,11 +44,7 @@ const securityHeaders = [
 
 module.exports = [
   {
-    source: '/',
-    headers: securityHeaders,
-  },
-  {
-    source: '/:path*',
+    source: '/(.*)',
     headers: securityHeaders,
   },
   {
