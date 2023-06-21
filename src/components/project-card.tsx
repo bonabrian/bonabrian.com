@@ -1,8 +1,8 @@
-import cx from 'classnames'
 import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
 import Link from './link'
@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <div
-      className={cx(
+      className={cn(
         'group flex flex-col h-full min-w-0 break-words border border-slate-100 rounded-lg bg-white',
         'dark:bg-gray-900 dark:border-gray-800',
       )}
@@ -50,24 +50,24 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <Link
         href={projectUrl}
         showExternalLinkIcon={false}
-        className={cx('aspect-video relative rounded-t-lg overflow-hidden')}
+        className={cn('aspect-video relative rounded-t-lg overflow-hidden')}
       >
-        <div className={cx('absolute w-full h-full')} />
+        <div className={cn('absolute w-full h-full')} />
         <Image
           src={image ?? ''}
           alt={title}
           fill
-          className={cx(
+          className={cn(
             'object-cover rounded-t-lg group-hover:scale-105 transition duration-200 ease-in-out',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
         />
       </Link>
-      <div className={cx('p-6 flex flex-col')}>
+      <div className={cn('p-6 flex flex-col')}>
         <Link href={projectUrl} showExternalLinkIcon={false}>
           <h2
-            className={cx(
+            className={cn(
               'font-semibold text-lg text-gray-700 mb-1',
               'dark:text-slate-50',
             )}
@@ -75,12 +75,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {title}
           </h2>
         </Link>
-        <p className={cx('text-sm mb-4 text-gray-600', 'dark:text-slate-200')}>
+        <p className={cn('text-sm mb-4 text-gray-600', 'dark:text-slate-200')}>
           {description}
         </p>
-        <div className={cx('flex text-xs font-semibold')}>
+        <div className={cn('flex text-xs font-semibold')}>
           <div
-            className={cx(
+            className={cn(
               'rounded-full px-2 py-0.5 capitalize',
               getProjectCategoryClasses(category),
             )}

@@ -3,6 +3,7 @@ import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useTheme } from '@/hooks'
+import cn from '@/lib/cn'
 
 export interface ImageLightBoxProps extends Pick<NextImageProps, 'src'> {
   closeLightBox: () => void
@@ -44,17 +45,23 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
     <div
       role="button"
       tabIndex={0}
-      className="lightbox-overlay fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out"
+      className={cn(
+        'lightbox-overlay fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out',
+      )}
       style={style}
       onClick={handleClose}
       onKeyDown={handleKeydown}
     >
-      <div className="w-full h-full relative flex justify-center items-center">
+      <div
+        className={cn(
+          'w-full h-full relative flex justify-center items-center',
+        )}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src.toString()}
           onLoad={() => setImageLoaded(true)}
-          className="cursor-zoom-out max-w-[90vw] max-h-[80vh]"
+          className={cn('cursor-zoom-out max-w-[90vw] max-h-[80vh]')}
           alt="lightbox"
         />
       </div>

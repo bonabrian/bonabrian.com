@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import type { Post } from 'contentlayer/generated'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
@@ -10,6 +9,7 @@ import Mdx, { Image } from '@/components/mdx'
 import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
 import ShareButton from '@/components/share-button'
+import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { formatDate, getBaseUrl, kebabCase } from '@/lib/utils'
 
@@ -45,7 +45,7 @@ const Tag = ({ tag }: { tag: string }) => {
   return (
     <Link
       href={`/tags/${kebabCase(tag)}`}
-      className={cx(
+      className={cn(
         'inline-flex h-6 gap-1 px-2 text-xs font-medium bg-primary-100 text-primary-600 rounded-full leading-6',
         'dark:bg-primary-600/20 dark:text-primary-300',
       )}
@@ -86,23 +86,23 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
       <PageHeader title={title} />
       <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
       <Container>
-        <div id="image-cover" className={cx('mb-8')}>
+        <div id="image-cover" className={cn('mb-8')}>
           <Image
             src={image ?? ''}
             alt={title}
             priority
             {...extraImageProps}
-            className={cx('object-cover')}
+            className={cn('object-cover')}
             source={imageSource}
           />
         </div>
-        <div className={cx('prose max-w-full', 'dark:prose-dark')}>
+        <div className={cn('prose max-w-full', 'dark:prose-dark')}>
           <Mdx code={post?.body?.code} />
         </div>
         {tags && (
-          <div className={cx('mt-16 flex items-center text-sm gap-1')}>
+          <div className={cn('mt-16 flex items-center text-sm gap-1')}>
             Tags:
-            <div className={cx('flex flex-wrap gap-1')}>
+            <div className={cn('flex flex-wrap gap-1')}>
               {tags?.map((tag) => (
                 <Tag key={tag} tag={tag} />
               ))}
@@ -111,10 +111,10 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
         )}
 
         <div
-          className={cx('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
+          className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
         >
           <div
-            className={cx(
+            className={cn(
               'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
               'dark:border-gray-800',
             )}

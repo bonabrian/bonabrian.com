@@ -1,9 +1,9 @@
 'use client'
 
-import cx from 'classnames'
 import { m, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
+import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
 import Container from './container'
@@ -165,15 +165,15 @@ const experiences: Experience[] = [
 
 const Available = () => {
   return (
-    <div className={cx('button pointer-events-none gap-3 px-3 uppercase')}>
-      <span className={cx('relative flex h-2 w-2')}>
+    <div className={cn('button pointer-events-none gap-3 px-3 uppercase')}>
+      <span className={cn('relative flex h-2 w-2')}>
         <span
-          className={cx(
+          className={cn(
             'bg-primary-600 absolute -top-1 -left-1 inline-flex h-4 w-4 animate-ping rounded-full opacity-75',
           )}
         />
         <span
-          className={cx(
+          className={cn(
             'bg-primary-500 relative inline-flex h-2 w-2 rounded-full',
           )}
         />
@@ -187,7 +187,7 @@ const DownloadResume = () => {
   return (
     <Link
       href="/resume/download"
-      className={cx('button button--rounded button--shadow gap-x-1')}
+      className={cn('button button--rounded button--shadow gap-x-1')}
     >
       <Document /> Download Resume
     </Link>
@@ -218,7 +218,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
       <m.div
         initial="hide"
         animate="show"
-        className={cx('relative mb-12', 'md:mb-16')}
+        className={cn('relative mb-12', 'md:mb-16')}
       >
         {isAvailable ? (
           <m.div variants={animation} transition={{ delay: 2 }}>
@@ -238,7 +238,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                 delay: isAvailableAnimationDuration + 1.6,
                 duration: 0.4,
               }}
-              className={cx('absolute top-0 left-0')}
+              className={cn('absolute top-0 left-0')}
             >
               <DownloadResume />
             </m.div>
@@ -250,18 +250,18 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
         )}
       </m.div>
 
-      <div className={cx('px-4 prose max-w-none', 'dark:prose-dark')}>
+      <div className={cn('px-4 prose max-w-none', 'dark:prose-dark')}>
         <ol
-          className={cx(
+          className={cn(
             'relative border-l border-slate-200 list-none',
             'dark:border-gray-700',
           )}
         >
           {experiences.map(
             ({ organization, role, date, stacks, accomplishments }) => (
-              <li key={organization.name} className={cx('ml-3', 'sm:ml-6')}>
+              <li key={organization.name} className={cn('ml-3', 'sm:ml-6')}>
                 <div
-                  className={cx(
+                  className={cn(
                     'absolute mt-0 -left-5 w-10 h-10 flex justify-center items-center rounded-ful',
                   )}
                 >
@@ -269,20 +269,20 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                     src={organization.logo}
                     alt={organization.name}
                     fill
-                    className={cx('rounded-full my-0')}
+                    className={cn('rounded-full my-0')}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div
-                  className={cx(
+                  className={cn(
                     'flex flex-col items-start justify-between gap-2',
                     'md:flex-row md:items-center',
                   )}
                 >
-                  <h3 className={cx('text-lg my-0')}>
+                  <h3 className={cn('text-lg my-0')}>
                     <Link
                       href={organization.url}
-                      className={cx(
+                      className={cn(
                         'no-underline font-bold text-gray-700 hover:text-gray-700',
                         'dark:text-slate-50 dark:hover:text-slate-50',
                       )}
@@ -291,7 +291,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                       {organization.name}
                     </Link>
                     <span
-                      className={cx(
+                      className={cn(
                         "before:content-['_|_'] font-normal text-gray-600",
                         'dark:text-slate-200',
                       )}
@@ -300,16 +300,16 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                     </span>
                   </h3>
                   <p
-                    className={cx('my-0 text-gray-600', 'dark:text-slate-200')}
+                    className={cn('my-0 text-gray-600', 'dark:text-slate-200')}
                   >
                     {date}
                   </p>
                 </div>
-                <div className={cx('flex flex-row flex-wrap gap-2 my-8')}>
+                <div className={cn('flex flex-row flex-wrap gap-2 my-8')}>
                   {stacks.map(({ name, backgroundColor, color, icon }) => (
                     <span
                       key={name}
-                      className={cx(
+                      className={cn(
                         'rounded-full px-2 py-1 capitalize font-semibold text-xs flex gap-1',
                       )}
                       style={{ backgroundColor, color }}
@@ -323,7 +323,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                   {accomplishments.map((accomplishment) => (
                     <li key={accomplishment}>
                       <span
-                        className={cx('text-gray-600', 'dark:text-slate-200')}
+                        className={cn('text-gray-600', 'dark:text-slate-200')}
                       >
                         {accomplishment}
                       </span>
@@ -331,7 +331,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
                   ))}
                 </ul>
                 <hr
-                  className={cx(
+                  className={cn(
                     'my-8 border-slate-200',
                     'dark:border-gray-700',
                   )}
@@ -340,8 +340,8 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
             ),
           )}
         </ol>
-        <div className={cx('mt-16')}>
-          <p className={cx('text-gray-600', 'dark:text-slate-200')}>
+        <div className={cn('mt-16')}>
+          <p className={cn('text-gray-600', 'dark:text-slate-200')}>
             Last updated at{' '}
             <time dateTime={lastUpdated.raw}>{lastUpdated.formatted}</time>
           </p>

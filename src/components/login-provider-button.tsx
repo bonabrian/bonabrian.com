@@ -1,11 +1,11 @@
 'use client'
 
-import cx from 'classnames'
 import { useSearchParams } from 'next/navigation'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
 import { useTheme } from '@/hooks'
+import cn from '@/lib/cn'
 
 import Github from '../../assets/images/github.svg'
 import GithubDark from '../../assets/images/github-dark.svg'
@@ -58,7 +58,7 @@ const LoginProviderButton = ({
     <div key={provider.name}>
       <button
         type="button"
-        className={cx(
+        className={cn(
           'w-56 h-12 flex items-center gap-3 text-sm font-medium leading-5 transition-colors duration-150 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-primary',
           isDark && bgDark ? bgDark : bg,
           isDark && textDark ? textDark : text,
@@ -68,9 +68,9 @@ const LoginProviderButton = ({
         }
       >
         {isDark && LogoDark ? (
-          <LogoDark className={cx('h-full p-2')} />
+          <LogoDark className={cn('h-full p-2')} />
         ) : (
-          <Logo className={cx('h-full p-2')} />
+          <Logo className={cn('h-full p-2')} />
         )}
         Sign in with {provider.name}
       </button>

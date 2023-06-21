@@ -1,8 +1,8 @@
 'use client'
 
-import cx from 'classnames'
 import { m } from 'framer-motion'
 
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
 import Container from './container'
@@ -27,14 +27,14 @@ const CallToAction = () => {
 
   return (
     <m.div
-      className={cx('relative')}
+      className={cn('relative')}
       initial={animation.hide}
       animate={animation.show}
       transition={{ delay: 0.3 }}
     >
       <Link
         href={routes.ABOUT}
-        className={cx('button button--rounded button--shadow gap-1')}
+        className={cn('button button--rounded button--shadow gap-1')}
       >
         Explore More <ChevronRight />
       </Link>
@@ -54,7 +54,7 @@ const TechStack = () => {
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.4 }}
-        className={cx(
+        className={cn(
           'text-sm text-gray-900/60 mb-2',
           'dark:text-slate-100/70',
         )}
@@ -65,87 +65,87 @@ const TechStack = () => {
         initial="hide"
         animate="show"
         transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-        className={cx('flex gap-2 flex-wrap')}
+        className={cn('flex gap-2 flex-wrap')}
       >
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#3178C6]',
             'dark:text-slate-100/70 dark:hover:text-[#3178c6]',
           )}
           title="TypeScript"
           variants={animation}
         >
-          <TypeScript className={cx('h-6 w-6')} />
+          <TypeScript className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-black',
             'dark:text-slate-100/70 dark:hover:text-white',
           )}
           title="Next.js"
           variants={animation}
         >
-          <NextJs className={cx('h-6 w-6')} />
+          <NextJs className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#61DAFB]',
             'dark:text-slate-100/70 dark:hover:text-[#61DAFB]',
           )}
           title="React.js"
           variants={animation}
         >
-          <ReactJs className={cx('h-6 w-6')} />
+          <ReactJs className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#06B6D4]',
             'dark:text-slate-100/70 dark:hover:text-[#06B6D4]',
           )}
           title="Tailwind CSS"
           variants={animation}
         >
-          <TailwindCss className={cx('h-6 w-6')} />
+          <TailwindCss className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#7F52FF]',
             'dark:text-slate-100/70 dark:hover:text-[#7F52FF]',
           )}
           title="Kotlin"
           variants={animation}
         >
-          <Kotlin className={cx('h-6 w-6')} />
+          <Kotlin className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#6DB33F]',
             'dark:text-slate-100/70 dark:hover:text-[#6DB33F]',
           )}
           title="Spring"
           variants={animation}
         >
-          <Spring className={cx('h-6 w-6')} />
+          <Spring className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#777BB4]',
             'dark:text-slate-100/70 dark:hover:text-[#777BB4]',
           )}
           title="PHP"
           variants={animation}
         >
-          <PHP className={cx('h-6 w-6')} />
+          <PHP className={cn('h-6 w-6')} />
         </m.div>
         <m.div
-          className={cx(
+          className={cn(
             'transition duration-200 text-gray-900/60 hover:text-[#FF2D20]',
             'dark:text-slate-100/70 dark:hover:text-[#FF2D20]',
           )}
           title="Laravel"
           variants={animation}
         >
-          <Laravel className={cx('h-6 w-6')} />
+          <Laravel className={cn('h-6 w-6')} />
         </m.div>
       </m.div>
     </div>
@@ -159,9 +159,9 @@ const HeaderTitle = () => {
   }
 
   return (
-    <div className="relative">
+    <div className={cn('relative')}>
       <m.h1
-        className={cx(
+        className={cn(
           'flex flex-col justify-center gap-1 text-4xl tracking-tight font-black mb-4',
           'sm:text-5xl',
           'lg:text-6xl',
@@ -172,12 +172,12 @@ const HeaderTitle = () => {
       >
         <span>
           Hi, I'm{' '}
-          <span className={cx('text-primary-500')}>Bona Brian Siagian</span>
+          <span className={cn('text-primary-500')}>Bona Brian Siagian</span>
         </span>
-        <span className={cx('')}>Fullstack Engineer</span>
+        <span className={cn('')}>Fullstack Engineer</span>
       </m.h1>
       <m.p
-        className={cx('text-lg', 'md:text-xl')}
+        className={cn('text-lg', 'md:text-xl')}
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.2 }}
@@ -191,13 +191,13 @@ const HeaderTitle = () => {
 
 const Introductory = () => {
   return (
-    <div className={cx('bg-pattern py-20', 'lg:pt-36 lg:pb-28')}>
+    <div className={cn('bg-pattern py-20', 'lg:pt-36 lg:pb-28')}>
       <Container>
         <HeaderTitle />
-        <div className="mt-6 md:mt-8">
+        <div className={cn('mt-6', 'md:mt-8')}>
           <CallToAction />
         </div>
-        <div className="mt-20 lg:mt-32">
+        <div className={cn('mt-20', 'lg:mt-32')}>
           <TechStack />
         </div>
       </Container>

@@ -1,6 +1,6 @@
-import cx from 'classnames'
 import { allPosts, type Post } from 'contentlayer/generated'
 
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
 import Container from './container'
@@ -18,11 +18,11 @@ const RecentPosts = () => {
   const posts = getRecentPosts()
 
   return (
-    <div className={cx('mb-12')}>
+    <div className={cn('mb-12')}>
       <Container>
-        <h2 className={cx('text-primary-500 font-bold mb-2')}>Writing</h2>
+        <h2 className={cn('text-primary-500 font-bold mb-2')}>Writing</h2>
         <p
-          className={cx(
+          className={cn(
             'mb-4 font-bold text-gray-700 text-xl',
             'md:text-2xl',
             'dark:text-slate-50',
@@ -32,22 +32,22 @@ const RecentPosts = () => {
         </p>
         {posts.length ? (
           <>
-            <div className={cx('flex flex-col gap-8 my-4', 'md:my-8')}>
+            <div className={cn('flex flex-col gap-8 my-4', 'md:my-8')}>
               {posts.map((post) => (
                 <PostCard key={post.slug} post={post} />
               ))}
             </div>
-            <div className={cx('flex justify-center items-center my-4')}>
+            <div className={cn('flex justify-center items-center my-4')}>
               <Link
                 href={routes.BLOG}
-                className={cx('button button--rounded button--shadow gap-1')}
+                className={cn('button button--rounded button--shadow gap-1')}
               >
                 See All Posts <ChevronRight />
               </Link>
             </div>
           </>
         ) : (
-          <p className={cx('text-center my-4', 'md:my-8')}>No recent posts.</p>
+          <p className={cn('text-center my-4', 'md:my-8')}>No recent posts.</p>
         )}
       </Container>
     </div>

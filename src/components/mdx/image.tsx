@@ -1,10 +1,10 @@
 'use client'
 
-import cx from 'classnames'
 import type { ImageProps as NextImageProps } from 'next/image'
 import NextImage from 'next/image'
 import { useState } from 'react'
 
+import cn from '@/lib/cn'
 import { getDomainFromUrl } from '@/lib/utils'
 
 import ImageLightBox from '../image-lightbox'
@@ -44,14 +44,14 @@ const Image = ({
 
   return (
     <figure>
-      <div className={cx(fill ? 'relative aspect-video' : '', className)}>
+      <div className={cn(fill ? 'relative aspect-video' : '', className)}>
         <NextImage
           {...rest}
           width={fill ? undefined : width ?? undefined}
           height={fill ? undefined : height ?? undefined}
           loading={props.priority ? undefined : props.loading}
           decoding="async"
-          className={cx(
+          className={cn(
             'object-cover rounded-xl',
             shouldOpenLightBox ? 'cursor-zoom-in' : '',
           )}
@@ -67,9 +67,9 @@ const Image = ({
       </div>
       {source && (
         <figcaption
-          className={cx('text-xs text-gray-900/60 dark:text-slate-100/70 mt-1')}
+          className={cn('text-xs text-gray-900/60 dark:text-slate-100/70 mt-1')}
         >
-          <span className={cx('flex items-center justify-center gap-1')}>
+          <span className={cn('flex items-center justify-center gap-1')}>
             Source <Link href={source ?? ''}>{getDomainFromUrl(source)}</Link>
           </span>
         </figcaption>

@@ -1,6 +1,7 @@
-import cx from 'classnames'
 import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+
+import cn from '@/lib/cn'
 
 import Link from '../link'
 import Image from './image'
@@ -22,7 +23,7 @@ const Mdx = ({ code, className }: MdxProps) => {
   const MdxComponent = useMDXComponent(code)
 
   return (
-    <div className={cx('mdx', className)}>
+    <div className={cn('mdx', className)}>
       <MdxComponent components={{ ...components } as MDXComponents} />
     </div>
   )

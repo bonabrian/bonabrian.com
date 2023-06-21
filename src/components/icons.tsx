@@ -1,5 +1,6 @@
-import cx from 'classnames'
 import type { ComponentProps } from 'react'
+
+import cn from '@/lib/cn'
 
 export const TypeScript = ({ className, ...rest }: ComponentProps<'svg'>) => {
   return (
@@ -8,7 +9,7 @@ export const TypeScript = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>TypeScript</title>
@@ -24,7 +25,7 @@ export const JavaScript = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>JavaScript</title>
@@ -40,7 +41,7 @@ export const NextJs = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Next.js</title>
@@ -56,7 +57,7 @@ export const ReactJs = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>React</title>
@@ -72,7 +73,7 @@ export const VueJs = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Vue.js</title>
@@ -88,7 +89,7 @@ export const TailwindCss = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Tailwind CSS</title>
@@ -104,7 +105,7 @@ export const Kotlin = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Kotlin</title>
@@ -120,7 +121,7 @@ export const Spring = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Spring</title>
@@ -136,7 +137,7 @@ export const PHP = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>PHP</title>
@@ -152,7 +153,7 @@ export const Laravel = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Laravel</title>
@@ -168,7 +169,7 @@ export const RabbitMq = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>RabbitMQ</title>
@@ -184,7 +185,7 @@ export const GitHub = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>GitHub</title>
@@ -200,7 +201,7 @@ export const LinkedIn = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>LinkedIn</title>
@@ -215,7 +216,7 @@ export const Twitter = ({ className, ...rest }: ComponentProps<'svg'>) => {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Twitter</title>
@@ -230,7 +231,7 @@ export const Mail = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
@@ -245,7 +246,7 @@ export const Spotify = ({ className, ...rest }: ComponentProps<'svg'>) => {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>Spotify</title>
@@ -261,7 +262,7 @@ export const RSS = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <title>RSS</title>
@@ -276,7 +277,7 @@ export const Sun = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
@@ -290,7 +291,7 @@ export const Moon = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -310,7 +311,7 @@ export const Search = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -328,7 +329,7 @@ export const CheckBadge = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -346,7 +347,7 @@ export const Heart = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
@@ -360,7 +361,7 @@ export const Check = ({ className, ...rest }: ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -381,7 +382,7 @@ export const ExclamationCircle = ({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -401,7 +402,7 @@ export const Document = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -421,7 +422,7 @@ export const Calendar = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -441,7 +442,7 @@ export const Clock = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -461,7 +462,7 @@ export const Eye = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -490,7 +491,7 @@ export const Clipboard = ({ className, ...rest }: ComponentProps<'svg'>) => {
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -514,7 +515,7 @@ export const Share = ({ className, ...rest }: ComponentProps<'svg'>) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
@@ -536,7 +537,7 @@ export const Link = ({ className, ...rest }: ComponentProps<'svg'>) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
@@ -557,7 +558,7 @@ export const BarChart = ({ className, ...rest }: ComponentProps<'svg'>) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <line x1="18" y1="20" x2="18" y2="10" />
@@ -575,7 +576,7 @@ export const Star = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -595,7 +596,7 @@ export const ChevronRight = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -619,7 +620,7 @@ export const ExternalLink = ({ className, ...rest }: ComponentProps<'svg'>) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -637,7 +638,7 @@ export const Home = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -657,7 +658,7 @@ export const Pencil = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -677,7 +678,7 @@ export const CodeBracket = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -701,7 +702,7 @@ export const Layers = ({ className, ...rest }: ComponentProps<'svg'>) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <polygon points="12 2 2 7 12 12 22 7 12 2" />
@@ -719,7 +720,7 @@ export const AtSign = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path
@@ -738,7 +739,7 @@ export const Hamburger = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cx('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       {...rest}
     >
       <path

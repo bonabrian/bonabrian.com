@@ -1,11 +1,11 @@
 'use client'
 
 import { Menu } from '@headlessui/react'
-import cx from 'classnames'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
 import { useOnScroll } from '@/hooks'
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
@@ -82,7 +82,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={cx(
+      className={cn(
         'sticky top-0 z-50 h-16 bg-white/90 flex backdrop-blur',
         'dark:bg-gray-900/90',
         isScrolled ? 'shadow-sm' : '',
@@ -90,26 +90,26 @@ const Navigation = () => {
     >
       <Container wide>
         <div
-          className={cx(
+          className={cn(
             'flex flex-1 items-center justify-between h-16 text-sm',
           )}
         >
-          <nav className={cx('flex md:gap-2 items-center')}>
+          <nav className={cn('flex md:gap-2 items-center')}>
             <Link
               href="/"
               aria-label={defaultMetadata.author.name}
-              className={cx('flex items-center px-2')}
+              className={cn('flex items-center px-2')}
             >
-              <Logo className="h-9" />
+              <Logo className={cn('h-9')} />
             </Link>
-            <ul className={cx('hidden sm:flex md:gap-2')}>
+            <ul className={cn('hidden sm:flex md:gap-2')}>
               {navLinks
                 .filter(({ onlyShowOnDropdownMenu }) => !onlyShowOnDropdownMenu)
                 .map(({ path, label }) => (
                   <li key={path}>
                     <Link
                       href={path}
-                      className={cx(
+                      className={cn(
                         'nav-link',
                         (pathname === path || pathname.startsWith(path)) &&
                           'active',
@@ -121,18 +121,18 @@ const Navigation = () => {
                 ))}
             </ul>
           </nav>
-          <ul className={cx('flex items-center')}>
-            <li className={cx('sm:hidden')}>
-              <div className={cx('relative')}>
+          <ul className={cn('flex items-center')}>
+            <li className={cn('sm:hidden')}>
+              <div className={cn('relative')}>
                 <Menu>
                   {({ open }) => (
                     <>
                       <Menu.Button
                         title="Menu"
                         aria-label="Menu"
-                        className={cx('flex items-center justify-center')}
+                        className={cn('flex items-center justify-center')}
                       >
-                        <Hamburger className={cx('w-5 h-5')} />
+                        <Hamburger className={cn('w-5 h-5')} />
                       </Menu.Button>
                       {open && (
                         <Menu.Items
@@ -141,7 +141,7 @@ const Navigation = () => {
                           variants={animation}
                           initial="hide"
                           animate="show"
-                          className={cx(
+                          className={cn(
                             'absolute bg-white shadow p-2 rounded-2xl w-56 right-0 origin-top-right',
                             'dark:bg-gray-800',
                           )}
@@ -151,7 +151,7 @@ const Navigation = () => {
                               {({ active }) => (
                                 <Link
                                   href={path}
-                                  className={cx(
+                                  className={cn(
                                     'nav-link gap-2 my-2',
                                     active ? 'active' : '',
                                   )}

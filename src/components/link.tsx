@@ -1,7 +1,8 @@
-import cx from 'classnames'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import NextLink from 'next/link'
 import { forwardRef } from 'react'
+
+import cn from '@/lib/cn'
 
 import { ExternalLink } from './icons'
 
@@ -26,13 +27,13 @@ const Link = forwardRef<any, LinkProps>(
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener' : undefined}
         ref={ref}
-        className={cx(className)}
+        className={cn(className)}
         {...rest}
       >
         {children}
         {showExternalLinkIcon && isExternal && (
           <ExternalLink
-            className={cx('w-3 h-3 inline-block ml-0.5 align-middle')}
+            className={cn('w-3 h-3 inline-block ml-0.5 align-middle')}
           />
         )}
       </NextLink>

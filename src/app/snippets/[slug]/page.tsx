@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
@@ -9,6 +8,7 @@ import Mdx from '@/components/mdx'
 import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
 import ShareButton from '@/components/share-button'
+import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { getBaseUrl } from '@/lib/utils'
 
@@ -52,14 +52,14 @@ const SnippetPage = ({ params }: { params: { slug: string } }) => {
       <PageHeader title={title} description={description} />
       <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
       <Container>
-        <div className={cx('prose max-w-full', 'dark:prose-dark')}>
+        <div className={cn('prose max-w-full', 'dark:prose-dark')}>
           <Mdx code={snippet?.body?.code} />
         </div>
         <div
-          className={cx('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
+          className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
         >
           <div
-            className={cx(
+            className={cn(
               'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
               'dark:border-gray-800',
             )}

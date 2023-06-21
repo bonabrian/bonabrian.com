@@ -1,9 +1,9 @@
 'use client'
 
-import cx from 'classnames'
 import { allProjects, type Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
 import Container from './container'
@@ -21,11 +21,11 @@ const HighlightedProjects = () => {
   const projects = getHighlightedProjects()
 
   return (
-    <div className={cx('mb-12')}>
+    <div className={cn('mb-12')}>
       <Container>
-        <h2 className={cx('text-primary-500 font-bold mb-2')}>Projects</h2>
+        <h2 className={cn('text-primary-500 font-bold mb-2')}>Projects</h2>
         <p
-          className={cx(
+          className={cn(
             'mb-4 font-bold text-gray-700 text-xl',
             'md:text-2xl',
             'dark:text-slate-50',
@@ -39,7 +39,7 @@ const HighlightedProjects = () => {
               initial="hide"
               animate="show"
               transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-              className={cx(
+              className={cn(
                 'grid grid-cols-1 auto-cols-fr gap-8 my-4',
                 'md:grid-cols-2 md:my-8',
               )}
@@ -48,17 +48,17 @@ const HighlightedProjects = () => {
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </m.div>
-            <div className={cx('flex justify-center items-center my-4')}>
+            <div className={cn('flex justify-center items-center my-4')}>
               <Link
                 href={routes.PROJECTS}
-                className={cx('button button--rounded button--shadow gap-1')}
+                className={cn('button button--rounded button--shadow gap-1')}
               >
                 See All Projects <ChevronRight />
               </Link>
             </div>
           </>
         ) : (
-          <p className={cx('text-center')}>No highlighted projects found.</p>
+          <p className={cn('text-center')}>No highlighted projects found.</p>
         )}
       </Container>
     </div>

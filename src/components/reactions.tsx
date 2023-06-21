@@ -1,11 +1,11 @@
 'use client'
 
 import type { ReactionType } from '@prisma/client'
-import cx from 'classnames'
 import { m, useAnimationControls } from 'framer-motion'
 import { useEffect } from 'react'
 
 import { useReactions } from '@/hooks'
+import cn from '@/lib/cn'
 import { MAX_REACTIONS_PER_SESSION } from '@/lib/constants'
 
 import Counter from './counter'
@@ -54,7 +54,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
 
   return (
     <m.div
-      className={cx('relative pointer-events-auto flex items-center')}
+      className={cn('relative pointer-events-auto flex items-center')}
       initial={{
         y: 16,
         opacity: 0,
@@ -62,8 +62,8 @@ const Reactions = ({ slug }: ReactionsProps) => {
       }}
       animate={controls}
     >
-      <div className={cx('flex items-center gap-4')}>
-        <div className={cx('flex flex-col items-center gap-2')}>
+      <div className={cn('flex items-center gap-4')}>
+        <div className={cn('flex flex-col items-center gap-2')}>
           <EmojiReaction
             title="Like"
             defaultEmoji="/static/emojis/thumbs-up.png"
@@ -77,7 +77,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
           <Counter count={LIKED} />
         </div>
 
-        <div className={cx('flex flex-col items-center gap-2')}>
+        <div className={cn('flex flex-col items-center gap-2')}>
           <EmojiReaction
             title="Claps"
             defaultEmoji="/static/emojis/clapping-hands.png"
@@ -91,7 +91,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
           <Counter count={CLAPPING} />
         </div>
 
-        <div className={cx('flex flex-col items-center gap-2')}>
+        <div className={cn('flex flex-col items-center gap-2')}>
           <EmojiReaction
             title="Love"
             defaultEmoji="/static/emojis/smiling-face-with-heart-eyes.png"
@@ -105,7 +105,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
           <Counter count={LOVED} />
         </div>
 
-        <div className={cx('flex flex-col items-center gap-2')}>
+        <div className={cn('flex flex-col items-center gap-2')}>
           <EmojiReaction
             title="Think"
             defaultEmoji="/static/emojis/thinking-face.png"

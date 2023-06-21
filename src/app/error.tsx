@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react'
 
+import cn from '@/lib/cn'
+
 interface ErrorProps {
   error: Error
   reset: () => void
@@ -14,7 +16,7 @@ const ErrorPage = ({ error, reset: _reset }: ErrorProps) => {
   }, [error])
 
   return (
-    <div className="flex items-center justify-center">
+    <div className={cn('flex items-center justify-center')}>
       <p>Oh no, something went wrong... maybe refresh?</p>
     </div>
   )

@@ -1,8 +1,9 @@
 'use client'
 
-import cx from 'classnames'
 import type { Project } from 'contentlayer/generated'
 import { useMemo, useState } from 'react'
+
+import cn from '@/lib/cn'
 
 import Container from './container'
 import ProjectCard from './project-card'
@@ -44,12 +45,12 @@ const ProjectList = ({ projects }: ProjectListProps) => {
 
   const renderFilterComponent = () => {
     return (
-      <div className={cx('flex justify-center items-center gap-x-4')}>
+      <div className={cn('flex justify-center items-center gap-x-4')}>
         {categories.map((it) => {
           return (
             <div
               key={it.key}
-              className={cx(
+              className={cn(
                 'px-5 py-2 rounded-full hover:font-medium transition-all ease-in-out duration-100',
                 it.key === category
                   ? 'cursor-default text-white bg-primary-500 pointer-events-none'
@@ -72,7 +73,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
       <div>{renderFilterComponent()}</div>
       {filteredProjects.length ? (
         <div
-          className={cx(
+          className={cn(
             'grid grid-cols-1 auto-cols-fr gap-x-16 gap-y-8 w-full my-8',
             'md:grid-cols-2 md:my-12',
           )}
@@ -82,7 +83,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
           })}
         </div>
       ) : (
-        <p className={cx('text-center py-8')}>No projects found.</p>
+        <p className={cn('text-center py-8')}>No projects found.</p>
       )}
     </Container>
   )

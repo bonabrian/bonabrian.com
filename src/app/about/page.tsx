@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -6,6 +5,7 @@ import Container from '@/components/container'
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { defaultMetadata, getMetadata } from '@/lib/metadata'
 
@@ -22,34 +22,34 @@ const AboutPage = () => {
       <div id="content">
         <Container>
           <div
-            className={cx(
+            className={cn(
               'items-start space-y-2',
               'xl:grid xl:grid-cols-4 xl:gap-x-6 xl:space-y-0',
             )}
           >
             <div
-              className={cx(
+              className={cn(
                 'flex flex-col items-center',
                 'xl:sticky xl:top-24',
               )}
             >
-              <div className={cx('relative w-52 h-52', 'xl:w-64 xl:h-64')}>
+              <div className={cn('relative w-52 h-52', 'xl:w-64 xl:h-64')}>
                 <Image
                   src={defaultMetadata.author.avatar}
                   alt={defaultMetadata.author.name}
-                  className={cx('rounded-full object-cover', 'xl:rounded-xl')}
+                  className={cn('rounded-full object-cover', 'xl:rounded-xl')}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   placeholder="blur"
                   blurDataURL="/static/avatar-blur.png"
                 />
               </div>
-              <div className={cx('flex flex-col items-center py-4')}>
-                <h3 className={cx('text-xl font-bold')}>
+              <div className={cn('flex flex-col items-center py-4')}>
+                <h3 className={cn('text-xl font-bold')}>
                   {defaultMetadata.author.name}
                 </h3>
                 <h4
-                  className={cx(
+                  className={cn(
                     'text-base font-medium text-gray-600',
                     'dark:text-slate-200',
                   )}
@@ -57,40 +57,40 @@ const AboutPage = () => {
                   Full-stack Engineer
                 </h4>
                 <div
-                  className={cx('flex items-center justify-center gap-4 my-2')}
+                  className={cn('flex items-center justify-center gap-4 my-2')}
                 >
                   <Link
                     href={defaultMetadata.author.github}
                     showExternalLinkIcon={false}
-                    className={cx(
+                    className={cn(
                       'hover:text-primary-500 transition-all ease-in-out',
                     )}
                   >
-                    <GitHub className={cx('h-6 w-6')} />
+                    <GitHub className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={defaultMetadata.author.linkedin}
                     showExternalLinkIcon={false}
-                    className={cx(
+                    className={cn(
                       'hover:text-primary-500 transition-all ease-in-out',
                     )}
                   >
-                    <LinkedIn className={cx('h-6 w-6')} />
+                    <LinkedIn className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={`mailto:${defaultMetadata.author.email}`}
                     showExternalLinkIcon={false}
-                    className={cx(
+                    className={cn(
                       'hover:text-primary-500 transition-all ease-in-out',
                     )}
                   >
-                    <Mail className={cx('h-6 w-6')} />
+                    <Mail className={cn('h-6 w-6')} />
                   </Link>
                 </div>
               </div>
             </div>
             <div
-              className={cx(
+              className={cn(
                 'prose max-w-none text-justify',
                 'xl:col-span-3',
                 'dark:prose-dark',

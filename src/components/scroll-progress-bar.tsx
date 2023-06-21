@@ -2,6 +2,8 @@
 
 import { useContext, useEffect, useState } from 'react'
 
+import cn from '@/lib/cn'
+
 import { ScrollContext } from './scroll-observer'
 
 const ScrollProgressBar = () => {
@@ -17,7 +19,7 @@ const ScrollProgressBar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 h-1 z-50 bg-primary-500"
+      className={cn('fixed top-0 left-0 h-1 z-50 bg-primary-500')}
       style={{ width: `${width}%` }}
     />
   )

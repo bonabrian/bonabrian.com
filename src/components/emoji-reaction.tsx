@@ -1,9 +1,10 @@
 'use client'
 
-import cx from 'classnames'
 import { m } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+
+import cn from '@/lib/cn'
 
 type AnimationValue = {
   key: number
@@ -98,7 +99,7 @@ const EmojiReaction = ({
         }
       }}
       onClick={handleClick}
-      className={cx(
+      className={cn(
         'relative cursor-pointer select-none',
         disabled && 'disabled:cursor-not-allowed',
       )}
@@ -113,10 +114,10 @@ const EmojiReaction = ({
             // remove from DOM
             setHistory((current) => current.filter((el) => el.key !== key))
           }}
-          className={cx('w-10 h-10 pointer-events-none select-none absolute')}
+          className={cn('w-10 h-10 pointer-events-none select-none absolute')}
         >
           <Image
-            className={cx('w-full h-full')}
+            className={cn('w-full h-full')}
             alt={title}
             src={animatedEmoji}
             width={48}
@@ -127,9 +128,9 @@ const EmojiReaction = ({
         </m.div>
       ))}
 
-      <m.div className={cx('w-10 h-10 pointer-events-none')} variants={motion}>
+      <m.div className={cn('w-10 h-10 pointer-events-none')} variants={motion}>
         <Image
-          className={cx('w-full h-full')}
+          className={cn('w-full h-full')}
           alt={title}
           src={emoji}
           width={48}

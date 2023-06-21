@@ -1,10 +1,10 @@
 'use client'
 
-import cx from 'classnames'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import { useEndorsements } from '@/hooks'
+import cn from '@/lib/cn'
 import type { SkillCategory } from '@/types'
 
 import Container from './container'
@@ -32,23 +32,23 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
     <Container>
       <div>
         <div
-          className={cx(
+          className={cn(
             'inline-flex flex-col items-start p-6 border-2 border-primary-600 rounded-2xl',
             'dark:border-primary-400',
           )}
         >
           {session?.user ? (
             <>
-              <p className={cx('text-gray-700', 'dark:text-slate-50')}>
+              <p className={cn('text-gray-700', 'dark:text-slate-50')}>
                 You are currently logged in as{' '}
-                <span className={cx('font-semibold')}>{session.user.name}</span>
+                <span className={cn('font-semibold')}>{session.user.name}</span>
               </p>
               {isLoading ? (
                 <Spinner />
               ) : (
                 <Link
                   href="/api/auth/signout"
-                  className={cx('font-semibold underline')}
+                  className={cn('font-semibold underline')}
                   onClick={async (e) => {
                     e.preventDefault()
                     setIsLoading(true)
@@ -63,7 +63,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
           ) : (
             <>
               <h2
-                className={cx(
+                className={cn(
                   'font-semibold text-gray-700',
                   'dark:text-slate-50',
                 )}
@@ -71,7 +71,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
                 Please log in to provide your valuable endorsement.
               </h2>
               <button
-                className={cx(
+                className={cn(
                   'button button--rounded button--shadow px-8 my-4',
                   'disabled:cursor-not-allowed',
                 )}
@@ -81,7 +81,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
                 {isLoading ? <Spinner /> : 'Login'}
               </button>
               <p
-                className={cx(
+                className={cn(
                   'text-xs text-gray-900/60',
                   'dark:text-slate-100/70',
                 )}
@@ -95,11 +95,11 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
         </div>
       </div>
 
-      <div className={cx('mt-12')}>
+      <div className={cn('mt-12')}>
         {endorsements && !error && (
-          <div className={cx('flex flex-col')}>
+          <div className={cn('flex flex-col')}>
             <h3
-              className={cx(
+              className={cn(
                 'font-bold mb-4 text-gray-700 text-xl',
                 'md:text-2xl',
                 'dark:text-slate-50',
@@ -108,7 +108,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
               Skills
             </h3>
             <div
-              className={cx(
+              className={cn(
                 'space-y-8 divide-y divide-slate-200',
                 'dark:divide-gray-800',
               )}
@@ -116,7 +116,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
               {endorsements.map((category) => (
                 <div key={category.name}>
                   <h4
-                    className={cx(
+                    className={cn(
                       'my-4 font-semibold leading-5 text-lg',
                       'md:text-xl',
                     )}
@@ -124,7 +124,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
                     {category.name}
                   </h4>
                   <div
-                    className={cx(
+                    className={cn(
                       'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
                       'md:grid-cols-2',
                     )}

@@ -1,11 +1,11 @@
-import cx from 'classnames'
+import cn from '@/lib/cn'
 
 const Spinner = () => {
   return (
     <div role="status">
       <svg
         aria-hidden="true"
-        className={cx(
+        className={cn(
           'inline w-4 h-4 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary-500',
         )}
         viewBox="0 0 100 101"

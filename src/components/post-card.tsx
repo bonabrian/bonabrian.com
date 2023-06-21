@@ -1,11 +1,11 @@
 'use client'
 
-import cx from 'classnames'
 import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
 import { useView } from '@/hooks'
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { formatDate } from '@/lib/utils'
 
@@ -33,7 +33,7 @@ const PostCard = ({ post }: { post: Post }) => {
 
   return (
     <article
-      className={cx(
+      className={cn(
         'flex flex-col items-stretch flex-nowrap rounded-lg',
         'md:flex-row',
         'dark:shadow-gray-800/40',
@@ -41,17 +41,17 @@ const PostCard = ({ post }: { post: Post }) => {
     >
       <Link
         href={`${routes.BLOG}/${slug}`}
-        className={cx(
+        className={cn(
           'aspect-video w-full relative overflow-hidden bg-no-repeat bg-cover basis-full rounded-lg',
           'md:basis-1/2',
         )}
       >
-        <div className={cx('absolute w-full h-full')} />
+        <div className={cn('absolute w-full h-full')} />
         <Image
           src={image ?? ''}
           alt={title}
           fill
-          className={cx(
+          className={cn(
             'object-cover hover:scale-105 transition duration-500 ease-in-out rounded-t-lg',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -59,14 +59,14 @@ const PostCard = ({ post }: { post: Post }) => {
         />
       </Link>
       <div
-        className={cx(
+        className={cn(
           'basis-full flex flex-col py-8 px-2',
           'md:basis-1/2 md:p-8',
         )}
       >
         <Link href={`${routes.BLOG}/${slug}`}>
           <h2
-            className={cx(
+            className={cn(
               'font-semibold text-xl text-gray-700 mb-2',
               'dark:text-slate-50',
             )}
@@ -74,22 +74,22 @@ const PostCard = ({ post }: { post: Post }) => {
             {title}
           </h2>
         </Link>
-        <p className={cx('mb-4 text-gray-600', 'dark:text-slate-200')}>
+        <p className={cn('mb-4 text-gray-600', 'dark:text-slate-200')}>
           {excerpt}
         </p>
         <div
-          className={cx(
+          className={cn(
             "before:content-[''] before:block before:w-32 before:h-px before:bg-primary-200 before:mb-4",
           )}
         >
           <div
-            className={cx(
+            className={cn(
               'flex flex-row text-xs text-gray-900/60',
               'dark:text-slate-100/70',
             )}
           >
             <div
-              className={cx(
+              className={cn(
                 'flex items-center space-x-1',
                 "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
               )}
@@ -98,7 +98,7 @@ const PostCard = ({ post }: { post: Post }) => {
               <span title={publishedAt.raw}>{publishedAt.formatted}</span>
             </div>
             <div
-              className={cx(
+              className={cn(
                 'flex items-center space-x-1',
                 "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
               )}
@@ -106,7 +106,7 @@ const PostCard = ({ post }: { post: Post }) => {
               <Clock />
               <span title="Estimated read time">{readingTime?.text}</span>
             </div>
-            <div className={cx('flex items-center gap-1')}>
+            <div className={cn('flex items-center gap-1')}>
               <Eye />
               {isLoadViews ? (
                 <Spinner />

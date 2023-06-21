@@ -1,8 +1,9 @@
 'use client'
 
-import cx from 'classnames'
 import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { useRef, useState } from 'react'
+
+import cn from '@/lib/cn'
 
 import { Clipboard } from '../icons'
 
@@ -30,16 +31,16 @@ const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
   }
 
   return (
-    <div className={cx('mdx-code')} data-theme={dataTheme}>
+    <div className={cn('mdx-code')} data-theme={dataTheme}>
       <button
         aria-label="Copy to Clipboard"
         onClick={copyToClipboard}
         type="button"
         title="Copy to Clipboard"
-        className={cx('mdx-code__copy-clipboard')}
+        className={cn('mdx-code__copy-clipboard')}
       >
         <div
-          className={cx(
+          className={cn(
             'mdx-code__copy-clipboard__message',
             copied ? 'copied' : '',
           )}

@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import type { Metadata } from 'next'
 
 import Container from '@/components/container'
@@ -9,6 +8,7 @@ import {
   TotalReactions,
   TotalViews,
 } from '@/components/statistics'
+import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = getMetadata({
@@ -24,7 +24,7 @@ const StatsPage = () => {
       <div id="content">
         <Container>
           <div
-            className={cx(
+            className={cn(
               'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
               'sm:grid-cols-2',
               'lg:grid-cols-3',

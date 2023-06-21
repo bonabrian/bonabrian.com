@@ -1,7 +1,8 @@
 'use client'
 
-import cx from 'classnames'
 import { m } from 'framer-motion'
+
+import cn from '@/lib/cn'
 
 import Container from './container'
 
@@ -18,10 +19,10 @@ const animation = {
 const PageHeader = ({ title, description }: PageHeaderProps) => {
   return (
     <div
-      className={cx('bg-pattern pt-16 pb-12', 'md:pb-16 md:pt-24', 'lg:pt-32')}
+      className={cn('bg-pattern pt-16 pb-12', 'md:pb-16 md:pt-24', 'lg:pt-32')}
     >
       <Container
-        className={cx('pointer-events-none select-none overflow-hidden')}
+        className={cn('pointer-events-none select-none overflow-hidden')}
       >
         <m.div
           initial={animation.hide}
@@ -29,7 +30,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
           transition={{ delay: 0.1 }}
         >
           <h1
-            className={cx(
+            className={cn(
               'font-extrabold text-4xl leading-tight',
               'md:text-5xl md:leading-tight',
               'lg:text-6xl lg:leading-tight',
@@ -44,7 +45,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
             animate={animation.show}
             transition={{ delay: 0.2 }}
           >
-            <p className={cx('mt-4 text-lg', 'md:text-xl')}>{description}</p>
+            <p className={cn('mt-4 text-lg', 'md:text-xl')}>{description}</p>
           </m.div>
         )}
       </Container>

@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import type { Metadata } from 'next'
@@ -6,6 +5,7 @@ import type { Metadata } from 'next'
 import Container from '@/components/container'
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
+import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'
@@ -38,7 +38,7 @@ const SnippetsPage = async () => {
         <Container>
           {snippets.length ? (
             <div
-              className={cx(
+              className={cn(
                 'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
                 'md:grid-cols-2',
                 'lg:grid-cols-3',
@@ -53,13 +53,13 @@ const SnippetsPage = async () => {
                   <Link
                     key={slug}
                     href={`${routes.SNIPPETS}/${slug}`}
-                    className={cx(
+                    className={cn(
                       'flex flex-col justify-between border border-slate-100 rounded-2xl p-6 hover:border-primary-600',
                       'dark:border-gray-800 dark:hover:border-primary-400',
                     )}
                   >
                     <h2
-                      className={cx(
+                      className={cn(
                         'font-semibold text-xl text-gray-700 mb-2',
                         'dark:text-slate-50',
                       )}
@@ -67,7 +67,7 @@ const SnippetsPage = async () => {
                       {title}
                     </h2>
                     <p
-                      className={cx(
+                      className={cn(
                         'mb-4 text-gray-600',
                         'dark:text-slate-200',
                       )}
@@ -75,7 +75,7 @@ const SnippetsPage = async () => {
                       {description}
                     </p>
                     <p
-                      className={cx(
+                      className={cn(
                         'text-xs text-gray-900/60',
                         'dark:text-slate-100/70',
                       )}
@@ -88,7 +88,7 @@ const SnippetsPage = async () => {
               })}
             </div>
           ) : (
-            <p className={cx('text-center')}>No snippets.</p>
+            <p className={cn('text-center')}>No snippets.</p>
           )}
         </Container>
       </div>
