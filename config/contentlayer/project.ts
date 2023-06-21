@@ -2,7 +2,7 @@ import type { ComputedFields } from 'contentlayer/source-files'
 import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 
-import { getBlurData } from './image-metadata'
+import { getBlurData } from './rehype/image-metadata'
 
 const getActualImageUrl = (image?: string) => {
   if (image) {

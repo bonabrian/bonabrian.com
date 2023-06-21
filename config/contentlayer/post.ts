@@ -3,7 +3,7 @@ import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 import removeMarkdown from 'remove-markdown'
 
-import { getBlurData } from './image-metadata'
+import { getBlurData } from './rehype/image-metadata'
 
 const getPostExcerpt = (
   content?: string | null,
