@@ -99,14 +99,16 @@ const experiences: Experience[] = [
       },
     ],
     accomplishments: [
+      'Designed, developed, and maintained high-performance, robust, and scalable server-side applications using Kotlin (Spring) for the back-end, PHP (Laravel) for legacy systems, and JavaScript (Vue) for front-end development.',
       'Collaborated closely with cross-functional teams, including designers, product managers, and stakeholders to ensure seamless integration and implementation of new features.',
-      'Developed a flexible and configurable automation process to streamline business operations.',
-      'Developed and maintaining robust and scalable server-side applications.',
+      'Developed a flexible and configurable loan automation process that efficiently streamlines business operations.',
+      'Developed and maintained APIs that are widely used by our partners, facilitating seamless collaboration and integration with their systems.',
       'Contributed to the development of technical standards, best practices, and design patterns.',
+      'Actively participated in code reviews, providing valuable feedback and ensuring adherence to coding standards, best practices, and quality assurance.',
+      'Conducted comprehensive unit testing on all new features and enhancements.',
       'Resolved technical issues in a timely and efficient manner.',
-      'Conducted thorough unit testing on all new features and enhancements.',
-      'Responsible for performing code reviews.',
       'Deliver delightful UX and performant front-end software.',
+      'Build reusable UI components.',
       'Adhered to an agile methodology for the software development process.',
       'Integrated with various third-party services and APIs, including digital signature, document generation, and payment systems to add additional functionality to applications.',
       'Maintained and updated documentation for the software development process.',
@@ -159,6 +161,7 @@ const experiences: Experience[] = [
       "Conceptualized and designed innovative features to enhance the company's products, providing a competitive advantage and improved user experience.",
       'Mentored and provided guidance to junior developers on best practices, coding standards, and software development methodologies.',
       'Stayed current with emerging technologies and industry trends to continuously improve software systems and capabilities.',
+      'Developed an internal data management application using PHP (Laravel) to effectively handle data-related tasks within the organization.',
     ],
   },
 ]
@@ -209,7 +212,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
   }
 
   const lastUpdated = formatDate({
-    timestamp: '2023-02-03T15:06:00.000Z',
+    timestamp: '2023-06-22T15:47:00.000Z',
     locale: 'en-ID',
   })
 
