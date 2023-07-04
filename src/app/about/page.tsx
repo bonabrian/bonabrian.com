@@ -40,8 +40,7 @@ const AboutPage = () => {
                   className={cn('rounded-full object-cover', 'xl:rounded-xl')}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  placeholder="blur"
-                  blurDataURL="/static/avatar-blur.png"
+                  priority
                 />
               </div>
               <div className={cn('flex flex-col items-center py-4')}>

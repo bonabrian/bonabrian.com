@@ -46,7 +46,7 @@ export const defaultMetadata = {
     github: 'https://github.com/bonabrian',
     linkedin: 'https://www.linkedin.com/in/bonabrian',
     avatar:
-      'https://res.cloudinary.com/bonabrian/image/upload/v1675009995/avatar_davtqo.png',
+      'https://res.cloudinary.com/bonabrian/image/upload/v1688448227/avatar.jpg',
   },
   keywords: [
     'bonabrian',
