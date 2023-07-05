@@ -87,8 +87,8 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
                 )}
               >
                 Your information, including your name and profile picture, will
-                only be utilized for he purpose of properly displaying your
-                identity as an endorser.
+                only be utilized to properly display your identity as an
+                endorser.
               </p>
             </>
           )}
