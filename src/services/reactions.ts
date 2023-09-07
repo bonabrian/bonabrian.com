@@ -15,7 +15,10 @@ interface GetReactionsParams {
 }
 
 const mapReactions = (
-  reactions: (Prisma.PickArray<Prisma.ReactionGroupByOutputType, 'type'[]> & {
+  reactions: (Prisma.PickEnumerable<
+    Prisma.ReactionGroupByOutputType,
+    'type'[]
+  > & {
     _sum: {
       count: number | null
     }
@@ -28,13 +31,16 @@ const mapReactions = (
     THINKING: 0,
   }
 
-  reactions.reduce((acc, { type, _sum }) => {
-    if (type) {
-      records[type as ReactionType] = _sum.count ?? 0
-    }
+  reactions.reduce(
+    (acc, { type, _sum }) => {
+      if (type) {
+        records[type as ReactionType] = _sum.count ?? 0
+      }
 
-    return acc
-  }, {} as Record<ReactionType, number>)
+      return acc
+    },
+    {} as Record<ReactionType, number>,
+  )
 
   return records
 }
