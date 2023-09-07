@@ -103,9 +103,7 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
           <div className={cn('mt-16 flex items-center text-sm gap-1')}>
             Tags:
             <div className={cn('flex flex-wrap gap-1')}>
-              {tags?.map((tag) => (
-                <Tag key={tag} tag={tag} />
-              ))}
+              {tags?.map((tag) => <Tag key={tag} tag={tag} />)}
             </div>
           </div>
         )}
