@@ -103,4 +103,4 @@ import { allPosts, allProjects, allSnippets } from './../.contentlayer/generated
   })
 
   writeFileSync('./public/sitemap.xml', formatted)
-})()
+}).toString()
