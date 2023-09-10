@@ -34,8 +34,8 @@ const Reactions = ({ slug }: ReactionsProps) => {
     }
   }, [controls, loading])
 
-  const userReactions = reactions?.user.reactions
-  const contentReactions = reactions?.content.reactions
+  const userReactions = reactions?.user?.reactions
+  const contentReactions = reactions?.content?.reactions
 
   const {
     LIKED = 0,
