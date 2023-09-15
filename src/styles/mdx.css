@@ -60,7 +60,7 @@
               @apply w-full border-l-4 border-l-transparent pl-3 pr-3;
 
               &.line--highlighted {
-                @apply border-l-primary-400 bg-gray-200/40;
+                @apply bg-gray-200/40;
                 @apply dark:bg-gray-700/50;
               }
             }
@@ -86,8 +86,8 @@
         @apply dark:text-slate-200 dark:bg-gray-900 dark:border-gray-700;
 
         &__message {
-          @apply pointer-events-none bg-primary-200 text-primary-600 absolute right-10 -mr-1 w-16 translate-x-2 rounded-md px-2 py-1 text-xs font-bold transition opacity-0;
-          @apply dark:bg-primary-100;
+          @apply pointer-events-none absolute right-10 -mr-1 w-16 translate-x-2 rounded-md px-2 py-1 text-xs font-bold transition opacity-0;
+          /* @apply dark:bg-primary-100; */
 
           &.copied {
             @apply translate-x-0 opacity-100;

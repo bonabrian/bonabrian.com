@@ -19,7 +19,7 @@ const ScrollProgressBar = () => {
 
   return (
     <div
-      className={cn('fixed top-0 left-0 h-1 z-50 bg-primary-500')}
+      className={cn('fixed top-0 left-0 h-1 z-50')}
       style={{ width: `${width}%` }}
     />
   )

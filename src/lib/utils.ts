@@ -6,6 +6,9 @@ type FormatDateProps = {
   day?: 'numeric' | '2-digit'
 }
 
+export const ariaAttr = (condition: boolean | undefined) =>
+  condition ? true : undefined
+
 export const unique = <T, Key extends keyof T>(
   array: Array<T> | T[],
   property?: Key,

@@ -172,14 +172,10 @@ const Available = () => {
       <span className={cn('relative flex h-2 w-2')}>
         <span
           className={cn(
-            'bg-primary-600 absolute -top-1 -left-1 inline-flex h-4 w-4 animate-ping rounded-full opacity-75',
+            'absolute -top-1 -left-1 inline-flex h-4 w-4 animate-ping rounded-full opacity-75',
           )}
         />
-        <span
-          className={cn(
-            'bg-primary-500 relative inline-flex h-2 w-2 rounded-full',
-          )}
-        />
+        <span className={cn('relative inline-flex h-2 w-2 rounded-full')} />
       </span>
       Available for Hire
     </div>

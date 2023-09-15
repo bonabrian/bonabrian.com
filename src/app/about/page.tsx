@@ -61,27 +61,21 @@ const AboutPage = () => {
                   <Link
                     href={defaultMetadata.author.github}
                     showExternalLinkIcon={false}
-                    className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
-                    )}
+                    className={cn('transition-all ease-in-out')}
                   >
                     <GitHub className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={defaultMetadata.author.linkedin}
                     showExternalLinkIcon={false}
-                    className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
-                    )}
+                    className={cn('transition-all ease-in-out')}
                   >
                     <LinkedIn className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={`mailto:${defaultMetadata.author.email}`}
                     showExternalLinkIcon={false}
-                    className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
-                    )}
+                    className={cn('transition-all ease-in-out')}
                   >
                     <Mail className={cn('h-6 w-6')} />
                   </Link>

@@ -60,7 +60,7 @@ const iconLinks = [
 
 const Footer = () => {
   return (
-    <footer className={cn('bg-pattern border-primary-500 mt-24 pt-16 text-sm')}>
+    <footer className={cn('bg-pattern mt-24 pt-16 text-sm')}>
       <Container>
         <nav
           className={cn(
@@ -88,9 +88,7 @@ const Footer = () => {
                 href={url}
                 showExternalLinkIcon={false}
                 title={title}
-                className={cn(
-                  'hover:text-primary-500 transition-all ease-in-out duration-150',
-                )}
+                className={cn('transition-all ease-in-out duration-150')}
               >
                 <Icon className={cn('w-5 h-5')} />
               </Link>
@@ -101,10 +99,7 @@ const Footer = () => {
           <NowPlaying />
           <div className={cn('flex items-center py-8 space-x-2')}>
             <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
-            <Link
-              href="/"
-              className={cn('font-semibold hover:text-primary-500')}
-            >
+            <Link href="/" className={cn('font-semibold')}>
               {defaultMetadata.author.name}
             </Link>
           </div>

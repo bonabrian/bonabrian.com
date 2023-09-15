@@ -79,7 +79,7 @@ const PostCard = ({ post }: { post: Post }) => {
         </p>
         <div
           className={cn(
-            "before:content-[''] before:block before:w-32 before:h-px before:bg-primary-200 before:mb-4",
+            "before:content-[''] before:block before:w-32 before:h-px before:mb-4",
           )}
         >
           <div

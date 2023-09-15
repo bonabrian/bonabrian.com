@@ -171,8 +171,7 @@ const HeaderTitle = () => {
         transition={{ delay: 0.1 }}
       >
         <span>
-          Hi, I'm{' '}
-          <span className={cn('text-primary-500')}>Bona Brian Siagian</span>
+          Hi, I'm <span className={cn('')}>Bona Brian Siagian</span>
         </span>
         <span className={cn('')}>Fullstack Engineer</span>
       </m.h1>

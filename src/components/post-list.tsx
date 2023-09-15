@@ -46,7 +46,7 @@ const PostList = ({ posts }: PostListProps) => {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search posts"
           className={cn(
-            'block w-full px-12 py-4 border bg-white text-sm border-slate-100 focus:border-primary-500 focus:ring-primary-500 rounded-full transition ease-in-out duration-200',
+            'block w-full px-12 py-4 border bg-white text-sm border-slate-100 rounded-full transition ease-in-out duration-200',
             'dark:border-gray-800 dark:bg-gray-900',
           )}
         />

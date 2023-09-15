@@ -23,6 +23,7 @@ import {
 } from './icons'
 import Link from './link'
 import ThemeSwitch from './theme-switch'
+import { Button } from './ui'
 
 interface NavLink {
   path: string
@@ -83,18 +84,18 @@ const Navigation = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 h-16 bg-white/90 flex backdrop-blur',
-        'dark:bg-gray-900/90',
+        'sticky top-0 z-50 h-16 bg-background/90 flex saturate-110 backdrop-blur-[10px]',
+        '',
         isScrolled ? 'shadow-sm' : '',
       )}
     >
       <Container wide>
-        <div
+        <nav
           className={cn(
             'flex flex-1 items-center justify-between h-16 text-sm',
           )}
         >
-          <nav className={cn('flex md:gap-2 items-center')}>
+          <div className={cn('flex md:gap-2 items-center')}>
             <Link
               href="/"
               aria-label={defaultMetadata.author.name}
@@ -102,7 +103,7 @@ const Navigation = () => {
             >
               <Logo className={cn('h-9')} />
             </Link>
-            <ul className={cn('hidden sm:flex md:gap-2')}>
+            <ul className={cn('hidden sm:flex md:gap-1')}>
               {navLinks
                 .filter(({ onlyShowOnDropdownMenu }) => !onlyShowOnDropdownMenu)
                 .map(({ path, label }) => (
@@ -120,7 +121,7 @@ const Navigation = () => {
                   </li>
                 ))}
             </ul>
-          </nav>
+          </div>
           <ul className={cn('flex items-center')}>
             <li className={cn('sm:hidden')}>
               <div className={cn('relative')}>
@@ -130,9 +131,14 @@ const Navigation = () => {
                       <Menu.Button
                         title="Menu"
                         aria-label="Menu"
-                        className={cn('flex items-center justify-center')}
+                        htmlType="button"
+                        variant="ghost"
+                        className={cn(
+                          'w-9 h-9 p-0 flex items-center justify-center',
+                        )}
+                        as={Button}
                       >
-                        <Hamburger className={cn('w-5 h-5')} />
+                        <Hamburger className={cn('')} />
                       </Menu.Button>
                       {open && (
                         <Menu.Items
@@ -142,8 +148,7 @@ const Navigation = () => {
                           initial="hide"
                           animate="show"
                           className={cn(
-                            'absolute bg-white shadow p-2 rounded-2xl w-56 right-0 origin-top-right',
-                            'dark:bg-gray-800',
+                            'absolute bg-popover shadow-sm p-1 rounded-md w-56 right-0 origin-top-right',
                           )}
                         >
                           {navLinks.map(({ path, label, icon }) => (
@@ -152,7 +157,7 @@ const Navigation = () => {
                                 <Link
                                   href={path}
                                   className={cn(
-                                    'nav-link gap-2 my-2',
+                                    'nav-link gap-2 my-0.5',
                                     active ? 'active' : '',
                                   )}
                                 >
@@ -173,7 +178,7 @@ const Navigation = () => {
               <ThemeSwitch />
             </li>
           </ul>
-        </div>
+        </nav>
       </Container>
     </header>
   )

@@ -46,8 +46,8 @@ const Tag = ({ tag }: { tag: string }) => {
     <Link
       href={`/tags/${kebabCase(tag)}`}
       className={cn(
-        'inline-flex h-6 gap-1 px-2 text-xs font-medium bg-primary-100 text-primary-600 rounded-full leading-6',
-        'dark:bg-primary-600/20 dark:text-primary-300',
+        'inline-flex h-6 gap-1 px-2 text-xs font-medium rounded-full leading-6',
+        '',
       )}
     >
       #{tag}

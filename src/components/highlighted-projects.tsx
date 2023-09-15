@@ -23,7 +23,7 @@ const HighlightedProjects = () => {
   return (
     <div className={cn('mb-12')}>
       <Container>
-        <h2 className={cn('text-primary-500 font-bold mb-2')}>Projects</h2>
+        <h2 className={cn('font-bold mb-2')}>Projects</h2>
         <p
           className={cn(
             'mb-4 font-bold text-gray-700 text-xl',

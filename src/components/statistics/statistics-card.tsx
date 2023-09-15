@@ -22,9 +22,9 @@ const Box = ({
   return (
     <div
       className={cn(
-        'flex flex-row items-center relative p-4 border-2 rounded-2xl border-slate-100 hover:border-primary-600',
+        'flex flex-row items-center relative p-4 border-2 rounded-2xl border-slate-100',
         'sm:flex-col sm:items-start',
-        'dark:border-gray-800 dark:hover:border-primary-400',
+        'dark:border-gray-800',
       )}
     >
       {link ? (

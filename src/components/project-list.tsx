@@ -53,7 +53,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
               className={cn(
                 'px-5 py-2 rounded-full hover:font-medium transition-all ease-in-out duration-100',
                 it.key === category
-                  ? 'cursor-default text-white bg-primary-500 pointer-events-none'
+                  ? 'cursor-default text-white pointer-events-none'
                   : 'cursor-pointer',
               )}
               onClick={() => filter(it.key)}

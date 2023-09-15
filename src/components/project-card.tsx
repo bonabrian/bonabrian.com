@@ -9,7 +9,7 @@ import Link from './link'
 
 const getProjectCategoryClasses = (category: string): string => {
   if (category === 'personal') {
-    return 'bg-primary-100 text-primary-600 dark:bg-primary-600/20 dark:text-primary-300'
+    return ''
   }
 
   return 'bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-300'

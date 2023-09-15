@@ -739,7 +739,7 @@ export const Hamburger = ({ className, ...rest }: ComponentProps<'svg'>) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cn('w-4 h-4', className)}
+      className={cn('w-5 h-5', className)}
       {...rest}
     >
       <path

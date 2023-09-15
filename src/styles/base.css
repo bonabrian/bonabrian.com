@@ -1,6 +1,52 @@
 @tailwind base;
 
 @layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --primary: 255 100% 76%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --popover: 0, 0%, 98%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --card: 0, 0%, 98%;
+    --card-foreground: 240 10% 3.9%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --primary: 265 100% 87%;
+    --primary-foreground: 0 0% 20%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+  }
+
   html {
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
@@ -18,8 +64,7 @@
   }
 
   body {
-    @apply bg-white text-gray-900;
-    @apply dark:bg-gray-900 dark:text-slate-100 dark:[color-scheme:dark];
+    @apply antialiased bg-background text-foreground;
   }
 
   main {

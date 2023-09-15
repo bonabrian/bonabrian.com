@@ -2,13 +2,10 @@
 
 @layer components {
   .nav-link {
-    @apply flex items-center gap-1 mx-2 text-gray-600 font-semibold;
-    @apply dark:text-slate-200;
-
-    &.active,
-    &:hover {
-      @apply text-primary-600;
-      @apply dark:text-primary-400;
+    @apply flex items-center gap-1 mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2;
+    @apply hover:bg-accent hover:text-foreground;
+    &.active {
+      @apply bg-accent text-foreground;
     }
   }
 
@@ -16,8 +13,8 @@
     @apply relative z-0;
 
     &::before {
-      @apply grid-pattern-slate-200/50 absolute inset-0 z-[-1] content-[''];
-      @apply dark:grid-pattern-gray-800/50;
+      @apply grid-pattern-black/5 absolute inset-0 z-[-1] content-[''];
+      @apply dark:grid-pattern-white/5;
       mask-image: linear-gradient(transparent, black, transparent);
     }
   }
@@ -35,7 +32,7 @@
     }
 
     &:hover {
-      @apply bg-primary-500 text-gray-900;
+      /* @apply bg-primary-500 text-gray-900; */
     }
   }
 

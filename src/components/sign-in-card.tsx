@@ -99,7 +99,7 @@ const SignInCard = ({
                   <button
                     type="button"
                     className={cn(
-                      'inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500',
+                      'inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
                     )}
                     onClick={() => setIsOpen(false)}
                   >

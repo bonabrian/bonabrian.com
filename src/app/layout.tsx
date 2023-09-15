@@ -1,11 +1,16 @@
 import '@/styles/app.css'
 
-import { Poppins } from 'next/font/google'
+import { Fira_Code as FiraCode, Poppins } from 'next/font/google'
 
 import Analytics from '@/components/analytics'
 import Footer from '@/components/footer'
 import Navigation from '@/components/navigation'
 import Providers from '@/components/providers'
+import cn from '@/lib/cn'
+
+interface RootLayoutProps {
+  children: React.ReactNode
+}
 
 const fontSans = Poppins({
   subsets: ['latin'],
@@ -14,13 +19,18 @@ const fontSans = Poppins({
   display: 'swap',
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const firaCode = FiraCode({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+})
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" suppressHydrationWarning className={fontSans.variable}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(fontSans.variable, firaCode.variable)}
+    >
       <body>
         <Providers>
           <div id="__app">
@@ -34,3 +44,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

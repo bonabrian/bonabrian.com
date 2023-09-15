@@ -33,8 +33,8 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
       <div>
         <div
           className={cn(
-            'inline-flex flex-col items-start p-6 border-2 border-primary-600 rounded-2xl',
-            'dark:border-primary-400',
+            'inline-flex flex-col items-start p-6 border-2 rounded-2xl',
+            '',
           )}
         >
           {session?.user ? (
