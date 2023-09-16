@@ -3,7 +3,7 @@ import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
-import PostList from '@/components/post-list'
+import Posts from '@/components/posts'
 import { getMetadata } from '@/lib/metadata'
 
 const posts = allPosts
@@ -36,7 +36,7 @@ const BlogPage = async () => {
       />
 
       <div id="content">
-        <PostList posts={posts} />
+        <Posts posts={posts} />
       </div>
     </>
   )

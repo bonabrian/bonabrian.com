@@ -8,8 +8,9 @@ import cn from '@/lib/cn'
 import Container from './container'
 import { Search } from './icons'
 import PostCard from './post-card'
+import { Input } from './ui'
 
-interface PostListProps {
+interface PostsProps {
   posts: Array<Post>
 }
 
@@ -30,7 +31,7 @@ const filterPosts = (
   return filteredPosts
 }
 
-const PostList = ({ posts }: PostListProps) => {
+const Posts = ({ posts }: PostsProps) => {
   const [search, setSearch] = useState('')
   const filteredPosts = useMemo(() => {
     return filterPosts(posts, search)
@@ -38,27 +39,25 @@ const PostList = ({ posts }: PostListProps) => {
 
   const renderSearchComponent = () => {
     return (
-      <div className={cn('relative w-full flex items-center', 'md:max-w-lg')}>
-        <input
-          aria-label="Search"
+      <div className={cn('relative')}>
+        <Input
+          aria-label="Search posts"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search posts"
-          className={cn(
-            'block w-full px-12 py-4 border bg-white text-sm border-slate-100 rounded-full transition ease-in-out duration-200',
-            'dark:border-gray-800 dark:bg-gray-900',
-          )}
+          className="pl-12"
         />
-        <Search className={cn('absolute text-gray-400 left-4 w-5 h-5')} />
+        <Search
+          className={cn('absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5')}
+        />
       </div>
     )
   }
 
   return (
     <Container>
-      <div>{renderSearchComponent()}</div>
-
+      {renderSearchComponent()}
       {filteredPosts.length ? (
         <div className={cn('flex flex-col gap-8 my-8', 'md:my-12')}>
           {filteredPosts.map((post) => (
@@ -72,4 +71,4 @@ const PostList = ({ posts }: PostListProps) => {
   )
 }
 
-export default PostList
+export default Posts

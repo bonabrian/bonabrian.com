@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 
-import PostList from '@/components/post-list'
+import Posts from '@/components/posts'
 import { getMetadata } from '@/lib/metadata'
 import { kebabCase } from '@/lib/utils'
 
@@ -31,7 +31,7 @@ const TagPage = ({ params }: { params: { tag: string } }) => {
       post.tags?.map((t) => kebabCase(t)?.includes(tag) && post.published),
   )
 
-  return <PostList posts={posts} />
+  return <Posts posts={posts} />
 }
 
 export default TagPage
