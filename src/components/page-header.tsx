@@ -45,7 +45,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
             animate={animation.show}
             transition={{ delay: 0.2 }}
           >
-            <p className={cn('mt-4 text-lg', 'md:text-xl')}>{description}</p>
+            <p className={cn('mt-4 text-lg')}>{description}</p>
           </m.div>
         )}
       </Container>
