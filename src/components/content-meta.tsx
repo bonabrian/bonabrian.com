@@ -8,8 +8,7 @@ import { formatDate } from '@/lib/utils'
 
 import { Calendar, Clock, Eye } from './icons'
 import IncrementCounter from './increment-counter'
-import Spinner from './spinner'
-import { Container } from './ui'
+import { Container, Spinner } from './ui'
 
 interface ContentMetaProps {
   timestamp: string

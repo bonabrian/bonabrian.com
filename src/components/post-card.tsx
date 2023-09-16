@@ -13,7 +13,7 @@ import { formatDate } from '@/lib/utils'
 import { Clock, Eye } from './icons'
 import IncrementCounter from './increment-counter'
 import Link from './link'
-import Spinner from './spinner'
+import { Spinner } from './ui'
 
 type LayoutOption = 'list' | 'grid'
 

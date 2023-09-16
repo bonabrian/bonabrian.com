@@ -10,7 +10,7 @@ import { defaultMetadata } from '@/lib/metadata'
 import type { Skill } from '@/types'
 
 import { Check, CheckBadge, ExclamationCircle, Heart } from './icons'
-import Spinner from './spinner'
+import { Spinner } from './ui'
 
 interface EndorsementsBadgeProps {
   skill: Skill

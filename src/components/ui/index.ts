@@ -5,5 +5,15 @@ import Divider from './divider'
 import EmptyState from './empty-state'
 import Input from './input'
 import Section from './section'
+import Spinner from './spinner'
 
-export { Button, Container, Counter, Divider, EmptyState, Input, Section }
+export {
+  Button,
+  Container,
+  Counter,
+  Divider,
+  EmptyState,
+  Input,
+  Section,
+  Spinner,
+}

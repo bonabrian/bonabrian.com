@@ -9,8 +9,7 @@ import type { SkillCategory } from '@/types'
 
 import EndorsementsBadge from './endorsements-badge'
 import Link from './link'
-import Spinner from './spinner'
-import { Container } from './ui'
+import { Container, Spinner } from './ui'
 
 interface EndorsementsProps {
   fallbackData: Array<SkillCategory>
