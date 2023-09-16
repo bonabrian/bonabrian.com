@@ -7,7 +7,7 @@ import { ariaAttr } from '@/lib/utils'
 export type HTMLButtonType = 'button' | 'submit' | 'reset'
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center appearance-none select-none whitespace-nowrap align-middle outline-none outline-offset-2 leading-tight rounded-md font-semibold transition-common duration-normal disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none -tracking-tighter text-sm',
+  'relative inline-flex items-center justify-center appearance-none select-none whitespace-nowrap align-middle outline-none outline-offset-2 leading-tight rounded-md font-semibold transition-all duration-normal disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none -tracking-tighter text-sm',
   {
     variants: {
       variant: {
@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         outline:
-          'border border-primary text-primary hover:bg-primary hover:text-primary-foreground',
+          'bg-background border border-secondary-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] hover:bg-primary hover:text-primary-foreground',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'underline-offset-4 hover:underline text-primary',
       },
@@ -43,7 +43,7 @@ type ButtonContentProps = Pick<ButtonProps, 'children'>
 
 const ButtonContent = ({ children }: ButtonContentProps) => children
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant,
@@ -72,3 +72,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     )
   },
 )
+
+export default Button
