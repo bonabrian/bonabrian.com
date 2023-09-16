@@ -21,7 +21,7 @@ import {
   VueJs,
 } from './icons'
 import Link from './link'
-import { Button, Container } from './ui'
+import { Button, Container, Tooltip } from './ui'
 
 interface Stack {
   title: string
@@ -137,17 +137,17 @@ const TechStack = () => {
         className={cn('flex gap-2 flex-wrap')}
       >
         {stack.map(({ title, colorClass, icon }) => (
-          <m.div
-            className={cn(
-              'transition duration-200 text-muted-foreground',
-              colorClass,
-            )}
-            title={title}
-            variants={animation}
-            key={title}
-          >
-            {icon}
-          </m.div>
+          <Tooltip key={title} title={title}>
+            <m.div
+              className={cn(
+                'transition duration-200 text-muted-foreground',
+                colorClass,
+              )}
+              variants={animation}
+            >
+              {icon}
+            </m.div>
+          </Tooltip>
         ))}
       </m.div>
     </div>
