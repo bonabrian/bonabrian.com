@@ -13,6 +13,7 @@ import {
   MySQL,
   NextJs,
   PHP,
+  RabbitMq,
   ReactJs,
   Redis,
   Spring,
@@ -84,6 +85,11 @@ const stack: Stack[] = [
     title: 'Redis',
     colorClass: 'hover:text-[#DC382D]',
     icon: <Redis className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'RabbitMQ',
+    colorClass: 'hover:text-[#FF6600]',
+    icon: <RabbitMq className={cn('w-6 h-6')} />,
   },
   {
     title: 'MySQL',
