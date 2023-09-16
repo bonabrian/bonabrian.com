@@ -1,6 +1,7 @@
 'use client'
 
 import type { Project } from 'contentlayer/generated'
+import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
 import cn from '@/lib/cn'
@@ -24,6 +25,11 @@ const filterProjects = (
     : projects?.filter((it: Project) => it[filterKey] === filterValue)
 
   return filteredProjects
+}
+
+const animation = {
+  hide: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 },
 }
 
 const Projects = ({ projects }: ProjectsProps) => {
@@ -78,8 +84,17 @@ const Projects = ({ projects }: ProjectsProps) => {
             'md:grid-cols-2 md:my-12',
           )}
         >
-          {filteredProjects.map((project) => {
-            return <ProjectCard key={project.slug} project={project} />
+          {filteredProjects.map((project, index) => {
+            return (
+              <m.div
+                key={`${project.slug}.${category}}`}
+                initial={animation.hide}
+                animate={animation.show}
+                transition={{ duration: 0.2, delay: index * 0.1 }}
+              >
+                <ProjectCard project={project} />
+              </m.div>
+            )
           })}
         </div>
       ) : (
