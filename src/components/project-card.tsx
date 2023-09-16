@@ -35,13 +35,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div
       className={cn(
-        'group flex flex-col h-full min-w-0 break-words rounded-lg bg-card',
+        'group flex flex-col h-full min-w-0 break-words rounded-md bg-card',
       )}
     >
       <Link
         href={projectUrl}
         showExternalLinkIcon={false}
-        className={cn('aspect-video relative rounded-t-lg overflow-hidden')}
+        className={cn('aspect-video relative rounded-t-md overflow-hidden')}
       >
         <div className={cn('absolute w-full h-full')} />
         <Image
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={title}
           fill
           className={cn(
-            'object-cover rounded-t-lg group-hover:scale-105 transition duration-200 ease-in-out',
+            'object-cover rounded-t-md group-hover:scale-105 transition duration-200 ease-in-out',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
