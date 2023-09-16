@@ -1,14 +1,6 @@
 @tailwind components;
 
 @layer components {
-  .nav-link {
-    @apply flex items-center gap-1 mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2;
-    @apply hover:bg-accent hover:text-accent-foreground;
-    &.active {
-      @apply bg-accent text-accent-foreground;
-    }
-  }
-
   .bg-pattern {
     @apply relative z-0;
 

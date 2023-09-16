@@ -110,9 +110,10 @@ const Navigation = () => {
                     <Link
                       href={path}
                       className={cn(
-                        'nav-link',
+                        'flex items-center gap-1 mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2',
+                        'hover:bg-accent hover:text-accent-foreground',
                         (pathname === path || pathname.startsWith(path)) &&
-                          'active',
+                          'bg-accent text-accent-foreground',
                       )}
                     >
                       {label}
@@ -156,8 +157,11 @@ const Navigation = () => {
                                 <Link
                                   href={path}
                                   className={cn(
-                                    'nav-link gap-2 my-0.5',
-                                    active ? 'active' : '',
+                                    'flex items-center mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2 gap-2 my-0.5',
+                                    'hover:bg-accent hover:text-accent-foreground',
+                                    active
+                                      ? 'bg-accent text-accent-foreground'
+                                      : '',
                                   )}
                                 >
                                   {icon}
