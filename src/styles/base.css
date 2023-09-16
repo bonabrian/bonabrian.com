@@ -22,6 +22,8 @@
 
     --card: 0 0% 100%;
     --card-foreground: 202 24% 9%;
+
+    --input: 240 5.9% 90%;
   }
 
   .dark {
@@ -45,6 +47,8 @@
 
     --card: 240 6% 10%;
     --card-foreground: 0 0% 98%;
+
+    --input: 240 3.7% 15.9%;
   }
 
   html {

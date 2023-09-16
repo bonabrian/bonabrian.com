@@ -40,6 +40,7 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        input: 'hsl(var(--input))',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],

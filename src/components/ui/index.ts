@@ -1,4 +1,5 @@
 import Button from './button'
+import Input from './input'
 import Section from './section'
 
-export { Button, Section }
+export { Button, Input, Section }
