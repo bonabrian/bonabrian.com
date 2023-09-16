@@ -33,6 +33,11 @@ const filterPosts = (
   return filteredPosts
 }
 
+const animation = {
+  hide: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 },
+}
+
 const Posts = ({ posts }: PostsProps) => {
   const [search, setSearch] = useState('')
   const [layoutOption, setLayoutOption] = useState<LayoutOption>('list')
@@ -100,9 +105,9 @@ const Posts = ({ posts }: PostsProps) => {
           {filteredPosts.map((post, index) => (
             <m.div
               key={`${post.slug}.${layoutOption}}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              initial={animation.hide}
+              animate={animation.show}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
             >
               <PostCard post={post} layout={layoutOption} />
             </m.div>
