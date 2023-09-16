@@ -10,10 +10,15 @@ interface SectionProps {
 
 const Section = ({ title, subtitle, children }: SectionProps) => {
   return (
-    <div className={cn('mb-12 text-secondary-foreground')}>
+    <div className={cn('mb-12')}>
       <Container>
-        <h2 className={cn('font-bold mb-2')}>{title}</h2>
-        <p className={cn('mb-4 font-bold text-xl', 'md:text-2xl')}>
+        <h2 className={cn('font-bold mb-2 text-primary')}>{title}</h2>
+        <p
+          className={cn(
+            'mb-4 text-secondary-foreground font-bold text-xl',
+            'md:text-2xl',
+          )}
+        >
           {subtitle}
         </p>
         {children}
