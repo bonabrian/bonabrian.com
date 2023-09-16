@@ -8,7 +8,7 @@ import cn from '@/lib/cn'
 import ProjectCard from './project-card'
 import { Container } from './ui'
 
-interface ProjectListProps {
+interface ProjectsProps {
   projects: Array<Project>
 }
 
@@ -26,7 +26,7 @@ const filterProjects = (
   return filteredProjects
 }
 
-const ProjectList = ({ projects }: ProjectListProps) => {
+const Projects = ({ projects }: ProjectsProps) => {
   const [category, setCategory] = useState('')
   const filteredProjects = useMemo(() => {
     return filterProjects(projects, 'category', category)
@@ -45,15 +45,15 @@ const ProjectList = ({ projects }: ProjectListProps) => {
 
   const renderFilterComponent = () => {
     return (
-      <div className={cn('flex justify-center items-center gap-x-4')}>
+      <div className={cn('flex justify-center items-center gap-4')}>
         {categories.map((it) => {
           return (
             <div
               key={it.key}
               className={cn(
-                'px-5 py-2 rounded-full hover:font-medium transition-all ease-in-out duration-100',
+                'px-4 py-1.5 rounded-md transition-all ease-in-out duration-150',
                 it.key === category
-                  ? 'cursor-default text-white pointer-events-none'
+                  ? 'cursor-default pointer-events-none bg-primary text-primary-foreground font-medium'
                   : 'cursor-pointer',
               )}
               onClick={() => filter(it.key)}
@@ -89,4 +89,4 @@ const ProjectList = ({ projects }: ProjectListProps) => {
   )
 }
 
-export default ProjectList
+export default Projects

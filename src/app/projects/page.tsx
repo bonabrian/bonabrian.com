@@ -3,7 +3,7 @@ import { allProjects } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
-import ProjectList from '@/components/project-list'
+import Projects from '@/components/projects'
 import { getMetadata } from '@/lib/metadata'
 
 const projects = allProjects
@@ -33,7 +33,7 @@ const ProjectsPage = async () => {
       />
 
       <div id="content">
-        <ProjectList projects={projects} />
+        <Projects projects={projects} />
       </div>
     </>
   )
