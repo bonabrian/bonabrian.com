@@ -7,7 +7,7 @@ import cn from '@/lib/cn'
 
 import { Search } from './icons'
 import PostCard from './post-card'
-import { Container, Input } from './ui'
+import { Container, EmptyState, Input } from './ui'
 
 interface PostsProps {
   posts: Array<Post>
@@ -64,7 +64,9 @@ const Posts = ({ posts }: PostsProps) => {
           ))}
         </div>
       ) : (
-        <p className={cn('text-center my-4', 'md:my-8')}>No posts.</p>
+        <EmptyState
+          message={`No posts for "${search}". Try searching another keyword.`}
+        />
       )}
     </Container>
   )

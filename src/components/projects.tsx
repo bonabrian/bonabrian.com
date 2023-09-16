@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import cn from '@/lib/cn'
 
 import ProjectCard from './project-card'
-import { Container } from './ui'
+import { Container, EmptyState } from './ui'
 
 interface ProjectsProps {
   projects: Array<Project>
@@ -83,7 +83,7 @@ const Projects = ({ projects }: ProjectsProps) => {
           })}
         </div>
       ) : (
-        <p className={cn('text-center py-8')}>No projects found.</p>
+        <EmptyState message="No projects found." />
       )}
     </Container>
   )

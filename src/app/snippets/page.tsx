@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
-import { Container } from '@/components/ui'
+import { Container, EmptyState } from '@/components/ui'
 import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { getMetadata } from '@/lib/metadata'
@@ -88,7 +88,7 @@ const SnippetsPage = async () => {
               })}
             </div>
           ) : (
-            <p className={cn('text-center')}>No snippets.</p>
+            <EmptyState message="No snippets." />
           )}
         </Container>
       </div>

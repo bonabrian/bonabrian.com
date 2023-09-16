@@ -6,7 +6,7 @@ import { routes } from '@/lib/constants'
 import { ChevronRight } from './icons'
 import Link from './link'
 import PostCard from './post-card'
-import { Button, Section } from './ui'
+import { Button, EmptyState, Section } from './ui'
 
 const getRecentPosts = (maxDisplay: number = 2) =>
   allPosts
@@ -35,7 +35,7 @@ const RecentPosts = () => {
           </div>
         </>
       ) : (
-        <p className={cn('text-center my-4', 'md:my-8')}>No recent posts.</p>
+        <EmptyState message="No recent posts." />
       )}
     </Section>
   )

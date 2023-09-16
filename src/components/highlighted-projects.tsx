@@ -9,7 +9,7 @@ import { routes } from '@/lib/constants'
 import { ChevronRight } from './icons'
 import Link from './link'
 import ProjectCard from './project-card'
-import { Button, Section } from './ui'
+import { Button, EmptyState, Section } from './ui'
 
 const getHighlightedProjects = (maxDisplay: number = 4) =>
   allProjects
@@ -46,7 +46,7 @@ const HighlightedProjects = () => {
           </div>
         </>
       ) : (
-        <p className={cn('text-center')}>No highlighted projects found.</p>
+        <EmptyState message="No highlighted projects found." />
       )}
     </Section>
   )
