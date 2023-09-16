@@ -1,3 +1,4 @@
-import { Button } from './button'
+import Button from './button'
+import Section from './section'
 
-export { Button }
+export { Button, Section }
