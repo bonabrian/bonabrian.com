@@ -7,14 +7,6 @@ import { routes } from '@/lib/constants'
 
 import Link from './link'
 
-const getProjectCategoryClasses = (category: string): string => {
-  if (category === 'personal') {
-    return ''
-  }
-
-  return 'bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-300'
-}
-
 const ProjectCard = ({ project }: { project: Project }) => {
   const {
     title,
@@ -43,8 +35,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div
       className={cn(
-        'group flex flex-col h-full min-w-0 break-words border border-slate-100 rounded-lg bg-white',
-        'dark:bg-gray-900 dark:border-gray-800',
+        'group flex flex-col h-full min-w-0 break-words rounded-lg bg-card',
       )}
     >
       <Link
@@ -66,23 +57,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </Link>
       <div className={cn('p-6 flex flex-col')}>
         <Link href={projectUrl} showExternalLinkIcon={false}>
-          <h2
-            className={cn(
-              'font-semibold text-lg text-gray-700 mb-1',
-              'dark:text-slate-50',
-            )}
-          >
+          <h2 className={cn('font-semibold text-lg mb-1 text-card-foreground')}>
             {title}
           </h2>
         </Link>
-        <p className={cn('text-sm mb-4 text-gray-600', 'dark:text-slate-200')}>
+        <p className={cn('text-sm mb-4 text-muted-foreground')}>
           {description}
         </p>
         <div className={cn('flex text-xs font-semibold')}>
           <div
             className={cn(
-              'rounded-full px-2 py-0.5 capitalize',
-              getProjectCategoryClasses(category),
+              'rounded-md px-2 py-1 capitalize bg-accent text-foreground',
             )}
           >
             {category}
