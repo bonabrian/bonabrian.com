@@ -2,22 +2,39 @@
 
 import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
-import { useView } from '@/hooks'
+import { useMediaQuery, useView } from '@/hooks'
 import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
+import { max } from '@/lib/screens'
 import { formatDate } from '@/lib/utils'
 
-import { Calendar, Clock, Eye } from './icons'
+import { Clock, Eye } from './icons'
 import IncrementCounter from './increment-counter'
 import Link from './link'
 import Spinner from './spinner'
 
-const PostCard = ({ post }: { post: Post }) => {
+type LayoutOption = 'list' | 'grid'
+
+interface PostCardProps {
+  post: Post
+  layout?: LayoutOption
+}
+
+const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
+  const isMaxMd = useMediaQuery(max('md'))
+  const [viewOption, setViewOption] = useState<LayoutOption>(layout)
+
   const { slug, title, date, excerpt, readingTime, image, imageMeta } = post
 
   const { views, loading: isLoadViews } = useView({ slug })
+
+  useEffect(() => {
+    isMaxMd ? setViewOption('grid') : setViewOption(layout)
+  }, [isMaxMd, layout])
+
+  const isGridView = viewOption === 'grid'
 
   const extraImageProps = useMemo(() => {
     if (imageMeta?.blur64) {
@@ -34,15 +51,15 @@ const PostCard = ({ post }: { post: Post }) => {
   return (
     <article
       className={cn(
-        'flex flex-col items-stretch flex-nowrap rounded-md bg-card',
-        'md:flex-row',
+        'flex items-stretch flex-nowrap rounded-md bg-card',
+        isGridView ? 'flex-col h-full' : 'flex-row',
+        viewOption,
       )}
     >
       <Link
         href={`${routes.BLOG}/${slug}`}
         className={cn(
-          'aspect-video w-full relative overflow-hidden bg-no-repeat rounded-l-md bg-cover basis-full',
-          'md:basis-1/2',
+          'aspect-video w-full relative overflow-hidden bg-no-repeat rounded-md bg-cover basis-1/2',
         )}
       >
         <div className={cn('absolute w-full h-full')} />
@@ -51,7 +68,7 @@ const PostCard = ({ post }: { post: Post }) => {
           alt={title}
           fill
           className={cn(
-            'object-cover hover:scale-105 transition duration-500 ease-in-out',
+            'object-cover hover:scale-105 transition duration-500 ease-in-out rounded-t-md',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
@@ -63,35 +80,29 @@ const PostCard = ({ post }: { post: Post }) => {
           'md:basis-1/2 md:p-8',
         )}
       >
-        <div
-          className={cn(
-            'flex flex-col',
-            "after:content-[''] after:bg-primary after:block after:w-32 after:h-px",
-          )}
-        >
+        <div className={cn('flex flex-col')}>
           <Link href={`${routes.BLOG}/${slug}`}>
             <h2
-              className={cn('font-semibold text-xl text-card-foreground mb-2')}
+              className={cn('font-semibold text-card-foreground mb-2 text-lg')}
             >
               {title}
             </h2>
           </Link>
           <p className={cn('mb-4 text-muted-foreground')}>{excerpt}</p>
         </div>
-        <div className={cn('flex flex-row text-xs text-secondary-foreground')}>
+        <div className={cn('flex flex-row text-xs text-muted-foreground')}>
           <div
             className={cn(
               'flex items-center space-x-1',
-              "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
+              "after:content-[' '] after:inline-block after:align-middle after:mx-2 after:text-base",
             )}
           >
-            <Calendar className={cn('w-4 h-4')} />
             <span title={publishedAt.raw}>{publishedAt.formatted}</span>
           </div>
           <div
             className={cn(
               'flex items-center space-x-1',
-              "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
+              "after:content-[' '] after:inline-block after:align-middle after:mx-2 after:text-base",
             )}
           >
             <Clock className={cn('w-4 h-4')} />

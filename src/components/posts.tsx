@@ -1,13 +1,16 @@
 'use client'
 
 import type { Post } from 'contentlayer/generated'
+import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import { Search } from './icons'
+import { ListBullets, Search, SquaresFour } from './icons'
 import PostCard from './post-card'
-import { Container, EmptyState, Input } from './ui'
+import { Button, Container, EmptyState, Input } from './ui'
+
+type LayoutOption = 'list' | 'grid'
 
 interface PostsProps {
   posts: Array<Post>
@@ -32,13 +35,18 @@ const filterPosts = (
 
 const Posts = ({ posts }: PostsProps) => {
   const [search, setSearch] = useState('')
+  const [layoutOption, setLayoutOption] = useState<LayoutOption>('list')
+
   const filteredPosts = useMemo(() => {
     return filterPosts(posts, search)
   }, [posts, search])
 
+  const isListView = layoutOption === 'list'
+  const isGridView = layoutOption === 'grid'
+
   const renderSearchComponent = () => {
     return (
-      <div className={cn('relative')}>
+      <div className={cn('relative flex-1')}>
         <Input
           aria-label="Search posts"
           type="text"
@@ -56,11 +64,48 @@ const Posts = ({ posts }: PostsProps) => {
 
   return (
     <Container>
-      {renderSearchComponent()}
+      <div className={cn('flex items-center justify-between gap-4')}>
+        {renderSearchComponent()}
+        <div className={cn('hidden gap-2 px-1', 'md:flex')}>
+          <Button
+            variant="ghost"
+            className={cn(
+              'text-muted-foreground',
+              isListView && 'bg-accent text-accent-foreground',
+            )}
+            onClick={() => setLayoutOption('list')}
+          >
+            <ListBullets />
+          </Button>
+          <Button
+            variant="ghost"
+            className={cn(
+              'text-muted-foreground',
+              isGridView && 'bg-accent text-accent-foreground',
+            )}
+            onClick={() => setLayoutOption('grid')}
+          >
+            <SquaresFour />
+          </Button>
+        </div>
+      </div>
       {filteredPosts.length ? (
-        <div className={cn('flex flex-col gap-8 my-8', 'md:my-12')}>
-          {filteredPosts.map((post) => (
-            <PostCard key={post.slug} post={post} />
+        <div
+          className={cn(
+            'gap-8 my-8',
+            isListView ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2',
+            'md:my-12',
+          )}
+        >
+          {filteredPosts.map((post, index) => (
+            <m.div
+              key={`${post.slug}.${layoutOption}}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <PostCard post={post} layout={layoutOption} />
+            </m.div>
           ))}
         </div>
       ) : (
