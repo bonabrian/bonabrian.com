@@ -5,7 +5,49 @@ import { useMemo } from 'react'
 import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
+import {
+  Android,
+  Bootstrap,
+  JavaScript,
+  JQuery,
+  Kotlin,
+  Laravel,
+  NextJs,
+  PHP,
+  PlanetScale,
+  Prisma,
+  ReactJs,
+  Redis,
+  TailwindCss,
+  TypeScript,
+  VueJs,
+} from './icons'
 import Link from './link'
+import { Tooltip } from './ui'
+
+interface StackProps {
+  [key: string]: JSX.Element
+}
+
+const STACKS: StackProps = {
+  TypeScript: <TypeScript className={cn('text-[#3178C6] w-6 h-6')} />,
+  JavaScript: <JavaScript className={cn('text-[#F7DF1E] w-6 h-6')} />,
+  'Next.js': <NextJs className={cn('text-black dark:text-white w-6 h-6')} />,
+  'React.js': <ReactJs className={cn('text-[#61DAFB] w-6 h-6')} />,
+  'Vue.js': <VueJs className={cn('text-[#4FC08D] w-6 h-6')} />,
+  JQuery: <JQuery className={cn('text-[#0769AD] w-6 h-6')} />,
+  TailwindCSS: <TailwindCss className={cn('text-[#06B6D4] w-6 h-6')} />,
+  Bootstrap: <Bootstrap className={cn('text-[#7952B3] w-6 h-6')} />,
+  Prisma: <Prisma className={cn('text-[#2D3748] dark:text-white w-6 h-6')} />,
+  PlanetScale: (
+    <PlanetScale className={cn('text-black dark:text-white w-6 h-6')} />
+  ),
+  PHP: <PHP className={cn('text-[#777BB4] w-6 h-6')} />,
+  Laravel: <Laravel className={cn('text-[#FF2D20] w-6 h-6')} />,
+  Redis: <Redis className={cn('text-[#DC382D] w-6 h-6')} />,
+  Kotlin: <Kotlin className={cn('text-[#7F52FF] w-6 h-6')} />,
+  Android: <Android className={cn('text-[#3DDC84] w-6 h-6')} />,
+}
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const {
@@ -16,7 +58,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     imageMeta,
     url,
     playStoreUrl,
-    category,
+    stacks,
   } = project
 
   const extraImageProps = useMemo(() => {
@@ -61,18 +103,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {title}
           </h2>
         </Link>
-        <p className={cn('text-sm mb-4 text-muted-foreground')}>
-          {description}
-        </p>
-        <div className={cn('flex text-xs font-semibold')}>
-          <div
-            className={cn(
-              'rounded-md px-2 py-1 capitalize bg-accent text-foreground',
-            )}
-          >
-            {category}
+        <p className={cn('text-sm text-muted-foreground')}>{description}</p>
+        {stacks?.length && (
+          <div className={cn('flex flex-wrap items-center gap-2 mt-4')}>
+            {stacks?.map((stack) => (
+              <Tooltip key={stack} title={stack}>
+                {STACKS[stack]}
+              </Tooltip>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
