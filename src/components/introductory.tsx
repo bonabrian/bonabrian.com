@@ -5,7 +5,6 @@ import { m } from 'framer-motion'
 import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 
-import Container from './container'
 import {
   ChevronRight,
   JavaScript,
@@ -22,7 +21,7 @@ import {
   VueJs,
 } from './icons'
 import Link from './link'
-import { Button } from './ui'
+import { Button, Container } from './ui'
 
 interface Stack {
   title: string

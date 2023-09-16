@@ -2,10 +2,10 @@ import cn from '@/lib/cn'
 import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
-import Container from './container'
 import { GitHub, LinkedIn, RSS } from './icons'
 import Link from './link'
 import NowPlaying from './now-playing'
+import { Container } from './ui'
 
 const footerLinks = [
   [

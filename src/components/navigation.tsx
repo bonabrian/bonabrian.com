@@ -10,7 +10,6 @@ import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
 import Logo from '../../assets/images/logo.svg'
-import Container from './container'
 import {
   AtSign,
   BarChart,
@@ -23,7 +22,7 @@ import {
 } from './icons'
 import Link from './link'
 import ThemeSwitch from './theme-switch'
-import { Button } from './ui'
+import { Button, Container } from './ui'
 
 interface NavLink {
   path: string

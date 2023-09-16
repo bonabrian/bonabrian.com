@@ -5,10 +5,9 @@ import { useMemo, useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import Container from './container'
 import { Search } from './icons'
 import PostCard from './post-card'
-import { Input } from './ui'
+import { Container, Input } from './ui'
 
 interface PostsProps {
   posts: Array<Post>

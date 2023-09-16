@@ -6,10 +6,10 @@ import { useView } from '@/hooks'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-import Container from './container'
 import { Calendar, Clock, Eye } from './icons'
 import IncrementCounter from './increment-counter'
 import Spinner from './spinner'
+import { Container } from './ui'
 
 interface ContentMetaProps {
   timestamp: string

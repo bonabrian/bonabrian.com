@@ -1,6 +1,6 @@
 import cn from '@/lib/cn'
 
-import Container from '../container'
+import Container from './container'
 
 interface SectionProps {
   title: string
