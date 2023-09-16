@@ -5,11 +5,11 @@
     --background: 0 0% 98%;
     --foreground: 240 10% 3.9%;
 
-    --primary: 255 100% 76%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 255 100% 80%;
+    --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -29,10 +29,10 @@
     --foreground: 0 0% 98%;
 
     --primary: 265 100% 87%;
-    --primary-foreground: 0 0% 20%;
+    --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;

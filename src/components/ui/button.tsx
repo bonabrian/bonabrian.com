@@ -7,7 +7,7 @@ import { ariaAttr } from '@/lib/utils'
 export type HTMLButtonType = 'button' | 'submit' | 'reset'
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center appearance-none select-none whitespace-nowrap align-middle outline-none outline-offset-2 leading-tight rounded-md font-semibold transition-common duration-normal disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none',
+  'relative inline-flex items-center justify-center appearance-none select-none whitespace-nowrap align-middle outline-none outline-offset-2 leading-tight rounded-md font-semibold transition-common duration-normal disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none -tracking-tighter text-sm',
   {
     variants: {
       variant: {

@@ -8,16 +8,90 @@ import { routes } from '@/lib/constants'
 import Container from './container'
 import {
   ChevronRight,
+  JavaScript,
   Kotlin,
   Laravel,
+  MySQL,
   NextJs,
   PHP,
   ReactJs,
+  Redis,
   Spring,
   TailwindCss,
   TypeScript,
+  VueJs,
 } from './icons'
 import Link from './link'
+import { Button } from './ui'
+
+interface Stack {
+  title: string
+  colorClass: string
+  icon: JSX.Element
+}
+
+const stack: Stack[] = [
+  {
+    title: 'TypeScript',
+    colorClass: 'hover:text-[#3178C6]',
+    icon: <TypeScript className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Next.js',
+    colorClass: 'hover:text-black dark:hover:text-white',
+    icon: <NextJs className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'React.js',
+    colorClass: 'hover:text-[#61DAFB]',
+    icon: <ReactJs className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Javascript',
+    colorClass: 'hover:text-[#F7DF1E]',
+    icon: <JavaScript className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Vue.js',
+    colorClass: 'hover:text-[#4FC08D]',
+    icon: <VueJs className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Tailwind CSS',
+    colorClass: 'hover:text-[#06B6D4]',
+    icon: <TailwindCss className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Kotlin',
+    colorClass: 'hover:text-[#7F52FF]',
+    icon: <Kotlin className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Spring',
+    colorClass: 'hover:text-[#6DB33F]',
+    icon: <Spring className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'PHP',
+    colorClass: 'hover:text-[#777BB4]',
+    icon: <PHP className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Laravel',
+    colorClass: 'hover:text-[#FF2D20]',
+    icon: <Laravel className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'Redis',
+    colorClass: 'hover:text-[#DC382D]',
+    icon: <Redis className={cn('w-6 h-6')} />,
+  },
+  {
+    title: 'MySQL',
+    colorClass: 'hover:text-[#4479A1]',
+    icon: <MySQL className={cn('w-6 h-6')} />,
+  },
+]
 
 const CallToAction = () => {
   const animation = {
@@ -32,11 +106,10 @@ const CallToAction = () => {
       animate={animation.show}
       transition={{ delay: 0.3 }}
     >
-      <Link
-        href={routes.ABOUT}
-        className={cn('button button--rounded button--shadow gap-1')}
-      >
-        Explore More <ChevronRight />
+      <Link href={routes.ABOUT}>
+        <Button variant="outline">
+          Explore More <ChevronRight />
+        </Button>
       </Link>
     </m.div>
   )
@@ -54,12 +127,9 @@ const TechStack = () => {
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.4 }}
-        className={cn(
-          'text-sm text-gray-900/60 mb-2',
-          'dark:text-slate-100/70',
-        )}
+        className={cn('text-sm text-secondary-foreground mb-2')}
       >
-        Tech Stack
+        Tech Stack and Tools
       </m.p>
       <m.div
         initial="hide"
@@ -67,86 +137,19 @@ const TechStack = () => {
         transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
         className={cn('flex gap-2 flex-wrap')}
       >
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#3178C6]',
-            'dark:text-slate-100/70 dark:hover:text-[#3178c6]',
-          )}
-          title="TypeScript"
-          variants={animation}
-        >
-          <TypeScript className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-black',
-            'dark:text-slate-100/70 dark:hover:text-white',
-          )}
-          title="Next.js"
-          variants={animation}
-        >
-          <NextJs className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#61DAFB]',
-            'dark:text-slate-100/70 dark:hover:text-[#61DAFB]',
-          )}
-          title="React.js"
-          variants={animation}
-        >
-          <ReactJs className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#06B6D4]',
-            'dark:text-slate-100/70 dark:hover:text-[#06B6D4]',
-          )}
-          title="Tailwind CSS"
-          variants={animation}
-        >
-          <TailwindCss className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#7F52FF]',
-            'dark:text-slate-100/70 dark:hover:text-[#7F52FF]',
-          )}
-          title="Kotlin"
-          variants={animation}
-        >
-          <Kotlin className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#6DB33F]',
-            'dark:text-slate-100/70 dark:hover:text-[#6DB33F]',
-          )}
-          title="Spring"
-          variants={animation}
-        >
-          <Spring className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#777BB4]',
-            'dark:text-slate-100/70 dark:hover:text-[#777BB4]',
-          )}
-          title="PHP"
-          variants={animation}
-        >
-          <PHP className={cn('h-6 w-6')} />
-        </m.div>
-        <m.div
-          className={cn(
-            'transition duration-200 text-gray-900/60 hover:text-[#FF2D20]',
-            'dark:text-slate-100/70 dark:hover:text-[#FF2D20]',
-          )}
-          title="Laravel"
-          variants={animation}
-        >
-          <Laravel className={cn('h-6 w-6')} />
-        </m.div>
+        {stack.map(({ title, colorClass, icon }) => (
+          <m.div
+            className={cn(
+              'transition duration-200 text-muted-foreground',
+              colorClass,
+            )}
+            title={title}
+            variants={animation}
+            key={title}
+          >
+            {icon}
+          </m.div>
+        ))}
       </m.div>
     </div>
   )
@@ -171,12 +174,12 @@ const HeaderTitle = () => {
         transition={{ delay: 0.1 }}
       >
         <span>
-          Hi, I'm <span className={cn('')}>Bona Brian Siagian</span>
+          Hi, I'm <span className={cn('text-primary')}>Bona Brian Siagian</span>
         </span>
-        <span className={cn('')}>Fullstack Engineer</span>
+        <span>Fullstack Engineer</span>
       </m.h1>
       <m.p
-        className={cn('text-lg', 'md:text-xl')}
+        className={cn('md:text-xl')}
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.2 }}
