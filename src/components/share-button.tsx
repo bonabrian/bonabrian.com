@@ -11,9 +11,9 @@ import { useShare } from '@/hooks'
 import cn from '@/lib/cn'
 import { getBaseUrl } from '@/lib/utils'
 
-import Counter from './counter'
 import { Link as LinkIcon, Share, Twitter } from './icons'
 import Link from './link'
+import { Counter } from './ui'
 
 interface ShareItemLinkProps extends PropsWithChildren {
   href: string

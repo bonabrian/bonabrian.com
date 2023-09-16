@@ -8,8 +8,8 @@ import { useReactions } from '@/hooks'
 import cn from '@/lib/cn'
 import { MAX_REACTIONS_PER_SESSION } from '@/lib/constants'
 
-import Counter from './counter'
 import EmojiReaction from './emoji-reaction'
+import { Counter } from './ui'
 
 interface ReactionsProps {
   slug: string
