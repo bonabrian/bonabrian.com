@@ -26,15 +26,13 @@ const Counter = ({ count }: CounterProps) => {
   return (
     <div
       className={cn(
-        'relative flex items-center gap-1 h-6 overflow-hidden rounded-full py-1 px-2 bg-slate-100',
-        'dark:bg-gray-700',
+        'relative flex items-center gap-1 h-6 overflow-hidden rounded-full py-1 px-2 bg-accent',
       )}
     >
       {count === 0 ? (
         <span
           className={cn(
-            'flex flex-col font-mono text-sm font-bold text-gray-600',
-            'dark:text-slate-200',
+            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
           )}
         >
           <span className={cn('flex h-5 items-center')}>0</span>
@@ -42,8 +40,7 @@ const Counter = ({ count }: CounterProps) => {
       ) : (
         <m.span
           className={cn(
-            'flex flex-col font-mono text-sm font-bold text-gray-600',
-            'dark:text-slate-200',
+            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
           )}
           animate={controls}
         >
