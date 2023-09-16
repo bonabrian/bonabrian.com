@@ -6,6 +6,7 @@ import EmptyState from './empty-state'
 import Input from './input'
 import Section from './section'
 import Spinner from './spinner'
+import Tooltip from './tooltip'
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   Input,
   Section,
   Spinner,
+  Tooltip,
 }
