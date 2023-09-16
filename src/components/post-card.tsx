@@ -34,15 +34,14 @@ const PostCard = ({ post }: { post: Post }) => {
   return (
     <article
       className={cn(
-        'flex flex-col items-stretch flex-nowrap rounded-lg',
+        'flex flex-col items-stretch flex-nowrap rounded-md bg-card',
         'md:flex-row',
-        'dark:shadow-gray-800/40',
       )}
     >
       <Link
         href={`${routes.BLOG}/${slug}`}
         className={cn(
-          'aspect-video w-full relative overflow-hidden bg-no-repeat bg-cover basis-full rounded-lg',
+          'aspect-video w-full relative overflow-hidden bg-no-repeat rounded-l-md bg-cover basis-full',
           'md:basis-1/2',
         )}
       >
@@ -52,7 +51,7 @@ const PostCard = ({ post }: { post: Post }) => {
           alt={title}
           fill
           className={cn(
-            'object-cover hover:scale-105 transition duration-500 ease-in-out rounded-t-lg',
+            'object-cover hover:scale-105 transition duration-500 ease-in-out',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
@@ -60,62 +59,53 @@ const PostCard = ({ post }: { post: Post }) => {
       </Link>
       <div
         className={cn(
-          'basis-full flex flex-col py-8 px-2',
+          'basis-full flex flex-col py-8 px-2 justify-between',
           'md:basis-1/2 md:p-8',
         )}
       >
-        <Link href={`${routes.BLOG}/${slug}`}>
-          <h2
-            className={cn(
-              'font-semibold text-xl text-gray-700 mb-2',
-              'dark:text-slate-50',
-            )}
-          >
-            {title}
-          </h2>
-        </Link>
-        <p className={cn('mb-4 text-gray-600', 'dark:text-slate-200')}>
-          {excerpt}
-        </p>
         <div
           className={cn(
-            "before:content-[''] before:block before:w-32 before:h-px before:mb-4",
+            'flex flex-col',
+            "after:content-[''] after:bg-primary after:block after:w-32 after:h-px",
           )}
         >
+          <Link href={`${routes.BLOG}/${slug}`}>
+            <h2
+              className={cn('font-semibold text-xl text-card-foreground mb-2')}
+            >
+              {title}
+            </h2>
+          </Link>
+          <p className={cn('mb-4 text-muted-foreground')}>{excerpt}</p>
+        </div>
+        <div className={cn('flex flex-row text-xs text-secondary-foreground')}>
           <div
             className={cn(
-              'flex flex-row text-xs text-gray-900/60',
-              'dark:text-slate-100/70',
+              'flex items-center space-x-1',
+              "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
             )}
           >
-            <div
-              className={cn(
-                'flex items-center space-x-1',
-                "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
-              )}
-            >
-              <Calendar />
-              <span title={publishedAt.raw}>{publishedAt.formatted}</span>
-            </div>
-            <div
-              className={cn(
-                'flex items-center space-x-1',
-                "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
-              )}
-            >
-              <Clock />
-              <span title="Estimated read time">{readingTime?.text}</span>
-            </div>
-            <div className={cn('flex items-center gap-1')}>
-              <Eye />
-              {isLoadViews ? (
-                <Spinner />
-              ) : (
-                <>
-                  <IncrementCounter to={views?.total ?? 0} /> views
-                </>
-              )}
-            </div>
+            <Calendar className={cn('w-4 h-4')} />
+            <span title={publishedAt.raw}>{publishedAt.formatted}</span>
+          </div>
+          <div
+            className={cn(
+              'flex items-center space-x-1',
+              "after:content-['•'] after:inline-block after:align-middle after:mx-2 after:text-base",
+            )}
+          >
+            <Clock className={cn('w-4 h-4')} />
+            <span title="Estimated read time">{readingTime?.text}</span>
+          </div>
+          <div className={cn('flex items-center gap-1')}>
+            <Eye className={cn('w-4 h-4')} />
+            {isLoadViews ? (
+              <Spinner />
+            ) : (
+              <>
+                <IncrementCounter to={views?.total ?? 0} /> views
+              </>
+            )}
           </div>
         </div>
       </div>
