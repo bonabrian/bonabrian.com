@@ -32,7 +32,7 @@ export const ROUTES = {
   snippets: '/snippets',
   endorsements: '/endorsements',
   about: '/about',
-  stats: '/stats',
+  dashboard: '/dashboard',
   resume: '/resume',
 }
 
@@ -63,8 +63,8 @@ export const footerLinks = [
       url: ROUTES.endorsements,
     },
     {
-      title: 'Stats',
-      url: ROUTES.stats,
+      title: 'Dashboard',
+      url: ROUTES.dashboard,
     },
   ],
 ]
@@ -123,8 +123,8 @@ export const navLinks: NavLink[] = [
     icon: <AtSign />,
   },
   {
-    path: ROUTES.stats,
-    label: 'Stats',
+    path: ROUTES.dashboard,
+    label: 'Dashboard',
     icon: <BarChart />,
     onlyShowOnDropdownMenu: true,
   },

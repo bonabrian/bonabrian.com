@@ -12,12 +12,12 @@ import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = getMetadata({
-  title: 'Stats',
+  title: 'Dashboard',
   description: 'Statistics about my digital home, Github, and more',
   keywords: ['statistics', 'stats', 'dashboard', 'github'],
 })
 
-const StatsPage = () => {
+const DashboardPage = () => {
   return (
     <>
       <PageHeader title="Stats" />
@@ -41,4 +41,4 @@ const StatsPage = () => {
   )
 }
 
-export default StatsPage
+export default DashboardPage
