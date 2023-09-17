@@ -6,7 +6,7 @@
 
     &::before {
       @apply grid-pattern-black/5 absolute inset-0 z-[-1] content-[''];
-      @apply dark:grid-pattern-white/10;
+      @apply dark:grid-pattern-white/5;
       mask-image: linear-gradient(transparent, black, transparent);
     }
   }
