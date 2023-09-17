@@ -1,3 +1,4 @@
+export * from './use-available-devices'
 export * from './use-endorsements'
 export * from './use-isomorphic-layout-effect'
 export * from './use-media-query'

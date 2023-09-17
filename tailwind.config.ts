@@ -41,10 +41,12 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         input: 'hsl(var(--input))',
+        spotify: '#1DB954',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         'fira-code': ['var(--font-fira-code)', ...fontFamily.sans],
+        'plus-jakarta': ['var(--font-plus-jakarta)', ...fontFamily.sans],
       },
       keyframes: {
         equalize: {

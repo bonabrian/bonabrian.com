@@ -1,9 +1,11 @@
-import type { NowPlaying } from '@/lib/spotify'
+import type { NowPlaying } from '@/types/spotify'
 
 import { useRequest } from './use-request'
 
 export const useNowPlaying = () => {
-  const { data, loading, error } = useRequest<NowPlaying>('/api/now-playing')
+  const { data, loading, error } = useRequest<NowPlaying>(
+    '/api/spotify/now-playing',
+  )
 
   return { data, loading, error }
 }
