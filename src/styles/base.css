@@ -11,7 +11,7 @@
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 240 4.8% 95.9%;
+    --muted: 240 4.8% 92.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
     --accent: 240 4.8% 95.9%;
@@ -49,6 +49,7 @@
     --card-foreground: 0 0% 98%;
 
     --input: 240 3.7% 15.9%;
+    --border: 240 3.7% 15.9%;
   }
 
   html {
