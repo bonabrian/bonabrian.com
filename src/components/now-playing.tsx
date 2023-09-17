@@ -209,10 +209,10 @@ const NowPlayingBar = ({
                       )}
                       onClick={() => handleOpenSongUrl(playingData.songUrl)}
                     >
-                      <span>
-                        {playingData?.artist ? `${playingData?.artist} -` : ''}
-                      </span>
-                      <span>{playingData?.title}</span>
+                      <div className={cn('inline-flex')}>
+                        <span>{playingData?.artist} - </span>
+                        <span>{playingData?.title}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
