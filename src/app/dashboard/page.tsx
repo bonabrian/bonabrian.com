@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import Contributions from '@/components/contributions'
 import PageHeader from '@/components/page-header'
 import {
   GithubStats,
@@ -8,6 +9,7 @@ import {
   TotalViews,
 } from '@/components/statistics'
 import { Container } from '@/components/ui'
+import { GITHUB_ACCOUNTS } from '@/constants/github'
 import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
 
@@ -34,6 +36,17 @@ const DashboardPage = () => {
             <TotalReactions />
             <TotalEndorsements />
             <GithubStats />
+          </div>
+          <div className={cn('mt-10')}>
+            {GITHUB_ACCOUNTS?.filter((account) => account?.isActive).map(
+              (account, index) => (
+                <Contributions
+                  key={index}
+                  username={account?.username}
+                  endpoint={account?.endpoint}
+                />
+              ),
+            )}
           </div>
         </Container>
       </div>
