@@ -1,64 +1,9 @@
+import { footerIconLinks, footerLinks } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
-import { GitHub, LinkedIn, RSS } from './icons'
 import Link from './link'
 import { Container } from './ui'
-
-const footerLinks = [
-  [
-    {
-      title: 'Projects',
-      url: routes.PROJECTS,
-    },
-    {
-      title: 'About',
-      url: routes.ABOUT,
-    },
-  ],
-  [
-    {
-      title: 'Blog',
-      url: routes.BLOG,
-    },
-    {
-      title: 'Snippets',
-      url: routes.SNIPPETS,
-    },
-  ],
-  [
-    {
-      title: 'Endorsements',
-      url: routes.ENDORSEMENTS,
-    },
-    {
-      title: 'Stats',
-      url: routes.STATS,
-    },
-  ],
-]
-
-const iconLinks = [
-  {
-    title: 'Github',
-    url: defaultMetadata.author.github,
-    icon: <GitHub />,
-    colorClass: 'hover:text-current',
-  },
-  {
-    title: 'LinkedIn',
-    url: defaultMetadata.author.linkedin,
-    icon: <LinkedIn />,
-    colorClass: 'hover:text-[#0A66C2]',
-  },
-  {
-    title: 'RSS Feed',
-    url: '/feed.xml',
-    icon: <RSS />,
-    colorClass: 'hover:text-[#FFA500]',
-  },
-]
 
 const Footer = () => {
   return (
@@ -90,7 +35,7 @@ const Footer = () => {
             </div>
           ))}
           <div className={cn('flex flex-row gap-4')}>
-            {iconLinks.map(({ title, url, icon, colorClass }) => (
+            {footerIconLinks.map(({ title, url, icon, colorClass }) => (
               <Link
                 key={title}
                 href={url}

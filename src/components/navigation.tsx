@@ -4,72 +4,16 @@ import { Menu } from '@headlessui/react'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
+import { navLinks } from '@/constants/links'
 import { useOnScroll } from '@/hooks'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
 import Logo from '../../assets/images/logo.svg'
-import {
-  AtSign,
-  BarChart,
-  Check,
-  CodeBracket,
-  Hamburger,
-  Home,
-  Layers,
-  Pencil,
-} from './icons'
+import { Hamburger } from './icons'
 import Link from './link'
 import ThemeSwitch from './theme-switch'
 import { Button, Container } from './ui'
-
-interface NavLink {
-  path: string
-  label: string
-  icon: JSX.Element
-  onlyShowOnDropdownMenu?: boolean
-}
-
-const navLinks: NavLink[] = [
-  {
-    path: '/',
-    label: 'Home',
-    icon: <Home />,
-    onlyShowOnDropdownMenu: true,
-  },
-  {
-    path: routes.BLOG,
-    label: 'Blog',
-    icon: <Pencil />,
-  },
-  {
-    path: routes.PROJECTS,
-    label: 'Projects',
-    icon: <Layers />,
-  },
-  {
-    path: routes.SNIPPETS,
-    label: 'Snippets',
-    icon: <CodeBracket />,
-  },
-  {
-    path: routes.ENDORSEMENTS,
-    label: 'Endorsements',
-    icon: <Check />,
-  },
-  {
-    path: routes.ABOUT,
-    label: 'About',
-    icon: <AtSign />,
-  },
-  {
-    path: routes.STATS,
-    label: 'Stats',
-    icon: <BarChart />,
-    onlyShowOnDropdownMenu: true,
-  },
-]
 
 const animation = {
   hide: { opacity: 0, y: 16 },

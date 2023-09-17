@@ -1,7 +1,7 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 
 import { ChevronRight } from './icons'
 import Link from './link'
@@ -27,7 +27,7 @@ const RecentPosts = () => {
             ))}
           </div>
           <div className={cn('flex justify-center items-center my-4')}>
-            <Link href={routes.BLOG}>
+            <Link href={ROUTES.blog}>
               <Button variant="outline">
                 See All Posts <ChevronRight />
               </Button>

@@ -5,8 +5,8 @@ import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
 import { Container } from '@/components/ui'
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { defaultMetadata, getMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = getMetadata({
@@ -149,7 +149,7 @@ const AboutPage = () => {
               <p>
                 If you're interested in learning more about my professional
                 background and qualifications, I encourage you to review{' '}
-                <Link href={routes.RESUME}>my resume.</Link>
+                <Link href={ROUTES.resume}>my resume.</Link>
               </p>
             </div>
           </div>

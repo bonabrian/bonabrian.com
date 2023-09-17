@@ -2,9 +2,9 @@ import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
+import { ROUTES } from '@/constants/links'
 import { STACKS } from '@/constants/stacks'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 
 import Link from './link'
 import { Tooltip } from './ui'
@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     return {}
   }, [image, imageMeta])
 
-  let projectUrl = url ?? `${routes.PROJECTS}/${slug}`
+  let projectUrl = url ?? `${ROUTES.projects}/${slug}`
   if (playStoreUrl) projectUrl = playStoreUrl
 
   return (

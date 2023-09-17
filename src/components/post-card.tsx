@@ -4,9 +4,9 @@ import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 
+import { ROUTES } from '@/constants/links'
 import { useMediaQuery, useView } from '@/hooks'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { max } from '@/lib/screens'
 import { formatDate } from '@/lib/utils'
 
@@ -57,7 +57,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
       )}
     >
       <Link
-        href={`${routes.BLOG}/${slug}`}
+        href={`${ROUTES.blog}/${slug}`}
         className={cn(
           'aspect-video w-full relative overflow-hidden bg-no-repeat rounded-md bg-cover basis-1/2',
         )}
@@ -81,7 +81,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
         )}
       >
         <div className={cn('flex flex-col')}>
-          <Link href={`${routes.BLOG}/${slug}`}>
+          <Link href={`${ROUTES.blog}/${slug}`}>
             <h2
               className={cn('font-semibold text-card-foreground mb-2 text-lg')}
             >

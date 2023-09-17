@@ -5,8 +5,8 @@ import type { Metadata } from 'next'
 import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
 import { Container, EmptyState } from '@/components/ui'
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'
 
@@ -52,7 +52,7 @@ const SnippetsPage = async () => {
                 return (
                   <Link
                     key={slug}
-                    href={`${routes.SNIPPETS}/${slug}`}
+                    href={`${ROUTES.snippets}/${slug}`}
                     className={cn(
                       'flex flex-col justify-between border border-slate-100 rounded-2xl p-6',
                       'dark:border-gray-800',

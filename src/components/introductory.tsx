@@ -2,8 +2,8 @@
 
 import { m } from 'framer-motion'
 
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 
 import {
   ChevronRight,
@@ -111,7 +111,7 @@ const CallToAction = () => {
       animate={animation.show}
       transition={{ delay: 0.3 }}
     >
-      <Link href={routes.ABOUT}>
+      <Link href={ROUTES.about}>
         <Button variant="outline">
           Explore More <ChevronRight />
         </Button>

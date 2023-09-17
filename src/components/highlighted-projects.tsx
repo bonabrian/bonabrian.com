@@ -3,8 +3,8 @@
 import { allProjects, type Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 
 import { ChevronRight } from './icons'
 import Link from './link'
@@ -38,7 +38,7 @@ const HighlightedProjects = () => {
             ))}
           </m.div>
           <div className={cn('flex justify-center items-center my-4')}>
-            <Link href={routes.PROJECTS}>
+            <Link href={ROUTES.projects}>
               <Button variant="outline">
                 See All Projects <ChevronRight />
               </Button>
