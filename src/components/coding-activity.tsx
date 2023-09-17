@@ -13,6 +13,15 @@ import Progress from './common/progress'
 import { WakaTime as WakaTimeIcon } from './icons'
 import Link from './link'
 
+const allowedLanguages = [
+  'TypeScript',
+  'JavaScript',
+  'Kotlin',
+  'PHP',
+  'Vue.js',
+  'React.js',
+]
+
 const CodingActivity = () => {
   const { data, loading } = useWakatime()
 
@@ -53,7 +62,11 @@ const CodingActivity = () => {
     : 'N/A'
   const allTimeSinceToday = data?.all_time_since_today?.text || 'N/A'
 
-  const languages = data?.languages ? data.languages.slice(0, 4) : []
+  const languages = data?.languages
+    ? data.languages.filter((language) =>
+        allowedLanguages.includes(language.name),
+      )
+    : []
   const editors = data?.editors ?? []
 
   const activities = [
