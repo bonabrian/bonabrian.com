@@ -42,7 +42,7 @@ export const defaultMetadata = {
   author: {
     name: 'Bona Brian Siagian',
     url: 'https://bonabrian.com',
-    email: 'bonabriansiagian@gmail.com',
+    email: 'bonabrian.dev@gmail.com',
     github: 'https://github.com/bonabrian',
     linkedin: 'https://www.linkedin.com/in/bonabrian',
     avatar:
