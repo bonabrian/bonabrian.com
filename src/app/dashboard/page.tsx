@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import CodingActivity from '@/components/coding-activity'
 import { Container } from '@/components/common'
 import Contributions from '@/components/contributions'
 import PageHeader from '@/components/page-header'
@@ -36,6 +37,9 @@ const DashboardPage = () => {
             <TotalReactions />
             <TotalEndorsements />
             <GithubStats />
+          </div>
+          <div className={cn('mt-10')}>
+            <CodingActivity />
           </div>
           <div className={cn('mt-10')}>
             {GITHUB_ACCOUNTS?.filter((account) => account?.isActive).map(

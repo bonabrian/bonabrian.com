@@ -11,16 +11,22 @@ interface OverviewCardProps {
 const OverviewCard = ({ label, value, unit = '' }: OverviewCardProps) => {
   return (
     <div
-      className={cn('flex flex-col self-center rounded-md bg-card py-3 px-4')}
+      className={cn(
+        'flex flex-col self-center rounded-md bg-card py-3 px-4 font-plus-jakarta',
+      )}
     >
-      <span className={cn('text-sm text-card-foreground')}>
+      <span className={cn('text-sm text-card-foreground/70')}>
         {label}
         {unit && <span className={cn('text-sm')}> ({unit})</span>}
       </span>
       <div className={cn('flex  items-end')}>
-        <div className={cn('text-xl font-medium', 'lg:text-2xl')}>
-          {typeof value === 'number' ? <IncrementCounter to={value} /> : null}
-        </div>
+        {typeof value === 'number' ? (
+          <div className={cn('text-xl font-medium', 'lg:text-2xl')}>
+            <IncrementCounter to={value} />
+          </div>
+        ) : (
+          <div>{value}</div>
+        )}
       </div>
     </div>
   )
