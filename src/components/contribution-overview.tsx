@@ -1,7 +1,7 @@
 import cn from '@/lib/cn'
 import type { ContributionCalendar } from '@/types/github'
 
-import IncrementCounter from './increment-counter'
+import { IncrementCounter } from './ui'
 
 interface OverviewItemProps {
   label: string

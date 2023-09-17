@@ -3,6 +3,7 @@ import Container from './container'
 import Counter from './counter'
 import Divider from './divider'
 import EmptyState from './empty-state'
+import IncrementCounter from './increment-counter'
 import Input from './input'
 import Section from './section'
 import Spinner from './spinner'
@@ -14,6 +15,7 @@ export {
   Counter,
   Divider,
   EmptyState,
+  IncrementCounter,
   Input,
   Section,
   Spinner,

@@ -7,8 +7,7 @@ import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
 import { Calendar, Clock, Eye } from './icons'
-import IncrementCounter from './increment-counter'
-import { Container, Spinner } from './ui'
+import { Container, IncrementCounter, Spinner } from './ui'
 
 interface ContentMetaProps {
   timestamp: string

@@ -11,9 +11,8 @@ import { max } from '@/lib/screens'
 import { formatDate } from '@/lib/utils'
 
 import { Clock, Eye } from './icons'
-import IncrementCounter from './increment-counter'
 import Link from './link'
-import { Spinner } from './ui'
+import { IncrementCounter, Spinner } from './ui'
 
 type LayoutOption = 'list' | 'grid'
 

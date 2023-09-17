@@ -1,8 +1,7 @@
 import cn from '@/lib/cn'
 
-import IncrementCounter from '../increment-counter'
 import Link from '../link'
-import { Spinner } from '../ui'
+import { IncrementCounter, Spinner } from '../ui'
 
 interface StatisticsCardProps {
   link?: string
