@@ -4,7 +4,7 @@ import { m } from 'framer-motion'
 
 import cn from '@/lib/cn'
 
-import { Container } from './ui'
+import { Container } from './common'
 
 interface PageHeaderProps {
   title: string

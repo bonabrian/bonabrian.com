@@ -6,10 +6,10 @@ import { m } from 'framer-motion'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 
+import { Button, EmptyState, Section } from './common'
 import { ChevronRight } from './icons'
 import Link from './link'
 import ProjectCard from './project-card'
-import { Button, EmptyState, Section } from './ui'
 
 const getHighlightedProjects = (maxDisplay: number = 4) =>
   allProjects

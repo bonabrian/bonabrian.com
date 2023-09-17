@@ -6,6 +6,7 @@ import Image from 'next/image'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
+import { Container } from './common'
 import {
   Document,
   JavaScript,
@@ -18,7 +19,6 @@ import {
   VueJs,
 } from './icons'
 import Link from './link'
-import { Container } from './ui'
 
 interface ResumeProps {
   isAvailableAnimationDuration?: number

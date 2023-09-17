@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { Container } from '@/components/common'
 import Contributions from '@/components/contributions'
 import PageHeader from '@/components/page-header'
 import {
@@ -8,7 +9,6 @@ import {
   TotalReactions,
   TotalViews,
 } from '@/components/statistics'
-import { Container } from '@/components/ui'
 import { GITHUB_ACCOUNTS } from '@/constants/github'
 import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'

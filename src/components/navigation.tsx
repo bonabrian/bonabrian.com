@@ -10,10 +10,10 @@ import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'
 
 import Logo from '../../assets/images/logo.svg'
+import { Button, Container } from './common'
 import { Hamburger } from './icons'
 import Link from './link'
 import ThemeSwitch from './theme-switch'
-import { Button, Container } from './ui'
 
 const animation = {
   hide: { opacity: 0, y: 16 },

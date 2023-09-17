@@ -3,11 +3,11 @@
 import { useContributions } from '@/hooks'
 import cn from '@/lib/cn'
 
+import { EmptyState, Spinner } from './common'
 import ContributionCalendar from './contribution-calendar'
 import ContributionOverview from './contribution-overview'
 import { GitHub } from './icons'
 import Link from './link'
-import { EmptyState, Spinner } from './ui'
 
 interface ContributionsProps {
   username: string

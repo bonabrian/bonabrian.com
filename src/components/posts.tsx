@@ -6,9 +6,9 @@ import { useMemo, useState } from 'react'
 
 import cn from '@/lib/cn'
 
+import { Button, Container, EmptyState, Input } from './common'
 import { ListBullets, Search, SquaresFour } from './icons'
 import PostCard from './post-card'
-import { Button, Container, EmptyState, Input } from './ui'
 
 type LayoutOption = 'list' | 'grid'
 

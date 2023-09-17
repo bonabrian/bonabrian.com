@@ -9,8 +9,8 @@ import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
 import type { Skill } from '@/types/skills'
 
+import { Spinner } from './common'
 import { Check, CheckBadge, ExclamationCircle, Heart } from './icons'
-import { Spinner } from './ui'
 
 interface EndorsementsBadgeProps {
   skill: Skill

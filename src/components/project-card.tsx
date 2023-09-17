@@ -6,8 +6,8 @@ import { ROUTES } from '@/constants/links'
 import { STACKS } from '@/constants/stacks'
 import cn from '@/lib/cn'
 
+import { Tooltip } from './common'
 import Link from './link'
-import { Tooltip } from './ui'
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const {

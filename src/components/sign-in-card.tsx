@@ -8,8 +8,8 @@ import { Fragment, useEffect, useState } from 'react'
 
 import cn from '@/lib/cn'
 
+import { Container } from './common'
 import LoginProviderButton from './login-provider-button'
-import { Container } from './ui'
 
 const SignInCard = ({
   providers,

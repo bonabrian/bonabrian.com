@@ -6,8 +6,8 @@ import { useMemo, useState } from 'react'
 
 import cn from '@/lib/cn'
 
+import { Container, EmptyState } from './common'
 import ProjectCard from './project-card'
-import { Container, EmptyState } from './ui'
 
 interface ProjectsProps {
   projects: Array<Project>
