@@ -45,9 +45,7 @@ const SnippetsPage = async () => {
               )}
             >
               {snippets.map(({ slug, title, description, date }) => {
-                const timestamp = formatDate({
-                  timestamp: date,
-                })
+                const timestamp = formatDate(date)
 
                 return (
                   <Link
@@ -79,9 +77,9 @@ const SnippetsPage = async () => {
                         'text-xs text-gray-900/60',
                         'dark:text-slate-100/70',
                       )}
-                      title={timestamp.raw}
+                      title={timestamp}
                     >
-                      {timestamp.formatted}
+                      {timestamp}
                     </p>
                   </Link>
                 )

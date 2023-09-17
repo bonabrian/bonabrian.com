@@ -45,7 +45,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
     return {}
   }, [imageMeta])
 
-  const publishedAt = formatDate({ timestamp: date, month: 'short' })
+  const publishedAt = formatDate(date)
 
   return (
     <article
@@ -96,7 +96,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
               "after:content-[' '] after:inline-block after:align-middle after:mx-2 after:text-base",
             )}
           >
-            <span title={publishedAt.raw}>{publishedAt.formatted}</span>
+            <span title={publishedAt}>{publishedAt}</span>
           </div>
           <div
             className={cn(

@@ -27,7 +27,7 @@ export const generateMetadata = async ({
 
   if (!post) return
 
-  const publishedDate = formatDate({ timestamp: post?.date })
+  const publishedDate = formatDate(post?.date)
 
   return getMetadata({
     title: post.title,
@@ -36,7 +36,7 @@ export const generateMetadata = async ({
     openGraph: {
       type: 'article',
       images: `${getBaseUrl()}${post.image}`,
-      publishedTime: publishedDate.formatted,
+      publishedTime: publishedDate,
     },
   })
 }

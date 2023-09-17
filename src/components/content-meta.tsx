@@ -16,7 +16,7 @@ interface ContentMetaProps {
 }
 
 const ContentMeta = ({ timestamp, readingTime, slug }: ContentMetaProps) => {
-  const { raw, formatted } = formatDate({ timestamp })
+  const formattedDate = formatDate(timestamp)
   const { views, loading } = useView({ slug, trackView: true })
 
   return (
@@ -29,7 +29,7 @@ const ContentMeta = ({ timestamp, readingTime, slug }: ContentMetaProps) => {
       >
         <div className={cn('flex items-center gap-1.5')}>
           <Calendar />
-          <time dateTime={raw}>{formatted}</time>
+          <time dateTime={formattedDate}>{formattedDate}</time>
         </div>
         <div className={cn('flex items-center gap-1.5')}>
           <Clock />

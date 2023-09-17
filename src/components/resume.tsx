@@ -207,10 +207,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
     show: { x: 0, opacity: 1 },
   }
 
-  const lastUpdated = formatDate({
-    timestamp: '2023-06-22T15:47:00.000Z',
-    locale: 'en-ID',
-  })
+  const lastUpdated = formatDate('2023-06-22T15:47:00.000Z')
 
   return (
     <Container>
@@ -341,8 +338,7 @@ const Resume = ({ isAvailableAnimationDuration = 5 }: ResumeProps) => {
         </ol>
         <div className={cn('mt-16')}>
           <p className={cn('text-gray-600', 'dark:text-slate-200')}>
-            Last updated at{' '}
-            <time dateTime={lastUpdated.raw}>{lastUpdated.formatted}</time>
+            Last updated at <time dateTime={lastUpdated}>{lastUpdated}</time>
           </p>
         </div>
       </div>
