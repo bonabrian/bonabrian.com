@@ -7,7 +7,7 @@ import { useSWRConfig } from 'swr'
 import cn from '@/lib/cn'
 import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
-import type { Skill } from '@/types'
+import type { Skill } from '@/types/skills'
 
 import { Check, CheckBadge, ExclamationCircle, Heart } from './icons'
 import { Spinner } from './ui'

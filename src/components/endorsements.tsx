@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { useEndorsements } from '@/hooks'
 import cn from '@/lib/cn'
-import type { SkillCategory } from '@/types'
+import type { SkillCategory } from '@/types/skills'
 
 import EndorsementsBadge from './endorsements-badge'
 import Link from './link'

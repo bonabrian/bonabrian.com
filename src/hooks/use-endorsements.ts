@@ -1,4 +1,4 @@
-import type { SkillCategory } from '@/types'
+import type { SkillCategory } from '@/types/skills'
 
 import { useRequest } from './use-request'
 
