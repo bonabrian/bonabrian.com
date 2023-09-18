@@ -1,3 +1,4 @@
+import typography from '@tailwindcss/typography'
 import svgDataUri from 'mini-svg-data-uri'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
@@ -64,6 +65,7 @@ export default {
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
           css: {
+            color: 'hsl(var(--foreground))',
             'h2, h3, h4, h5, h6': {
               position: 'relative',
               color: 'hsl(var(--foreground))',
@@ -82,9 +84,9 @@ export default {
               borderRadius: '0.375rem',
               display: 'inline-flex',
               lineHeight: '1.2',
-              background: '#2a2828',
-              border: '1px solid #3e3c3c',
-
+              background: 'hsl(var(--accent))',
+              color: 'hsl(var(--accent-foreground))',
+              border: '1px solid hsl(var(--border))',
               '&::before, &::after': {
                 content: 'none',
               },
@@ -175,7 +177,7 @@ export default {
         },
       )
     },
-    require('@tailwindcss/typography'),
+    typography,
   ],
 } satisfies Config
 
