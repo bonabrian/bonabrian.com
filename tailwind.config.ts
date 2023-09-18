@@ -61,11 +61,98 @@ export default {
       animation: {
         equalize: 'equalize 0.8s infinite',
       },
-      typography: (_theme: (value: string) => void) => ({
+      typography: (theme: (value: string) => void) => ({
         DEFAULT: {
           css: {
+            'h2, h3, h4, h5, h6': {
+              position: 'relative',
+              color: 'hsl(var(--foreground))',
+            },
+            img: {
+              margin: '0 auto',
+            },
             'code, pre code': {
               fontFamily: 'var(--font-fira-code)',
+            },
+            '[data-rehype-pretty-code-fragment]': {
+              position: 'relative',
+            },
+            ':not(pre) > code': {
+              padding: '0.12em 0.25em',
+              borderRadius: '0.375rem',
+              display: 'inline-flex',
+              lineHeight: '1.2',
+              background: '#2a2828',
+              border: '1px solid #3e3c3c',
+
+              '&::before, &::after': {
+                content: 'none',
+              },
+            },
+            pre: {
+              background: theme('colors.zinc.900'),
+              padding: '1.5rem 0',
+              lineHeight: 2,
+              border: '1px solid hsl(var(--muted-foreground))',
+              '[data-line-numbers]': {
+                '[data-line]::before': {
+                  counterIncrement: 'lineNumber',
+                  content: 'counter(lineNumber)',
+                  display: 'inline-block',
+                  width: '1rem',
+                  marginRight: '1rem',
+                  textAlign: 'right',
+                  color: 'hsl(var(--muted-foreground) / 0.6)',
+                },
+              },
+              '> code': {
+                display: 'grid',
+                counterReset: 'lineNumber',
+                '> [data-line]': {
+                  padding: '0 2.5rem 0 1.5rem',
+                  borderLeft: '2px solid transparent',
+                },
+                '> [data-highlighted-line]': {
+                  borderLeftColor: theme('colors.red.300'),
+                  background: 'hsl(var(--primary) / 0.2)',
+                },
+              },
+            },
+            '[data-rehype-pretty-code-title]': {
+              backgroundColor: theme('colors.zinc.900'),
+              border: '1px solid hsl(var(--muted-foreground))',
+              borderTopLeftRadius: '0.5rem',
+              borderTopRightRadius: '0.5rem',
+              padding: '0.75rem 2.5rem',
+              // fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              color: theme('colors.white'),
+            },
+            '[data-rehype-pretty-code-title] ~ pre': {
+              marginTop: 0,
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0,
+              borderTopWidth: 0,
+            },
+            '[data-rehype-pretty-code-title] ~ pre ~ button': {
+              top: '3.75rem !important',
+            },
+          },
+        },
+        dark: {
+          css: {
+            pre: {
+              border: '1px solid hsl(var(--border))',
+              '> code': {
+                '> [data-highlighted-line]': {
+                  background: 'hsl(var(--primary) / 0.1)',
+                },
+              },
+            },
+            '[data-rehype-pretty-code-title]': {
+              border: '1px solid hsl(var(--border))',
             },
           },
         },

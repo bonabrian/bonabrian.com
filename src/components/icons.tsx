@@ -652,26 +652,16 @@ export const Eye = ({ className, ...rest }: ComponentProps<'svg'>) => {
   )
 }
 
-export const Clipboard = ({ className, ...rest }: ComponentProps<'svg'>) => {
+export const Copy = ({ className, ...rest }: ComponentProps<'svg'>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
+      viewBox="0 0 256 256"
       className={cn('w-5 h-5', className)}
       {...rest}
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
-      <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
-      <path d="M9 12h6"></path>
-      <path d="M9 16h6"></path>
+      <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
     </svg>
   )
 }
