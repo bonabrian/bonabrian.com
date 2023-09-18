@@ -1,3 +1,4 @@
+import BackButton from './back-button'
 import Button from './button'
 import Container from './container'
 import Counter from './counter'
@@ -11,6 +12,7 @@ import Spinner from './spinner'
 import Tooltip from './tooltip'
 
 export {
+  BackButton,
   Button,
   Container,
   Counter,
