@@ -92,11 +92,15 @@ export const buildOgImageUrl = (
   }`
 }
 
-interface JsonLdAuthor {
+interface JsonLdEntity {
   type: string
   name: string
   url?: string
 }
+
+interface JsonLdAuthor extends JsonLdEntity {}
+
+interface JsonLdPublisher extends JsonLdEntity {}
 
 interface JsonLd {
   title: string
@@ -108,6 +112,7 @@ interface JsonLd {
   image?: string
   url?: string
   author?: JsonLdAuthor
+  publisher?: JsonLdPublisher
 }
 
 export const getJsonLd = ({
@@ -124,6 +129,12 @@ export const getJsonLd = ({
     name: defaultMetadata.author.name,
     url: defaultMetadata.author.url,
   },
+  publisher = {
+    type: 'Person',
+    name: defaultMetadata.applicationName,
+    // TODO: will fix this
+    url: 'https://bonabrian.com',
+  },
 }: JsonLd): string =>
   JSON.stringify({
     '@context': 'https://schema.org',
@@ -135,6 +146,7 @@ export const getJsonLd = ({
     image: buildOgImageUrl(title, description ?? '', image),
     url,
     author,
+    publisher,
   })
 
 export const getMetadata = ({
