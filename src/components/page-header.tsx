@@ -9,20 +9,22 @@ import { Container } from './common'
 interface PageHeaderProps {
   title: string
   description?: string
+  centered?: boolean
 }
 
-const animation = {
-  hide: { x: -32, opacity: 0 },
-  show: { x: 0, opacity: 1 },
-}
+const PageHeader = ({ title, description, centered }: PageHeaderProps) => {
+  const animation = {
+    hide: centered ? { y: 32, opacity: 0 } : { x: -32, opacity: 0 },
+    show: centered ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 },
+  }
 
-const PageHeader = ({ title, description }: PageHeaderProps) => {
   return (
-    <div
-      className={cn('bg-pattern pt-16 pb-12', 'md:pb-16 md:pt-24', 'lg:pt-32')}
-    >
+    <div className={cn('bg-pattern py-12', 'md:py-16', 'lg:py-20')}>
       <Container
-        className={cn('pointer-events-none select-none overflow-hidden')}
+        className={cn(
+          'pointer-events-none select-none overflow-hidden',
+          centered && 'text-center',
+        )}
       >
         <m.div
           initial={animation.hide}
