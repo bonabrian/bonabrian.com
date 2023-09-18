@@ -1,31 +1,28 @@
-import type { Post } from 'contentlayer/generated'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 import { Container } from '@/components/common'
-import ContentMeta from '@/components/content-meta'
 import Link from '@/components/link'
 import Mdx, { Image } from '@/components/mdx'
-import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
 import ShareButton from '@/components/share-button'
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { formatDate, getBaseUrl, kebabCase } from '@/lib/utils'
+import type { RequestContext } from '@/types/request'
 
-const findPostBySlug = (slug: string): Post | undefined =>
-  allPosts
-    .filter((post: Post) => post.published)
-    .find((post: Post) => post.slug === slug)
+import MetaHeader from './meta-header'
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { slug: string }
-}) => {
-  const post = findPostBySlug(params.slug)
+interface PostPageProps extends RequestContext<{ slug?: string }> {}
 
-  if (!post) return
+const findPostBySlug = (slug?: string): Post | undefined =>
+  allPosts.filter((post) => post.published).find((post) => post.slug === slug)
+
+export const generateMetadata = async ({ params }: PostPageProps) => {
+  const post = findPostBySlug(params?.slug)
+
+  if (!post) notFound()
 
   const publishedDate = formatDate(post?.date)
 
@@ -46,8 +43,7 @@ const Tag = ({ tag }: { tag: string }) => {
     <Link
       href={`/tags/${kebabCase(tag)}`}
       className={cn(
-        'inline-flex h-6 gap-1 px-2 text-xs font-medium rounded-full leading-6',
-        '',
+        'inline-flex h-6 gap-1 px-2 text-xs font-medium rounded-full leading-6 bg-primary/10 text-primary',
       )}
     >
       #{tag}
@@ -55,22 +51,13 @@ const Tag = ({ tag }: { tag: string }) => {
   )
 }
 
-const PostPage = ({ params }: { params: { slug: string } }) => {
+const PostPage = ({ params }: PostPageProps) => {
   const post = findPostBySlug(params.slug)
 
   if (!post) return notFound()
 
-  const {
-    title,
-    slug,
-    excerpt,
-    readingTime,
-    date,
-    image,
-    imageMeta,
-    imageSource,
-    tags,
-  } = post
+  const { title, slug, excerpt, date, image, imageMeta, imageSource, tags } =
+    post
 
   const extraImageProps = imageMeta
     ? {
@@ -83,10 +70,14 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <PageHeader title={title} />
-      <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
+      <MetaHeader
+        title={post?.title}
+        timestamp={post?.date}
+        readingTime={post?.readingTime}
+        slug={post?.slug}
+      />
       <Container>
-        <div id="image-cover" className={cn('mb-8')}>
+        <div id="image-cover">
           <Image
             src={image ?? ''}
             alt={title}
@@ -100,21 +91,19 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
           <Mdx code={post?.body?.code} />
         </div>
         {tags && (
-          <div className={cn('mt-16 flex items-center text-sm gap-1')}>
+          <div className={cn('flex items-center text-sm gap-1 mt-16')}>
             Tags:
             <div className={cn('flex flex-wrap gap-1')}>
               {tags?.map((tag) => <Tag key={tag} tag={tag} />)}
             </div>
           </div>
         )}
-
         <div
           className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
         >
           <div
             className={cn(
-              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
-              'dark:border-gray-800',
+              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-accent',
             )}
           >
             <Reactions slug={slug} />
@@ -132,7 +121,7 @@ const PostPage = ({ params }: { params: { slug: string } }) => {
             datePublished: date,
             dateModified: date,
             image: `${getBaseUrl()}${image}`,
-            url: `${getBaseUrl()}/blog/${slug}`,
+            url: `${getBaseUrl()}${ROUTES.blog}/${slug}`,
           }),
         }}
         key="post-jsonld"
