@@ -7,8 +7,8 @@ import { useState } from 'react'
 import cn from '@/lib/cn'
 import { getDomainFromUrl } from '@/lib/utils'
 
-import ImageLightBox from '../image-lightbox'
 import Link from '../link'
+import ImageZoom from './image-zoom'
 
 type BaseImageProps = Omit<NextImageProps, 'width' | 'height' | 'fill'>
 type SizeProps = BaseImageProps & { size?: number }
@@ -19,12 +19,12 @@ type DimensionProps = BaseImageProps & {
 }
 
 type ImageProps = (SizeProps | DimensionProps) & {
-  shouldOpenLightBox?: boolean
+  zoomableImage?: boolean
   source?: string
 }
 
 const Image = ({
-  shouldOpenLightBox = true,
+  zoomableImage = true,
   source,
   className,
   ...props
@@ -37,40 +37,47 @@ const Image = ({
     ...rest
   } = otherProps as DimensionProps
 
-  const [openLightBox, setOpenLightBox] = useState(false)
-  const handleOpenLightBox = () => {
-    if (shouldOpenLightBox) setOpenLightBox(true)
+  const [zoomed, setZoomed] = useState(false)
+  const [isLoading, setLoading] = useState(true)
+
+  const zoomImage = () => {
+    if (zoomableImage) setZoomed(true)
   }
 
   return (
     <figure>
-      <div className={cn(fill ? 'relative aspect-video' : '', className)}>
+      <div
+        className={cn(
+          fill ? 'relative aspect-video' : '',
+          isLoading && 'animate-pulse',
+          className,
+        )}
+      >
         <NextImage
-          {...rest}
-          width={fill ? undefined : width ?? undefined}
-          height={fill ? undefined : height ?? undefined}
-          loading={props.priority ? undefined : props.loading}
+          width={fill ? undefined : width}
+          height={fill ? undefined : height}
+          loading={props.priority ? undefined : props.loading || 'lazy'}
           decoding="async"
           className={cn(
             'object-cover rounded-xl',
-            shouldOpenLightBox ? 'cursor-zoom-in' : '',
+            'transition-[scale,filter] duration-700',
+            isLoading && 'scale-[1.01] blur-xl grayscale',
+            zoomableImage && 'cursor-zoom-in',
           )}
-          onClick={handleOpenLightBox}
+          onClick={zoomImage}
+          onLoadingComplete={() => setLoading(false)}
           fill={fill}
+          {...rest}
         />
-        {openLightBox && (
-          <ImageLightBox
-            closeLightBox={() => setOpenLightBox(false)}
-            {...rest}
-          />
-        )}
+        {zoomed && <ImageZoom unZoom={() => setZoomed(false)} {...rest} />}
       </div>
       {source && (
-        <figcaption
-          className={cn('text-xs text-gray-900/60 dark:text-slate-100/70 mt-1')}
-        >
+        <figcaption className={cn('text-sm mt-1')}>
           <span className={cn('flex items-center justify-center gap-1')}>
-            Source <Link href={source ?? ''}>{getDomainFromUrl(source)}</Link>
+            <span className={cn('text-muted-foreground')}>Source:</span>{' '}
+            <Link href={source ?? ''} className={cn('hover:underline')}>
+              {getDomainFromUrl(source)}
+            </Link>
           </span>
         </figcaption>
       )}

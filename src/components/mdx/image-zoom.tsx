@@ -5,11 +5,11 @@ import { useCallback, useEffect, useState } from 'react'
 import { useTheme } from '@/hooks'
 import cn from '@/lib/cn'
 
-export interface ImageLightBoxProps extends Pick<NextImageProps, 'src'> {
-  closeLightBox: () => void
+export interface ImageZoomProps extends Pick<NextImageProps, 'src'> {
+  unZoom: () => void
 }
 
-const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
+const ImageZoom = ({ src, unZoom }: ImageZoomProps) => {
   const { theme, mounted } = useTheme()
   const isDark = theme === 'dark'
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -17,9 +17,9 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
 
   const handleClose = useCallback(() => {
     setClose(true)
-    document.documentElement.classList.remove('prevent-scroll')
-    setTimeout(() => closeLightBox(), 300)
-  }, [closeLightBox])
+    document.documentElement.classList.remove('overflow-y-hidden')
+    setTimeout(() => unZoom(), 300)
+  }, [unZoom])
 
   const handleKeydown = useCallback(
     (e: ReactKeyboardEvent | KeyboardEvent) => {
@@ -31,7 +31,7 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
   )
 
   useEffect(() => {
-    document.documentElement.classList.add('prevent-scroll')
+    document.documentElement.classList.add('overflow-y-hidden')
     window.addEventListener('keydown', handleKeydown)
     return () => window.removeEventListener('keydown', handleKeydown)
   }, [handleKeydown])
@@ -46,7 +46,7 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
       role="button"
       tabIndex={0}
       className={cn(
-        'lightbox-overlay fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out',
+        'w-screen fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out',
       )}
       style={style}
       onClick={handleClose}
@@ -61,12 +61,12 @@ const ImageLightBox = ({ src, closeLightBox }: ImageLightBoxProps) => {
         <img
           src={src.toString()}
           onLoad={() => setImageLoaded(true)}
-          className={cn('cursor-zoom-out max-w-[90vw] max-h-[80vh]')}
-          alt="lightbox"
+          className={cn('cursor-zoom-out rounded-xl max-w-[90vw] max-h-[80vh]')}
+          alt="Image Preview"
         />
       </div>
     </div>
   )
 }
 
-export default ImageLightBox
+export default ImageZoom
