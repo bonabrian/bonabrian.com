@@ -17,7 +17,7 @@ export const metadata: Metadata = getMetadata({
 const AboutPage = () => {
   return (
     <>
-      <PageHeader title="About" />
+      <PageHeader title="About" description="A short story of me" />
       <div id="content">
         <Container>
           <div
@@ -47,10 +47,7 @@ const AboutPage = () => {
                   {defaultMetadata.author.name}
                 </h3>
                 <h4
-                  className={cn(
-                    'text-base font-medium text-gray-600',
-                    'dark:text-slate-200',
-                  )}
+                  className={cn('text-base font-medium text-muted-foreground')}
                 >
                   Full-stack Engineer
                 </h4>
@@ -60,21 +57,27 @@ const AboutPage = () => {
                   <Link
                     href={defaultMetadata.author.github}
                     showExternalLinkIcon={false}
-                    className={cn('transition-all ease-in-out')}
+                    className={cn(
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                    )}
                   >
                     <GitHub className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={defaultMetadata.author.linkedin}
                     showExternalLinkIcon={false}
-                    className={cn('transition-all ease-in-out')}
+                    className={cn(
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                    )}
                   >
                     <LinkedIn className={cn('h-6 w-6')} />
                   </Link>
                   <Link
                     href={`mailto:${defaultMetadata.author.email}`}
                     showExternalLinkIcon={false}
-                    className={cn('transition-all ease-in-out')}
+                    className={cn(
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                    )}
                   >
                     <Mail className={cn('h-6 w-6')} />
                   </Link>
