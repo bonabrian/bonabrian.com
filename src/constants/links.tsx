@@ -118,14 +118,13 @@ export const navLinks: NavLink[] = [
     icon: <Check />,
   },
   {
-    path: ROUTES.about,
-    label: 'About',
-    icon: <AtSign />,
-  },
-  {
     path: ROUTES.dashboard,
     label: 'Dashboard',
     icon: <BarChart />,
-    onlyShowOnDropdownMenu: true,
+  },
+  {
+    path: ROUTES.about,
+    label: 'About',
+    icon: <AtSign />,
   },
 ]

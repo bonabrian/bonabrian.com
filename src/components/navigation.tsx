@@ -53,7 +53,7 @@ const Navigation = () => {
                     <Link
                       href={path}
                       className={cn(
-                        'flex items-center gap-1 mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2',
+                        'flex items-center gap-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-2 py-2',
                         'hover:bg-accent hover:text-accent-foreground',
                         (pathname === path || pathname.startsWith(path)) &&
                           'bg-accent text-accent-foreground',
