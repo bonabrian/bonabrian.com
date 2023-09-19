@@ -1,5 +1,4 @@
 export * from './use-available-devices'
-export * from './use-insights'
 export * from './use-isomorphic-layout-effect'
 export * from './use-media-query'
 export * from './use-mounted'
