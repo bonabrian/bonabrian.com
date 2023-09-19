@@ -1,4 +1,8 @@
-import type { User } from './users'
+export type User = {
+  id: string
+  name: string
+  image: string
+}
 
 export type Skill = {
   id: string

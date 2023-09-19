@@ -4,13 +4,13 @@ import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { useSWRConfig } from 'swr'
 
+import { Button, Spinner } from '@/components/common'
+import { Check, ExclamationCircle, Heart, Medal } from '@/components/icons'
 import cn from '@/lib/cn'
 import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
-import type { Skill } from '@/types/skills'
 
-import { Spinner } from './common'
-import { Check, CheckBadge, ExclamationCircle, Heart } from './icons'
+import type { Skill } from './types'
 
 interface EndorsementsBadgeProps {
   skill: Skill
@@ -70,8 +70,7 @@ const EndorsementsBadge = ({
   return (
     <div
       className={cn(
-        'flex flex-col items-stretch flex-nowrap bg-slate-200/40 p-4 rounded-lg gap-4',
-        'dark:bg-gray-800/30',
+        'flex flex-col items-stretch flex-nowrap bg-card p-4 rounded-md gap-4',
       )}
     >
       <div className={cn('flex justify-between items-center')}>
@@ -81,40 +80,33 @@ const EndorsementsBadge = ({
         ) : (
           <>
             {isMySelf ? (
-              <button
-                type="button"
-                className={cn(
-                  'button button--rounded cursor-not-allowed px-3 py-1 gap-1 border-none hover:bg-transparent',
-                )}
-                disabled
-              >
+              <Button variant="ghost">
                 <Heart className={cn('fill-red-500')} />
-              </button>
+              </Button>
             ) : (
               <>
                 {isEndorsedByUser ? (
-                  <button
-                    type="button"
+                  <Button
+                    variant="ghost"
                     className={cn(
-                      'button button--rounded cursor-not-allowed px-3 py-1 gap-1 border-none hover:bg-transparent',
+                      'px-3 py-1 gap-1',
+                      'hover:bg-background hover:text-foreground',
+                      'disabled:opacity-100 disabled:cursor-not-allowed',
                     )}
                     title="You already endorsed this skill!"
                     disabled
                   >
                     <span>Endorsed</span>
-                    <CheckBadge className={cn('fill-blue-500')} />
-                  </button>
+                    <Medal />
+                  </Button>
                 ) : (
-                  <button
-                    type="button"
-                    className={cn(
-                      'button button--rounded button--shadow px-3 py-1.5 h-8',
-                    )}
+                  <Button
+                    variant="outline"
                     title={`Endorse ${skill.name}`}
                     onClick={() => onEndorse(skill.id)}
                   >
                     Endorse
-                  </button>
+                  </Button>
                 )}
               </>
             )}
@@ -133,7 +125,7 @@ const EndorsementsBadge = ({
                 src={user.image}
                 alt={user.name}
                 fill
-                className={cn('rounded-full ring-2 ring-white')}
+                className={cn('rounded-full ring-2 ring-background')}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             ) : (
@@ -141,7 +133,7 @@ const EndorsementsBadge = ({
                 src={`https://ui-avatars.com/api?name=${user.name}&background=B191FF&color=fff&rounded=true`}
                 alt={user.name}
                 fill
-                className={cn('rounded-full ring-2 ring-white')}
+                className={cn('rounded-full ring-2 ring-background')}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             )}
@@ -178,7 +170,7 @@ const EndorsementsBadge = ({
           )}
         >
           <Check className={cn('mr-1')} />
-          Thanks for endorsing me.
+          Thank you for endorsing me.
         </p>
       )}
     </div>

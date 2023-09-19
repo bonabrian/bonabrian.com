@@ -49,6 +49,10 @@ export default {
         'fira-code': ['var(--font-fira-code)', ...fontFamily.sans],
         'plus-jakarta': ['var(--font-plus-jakarta)', ...fontFamily.sans],
       },
+      backgroundImage: {
+        'rainbow-gradient':
+          'linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%)',
+      },
       keyframes: {
         equalize: {
           '0%, 100%': {
