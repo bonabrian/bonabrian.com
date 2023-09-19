@@ -21,7 +21,7 @@ const findPostBySlug = (slug?: string): Post | undefined =>
 export const generateMetadata = async ({ params }: PostPageProps) => {
   const post = findPostBySlug(params?.slug)
 
-  if (!post) notFound()
+  if (!post) return
 
   const publishedDate = formatDate(post?.date)
 

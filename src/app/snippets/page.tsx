@@ -51,31 +51,23 @@ const SnippetsPage = async () => {
                     key={slug}
                     href={`${ROUTES.snippets}/${slug}`}
                     className={cn(
-                      'flex flex-col justify-between border border-slate-100 rounded-2xl p-6',
-                      'dark:border-gray-800',
+                      'flex flex-col justify-between rounded-md p-6 bg-card',
                     )}
                   >
-                    <h2
-                      className={cn(
-                        'font-semibold text-xl text-gray-700 mb-2',
-                        'dark:text-slate-50',
-                      )}
-                    >
-                      {title}
-                    </h2>
+                    <div className={cn('flex flex-col')}>
+                      <h2
+                        className={cn(
+                          'font-semibold text-lg text-card-foreground mb-2',
+                        )}
+                      >
+                        {title}
+                      </h2>
+                      <p className={cn('mb-4 text-muted-foreground')}>
+                        {description}
+                      </p>
+                    </div>
                     <p
-                      className={cn(
-                        'mb-4 text-gray-600',
-                        'dark:text-slate-200',
-                      )}
-                    >
-                      {description}
-                    </p>
-                    <p
-                      className={cn(
-                        'text-xs text-gray-900/60',
-                        'dark:text-slate-100/70',
-                      )}
+                      className={cn('text-sm text-muted-foreground')}
                       title={timestamp}
                     >
                       {timestamp}

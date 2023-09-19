@@ -3,32 +3,33 @@ import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 import { Container } from '@/components/common'
-import ContentMeta from '@/components/content-meta'
 import Mdx from '@/components/mdx'
-import PageHeader from '@/components/page-header'
 import Reactions from '@/components/reactions'
 import ShareButton from '@/components/share-button'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { getBaseUrl } from '@/lib/utils'
+import type { RequestContext } from '@/types/request'
 
-const findSnippetBySlug = (slug: string): Snippet | undefined =>
+import MetaHeader from './meta-header'
+
+interface SnippetPageProps extends RequestContext<{ slug?: string }> {}
+
+const findSnippetBySlug = (slug?: string): Snippet | undefined =>
   allSnippets
     .filter((post: Snippet) => post.published)
     .find((post: Snippet) => post.slug === slug)
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { slug: string }
-}) => {
-  const snippet = findSnippetBySlug(params.slug)
+export const generateMetadata = async ({ params }: SnippetPageProps) => {
+  const snippet = findSnippetBySlug(params?.slug)
 
   if (!snippet) return
 
+  const { title, description } = snippet
+
   return getMetadata({
-    title: snippet.title,
-    description: snippet.description,
+    title,
+    description,
     keywords: [
       'snippet',
       'code',
@@ -40,8 +41,8 @@ export const generateMetadata = async ({
   })
 }
 
-const SnippetPage = ({ params }: { params: { slug: string } }) => {
-  const snippet = findSnippetBySlug(params.slug)
+const SnippetPage = ({ params }: SnippetPageProps) => {
+  const snippet = findSnippetBySlug(params?.slug)
 
   if (!snippet) return notFound()
 
@@ -49,8 +50,13 @@ const SnippetPage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <PageHeader title={title} description={description} />
-      <ContentMeta timestamp={date} readingTime={readingTime} slug={slug} />
+      <MetaHeader
+        title={title}
+        description={description}
+        timestamp={date}
+        readingTime={readingTime}
+        slug={slug}
+      />
       <Container>
         <div className={cn('prose max-w-full', 'dark:prose-dark')}>
           <Mdx code={snippet?.body?.code} />
@@ -60,8 +66,7 @@ const SnippetPage = ({ params }: { params: { slug: string } }) => {
         >
           <div
             className={cn(
-              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-slate-100',
-              'dark:border-gray-800',
+              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-accent',
             )}
           >
             <Reactions slug={slug} />
