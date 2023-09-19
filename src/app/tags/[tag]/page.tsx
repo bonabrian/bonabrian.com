@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 
-import Posts from '@/components/posts'
+import Posts from '@/app/blog/posts'
 import { getMetadata } from '@/lib/metadata'
 import { kebabCase } from '@/lib/utils'
 
