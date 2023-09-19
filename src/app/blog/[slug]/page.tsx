@@ -1,8 +1,7 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import { Container } from '@/components/common'
-import Link from '@/components/link'
+import { Container, Link } from '@/components/common'
 import Mdx, { Image } from '@/components/mdx'
 import Reactions from '@/components/reactions'
 import ShareButton from '@/components/share-button'

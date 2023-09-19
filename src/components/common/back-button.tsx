@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import cn from '@/lib/cn'
 
 import { ArrowLeftCircle } from '../icons'
-import Link from '../link'
+import Link from './link'
 
 interface BackButtonProps {
   href?: string

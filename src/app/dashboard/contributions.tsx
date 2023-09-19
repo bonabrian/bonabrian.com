@@ -1,8 +1,7 @@
 'use client'
 
-import { EmptyState } from '@/components/common'
+import { EmptyState, Link } from '@/components/common'
 import { GitHub } from '@/components/icons'
-import Link from '@/components/link'
 import cn from '@/lib/cn'
 
 import ContributionCalendar from './contribution-calendar'

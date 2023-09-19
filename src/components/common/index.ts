@@ -6,6 +6,7 @@ import Divider from './divider'
 import EmptyState from './empty-state'
 import IncrementCounter from './increment-counter'
 import Input from './input'
+import Link from './link'
 import Progress from './progress'
 import Spinner from './spinner'
 import Tooltip from './tooltip'
@@ -19,6 +20,7 @@ export {
   EmptyState,
   IncrementCounter,
   Input,
+  Link,
   Progress,
   Spinner,
   Tooltip,

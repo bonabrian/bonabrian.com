@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 
 import cn from '@/lib/cn'
 
-import { ExternalLink } from './icons'
+import { ExternalLink } from '../icons'
 
 type LinkProps = {
   href: string

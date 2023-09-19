@@ -1,4 +1,4 @@
-import Link from '@/components/link'
+import { Link } from '@/components/common'
 import cn from '@/lib/cn'
 
 import FourZeroFourImage from '../../assets/images/404.svg'

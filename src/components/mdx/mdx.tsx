@@ -3,7 +3,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import cn from '@/lib/cn'
 
-import Link from '../link'
+import { Link } from '../common'
 import Image from './image'
 import Pre from './pre'
 

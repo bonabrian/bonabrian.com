@@ -1,8 +1,7 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 
-import { Button, EmptyState } from '@/components/common'
+import { Button, EmptyState, Link } from '@/components/common'
 import { ChevronRight } from '@/components/icons'
-import Link from '@/components/link'
 import PostCard from '@/components/post-card'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'

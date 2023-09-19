@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion'
 
-import { Button, Container, Tooltip } from '@/components/common'
+import { Button, Container, Link, Tooltip } from '@/components/common'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 
@@ -22,7 +22,6 @@ import {
   TypeScript,
   VueJs,
 } from '../../components/icons'
-import Link from '../../components/link'
 
 interface Stack {
   title: string

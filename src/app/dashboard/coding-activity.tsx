@@ -4,9 +4,8 @@ import { formatDistanceToNowStrict } from 'date-fns'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 import { useEffect, useState } from 'react'
 
-import { Progress } from '@/components/common'
+import { Link, Progress } from '@/components/common'
 import { WakaTime as WakaTimeIcon } from '@/components/icons'
-import Link from '@/components/link'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 

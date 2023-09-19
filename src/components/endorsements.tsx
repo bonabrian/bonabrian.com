@@ -7,9 +7,8 @@ import { useEndorsements } from '@/hooks'
 import cn from '@/lib/cn'
 import type { SkillCategory } from '@/types/skills'
 
-import { Container, Spinner } from './common'
+import { Container, Link, Spinner } from './common'
 import EndorsementsBadge from './endorsements-badge'
-import Link from './link'
 
 interface EndorsementsProps {
   fallbackData: Array<SkillCategory>
