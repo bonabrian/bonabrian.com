@@ -3,9 +3,8 @@ import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 import { Container } from '@/components/common'
+import Insights from '@/components/insights'
 import Mdx from '@/components/mdx'
-import Reactions from '@/components/reactions'
-import ShareButton from '@/components/share-button'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { getBaseUrl } from '@/lib/utils'
@@ -61,18 +60,7 @@ const SnippetPage = ({ params }: SnippetPageProps) => {
         <div className={cn('prose max-w-full', 'dark:prose-dark')}>
           <Mdx code={snippet?.body?.code} />
         </div>
-        <div
-          className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
-        >
-          <div
-            className={cn(
-              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-accent',
-            )}
-          >
-            <Reactions slug={slug} />
-            <ShareButton slug={slug} />
-          </div>
-        </div>
+        <Insights slug={slug} />
       </Container>
       <script
         type="application/ld+json"

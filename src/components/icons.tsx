@@ -704,7 +704,7 @@ export const Share = ({ className, ...rest }: ComponentProps<'svg'>) => {
   )
 }
 
-export const Link = ({ className, ...rest }: ComponentProps<'svg'>) => {
+export const LinkSimple = ({ className, ...rest }: ComponentProps<'svg'>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

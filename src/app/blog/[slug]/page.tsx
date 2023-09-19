@@ -2,9 +2,8 @@ import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 import { Container, Link } from '@/components/common'
+import Insights from '@/components/insights'
 import Mdx, { Image } from '@/components/mdx'
-import Reactions from '@/components/reactions'
-import ShareButton from '@/components/share-button'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
@@ -97,18 +96,7 @@ const PostPage = ({ params }: PostPageProps) => {
             </div>
           </div>
         )}
-        <div
-          className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}
-        >
-          <div
-            className={cn(
-              'relative flex justify-between items-center w-full gap-4 border p-4 rounded-lg border-accent',
-            )}
-          >
-            <Reactions slug={slug} />
-            <ShareButton slug={slug} />
-          </div>
-        </div>
+        <Insights slug={slug} />
       </Container>
       <script
         type="application/ld+json"

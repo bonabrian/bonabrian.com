@@ -11,8 +11,8 @@ import { useShare } from '@/hooks'
 import cn from '@/lib/cn'
 import { getBaseUrl } from '@/lib/utils'
 
-import { Counter, Link } from './common'
-import { Link as LinkIcon, Share, Twitter } from './icons'
+import { Counter, Link } from '../common'
+import { LinkSimple, Share, Twitter } from '../icons'
 
 interface ShareItemLinkProps extends PropsWithChildren {
   href: string
@@ -30,8 +30,8 @@ const ShareItemLink = forwardRef(
       ref={ref}
       className={cn(
         'flex items-center gap-3 px-4 py-2 text-sm',
-        'hover:bg-slate-100 hover:dark:bg-gray-700',
-        active && 'bg-slate-100 dark:bg-gray-700',
+        'hover:bg-accent hover:text-accent-foreground',
+        active && 'bg-accent',
       )}
       onClick={onClick}
       showExternalLinkIcon={false}
@@ -92,8 +92,8 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
                 initial="hide"
                 animate="show"
                 className={cn(
-                  'border border-slate-100 absolute shadow flex w-56 flex-col overflow-hidden rounded-lg bg-white -top-16 right-2 z-10',
-                  'dark:border-gray-700 dark:bg-gray-800/80',
+                  'absolute shadow flex w-56 flex-col overflow-hidden rounded-lg bg-card -top-16 right-2 z-10 border border-neutral-100',
+                  'dark:border-neutral-800',
                 )}
               >
                 <Menu.Item>
@@ -101,19 +101,19 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
                     <button
                       className={cn(
                         'flex items-center gap-3 px-4 py-2 text-sm',
-                        'hover:bg-slate-100 hover:dark:bg-gray-700',
-                        active && 'bg-slate-100 dark:bg-gray-700',
+                        'hover:bg-accent hover:text-accent-foreground',
+                        active && 'bg-accent',
                       )}
                       onClick={handleCopyLink}
                     >
-                      <LinkIcon /> Copy link
+                      <LinkSimple /> Copy link
                     </button>
                   )}
                 </Menu.Item>
                 <div
                   className={cn(
-                    'border-t border-slate-100',
-                    'dark:border-gray-700',
+                    'border-t border-neutral-100',
+                    'dark:border-neutral-800',
                   )}
                 />
                 <Menu.Item>
