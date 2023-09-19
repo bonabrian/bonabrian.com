@@ -1,10 +1,12 @@
 'use client'
 
+import { useRef } from 'react'
 import type { IReadTimeResults } from 'reading-time'
 
 import { BackButton, Container } from '@/components/common'
 import { Clock, Eye } from '@/components/icons'
 import PageHeader from '@/components/page-header'
+import StickyTitle from '@/components/sticky-title'
 import { ROUTES } from '@/constants/links'
 import { useView } from '@/hooks'
 import cn from '@/lib/cn'
@@ -26,9 +28,12 @@ const MetaHeader = ({
   const publishedDate = formatDate(timestamp)
   const { views } = useView({ slug, trackView: true })
 
+  const pageHeaderRef = useRef<HTMLDivElement | null>(null)
+
   return (
     <>
-      <PageHeader title={title} centered />
+      <PageHeader title={title} centered ref={pageHeaderRef} />
+      <StickyTitle title={title} elementRef={pageHeaderRef} />
       <Container className={cn('mb-8')}>
         <BackButton href={ROUTES.blog} />
         <div
