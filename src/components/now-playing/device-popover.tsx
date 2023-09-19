@@ -1,3 +1,5 @@
+'use client'
+
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
@@ -5,7 +7,7 @@ import { PAIR_DEVICES } from '@/constants/devices'
 import cn from '@/lib/cn'
 import type { Device } from '@/types/spotify'
 
-import { CPU } from './icons'
+import { CPU as DeviceIcon } from '../icons'
 
 interface DevicePopoverProps {
   show: boolean
@@ -15,7 +17,7 @@ interface DevicePopoverProps {
 const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
   const availableDevices = devices?.map((device) => ({
     ...device,
-    icon: PAIR_DEVICES[device?.type]?.icon || <CPU />,
+    icon: PAIR_DEVICES[device?.type]?.icon || <DeviceIcon />,
   }))
 
   return (

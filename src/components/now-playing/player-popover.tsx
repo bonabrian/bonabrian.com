@@ -1,3 +1,5 @@
+'use client'
+
 import { Popover, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { Fragment } from 'react'
