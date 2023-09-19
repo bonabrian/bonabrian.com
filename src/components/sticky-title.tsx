@@ -13,7 +13,7 @@ interface StickyTitleProps {
   gap?: number
 }
 
-const StickyTitle = ({ title, elementRef, gap = 64 }: StickyTitleProps) => {
+const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
   const [threshold, setThreshold] = useState(0)
 
   useLayoutEffect(() => {
@@ -36,9 +36,8 @@ const StickyTitle = ({ title, elementRef, gap = 64 }: StickyTitleProps) => {
 
   const transition = { duration: 0.3, ease: 'easeInOut' }
   const variants = {
-    initial: { opacity: 0, y: -20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
+    initial: { opacity: isScrolled ? 0 : 1, y: isScrolled ? gap : 0 },
+    animate: { opacity: isScrolled ? 1 : 0, y: isScrolled ? 0 : gap },
   }
 
   const isMinMd = useMediaQuery(min('md'))
@@ -48,17 +47,28 @@ const StickyTitle = ({ title, elementRef, gap = 64 }: StickyTitleProps) => {
       {isScrolled && isMinMd ? (
         <m.div
           className={cn(
-            'sticky top-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+            'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
           )}
           initial="initial"
           animate="animate"
-          exit="exit"
           variants={variants}
           transition={transition}
         >
           <h1 className={cn('text-lg font-semibold')}>{title}</h1>
         </m.div>
-      ) : null}
+      ) : (
+        <m.div
+          className={cn(
+            'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+          )}
+          initial="initial"
+          animate="animate"
+          variants={variants}
+          transition={transition}
+        >
+          <h1 className={cn('text-lg font-semibold')}>{title}</h1>
+        </m.div>
+      )}
     </>
   )
 }
