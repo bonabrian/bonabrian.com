@@ -29,7 +29,7 @@ const Link = forwardRef<any, LinkProps>(
         ref={ref}
         className={cn(
           'transition-all duration-200',
-          showExternalLinkIcon && 'inline-flex items-center',
+          showExternalLinkIcon && isExternal ? 'inline-flex items-center' : '',
           className,
         )}
         {...rest}
