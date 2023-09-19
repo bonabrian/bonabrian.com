@@ -2,10 +2,10 @@
 
 import { m } from 'framer-motion'
 
+import { Button, Container, Tooltip } from '@/components/common'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 
-import { Button, Container, Tooltip } from './common'
 import {
   ChevronRight,
   JavaScript,
@@ -21,8 +21,8 @@ import {
   TailwindCss,
   TypeScript,
   VueJs,
-} from './icons'
-import Link from './link'
+} from '../../components/icons'
+import Link from '../../components/link'
 
 interface Stack {
   title: string

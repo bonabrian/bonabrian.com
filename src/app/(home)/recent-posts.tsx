@@ -1,12 +1,13 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 
+import { Button, EmptyState } from '@/components/common'
+import { ChevronRight } from '@/components/icons'
+import Link from '@/components/link'
+import PostCard from '@/components/post-card'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 
-import { Button, EmptyState, Section } from './common'
-import { ChevronRight } from './icons'
-import Link from './link'
-import PostCard from './post-card'
+import Section from './section'
 
 const getRecentPosts = (maxDisplay: number = 2) =>
   allPosts

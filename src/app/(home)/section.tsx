@@ -1,6 +1,5 @@
+import { Container } from '@/components/common'
 import cn from '@/lib/cn'
-
-import Container from './container'
 
 interface SectionProps {
   title: string

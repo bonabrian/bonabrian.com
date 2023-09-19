@@ -3,13 +3,14 @@
 import { allProjects, type Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 
+import { Button, EmptyState } from '@/components/common'
+import { ChevronRight } from '@/components/icons'
+import Link from '@/components/link'
+import ProjectCard from '@/components/project-card'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 
-import { Button, EmptyState, Section } from './common'
-import { ChevronRight } from './icons'
-import Link from './link'
-import ProjectCard from './project-card'
+import Section from './section'
 
 const getHighlightedProjects = (maxDisplay: number = 4) =>
   allProjects

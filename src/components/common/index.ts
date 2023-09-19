@@ -7,7 +7,6 @@ import EmptyState from './empty-state'
 import IncrementCounter from './increment-counter'
 import Input from './input'
 import Progress from './progress'
-import Section from './section'
 import Spinner from './spinner'
 import Tooltip from './tooltip'
 
@@ -21,7 +20,6 @@ export {
   IncrementCounter,
   Input,
   Progress,
-  Section,
   Spinner,
   Tooltip,
 }
