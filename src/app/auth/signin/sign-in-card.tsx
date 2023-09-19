@@ -6,9 +6,9 @@ import type { BuiltInProviderType } from 'next-auth/providers'
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
+import { Button, Container } from '@/components/common'
 import cn from '@/lib/cn'
 
-import { Container } from './common'
 import LoginProviderButton from './login-provider-button'
 
 const SignInCard = ({
@@ -49,7 +49,7 @@ const SignInCard = ({
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className={cn('fixed inset-0 z-20 overflow-y-auto')}
+          className={cn('fixed inset-0 z-[999] overflow-y-auto')}
           onClose={() => setIsOpen(false)}
         >
           <div className={cn('min-h-screen px-4 text-center')}>
@@ -76,17 +76,19 @@ const SignInCard = ({
             >
               <div
                 className={cn(
-                  'inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl',
+                  'inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-card shadow-xl rounded-2xl',
                 )}
               >
                 <Dialog.Title
                   as="h3"
-                  className={cn('text-lg font-medium leading-6 text-gray-900')}
+                  className={cn(
+                    'text-lg font-medium leading-6 text-card-foreground',
+                  )}
                 >
                   Problem signing in
                 </Dialog.Title>
                 <div className={cn('mt-2')}>
-                  <p className={cn('text-sm text-gray-500')}>
+                  <p className={cn('text-sm text-muted-foreground')}>
                     An unexpected problem occurred while I&apos;m trying to log
                     you in. Please try with another providers.
                   </p>
@@ -96,15 +98,9 @@ const SignInCard = ({
                 </div>
 
                 <div className={cn('mt-4')}>
-                  <button
-                    type="button"
-                    className={cn(
-                      'inline-flex justify-center px-4 py-2 text-sm font-medium border border-transparent rounded-md text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-                    )}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    OK
-                  </button>
+                  <Button variant="outline" onClick={() => setIsOpen(false)}>
+                    Close
+                  </Button>
                 </div>
               </div>
             </Transition.Child>
