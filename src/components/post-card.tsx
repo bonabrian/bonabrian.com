@@ -88,7 +88,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
           </Link>
           <p className={cn('mb-4 text-muted-foreground')}>{excerpt}</p>
         </div>
-        <div className={cn('flex flex-row text-xs text-muted-foreground')}>
+        <div className={cn('flex flex-row text-sm text-muted-foreground')}>
           <div
             className={cn(
               'flex items-center space-x-1',
