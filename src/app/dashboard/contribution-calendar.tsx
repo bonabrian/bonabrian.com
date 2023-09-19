@@ -4,7 +4,8 @@ import { m } from 'framer-motion'
 import { useState } from 'react'
 
 import cn from '@/lib/cn'
-import { ContributionCalendar } from '@/types/github'
+
+import { ContributionCalendar } from './types/github'
 
 interface ContributionCalendarProps {
   data?: ContributionCalendar

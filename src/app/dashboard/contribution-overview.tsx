@@ -1,7 +1,7 @@
 import cn from '@/lib/cn'
-import type { ContributionCalendar } from '@/types/github'
 
-import { OverviewCard } from './common'
+import OverviewCard from './overview-card'
+import type { ContributionCalendar } from './types/github'
 
 interface ContributionOverviewProps {
   data?: ContributionCalendar

@@ -33,45 +33,45 @@ export interface WakaTimeBestDay {
 }
 
 export interface WakaTimeStat {
-  id: string
-  user_id: string
-  start: string
-  end: string
-  range: string
-  timeout: number
-  writes_only: boolean
-  timezone: string
-  holidays: number
-  status: string
-  created_at: string
-  modified_at: string
-  percent_calculated: number
-  human_readable_total: string
-  machines: WakaTimeMachine[]
-  daily_average: number
-  is_up_to_date_pending_future: boolean
-  total_seconds: number
-  is_stuck: boolean
-  categories: WakaTimeCategory[]
-  languages: WakaTimeLanguage[]
-  is_already_updating: boolean
-  operating_systems: WakaTimeOperatingSystem[]
-  editors: WakaTimeEditor[]
-  projects: WakaTimeProject[]
-  days_minus_holidays: number
-  human_readable_daily_average: string
-  human_readable_daily_average_including_other_language: string
-  days_including_holidays: number
-  best_day: WakaTimeBestDay
-  human_readable_total_including_other_language: string
-  total_seconds_including_other_language: number
-  is_up_to_date: boolean
-  daily_average_including_other_language: number
-  username: string | null
-  is_including_today: boolean
-  human_readable_range: string
-  is_coding_activity_visible: boolean
-  is_other_usage_visible: boolean
+  id?: string
+  user_id?: string
+  start?: string
+  end?: string
+  range?: string
+  timeout?: number
+  writes_only?: boolean
+  timezone?: string
+  holidays?: number
+  status?: string
+  created_at?: string
+  modified_at?: string
+  percent_calculated?: number
+  human_readable_total?: string
+  machines?: WakaTimeMachine[]
+  daily_average?: number
+  is_up_to_date_pending_future?: boolean
+  total_seconds?: number
+  is_stuck?: boolean
+  categories?: WakaTimeCategory[]
+  languages?: WakaTimeLanguage[]
+  is_already_updating?: boolean
+  operating_systems?: WakaTimeOperatingSystem[]
+  editors?: WakaTimeEditor[]
+  projects?: WakaTimeProject[]
+  days_minus_holidays?: number
+  human_readable_daily_average?: string
+  human_readable_daily_average_including_other_language?: string
+  days_including_holidays?: number
+  best_day?: WakaTimeBestDay
+  human_readable_total_including_other_language?: string
+  total_seconds_including_other_language?: number
+  is_up_to_date?: boolean
+  daily_average_including_other_language?: number
+  username?: string | null
+  is_including_today?: boolean
+  human_readable_range?: string
+  is_coding_activity_visible?: boolean
+  is_other_usage_visible?: boolean
 }
 
 export interface WakaTimeAllTimeSinceToday {

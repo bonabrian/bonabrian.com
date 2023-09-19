@@ -1,8 +1,8 @@
 import type { NextRequest } from 'next/server'
 
+import type { AccountType } from '@/app/dashboard/types/github'
 import { getErrorMessage, response } from '@/lib/api'
 import { getAccountContributions } from '@/lib/github'
-import type { AccountType } from '@/types/github'
 
 export const GET = async (req: NextRequest) => {
   try {

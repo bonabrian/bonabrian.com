@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 
-import CodingActivity from '@/components/coding-activity'
 import { Container } from '@/components/common'
-import Contributions from '@/components/contributions'
-import Insights from '@/components/insights'
 import PageHeader from '@/components/page-header'
 import { GITHUB_ACCOUNTS } from '@/constants/github'
 import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
+
+import CodingActivity from './coding-activity'
+import Contributions from './contributions'
+import ProfileStats from './profile-stats'
+import SiteStats from './site-stats'
 
 export const metadata: Metadata = getMetadata({
   title: 'Dashboard',
@@ -22,7 +24,8 @@ const DashboardPage = () => {
       <PageHeader title="Dashboard" description="Metrics and coding insights" />
       <div id="content">
         <Container className={cn('gap-y-8')}>
-          <Insights />
+          <ProfileStats />
+          <SiteStats />
           <CodingActivity />
           {GITHUB_ACCOUNTS?.filter((account) => account?.isActive).map(
             (account, index) => (

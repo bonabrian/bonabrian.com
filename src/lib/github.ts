@@ -1,9 +1,9 @@
-import { GITHUB_ACCOUNTS } from '@/constants/github'
 import type {
   AccountType,
   GithubUserContributionsCollection,
   GithubUserContributionsResponse,
-} from '@/types/github'
+} from '@/app/dashboard/types/github'
+import { GITHUB_ACCOUNTS } from '@/constants/github'
 
 import fetcher from './fetcher'
 

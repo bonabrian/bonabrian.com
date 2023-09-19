@@ -2,7 +2,7 @@ import type {
   WakaTimeAllTimeSinceToday,
   WakaTimeResponse,
   WakaTimeStat,
-} from '@/types/wakatime'
+} from '@/app/dashboard/types/wakatime'
 
 import fetcher from './fetcher'
 
@@ -11,6 +11,15 @@ const WAKATIME_API_KEY = process.env.WAKATIME_API_KEY ?? ''
 const STATS_ENDPOINT = 'https://wakatime.com/api/v1/users/current/stats'
 const ALL_TIME_SINCE_TODAY_ENDPOINT =
   'https://wakatime.com/api/v1/users/current/all_time_since_today'
+
+const ALLOWED_LANGUAGES = [
+  'TypeScript',
+  'JavaScript',
+  'Kotlin',
+  'PHP',
+  'Vue.js',
+  'React.js',
+]
 
 export const getLastSevenDaysStats = async (): Promise<
   WakaTimeStat | undefined
@@ -27,7 +36,14 @@ export const getLastSevenDaysStats = async (): Promise<
     },
   )
 
-  return response.data
+  const data = response.data
+
+  return {
+    ...data,
+    languages: data?.languages
+      ?.filter((language) => ALLOWED_LANGUAGES.includes(language.name))
+      ?.map((language) => language),
+  }
 }
 
 export const getAllTimeSinceToday = async (): Promise<

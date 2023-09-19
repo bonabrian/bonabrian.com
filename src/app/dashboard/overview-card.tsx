@@ -1,6 +1,5 @@
+import { IncrementCounter } from '@/components/common'
 import cn from '@/lib/cn'
-
-import IncrementCounter from './increment-counter'
 
 interface OverviewCardProps {
   label: string
