@@ -27,14 +27,16 @@ const Link = forwardRef<any, LinkProps>(
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener' : undefined}
         ref={ref}
-        className={cn(className)}
+        className={cn(
+          'transition-all duration-200',
+          showExternalLinkIcon && 'inline-flex items-center',
+          className,
+        )}
         {...rest}
       >
         {children}
         {showExternalLinkIcon && isExternal && (
-          <ExternalLink
-            className={cn('w-3 h-3 inline-block ml-0.5 align-middle')}
-          />
+          <ExternalLink className={cn('w-3 h-3 inline-block ml-0.5')} />
         )}
       </NextLink>
     )
