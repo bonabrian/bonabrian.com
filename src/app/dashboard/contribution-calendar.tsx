@@ -47,18 +47,16 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
     <div className={cn('border p-4 rounded-md', 'dark:border-neutral-800')}>
       <div
         className={cn(
-          'relative flex flex-col overflow-hidden overflow-x-auto mb-4',
+          'relative flex flex-col justify-center overflow-hidden mb-4',
         )}
       >
-        <div
-          className={cn('relative flex flex-col items-center justify-center')}
-        >
+        <div className={cn('overflow-x-auto flex flex-col')}>
           <ul className={cn('flex justify-end gap-1 text-xs md:justify-start')}>
             {months.map((month) => (
               <li
                 key={month.firstDay}
                 className={cn(month.totalWeeks < 2 && 'invisible')}
-                style={{ minWidth: 19.05 * month.totalWeeks }}
+                style={{ minWidth: 19.285 * month.totalWeeks }}
               >
                 {month.name}
               </li>
@@ -88,7 +86,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
                         },
                       }}
                       className={cn(
-                        'my-[2px] block h-4 w-4 rounded-sm bg-muted',
+                        'my-[2px] block h-[16.25px] w-[16.25px] rounded-sm bg-muted',
                       )}
                       style={backgroundColor ? { backgroundColor } : undefined}
                       onMouseEnter={() =>
