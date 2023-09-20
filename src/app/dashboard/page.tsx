@@ -28,9 +28,9 @@ const DashboardPage = () => {
           <SiteStats />
           <CodingActivity />
           {GITHUB_ACCOUNTS?.filter((account) => account?.isActive).map(
-            (account, index) => (
+            (account) => (
               <Contributions
-                key={index}
+                key={account.type}
                 username={account?.username}
                 endpoint={account?.endpoint}
               />

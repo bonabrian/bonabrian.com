@@ -37,9 +37,9 @@ const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
             'flex flex-col gap-5 p-4 overflow-hidden rounded-md shadow-lg bg-card ring-1 ring-card ring-opacity-5',
           )}
         >
-          {availableDevices?.map((device, index) => (
+          {availableDevices?.map((device) => (
             <div
-              key={index}
+              key={device.name}
               className={cn('flex items-center w-full justify-between gap-3')}
             >
               <div className={cn('text-foreground')}>{device?.icon}</div>

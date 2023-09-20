@@ -51,7 +51,7 @@ const CodingActivity = () => {
   const bestDay = bestDayDate
     ? `${formatDate(bestDayDate)} (${bestDayText})`
     : 'N/A'
-  const allTimeSinceToday = data?.all_time_since_today?.text || 'N/A'
+  const allTimeSinceToday = data?.all_time_since_today?.text ?? 'N/A'
 
   const languages = data?.languages ?? []
   const editors = data?.editors ?? []
