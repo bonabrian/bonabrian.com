@@ -18,6 +18,7 @@ const Available = () => {
     <Button
       className={cn(
         'pointer-events-none gap-3 px-3 uppercase border-none shadow-none',
+        'dark:shadow-none',
       )}
       variant="outline"
     >
