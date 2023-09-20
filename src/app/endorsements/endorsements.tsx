@@ -30,7 +30,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
     <Container>
       <div
         className={cn(
-          'relative p-4 rounded-lg border border-transparent bg-background',
+          'relative p-4 rounded-lg border border-transparent bg-background max-w-lg',
           'after:absolute after:-inset-1 after:-z-10 after:rounded-[calc(8px+3px)] after:content-[""] after:bg-rainbow-gradient',
         )}
       >
@@ -62,7 +62,12 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
             <h2 className={cn('font-semibold')}>
               Please log in to provide your valuable endorsement.
             </h2>
-            <Button variant="outline" onClick={onSignIn} disabled={isLoading}>
+            <Button
+              variant="outline"
+              onClick={onSignIn}
+              disabled={isLoading}
+              className={cn('hover:bg-accent hover:text-accent-foreground')}
+            >
               {isLoading ? <Spinner /> : 'Login'}
             </Button>
             <p className={cn('text-sm text-muted-foreground')}>
