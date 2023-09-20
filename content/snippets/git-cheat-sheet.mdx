@@ -11,12 +11,12 @@ User Information Configuration for Universal Application Across Local Repositori
 git config --global user.name "[firstname lastname]"
 # set a name globally to associate your name with your Git commits
 ```
-<br />
+
 ```bash
 git config --global user.email "[valid email]"
 # set an email address that will be associated with each history maker
 ```
-<br />
+
 ```bash
 git config --global color.ui auto
 # set automatic command line to improve the readability of Git's output by color-coding different types of information,
@@ -30,7 +30,6 @@ Initializing and cloning repositories
 git init
 # initialize an existing directory as a Git repository
 ```
-<br />
 
 ```bash
 git clone [url]
@@ -44,29 +43,29 @@ Working with snapshots and Git staging area
 git status
 # show modified files in your working directory
 ```
-<br />
+
 ```bash
 git add [file]
 # add a file to the staging area in Git
 ```
-<br />
+
 ```bash
 git reset [file]
 # unstage a file from Git staging area
 ```
-<br />
+
 ```bash
 git diff
 # display the differences (or "diffs") between the changes in working directory
 # and the last committed version of the files in your Git repository
 ```
-<br />
+
 ```bash
 git diff --staged
 # display the differences (or "diffs") between the changes that are staged (added to the Git staging area)
 # and the last committed version of the files in your Git repository
 ```
-<br />
+
 ```bash
 git commit -m [descriptive message]
 # create a new commit in Git with a descriptive message, this command captures the changes that are
@@ -80,24 +79,24 @@ Isolating work in branches, and integrating changes
 git branch
 # show modified files in your working directory
 ```
-<br />
+
 ```bash
 git branch [branch-name]
 # to create a new branch in a Git repository with the specified branch-name, or alternatively
 git checkout -b [branch-name]
 ```
-<br />
+
 ```bash
 git checkout
 # switch to another branch and check it out into working directory
 ```
-<br />
+
 ```bash
 git merge [branch-name]
 # to merge changes from one branch into another branch in Git. Specifically,
 # it merges the branch specified by [branch-name] into the current branch
 ```
-<br />
+
 ```bash
 git log
 # display a chronological log of commits in a Git repository
@@ -110,17 +109,17 @@ Retrieving updates from another repository and updating local repository
 git remote add [alias] [url]
 # add a remote repository to your Git configuration with a specified alias
 ```
-<br />
+
 ```bash
 git fetch [alias]
 # fetch updates from a remote repository associated with the specified alias without merging the changes into your local branches
 ```
-<br />
+
 ```bash
 git push [remote] [branch]
 # transmit local branch commits to the remote repository branch
 ```
-<br />
+
 ```bash
 git pull
 # fetch and merge any commits from the tracking remote branch
@@ -133,7 +132,7 @@ Rewriting branches, updating commits and clearing history
 git rebase [branch]
 # apply any commits of current branch ahead of specified one
 ```
-<br />
+
 ```bash
 git reset --hard [commit]
 # clear staging area, rewrite working tree from specified commit
@@ -146,17 +145,17 @@ Temporarily store modified, tracked files in order to change branches
 git stash
 # temporarily save changes in your working directory that are not yet committed but that you don't want to commit at the moment
 ```
-<br />
+
 ```bash
 git stash list
 # show a list of stashes that you've created in your Git repository
 ```
-<br />
+
 ```bash
 git stash pop
 # apply the most recent stash in your Git repository and remove it from the stash list
 ```
-<br />
+
 ```bash
 git stash drop
 # remove the most recent stash from the stash list in your Git repository

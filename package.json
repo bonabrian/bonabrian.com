@@ -13,7 +13,6 @@
     "build-stats": "cross-env ANALYZE=true next build",
     "predev": "yarn clean && prisma generate && contentlayer build --clearCache",
     "prebuild": "yarn predev",
-    "postbuild": "cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs && node ./scripts/generate-sitemap.mjs",
     "clean": "rimraf .next && rimraf dist && rimraf out && rimraf .contentlayer",
     "lint": "next lint",
     "check-types": "tsc --noEmit --pretty",
@@ -31,7 +30,10 @@
     "@vercel/analytics": "^1.0.2",
     "@vercel/og": "^0.5.13",
     "canvas-confetti": "^1.6.0",
+    "class-variance-authority": "^0.7.0",
     "contentlayer": "^0.3.4",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
     "framer-motion": "^10.16.4",
     "next": "^13.4.19",
     "next-auth": "4.23.1",
@@ -40,6 +42,7 @@
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rss": "^1.2.2",
     "swr": "^2.2.2"
   },
   "devDependencies": {
@@ -53,6 +56,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/remove-markdown": "^0.3.1",
+    "@types/rss": "^0.0.30",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "autoprefixer": "^10.4.15",
@@ -66,7 +70,6 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "file-loader": "^6.2.0",
-    "globby": "^13.2.2",
     "husky": "^8.0.3",
     "image-size": "^1.0.2",
     "lint-staged": "^14.0.1",
@@ -79,7 +82,6 @@
     "rehype": "^13.0.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-pretty-code": "^0.10.1",
-    "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "remove-markdown": "^0.5.0",
@@ -88,7 +90,6 @@
     "shiki": "^0.14.4",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2",
-    "xml": "^1.0.1"
+    "typescript": "^5.2.2"
   }
 }

@@ -1,10 +1,8 @@
-type FormatDateProps = {
-  timestamp?: string | null
-  locale?: string
-  year?: 'numeric' | '2-digit'
-  month?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow'
-  day?: 'numeric' | '2-digit'
-}
+import { format, parseISO } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
+
+export const ariaAttr = (condition: boolean | undefined) =>
+  condition ? true : undefined
 
 export const unique = <T, Key extends keyof T>(
   array: Array<T> | T[],
@@ -26,27 +24,16 @@ export const kebabCase = (str?: string) =>
     ?.map((x) => x.toLowerCase())
     .join('-')
 
-export const formatDate = ({
-  timestamp = null,
-  locale = 'en-Us',
-  year = 'numeric',
-  month = 'long',
-  day = 'numeric',
-}: FormatDateProps) => {
-  const date = timestamp ? new Date(timestamp) : new Date()
+export const formatDate = (
+  date: string,
+  dateFormat: string = 'MMMM dd, yyyy',
+) => {
+  const formattedDate = format(
+    utcToZonedTime(parseISO(date), 'Asia/Jakarta'),
+    dateFormat,
+  )
 
-  const formatted = date.toLocaleDateString(locale, {
-    year,
-    month,
-    day,
-  })
-
-  const raw = date.toISOString()
-
-  return {
-    formatted,
-    raw,
-  }
+  return formattedDate
 }
 
 export const getDomainFromUrl = (url?: string | null): string | null => {
@@ -63,3 +50,6 @@ export const getBaseUrl = () => {
   const isDevelopment = process.env.NODE_ENV === 'development'
   return isDevelopment ? 'http://localhost:3000' : 'https://bonabrian.com'
 }
+
+export const isClient = typeof window !== 'undefined'
+export const isServer = typeof window === 'undefined'

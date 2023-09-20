@@ -1,4 +1,4 @@
-import Link from '@/components/link'
+import { Link } from '@/components/common'
 import cn from '@/lib/cn'
 
 import FourZeroFourImage from '../../assets/images/404.svg'
@@ -32,8 +32,8 @@ const FourZeroFour = () => {
         <Link
           href="/"
           className={cn(
-            'inline text-white px-4 py-2 font-medium bg-primary-400 border border-transparent rounded-lg shadow hover:bg-primary-500',
-            'dark:bg-primary-600 dark:hover:bg-primary-700',
+            'inline text-white px-4 py-2 font-medium border border-transparent rounded-lg shadow',
+            '',
           )}
         >
           Go back home

@@ -6,7 +6,7 @@
 }
 
 #nprogress .bar {
-  @apply bg-primary-500 h-1 w-full shadow-none left-0 top-0 fixed z-50;
+  @apply h-1 w-full shadow-none left-0 top-0 fixed z-50;
 }
 
 /* Fancy blur effect */

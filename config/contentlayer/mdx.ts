@@ -1,6 +1,5 @@
 import type { MDXOptions } from 'contentlayer/core'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
-import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
@@ -13,7 +12,6 @@ const mdx: MDXOptions = {
     imageMetaData,
     rehypeSlug,
     prettyCode,
-    [rehypePrism, { ignoreMissing: true }],
     rehypeAccessibleEmojis,
   ],
 }

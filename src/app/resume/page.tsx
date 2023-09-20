@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
-import Resume from '@/components/resume'
 import { getMetadata } from '@/lib/metadata'
+
+import Resume from './resume'
 
 export const metadata: Metadata = getMetadata({
   title: 'Resume',

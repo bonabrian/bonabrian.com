@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
-import Container from '@/components/container'
+import { Container, Link } from '@/components/common'
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
-import Link from '@/components/link'
 import PageHeader from '@/components/page-header'
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { defaultMetadata, getMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = getMetadata({
@@ -18,7 +17,7 @@ export const metadata: Metadata = getMetadata({
 const AboutPage = () => {
   return (
     <>
-      <PageHeader title="About" />
+      <PageHeader title="About" description="A short story of me" />
       <div id="content">
         <Container>
           <div
@@ -48,10 +47,7 @@ const AboutPage = () => {
                   {defaultMetadata.author.name}
                 </h3>
                 <h4
-                  className={cn(
-                    'text-base font-medium text-gray-600',
-                    'dark:text-slate-200',
-                  )}
+                  className={cn('text-base font-medium text-muted-foreground')}
                 >
                   Full-stack Engineer
                 </h4>
@@ -62,7 +58,7 @@ const AboutPage = () => {
                     href={defaultMetadata.author.github}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
                     )}
                   >
                     <GitHub className={cn('h-6 w-6')} />
@@ -71,7 +67,7 @@ const AboutPage = () => {
                     href={defaultMetadata.author.linkedin}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
                     )}
                   >
                     <LinkedIn className={cn('h-6 w-6')} />
@@ -80,7 +76,7 @@ const AboutPage = () => {
                     href={`mailto:${defaultMetadata.author.email}`}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'hover:text-primary-500 transition-all ease-in-out',
+                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
                     )}
                   >
                     <Mail className={cn('h-6 w-6')} />
@@ -155,7 +151,7 @@ const AboutPage = () => {
               <p>
                 If you're interested in learning more about my professional
                 background and qualifications, I encourage you to review{' '}
-                <Link href={routes.RESUME}>my resume.</Link>
+                <Link href={ROUTES.resume}>my resume.</Link>
               </p>
             </div>
           </div>

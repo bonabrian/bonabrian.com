@@ -1,100 +1,87 @@
+import { PAIR_DEVICES } from '@/constants/devices'
+import type {
+  AccessTokenResponse,
+  AvailableDevicesResponse,
+  ContextResponse,
+  Device,
+  NowPlaying,
+} from '@/types/spotify'
+
 import fetcher from './fetcher'
 
-interface AccessTokenResponse {
-  access_token: string
-}
-
-interface ExternalUrls {
-  spotify: string
-}
-
-interface SongArtist {
-  name: string
-}
-
-interface SongImage {
-  height: number
-  width: number
-  url: string
-}
-
-interface SongAlbum {
-  name: string
-  artists: Array<SongArtist>
-  images: Array<SongImage>
-}
-
-interface SongItem {
-  name: string
-  album: SongAlbum
-  external_urls: ExternalUrls
-}
-
-interface NowPlayingResponse {
-  is_playing: boolean
-  item: SongItem
-  currently_playing_type: string
-}
-
-export interface NowPlaying {
-  title: string
-  artist: string
-  album: string
-  url: string
-  isPlaying: boolean
-  image?: SongImage
-}
-
-const nowPlayingDataSelector = (
-  nowPlayingData: NowPlayingResponse,
-): NowPlaying => {
-  const { item, is_playing } = nowPlayingData
-
-  return {
-    title: item.name,
-    artist: item.album.artists.map(({ name }) => name).join(', '),
-    album: item.album.name,
-    url: item.external_urls.spotify,
-    isPlaying: is_playing,
-    image: item.album.images.pop(),
-  }
-}
-
-const clientId = process.env.SPOTIFY_CLIENT_ID
-const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-const refreshToken = process.env.SPOTIFY_CLIENT_REFRESH_TOKEN
-
+const BASE_URL = 'https://api.spotify.com/v1'
+const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
+const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
+const TOKEN = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
+const REFRESH_TOKEN = process.env.SPOTIFY_CLIENT_REFRESH_TOKEN
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
-const NOW_PLAYING_ENDPOINT =
-  'https://api.spotify.com/v1/me/player/currently-playing'
+const NOW_PLAYING_ENDPOINT = `${BASE_URL}/me/player/currently-playing`
+const AVAILABLE_DEVICES_ENDPOINT = `${BASE_URL}/me/player/devices`
 
-const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
-
-export const getAccessToken = async () => {
+export const getAccessToken = async (): Promise<AccessTokenResponse> => {
   const response = await fetcher<AccessTokenResponse>(TOKEN_ENDPOINT, {
     method: 'POST',
     headers: {
-      Authorization: `Basic ${basic}`,
+      Authorization: `Basic ${TOKEN}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: refreshToken || '',
+      refresh_token: REFRESH_TOKEN || '',
     }),
   })
 
   return response
 }
 
+const nowPlayingDataMapper = (context: ContextResponse): NowPlaying => {
+  const { item, is_playing } = context
+
+  return {
+    isPlaying: is_playing,
+    album: item?.album.name ?? '',
+    albumImageUrl:
+      item?.album?.images?.find((image) => image?.width === 640)?.url ??
+      undefined,
+    artist: item?.artists?.map(({ name }) => name).join(', ') ?? '',
+    songUrl: item?.external_urls?.spotify ?? '',
+    title: item?.name ?? '',
+  }
+}
+
 export const getNowPlaying = async (): Promise<NowPlaying> => {
   const { access_token } = await getAccessToken()
 
-  const response = await fetcher<NowPlayingResponse>(NOW_PLAYING_ENDPOINT, {
+  const response = await fetcher<ContextResponse>(NOW_PLAYING_ENDPOINT, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   })
 
-  return nowPlayingDataSelector(response)
+  return nowPlayingDataMapper(response)
+}
+
+export const getAvailableDevices = async (): Promise<Device[]> => {
+  const { access_token } = await getAccessToken()
+
+  const response = await fetcher<AvailableDevicesResponse>(
+    AVAILABLE_DEVICES_ENDPOINT,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    },
+  )
+
+  const devices = response?.devices?.map((device) => ({
+    name: device.name,
+    is_active: device.is_active,
+    type: device.type,
+    model: PAIR_DEVICES[device?.type]?.model || 'Unknown Device',
+    id: PAIR_DEVICES[device?.type]?.id || 'bonabrian-device',
+  }))
+
+  return devices
 }

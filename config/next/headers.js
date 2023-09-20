@@ -47,13 +47,4 @@ module.exports = [
     source: '/(.*)',
     headers: securityHeaders,
   },
-  {
-    source: '/feed.xml',
-    headers: [
-      {
-        key: 'Content-Type',
-        value: 'application/rss+xml;charset=utf-8',
-      },
-    ],
-  },
 ]

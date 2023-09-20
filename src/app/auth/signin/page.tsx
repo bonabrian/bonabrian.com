@@ -4,9 +4,10 @@ import { getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 
 import PageHeader from '@/components/page-header'
-import SignInCard from '@/components/sign-in-card'
 import { authOptions } from '@/lib/auth'
 import { getMetadata } from '@/lib/metadata'
+
+import SignInCard from './sign-in-card'
 
 export const metadata: Metadata = getMetadata({
   title: 'Sign In',

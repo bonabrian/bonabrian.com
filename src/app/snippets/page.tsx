@@ -2,11 +2,10 @@ import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
-import Container from '@/components/container'
-import Link from '@/components/link'
+import { Container, EmptyState, Link } from '@/components/common'
 import PageHeader from '@/components/page-header'
+import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'
 
@@ -45,50 +44,40 @@ const SnippetsPage = async () => {
               )}
             >
               {snippets.map(({ slug, title, description, date }) => {
-                const timestamp = formatDate({
-                  timestamp: date,
-                })
+                const timestamp = formatDate(date)
 
                 return (
                   <Link
                     key={slug}
-                    href={`${routes.SNIPPETS}/${slug}`}
+                    href={`${ROUTES.snippets}/${slug}`}
                     className={cn(
-                      'flex flex-col justify-between border border-slate-100 rounded-2xl p-6 hover:border-primary-600',
-                      'dark:border-gray-800 dark:hover:border-primary-400',
+                      'flex flex-col justify-between rounded-md p-6 bg-card',
                     )}
                   >
-                    <h2
-                      className={cn(
-                        'font-semibold text-xl text-gray-700 mb-2',
-                        'dark:text-slate-50',
-                      )}
-                    >
-                      {title}
-                    </h2>
+                    <div className={cn('flex flex-col')}>
+                      <h2
+                        className={cn(
+                          'font-semibold text-lg text-card-foreground mb-2',
+                        )}
+                      >
+                        {title}
+                      </h2>
+                      <p className={cn('mb-4 text-muted-foreground')}>
+                        {description}
+                      </p>
+                    </div>
                     <p
-                      className={cn(
-                        'mb-4 text-gray-600',
-                        'dark:text-slate-200',
-                      )}
+                      className={cn('text-sm text-muted-foreground')}
+                      title={timestamp}
                     >
-                      {description}
-                    </p>
-                    <p
-                      className={cn(
-                        'text-xs text-gray-900/60',
-                        'dark:text-slate-100/70',
-                      )}
-                      title={timestamp.raw}
-                    >
-                      {timestamp.formatted}
+                      {timestamp}
                     </p>
                   </Link>
                 )
               })}
             </div>
           ) : (
-            <p className={cn('text-center')}>No snippets.</p>
+            <EmptyState message="No snippets." />
           )}
         </Container>
       </div>

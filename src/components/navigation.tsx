@@ -4,72 +4,15 @@ import { Menu } from '@headlessui/react'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
+import { navLinks } from '@/constants/links'
 import { useOnScroll } from '@/hooks'
 import cn from '@/lib/cn'
-import { routes } from '@/lib/constants'
 import { defaultMetadata } from '@/lib/metadata'
 
-import Logo from '../../assets/images/logo.svg'
-import Container from './container'
-import {
-  AtSign,
-  BarChart,
-  Check,
-  CodeBracket,
-  Hamburger,
-  Home,
-  Layers,
-  Pencil,
-} from './icons'
-import Link from './link'
+import Logo from '../../public/static/images/logo.svg'
+import { Button, Container, Link } from './common'
+import { Hamburger } from './icons'
 import ThemeSwitch from './theme-switch'
-
-interface NavLink {
-  path: string
-  label: string
-  icon: JSX.Element
-  onlyShowOnDropdownMenu?: boolean
-}
-
-const navLinks: NavLink[] = [
-  {
-    path: '/',
-    label: 'Home',
-    icon: <Home />,
-    onlyShowOnDropdownMenu: true,
-  },
-  {
-    path: routes.BLOG,
-    label: 'Blog',
-    icon: <Pencil />,
-  },
-  {
-    path: routes.PROJECTS,
-    label: 'Projects',
-    icon: <Layers />,
-  },
-  {
-    path: routes.SNIPPETS,
-    label: 'Snippets',
-    icon: <CodeBracket />,
-  },
-  {
-    path: routes.ENDORSEMENTS,
-    label: 'Endorsements',
-    icon: <Check />,
-  },
-  {
-    path: routes.ABOUT,
-    label: 'About',
-    icon: <AtSign />,
-  },
-  {
-    path: routes.STATS,
-    label: 'Stats',
-    icon: <BarChart />,
-    onlyShowOnDropdownMenu: true,
-  },
-]
 
 const animation = {
   hide: { opacity: 0, y: 16 },
@@ -83,18 +26,18 @@ const Navigation = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 h-16 bg-white/90 flex backdrop-blur',
-        'dark:bg-gray-900/90',
+        'sticky top-0 z-50 h-16 bg-background/90 flex saturate-110 backdrop-blur-[10px]',
+        '',
         isScrolled ? 'shadow-sm' : '',
       )}
     >
       <Container wide>
-        <div
+        <nav
           className={cn(
             'flex flex-1 items-center justify-between h-16 text-sm',
           )}
         >
-          <nav className={cn('flex md:gap-2 items-center')}>
+          <div className={cn('flex md:gap-2 items-center')}>
             <Link
               href="/"
               aria-label={defaultMetadata.author.name}
@@ -102,7 +45,7 @@ const Navigation = () => {
             >
               <Logo className={cn('h-9')} />
             </Link>
-            <ul className={cn('hidden sm:flex md:gap-2')}>
+            <ul className={cn('hidden sm:flex md:gap-1')}>
               {navLinks
                 .filter(({ onlyShowOnDropdownMenu }) => !onlyShowOnDropdownMenu)
                 .map(({ path, label }) => (
@@ -110,9 +53,10 @@ const Navigation = () => {
                     <Link
                       href={path}
                       className={cn(
-                        'nav-link',
+                        'flex items-center gap-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-2 py-2',
+                        'hover:bg-accent hover:text-accent-foreground',
                         (pathname === path || pathname.startsWith(path)) &&
-                          'active',
+                          'bg-accent text-accent-foreground',
                       )}
                     >
                       {label}
@@ -120,7 +64,7 @@ const Navigation = () => {
                   </li>
                 ))}
             </ul>
-          </nav>
+          </div>
           <ul className={cn('flex items-center')}>
             <li className={cn('sm:hidden')}>
               <div className={cn('relative')}>
@@ -130,9 +74,14 @@ const Navigation = () => {
                       <Menu.Button
                         title="Menu"
                         aria-label="Menu"
-                        className={cn('flex items-center justify-center')}
+                        htmlType="button"
+                        variant="ghost"
+                        className={cn(
+                          'w-9 h-9 p-0 flex items-center justify-center',
+                        )}
+                        as={Button}
                       >
-                        <Hamburger className={cn('w-5 h-5')} />
+                        <Hamburger className={cn('')} />
                       </Menu.Button>
                       {open && (
                         <Menu.Items
@@ -142,8 +91,7 @@ const Navigation = () => {
                           initial="hide"
                           animate="show"
                           className={cn(
-                            'absolute bg-white shadow p-2 rounded-2xl w-56 right-0 origin-top-right',
-                            'dark:bg-gray-800',
+                            'absolute bg-popover shadow-sm p-1 rounded-md w-56 right-0 origin-top-right',
                           )}
                         >
                           {navLinks.map(({ path, label, icon }) => (
@@ -152,8 +100,11 @@ const Navigation = () => {
                                 <Link
                                   href={path}
                                   className={cn(
-                                    'nav-link gap-2 my-2',
-                                    active ? 'active' : '',
+                                    'flex items-center mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2 gap-2 my-0.5',
+                                    'hover:bg-accent hover:text-accent-foreground',
+                                    active
+                                      ? 'bg-accent text-accent-foreground'
+                                      : '',
                                   )}
                                 >
                                   {icon}
@@ -173,7 +124,7 @@ const Navigation = () => {
               <ThemeSwitch />
             </li>
           </ul>
-        </div>
+        </nav>
       </Container>
     </header>
   )

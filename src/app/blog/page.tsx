@@ -3,8 +3,9 @@ import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
-import PostList from '@/components/post-list'
 import { getMetadata } from '@/lib/metadata'
+
+import Posts from './posts'
 
 const posts = allPosts
   .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
@@ -36,7 +37,7 @@ const BlogPage = async () => {
       />
 
       <div id="content">
-        <PostList posts={posts} />
+        <Posts posts={posts} />
       </div>
     </>
   )
