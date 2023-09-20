@@ -42,6 +42,18 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
 
   const isMinMd = useMediaQuery(min('md'))
 
+  const scrollToTop = () => {
+    try {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      })
+    } catch (err) {
+      window.scrollTo(0, 0)
+    }
+  }
+
   return (
     <>
       {isMinMd && (
@@ -56,16 +68,19 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
               variants={variants}
               transition={transition}
             >
-              <h1 className={cn('text-lg font-semibold')}>{title}</h1>
+              <h1
+                className={cn('text-lg font-semibold cursor-pointer')}
+                onClick={scrollToTop}
+              >
+                {title}
+              </h1>
             </m.div>
           ) : (
             <m.div
               className={cn(
                 'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
               )}
-              initial="initial"
-              animate="animate"
-              variants={variants}
+              initial={{ opacity: 0, y: gap }}
               transition={transition}
             >
               <h1 className={cn('text-lg font-semibold')}>{title}</h1>
