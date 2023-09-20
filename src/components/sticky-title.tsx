@@ -44,30 +44,34 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
 
   return (
     <>
-      {isScrolled && isMinMd ? (
-        <m.div
-          className={cn(
-            'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+      {isMinMd && (
+        <>
+          {isScrolled ? (
+            <m.div
+              className={cn(
+                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+              )}
+              initial="initial"
+              animate="animate"
+              variants={variants}
+              transition={transition}
+            >
+              <h1 className={cn('text-lg font-semibold')}>{title}</h1>
+            </m.div>
+          ) : (
+            <m.div
+              className={cn(
+                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+              )}
+              initial="initial"
+              animate="animate"
+              variants={variants}
+              transition={transition}
+            >
+              <h1 className={cn('text-lg font-semibold')}>{title}</h1>
+            </m.div>
           )}
-          initial="initial"
-          animate="animate"
-          variants={variants}
-          transition={transition}
-        >
-          <h1 className={cn('text-lg font-semibold')}>{title}</h1>
-        </m.div>
-      ) : (
-        <m.div
-          className={cn(
-            'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
-          )}
-          initial="initial"
-          animate="animate"
-          variants={variants}
-          transition={transition}
-        >
-          <h1 className={cn('text-lg font-semibold')}>{title}</h1>
-        </m.div>
+        </>
       )}
     </>
   )
