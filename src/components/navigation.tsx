@@ -9,7 +9,7 @@ import { useOnScroll } from '@/hooks'
 import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'
 
-import Logo from '../../assets/images/logo.svg'
+import Logo from '../../public/static/images/logo.svg'
 import { Button, Container, Link } from './common'
 import { Hamburger } from './icons'
 import ThemeSwitch from './theme-switch'
