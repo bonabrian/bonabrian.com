@@ -4,10 +4,10 @@ import { m, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
 import { Container, Link } from '@/components/ui'
-import { experiences } from '@/constants/experiences'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
+import { experiences } from '../_constants/experiences'
 import AvailableForHire from './available-for-hire'
 import DownloadResume from './download-resume'
 
