@@ -41,6 +41,7 @@ const ThemeSwitch = () => {
       variant="ghost"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className={cn('px-2 py-1 z-50')}
+      aria-label="Theme Switch Button"
     >
       <m.div
         initial={true}
