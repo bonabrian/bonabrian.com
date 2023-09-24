@@ -9,7 +9,13 @@ const useShare = (slug: string) => {
 
   const addShare = (type: ShareType) => {
     // optimistic update
-    mutate(Object.assign({}, data, { total: (data?.total ?? 0) + 1 }), false)
+    mutate(
+      {
+        ...data,
+        total: (data?.total ?? 0) + 1,
+      },
+      false,
+    )
     fetch(`/api/shares/${slug}`, {
       method: 'POST',
       body: JSON.stringify({ type }),

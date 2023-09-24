@@ -24,9 +24,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
   const months =
     data?.months?.map((month) => {
       const filterContributionDay = weeks
-        .filter(
-          (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7),
-        )
+        .filter((week) => week.firstDay.startsWith(month.firstDay.slice(0, 7)))
         .map((item) => item.contributionDays)
         .flat(1)
 

@@ -64,7 +64,8 @@ export const useReactions = (slug: string) => {
   const addReaction = (type: ReactionType) => {
     // optimistic update
     mutate(
-      Object.assign({}, data, {
+      {
+        ...data,
         content: {
           reactions: {
             ...data?.content?.reactions,
@@ -78,7 +79,7 @@ export const useReactions = (slug: string) => {
             [type]: (data?.user.reactions[type] ?? 0) + 1,
           },
         },
-      }),
+      },
       false,
     )
 
