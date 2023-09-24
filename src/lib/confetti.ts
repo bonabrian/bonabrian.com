@@ -8,12 +8,11 @@ const defaults = {
 }
 
 const fire = (particleRatio: number, opts: Options) => {
-  confetti(
-    // eslint-disable-next-line prefer-object-spread
-    Object.assign({}, defaults, opts, {
-      particleCount: Math.floor(count * particleRatio),
-    }),
-  )
+  confetti({
+    ...defaults,
+    ...opts,
+    particleCount: Math.floor(count * particleRatio),
+  })
 }
 
 const fireConfetti = () => {
