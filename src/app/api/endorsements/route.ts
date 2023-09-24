@@ -1,12 +1,12 @@
 import { getServerSession } from 'next-auth'
 
-import { getErrorMessage, response } from '@/lib/api'
-import { authOptions } from '@/lib/auth'
 import {
   createEndorsement,
   getEndorsements,
   isEndorsed,
-} from '@/services/endorsements'
+} from '@/app/(insights)/endorsements/_lib/endorsements'
+import { getErrorMessage, response } from '@/lib/api'
+import { authOptions } from '@/lib/auth'
 
 export const POST = async (req: Request) => {
   try {

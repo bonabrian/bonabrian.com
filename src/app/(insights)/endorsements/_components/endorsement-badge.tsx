@@ -10,7 +10,7 @@ import cn from '@/lib/cn'
 import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
 
-import type { Skill } from './types'
+import type { Skill } from '../_types/skill'
 
 interface EndorsementsBadgeProps {
   skill: Skill

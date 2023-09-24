@@ -1,8 +1,8 @@
 import type { NextRequest } from 'next/server'
 
+import { countAllEndorsements } from '@/app/(insights)/endorsements/_lib/endorsements'
 import { getErrorMessage, response } from '@/lib/api'
 import fetcher from '@/lib/fetcher'
-import { countAllEndorsements } from '@/services/endorsements'
 import { countAllReactions } from '@/services/reactions'
 import { countAllViews } from '@/services/views'
 

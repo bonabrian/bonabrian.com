@@ -1,8 +1,4 @@
-export type User = {
-  id: string
-  name: string
-  image: string
-}
+import type { User } from './user'
 
 export type Skill = {
   id: string

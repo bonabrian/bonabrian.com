@@ -1,7 +1,9 @@
 import type { Endorsement } from '@prisma/client'
 
-import type { Skill, SkillCategory, User } from '@/app/endorsements/types'
 import prisma from '@/lib/prisma'
+
+import type { Skill, SkillCategory } from '../_types/skill'
+import type { User } from '../_types/user'
 
 interface EndorsementParams {
   skillId: number

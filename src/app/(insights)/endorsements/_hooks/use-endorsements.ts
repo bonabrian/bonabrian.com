@@ -1,12 +1,12 @@
 import { useRequest } from '@/hooks'
 
-import type { SkillCategory } from './types'
+import type { SkillCategory } from '../_types/skill'
 
 interface Props {
   fallbackData: Array<SkillCategory>
 }
 
-export const useEndorsements = ({ fallbackData }: Props) => {
+const useEndorsements = ({ fallbackData }: Props) => {
   const {
     data: endorsements,
     loading,
@@ -23,3 +23,5 @@ export const useEndorsements = ({ fallbackData }: Props) => {
     mutate,
   }
 }
+
+export default useEndorsements

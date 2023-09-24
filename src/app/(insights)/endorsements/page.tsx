@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import { getMetadata } from '@/lib/metadata'
-import { getEndorsements } from '@/services/endorsements'
 
-import Endorsements from './endorsements'
+import Endorsements from './_components/endorsements'
+import { getEndorsements } from './_lib/endorsements'
 
 export const metadata: Metadata = getMetadata({
   title: 'Endorsements',

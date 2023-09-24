@@ -6,9 +6,9 @@ import { useState } from 'react'
 import { Button, Container, Link, Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 
-import EndorsementsBadge from './endorsements-badge'
-import { useEndorsements } from './hooks'
-import type { SkillCategory } from './types'
+import useEndorsements from '../_hooks/use-endorsements'
+import type { SkillCategory } from '../_types/skill'
+import EndorsementsBadge from './endorsement-badge'
 
 interface EndorsementsProps {
   fallbackData: Array<SkillCategory>
