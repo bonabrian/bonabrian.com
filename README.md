@@ -1,4 +1,5 @@
-![bonabrian](https://github.com/bonabrian/bonabrian.com/assets/14372275/5601e54e-0a2e-487b-b123-44b7930ed081)
+
+<img width="1439" alt="bonabrian com" src="https://github.com/bonabrian/bonabrian.com/assets/14372275/81289141-065e-4b0d-9a8a-b658d48ac2db">
 
 <h1 align="center">
   My Own Digital Home on the Internet
