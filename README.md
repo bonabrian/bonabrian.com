@@ -65,10 +65,19 @@
     GITHUB_ID=#GITHUB_ID
     GITHUB_SECRET=#GITHUB_SECRET
 
+    GITHUB_READ_USER_TOKEN_PERSONAL=#GITHUB_PERSONAL_ACCESS_TOKEN
+    GITHUB_READ_USER_TOKEN_WORK=#GITHUB_WORK_ACCESS_TOKEN
+
     # Spotify
     SPOTIFY_CLIENT_ID=#SPOTIFY_CLIENT_ID
     SPOTIFY_CLIENT_SECRET=#SPOTIFY_CLIENT_SECRET
     SPOTIFY_CLIENT_REFRESH_TOKEN=#SPOTIFY_CLIENT_REFRESH_TOKEN
+
+    # Available for Hire
+    NEXT_PUBLIC_AVAILABLE_FOR_HIRE=true
+
+    # WakaTime
+    WAKATIME_API_KEY=#WAKATIME_API_KEY
    ```
 
 5. Start hacking
@@ -79,8 +88,8 @@
 ## Files to customize
 
 - `lib/metadata.ts` - update `defaultMetadata` with yours.
-- `app/about/page.tsx` - update with yours.
-- `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
+- `app/(bio)/about/page.tsx` - update with yours.
+- `app/(bio)resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/static` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
