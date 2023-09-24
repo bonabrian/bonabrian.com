@@ -5,7 +5,7 @@ import { m, useMotionValue, useTransform } from 'framer-motion'
 import { useTheme } from '@/hooks'
 import cn from '@/lib/cn'
 
-import { Button } from './common'
+import { Button } from './ui'
 
 const ThemeSwitch = () => {
   const { theme, mounted, setTheme } = useTheme()

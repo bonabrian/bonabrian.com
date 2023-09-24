@@ -56,9 +56,9 @@ Tailwind CSS provides a lot of useful utility classes, which made it easy for me
 I choose [Vercel](https://vercel.com/) for hosting my website, as it provides fast and secure hosting for Next.js applications.
 Vercel is easy to use and provides a lot of useful features, such as automatic SSL certificates and continuous deployment.
 
-### Google Analytics
-I integrated my website with [Google Analytics](https://analytics.google.com/), as it provides valuable insights into how users interact with my website.
-With Google Analytics, I can track user behaviour, such as pageviews and bounce rates, which helps me understand what is working and what needs improvement.
+### Vercel Analytics
+I integrated my website with [Vercel Analytics](https://vercel.com/analytics), as it provides valuable insights into how users interact with my website.
+With Vercel Analytics, I can track user behaviour, such as pageviews and bounce rates, which helps me understand what is working and what needs improvement.
 
 ### Monitoring with Sentry
 [Sentry](https://sentry.io) is a developer-first error tracking and performance monitoring platform that helps developers see what actually matters, solve quicker, and learn continuously about their applications.
@@ -72,8 +72,8 @@ The steps are:
 yarn add @sentry/nextjs
 ```
 
-In this case, I only want Sentry in production and I do this to my `next.config.js`
-```js
+In this case, I only want Sentry in production and I do this
+```js title="next.config.js"
 const { withSentryConfig } = require('@sentry/nextjs')
 
 const SentryWebpackPluginOptions = { silent: true }

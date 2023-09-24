@@ -2,7 +2,7 @@ import { footerIconLinks, footerLinks } from '@/constants/links'
 import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'
 
-import { Container, Link } from './common'
+import { Container, Link } from './ui'
 
 const Footer = () => {
   return (

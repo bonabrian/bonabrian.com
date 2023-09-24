@@ -45,7 +45,6 @@ const Project = defineDocumentType(() => ({
     url: { type: 'string' },
     repositoryUrl: { type: 'string' },
     playStoreUrl: { type: 'string' },
-    category: { type: 'string', required: true },
   },
   computedFields,
 }))

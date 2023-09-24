@@ -1,5 +1,8 @@
+import {
+  getAllTimeSinceToday,
+  getLastSevenDaysStats,
+} from '@/app/(insights)/dashboard/_lib/wakatime'
 import { getErrorMessage, response } from '@/lib/api'
-import { getAllTimeSinceToday, getLastSevenDaysStats } from '@/lib/wakatime'
 
 export const dynamic = 'force-dynamic'
 

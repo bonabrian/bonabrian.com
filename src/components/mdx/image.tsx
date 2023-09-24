@@ -7,7 +7,7 @@ import { useState } from 'react'
 import cn from '@/lib/cn'
 import { getDomainFromUrl } from '@/lib/utils'
 
-import { Link } from '../common'
+import { Link } from '../ui'
 import ImageZoom from './image-zoom'
 
 type BaseImageProps = Omit<NextImageProps, 'width' | 'height' | 'fill'>
