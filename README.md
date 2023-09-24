@@ -85,6 +85,11 @@
    yarn dev
    ```
 
+## Deployment
+Deploy to Vercel, Netlify, etc
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/bonabrian/bonabrian.com) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bonabrian/bonabrian.com)
+
 ## Files to customize
 
 - `lib/metadata.ts` - update `defaultMetadata` with yours.
@@ -106,28 +111,6 @@
 - **Content**: [MDX](https://github.com/mdx-js/mdx), [contentlayer](https://github.com/contentlayerdev/contentlayer)
 - **Monitoring**: [Sentry](https://sentry.io)
 
-## Contributing
-Contributions make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **really appreciated**.
+## License
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue and don't forget to give the project a star!
-
-1. Fork the Project
-2. Commit your Changes
-
-   ```bash
-   git commit -m 'Add some amazing feature'
-   ```
-
-3. Push to the Branch
-
-   ```bash
-   git push origin main
-   ```
-
-4. Open a Pull Request
-
-<div align="center">
-
-[![PRs Welcome](https://img.shields.io/badge/PR-Welcome-8865ff?style=for-the-badge)](https://makeapullrequest.com)
-
-</div>
+Licensed under the [MIT License](https://github.com/bonabrian/bonabrian.com/blob/master/LICENSE).
