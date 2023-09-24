@@ -7,12 +7,11 @@ import { usePathname } from 'next/navigation'
 import type { PropsWithChildren, Ref } from 'react'
 import { forwardRef } from 'react'
 
+import { Counter, Link } from '@/components/common'
+import { LinkSimple, Share, Twitter } from '@/components/icons'
 import { useShare } from '@/hooks'
 import cn from '@/lib/cn'
 import { getBaseUrl } from '@/lib/utils'
-
-import { Counter, Link } from '../common'
-import { LinkSimple, Share, Twitter } from '../icons'
 
 interface ShareItemLinkProps extends PropsWithChildren {
   href: string

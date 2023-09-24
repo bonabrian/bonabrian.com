@@ -3,11 +3,11 @@ import cn from '@/lib/cn'
 import Reactions from './reactions'
 import ShareButton from './share-button'
 
-interface InsightsProps {
+interface EngagementProps {
   slug: string
 }
 
-const Insights = ({ slug }: InsightsProps) => {
+const Engagement = ({ slug }: EngagementProps) => {
   return (
     <div className={cn('mt-16 flex mx-auto w-full max-w-sm', 'sm:max-w-md')}>
       <div
@@ -22,4 +22,4 @@ const Insights = ({ slug }: InsightsProps) => {
   )
 }
 
-export default Insights
+export default Engagement

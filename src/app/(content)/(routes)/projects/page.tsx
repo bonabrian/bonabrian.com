@@ -3,9 +3,8 @@ import { allProjects } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
+import Projects from '@/components/projects'
 import { getMetadata } from '@/lib/metadata'
-
-import Projects from './projects'
 
 const projects = allProjects
   .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))

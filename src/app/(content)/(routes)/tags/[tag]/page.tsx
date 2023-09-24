@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 
-import Posts from '@/app/blog/posts'
 import PageHeader from '@/components/page-header'
+import Posts from '@/components/posts'
 import { getMetadata } from '@/lib/metadata'
 import { kebabCase } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'

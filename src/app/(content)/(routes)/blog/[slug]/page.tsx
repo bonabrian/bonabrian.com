@@ -1,16 +1,16 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import { Container, Link } from '@/components/common'
-import Insights from '@/components/insights'
+import ContentMeta from '@/app/(content)/_components/content-meta'
+import Engagement from '@/app/(content)/_components/engagement'
+import Tag from '@/app/(content)/_components/tag'
+import { Container } from '@/components/common'
 import Mdx, { Image } from '@/components/mdx'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
-import { formatDate, getBaseUrl, kebabCase } from '@/lib/utils'
+import { formatDate, getBaseUrl } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
-
-import MetaHeader from './meta-header'
 
 interface PostPageProps extends RequestContext<{ slug?: string }> {}
 
@@ -36,19 +36,6 @@ export const generateMetadata = async ({ params }: PostPageProps) => {
   })
 }
 
-const Tag = ({ tag }: { tag: string }) => {
-  return (
-    <Link
-      href={`/tags/${kebabCase(tag)}`}
-      className={cn(
-        'inline-flex h-6 gap-1 px-2 text-xs font-medium rounded-full leading-6 bg-primary/10 text-primary',
-      )}
-    >
-      #{tag}
-    </Link>
-  )
-}
-
 const PostPage = ({ params }: PostPageProps) => {
   const post = findPostBySlug(params.slug)
 
@@ -68,7 +55,7 @@ const PostPage = ({ params }: PostPageProps) => {
 
   return (
     <>
-      <MetaHeader
+      <ContentMeta
         title={post?.title}
         timestamp={post?.date}
         readingTime={post?.readingTime}
@@ -96,7 +83,7 @@ const PostPage = ({ params }: PostPageProps) => {
             </div>
           </div>
         )}
-        <Insights slug={slug} />
+        <Engagement slug={slug} />
       </Container>
       <script
         type="application/ld+json"

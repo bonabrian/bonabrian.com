@@ -5,8 +5,9 @@ import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
 import { Container, EmptyState } from '@/components/common'
-import ProjectCard from '@/components/project-card'
 import cn from '@/lib/cn'
+
+import ProjectCard from './project-card'
 
 interface ProjectsProps {
   projects: Array<Project>

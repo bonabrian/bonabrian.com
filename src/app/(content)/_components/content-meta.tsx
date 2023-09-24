@@ -1,41 +1,46 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useRef } from 'react'
 import type { IReadTimeResults } from 'reading-time'
 
 import { BackButton, Container } from '@/components/common'
 import { Clock, Eye } from '@/components/icons'
 import PageHeader from '@/components/page-header'
-import StickyTitle from '@/components/sticky-title'
-import { ROUTES } from '@/constants/links'
 import { useView } from '@/hooks'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-interface MetaHeaderProps {
+import StickyTitle from './sticky-title'
+
+interface ContentMetaProps {
   title: string
+  description?: string
   timestamp: string
   readingTime: IReadTimeResults | null
   slug: string
 }
 
-const MetaHeader = ({
+const ContentMeta = ({
   title,
+  description,
   timestamp,
   readingTime,
   slug,
-}: MetaHeaderProps) => {
+}: ContentMetaProps) => {
   const publishedDate = formatDate(timestamp)
   const { views } = useView({ slug, trackView: true })
 
   const pageHeaderRef = useRef<HTMLDivElement | null>(null)
+  const pathname = usePathname()
+  const segments = pathname.split('/')
 
   return (
     <>
-      <PageHeader title={title} centered ref={pageHeaderRef} />
+      <PageHeader title={title} description={description} ref={pageHeaderRef} />
       <StickyTitle title={title} elementRef={pageHeaderRef} />
       <Container className={cn('mb-8')}>
-        <BackButton href={ROUTES.blog} />
+        <BackButton href={`/${segments[1]}`} />
         <div
           className={cn(
             'flex flex-col sm:flex-row gap-2 justify-between text-muted-foreground text-sm font-medium',
@@ -63,4 +68,4 @@ const MetaHeader = ({
   )
 }
 
-export default MetaHeader
+export default ContentMeta

@@ -2,15 +2,14 @@ import type { Snippet } from 'contentlayer/generated'
 import { allSnippets } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
+import ContentMeta from '@/app/(content)/_components/content-meta'
+import Engagement from '@/app/(content)/_components/engagement'
 import { Container } from '@/components/common'
-import Insights from '@/components/insights'
 import Mdx from '@/components/mdx'
 import cn from '@/lib/cn'
 import { getJsonLd, getMetadata } from '@/lib/metadata'
 import { getBaseUrl } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
-
-import MetaHeader from './meta-header'
 
 interface SnippetPageProps extends RequestContext<{ slug?: string }> {}
 
@@ -49,7 +48,7 @@ const SnippetPage = ({ params }: SnippetPageProps) => {
 
   return (
     <>
-      <MetaHeader
+      <ContentMeta
         title={title}
         description={description}
         timestamp={date}
@@ -60,7 +59,7 @@ const SnippetPage = ({ params }: SnippetPageProps) => {
         <div className={cn('prose max-w-full', 'dark:prose-dark')}>
           <Mdx code={snippet?.body?.code} />
         </div>
-        <Insights slug={slug} />
+        <Engagement slug={slug} />
       </Container>
       <script
         type="application/ld+json"
