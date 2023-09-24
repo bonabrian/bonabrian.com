@@ -3,14 +3,7 @@ import { defineDocumentType } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 
 import { getBlurData } from './rehype/image-metadata'
-
-const getActualImageUrl = (image?: string) => {
-  if (image) {
-    return image.startsWith('http') ? image : `/static/images/projects/${image}`
-  }
-
-  return ''
-}
+import { getActualImageUrl } from './utils'
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -21,7 +14,7 @@ const computedFields: ComputedFields = {
   },
   image: {
     type: 'string',
-    resolve: (doc) => getActualImageUrl(doc.image),
+    resolve: (doc) => getActualImageUrl('projects', doc.image),
   },
   imageMeta: {
     type: 'json',

@@ -7,6 +7,7 @@ import cn from '@/lib/cn'
 import type { NowPlaying } from '@/types/spotify'
 
 import { ChevronRight, Spotify } from '../icons'
+import AnimatedBars from './animated-bars'
 
 const trimString = (text?: string, maxLength: number = 20): string =>
   (text &&
@@ -73,38 +74,7 @@ const NowPlayingCard = ({
                 {trimmedSongTitle}
               </div>
               <div className={cn('flex gap-2 items-center text-xs')}>
-                <div className={cn('equalizer')}>
-                  <span
-                    className={cn(
-                      'bar bg-neutral-800',
-                      'dark:text-neutral-900',
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      'bar bg-neutral-800',
-                      'dark:text-neutral-900',
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      'bar bg-neutral-800',
-                      'dark:text-neutral-900',
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      'bar bg-neutral-800',
-                      'dark:text-neutral-900',
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      'bar bg-neutral-800',
-                      'dark:text-neutral-900',
-                    )}
-                  />
-                </div>
+                <AnimatedBars />
                 <span className={cn('text-sm pt-1')}>{trimmedSongArtist}</span>
               </div>
             </div>

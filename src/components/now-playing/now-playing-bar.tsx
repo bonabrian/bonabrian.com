@@ -8,6 +8,7 @@ import cn from '@/lib/cn'
 import type { Device, NowPlaying } from '@/types/spotify'
 
 import { Speaker, Spotify } from '../icons'
+import AnimatedBars from './animated-bars'
 import DevicePopover from './device-popover'
 import PlayerPopover from './player-popover'
 
@@ -41,38 +42,7 @@ const NowPlayingBar = ({
                 onMouseLeave={() => setShowPlayingInfo(false)}
               >
                 <div className={cn('flex items-center gap-2')}>
-                  <div className={cn('equalizer')}>
-                    <span
-                      className={cn(
-                        'bar bg-neutral-800',
-                        'dark:text-neutral-900',
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        'bar bg-neutral-800',
-                        'dark:text-neutral-900',
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        'bar bg-neutral-800',
-                        'dark:text-neutral-900',
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        'bar bg-neutral-800',
-                        'dark:text-neutral-900',
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        'bar bg-neutral-800',
-                        'dark:text-neutral-900',
-                      )}
-                    />
-                  </div>
+                  <AnimatedBars />
                   <div className={cn('flex')}>Now Playing: </div>
                   <div
                     className={cn(

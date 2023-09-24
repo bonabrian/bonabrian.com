@@ -4,6 +4,7 @@ import readingTime from 'reading-time'
 import removeMarkdown from 'remove-markdown'
 
 import { getBlurData } from './rehype/image-metadata'
+import { getActualImageUrl } from './utils'
 
 const getPostExcerpt = (
   content?: string | null,
@@ -63,14 +64,6 @@ const getPostExcerpt = (
   return defaultExcerpt ?? ''
 }
 
-const getActualImageUrl = (image?: string) => {
-  if (image) {
-    return image.startsWith('http') ? image : `/static/images/blog/${image}`
-  }
-
-  return ''
-}
-
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
@@ -79,7 +72,7 @@ const computedFields: ComputedFields = {
   },
   image: {
     type: 'string',
-    resolve: (doc) => getActualImageUrl(doc.image),
+    resolve: (doc) => getActualImageUrl('blog', doc.image),
   },
   keywords: {
     type: 'list',
