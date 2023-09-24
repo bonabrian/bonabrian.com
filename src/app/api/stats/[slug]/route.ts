@@ -1,10 +1,10 @@
 import type { NextRequest } from 'next/server'
 
+import { countAllReactions } from '@/app/(content)/_lib/reactions'
+import { countAllViews } from '@/app/(content)/_lib/views'
 import { countAllEndorsements } from '@/app/(insights)/endorsements/_lib/endorsements'
 import { getErrorMessage, response } from '@/lib/api'
 import fetcher from '@/lib/fetcher'
-import { countAllReactions } from '@/services/reactions'
-import { countAllViews } from '@/services/views'
 
 export const GET = async (
   _req: NextRequest,

@@ -1,10 +1,10 @@
 import type { ReactionType } from '@prisma/client'
 import type { NextRequest } from 'next/server'
 
-import { MAX_REACTIONS_PER_SESSION } from '@/constants/reactions'
+import { MAX_REACTIONS_PER_SESSION } from '@/app/(content)/_constants/reactions'
+import { createReaction, getReactions } from '@/app/(content)/_lib/reactions'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/lib/server'
-import { createReaction, getReactions } from '@/services/reactions'
 
 export const GET = async (
   req: NextRequest,

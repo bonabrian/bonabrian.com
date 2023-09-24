@@ -9,9 +9,10 @@ import { forwardRef } from 'react'
 
 import { LinkSimple, Share, Twitter } from '@/components/icons'
 import { Counter, Link } from '@/components/ui'
-import { useShare } from '@/hooks'
 import cn from '@/lib/cn'
 import { getBaseUrl } from '@/lib/utils'
+
+import useShare from '../_hooks/use-share'
 
 interface ShareItemLinkProps extends PropsWithChildren {
   href: string
