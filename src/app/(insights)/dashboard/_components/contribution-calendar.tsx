@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import type { ContributionCalendar as ContributionCalendarData } from './types/github'
+import type { ContributionCalendar as ContributionCalendarData } from '../_types/github'
 
 interface ContributionCalendarProps {
   data?: ContributionCalendarData

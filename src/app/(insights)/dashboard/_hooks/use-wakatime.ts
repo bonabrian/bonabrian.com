@@ -1,6 +1,6 @@
 import { useRequest } from '@/hooks'
 
-import type { WakaTime } from '../types/wakatime'
+import type { WakaTime } from '../_types/wakatime'
 
 const useWakatime = () => {
   const { data, loading, error } = useRequest<WakaTime>('/api/wakatime')

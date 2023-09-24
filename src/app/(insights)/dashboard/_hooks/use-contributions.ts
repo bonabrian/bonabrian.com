@@ -1,6 +1,6 @@
 import { useRequest } from '@/hooks'
 
-import type { GithubUserContributionsCollection } from '../types/github'
+import type { GithubUserContributionsCollection } from '../_types/github'
 
 const useContributions = (endpoint: string) => {
   const { data, loading, error } = useRequest<

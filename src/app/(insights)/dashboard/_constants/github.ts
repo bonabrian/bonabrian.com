@@ -1,4 +1,4 @@
-import type { GithubAccount } from '@/app/dashboard/types/github'
+import type { GithubAccount } from '../_types/github'
 
 export const GITHUB_ACCOUNTS: GithubAccount[] = [
   {

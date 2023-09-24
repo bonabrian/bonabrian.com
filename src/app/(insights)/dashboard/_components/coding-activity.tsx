@@ -9,7 +9,7 @@ import { Link, Progress } from '@/components/ui'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-import useWakatime from './hooks/use-wakatime'
+import useWakatime from '../_hooks/use-wakatime'
 import OverviewCard from './overview-card'
 import Section from './section'
 
