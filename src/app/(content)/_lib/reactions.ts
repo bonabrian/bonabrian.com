@@ -31,16 +31,11 @@ const mapReactions = (
     THINKING: 0,
   }
 
-  reactions.reduce(
-    (acc, { type, _sum }) => {
-      if (type) {
-        records[type as ReactionType] = _sum.count ?? 0
-      }
-
-      return acc
-    },
-    {} as Record<ReactionType, number>,
-  )
+  reactions.forEach(({ type, _sum }) => {
+    if (type) {
+      records[type as ReactionType] = _sum.count ?? 0
+    }
+  })
 
   return records
 }
