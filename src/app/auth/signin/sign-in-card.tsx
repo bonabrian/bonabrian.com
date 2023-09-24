@@ -6,7 +6,7 @@ import type { BuiltInProviderType } from 'next-auth/providers'
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react'
 import { Fragment, useEffect, useState } from 'react'
 
-import { Button, Container } from '@/components/common'
+import { Button, Container } from '@/components/ui'
 import cn from '@/lib/cn'
 
 import LoginProviderButton from './login-provider-button'

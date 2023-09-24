@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { Divider } from '@/components/common'
+import { Divider } from '@/components/ui'
 import { getMetadata } from '@/lib/metadata'
 
 import HighlightedProjects from './_components/highlighted-projects'

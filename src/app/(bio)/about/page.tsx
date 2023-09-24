@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
-import { Container, Link } from '@/components/common'
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import PageHeader from '@/components/page-header'
+import { Container, Link } from '@/components/ui'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 import { defaultMetadata, getMetadata } from '@/lib/metadata'

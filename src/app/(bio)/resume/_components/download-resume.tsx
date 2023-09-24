@@ -1,5 +1,5 @@
-import { Button, Link } from '@/components/common'
 import { Document } from '@/components/icons'
+import { Button, Link } from '@/components/ui'
 import cn from '@/lib/cn'
 
 const DownloadResume = () => {

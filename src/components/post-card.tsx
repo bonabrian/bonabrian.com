@@ -10,8 +10,8 @@ import cn from '@/lib/cn'
 import { max } from '@/lib/screens'
 import { formatDate } from '@/lib/utils'
 
-import { IncrementCounter, Link, Spinner } from './common'
 import { Clock, Eye } from './icons'
+import { IncrementCounter, Link, Spinner } from './ui'
 
 type LayoutOption = 'list' | 'grid'
 

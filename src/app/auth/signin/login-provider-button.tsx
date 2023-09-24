@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation'
 import type { ClientSafeProvider } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
-import { Button } from '@/components/common'
 import { GitHub, Google } from '@/components/icons'
+import { Button } from '@/components/ui'
 import cn from '@/lib/cn'
 
 interface StyleGuide {

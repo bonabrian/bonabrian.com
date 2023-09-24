@@ -4,7 +4,7 @@ import type { ReactionType } from '@prisma/client'
 import { m, useAnimationControls } from 'framer-motion'
 import { useEffect } from 'react'
 
-import { Counter } from '@/components/common'
+import { Counter } from '@/components/ui'
 import { MAX_REACTIONS_PER_SESSION } from '@/constants/reactions'
 import { useReactions } from '@/hooks'
 import cn from '@/lib/cn'

@@ -2,7 +2,6 @@
 
 import { m } from 'framer-motion'
 
-import { Button, Container, Link, Tooltip } from '@/components/common'
 import {
   ChevronRight,
   JavaScript,
@@ -19,6 +18,7 @@ import {
   TypeScript,
   VueJs,
 } from '@/components/icons'
+import { Button, Container, Link, Tooltip } from '@/components/ui'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 

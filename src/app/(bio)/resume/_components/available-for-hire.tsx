@@ -1,4 +1,4 @@
-import { Button } from '@/components/common'
+import { Button } from '@/components/ui'
 import cn from '@/lib/cn'
 
 const AvailableForHire = () => {

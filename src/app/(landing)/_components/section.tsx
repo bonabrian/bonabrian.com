@@ -1,4 +1,4 @@
-import { Container } from '@/components/common'
+import { Container } from '@/components/ui'
 import cn from '@/lib/cn'
 
 interface SectionProps {

@@ -4,8 +4,8 @@ import type { Post } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
-import { Button, Container, EmptyState, Input } from '@/components/common'
 import { ListBullets, Search, SquaresFour } from '@/components/icons'
+import { Button, Container, EmptyState, Input } from '@/components/ui'
 import cn from '@/lib/cn'
 
 import PostCard from './post-card'

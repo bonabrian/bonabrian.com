@@ -1,4 +1,4 @@
-import { Link } from '@/components/common'
+import { Link } from '@/components/ui'
 import cn from '@/lib/cn'
 import { kebabCase } from '@/lib/utils'
 

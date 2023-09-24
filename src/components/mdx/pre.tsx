@@ -5,8 +5,8 @@ import { useRef, useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import { Button } from '../common'
 import { Copy } from '../icons'
+import { Button } from '../ui'
 
 type PreProps = DetailedHTMLProps<
   HTMLAttributes<HTMLPreElement>,
@@ -37,7 +37,6 @@ const Pre = ({ children }: PreProps) => {
         onClick={copyToClipboard}
         htmlType="button"
         title="Copy to Clipboard"
-        // className={cn('mdx-code__copy-clipboard')}
         variant="ghost"
         className={cn(
           'absolute right-2 top-2 flex w-8 h-8 items-center justify-center rounded-md text-neutral-400 p-1 border border-neutral-600',

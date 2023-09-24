@@ -4,7 +4,7 @@ import type { Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
-import { Container, EmptyState } from '@/components/common'
+import { Container, EmptyState } from '@/components/ui'
 import cn from '@/lib/cn'
 
 import ProjectCard from './project-card'

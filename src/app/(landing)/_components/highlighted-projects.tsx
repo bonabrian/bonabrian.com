@@ -3,9 +3,9 @@
 import { allProjects, type Project } from 'contentlayer/generated'
 import { m } from 'framer-motion'
 
-import { Button, EmptyState, Link } from '@/components/common'
 import { ChevronRight } from '@/components/icons'
 import ProjectCard from '@/components/project-card'
+import { Button, EmptyState, Link } from '@/components/ui'
 import { ROUTES } from '@/constants/links'
 import cn from '@/lib/cn'
 

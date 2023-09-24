@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 
 import cn from '@/lib/cn'
 
-import { Container } from './common'
+import { Container } from './ui'
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string

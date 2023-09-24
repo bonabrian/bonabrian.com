@@ -3,7 +3,7 @@
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-import { Button, Container, Link, Spinner } from '@/components/common'
+import { Button, Container, Link, Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 
 import EndorsementsBadge from './endorsements-badge'

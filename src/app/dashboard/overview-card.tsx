@@ -1,4 +1,4 @@
-import { IncrementCounter } from '@/components/common'
+import { IncrementCounter } from '@/components/ui'
 import cn from '@/lib/cn'
 
 interface OverviewCardProps {

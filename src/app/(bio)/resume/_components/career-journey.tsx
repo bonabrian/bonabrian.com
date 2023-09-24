@@ -3,7 +3,7 @@
 import { m, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
-import { Container, Link } from '@/components/common'
+import { Container, Link } from '@/components/ui'
 import { experiences } from '@/constants/experiences'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
