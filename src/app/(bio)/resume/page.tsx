@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import PageHeader from '@/components/page-header'
 import { getMetadata } from '@/lib/metadata'
 
-import Resume from './resume'
+import CareerJourney from './_components/career-journey'
 
 export const metadata: Metadata = getMetadata({
   title: 'Resume',
@@ -21,7 +21,7 @@ const ResumePage = () => {
       />
 
       <div id="content">
-        <Resume />
+        <CareerJourney />
       </div>
     </>
   )

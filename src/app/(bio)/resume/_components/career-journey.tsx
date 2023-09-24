@@ -3,51 +3,21 @@
 import { m, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
-import { Button, Container, Link } from '@/components/common'
-import { Document } from '@/components/icons'
+import { Container, Link } from '@/components/common'
 import { experiences } from '@/constants/experiences'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-interface ResumeProps {
+import AvailableForHire from './available-for-hire'
+import DownloadResume from './download-resume'
+
+interface CareerJourneyProps {
   isAvailableAnimationDuration?: number
 }
 
-const Available = () => {
-  return (
-    <Button
-      className={cn(
-        'pointer-events-none gap-3 px-3 uppercase border-none shadow-none',
-        'dark:shadow-none',
-      )}
-      variant="outline"
-    >
-      <span className={cn('relative flex h-2 w-2')}>
-        <span
-          className={cn(
-            'bg-primary absolute -top-1 -left-1 inline-flex h-4 w-4 animate-ping rounded-full opacity-75',
-          )}
-        />
-        <span
-          className={cn('bg-primary relative inline-flex h-2 w-2 rounded-full')}
-        />
-      </span>
-      Available for Hire
-    </Button>
-  )
-}
-
-const DownloadResume = () => {
-  return (
-    <Link href="/resume/download">
-      <Button variant="outline" className={cn('gap-x-1')}>
-        <Document /> Download Resume
-      </Button>
-    </Link>
-  )
-}
-
-const Resume = ({ isAvailableAnimationDuration = 10 }: ResumeProps) => {
+const CareerJourney = ({
+  isAvailableAnimationDuration = 10,
+}: CareerJourneyProps) => {
   const isAvailable = process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === 'true'
   const shouldReduceMotion = useReducedMotion()
 
@@ -79,7 +49,7 @@ const Resume = ({ isAvailableAnimationDuration = 10 }: ResumeProps) => {
                 duration: 0.4,
               }}
             >
-              <Available />
+              <AvailableForHire />
             </m.div>
             <m.div
               initial={{ x: -32, opacity: 0, pointerEvents: 'none' }}
@@ -182,4 +152,4 @@ const Resume = ({ isAvailableAnimationDuration = 10 }: ResumeProps) => {
   )
 }
 
-export default Resume
+export default CareerJourney
