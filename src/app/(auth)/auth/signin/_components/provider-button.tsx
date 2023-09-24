@@ -21,11 +21,7 @@ const providerStyleGuides: { [key: string]: StyleGuide } = {
   },
 }
 
-const LoginProviderButton = ({
-  provider,
-}: {
-  provider: ClientSafeProvider
-}) => {
+const ProviderButton = ({ provider }: { provider: ClientSafeProvider }) => {
   const { logo } = providerStyleGuides[provider.id]
   const searchParams = useSearchParams()
   const callbackUrl = searchParams?.get('callbackUrl')
@@ -48,4 +44,4 @@ const LoginProviderButton = ({
   )
 }
 
-export default LoginProviderButton
+export default ProviderButton

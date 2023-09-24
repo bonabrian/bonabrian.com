@@ -9,7 +9,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Button, Container } from '@/components/ui'
 import cn from '@/lib/cn'
 
-import LoginProviderButton from './login-provider-button'
+import ProviderButton from './provider-button'
 
 const SignInCard = ({
   providers,
@@ -41,7 +41,7 @@ const SignInCard = ({
           >
             {providers &&
               Object.values(providers).map((provider) => (
-                <LoginProviderButton key={provider.id} provider={provider} />
+                <ProviderButton key={provider.id} provider={provider} />
               ))}
           </div>
         </div>

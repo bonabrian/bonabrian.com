@@ -7,7 +7,7 @@ import PageHeader from '@/components/page-header'
 import { authOptions } from '@/lib/auth'
 import { getMetadata } from '@/lib/metadata'
 
-import SignInCard from './sign-in-card'
+import SignInCard from './_components/sign-in-card'
 
 export const metadata: Metadata = getMetadata({
   title: 'Sign In',
