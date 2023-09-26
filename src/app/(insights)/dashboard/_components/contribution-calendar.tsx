@@ -49,7 +49,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
         )}
       >
         <div className={cn('overflow-x-auto flex flex-col')}>
-          <ul className={cn('flex justify-end gap-1 text-xs md:justify-start')}>
+          <ul className={cn('flex justify-start gap-1 text-xs')}>
             {months.map((month) => (
               <li
                 key={month.firstDay}
