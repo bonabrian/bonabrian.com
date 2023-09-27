@@ -7,7 +7,7 @@ import cn from '@/lib/cn'
 import type { GuestbookEntry as Entry } from '../_types/guestbook'
 import GuestbookEntry from './guestbook-entry'
 
-const WIDGET_HEIGHT = 500
+const WIDGET_HEIGHT = 480
 const HEIGHT_GAP = 256
 
 interface GuestbookEntriesProps {
@@ -52,6 +52,7 @@ const GuestbookEntries = ({
   }, [entries, hasScrolledUp])
 
   useEffect(() => {
+    console.log(window.innerHeight)
     const handleResize = () => {
       const height = isWidget ? WIDGET_HEIGHT : window.innerHeight - HEIGHT_GAP
       setEntriesHeight(height)

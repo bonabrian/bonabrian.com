@@ -28,13 +28,13 @@ const GuestbookWidget = ({ isOpen, onClose }: GuestbookWidgetProps) => {
     >
       <Dialog
         as="div"
-        className={cn('fixed z-20 bottom-12 right-5 shadow-lg')}
+        className={cn('fixed z-50 bottom-10 right-5 shadow-lg')}
         onClose={onClose}
         open={isOpen}
       >
         <div
           className={cn(
-            'bg-card py-2 border-muted rounded-md backdrop-blur-2xl shadow-2xl',
+            'bg-card border-muted rounded-md backdrop-blur-2xl shadow-2xl',
             'md:max-w-md',
           )}
         >

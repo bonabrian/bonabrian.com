@@ -17,7 +17,7 @@ const GuestbookWidgetButton = () => {
 
   return showWidgetButton ? (
     <div
-      className={cn('hidden fixed items-center bottom-12 right-5', 'lg:flex')}
+      className={cn('hidden fixed items-center bottom-10 right-5', 'lg:flex')}
     >
       <Button
         variant="outline"
