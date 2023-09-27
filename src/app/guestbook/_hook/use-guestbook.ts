@@ -13,7 +13,7 @@ const useGuestbook = () => {
         body: JSON.stringify({ message }),
       })
     } catch (err) {
-      throw err
+      console.error('An error occurred on addEntry: ', err)
     }
   }
 
@@ -23,7 +23,7 @@ const useGuestbook = () => {
         method: 'DELETE',
       })
     } catch (err) {
-      throw err
+      console.error('An error occurred on deleteEntry: ', err)
     }
   }
 

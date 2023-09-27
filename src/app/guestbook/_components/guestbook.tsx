@@ -23,7 +23,7 @@ const Guestbook = ({ isWidget = false }: GuestbookProps) => {
       await addEntry(message)
       mutate()
     } catch (err) {
-      throw err
+      console.error('An error occurred onSendMessage: ', err)
     }
   }
 
@@ -32,7 +32,7 @@ const Guestbook = ({ isWidget = false }: GuestbookProps) => {
       await deleteEntry(messageId)
       mutate()
     } catch (err) {
-      throw err
+      console.error('An error occurred onDeleteMessage: ', err)
     }
   }
 
