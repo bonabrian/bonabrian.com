@@ -26,7 +26,7 @@ const fontSans = Poppins({
 
 const fontPlusJakarta = PlusJakartaSans({
   subsets: ['latin'],
-  variable: '--plus-jakarta',
+  variable: '--font-plus-jakarta',
   display: 'fallback',
   weight: ['400', '500', '600', '700', '800'],
 })
