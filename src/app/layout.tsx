@@ -13,6 +13,8 @@ import NowPlaying from '@/components/now-playing'
 import Providers from '@/components/providers'
 import cn from '@/lib/cn'
 
+import GuestbookWidgetButton from './guestbook/_components/guestbook-widget-button'
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -26,7 +28,7 @@ const fontSans = Poppins({
 
 const fontPlusJakarta = PlusJakartaSans({
   subsets: ['latin'],
-  variable: '--plus-jakarta',
+  variable: '--font-plus-jakarta',
   display: 'fallback',
   weight: ['400', '500', '600', '700', '800'],
 })
@@ -54,8 +56,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
             <Navigation />
             <main>{children}</main>
             <Footer />
+            <GuestbookWidgetButton />
+            <NowPlaying />
           </div>
-          <NowPlaying />
           <Analytics />
         </Providers>
       </body>

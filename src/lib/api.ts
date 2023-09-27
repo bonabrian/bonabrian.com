@@ -10,5 +10,8 @@ const headers: HeadersInit = {
 }
 
 export const response = (data: any, status: number = 200) => {
-  return new NextResponse(JSON.stringify(data), { status, headers })
+  return new NextResponse(data === null ? null : JSON.stringify(data), {
+    status,
+    headers,
+  })
 }
