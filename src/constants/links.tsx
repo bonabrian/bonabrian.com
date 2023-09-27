@@ -31,6 +31,7 @@ export const ROUTES = {
   projects: '/projects',
   snippets: '/snippets',
   endorsements: '/endorsements',
+  guestbook: '/guestbook',
   about: '/about',
   dashboard: '/dashboard',
   resume: '/resume',
@@ -58,6 +59,10 @@ export const footerLinks = [
     },
   ],
   [
+    {
+      title: 'Guestbook',
+      url: ROUTES.guestbook,
+    },
     {
       title: 'Endorsements',
       url: ROUTES.endorsements,
