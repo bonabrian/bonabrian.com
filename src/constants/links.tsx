@@ -1,6 +1,7 @@
 import {
   AtSign,
   BarChart,
+  BookOpenText,
   CodeBracket,
   GitHub,
   Home,
@@ -126,6 +127,11 @@ export const navLinks: NavLink[] = [
     path: ROUTES.dashboard,
     label: 'Dashboard',
     icon: <BarChart />,
+  },
+  {
+    path: ROUTES.guestbook,
+    label: 'Guestbook',
+    icon: <BookOpenText />,
   },
   {
     path: ROUTES.about,

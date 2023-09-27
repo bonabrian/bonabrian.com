@@ -45,7 +45,7 @@ const Navigation = () => {
             >
               <Logo className={cn('h-9')} />
             </Link>
-            <ul className={cn('hidden sm:flex md:gap-1')}>
+            <ul className={cn('hidden', 'md:flex md:gap-2')}>
               {navLinks
                 .filter(({ onlyShowOnDropdownMenu }) => !onlyShowOnDropdownMenu)
                 .map(({ path, label }) => (
@@ -66,7 +66,7 @@ const Navigation = () => {
             </ul>
           </div>
           <ul className={cn('flex items-center')}>
-            <li className={cn('sm:hidden')}>
+            <li className={cn('md:hidden')}>
               <div className={cn('relative')}>
                 <Menu>
                   {({ open }) => (
