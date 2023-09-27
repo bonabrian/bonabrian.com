@@ -41,7 +41,7 @@ const Navigation = () => {
             <Link
               href="/"
               aria-label={defaultMetadata.author.name}
-              className={cn('flex items-center px-2')}
+              className={cn('flex items-center')}
             >
               <Logo className={cn('h-9')} />
             </Link>
