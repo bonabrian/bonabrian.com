@@ -1,12 +1,12 @@
 import {
   AtSign,
   BarChart,
-  Check,
   CodeBracket,
   GitHub,
   Home,
   Layers,
   LinkedIn,
+  Medal,
   Pencil,
   RSS,
 } from '@/components/icons'
@@ -120,7 +120,7 @@ export const navLinks: NavLink[] = [
   {
     path: ROUTES.endorsements,
     label: 'Endorsements',
-    icon: <Check />,
+    icon: <Medal />,
   },
   {
     path: ROUTES.dashboard,
