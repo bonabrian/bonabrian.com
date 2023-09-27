@@ -37,7 +37,7 @@ const GuestbookPanel = ({
     } finally {
       setIsSending(false)
       setTimeout(() => {
-        inputRef.current?.focus
+        inputRef.current?.focus()
       }, 0)
     }
   }
