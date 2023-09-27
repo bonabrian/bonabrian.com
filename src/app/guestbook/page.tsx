@@ -8,7 +8,8 @@ import Guestbook from './_components/guestbook'
 
 export const metadata: Metadata = getMetadata({
   title: 'Guestbook',
-  description: 'Something describe this page',
+  description:
+    'Leave suggestions, appreciation, questions, or anything else on your mind.',
 })
 
 const GuestbookPage = () => {
@@ -16,7 +17,7 @@ const GuestbookPage = () => {
     <>
       <PageHeader
         title="Guestbook"
-        description="Something describe this page"
+        description="Leave suggestions, appreciation, questions, or anything else on your mind."
       />
       <Container>
         <Guestbook />
