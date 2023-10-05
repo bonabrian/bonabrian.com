@@ -42,7 +42,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
   const contributionColors = data?.colors ?? []
 
   return (
-    <div className={cn('border p-4 rounded-md', 'dark:border-neutral-800')}>
+    <div className={cn('border p-3 rounded-md', 'dark:border-neutral-800')}>
       <div
         className={cn(
           'relative flex flex-col justify-center overflow-hidden mb-4',
@@ -54,7 +54,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
               <li
                 key={month.firstDay}
                 className={cn(month.totalWeeks < 2 && 'invisible')}
-                style={{ minWidth: 19.285 * month.totalWeeks }}
+                style={{ minWidth: 19.325 * month.totalWeeks }}
               >
                 {month.name}
               </li>
