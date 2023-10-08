@@ -27,7 +27,7 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
         src={image}
         width={40}
         height={40}
-        alt="Faking Name"
+        alt={user.name}
         className={cn('rounded-full aspect-square')}
       />
       <div className={cn('space-y-1')}>
