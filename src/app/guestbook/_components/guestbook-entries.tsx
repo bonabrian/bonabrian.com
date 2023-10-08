@@ -52,7 +52,6 @@ const GuestbookEntries = ({
   }, [entries, hasScrolledUp])
 
   useEffect(() => {
-    console.log(window.innerHeight)
     const handleResize = () => {
       const height = isWidget ? WIDGET_HEIGHT : window.innerHeight - HEIGHT_GAP
       setEntriesHeight(height)
