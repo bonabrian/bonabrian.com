@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import PageHeader from '@/components/page-header'
 import { getMetadata } from '@/lib/metadata'
 
-import CareerJourney from './_components/career-journey'
+import CareerJourney from './components/career-journey'
 
 export const metadata: Metadata = getMetadata({
   title: 'Resume',
