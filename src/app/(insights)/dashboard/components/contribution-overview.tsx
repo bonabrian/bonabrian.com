@@ -1,5 +1,5 @@
-import type { ContributionCalendar } from '@/data/app'
 import cn from '@/lib/cn'
+import type { ContributionCalendar } from '@/types/github'
 
 import OverviewCard from './overview-card'
 

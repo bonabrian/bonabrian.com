@@ -1,10 +1,10 @@
+import { GITHUB_ACCOUNTS } from '@/data/app'
+import fetcher from '@/lib/fetcher'
 import type {
   AccountType,
   GithubUserContributionsCollection,
   GithubUserContributionsResponse,
-} from '@/data/app'
-import { GITHUB_ACCOUNTS } from '@/data/app'
-import fetcher from '@/lib/fetcher'
+} from '@/types/github'
 
 const GITHUB_USER_ENDPOINT = 'https://api.github.com/graphql'
 
