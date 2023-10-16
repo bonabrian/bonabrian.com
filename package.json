@@ -45,6 +45,7 @@
     "react-dom": "^18.2.0",
     "rss": "^1.2.2",
     "swr": "^2.2.4",
+    "ts-deepmerge": "^6.2.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

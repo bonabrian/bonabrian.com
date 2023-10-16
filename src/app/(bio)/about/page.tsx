@@ -5,13 +5,15 @@ import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import PageHeader from '@/components/page-header'
 import { Container, Link } from '@/components/ui'
 import { ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
 import cn from '@/lib/cn'
-import { defaultMetadata, getMetadata } from '@/lib/metadata'
+import { defaultMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
   title: 'About',
   description: 'Learn a bit about me, careers, and more',
   keywords: ['bio', 'biography', 'information', 'about'],
+  url: ROUTES.about,
 })
 
 const AboutPage = () => {

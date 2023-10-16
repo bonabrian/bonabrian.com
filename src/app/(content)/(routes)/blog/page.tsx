@@ -4,13 +4,16 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import Posts from '@/components/posts'
-import { getMetadata } from '@/lib/metadata'
+import { ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
+import { fullURL } from '@/data/meta/builder'
 
 const posts = allPosts
   .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
   .filter((post: Post) => post.published)
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
+  metadataBase: fullURL(),
   title: 'Blog',
   description:
     'Blog posts by Bona Brian Siagian. Here I share some thoughts, stories, information, and more about software development',
@@ -25,6 +28,7 @@ export const metadata: Metadata = getMetadata({
     'software',
     'development',
   ],
+  url: ROUTES.blog,
 })
 
 const BlogPage = async () => {

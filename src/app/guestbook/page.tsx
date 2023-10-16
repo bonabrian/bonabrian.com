@@ -2,14 +2,16 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import { Container } from '@/components/ui'
-import { getMetadata } from '@/lib/metadata'
+import { ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
 
 import Guestbook from './components/guestbook'
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
   title: 'Guestbook',
   description:
     'Leave suggestions, appreciation, questions, or anything else on your mind.',
+  url: ROUTES.guestbook,
 })
 
 const GuestbookPage = () => {

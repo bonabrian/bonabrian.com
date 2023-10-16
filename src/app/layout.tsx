@@ -1,5 +1,6 @@
 import '@/styles/app.css'
 
+import type { Metadata } from 'next'
 import {
   Fira_Code as FiraCode,
   Plus_Jakarta_Sans as PlusJakartaSans,
@@ -11,6 +12,7 @@ import Footer from '@/components/footer'
 import Navigation from '@/components/navigation'
 import NowPlaying from '@/components/now-playing'
 import Providers from '@/components/providers'
+import { DEFAULT_METADATA, seo } from '@/data/meta'
 import cn from '@/lib/cn'
 
 import GuestbookWidgetButton from './guestbook/components/guestbook-widget-button'
@@ -37,6 +39,10 @@ const firaCode = FiraCode({
   subsets: ['latin'],
   variable: '--font-fira-code',
   display: 'swap',
+})
+
+export const metadata: Metadata = seo({
+  ...DEFAULT_METADATA,
 })
 
 const RootLayout = ({ children }: RootLayoutProps) => {

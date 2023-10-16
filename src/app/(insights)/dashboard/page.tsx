@@ -2,20 +2,21 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import { Container } from '@/components/ui'
-import { GITHUB_ACCOUNTS } from '@/data/app'
+import { GITHUB_ACCOUNTS, ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
 import cn from '@/lib/cn'
-import { getMetadata } from '@/lib/metadata'
 
 import CodingActivity from './components/coding-activity'
 import Contributions from './components/contributions'
 import ProfileStats from './components/profile-stats'
 import SiteStats from './components/site-stats'
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
   title: 'Dashboard',
   description:
     'Discover a comprehensive overview of digital presence, encompassing coding insights, key metrics, and more, all conveniently in one place.',
   keywords: ['statistics', 'stats', 'dashboard', 'github'],
+  url: ROUTES.dashboard,
 })
 
 const DashboardPage = () => {

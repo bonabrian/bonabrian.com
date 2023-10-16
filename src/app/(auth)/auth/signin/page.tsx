@@ -4,14 +4,15 @@ import { getServerSession } from 'next-auth'
 import { getProviders } from 'next-auth/react'
 
 import PageHeader from '@/components/page-header'
+import { seo } from '@/data/meta'
 import { authOptions } from '@/lib/auth'
-import { getMetadata } from '@/lib/metadata'
 
 import SignInCard from './components/sign-in-card'
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
   title: 'Sign In',
   description: 'Sign In',
+  url: `/auth/signin`,
 })
 
 const SignInPage = async () => {

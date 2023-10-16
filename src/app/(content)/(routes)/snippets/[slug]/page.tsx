@@ -6,9 +6,10 @@ import ContentMeta from '@/app/(content)/components/content-meta'
 import Engagement from '@/app/(content)/components/engagement'
 import Mdx from '@/components/mdx'
 import { Container } from '@/components/ui'
+import { BASE_URL, ROUTES } from '@/data/app'
+import { buildJsonLd, seo } from '@/data/meta'
 import cn from '@/lib/cn'
-import { getJsonLd, getMetadata } from '@/lib/metadata'
-import { getBaseUrl } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
 
 interface SnippetPageProps extends RequestContext<{ slug?: string }> {}
@@ -23,9 +24,10 @@ export const generateMetadata = async ({ params }: SnippetPageProps) => {
 
   if (!snippet) return
 
-  const { title, description } = snippet
+  const { title, description, date } = snippet
+  const publishedDate = formatDate(date)
 
-  return getMetadata({
+  return seo({
     title,
     description,
     keywords: [
@@ -36,6 +38,11 @@ export const generateMetadata = async ({ params }: SnippetPageProps) => {
       'shorthand',
       'scripts',
     ],
+    openGraph: {
+      type: 'article',
+      publishedTime: publishedDate,
+    },
+    url: `${ROUTES.snippets}/${snippet.slug}`,
   })
 }
 
@@ -64,13 +71,13 @@ const SnippetPage = ({ params }: SnippetPageProps) => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: getJsonLd({
+          __html: buildJsonLd({
             title,
             description,
             headline: title,
             datePublished: date,
             dateModified: date,
-            url: `${getBaseUrl()}/snippet/${snippet.slug}`,
+            url: `${BASE_URL}/snippet/${snippet.slug}`,
           }),
         }}
         key="post-jsonld"
