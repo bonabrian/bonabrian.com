@@ -1,3 +1,4 @@
+import { env } from '@/data/env'
 import fetcher from '@/lib/fetcher'
 
 import type {
@@ -6,7 +7,7 @@ import type {
   WakaTimeStat,
 } from '../_types/wakatime'
 
-const WAKATIME_API_KEY = process.env.WAKATIME_API_KEY ?? ''
+const WAKATIME_API_KEY = env.WAKATIME_API_KEY ?? ''
 
 const STATS_ENDPOINT = 'https://wakatime.com/api/v1/users/current/stats'
 const ALL_TIME_SINCE_TODAY_ENDPOINT =

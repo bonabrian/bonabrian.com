@@ -1,10 +1,12 @@
+import { env } from '@/data/env'
+
 import type { GithubAccount } from '../_types/github'
 
 export const GITHUB_ACCOUNTS: GithubAccount[] = [
   {
     username: 'bonabrian',
     endpoint: '/api/github?type=personal',
-    token: process.env.GITHUB_READ_USER_TOKEN_PERSONAL,
+    token: env.GITHUB_READ_USER_TOKEN_PERSONAL,
     type: 'personal',
     isActive: true,
   },

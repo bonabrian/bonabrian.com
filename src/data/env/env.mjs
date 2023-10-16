@@ -31,7 +31,11 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: z.string().url(),
     NEXT_PUBLIC_GOOGLE_ANALYTICS: optionalString,
     NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
-    NEXT_PUBLIC_AVAILABLE_FOR_HIRE: z.coerce.boolean().default(false),
+    NEXT_PUBLIC_AVAILABLE_FOR_HIRE: z
+      .string()
+      .refine((val) => val === 'true' || val === 'false')
+      .transform((val) => val === 'true')
+      .default('false'),
   },
 
   /**

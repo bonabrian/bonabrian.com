@@ -4,6 +4,7 @@ import { m, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
 import { Container, Link } from '@/components/ui'
+import { env } from '@/data/env'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
@@ -18,7 +19,8 @@ interface CareerJourneyProps {
 const CareerJourney = ({
   isAvailableAnimationDuration = 10,
 }: CareerJourneyProps) => {
-  const isAvailable = process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === 'true'
+  const isAvailable = env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE
+  console.log({ isAvailable })
   const shouldReduceMotion = useReducedMotion()
 
   const isAvailableVariants = {

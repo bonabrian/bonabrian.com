@@ -1,4 +1,5 @@
 import { PAIR_DEVICES } from '@/constants/devices'
+import { env } from '@/data/env'
 import type {
   AccessTokenResponse,
   AvailableDevicesResponse,
@@ -10,10 +11,10 @@ import type {
 import fetcher from './fetcher'
 
 const BASE_URL = 'https://api.spotify.com/v1'
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
+const CLIENT_ID = env.SPOTIFY_CLIENT_ID
+const CLIENT_SECRET = env.SPOTIFY_CLIENT_SECRET
 const TOKEN = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
-const REFRESH_TOKEN = process.env.SPOTIFY_CLIENT_REFRESH_TOKEN
+const REFRESH_TOKEN = env.SPOTIFY_CLIENT_REFRESH_TOKEN
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 const NOW_PLAYING_ENDPOINT = `${BASE_URL}/me/player/currently-playing`
 const AVAILABLE_DEVICES_ENDPOINT = `${BASE_URL}/me/player/devices`

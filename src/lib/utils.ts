@@ -1,6 +1,8 @@
 import { format, parseISO } from 'date-fns'
 import { utcToZonedTime } from 'date-fns-tz'
 
+import { env } from '@/data/env'
+
 export const ariaAttr = (condition: boolean | undefined) =>
   condition ? true : undefined
 
@@ -47,7 +49,7 @@ export const getDomainFromUrl = (url?: string | null): string | null => {
 }
 
 export const getBaseUrl = () => {
-  const isDevelopment = process.env.NODE_ENV === 'development'
+  const isDevelopment = env.NODE_ENV === 'development'
   return isDevelopment ? 'http://localhost:3000' : 'https://bonabrian.com'
 }
 
