@@ -1,7 +1,7 @@
 import type { ReactionType } from '@prisma/client'
 import type { NextRequest } from 'next/server'
 
-import { createReaction, getReactions } from '@/app/(content)/actions/reactions'
+import { createReaction, getReactions } from '@/app/(content)/actions'
 import { MAX_REACTIONS_PER_SESSION } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/lib/server'
