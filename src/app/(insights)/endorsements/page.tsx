@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import PageHeader from '@/components/page-header'
 import { getMetadata } from '@/lib/metadata'
 
-import Endorsements from './_components/endorsements'
 import { getEndorsements } from './actions/endorsements'
+import Endorsements from './components/endorsements'
 
 export const metadata: Metadata = getMetadata({
   title: 'Endorsements',
