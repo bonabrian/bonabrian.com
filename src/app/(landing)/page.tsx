@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { Divider } from '@/components/ui'
 import { getMetadata } from '@/lib/metadata'
 
-import HighlightedProjects from './_components/highlighted-projects'
-import Introductory from './_components/introductory'
-import RecentPosts from './_components/recent-posts'
+import HighlightedProjects from './components/highlighted-projects'
+import Introductory from './components/introductory'
+import RecentPosts from './components/recent-posts'
 
 export const metadata: Metadata = getMetadata()
 
