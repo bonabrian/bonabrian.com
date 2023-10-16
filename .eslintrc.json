@@ -19,8 +19,17 @@
     // configuration for typescript files
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "plugins": ["@typescript-eslint", "unused-imports", "simple-import-sort"],
-      "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+      "plugins": [
+        "@typescript-eslint",
+        "unused-imports",
+        "simple-import-sort",
+        "tailwindcss"
+      ],
+      "extends": [
+        "plugin:tailwindcss/recommended",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended"
+      ],
       "parserOptions": {
         "project": "./tsconfig.json"
       },
@@ -35,21 +44,29 @@
         ],
         "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
         "@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
+        "@typescript-eslint/no-unused-vars": "off", // Avoid conflict with unused-imports/no-unused-vars
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_" }
+        ],
         "import/prefer-default-export": "off", // Named export is easier to refactor automatically
         "simple-import-sort/imports": "error", // Import configuration for `eslint-plugin-simple-import-sort`
         "simple-import-sort/exports": "error", // Export configuration for `eslint-plugin-simple-import-sort`
+        "tailwindcss/no-custom-classname": "off", // Disabled otherwise nightmare to allow each custom tailwind classes
+        "tailwindcss/classnames-order": [
+          "warning",
+          {
+            "callees": ["cn", "clsx", "cva"],
+            "prependCustom": true
+          }
+        ],
         "react/function-component-definition": [
           "error",
           {
             "namedComponents": ["function-declaration", "arrow-function"],
             "unnamedComponents": "arrow-function"
           }
-        ],
-        "@typescript-eslint/no-unused-vars": "off",
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error",
-          { "argsIgnorePattern": "^_" }
         ],
         "jsx-quotes": ["error", "prefer-double"],
         "react/display-name": "off",
