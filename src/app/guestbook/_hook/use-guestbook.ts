@@ -1,6 +1,5 @@
 import { useRequest } from '@/hooks'
-
-import type { GuestbookEntry } from '../_types/guestbook'
+import type { GuestbookEntry } from '@/types/guestbook'
 
 const useGuestbook = () => {
   const { data, loading, mutate } =

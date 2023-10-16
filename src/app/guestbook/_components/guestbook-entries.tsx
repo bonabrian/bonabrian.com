@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 import cn from '@/lib/cn'
+import type { GuestbookEntry as Entry } from '@/types/guestbook'
 
-import type { GuestbookEntry as Entry } from '../_types/guestbook'
 import GuestbookEntry from './guestbook-entry'
 
 const WIDGET_HEIGHT = 480

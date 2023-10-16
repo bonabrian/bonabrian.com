@@ -4,8 +4,8 @@ import { useSession } from 'next-auth/react'
 import { Trash } from '@/components/icons'
 import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'
+import type { GuestbookEntry as Entry } from '@/types/guestbook'
 
-import type { GuestbookEntry as Entry } from '../_types/guestbook'
 import MessageTimestamp from './message-timestamp'
 
 interface GuestbookEntryProps {

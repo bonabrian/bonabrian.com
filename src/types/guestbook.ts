@@ -1,4 +1,4 @@
-import type { User } from '@/types/user'
+import type { User } from './user'
 
 export type GuestbookEntry = {
   id: string

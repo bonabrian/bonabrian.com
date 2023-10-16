@@ -1,6 +1,5 @@
 import prisma from '@/lib/prisma'
-
-import type { GuestbookEntry } from '../_types/guestbook'
+import type { GuestbookEntry } from '@/types/guestbook'
 
 export const getGuestbookEntries = async (): Promise<
   GuestbookEntry[] | undefined
