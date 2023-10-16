@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
-import { deleteEntry, findEntryById } from '@/app/guestbook/_lib/guestbook'
+import { deleteEntry, findEntryById } from '@/app/guestbook/actions'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 import { defaultMetadata } from '@/lib/metadata'

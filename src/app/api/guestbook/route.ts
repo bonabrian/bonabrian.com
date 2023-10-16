@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
-import { addEntry, getGuestbookEntries } from '@/app/guestbook/_lib/guestbook'
+import { addEntry, getGuestbookEntries } from '@/app/guestbook/actions'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 
