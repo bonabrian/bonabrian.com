@@ -10,7 +10,7 @@ import { BackButton, Container } from '@/components/ui'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-import useView from '../_hooks/use-view'
+import useView from '../hooks/use-view'
 import StickyTitle from './sticky-title'
 
 interface ContentMetaProps {

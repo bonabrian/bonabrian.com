@@ -12,7 +12,7 @@ import { Counter, Link } from '@/components/ui'
 import cn from '@/lib/cn'
 import { getBaseUrl } from '@/lib/utils'
 
-import useShare from '../_hooks/use-share'
+import useShare from '../hooks/use-share'
 
 interface ShareItemLinkProps extends PropsWithChildren {
   href: string

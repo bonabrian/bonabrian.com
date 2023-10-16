@@ -4,7 +4,7 @@ import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 
-import useView from '@/app/(content)/_hooks/use-view'
+import useView from '@/app/(content)/hooks/use-view'
 import { ROUTES } from '@/constants/links'
 import { useMediaQuery } from '@/hooks'
 import cn from '@/lib/cn'

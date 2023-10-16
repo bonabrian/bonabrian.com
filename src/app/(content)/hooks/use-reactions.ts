@@ -39,7 +39,7 @@ const initialValue: ReactionData = {
   },
 }
 
-export const useReactions = (slug: string) => {
+const useReactions = (slug: string) => {
   const timer = useRef<Record<ReactionType, NodeJS.Timeout | undefined>>({
     LIKED: undefined,
     CLAPPING: undefined,
@@ -104,3 +104,5 @@ export const useReactions = (slug: string) => {
     loading,
   }
 }
+
+export default useReactions

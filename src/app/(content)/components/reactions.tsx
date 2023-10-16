@@ -8,7 +8,7 @@ import { Counter } from '@/components/ui'
 import { MAX_REACTIONS_PER_SESSION } from '@/data/app'
 import cn from '@/lib/cn'
 
-import { useReactions } from '../_hooks/use-reactions'
+import useReactions from '../hooks/use-reactions'
 import EmojiReaction from './emoji-reaction'
 
 interface ReactionsProps {
