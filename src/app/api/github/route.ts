@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 
-import { getAccountContributions } from '@/app/(insights)/dashboard/_lib/github'
+import { getAccountContributions } from '@/app/(insights)/dashboard/actions'
 import type { AccountType } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 
