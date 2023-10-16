@@ -9,8 +9,7 @@ import { Button, Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 import fireConfetti from '@/lib/confetti'
 import { defaultMetadata } from '@/lib/metadata'
-
-import type { Skill } from '../_types/skill'
+import type { Skill } from '@/types/skill'
 
 interface EndorsementsBadgeProps {
   skill: Skill

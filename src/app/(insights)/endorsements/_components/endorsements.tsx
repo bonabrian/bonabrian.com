@@ -5,9 +5,9 @@ import { useState } from 'react'
 
 import { Button, Container, Link, Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
+import type { SkillCategory } from '@/types/skill'
 
 import useEndorsements from '../_hooks/use-endorsements'
-import type { SkillCategory } from '../_types/skill'
 import EndorsementsBadge from './endorsement-badge'
 
 interface EndorsementsProps {

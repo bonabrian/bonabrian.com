@@ -1,6 +1,5 @@
 import { useRequest } from '@/hooks'
-
-import type { SkillCategory } from '../_types/skill'
+import type { SkillCategory } from '@/types/skill'
 
 interface Props {
   fallbackData: Array<SkillCategory>
