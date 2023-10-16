@@ -3,7 +3,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
-import { PAIR_DEVICES } from '@/constants/devices'
+import { PAIR_DEVICES } from '@/data/app'
 import cn from '@/lib/cn'
 import type { Device } from '@/types/spotify'
 

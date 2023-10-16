@@ -1,4 +1,4 @@
-import { PAIR_DEVICES } from '@/constants/devices'
+import { PAIR_DEVICES } from '@/data/app'
 import { env } from '@/data/env'
 import type {
   AccessTokenResponse,
