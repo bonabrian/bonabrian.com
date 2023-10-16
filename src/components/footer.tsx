@@ -1,4 +1,4 @@
-import { footerIconLinks, footerLinks } from '@/constants/links'
+import { footerIconLinks, footerLinks } from '@/data/app'
 import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'
 

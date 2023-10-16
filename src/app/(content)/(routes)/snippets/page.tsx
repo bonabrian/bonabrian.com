@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import { Container, EmptyState, Link } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
 import { formatDate } from '@/lib/utils'

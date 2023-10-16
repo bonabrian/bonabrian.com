@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { signOut, useSession } from 'next-auth/react'
 
 import { ArrowsOutSimple, Close, Minus } from '@/components/icons'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 interface GuestbookWidgetHeaderProps {

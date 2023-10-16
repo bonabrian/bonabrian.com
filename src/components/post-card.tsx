@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 
 import useView from '@/app/(content)/hooks/use-view'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import { useMediaQuery } from '@/hooks'
 import cn from '@/lib/cn'
 import { max } from '@/lib/screens'

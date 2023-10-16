@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { BookOpenText } from '@/components/icons'
 import { Button } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 import GuestbookWidget from './guestbook-widget'

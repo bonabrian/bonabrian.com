@@ -3,7 +3,7 @@ import { allPosts, type Post } from 'contentlayer/generated'
 import { ChevronRight } from '@/components/icons'
 import PostCard from '@/components/post-card'
 import { Button, EmptyState, Link } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 import Section from './section'

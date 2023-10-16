@@ -4,7 +4,7 @@ import { Menu } from '@headlessui/react'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
-import { navLinks } from '@/constants/links'
+import { navLinks } from '@/data/app'
 import { useOnScroll } from '@/hooks'
 import cn from '@/lib/cn'
 import { defaultMetadata } from '@/lib/metadata'

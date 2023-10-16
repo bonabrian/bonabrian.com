@@ -6,7 +6,7 @@ import { m } from 'framer-motion'
 import { ChevronRight } from '@/components/icons'
 import ProjectCard from '@/components/project-card'
 import { Button, EmptyState, Link } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 import Section from './section'

@@ -2,8 +2,8 @@ import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { ROUTES } from '@/constants/links'
 import { STACKS } from '@/constants/stacks'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 import { Link, Tooltip } from './ui'

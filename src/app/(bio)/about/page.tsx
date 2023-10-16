@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import PageHeader from '@/components/page-header'
 import { Container, Link } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 import { defaultMetadata, getMetadata } from '@/lib/metadata'
 

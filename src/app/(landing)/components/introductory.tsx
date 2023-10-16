@@ -19,7 +19,7 @@ import {
   VueJs,
 } from '@/components/icons'
 import { Button, Container, Link, Tooltip } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { ROUTES } from '@/data/app'
 import cn from '@/lib/cn'
 
 interface Stack {
