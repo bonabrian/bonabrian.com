@@ -32,67 +32,67 @@ const stack: Stack[] = [
   {
     title: 'TypeScript',
     colorClass: 'hover:text-[#3178C6]',
-    icon: <TypeScript className={cn('w-6 h-6')} />,
+    icon: <TypeScript className={cn('h-6 w-6')} />,
   },
   {
     title: 'Next.js',
     colorClass: 'hover:text-black dark:hover:text-white',
-    icon: <NextJs className={cn('w-6 h-6')} />,
+    icon: <NextJs className={cn('h-6 w-6')} />,
   },
   {
     title: 'React.js',
     colorClass: 'hover:text-[#61DAFB]',
-    icon: <ReactJs className={cn('w-6 h-6')} />,
+    icon: <ReactJs className={cn('h-6 w-6')} />,
   },
   {
     title: 'Javascript',
     colorClass: 'hover:text-[#F7DF1E]',
-    icon: <JavaScript className={cn('w-6 h-6')} />,
+    icon: <JavaScript className={cn('h-6 w-6')} />,
   },
   {
     title: 'Vue.js',
     colorClass: 'hover:text-[#4FC08D]',
-    icon: <VueJs className={cn('w-6 h-6')} />,
+    icon: <VueJs className={cn('h-6 w-6')} />,
   },
   {
     title: 'Tailwind CSS',
     colorClass: 'hover:text-[#06B6D4]',
-    icon: <TailwindCss className={cn('w-6 h-6')} />,
+    icon: <TailwindCss className={cn('h-6 w-6')} />,
   },
   {
     title: 'Kotlin',
     colorClass: 'hover:text-[#7F52FF]',
-    icon: <Kotlin className={cn('w-6 h-6')} />,
+    icon: <Kotlin className={cn('h-6 w-6')} />,
   },
   {
     title: 'Spring',
     colorClass: 'hover:text-[#6DB33F]',
-    icon: <Spring className={cn('w-6 h-6')} />,
+    icon: <Spring className={cn('h-6 w-6')} />,
   },
   {
     title: 'PHP',
     colorClass: 'hover:text-[#777BB4]',
-    icon: <PHP className={cn('w-6 h-6')} />,
+    icon: <PHP className={cn('h-6 w-6')} />,
   },
   {
     title: 'Laravel',
     colorClass: 'hover:text-[#FF2D20]',
-    icon: <Laravel className={cn('w-6 h-6')} />,
+    icon: <Laravel className={cn('h-6 w-6')} />,
   },
   {
     title: 'Redis',
     colorClass: 'hover:text-[#DC382D]',
-    icon: <Redis className={cn('w-6 h-6')} />,
+    icon: <Redis className={cn('h-6 w-6')} />,
   },
   {
     title: 'RabbitMQ',
     colorClass: 'hover:text-[#FF6600]',
-    icon: <RabbitMq className={cn('w-6 h-6')} />,
+    icon: <RabbitMq className={cn('h-6 w-6')} />,
   },
   {
     title: 'MySQL',
     colorClass: 'hover:text-[#4479A1]',
-    icon: <MySQL className={cn('w-6 h-6')} />,
+    icon: <MySQL className={cn('h-6 w-6')} />,
   },
 ]
 
@@ -130,7 +130,7 @@ const TechStack = () => {
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.4 }}
-        className={cn('text-sm text-secondary-foreground mb-2')}
+        className={cn('mb-2 text-sm text-secondary-foreground')}
       >
         Tech Stack and Tools
       </m.p>
@@ -138,13 +138,13 @@ const TechStack = () => {
         initial="hide"
         animate="show"
         transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-        className={cn('flex gap-2 flex-wrap')}
+        className={cn('flex flex-wrap gap-2')}
       >
         {stack.map(({ title, colorClass, icon }) => (
           <Tooltip key={title} title={title}>
             <m.div
               className={cn(
-                'transition duration-200 text-muted-foreground',
+                'text-muted-foreground transition duration-200',
                 colorClass,
               )}
               variants={animation}
@@ -168,7 +168,7 @@ const HeaderTitle = () => {
     <div className={cn('relative')}>
       <m.h1
         className={cn(
-          'flex flex-col justify-center gap-1 text-4xl tracking-tight font-black mb-4',
+          'mb-4 flex flex-col justify-center gap-1 text-4xl font-black tracking-tight',
           'sm:text-5xl',
           'lg:text-6xl',
         )}
@@ -196,7 +196,7 @@ const HeaderTitle = () => {
 
 const Introductory = () => {
   return (
-    <div className={cn('bg-pattern py-20', 'lg:pt-36 lg:pb-28')}>
+    <div className={cn('bg-pattern py-20', 'lg:pb-28 lg:pt-36')}>
       <Container>
         <HeaderTitle />
         <div className={cn('mt-6', 'md:mt-8')}>

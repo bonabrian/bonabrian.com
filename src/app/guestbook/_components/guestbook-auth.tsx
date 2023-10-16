@@ -9,7 +9,7 @@ const GuestbookAuth = () => {
     <div
       className={cn('flex flex-col border-t border-muted font-plus-jakarta')}
     >
-      <div className={cn('p-4 space-y-3')}>
+      <div className={cn('space-y-3 p-4')}>
         <p className={cn('text-center text-sm')}>
           Kindly log in to begin typing.
         </p>
@@ -17,7 +17,7 @@ const GuestbookAuth = () => {
           <Button
             variant="ghost"
             className={cn(
-              'flex items-center gap-3 text-xs font-medium border border-foreground',
+              'flex items-center gap-3 border border-foreground text-xs font-medium',
               'sm:text-sm',
             )}
             onClick={() => signIn('github')}
@@ -28,7 +28,7 @@ const GuestbookAuth = () => {
           <Button
             variant="ghost"
             className={cn(
-              'flex items-center gap-3 text-xs font-medium border border-foreground',
+              'flex items-center gap-3 border border-foreground text-xs font-medium',
               'sm:text-sm',
             )}
             onClick={() => signIn('google')}

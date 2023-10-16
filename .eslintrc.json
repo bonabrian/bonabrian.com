@@ -55,7 +55,7 @@
         "simple-import-sort/exports": "error", // Export configuration for `eslint-plugin-simple-import-sort`
         "tailwindcss/no-custom-classname": "off", // Disabled otherwise nightmare to allow each custom tailwind classes
         "tailwindcss/classnames-order": [
-          "warning",
+          2,
           {
             "callees": ["cn", "clsx", "cva"],
             "prependCustom": true

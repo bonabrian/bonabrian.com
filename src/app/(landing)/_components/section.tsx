@@ -11,10 +11,10 @@ const Section = ({ title, subtitle, children }: SectionProps) => {
   return (
     <div className={cn('mb-12')}>
       <Container>
-        <h2 className={cn('font-bold mb-2 text-primary')}>{title}</h2>
+        <h2 className={cn('mb-2 font-bold text-primary')}>{title}</h2>
         <p
           className={cn(
-            'mb-4 text-secondary-foreground font-bold text-xl',
+            'mb-4 text-xl font-bold text-secondary-foreground',
             'md:text-2xl',
           )}
         >

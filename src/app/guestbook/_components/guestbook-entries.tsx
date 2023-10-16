@@ -70,7 +70,7 @@ const GuestbookEntries = ({
     <div className={cn('px-1')}>
       <div
         ref={entriesRef}
-        className={cn('overflow-hidden overflow-y-auto py-4 space-y-4')}
+        className={cn('space-y-4 overflow-hidden overflow-y-auto py-4')}
         style={{ height: entriesHeight }}
       >
         {entries?.length ? (
@@ -85,7 +85,7 @@ const GuestbookEntries = ({
           </>
         ) : (
           <div
-            className={cn('flex flex-col justify-center h-full text-center')}
+            className={cn('flex h-full flex-col justify-center text-center')}
           >
             <p>
               If you come across this, you might just be the first to share your

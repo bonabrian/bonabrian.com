@@ -58,7 +58,7 @@ const CareerJourney = ({
                 delay: isAvailableAnimationDuration + 1.6,
                 duration: 0.4,
               }}
-              className={cn('absolute top-0 left-0')}
+              className={cn('absolute left-0 top-0')}
             >
               <DownloadResume />
             </m.div>
@@ -70,21 +70,21 @@ const CareerJourney = ({
         )}
       </m.div>
 
-      <div className={cn('px-4 prose max-w-none', 'dark:prose-dark')}>
-        <ol className={cn('relative border-l border-muted list-none')}>
+      <div className={cn('prose max-w-none px-4', 'dark:prose-dark')}>
+        <ol className={cn('relative list-none border-l border-muted')}>
           {experiences.map(
             ({ organization, role, date, stacks, accomplishments }) => (
               <li key={organization.name} className={cn('ml-3', 'sm:ml-6')}>
                 <div
                   className={cn(
-                    'absolute mt-0 -left-5 w-10 h-10 flex justify-center items-center rounded-ful',
+                    'rounded-ful absolute -left-5 mt-0 flex h-10 w-10 items-center justify-center',
                   )}
                 >
                   <Image
                     src={organization.logo}
                     alt={organization.name}
                     fill
-                    className={cn('rounded-full my-0')}
+                    className={cn('my-0 rounded-full')}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -94,11 +94,11 @@ const CareerJourney = ({
                     'md:flex-row md:items-center',
                   )}
                 >
-                  <h3 className={cn('text-lg my-0')}>
+                  <h3 className={cn('my-0 text-lg')}>
                     <Link
                       href={organization.url}
                       className={cn(
-                        'no-underline font-bold text-foreground hover:text-foreground',
+                        'font-bold text-foreground no-underline hover:text-foreground',
                       )}
                       showExternalLinkIcon={false}
                     >
@@ -106,7 +106,7 @@ const CareerJourney = ({
                     </Link>
                     <span
                       className={cn(
-                        "before:content-['_|_'] font-normal text-muted-foreground",
+                        "font-normal text-muted-foreground before:content-['_|_']",
                       )}
                     >
                       {role}
@@ -114,12 +114,12 @@ const CareerJourney = ({
                   </h3>
                   <p className={cn('my-0 text-muted-foreground')}>{date}</p>
                 </div>
-                <div className={cn('flex flex-row flex-wrap gap-2 my-8')}>
+                <div className={cn('my-8 flex flex-row flex-wrap gap-2')}>
                   {stacks.map(({ name, backgroundColor, color, icon }) => (
                     <span
                       key={name}
                       className={cn(
-                        'rounded-full px-2.5 py-1 capitalize font-semibold text-xs flex items-center gap-1',
+                        'flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize',
                       )}
                       style={{ backgroundColor, color }}
                     >

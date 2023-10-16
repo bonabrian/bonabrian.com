@@ -27,10 +27,10 @@ const NowPlayingBar = ({
   const [showDeviceList, setShowDeviceList] = useState(false)
 
   return (
-    <div className={cn('fixed bottom-0 w-full z-[999]')}>
+    <div className={cn('fixed bottom-0 z-[999] w-full')}>
       <div
         className={cn(
-          'flex justify-between bg-spotify text-sm px-4 py-1 text-neutral-800 dark:text-neutral-900 font-plus-jakarta',
+          'flex justify-between bg-spotify px-4 py-1 font-plus-jakarta text-sm text-neutral-800 dark:text-neutral-900',
         )}
       >
         {playingData?.songUrl ? (
@@ -62,7 +62,7 @@ const NowPlayingBar = ({
                     <div
                       className={cn(
                         'flex gap-1',
-                        'hover:underline hover:cursor-pointer',
+                        'hover:cursor-pointer hover:underline',
                       )}
                       onClick={() => onOpenSongUrl(playingData.songUrl)}
                     >
@@ -84,7 +84,7 @@ const NowPlayingBar = ({
                 onMouseLeave={() => setShowDeviceList(false)}
               >
                 <div className={cn('flex items-center gap-1')}>
-                  <Speaker className={cn('w-4 h-4')} />
+                  <Speaker className={cn('h-4 w-4')} />
                   <div>
                     Listening on{' '}
                     <span className={cn('font-medium')}>
@@ -98,7 +98,7 @@ const NowPlayingBar = ({
           </>
         ) : (
           <div className={cn('flex items-center gap-2')}>
-            <Spotify className={cn('w-4 h-4')} />
+            <Spotify className={cn('h-4 w-4')} />
             <div>Not Playing</div>
           </div>
         )}

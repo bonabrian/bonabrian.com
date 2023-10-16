@@ -11,7 +11,7 @@ const OverviewCard = ({ label, value, unit = '' }: OverviewCardProps) => {
   return (
     <div
       className={cn(
-        'flex flex-col self-center rounded-md bg-card py-3 px-4 font-plus-jakarta',
+        'flex flex-col self-center rounded-md bg-card px-4 py-3 font-plus-jakarta',
       )}
     >
       <span className={cn('text-sm text-card-foreground/70')}>

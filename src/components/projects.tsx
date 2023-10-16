@@ -23,8 +23,8 @@ const Projects = ({ projects }: ProjectsProps) => {
       {projects.length ? (
         <div
           className={cn(
-            'grid grid-cols-1 auto-cols-fr gap-x-16 gap-y-8 w-full my-8',
-            'md:grid-cols-2 md:my-12',
+            'my-8 grid w-full auto-cols-fr grid-cols-1 gap-x-16 gap-y-8',
+            'md:my-12 md:grid-cols-2',
           )}
         >
           {projects.map((project, index) => {

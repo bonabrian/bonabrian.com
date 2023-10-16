@@ -40,7 +40,7 @@ const ThemeSwitch = () => {
     <Button
       variant="ghost"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className={cn('px-2 py-1 z-50')}
+      className={cn('z-50 px-2 py-1')}
       aria-label="Theme Switch Button"
     >
       <m.div

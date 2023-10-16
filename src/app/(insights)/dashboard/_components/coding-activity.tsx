@@ -101,7 +101,7 @@ const CodingActivity = () => {
       loading={loading}
     >
       <>
-        <div className={cn('mb-1 grid md:grid-cols-2 gap-3 py-2')}>
+        <div className={cn('mb-1 grid gap-3 py-2 md:grid-cols-2')}>
           <OverviewCard label="Start Date" value={startDate} />
           <OverviewCard label="End Date" value={endDate} />
           <OverviewCard label="Daily Coding Average" value={dailyAverage} />
@@ -113,7 +113,7 @@ const CodingActivity = () => {
           />
         </div>
 
-        <div className={cn('flex flex-col mt-2 gap-4', 'sm:flex-row')}>
+        <div className={cn('mt-2 flex flex-col gap-4', 'sm:flex-row')}>
           {activities.map((activity) => (
             <div
               key={activity.title}
@@ -123,10 +123,10 @@ const CodingActivity = () => {
               )}
             >
               <div className={cn('h-full w-full rounded-md bg-background')}>
-                <p className={cn('absolute -top-3 left-3 px-2 bg-background')}>
+                <p className={cn('absolute -top-3 left-3 bg-background px-2')}>
                   {activity.title}
                 </p>
-                <ul className={cn('flex flex-col py-3 px-4 gap-1')}>
+                <ul className={cn('flex flex-col gap-1 px-4 py-3')}>
                   {activity.data.map((item) => (
                     <li key={item.name}>
                       <Progress data={item} className={cn(activity.bg)} />

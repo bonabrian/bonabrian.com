@@ -45,7 +45,7 @@ const GuestbookPanel = ({
   return (
     <>
       <form
-        className={cn('flex items-center p-4 border-t border-muted gap-x-1')}
+        className={cn('flex items-center gap-x-1 border-t border-muted p-4')}
         onSubmit={handleSendMessage}
       >
         <Input

@@ -76,7 +76,7 @@ const PostPage = ({ params }: PostPageProps) => {
           <Mdx code={post?.body?.code} />
         </div>
         {tags && (
-          <div className={cn('flex items-center text-sm gap-1 mt-16')}>
+          <div className={cn('mt-16 flex items-center gap-1 text-sm')}>
             Tags:
             <div className={cn('flex flex-wrap gap-1')}>
               {tags?.map((tag) => <Tag key={tag} tag={tag} />)}

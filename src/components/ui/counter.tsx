@@ -26,7 +26,7 @@ const Counter = ({ count }: CounterProps) => {
   return (
     <div
       className={cn(
-        'relative flex items-center gap-1 h-6 overflow-hidden rounded-full py-1 px-2 bg-accent',
+        'relative flex h-6 items-center gap-1 overflow-hidden rounded-full bg-accent px-2 py-1',
       )}
     >
       {count === 0 ? (

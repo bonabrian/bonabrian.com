@@ -26,7 +26,7 @@ const Navigation = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 h-16 bg-background/90 flex saturate-110 backdrop-blur-[10px]',
+        'saturate-110 sticky top-0 z-50 flex h-16 bg-background/90 backdrop-blur-[10px]',
         '',
         isScrolled ? 'shadow-sm' : '',
       )}
@@ -34,10 +34,10 @@ const Navigation = () => {
       <Container wide>
         <nav
           className={cn(
-            'flex flex-1 items-center justify-between h-16 text-sm',
+            'flex h-16 flex-1 items-center justify-between text-sm',
           )}
         >
-          <div className={cn('flex md:gap-2 items-center')}>
+          <div className={cn('flex items-center md:gap-2')}>
             <Link
               href="/"
               aria-label={defaultMetadata.author.name}
@@ -53,7 +53,7 @@ const Navigation = () => {
                     <Link
                       href={path}
                       className={cn(
-                        'flex items-center gap-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-2 py-2',
+                        'flex items-center gap-1 rounded px-2 py-2 font-semibold text-muted-foreground transition-colors duration-150',
                         'hover:bg-accent hover:text-accent-foreground',
                         (pathname === path || pathname.startsWith(path)) &&
                           'bg-accent text-accent-foreground',
@@ -77,7 +77,7 @@ const Navigation = () => {
                         htmlType="button"
                         variant="ghost"
                         className={cn(
-                          'w-9 h-9 p-0 flex items-center justify-center',
+                          'flex h-9 w-9 items-center justify-center p-0',
                         )}
                         as={Button}
                       >
@@ -91,7 +91,7 @@ const Navigation = () => {
                           initial="hide"
                           animate="show"
                           className={cn(
-                            'absolute bg-popover shadow-sm p-1 rounded-md w-56 right-0 origin-top-right',
+                            'absolute right-0 w-56 origin-top-right rounded-md bg-popover p-1 shadow-sm',
                           )}
                         >
                           {navLinks.map(({ path, label, icon }) => (
@@ -100,7 +100,7 @@ const Navigation = () => {
                                 <Link
                                   href={path}
                                   className={cn(
-                                    'flex items-center mx-1 text-muted-foreground font-semibold transition-colors duration-150 rounded px-3 py-2 gap-2 my-0.5',
+                                    'mx-1 my-0.5 flex items-center gap-2 rounded px-3 py-2 font-semibold text-muted-foreground transition-colors duration-150',
                                     'hover:bg-accent hover:text-accent-foreground',
                                     active
                                       ? 'bg-accent text-accent-foreground'

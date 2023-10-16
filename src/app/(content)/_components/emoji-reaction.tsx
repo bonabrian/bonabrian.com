@@ -114,10 +114,10 @@ const EmojiReaction = ({
             // remove from DOM
             setHistory((current) => current.filter((el) => el.key !== key))
           }}
-          className={cn('w-10 h-10 pointer-events-none select-none absolute')}
+          className={cn('pointer-events-none absolute h-10 w-10 select-none')}
         >
           <Image
-            className={cn('w-full h-full')}
+            className={cn('h-full w-full')}
             alt={title}
             src={animatedEmoji}
             width={48}
@@ -128,9 +128,9 @@ const EmojiReaction = ({
         </m.div>
       ))}
 
-      <m.div className={cn('w-10 h-10 pointer-events-none')} variants={motion}>
+      <m.div className={cn('pointer-events-none h-10 w-10')} variants={motion}>
         <Image
-          className={cn('w-full h-full')}
+          className={cn('h-full w-full')}
           alt={title}
           src={emoji}
           width={48}

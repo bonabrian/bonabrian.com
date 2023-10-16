@@ -54,7 +54,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
 
   return (
     <m.div
-      className={cn('relative pointer-events-auto flex items-center')}
+      className={cn('pointer-events-auto relative flex items-center')}
       initial={{
         y: 16,
         opacity: 0,

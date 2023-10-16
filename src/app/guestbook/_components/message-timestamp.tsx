@@ -23,7 +23,7 @@ const MessageTimestamp = ({ datetime }: MessageTimestampProps) => {
   }, [datetime])
 
   return (
-    <div className={cn('text-muted-foreground text-xs')}>
+    <div className={cn('text-xs text-muted-foreground')}>
       {isToday(new Date(datetime))
         ? formattedTimestamp
         : format(new Date(datetime), 'dd MMM yyyy HH:mm')}

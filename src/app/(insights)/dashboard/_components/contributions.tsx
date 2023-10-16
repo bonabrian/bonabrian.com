@@ -31,7 +31,7 @@ const Contributions = ({ username, endpoint }: ContributionsProps) => {
             target="_blank"
             passHref
             className={cn(
-              'text-sm font-fira-code text-muted-foreground',
+              'font-fira-code text-sm text-muted-foreground',
               'hover:text-foreground',
             )}
             showExternalLinkIcon={false}

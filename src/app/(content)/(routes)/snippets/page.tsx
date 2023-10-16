@@ -38,7 +38,7 @@ const SnippetsPage = async () => {
           {snippets.length ? (
             <div
               className={cn(
-                'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
+                'grid grid-flow-row auto-rows-auto grid-cols-1 gap-4',
                 'md:grid-cols-2',
                 'lg:grid-cols-3',
               )}
@@ -51,13 +51,13 @@ const SnippetsPage = async () => {
                     key={slug}
                     href={`${ROUTES.snippets}/${slug}`}
                     className={cn(
-                      'flex flex-col justify-between rounded-md p-6 bg-card',
+                      'flex flex-col justify-between rounded-md bg-card p-6',
                     )}
                   >
                     <div className={cn('flex flex-col')}>
                       <h2
                         className={cn(
-                          'font-semibold text-lg text-card-foreground mb-2',
+                          'mb-2 text-lg font-semibold text-card-foreground',
                         )}
                       >
                         {title}

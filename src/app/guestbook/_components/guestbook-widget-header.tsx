@@ -18,35 +18,35 @@ const GuestbookWidgetHeader = ({ onClose }: GuestbookWidgetHeaderProps) => {
   return (
     <div
       className={cn(
-        'flex items-center justify-between px-4 py-3 font-plus-jakarta font-medium border-muted',
+        'flex items-center justify-between border-muted px-4 py-3 font-plus-jakarta font-medium',
       )}
     >
       <div className={cn('flex items-center gap-4')}>
         <div className={cn('flex gap-2')}>
           <div
             className={cn(
-              'group flex items-center justify-center w-3.5 h-3.5 rounded-full cursor-pointer bg-[#FF605C] text-neutral-800',
+              'group flex h-3.5 w-3.5 cursor-pointer items-center justify-center rounded-full bg-[#FF605C] text-neutral-800',
             )}
             onClick={onClose}
           >
-            <Close className={cn('w-2 h-2 hidden', 'group-hover:flex')} />
+            <Close className={cn('hidden h-2 w-2', 'group-hover:flex')} />
           </div>
           <div
             className={cn(
-              'group flex items-center justify-center w-3.5 h-3.5 rounded-full cursor-pointer bg-[#FFBD44] text-neutral-800',
+              'group flex h-3.5 w-3.5 cursor-pointer items-center justify-center rounded-full bg-[#FFBD44] text-neutral-800',
             )}
             onClick={onClose}
           >
-            <Minus className={cn('w-2 h-2 hidden', 'group-hover:flex')} />
+            <Minus className={cn('hidden h-2 w-2', 'group-hover:flex')} />
           </div>
           <div
             className={cn(
-              'group flex items-center justify-center w-3.5 h-3.5 rounded-full cursor-pointer bg-[#00CA4E] text-neutral-800',
+              'group flex h-3.5 w-3.5 cursor-pointer items-center justify-center rounded-full bg-[#00CA4E] text-neutral-800',
             )}
             onClick={() => router.push(ROUTES.guestbook)}
           >
             <ArrowsOutSimple
-              className={cn('w-2 h-2 hidden', 'group-hover:flex')}
+              className={cn('hidden h-2 w-2', 'group-hover:flex')}
             />
           </div>
         </div>
@@ -54,7 +54,7 @@ const GuestbookWidgetHeader = ({ onClose }: GuestbookWidgetHeaderProps) => {
       </div>
       {session && (
         <div
-          className={cn('font-semibold underline text-sm cursor-pointer')}
+          className={cn('cursor-pointer text-sm font-semibold underline')}
           onClick={async () => {
             await signOut()
           }}

@@ -59,7 +59,7 @@ const Image = ({
           loading={props.priority ? undefined : props.loading || 'lazy'}
           decoding="async"
           className={cn(
-            'object-cover rounded-xl',
+            'rounded-xl object-cover',
             'transition-[scale,filter] duration-700',
             isLoading && 'scale-[1.01] blur-xl grayscale',
             zoomableImage && 'cursor-zoom-in',
@@ -72,7 +72,7 @@ const Image = ({
         {zoomed && <ImageZoom unZoom={() => setZoomed(false)} {...rest} />}
       </div>
       {source && (
-        <figcaption className={cn('text-sm mt-1')}>
+        <figcaption className={cn('mt-1 text-sm')}>
           <span className={cn('flex items-center justify-center gap-1')}>
             <span className={cn('text-muted-foreground')}>Source:</span>{' '}
             <Link href={source ?? ''} className={cn('hover:underline')}>

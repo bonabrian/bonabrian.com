@@ -50,24 +50,24 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
   return (
     <article
       className={cn(
-        'flex items-stretch flex-nowrap rounded-md bg-card',
-        isGridView ? 'flex-col h-full' : 'flex-row',
+        'flex flex-nowrap items-stretch rounded-md bg-card',
+        isGridView ? 'h-full flex-col' : 'flex-row',
         viewOption,
       )}
     >
       <Link
         href={`${ROUTES.blog}/${slug}`}
         className={cn(
-          'aspect-video w-full relative overflow-hidden bg-no-repeat rounded-md bg-cover basis-1/2',
+          'relative aspect-video w-full basis-1/2 overflow-hidden rounded-md bg-cover bg-no-repeat',
         )}
       >
-        <div className={cn('absolute w-full h-full')} />
+        <div className={cn('absolute h-full w-full')} />
         <Image
           src={image ?? ''}
           alt={title}
           fill
           className={cn(
-            'object-cover hover:scale-105 transition duration-500 ease-in-out rounded-t-md',
+            'rounded-t-md object-cover transition duration-500 ease-in-out hover:scale-105',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
@@ -75,14 +75,14 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
       </Link>
       <div
         className={cn(
-          'basis-full flex flex-col py-8 px-2 justify-between',
+          'flex basis-full flex-col justify-between px-2 py-8',
           'md:basis-1/2 md:p-8',
         )}
       >
         <div className={cn('flex flex-col')}>
           <Link href={`${ROUTES.blog}/${slug}`}>
             <h2
-              className={cn('font-semibold text-card-foreground mb-2 text-lg')}
+              className={cn('mb-2 text-lg font-semibold text-card-foreground')}
             >
               {title}
             </h2>
@@ -93,7 +93,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
           <div
             className={cn(
               'flex items-center space-x-1',
-              "after:content-[' '] after:inline-block after:align-middle after:mx-2 after:text-base",
+              "after:content-[' '] after:mx-2 after:inline-block after:align-middle after:text-base",
             )}
           >
             <span title={publishedAt}>{publishedAt}</span>
@@ -101,14 +101,14 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
           <div
             className={cn(
               'flex items-center space-x-1',
-              "after:content-[' '] after:inline-block after:align-middle after:mx-2 after:text-base",
+              "after:content-[' '] after:mx-2 after:inline-block after:align-middle after:text-base",
             )}
           >
-            <Clock className={cn('w-4 h-4')} />
+            <Clock className={cn('h-4 w-4')} />
             <span title="Estimated read time">{readingTime?.text}</span>
           </div>
           <div className={cn('flex items-center gap-1')}>
-            <Eye className={cn('w-4 h-4')} />
+            <Eye className={cn('h-4 w-4')} />
             {isLoadViews ? (
               <Spinner />
             ) : (

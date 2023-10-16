@@ -61,7 +61,7 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           {isScrolled ? (
             <m.div
               className={cn(
-                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed left-0 right-0 top-0 z-50 flex h-16 items-center justify-center bg-background px-4 text-center shadow-sm backdrop-blur',
               )}
               initial="initial"
               animate="animate"
@@ -69,7 +69,7 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
               transition={transition}
             >
               <h1
-                className={cn('text-lg font-semibold cursor-pointer')}
+                className={cn('cursor-pointer text-lg font-semibold')}
                 onClick={scrollToTop}
               >
                 {title}
@@ -78,7 +78,7 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           ) : (
             <m.div
               className={cn(
-                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed left-0 right-0 top-0 z-50 flex h-16 items-center justify-center bg-background px-4 text-center shadow-sm backdrop-blur',
               )}
               initial={{ opacity: 0, y: gap }}
               transition={transition}

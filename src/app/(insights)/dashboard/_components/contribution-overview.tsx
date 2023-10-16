@@ -28,7 +28,7 @@ const ContributionOverview = ({ data }: ContributionOverviewProps) => {
   const averageContribution = totalContributions / totalContributionList.length
 
   return (
-    <div className={cn('grid grid-cols-2 gap-3 my-2 md:grid-cols-4')}>
+    <div className={cn('my-2 grid grid-cols-2 gap-3 md:grid-cols-4')}>
       <OverviewCard label="Total" value={totalContributions} />
       <OverviewCard label="This Week" value={totalThisWeekContributions} />
       <OverviewCard label="Best Day" value={bestContribution} />

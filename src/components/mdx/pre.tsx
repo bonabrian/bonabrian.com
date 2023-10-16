@@ -39,13 +39,13 @@ const Pre = ({ children }: PreProps) => {
         title="Copy to Clipboard"
         variant="ghost"
         className={cn(
-          'absolute right-2 top-2 flex w-8 h-8 items-center justify-center rounded-md text-neutral-400 p-1 border border-neutral-600',
+          'absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-neutral-600 p-1 text-neutral-400',
           'hover:bg-inherit hover:text-white',
         )}
       >
         <div
           className={cn(
-            'pointer-events-none absolute right-10 -mr-1 w-16 translate-x-2 rounded-md px-2 py-1 text-xs font-bold transition opacity-0',
+            'pointer-events-none absolute right-10 -mr-1 w-16 translate-x-2 rounded-md px-2 py-1 text-xs font-bold opacity-0 transition',
             copied ? 'translate-x-0 opacity-100' : '',
           )}
         >

@@ -7,9 +7,9 @@ const FourZeroFour = () => {
   return (
     <>
       <title>Page Not Found</title>
-      <div className={cn('flex flex-col items-center justify-center my-4')}>
+      <div className={cn('my-4 flex flex-col items-center justify-center')}>
         <div className={cn('py-4')}>
-          <FourZeroFourImage className={cn('fill-current w-full')} />
+          <FourZeroFourImage className={cn('w-full fill-current')} />
           <h1
             className={cn(
               'mb-4 mt-10 text-center text-6xl font-extrabold leading-9 tracking-tight',
@@ -20,7 +20,7 @@ const FourZeroFour = () => {
         </div>
         <p
           className={cn(
-            'text-lg leading-normal text-center text-gray-500 mb-4',
+            'mb-4 text-center text-lg leading-normal text-gray-500',
             'dark:text-gray-400',
           )}
         >
@@ -32,7 +32,7 @@ const FourZeroFour = () => {
         <Link
           href="/"
           className={cn(
-            'inline text-white px-4 py-2 font-medium border border-transparent rounded-lg shadow',
+            'inline rounded-lg border border-transparent px-4 py-2 font-medium text-white shadow',
             '',
           )}
         >

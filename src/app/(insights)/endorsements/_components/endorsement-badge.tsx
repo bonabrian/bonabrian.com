@@ -70,10 +70,10 @@ const EndorsementsBadge = ({
   return (
     <div
       className={cn(
-        'flex flex-col items-stretch flex-nowrap bg-card p-4 rounded-md gap-4',
+        'flex flex-col flex-nowrap items-stretch gap-4 rounded-md bg-card p-4',
       )}
     >
-      <div className={cn('flex justify-between items-center')}>
+      <div className={cn('flex items-center justify-between')}>
         <div className={cn('font-bold')}>{skill.name}</div>
         {state === STATES.LOADING ? (
           <Spinner />
@@ -89,9 +89,9 @@ const EndorsementsBadge = ({
                   <Button
                     variant="ghost"
                     className={cn(
-                      'px-3 py-1 gap-1',
+                      'gap-1 px-3 py-1',
                       'hover:bg-background hover:text-foreground',
-                      'disabled:opacity-100 disabled:cursor-not-allowed',
+                      'disabled:cursor-not-allowed disabled:opacity-100',
                     )}
                     title="You already endorsed this skill!"
                     disabled
@@ -118,7 +118,7 @@ const EndorsementsBadge = ({
           <div
             key={user.id}
             title={user.name}
-            className={cn('relative w-8 h-8')}
+            className={cn('relative h-8 w-8')}
           >
             {user.image ? (
               <Image
@@ -154,7 +154,7 @@ const EndorsementsBadge = ({
       {state === STATES.ERROR && (
         <p
           className={cn(
-            'flex items-center text-sm my-1 text-red-500 font-medium',
+            'my-1 flex items-center text-sm font-medium text-red-500',
             'sm:my-2',
           )}
         >
@@ -165,7 +165,7 @@ const EndorsementsBadge = ({
       {state === STATES.SUCCESS && (
         <p
           className={cn(
-            'flex items-center text-sm my-1 text-green-500 font-medium',
+            'my-1 flex items-center text-sm font-medium text-green-500',
             'sm:my-2',
           )}
         >

@@ -17,11 +17,11 @@ const GuestbookWidgetButton = () => {
 
   return showWidgetButton ? (
     <div
-      className={cn('hidden fixed items-center bottom-10 right-5', 'lg:flex')}
+      className={cn('fixed bottom-10 right-5 hidden items-center', 'lg:flex')}
     >
       <Button
         variant="outline"
-        className={cn('rounded-full w-10 h-10 p-0', 'hover:scale-105')}
+        className={cn('h-10 w-10 rounded-full p-0', 'hover:scale-105')}
         onClick={() => setShowWidget(!showWidget)}
       >
         <BookOpenText />

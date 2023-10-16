@@ -79,10 +79,10 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
               title="Share"
               aria-label="Share"
               className={cn(
-                'relative flex items-center h-10 w-10 justify-center',
+                'relative flex h-10 w-10 items-center justify-center',
               )}
             >
-              <Share className={cn('w-5 h-5')} />
+              <Share className={cn('h-5 w-5')} />
             </Menu.Button>
             {open && (
               <Menu.Items
@@ -92,7 +92,7 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
                 initial="hide"
                 animate="show"
                 className={cn(
-                  'absolute shadow flex w-56 flex-col overflow-hidden rounded-lg bg-card -top-16 right-2 z-10 border border-neutral-100',
+                  'absolute -top-16 right-2 z-10 flex w-56 flex-col overflow-hidden rounded-lg border border-neutral-100 bg-card shadow',
                   'dark:border-neutral-800',
                 )}
               >

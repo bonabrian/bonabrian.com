@@ -42,13 +42,13 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
   const contributionColors = data?.colors ?? []
 
   return (
-    <div className={cn('border p-3 rounded-md', 'dark:border-neutral-800')}>
+    <div className={cn('rounded-md border p-3', 'dark:border-neutral-800')}>
       <div
         className={cn(
-          'relative flex flex-col justify-center overflow-hidden mb-4',
+          'relative mb-4 flex flex-col justify-center overflow-hidden',
         )}
       >
-        <div className={cn('overflow-x-auto flex flex-col')}>
+        <div className={cn('flex flex-col overflow-x-auto')}>
           <ul className={cn('flex justify-start gap-1 text-xs')}>
             {months.map((month) => (
               <li
@@ -108,7 +108,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
         <div className={cn('flex items-center gap-2 text-xs')}>
           <span className={cn('text-muted-foreground')}>Less</span>
           <ul className={cn('flex gap-1')}>
-            <m.li className={cn('w-3 h-3 rounded-sm bg-muted')} />
+            <m.li className={cn('h-3 w-3 rounded-sm bg-muted')} />
             {contributionColors.map((color, index) => (
               <m.li
                 key={color}
@@ -121,7 +121,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
                     transition: { delay: index * 0.3 },
                   },
                 }}
-                className={cn('w-3 h-3 rounded-sm')}
+                className={cn('h-3 w-3 rounded-sm')}
                 style={{ backgroundColor: color }}
               />
             ))}
@@ -131,7 +131,7 @@ const ContributionCalendar = ({ data }: ContributionCalendarProps) => {
         <div
           className={cn(
             selectContribution?.date ? 'opacity-100' : 'opacity-0',
-            'rounded bg-card text-card-foreground p-1.5 text-xs',
+            'rounded bg-card p-1.5 text-xs text-card-foreground',
           )}
         >
           {selectContribution?.count} contributions on{' '}

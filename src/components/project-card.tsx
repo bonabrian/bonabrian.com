@@ -36,35 +36,35 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div
       className={cn(
-        'group flex flex-col h-full min-w-0 break-words rounded-md bg-card',
+        'group flex h-full min-w-0 flex-col break-words rounded-md bg-card',
       )}
     >
       <Link
         href={projectUrl}
         showExternalLinkIcon={false}
-        className={cn('aspect-video relative rounded-t-md overflow-hidden')}
+        className={cn('relative aspect-video overflow-hidden rounded-t-md')}
       >
-        <div className={cn('absolute w-full h-full')} />
+        <div className={cn('absolute h-full w-full')} />
         <Image
           src={image ?? ''}
           alt={title}
           fill
           className={cn(
-            'object-cover rounded-t-md group-hover:scale-105 transition duration-200 ease-in-out',
+            'rounded-t-md object-cover transition duration-200 ease-in-out group-hover:scale-105',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           {...extraImageProps}
         />
       </Link>
-      <div className={cn('p-6 flex flex-col')}>
+      <div className={cn('flex flex-col p-6')}>
         <Link href={projectUrl} showExternalLinkIcon={false}>
-          <h2 className={cn('font-semibold text-lg mb-1 text-card-foreground')}>
+          <h2 className={cn('mb-1 text-lg font-semibold text-card-foreground')}>
             {title}
           </h2>
         </Link>
         <p className={cn('text-sm text-muted-foreground')}>{description}</p>
         {stacks?.length && (
-          <div className={cn('flex flex-wrap items-center gap-2 mt-4')}>
+          <div className={cn('mt-4 flex flex-wrap items-center gap-2')}>
             {stacks?.map((stack) => (
               <Tooltip key={stack} title={stack}>
                 {STACKS[stack]}

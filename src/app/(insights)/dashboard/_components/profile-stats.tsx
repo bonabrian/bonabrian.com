@@ -21,7 +21,7 @@ const ProfileStats = () => {
       loading={loading}
       subHeading={<p>Showcasing GitHub stars, followers, and endorsements.</p>}
     >
-      <div className={cn('mb-1 grid md:grid-cols-3 gap-3 py-2')}>
+      <div className={cn('mb-1 grid gap-3 py-2 md:grid-cols-3')}>
         <OverviewCard label="Stars on GitHub" value={data?.stars ?? 0} />
         <OverviewCard label="GitHub Followers" value={data?.followers ?? 0} />
         <OverviewCard

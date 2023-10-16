@@ -35,7 +35,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           >
             <h1
               className={cn(
-                'font-extrabold text-4xl leading-tight',
+                'text-4xl font-extrabold leading-tight',
                 'md:text-5xl md:leading-tight',
                 'lg:text-6xl lg:leading-tight',
               )}

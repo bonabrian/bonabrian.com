@@ -32,10 +32,10 @@ const SignInCard = ({
     <Container>
       <div
         className={cn(
-          'flex flex-col items-center space-y-2 justify-items-center xl:space-y-0',
+          'flex flex-col items-center justify-items-center space-y-2 xl:space-y-0',
         )}
       >
-        <div className={cn('p-8 prose max-w-none', 'dark:prose-dark')}>
+        <div className={cn('prose max-w-none p-8', 'dark:prose-dark')}>
           <div
             className={cn('flex flex-col items-center justify-between gap-4')}
           >
@@ -76,7 +76,7 @@ const SignInCard = ({
             >
               <div
                 className={cn(
-                  'inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-card shadow-xl rounded-2xl',
+                  'my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-card p-6 text-left align-middle shadow-xl transition-all',
                 )}
               >
                 <Dialog.Title

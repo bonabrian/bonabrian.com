@@ -32,7 +32,7 @@ const AboutPage = () => {
                 'xl:sticky xl:top-24',
               )}
             >
-              <div className={cn('relative w-52 h-52', 'xl:w-64 xl:h-64')}>
+              <div className={cn('relative h-52 w-52', 'xl:h-64 xl:w-64')}>
                 <Image
                   src={defaultMetadata.author.avatar}
                   alt={defaultMetadata.author.name}
@@ -52,13 +52,13 @@ const AboutPage = () => {
                   Full-stack Engineer
                 </h4>
                 <div
-                  className={cn('flex items-center justify-center gap-4 my-2')}
+                  className={cn('my-2 flex items-center justify-center gap-4')}
                 >
                   <Link
                     href={defaultMetadata.author.github}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                      'text-muted-foreground transition-all ease-in-out hover:text-foreground',
                     )}
                   >
                     <GitHub className={cn('h-6 w-6')} />
@@ -67,7 +67,7 @@ const AboutPage = () => {
                     href={defaultMetadata.author.linkedin}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                      'text-muted-foreground transition-all ease-in-out hover:text-foreground',
                     )}
                   >
                     <LinkedIn className={cn('h-6 w-6')} />
@@ -76,7 +76,7 @@ const AboutPage = () => {
                     href={`mailto:${defaultMetadata.author.email}`}
                     showExternalLinkIcon={false}
                     className={cn(
-                      'transition-all ease-in-out text-muted-foreground hover:text-foreground',
+                      'text-muted-foreground transition-all ease-in-out hover:text-foreground',
                     )}
                   >
                     <Mail className={cn('h-6 w-6')} />

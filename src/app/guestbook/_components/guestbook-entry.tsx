@@ -28,7 +28,7 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
         width={40}
         height={40}
         alt={user.name}
-        className={cn('rounded-full aspect-square')}
+        className={cn('aspect-square rounded-full')}
       />
       <div className={cn('space-y-1')}>
         <div
@@ -38,11 +38,11 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
           )}
         >
           <div className={cn('flex items-center gap-2')}>
-            <div className={cn('font-semibold text-sm')}>{name}</div>
+            <div className={cn('text-sm font-semibold')}>{name}</div>
             {isAuthor && (
               <div
                 className={cn(
-                  'bg-primary/10 text-primary px-1.5 py-0.5 font-medium rounded-full text-xs',
+                  'rounded-full bg-primary/10 px-1.5 py-0.5 text-xs font-medium text-primary',
                   'dark:bg-primary/20',
                 )}
               >
@@ -54,10 +54,10 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
             </div>
           </div>
         </div>
-        <div className={cn('flex items-center gap-3 group')}>
+        <div className={cn('group flex items-center gap-3')}>
           <p
             className={cn(
-              'w-fit bg-muted rounded-md py-2 px-3 rounded-tl-none',
+              'w-fit rounded-md rounded-tl-none bg-muted px-3 py-2',
             )}
           >
             {body}

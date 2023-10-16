@@ -43,7 +43,7 @@ const ContentMeta = ({
         <BackButton href={`/${segments[1]}`} />
         <div
           className={cn(
-            'flex flex-col sm:flex-row gap-2 justify-between text-muted-foreground text-sm font-medium',
+            'flex flex-col justify-between gap-2 text-sm font-medium text-muted-foreground sm:flex-row',
           )}
         >
           <div>
@@ -53,11 +53,11 @@ const ContentMeta = ({
             </time>
           </div>
           <div className={cn('flex items-center gap-4')}>
-            <div className={cn('flex gap-1 items-center')}>
+            <div className={cn('flex items-center gap-1')}>
               <Clock />
               <span title="Estimated read time">{readingTime?.text}</span>
             </div>
-            <div className={cn('flex gap-1 items-center')}>
+            <div className={cn('flex items-center gap-1')}>
               <Eye />
               <span title="Number of view(s)">{views?.total ?? '-'} views</span>
             </div>

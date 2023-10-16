@@ -21,12 +21,12 @@ const RecentPosts = () => {
     <Section title="Writing" subtitle="Recent Posts.">
       {posts.length ? (
         <>
-          <div className={cn('flex flex-col gap-8 my-4', 'md:my-8')}>
+          <div className={cn('my-4 flex flex-col gap-8', 'md:my-8')}>
             {posts.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
           </div>
-          <div className={cn('flex justify-center items-center my-4')}>
+          <div className={cn('my-4 flex items-center justify-center')}>
             <Link href={ROUTES.blog}>
               <Button variant="outline">
                 See All Posts <ChevronRight />

@@ -29,15 +29,15 @@ const HighlightedProjects = () => {
             animate="show"
             transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
             className={cn(
-              'grid grid-cols-1 auto-cols-fr gap-8 my-4',
-              'md:grid-cols-2 md:my-8',
+              'my-4 grid auto-cols-fr grid-cols-1 gap-8',
+              'md:my-8 md:grid-cols-2',
             )}
           >
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </m.div>
-          <div className={cn('flex justify-center items-center my-4')}>
+          <div className={cn('my-4 flex items-center justify-center')}>
             <Link href={ROUTES.projects}>
               <Button variant="outline">
                 See All Projects <ChevronRight />

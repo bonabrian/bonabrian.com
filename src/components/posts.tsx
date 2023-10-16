@@ -61,7 +61,7 @@ const Posts = ({ posts }: PostsProps) => {
           className="pl-12"
         />
         <Search
-          className={cn('absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5')}
+          className={cn('absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2')}
         />
       </div>
     )
@@ -97,7 +97,7 @@ const Posts = ({ posts }: PostsProps) => {
       {filteredPosts.length ? (
         <div
           className={cn(
-            'gap-8 my-8',
+            'my-8 gap-8',
             isListView ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2',
             'md:my-12',
           )}

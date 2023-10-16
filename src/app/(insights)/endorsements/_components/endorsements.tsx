@@ -30,8 +30,8 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
     <Container>
       <div
         className={cn(
-          'relative p-4 rounded-lg border border-transparent bg-background max-w-lg',
-          'after:absolute after:-inset-1 after:-z-10 after:rounded-[calc(8px+3px)] after:content-[""] after:bg-rainbow-gradient',
+          'relative max-w-lg rounded-lg border border-transparent bg-background p-4',
+          'after:absolute after:-inset-1 after:-z-10 after:rounded-[calc(8px+3px)] after:bg-rainbow-gradient after:content-[""]',
         )}
       >
         {session?.user ? (
@@ -81,13 +81,13 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
       <div className={cn('mt-12')}>
         {endorsements && !error && (
           <div className={cn('flex flex-col')}>
-            <h3 className={cn('font-bold mb-4', 'md:text-2xl')}>Skills</h3>
+            <h3 className={cn('mb-4 font-bold', 'md:text-2xl')}>Skills</h3>
             <div className={cn('space-y-8')}>
               {endorsements.map((category) => (
                 <div key={category.name}>
                   <h4
                     className={cn(
-                      'my-4 font-semibold leading-5 text-lg text-accent-foreground',
+                      'my-4 text-lg font-semibold leading-5 text-accent-foreground',
                       'md:text-xl',
                     )}
                   >
@@ -95,7 +95,7 @@ const Endorsements = ({ fallbackData }: EndorsementsProps) => {
                   </h4>
                   <div
                     className={cn(
-                      'grid grid-cols-1 grid-flow-row auto-rows-auto gap-4',
+                      'grid grid-flow-row auto-rows-auto grid-cols-1 gap-4',
                       'md:grid-cols-2',
                     )}
                   >
