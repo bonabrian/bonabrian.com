@@ -82,6 +82,7 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(['development', 'production', 'test'])
       .default('development'),
+    GITHUB_READ_USER_TOKEN_PERSONAL: optionalString,
   },
 
   /**
