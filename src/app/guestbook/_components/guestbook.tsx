@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react'
 import { Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 
-import useGuestbook from '../_hook/use-guestbook'
+import useGuestbook from '../hooks/use-guestbook'
 import GuestbookAuth from './guestbook-auth'
 import GuestbookEntries from './guestbook-entries'
 import GuestbookPanel from './guestbook-panel'
