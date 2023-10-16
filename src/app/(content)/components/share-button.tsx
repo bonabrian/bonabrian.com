@@ -9,8 +9,8 @@ import { forwardRef } from 'react'
 
 import { LinkSimple, Share, Twitter } from '@/components/icons'
 import { Counter, Link } from '@/components/ui'
+import { BASE_URL } from '@/data/app'
 import cn from '@/lib/cn'
-import { getBaseUrl } from '@/lib/utils'
 
 import useShare from '../hooks/use-share'
 
@@ -52,7 +52,7 @@ interface ShareButtonProps {
 
 const ShareButton = ({ slug }: ShareButtonProps) => {
   const pathname = usePathname()
-  const currentUrl = `${getBaseUrl()}${pathname}`
+  const currentUrl = `${BASE_URL}${pathname}`
 
   const { shares, addShare } = useShare(slug)
 
