@@ -1,10 +1,10 @@
+import { env } from '@/data/env'
+import fetcher from '@/lib/fetcher'
 import type {
   WakaTimeAllTimeSinceToday,
   WakaTimeResponse,
   WakaTimeStat,
-} from '@/data/app'
-import { env } from '@/data/env'
-import fetcher from '@/lib/fetcher'
+} from '@/types/wakatime'
 
 const WAKATIME_API_KEY = env.WAKATIME_API_KEY ?? ''
 
