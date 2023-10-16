@@ -1,6 +1,6 @@
+import type { ContributionCalendar } from '@/data/app'
 import cn from '@/lib/cn'
 
-import type { ContributionCalendar } from '../_types/github'
 import OverviewCard from './overview-card'
 
 interface ContributionOverviewProps {

@@ -1,3 +1,5 @@
+import { env } from '@/data/env'
+
 export type AccountType = 'personal' | 'work'
 
 export interface GithubAccount {
@@ -37,3 +39,14 @@ export interface GithubUserContributionsResponse {
     user?: GithubUserContributionsCollection
   }
 }
+
+export const GITHUB_ACCOUNTS: GithubAccount[] = [
+  {
+    username: 'bonabrian',
+    endpoint: '/api/github?type=personal',
+    token: env.GITHUB_READ_USER_TOKEN_PERSONAL,
+    type: 'personal',
+    isActive: true,
+  },
+  // add another github accounts below
+]

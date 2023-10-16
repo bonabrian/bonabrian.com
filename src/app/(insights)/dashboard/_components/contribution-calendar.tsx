@@ -3,9 +3,8 @@
 import { m } from 'framer-motion'
 import { useState } from 'react'
 
+import type { ContributionCalendar as ContributionCalendarData } from '@/data/app'
 import cn from '@/lib/cn'
-
-import type { ContributionCalendar as ContributionCalendarData } from '../_types/github'
 
 interface ContributionCalendarProps {
   data?: ContributionCalendarData
