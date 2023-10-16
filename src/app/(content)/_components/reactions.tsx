@@ -5,9 +5,9 @@ import { m, useAnimationControls } from 'framer-motion'
 import { useEffect } from 'react'
 
 import { Counter } from '@/components/ui'
+import { MAX_REACTIONS_PER_SESSION } from '@/data/app'
 import cn from '@/lib/cn'
 
-import { MAX_REACTIONS_PER_SESSION } from '../_constants/reactions'
 import { useReactions } from '../_hooks/use-reactions'
 import EmojiReaction from './emoji-reaction'
 
