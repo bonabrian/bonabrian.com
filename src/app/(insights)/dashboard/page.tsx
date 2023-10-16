@@ -6,10 +6,10 @@ import { GITHUB_ACCOUNTS } from '@/data/app'
 import cn from '@/lib/cn'
 import { getMetadata } from '@/lib/metadata'
 
-import CodingActivity from './_components/coding-activity'
-import Contributions from './_components/contributions'
-import ProfileStats from './_components/profile-stats'
-import SiteStats from './_components/site-stats'
+import CodingActivity from './components/coding-activity'
+import Contributions from './components/contributions'
+import ProfileStats from './components/profile-stats'
+import SiteStats from './components/site-stats'
 
 export const metadata: Metadata = getMetadata({
   title: 'Dashboard',
