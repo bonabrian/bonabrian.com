@@ -7,7 +7,7 @@ import { Button, Container, Link, Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 import type { SkillCategory } from '@/types/skill'
 
-import useEndorsements from '../_hooks/use-endorsements'
+import useEndorsements from '../hooks/use-endorsements'
 import EndorsementsBadge from './endorsement-badge'
 
 interface EndorsementsProps {
