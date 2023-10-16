@@ -4,7 +4,7 @@ import PageHeader from '@/components/page-header'
 import { getMetadata } from '@/lib/metadata'
 
 import Endorsements from './_components/endorsements'
-import { getEndorsements } from './_lib/endorsements'
+import { getEndorsements } from './actions/endorsements'
 
 export const metadata: Metadata = getMetadata({
   title: 'Endorsements',
