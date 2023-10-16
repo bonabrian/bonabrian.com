@@ -4,10 +4,9 @@ import { Menu } from '@headlessui/react'
 import { m } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
-import { navLinks } from '@/data/app'
+import { navLinks, siteConfig } from '@/data/app'
 import { useOnScroll } from '@/hooks'
 import cn from '@/lib/cn'
-import { defaultMetadata } from '@/lib/metadata'
 
 import Logo from '../../public/static/images/logo.svg'
 import { Hamburger } from './icons'
@@ -40,7 +39,7 @@ const Navigation = () => {
           <div className={cn('flex items-center md:gap-2')}>
             <Link
               href="/"
-              aria-label={defaultMetadata.author.name}
+              aria-label={siteConfig.author.name}
               className={cn('flex items-center')}
             >
               <Logo className={cn('h-9')} />

@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 
 import { Trash } from '@/components/icons'
+import { siteConfig } from '@/data/app'
 import cn from '@/lib/cn'
-import { defaultMetadata } from '@/lib/metadata'
 import type { GuestbookEntry as Entry } from '@/types/guestbook'
 
 import MessageTimestamp from './message-timestamp'
@@ -18,7 +18,7 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
   const { name, email, image } = user
   const { data: session } = useSession()
 
-  const authorEmail = defaultMetadata.author.email
+  const authorEmail = siteConfig.author.email
   const isAuthor = email === authorEmail
 
   return (

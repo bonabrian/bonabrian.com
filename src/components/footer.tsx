@@ -1,6 +1,5 @@
-import { footerIconLinks, footerLinks } from '@/data/app'
+import { footerIconLinks, footerLinks, siteConfig } from '@/data/app'
 import cn from '@/lib/cn'
-import { defaultMetadata } from '@/lib/metadata'
 
 import { Container, Link } from './ui'
 
@@ -54,7 +53,7 @@ const Footer = () => {
           <div className={cn('flex items-center space-x-2 py-8')}>
             <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
             <Link href="/" className={cn('font-semibold text-primary')}>
-              {defaultMetadata.author.name}
+              {siteConfig.author.name}
             </Link>
           </div>
         </div>

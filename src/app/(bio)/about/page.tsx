@@ -4,10 +4,9 @@ import Image from 'next/image'
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
 import PageHeader from '@/components/page-header'
 import { Container, Link } from '@/components/ui'
-import { ROUTES } from '@/data/app'
+import { ROUTES, siteConfig } from '@/data/app'
 import { seo } from '@/data/meta'
 import cn from '@/lib/cn'
-import { defaultMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = seo({
   title: 'About',
@@ -36,8 +35,8 @@ const AboutPage = () => {
             >
               <div className={cn('relative h-52 w-52', 'xl:h-64 xl:w-64')}>
                 <Image
-                  src={defaultMetadata.author.avatar}
-                  alt={defaultMetadata.author.name}
+                  src={siteConfig.author.avatar}
+                  alt={siteConfig.author.name}
                   className={cn('rounded-full object-cover', 'xl:rounded-xl')}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -46,7 +45,7 @@ const AboutPage = () => {
               </div>
               <div className={cn('flex flex-col items-center py-4')}>
                 <h3 className={cn('text-xl font-bold')}>
-                  {defaultMetadata.author.name}
+                  {siteConfig.author.name}
                 </h3>
                 <h4
                   className={cn('text-base font-medium text-muted-foreground')}
@@ -57,7 +56,7 @@ const AboutPage = () => {
                   className={cn('my-2 flex items-center justify-center gap-4')}
                 >
                   <Link
-                    href={defaultMetadata.author.github}
+                    href={siteConfig.author.github}
                     showExternalLinkIcon={false}
                     className={cn(
                       'text-muted-foreground transition-all ease-in-out hover:text-foreground',
@@ -66,7 +65,7 @@ const AboutPage = () => {
                     <GitHub className={cn('h-6 w-6')} />
                   </Link>
                   <Link
-                    href={defaultMetadata.author.linkedin}
+                    href={siteConfig.author.linkedIn}
                     showExternalLinkIcon={false}
                     className={cn(
                       'text-muted-foreground transition-all ease-in-out hover:text-foreground',
@@ -75,7 +74,7 @@ const AboutPage = () => {
                     <LinkedIn className={cn('h-6 w-6')} />
                   </Link>
                   <Link
-                    href={`mailto:${defaultMetadata.author.email}`}
+                    href={`mailto:${siteConfig.author.email}`}
                     showExternalLinkIcon={false}
                     className={cn(
                       'text-muted-foreground transition-all ease-in-out hover:text-foreground',

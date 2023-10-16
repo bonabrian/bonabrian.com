@@ -11,7 +11,8 @@ import {
   Pencil,
   RSS,
 } from '@/components/icons'
-import { defaultMetadata } from '@/lib/metadata'
+
+import { siteConfig } from './site'
 
 interface NavLink {
   path: string
@@ -79,13 +80,13 @@ export const footerLinks = [
 export const footerIconLinks: FooterIconLink[] = [
   {
     title: 'Github',
-    url: defaultMetadata.author.github,
+    url: siteConfig.author.github,
     icon: <GitHub />,
     colorClass: 'hover:text-current',
   },
   {
     title: 'LinkedIn',
-    url: defaultMetadata.author.linkedin,
+    url: siteConfig.author.linkedIn,
     icon: <LinkedIn />,
     colorClass: 'hover:text-[#0A66C2]',
   },

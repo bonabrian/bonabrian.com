@@ -2,9 +2,9 @@ import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
 import { deleteEntry, findEntryById } from '@/app/guestbook/actions'
+import { siteConfig } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
-import { defaultMetadata } from '@/lib/metadata'
 
 export const DELETE = async (
   _req: NextRequest,
@@ -23,7 +23,7 @@ export const DELETE = async (
       return response({ message: 'Not Found' }, 404)
     }
 
-    const isAuthor = session?.user?.email === defaultMetadata.author.email
+    const isAuthor = session?.user?.email === siteConfig.author.email
     const isBelongToUser = session?.user?.email === guestbook.user?.email
 
     if (!isBelongToUser && !isAuthor) {

@@ -6,9 +6,9 @@ import { useSWRConfig } from 'swr'
 
 import { Check, ExclamationCircle, Heart, Medal } from '@/components/icons'
 import { Button, Spinner } from '@/components/ui'
+import { siteConfig } from '@/data/app'
 import cn from '@/lib/cn'
 import fireConfetti from '@/lib/confetti'
-import { defaultMetadata } from '@/lib/metadata'
 import type { Skill } from '@/types/skill'
 
 interface EndorsementsBadgeProps {
@@ -64,7 +64,7 @@ const EndorsementsBadge = ({
     fireConfetti()
   }
 
-  const isMySelf = user?.email === defaultMetadata.author.email
+  const isMySelf = user?.email === siteConfig.author.email
 
   return (
     <div
