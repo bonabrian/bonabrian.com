@@ -20,7 +20,6 @@ const CareerJourney = ({
   isAvailableAnimationDuration = 10,
 }: CareerJourneyProps) => {
   const isAvailable = env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE
-  console.log({ isAvailable })
   const shouldReduceMotion = useReducedMotion()
 
   const isAvailableVariants = {
