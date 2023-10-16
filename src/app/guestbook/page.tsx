@@ -4,7 +4,7 @@ import PageHeader from '@/components/page-header'
 import { Container } from '@/components/ui'
 import { getMetadata } from '@/lib/metadata'
 
-import Guestbook from './_components/guestbook'
+import Guestbook from './components/guestbook'
 
 export const metadata: Metadata = getMetadata({
   title: 'Guestbook',
