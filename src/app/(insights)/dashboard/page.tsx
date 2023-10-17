@@ -19,7 +19,7 @@ export const metadata: Metadata = seo({
   url: ROUTES.dashboard,
 })
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
   return (
     <>
       <PageHeader title="Dashboard" description="Metrics and coding insights" />

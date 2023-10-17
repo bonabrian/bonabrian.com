@@ -14,7 +14,7 @@ export const metadata: Metadata = seo({
   url: ROUTES.guestbook,
 })
 
-const GuestbookPage = () => {
+const GuestbookPage = async () => {
   return (
     <>
       <PageHeader

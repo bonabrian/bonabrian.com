@@ -37,7 +37,7 @@ export const generateMetadata = async ({ params }: PostPageProps) => {
   })
 }
 
-const PostPage = ({ params }: PostPageProps) => {
+const PostPage = async ({ params }: PostPageProps) => {
   const post = findPostBySlug(params.slug)
 
   if (!post) return notFound()

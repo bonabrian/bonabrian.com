@@ -46,6 +46,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
   }, [imageMeta])
 
   const publishedAt = formatDate(date)
+  const [isLoadingImage, setIsLoadingImage] = useState(true)
 
   return (
     <article
@@ -59,6 +60,7 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
         href={`${ROUTES.blog}/${slug}`}
         className={cn(
           'relative aspect-video w-full basis-1/2 overflow-hidden rounded-md bg-cover bg-no-repeat',
+          isLoadingImage && 'animate-pulse',
         )}
       >
         <div className={cn('absolute h-full w-full')} />
@@ -68,14 +70,16 @@ const PostCard = ({ post, layout = 'list' }: PostCardProps) => {
           fill
           className={cn(
             'rounded-t-md object-cover transition duration-500 ease-in-out hover:scale-105',
+            isLoadingImage && 'scale-[1.01] blur-xl grayscale',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
+          onLoadingComplete={() => setIsLoadingImage(false)}
           {...extraImageProps}
         />
       </Link>
       <div
         className={cn(
-          'flex basis-full flex-col justify-between px-2 py-8',
+          'flex basis-full flex-col justify-between px-4 py-8',
           'md:basis-1/2 md:p-8',
         )}
       >

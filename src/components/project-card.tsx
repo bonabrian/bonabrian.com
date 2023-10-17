@@ -1,6 +1,8 @@
+'use client'
+
 import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 
 import { ROUTES, STACKS } from '@/data/app'
 import cn from '@/lib/cn'
@@ -32,6 +34,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
   let projectUrl = url ?? `${ROUTES.projects}/${slug}`
   if (playStoreUrl) projectUrl = playStoreUrl
 
+  const [isLoadingImage, setIsLoadingImage] = useState(true)
+
   return (
     <div
       className={cn(
@@ -41,7 +45,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <Link
         href={projectUrl}
         showExternalLinkIcon={false}
-        className={cn('relative aspect-video overflow-hidden rounded-t-md')}
+        className={cn(
+          'relative aspect-video overflow-hidden rounded-t-md',
+          isLoadingImage && 'animate-pulse',
+        )}
       >
         <div className={cn('absolute h-full w-full')} />
         <Image
@@ -50,8 +57,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
           fill
           className={cn(
             'rounded-t-md object-cover transition duration-200 ease-in-out group-hover:scale-105',
+            isLoadingImage && 'scale-[1.01] blur-xl grayscale',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
+          onLoadingComplete={() => setIsLoadingImage(false)}
           {...extraImageProps}
         />
       </Link>

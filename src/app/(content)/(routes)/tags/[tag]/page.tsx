@@ -30,7 +30,7 @@ export const generateMetadata = async ({
   })
 }
 
-const TagsPage = ({ params }: TagsPageProps) => {
+const TagsPage = async ({ params }: TagsPageProps) => {
   const tag = params.tag
 
   const posts = allPosts.filter(

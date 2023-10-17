@@ -46,7 +46,7 @@ export const generateMetadata = async ({ params }: SnippetPageProps) => {
   })
 }
 
-const SnippetPage = ({ params }: SnippetPageProps) => {
+const SnippetPage = async ({ params }: SnippetPageProps) => {
   const snippet = findSnippetBySlug(params?.slug)
 
   if (!snippet) return notFound()
