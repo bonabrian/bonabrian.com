@@ -47,37 +47,42 @@
    ```
 4. Create a `.env` file similar to [`.env.example`](https://github.com/bonabrian/bonabrian.com/blob/main/.env.example) and input environment variables
    ```txt
-    NEXTAUTH_URL=http://localhost:3000
-    NEXTAUTH_SECRET=#GENERATE_YOUR_AUTH_SECRET
+    # Client
 
-    # Google
-    GOOGLE_ID=#GOOGLE_ID
-    GOOGLE_SECRET=#GOOGLE_SECRET
-
-    # Sentry
-    SENTRY_DSN=#SENTRY_DSN
-
-    # PlanetScale DB
-    DATABASE_URL=#PLANET_SCALE_DB_MAIN
-    SHADOW_DATABASE_URL=#PLANET_SCALE_DB_DEV
-
-    # GitHub
-    GITHUB_ID=#GITHUB_ID
-    GITHUB_SECRET=#GITHUB_SECRET
-
-    GITHUB_READ_USER_TOKEN_PERSONAL=#GITHUB_PERSONAL_ACCESS_TOKEN
-    GITHUB_READ_USER_TOKEN_WORK=#GITHUB_WORK_ACCESS_TOKEN
-
-    # Spotify
-    SPOTIFY_CLIENT_ID=#SPOTIFY_CLIENT_ID
-    SPOTIFY_CLIENT_SECRET=#SPOTIFY_CLIENT_SECRET
-    SPOTIFY_CLIENT_REFRESH_TOKEN=#SPOTIFY_CLIENT_REFRESH_TOKEN
-
-    # Available for Hire
+    NEXT_PUBLIC_APP_URL=http://localhost:3000
+    NEXT_PUBLIC_GOOGLE_ANALYTICS=
+    NEXT_PUBLIC_SENTRY_DSN=
     NEXT_PUBLIC_AVAILABLE_FOR_HIRE=true
 
-    # WakaTime
-    WAKATIME_API_KEY=#WAKATIME_API_KEY
+    # Server
+
+    # database
+    DATABASE_URL=
+
+    # next-auth
+    NEXTAUTH_URL=http://localhost:3000
+    NEXTAUTH_SECRET=
+
+    # sentry
+    SENTRY_DSN=
+    SENTRY_AUTH_TOKEN=
+
+    # google
+    GOOGLE_ID=
+    GOOGLE_SECRET=
+
+    # github
+    GITHUB_ID=
+    GITHUB_SECRET=
+    GITHUB_READ_USER_TOKEN_PERSONAL=
+
+    # spotify
+    SPOTIFY_CLIENT_ID=
+    SPOTIFY_CLIENT_SECRET=
+    SPOTIFY_CLIENT_REFRESH_TOKEN=
+
+    # wakatime
+    WAKATIME_API_KEY=
    ```
 
 5. Start hacking
@@ -92,7 +97,7 @@ Deploy to Vercel, Netlify, etc
 
 ## Files to customize
 
-- `lib/metadata.ts` - update `defaultMetadata` with yours.
+- `data/app/site.ts` - update `siteConfig` with yours.
 - `app/(bio)/about/page.tsx` - update with yours.
 - `app/(bio)resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
