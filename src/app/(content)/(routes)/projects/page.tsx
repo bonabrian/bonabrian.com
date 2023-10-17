@@ -4,13 +4,14 @@ import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
 import Projects from '@/components/projects'
-import { getMetadata } from '@/lib/metadata'
+import { ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
 
 const projects = allProjects
   .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
   .filter((project: Project) => project.published)
 
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = seo({
   title: 'Projects',
   description: 'A collection of finest projects that I have built.',
   keywords: [
@@ -22,6 +23,7 @@ export const metadata: Metadata = getMetadata({
     'tech',
     'software',
   ],
+  url: ROUTES.projects,
 })
 
 const ProjectsPage = async () => {

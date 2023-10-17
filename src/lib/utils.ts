@@ -46,10 +46,5 @@ export const getDomainFromUrl = (url?: string | null): string | null => {
     .toLocaleLowerCase()
 }
 
-export const getBaseUrl = () => {
-  const isDevelopment = process.env.NODE_ENV === 'development'
-  return isDevelopment ? 'http://localhost:3000' : 'https://bonabrian.com'
-}
-
 export const isClient = typeof window !== 'undefined'
 export const isServer = typeof window === 'undefined'

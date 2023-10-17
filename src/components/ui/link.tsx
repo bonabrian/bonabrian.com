@@ -36,7 +36,7 @@ const Link = forwardRef<any, LinkProps>(
       >
         {children}
         {showExternalLinkIcon && isExternal && (
-          <ExternalLink className={cn('w-3 h-3 inline-block ml-0.5')} />
+          <ExternalLink className={cn('ml-0.5 inline-block h-3 w-3')} />
         )}
       </NextLink>
     )

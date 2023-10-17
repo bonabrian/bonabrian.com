@@ -2,16 +2,15 @@ import { allPosts } from 'contentlayer/generated'
 import { NextResponse } from 'next/server'
 import RSS from 'rss'
 
-import { defaultMetadata } from '@/lib/metadata'
-import { getBaseUrl } from '@/lib/utils'
+import { BASE_URL, ROUTES, siteConfig } from '@/data/app'
 
 export const GET = () => {
   const feed = new RSS({
-    title: defaultMetadata.author.name,
-    description: defaultMetadata.description,
-    site_url: getBaseUrl(),
-    feed_url: `${getBaseUrl()}/feed.xml`,
-    image_url: `${getBaseUrl()}/static/images/logo.svg`,
+    title: siteConfig.author.name,
+    description: siteConfig.description,
+    site_url: BASE_URL,
+    feed_url: `${BASE_URL}/feed.xml`,
+    image_url: `${BASE_URL}/static/images/logo.svg`,
   })
 
   allPosts
@@ -20,9 +19,9 @@ export const GET = () => {
       feed.item({
         title,
         description: longExcerpt ?? excerpt,
-        url: `${getBaseUrl()}/blog/${slug}`,
+        url: `${BASE_URL}${ROUTES.blog}/${slug}`,
         date,
-        author: defaultMetadata.author.name,
+        author: siteConfig.author.name,
       })
     })
 

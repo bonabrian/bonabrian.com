@@ -1,9 +1,10 @@
 import '@/styles/app.css'
 
+import type { Metadata } from 'next'
 import {
   Fira_Code as FiraCode,
+  Inter,
   Plus_Jakarta_Sans as PlusJakartaSans,
-  Poppins,
 } from 'next/font/google'
 
 import Analytics from '@/components/analytics'
@@ -11,20 +12,14 @@ import Footer from '@/components/footer'
 import Navigation from '@/components/navigation'
 import NowPlaying from '@/components/now-playing'
 import Providers from '@/components/providers'
+import { DEFAULT_METADATA, seo } from '@/data/meta'
 import cn from '@/lib/cn'
 
-import GuestbookWidgetButton from './guestbook/_components/guestbook-widget-button'
+import GuestbookWidgetButton from './guestbook/components/guestbook-widget-button'
 
 interface RootLayoutProps {
   children: React.ReactNode
 }
-
-const fontSans = Poppins({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  weight: ['400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-})
 
 const fontPlusJakarta = PlusJakartaSans({
   subsets: ['latin'],
@@ -33,10 +28,20 @@ const fontPlusJakarta = PlusJakartaSans({
   weight: ['400', '500', '600', '700', '800'],
 })
 
+const fontInter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['900'],
+})
+
 const firaCode = FiraCode({
   subsets: ['latin'],
   variable: '--font-fira-code',
   display: 'swap',
+})
+
+export const metadata: Metadata = seo({
+  ...DEFAULT_METADATA,
 })
 
 const RootLayout = ({ children }: RootLayoutProps) => {
@@ -45,8 +50,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       lang="en"
       suppressHydrationWarning
       className={cn(
-        fontSans.variable,
         firaCode.variable,
+        fontInter.variable,
         fontPlusJakarta.variable,
       )}
     >

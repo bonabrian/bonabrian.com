@@ -1,15 +1,15 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentMeta from '@/app/(content)/_components/content-meta'
-import Engagement from '@/app/(content)/_components/engagement'
-import Tag from '@/app/(content)/_components/tag'
+import ContentMeta from '@/app/(content)/components/content-meta'
+import Engagement from '@/app/(content)/components/engagement'
+import Tag from '@/app/(content)/components/tag'
 import Mdx, { Image } from '@/components/mdx'
 import { Container } from '@/components/ui'
-import { ROUTES } from '@/constants/links'
+import { BASE_URL, ROUTES } from '@/data/app'
+import { buildJsonLd, seo } from '@/data/meta'
 import cn from '@/lib/cn'
-import { getJsonLd, getMetadata } from '@/lib/metadata'
-import { formatDate, getBaseUrl } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
 
 interface PostPageProps extends RequestContext<{ slug?: string }> {}
@@ -24,13 +24,14 @@ export const generateMetadata = async ({ params }: PostPageProps) => {
 
   const publishedDate = formatDate(post?.date)
 
-  return getMetadata({
+  return seo({
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords ?? [],
+    image: `${BASE_URL}${post.image}`,
+    url: `${ROUTES.blog}/${post.slug}`,
     openGraph: {
       type: 'article',
-      images: `${getBaseUrl()}${post.image}`,
       publishedTime: publishedDate,
     },
   })
@@ -76,7 +77,7 @@ const PostPage = ({ params }: PostPageProps) => {
           <Mdx code={post?.body?.code} />
         </div>
         {tags && (
-          <div className={cn('flex items-center text-sm gap-1 mt-16')}>
+          <div className={cn('mt-16 flex items-center gap-1 text-sm')}>
             Tags:
             <div className={cn('flex flex-wrap gap-1')}>
               {tags?.map((tag) => <Tag key={tag} tag={tag} />)}
@@ -88,14 +89,14 @@ const PostPage = ({ params }: PostPageProps) => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: getJsonLd({
+          __html: buildJsonLd({
             title,
             description: excerpt,
             headline: title,
             datePublished: date,
             dateModified: date,
-            image: `${getBaseUrl()}${image}`,
-            url: `${getBaseUrl()}${ROUTES.blog}/${slug}`,
+            image: `${BASE_URL}${image}`,
+            url: `${BASE_URL}${ROUTES.blog}/${slug}`,
           }),
         }}
         key="post-jsonld"

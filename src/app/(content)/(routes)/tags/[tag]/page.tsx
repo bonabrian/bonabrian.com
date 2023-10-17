@@ -2,7 +2,8 @@ import { allPosts } from 'contentlayer/generated'
 
 import PageHeader from '@/components/page-header'
 import Posts from '@/components/posts'
-import { getMetadata } from '@/lib/metadata'
+import { ROUTES } from '@/data/app'
+import { seo } from '@/data/meta'
 import { kebabCase } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
 
@@ -13,7 +14,7 @@ export const generateMetadata = async ({
 }: {
   params: { tag: string }
 }) => {
-  return getMetadata({
+  return seo({
     title: params.tag,
     description: `${params.tag} tags`,
     keywords: [
@@ -25,6 +26,7 @@ export const generateMetadata = async ({
       'hashtags',
       'keyword',
     ],
+    url: `${ROUTES.tags}/${params.tag}`,
   })
 }
 

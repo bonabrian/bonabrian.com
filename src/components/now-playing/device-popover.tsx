@@ -3,7 +3,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
-import { PAIR_DEVICES } from '@/constants/devices'
+import { PAIR_DEVICES } from '@/data/app'
 import cn from '@/lib/cn'
 import type { Device } from '@/types/spotify'
 
@@ -34,21 +34,17 @@ const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
       <Popover.Panel className={cn('absolute bottom-10 right-0 z-30 w-max')}>
         <div
           className={cn(
-            'flex flex-col gap-5 p-4 overflow-hidden rounded-md shadow-lg bg-card ring-1 ring-card ring-opacity-5',
+            'flex flex-col gap-5 overflow-hidden rounded-md bg-card p-4 shadow-lg ring-1 ring-card ring-opacity-5',
           )}
         >
           {availableDevices?.map((device) => (
             <div
               key={device.name}
-              className={cn('flex items-center w-full justify-between gap-3')}
+              className={cn('flex w-full items-center justify-between gap-3')}
             >
               <div className={cn('text-foreground')}>{device?.icon}</div>
-              <div className={cn('flex flex-col flex-grow pl-0.5 pr-2')}>
-                <span
-                  className={cn(
-                    'font-medium font-plus-jakarta text-foreground',
-                  )}
-                >
+              <div className={cn('flex flex-grow flex-col pl-0.5 pr-2')}>
+                <span className={cn('font-medium text-foreground')}>
                   {device?.name}
                 </span>
                 <span className={cn('text-xs text-muted-foreground')}>

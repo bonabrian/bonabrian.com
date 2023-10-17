@@ -45,9 +45,9 @@ export default {
         spotify: '#1DB954',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ['var(--font-plus-jakarta)', ...fontFamily.sans],
+        inter: ['var(--font-inter)', ...fontFamily.sans],
         'fira-code': ['var(--font-fira-code)', ...fontFamily.sans],
-        'plus-jakarta': ['var(--font-plus-jakarta)', ...fontFamily.sans],
       },
       backgroundImage: {
         'rainbow-gradient':
@@ -138,7 +138,7 @@ export default {
               border: '1px solid hsl(var(--muted-foreground))',
               borderTopLeftRadius: '0.5rem',
               borderTopRightRadius: '0.5rem',
-              padding: '0.75rem 2.5rem',
+              padding: '0.75rem 1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',

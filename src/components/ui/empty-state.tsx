@@ -10,10 +10,10 @@ const EmptyState = ({ message }: EmptyStateProps) => {
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center space-y-1 py-3 my-4',
+        'my-4 flex flex-col items-center justify-center space-y-1 py-3',
       )}
     >
-      <MoodUnconscious className={cn('w-16 h-16')} />
+      <MoodUnconscious className={cn('h-16 w-16')} />
       <p className={cn('text-center')}>{message}</p>
     </div>
   )

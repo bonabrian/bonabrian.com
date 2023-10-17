@@ -38,7 +38,7 @@ const Tooltip = ({ title, children }: TooltipProps) => {
       {visible && (
         <m.div
           className={cn(
-            'block absolute bottom-full mb-2 text-xs font-medium bg-accent text-accent-foreground rounded px-2 py-1 w-max max-w-xs',
+            'absolute bottom-full mb-2 block w-max max-w-xs rounded bg-accent px-2 py-1 text-xs font-medium text-accent-foreground',
           )}
           variants={variants}
           initial="hide"

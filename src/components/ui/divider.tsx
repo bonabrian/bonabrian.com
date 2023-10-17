@@ -4,7 +4,7 @@ const Divider = () => {
   return (
     <hr
       className={cn(
-        'w-full h-8 my-2 text-2xl border-none text-center font-bold animate-pulse before:content-["∿∿∿"] before:text-primary',
+        'my-2 h-8 w-full animate-pulse border-none text-center text-2xl font-bold before:text-primary before:content-["∿∿∿"]',
       )}
     />
   )

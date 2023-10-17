@@ -46,7 +46,7 @@ const ImageZoom = ({ src, unZoom }: ImageZoomProps) => {
       role="button"
       tabIndex={0}
       className={cn(
-        'w-screen fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-300 ease-out',
+        'fixed inset-0 z-50 flex w-screen items-center justify-center bg-black transition-opacity duration-300 ease-out',
       )}
       style={style}
       onClick={handleClose}
@@ -54,14 +54,14 @@ const ImageZoom = ({ src, unZoom }: ImageZoomProps) => {
     >
       <div
         className={cn(
-          'w-full h-full relative flex justify-center items-center',
+          'relative flex h-full w-full items-center justify-center',
         )}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src.toString()}
           onLoad={() => setImageLoaded(true)}
-          className={cn('cursor-zoom-out rounded-xl max-w-[90vw] max-h-[80vh]')}
+          className={cn('max-h-[80vh] max-w-[90vw] cursor-zoom-out rounded-xl')}
           alt="Image Preview"
         />
       </div>
