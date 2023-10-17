@@ -9,13 +9,15 @@ import { env } from '../env'
  * @return the hostname for the given environment.
  */
 export const appHost = (includeProtocol = true): string => {
-  const host = env.NEXT_PUBLIC_APP_URL
-    ? env.NEXT_PUBLIC_APP_URL
-    : process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : ''
+  let host: string = ''
+
+  if (env.NEXT_PUBLIC_APP_URL) {
+    host = env.NEXT_PUBLIC_APP_URL
+  } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    host = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  } else if (process.env.VERCEL_URL) {
+    host = `https://${process.env.VERCEL_URL}`
+  }
 
   return includeProtocol
     ? host

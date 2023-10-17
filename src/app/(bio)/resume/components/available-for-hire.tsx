@@ -10,7 +10,7 @@ const AvailableForHire = () => {
       )}
       variant="outline"
     >
-      <span className={cn('relative flex h-2 w-2')}>
+      <div className={cn('relative flex h-2 w-2')}>
         <span
           className={cn(
             'absolute -left-1 -top-1 inline-flex h-4 w-4 animate-ping rounded-full bg-primary opacity-75',
@@ -19,7 +19,7 @@ const AvailableForHire = () => {
         <span
           className={cn('relative inline-flex h-2 w-2 rounded-full bg-primary')}
         />
-      </span>
+      </div>
       Available for Hire
     </Button>
   )
