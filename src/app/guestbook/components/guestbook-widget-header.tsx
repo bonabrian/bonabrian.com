@@ -18,7 +18,7 @@ const GuestbookWidgetHeader = ({ onClose }: GuestbookWidgetHeaderProps) => {
   return (
     <div
       className={cn(
-        'flex items-center justify-between border-muted px-4 py-3 font-plus-jakarta font-medium',
+        'flex items-center justify-between border-muted px-4 py-3 font-medium',
       )}
     >
       <div className={cn('flex items-center gap-4')}>

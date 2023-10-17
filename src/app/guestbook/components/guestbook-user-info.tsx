@@ -13,7 +13,7 @@ const GuestbookUserInfo = ({ isWidget = false }: GuestbookUserInfoProps) => {
   return session ? (
     <div
       className={cn(
-        'flex flex-col items-start gap-2 px-4 py-2 font-plus-jakarta',
+        'flex flex-col items-start gap-2 px-4 py-2',
         'md:flex-row md:items-center',
         isWidget ? 'text-xs' : 'text-sm',
       )}

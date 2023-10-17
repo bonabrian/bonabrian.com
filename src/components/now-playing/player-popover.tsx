@@ -39,7 +39,7 @@ const PlayerPopover = ({ show, playing }: PlayerPopoverProps) => {
             />
           )}
           <div className={cn('space-y-2')}>
-            <div className={cn('space-y-1 font-plus-jakarta')}>
+            <div className={cn('space-y-1')}>
               <div className={cn('text-spotify')}>{title}</div>
               <div className={cn('text-sm text-muted-foreground')}>
                 {artist}

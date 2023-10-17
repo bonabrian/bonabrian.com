@@ -3,8 +3,8 @@ import '@/styles/app.css'
 import type { Metadata } from 'next'
 import {
   Fira_Code as FiraCode,
+  Inter,
   Plus_Jakarta_Sans as PlusJakartaSans,
-  Poppins,
 } from 'next/font/google'
 
 import Analytics from '@/components/analytics'
@@ -21,18 +21,17 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-const fontSans = Poppins({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  weight: ['400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-})
-
 const fontPlusJakarta = PlusJakartaSans({
   subsets: ['latin'],
   variable: '--font-plus-jakarta',
   display: 'fallback',
   weight: ['400', '500', '600', '700', '800'],
+})
+
+const fontInter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['900'],
 })
 
 const firaCode = FiraCode({
@@ -51,8 +50,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       lang="en"
       suppressHydrationWarning
       className={cn(
-        fontSans.variable,
         firaCode.variable,
+        fontInter.variable,
         fontPlusJakarta.variable,
       )}
     >

@@ -49,7 +49,7 @@ const NowPlayingCard = ({
       ) : (
         <div
           className={cn(
-            'flex items-center justify-between rounded-md bg-spotify p-2 font-plus-jakarta text-neutral-800',
+            'flex items-center justify-between rounded-md bg-spotify p-2 text-neutral-800',
             'dark:text-neutral-900',
           )}
         >

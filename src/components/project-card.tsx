@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {title}
           </h2>
         </Link>
-        <p className={cn('text-sm text-muted-foreground')}>{description}</p>
+        <p className={cn('text-muted-foreground')}>{description}</p>
         {stacks?.length && (
           <div className={cn('mt-4 flex flex-wrap items-center gap-2')}>
             {stacks?.map((stack) => (

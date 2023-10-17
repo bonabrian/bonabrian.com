@@ -30,7 +30,7 @@ const NowPlayingBar = ({
     <div className={cn('fixed bottom-0 z-[999] w-full')}>
       <div
         className={cn(
-          'flex justify-between bg-spotify px-4 py-1 font-plus-jakarta text-sm text-neutral-800 dark:text-neutral-900',
+          'flex justify-between bg-spotify px-4 py-1 text-sm text-neutral-800 dark:text-neutral-900',
         )}
       >
         {playingData?.songUrl ? (

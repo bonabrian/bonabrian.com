@@ -44,11 +44,7 @@ const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
             >
               <div className={cn('text-foreground')}>{device?.icon}</div>
               <div className={cn('flex flex-grow flex-col pl-0.5 pr-2')}>
-                <span
-                  className={cn(
-                    'font-plus-jakarta font-medium text-foreground',
-                  )}
-                >
+                <span className={cn('font-medium text-foreground')}>
                   {device?.name}
                 </span>
                 <span className={cn('text-xs text-muted-foreground')}>

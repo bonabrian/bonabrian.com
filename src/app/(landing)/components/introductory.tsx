@@ -168,7 +168,7 @@ const HeaderTitle = () => {
     <div className={cn('relative')}>
       <m.h1
         className={cn(
-          'mb-4 flex flex-col justify-center gap-1 text-4xl font-black tracking-tight',
+          'mb-4 flex flex-col justify-center gap-1 font-inter text-4xl font-black tracking-tight',
           'sm:text-5xl',
           'lg:text-6xl',
         )}

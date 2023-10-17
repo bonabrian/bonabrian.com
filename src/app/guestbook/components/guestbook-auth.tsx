@@ -6,9 +6,7 @@ import cn from '@/lib/cn'
 
 const GuestbookAuth = () => {
   return (
-    <div
-      className={cn('flex flex-col border-t border-muted font-plus-jakarta')}
-    >
+    <div className={cn('flex flex-col border-t border-muted')}>
       <div className={cn('space-y-3 p-4')}>
         <p className={cn('text-center text-sm')}>
           Kindly log in to begin typing.

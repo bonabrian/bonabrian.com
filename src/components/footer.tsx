@@ -10,7 +10,7 @@ const Footer = () => {
         <nav
           className={cn(
             'mb-4 flex flex-col justify-between gap-6',
-            'sm:flex-row sm:items-center sm:gap-4',
+            'sm:flex-row sm:gap-4',
           )}
         >
           {footerLinks.map((groups, index) => (

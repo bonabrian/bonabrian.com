@@ -22,7 +22,7 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
   const isAuthor = email === authorEmail
 
   return (
-    <div className={cn('flex items-start gap-3 px-3 font-plus-jakarta')}>
+    <div className={cn('flex items-start gap-3 px-3')}>
       <Image
         src={image}
         width={40}

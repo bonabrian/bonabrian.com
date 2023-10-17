@@ -10,9 +10,7 @@ interface OverviewCardProps {
 const OverviewCard = ({ label, value, unit = '' }: OverviewCardProps) => {
   return (
     <div
-      className={cn(
-        'flex flex-col self-center rounded-md bg-card px-4 py-3 font-plus-jakarta',
-      )}
+      className={cn('flex flex-col self-center rounded-md bg-card px-4 py-3')}
     >
       <span className={cn('text-sm text-card-foreground/70')}>
         {label}
