@@ -1,7 +1,5 @@
-import { env } from '../env'
-
 export const BASE_URL =
-  env.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production'
     ? 'https://bonabrian.com'
     : 'http://localhost:3000'
 
