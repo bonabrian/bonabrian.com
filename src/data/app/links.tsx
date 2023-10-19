@@ -6,6 +6,7 @@ import {
   GitHub,
   Home,
   Layers,
+  LightBulb,
   LinkedIn,
   Medal,
   Pencil,
@@ -38,6 +39,7 @@ export const ROUTES = {
   about: '/about',
   dashboard: '/dashboard',
   resume: '/resume',
+  todayILearned: '/today-i-learned',
 }
 
 export const footerLinks = [
@@ -63,16 +65,20 @@ export const footerLinks = [
   ],
   [
     {
-      title: 'Guestbook',
-      url: ROUTES.guestbook,
-    },
-    {
       title: 'Endorsements',
       url: ROUTES.endorsements,
     },
     {
       title: 'Dashboard',
       url: ROUTES.dashboard,
+    },
+    {
+      title: 'Guestbook',
+      url: ROUTES.guestbook,
+    },
+    {
+      title: 'T.I.L',
+      url: ROUTES.todayILearned,
     },
   ],
 ]
@@ -129,6 +135,11 @@ export const navLinks: NavLink[] = [
     path: ROUTES.dashboard,
     label: 'Dashboard',
     icon: <BarChart />,
+  },
+  {
+    path: ROUTES.todayILearned,
+    label: 'T.I.L',
+    icon: <LightBulb />,
   },
   {
     path: ROUTES.guestbook,

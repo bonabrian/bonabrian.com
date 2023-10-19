@@ -24,6 +24,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
     ROUTES.projects,
     ROUTES.snippets,
     ROUTES.guestbook,
+    ROUTES.todayILearned,
     ROUTES.endorsements,
     ROUTES.dashboard,
     ROUTES.about,

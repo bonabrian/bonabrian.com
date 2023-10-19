@@ -44,7 +44,7 @@ const Navigation = () => {
             >
               <Logo className={cn('h-9')} />
             </Link>
-            <ul className={cn('hidden', 'md:flex md:gap-2')}>
+            <ul className={cn('hidden', 'md:flex md:gap-1')}>
               {navLinks
                 .filter(({ onlyShowOnDropdownMenu }) => !onlyShowOnDropdownMenu)
                 .map(({ path, label }) => (
@@ -52,7 +52,7 @@ const Navigation = () => {
                     <Link
                       href={path}
                       className={cn(
-                        'flex items-center gap-1 rounded px-2 py-2 font-semibold text-muted-foreground transition-colors duration-150',
+                        'flex items-center gap-1 rounded px-1.5 py-1.5 font-semibold text-muted-foreground transition-colors duration-150',
                         'hover:bg-accent hover:text-accent-foreground',
                         (pathname === path || pathname.startsWith(path)) &&
                           'bg-accent text-accent-foreground',

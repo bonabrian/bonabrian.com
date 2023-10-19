@@ -11,9 +11,11 @@ import { Button } from '../ui'
 type PreProps = DetailedHTMLProps<
   HTMLAttributes<HTMLPreElement>,
   HTMLPreElement
->
+> & {
+  'data-theme'?: string
+}
 
-const Pre = ({ children }: PreProps) => {
+const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
   const textInput = useRef<HTMLPreElement>(null)
   const [copied, setCopied] = useState(false)
 
@@ -31,7 +33,9 @@ const Pre = ({ children }: PreProps) => {
 
   return (
     <>
-      <pre ref={textInput}>{children}</pre>
+      <pre ref={textInput} data-theme={dataTheme}>
+        {children}
+      </pre>
       <Button
         aria-label="Copy to Clipboard"
         onClick={copyToClipboard}
@@ -39,9 +43,11 @@ const Pre = ({ children }: PreProps) => {
         title="Copy to Clipboard"
         variant="ghost"
         className={cn(
-          'absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-neutral-600 p-1 text-neutral-400',
-          'hover:bg-inherit hover:text-white',
+          'absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-none p-1',
+          'hover:bg-neutral-100',
+          'dark:hover:bg-gray-700',
         )}
+        data-theme={dataTheme}
       >
         <div
           className={cn(
