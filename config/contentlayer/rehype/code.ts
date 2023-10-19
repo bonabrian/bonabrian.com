@@ -7,7 +7,8 @@ export const prettyCode: Pluggable<Array<any>> = [
   rehypePrettyCode,
   {
     theme: {
-      dark: 'github-dark',
+      dark: 'one-dark-pro',
+      light: 'github-light',
     },
     tokensMap: {
       // VScode command palette: Inspect Editor Tokens and Scopes

@@ -41,6 +41,9 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        code: {
+          default: 'hsl(var(--code))',
+        },
         input: 'hsl(var(--input))',
         spotify: '#1DB954',
       },
@@ -92,6 +95,12 @@ export default {
             '[data-rehype-pretty-code-fragment]': {
               position: 'relative',
             },
+            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
+              display: 'none !important',
+            },
+            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
+              display: 'block !important',
+            },
             ':not(pre) > code': {
               padding: '0.12em 0.25em',
               borderRadius: '0.375rem',
@@ -105,10 +114,9 @@ export default {
               },
             },
             pre: {
-              background: theme('colors.zinc.900'),
+              background: 'hsl(var(--code))',
               padding: '1.5rem 0',
               lineHeight: 2,
-              border: '1px solid hsl(var(--muted-foreground))',
               '[data-line-numbers]': {
                 '[data-line]::before': {
                   counterIncrement: 'lineNumber',
@@ -134,15 +142,14 @@ export default {
               },
             },
             '[data-rehype-pretty-code-title]': {
-              backgroundColor: theme('colors.zinc.900'),
-              border: '1px solid hsl(var(--muted-foreground))',
+              backgroundColor: '#f3f3f3',
+              color: '#24292e',
               borderTopLeftRadius: '0.5rem',
               borderTopRightRadius: '0.5rem',
               padding: '0.75rem 1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              color: theme('colors.white'),
             },
             '[data-rehype-pretty-code-title] ~ pre': {
               marginTop: 0,
@@ -164,6 +171,12 @@ export default {
         },
         dark: {
           css: {
+            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
+              display: 'none !important',
+            },
+            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
+              display: 'block !important',
+            },
             pre: {
               border: '1px solid hsl(var(--border))',
               '> code': {
@@ -173,7 +186,8 @@ export default {
               },
             },
             '[data-rehype-pretty-code-title]': {
-              border: '1px solid hsl(var(--border))',
+              backgroundColor: '#21252b',
+              color: '#d8d9d9',
             },
           },
         },
