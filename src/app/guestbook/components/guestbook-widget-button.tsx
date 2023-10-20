@@ -16,9 +16,7 @@ const GuestbookWidgetButton = () => {
   const [showWidget, setShowWidget] = useState(false)
 
   return showWidgetButton ? (
-    <div
-      className={cn('fixed bottom-10 right-5 hidden items-center', 'lg:flex')}
-    >
+    <div className={cn('fixed bottom-10 right-5 flex items-center')}>
       <Button
         variant="outline"
         className={cn('h-10 w-10 rounded-full p-0', 'hover:scale-105')}
