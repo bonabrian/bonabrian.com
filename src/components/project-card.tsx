@@ -61,6 +61,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
           onLoadingComplete={() => setIsLoadingImage(false)}
+          priority
           {...extraImageProps}
         />
       </Link>

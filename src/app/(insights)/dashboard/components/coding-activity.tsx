@@ -60,12 +60,12 @@ const CodingActivity = () => {
     {
       title: 'Languages',
       data: languages,
-      bg: 'bg-gradient-to-r from-pink-400 via-blue-400 to-purple-600',
+      bg: 'bg-rainbow-gradient-inverse',
     },
     {
       title: 'Editors',
       data: editors,
-      bg: 'bg-gradient-to-r from-purple-600 via-blue-400 to-pink-400',
+      bg: 'bg-rainbow-gradient',
     },
   ]
 
@@ -129,7 +129,12 @@ const CodingActivity = () => {
                 <ul className={cn('flex flex-col gap-1 px-4 py-3')}>
                   {activity.data.map((item) => (
                     <li key={item.name}>
-                      <Progress data={item} className={cn(activity.bg)} />
+                      <Progress
+                        data={item}
+                        className={cn(
+                          'bg-gradient-to-r from-pink-400 via-blue-500 to-purple-600',
+                        )}
+                      />
                     </li>
                   ))}
                 </ul>

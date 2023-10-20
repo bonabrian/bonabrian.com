@@ -35,7 +35,7 @@ const GuestbookWidget = ({ isOpen, onClose }: GuestbookWidgetProps) => {
         <div
           className={cn(
             'rounded-md border-muted bg-card shadow-2xl backdrop-blur-2xl',
-            'md:max-w-md',
+            'max-w-md',
           )}
         >
           <GuestbookWidgetHeader onClose={onClose} />

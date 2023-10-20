@@ -55,6 +55,8 @@ export default {
       backgroundImage: {
         'rainbow-gradient':
           'linear-gradient(to right, #d25778, #ec585c, #e7d155, #56a8c6)',
+        'rainbow-gradient-inverse':
+          'linear-gradient(to right, #56a8c6, #e7d155, #ec585c, #d25778)',
       },
       keyframes: {
         equalize: {

@@ -21,7 +21,7 @@ const HighlightedProjects = () => {
   const projects = getHighlightedProjects()
 
   return (
-    <Section title="Projects" subtitle="Some Things I’ve Built.">
+    <Section title="Projects" subtitle="What I've been working on">
       {projects.length ? (
         <>
           <m.div
