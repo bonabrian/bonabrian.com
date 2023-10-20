@@ -59,26 +59,26 @@ export const footerLinks = [
       url: ROUTES.blog,
     },
     {
+      title: 'T.I.L',
+      url: ROUTES.todayILearned,
+    },
+    {
       title: 'Snippets',
       url: ROUTES.snippets,
     },
   ],
   [
     {
-      title: 'Endorsements',
-      url: ROUTES.endorsements,
-    },
-    {
       title: 'Dashboard',
       url: ROUTES.dashboard,
     },
     {
-      title: 'Guestbook',
-      url: ROUTES.guestbook,
+      title: 'Endorsements',
+      url: ROUTES.endorsements,
     },
     {
-      title: 'T.I.L',
-      url: ROUTES.todayILearned,
+      title: 'Guestbook',
+      url: ROUTES.guestbook,
     },
   ],
 ]
@@ -112,9 +112,9 @@ export const navLinks: NavLink[] = [
     onlyShowOnDropdownMenu: true,
   },
   {
-    path: ROUTES.blog,
-    label: 'Blog',
-    icon: <Pencil />,
+    path: ROUTES.dashboard,
+    label: 'Dashboard',
+    icon: <BarChart />,
   },
   {
     path: ROUTES.projects,
@@ -125,16 +125,12 @@ export const navLinks: NavLink[] = [
     path: ROUTES.snippets,
     label: 'Snippets',
     icon: <CodeBracket />,
+    onlyShowOnDropdownMenu: true,
   },
   {
-    path: ROUTES.endorsements,
-    label: 'Endorsements',
-    icon: <Medal />,
-  },
-  {
-    path: ROUTES.dashboard,
-    label: 'Dashboard',
-    icon: <BarChart />,
+    path: ROUTES.blog,
+    label: 'Blog',
+    icon: <Pencil />,
   },
   {
     path: ROUTES.todayILearned,
@@ -142,9 +138,15 @@ export const navLinks: NavLink[] = [
     icon: <LightBulb />,
   },
   {
+    path: ROUTES.endorsements,
+    label: 'Endorsements',
+    icon: <Medal />,
+  },
+  {
     path: ROUTES.guestbook,
     label: 'Guestbook',
     icon: <BookOpenText />,
+    onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.about,
