@@ -21,6 +21,20 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
   const authorEmail = siteConfig.author.email
   const isAuthor = email === authorEmail
 
+  const pattern = /@([^:]+):/g
+
+  const modifiedMessage = body?.split(pattern)?.map((message, index) => {
+    if (index % 2 === 1) {
+      return (
+        <span key={index} className={cn('font-semibold text-primary')}>
+          @{message}
+        </span>
+      )
+    }
+
+    return message
+  })
+
   return (
     <div className={cn('flex items-start gap-3 px-3')}>
       <Image
@@ -60,7 +74,7 @@ const GuestbookEntry = ({ entry, onDelete }: GuestbookEntryProps) => {
               'w-fit rounded-md rounded-tl-none bg-muted px-3 py-2',
             )}
           >
-            {body}
+            {modifiedMessage}
           </p>
           <div className={cn('flex items-center')}>
             {(session?.user?.email === email ||
