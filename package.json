@@ -37,7 +37,7 @@
     "date-fns-tz": "^2.0.0",
     "framer-motion": "^10.16.4",
     "next": "^13.5.4",
-    "next-auth": "4.23.2",
+    "next-auth": "4.24.5",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
