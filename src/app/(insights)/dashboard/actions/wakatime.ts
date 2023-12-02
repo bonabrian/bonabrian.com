@@ -19,6 +19,7 @@ const ALLOWED_LANGUAGES = [
   'PHP',
   'Vue.js',
   'React.js',
+  'Java',
 ]
 
 export const getLastSevenDaysStats = async (): Promise<
