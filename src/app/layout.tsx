@@ -1,6 +1,6 @@
 import '@/styles/app.css'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import {
   Fira_Code as FiraCode,
   Inter,
@@ -43,6 +43,14 @@ const firaCode = FiraCode({
 export const metadata: Metadata = seo({
   ...DEFAULT_METADATA,
 })
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  width: 'device-width',
+}
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (

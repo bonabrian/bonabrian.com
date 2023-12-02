@@ -18,13 +18,6 @@ export const DEFAULT_METADATA: Metadata = {
     url: siteConfig.author.url,
   },
   keywords: mapKeywords(siteConfig.keywords),
-  viewport: {
-    initialScale: 1,
-    minimumScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    width: 'device-width',
-  },
   openGraph: {
     type: 'website',
     url: '/',
