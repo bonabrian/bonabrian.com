@@ -65,7 +65,7 @@ const Image = ({
             zoomableImage && 'cursor-zoom-in',
           )}
           onClick={zoomImage}
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
           fill={fill}
           {...rest}
         />

@@ -60,7 +60,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             isLoadingImage && 'scale-[1.01] blur-xl grayscale',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
-          onLoadingComplete={() => setIsLoadingImage(false)}
+          onLoad={() => setIsLoadingImage(false)}
           priority
           {...extraImageProps}
         />
