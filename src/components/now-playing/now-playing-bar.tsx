@@ -14,7 +14,7 @@ import PlayerPopover from './player-popover'
 
 const NowPlayingBar = ({
   playingData,
-  devices,
+  devices = [],
   onOpenSongUrl,
 }: {
   playingData?: NowPlaying
