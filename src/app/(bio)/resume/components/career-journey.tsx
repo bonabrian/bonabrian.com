@@ -17,7 +17,7 @@ interface CareerJourneyProps {
 }
 
 const CareerJourney = ({
-  isAvailableAnimationDuration = 10,
+  isAvailableAnimationDuration = 2,
 }: CareerJourneyProps) => {
   const isAvailable = env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE
   const shouldReduceMotion = useReducedMotion()
