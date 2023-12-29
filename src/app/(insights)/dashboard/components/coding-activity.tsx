@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react'
 import { WakaTime as WakaTimeIcon } from '@/components/icons'
 import { Link, Progress } from '@/components/ui'
 import cn from '@/lib/cn'
-import { formatDate } from '@/lib/utils'
 
+// import { formatDate } from '@/lib/utils'
 import useWakatime from '../hooks/use-wakatime'
-import OverviewCard from './overview-card'
+// import OverviewCard from './overview-card'
 import Section from './section'
 
 const CodingActivity = () => {
@@ -40,18 +40,18 @@ const CodingActivity = () => {
     formatLastModified()
   }, [data])
 
-  const startDate = data?.start ? formatDate(data?.start) : 'N/A'
-  const endDate = data?.end ? formatDate(data?.end) : 'N/A'
-  const dailyAverage =
-    data?.human_readable_daily_average_including_other_language ?? 'N/A'
-  const thisWeekTotal =
-    data?.human_readable_total_including_other_language ?? 'N/A'
-  const bestDayDate = data?.best_day?.date
-  const bestDayText = data?.best_day?.text
-  const bestDay = bestDayDate
-    ? `${formatDate(bestDayDate)} (${bestDayText})`
-    : 'N/A'
-  const allTimeSinceToday = data?.all_time_since_today?.text ?? 'N/A'
+  // const startDate = data?.start ? formatDate(data?.start) : 'N/A'
+  // const endDate = data?.end ? formatDate(data?.end) : 'N/A'
+  // const dailyAverage =
+  //   data?.human_readable_daily_average_including_other_language ?? 'N/A'
+  // const thisWeekTotal =
+  //   data?.human_readable_total_including_other_language ?? 'N/A'
+  // const bestDayDate = data?.best_day?.date
+  // const bestDayText = data?.best_day?.text
+  // const bestDay = bestDayDate
+  //   ? `${formatDate(bestDayDate)} (${bestDayText})`
+  //   : 'N/A'
+  // const allTimeSinceToday = data?.all_time_since_today?.text ?? 'N/A'
 
   const languages = data?.languages ?? []
   const editors = data?.editors ?? []
@@ -101,7 +101,7 @@ const CodingActivity = () => {
       loading={loading}
     >
       <>
-        <div className={cn('mb-1 grid gap-3 py-2 md:grid-cols-2')}>
+        {/* <div className={cn('mb-1 grid gap-3 py-2 md:grid-cols-2')}>
           <OverviewCard label="Start Date" value={startDate} />
           <OverviewCard label="End Date" value={endDate} />
           <OverviewCard label="Daily Coding Average" value={dailyAverage} />
@@ -111,7 +111,7 @@ const CodingActivity = () => {
             label="All Time Since Today"
             value={allTimeSinceToday}
           />
-        </div>
+        </div> */}
 
         <div className={cn('mt-2 flex flex-col gap-4', 'sm:flex-row')}>
           {activities.map((activity) => (
