@@ -4,7 +4,7 @@ import {
   createEndorsement,
   getEndorsements,
   isEndorsed,
-} from '@/app/(insights)/endorsements/actions'
+} from '@/app/endorsements/actions'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 
