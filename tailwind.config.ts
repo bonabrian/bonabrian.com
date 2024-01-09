@@ -94,6 +94,10 @@ export default {
             'code, pre code': {
               fontFamily: 'var(--font-fira-code)',
             },
+            'code[data-theme*=" "], code[data-theme*=" "] span': {
+              color: 'var(--shiki-light)',
+              backgroundColor: 'var(--shiki-light-bg)',
+            },
             '[data-rehype-pretty-code-fragment]': {
               position: 'relative',
             },
@@ -173,6 +177,10 @@ export default {
         },
         dark: {
           css: {
+            'code[data-theme*=" "], code[data-theme*=" "] span': {
+              color: 'var(--shiki-dark)',
+              backgroundColor: 'var(--shiki-dark-bg)',
+            },
             '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
               display: 'none !important',
             },
