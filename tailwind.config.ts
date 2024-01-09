@@ -98,14 +98,8 @@ export default {
               color: 'var(--shiki-light)',
               backgroundColor: 'var(--shiki-light-bg)',
             },
-            '[data-rehype-pretty-code-fragment]': {
+            '[data-rehype-pretty-code-figure]': {
               position: 'relative',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
-              display: 'none !important',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
-              display: 'block !important',
             },
             ':not(pre) > code': {
               padding: '0.12em 0.25em',
@@ -180,12 +174,6 @@ export default {
             'code[data-theme*=" "], code[data-theme*=" "] span': {
               color: 'var(--shiki-dark)',
               backgroundColor: 'var(--shiki-dark-bg)',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
-              display: 'none !important',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
-              display: 'block !important',
             },
             pre: {
               border: '1px solid hsl(var(--border))',
