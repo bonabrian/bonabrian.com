@@ -1,3 +1,5 @@
+'use server'
+
 import { env } from '@/data/env'
 import fetcher from '@/lib/fetcher'
 import type {

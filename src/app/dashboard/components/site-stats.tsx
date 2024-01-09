@@ -5,7 +5,7 @@ import { useRequest } from '@/hooks'
 import cn from '@/lib/cn'
 
 import OverviewCard from './overview-card'
-import Section from './section'
+import Segment from './segment'
 
 const SiteStats = () => {
   const { data, loading } = useRequest<{
@@ -14,7 +14,7 @@ const SiteStats = () => {
   }>('/api/stats/site')
 
   return (
-    <Section
+    <Segment
       title="Site Stats"
       icon={<BarChart />}
       subHeading={
@@ -28,7 +28,7 @@ const SiteStats = () => {
         <OverviewCard label="All-Time Views" value={data?.views ?? 0} />
         <OverviewCard label="All-Time Reactions" value={data?.reactions ?? 0} />
       </div>
-    </Section>
+    </Segment>
   )
 }
 

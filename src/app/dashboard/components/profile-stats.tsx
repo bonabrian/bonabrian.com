@@ -5,7 +5,7 @@ import { useRequest } from '@/hooks'
 import cn from '@/lib/cn'
 
 import OverviewCard from './overview-card'
-import Section from './section'
+import Segment from './segment'
 
 const ProfileStats = () => {
   const { data, loading } = useRequest<{
@@ -15,7 +15,7 @@ const ProfileStats = () => {
   }>('/api/stats/profile')
 
   return (
-    <Section
+    <Segment
       title="Profile Stats"
       icon={<Medal />}
       loading={loading}
@@ -29,7 +29,7 @@ const ProfileStats = () => {
           value={data?.endorsements ?? 0}
         />
       </div>
-    </Section>
+    </Segment>
   )
 }
 

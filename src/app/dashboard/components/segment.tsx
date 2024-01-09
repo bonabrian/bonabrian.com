@@ -1,7 +1,7 @@
 import { Spinner } from '@/components/ui'
 import cn from '@/lib/cn'
 
-interface SectionProps {
+interface SegmentProps {
   title: string
   icon: JSX.Element
   subHeading?: React.ReactNode
@@ -9,13 +9,13 @@ interface SectionProps {
   children: React.ReactNode
 }
 
-const Section = ({
+const Segment = ({
   title,
   icon,
   subHeading,
   loading,
   children,
-}: SectionProps) => {
+}: SegmentProps) => {
   return (
     <section className={cn('flex flex-col gap-y-2')}>
       <div className={cn('flex items-center gap-1 text-xl font-medium')}>
@@ -43,4 +43,4 @@ const Section = ({
   )
 }
 
-export default Section
+export default Segment

@@ -7,7 +7,7 @@ import cn from '@/lib/cn'
 import useContributions from '../hooks/use-contributions'
 import ContributionCalendar from './contribution-calendar'
 import ContributionOverview from './contribution-overview'
-import Section from './section'
+import Segment from './segment'
 
 interface ContributionsProps {
   username: string
@@ -20,7 +20,7 @@ const Contributions = ({ username, endpoint }: ContributionsProps) => {
     data?.contributionsCollection?.contributionCalendar
 
   return (
-    <Section
+    <Segment
       title="Contributions"
       icon={<GitHub />}
       subHeading={
@@ -50,7 +50,7 @@ const Contributions = ({ username, endpoint }: ContributionsProps) => {
       ) : (
         <EmptyState message="No contributions data." />
       )}
-    </Section>
+    </Segment>
   )
 }
 

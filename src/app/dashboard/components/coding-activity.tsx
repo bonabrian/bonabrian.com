@@ -11,7 +11,7 @@ import cn from '@/lib/cn'
 // import { formatDate } from '@/lib/utils'
 import useWakatime from '../hooks/use-wakatime'
 // import OverviewCard from './overview-card'
-import Section from './section'
+import Segment from './segment'
 
 const CodingActivity = () => {
   const { data, loading } = useWakatime()
@@ -70,7 +70,7 @@ const CodingActivity = () => {
   ]
 
   return (
-    <Section
+    <Segment
       title="Weekly Coding Activities"
       icon={<WakaTimeIcon />}
       subHeading={
@@ -143,7 +143,7 @@ const CodingActivity = () => {
           ))}
         </div>
       </>
-    </Section>
+    </Segment>
   )
 }
 

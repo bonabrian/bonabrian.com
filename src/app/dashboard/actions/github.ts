@@ -1,3 +1,5 @@
+'use server'
+
 import { GITHUB_ACCOUNTS } from '@/data/app'
 import fetcher from '@/lib/fetcher'
 import type {

@@ -1,7 +1,7 @@
 import {
   getAllTimeSinceToday,
   getLastSevenDaysStats,
-} from '@/app/(insights)/dashboard/actions'
+} from '@/app/dashboard/actions'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
