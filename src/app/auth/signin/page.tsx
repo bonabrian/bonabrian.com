@@ -7,7 +7,7 @@ import PageHeader from '@/components/page-header'
 import { seo } from '@/data/meta'
 import { authOptions } from '@/lib/auth'
 
-import SignInCard from './_components/sign-in-card'
+import SignInCard from './components/sign-in-card'
 
 export const metadata: Metadata = seo({
   title: 'Sign In',
