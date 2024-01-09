@@ -1,9 +1,8 @@
 import rehypePrettyCode from 'rehype-pretty-code'
-import type { Pluggable } from 'unified'
 
 import type { RehypeElement } from './types'
 
-export const prettyCode: Pluggable<Array<any>> = [
+export const prettyCode = [
   rehypePrettyCode,
   {
     theme: {

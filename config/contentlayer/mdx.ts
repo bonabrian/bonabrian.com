@@ -11,6 +11,7 @@ const mdx: MDXOptions = {
   rehypePlugins: [
     imageMetaData,
     rehypeSlug,
+    // @ts-expect-error idk
     prettyCode,
     rehypeAccessibleEmojis,
   ],

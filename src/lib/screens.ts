@@ -1,5 +1,5 @@
 import resolveConfig from 'tailwindcss/resolveConfig'
-import type { Config, ScreensConfig } from 'tailwindcss/types/config'
+import type { Config } from 'tailwindcss/types/config'
 
 import tailwindConfig from '../../tailwind.config'
 
@@ -13,18 +13,18 @@ const breakpoints = fullConfig?.theme?.screens || {
   '2xl': '1536px',
 }
 
-type BreakpointKey = keyof ScreensConfig
+type BreakpointKey = keyof typeof breakpoints
 
-const getBreakpointValue = <K extends string>(bp: K) =>
+const getBreakpointValue = (bp: BreakpointKey) =>
   breakpoints[bp as BreakpointKey]
 
-export const min = <K extends string>(bp: K): string =>
+export const min = (bp: BreakpointKey): string =>
   `@media only screen and (min-width: ${getBreakpointValue(bp)})`
 
-export const max = <K extends string>(bp: K): string =>
+export const max = (bp: BreakpointKey): string =>
   `@media only screen and (max-width: ${getBreakpointValue(bp)})`
 
-export const between = <K extends string>(bpMin: K, bpMax: K): string =>
+export const between = (bpMin: BreakpointKey, bpMax: BreakpointKey): string =>
   `@media only screen and (min-width: ${getBreakpointValue(
     bpMin,
   )}) and (max-width: ${getBreakpointValue(bpMax)})`
