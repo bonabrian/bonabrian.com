@@ -16,15 +16,15 @@ const nextConfig = {
   crossOrigin: 'anonymous',
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: [
+    remotePatterns: [
       // google avatar
-      'lh3.googleusercontent.com',
+      { hostname: 'lh3.googleusercontent.com' },
       // github avatar
-      'avatars.githubusercontent.com',
-      'i.scdn.co',
-      'spotify.com',
-      'res.cloudinary.com',
-      'ui-avatars.com',
+      { hostname: 'avatars.githubusercontent.com' },
+      { hostname: 'i.scdn.co' },
+      { hostname: 'spotify.com' },
+      { hostname: 'res.cloudinary.com' },
+      { hostname: 'ui-avatars.com' },
     ],
   },
   webpack: (config) => {
