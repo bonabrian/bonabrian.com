@@ -8,6 +8,7 @@ const appHeaders = require('./config/next/headers')
 const redirects = require('./config/next/redirects')
 
 const { withContentlayer } = require('next-contentlayer')
+const million = require('million/compiler')
 
 const nextConfig = {
   swcMinify: true,
@@ -55,6 +56,17 @@ const nextConfig = {
   },
 }
 
+const millionConfig = {
+  mute: true,
+  auto: { rsc: true },
+}
+
 module.exports = isDevelopment
-  ? withContentlayer(nextConfig)
-  : withSentryConfig(withContentlayer(nextConfig), SentryWebpackPluginOptions)
+  ? million.next(withContentlayer(nextConfig), millionConfig)
+  : million.next(
+      withSentryConfig(
+        withContentlayer(nextConfig),
+        SentryWebpackPluginOptions,
+      ),
+      millionConfig,
+    )
