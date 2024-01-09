@@ -98,8 +98,8 @@ Deploy to Vercel, Netlify, etc
 ## Files to customize
 
 - `data/app/site.ts` - update `siteConfig` with yours.
-- `app/(bio)/about/page.tsx` - update with yours.
-- `app/(bio)resume/page.tsx` - (optional) update with your resume or you can remove it.
+- `app/about/page.tsx` - update with yours.
+- `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/static` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
