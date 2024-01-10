@@ -6,9 +6,9 @@ import { useEffect } from 'react'
 
 import { Counter } from '@/components/ui'
 import { MAX_REACTIONS_PER_SESSION } from '@/data/app'
+import { useReaction } from '@/hooks'
 import cn from '@/lib/cn'
 
-import useReactions from '../hooks/use-reactions'
 import EmojiReaction from './emoji-reaction'
 
 interface ReactionsProps {
@@ -16,7 +16,7 @@ interface ReactionsProps {
 }
 
 const Reactions = ({ slug }: ReactionsProps) => {
-  const { reactions, addReaction, loading } = useReactions(slug)
+  const { reactions, addReaction, loading } = useReaction(slug)
 
   const controls = useAnimationControls()
 

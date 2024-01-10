@@ -1,8 +1,8 @@
 import type { ShareType } from '@prisma/client'
 
-import { useRequest } from '@/hooks'
+import { useRequest } from './use-request'
 
-const useShare = (slug: string) => {
+export const useShare = (slug: string) => {
   const { data, mutate, loading } = useRequest<{ total: number }>(
     `/api/shares/${slug}`,
   )
@@ -24,5 +24,3 @@ const useShare = (slug: string) => {
 
   return { shares: data, addShare, loading }
 }
-
-export default useShare

@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-import { useRequest } from '@/hooks'
+import { useRequest } from './use-request'
 
-const useView = ({
+export const useView = ({
   slug,
   trackView,
 }: {
@@ -25,5 +25,3 @@ const useView = ({
 
   return { views: data, loading }
 }
-
-export default useView

@@ -1,7 +1,7 @@
 import type { ReactionType } from '@prisma/client'
 import { useRef } from 'react'
 
-import { useRequest } from '@/hooks'
+import { useRequest } from './use-request'
 
 type ReactionCounts = Record<ReactionType, number>
 
@@ -39,7 +39,7 @@ const initialValue: ReactionData = {
   },
 }
 
-const useReactions = (slug: string) => {
+export const useReaction = (slug: string) => {
   const timer = useRef<Record<ReactionType, NodeJS.Timeout | undefined>>({
     LIKED: undefined,
     CLAPPING: undefined,
@@ -104,5 +104,3 @@ const useReactions = (slug: string) => {
     loading,
   }
 }
-
-export default useReactions

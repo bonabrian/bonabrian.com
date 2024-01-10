@@ -7,10 +7,10 @@ import type { IReadTimeResults } from 'reading-time'
 import { Clock, Eye } from '@/components/icons'
 import PageHeader from '@/components/page-header'
 import { BackButton, Container } from '@/components/ui'
+import { useView } from '@/hooks'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-import useView from '../hooks/use-view'
 import StickyTitle from './sticky-title'
 
 interface ContentMetaProps {
