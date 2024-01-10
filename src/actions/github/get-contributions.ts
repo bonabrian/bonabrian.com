@@ -1,5 +1,3 @@
-'use server'
-
 import { GITHUB_ACCOUNTS } from '@/data/app'
 import fetcher from '@/lib/fetcher'
 import type {
@@ -34,7 +32,7 @@ const GITHUB_USER_QUERY = `query($username: String!) {
   }
 }`
 
-export const fetchAccountContributions = async (
+const fetchContributions = async (
   username: string,
   token?: string,
 ): Promise<GithubUserContributionsCollection | undefined> => {
@@ -57,7 +55,7 @@ export const fetchAccountContributions = async (
   return response?.data?.user
 }
 
-export const getAccountContributions = async (
+const getContributions = async (
   type: AccountType,
 ): Promise<GithubUserContributionsCollection | undefined> => {
   const account = GITHUB_ACCOUNTS.find(
@@ -67,5 +65,7 @@ export const getAccountContributions = async (
   if (!account) throw new Error('Invalid user type')
 
   const { username, token } = account
-  return await fetchAccountContributions(username, token)
+  return await fetchContributions(username, token)
 }
+
+export default getContributions

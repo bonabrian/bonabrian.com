@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 
-import { getAccountContributions } from '@/app/dashboard/actions'
+import { getContributions } from '@/actions/github'
 import { getErrorMessage, response } from '@/lib/api'
 import type { AccountType } from '@/types/github'
 
@@ -10,7 +10,7 @@ export const GET = async (req: NextRequest) => {
     const hasType = searchParams.has('type')
     const type = hasType ? searchParams.get('type') : ''
 
-    const data = await getAccountContributions(type as AccountType)
+    const data = await getContributions(type as AccountType)
 
     return response(data)
   } catch (err) {

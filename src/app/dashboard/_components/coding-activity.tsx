@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react'
 
 import { WakaTime as WakaTimeIcon } from '@/components/icons'
 import { Link, Progress } from '@/components/ui'
+import { useWakatime } from '@/hooks'
 import cn from '@/lib/cn'
 
 // import { formatDate } from '@/lib/utils'
-import useWakatime from '../hooks/use-wakatime'
 // import OverviewCard from './overview-card'
 import Segment from './segment'
 

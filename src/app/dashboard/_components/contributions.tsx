@@ -2,9 +2,9 @@
 
 import { GitHub } from '@/components/icons'
 import { EmptyState, Link } from '@/components/ui'
+import { useContributions } from '@/hooks'
 import cn from '@/lib/cn'
 
-import useContributions from '../hooks/use-contributions'
 import ContributionCalendar from './contribution-calendar'
 import ContributionOverview from './contribution-overview'
 import Segment from './segment'
