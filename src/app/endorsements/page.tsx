@@ -4,8 +4,8 @@ import PageHeader from '@/components/page-header'
 import { ROUTES } from '@/data/app'
 import { seo } from '@/data/meta'
 
+import Endorsements from './_components/endorsements'
 import { getEndorsements } from './actions/endorsements'
-import Endorsements from './components/endorsements'
 
 export const metadata: Metadata = seo({
   title: 'Endorsements',

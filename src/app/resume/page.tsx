@@ -4,7 +4,7 @@ import PageHeader from '@/components/page-header'
 import { ROUTES } from '@/data/app'
 import { seo } from '@/data/meta'
 
-import CareerJourney from './components/career-journey'
+import CareerJourney from './_components/career-journey'
 
 export const metadata: Metadata = seo({
   title: 'Resume',

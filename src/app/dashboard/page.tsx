@@ -6,10 +6,10 @@ import { GITHUB_ACCOUNTS, ROUTES } from '@/data/app'
 import { seo } from '@/data/meta'
 import cn from '@/lib/cn'
 
-import CodingActivity from './components/coding-activity'
-import Contributions from './components/contributions'
-import ProfileStats from './components/profile-stats'
-import SiteStats from './components/site-stats'
+import CodingActivity from './_components/coding-activity'
+import Contributions from './_components/contributions'
+import ProfileStats from './_components/profile-stats'
+import SiteStats from './_components/site-stats'
 
 export const metadata: Metadata = seo({
   title: 'Dashboard',

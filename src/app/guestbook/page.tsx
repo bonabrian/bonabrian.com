@@ -5,7 +5,7 @@ import { Container } from '@/components/ui'
 import { ROUTES } from '@/data/app'
 import { seo } from '@/data/meta'
 
-import Guestbook from './components/guestbook'
+import Guestbook from './_components/guestbook'
 
 export const metadata: Metadata = seo({
   title: 'Guestbook',

@@ -15,7 +15,7 @@ import Providers from '@/components/providers'
 import { DEFAULT_METADATA, seo } from '@/data/meta'
 import cn from '@/lib/cn'
 
-import GuestbookWidgetButton from './guestbook/components/guestbook-widget-button'
+import GuestbookWidgetButton from './guestbook/_components/guestbook-widget-button'
 
 interface RootLayoutProps {
   children: React.ReactNode
