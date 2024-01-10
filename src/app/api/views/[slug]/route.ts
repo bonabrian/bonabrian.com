@@ -4,7 +4,7 @@ import {
   countContentViews,
   countUserViews,
   createView,
-} from '@/app/(content)/actions'
+} from '@/app/(collections)/actions'
 import { MAX_VIEWS_PER_SESSION } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/lib/server'

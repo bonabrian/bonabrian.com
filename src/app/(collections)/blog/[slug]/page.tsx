@@ -1,9 +1,9 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentMeta from '@/app/(content)/components/content-meta'
-import Engagement from '@/app/(content)/components/engagement'
-import Tag from '@/app/(content)/components/tag'
+import ContentMeta from '@/app/(collections)/components/content-meta'
+import Engagement from '@/app/(collections)/components/engagement'
+import Tag from '@/app/(collections)/components/tag'
 import Mdx, { Image } from '@/components/mdx'
 import { Container } from '@/components/ui'
 import { BASE_URL, ROUTES } from '@/data/app'

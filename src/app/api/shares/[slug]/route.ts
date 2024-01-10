@@ -4,7 +4,7 @@ import {
   countContentShares,
   countUserShares,
   createShare,
-} from '@/app/(content)/actions'
+} from '@/app/(collections)/actions'
 import { MAX_SHARES_PER_SESSION } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/lib/server'
