@@ -5,7 +5,7 @@ import PageHeader from '@/components/page-header'
 import { ROUTES } from '@/data/app'
 import { seo } from '@/data/meta'
 
-import TodayILearned from './components/today-i-learned'
+import TodayILearned from '../_components/today-i-learned'
 
 export const metadata: Metadata = seo({
   title: 'Today I Learned',
