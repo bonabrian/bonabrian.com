@@ -1,6 +1,7 @@
 import type { NextRequest } from 'next/server'
 
-import { countAllReactions, countAllViews } from '@/app/(collections)/actions'
+import { countReactions } from '@/actions/reaction'
+import { countAllViews } from '@/actions/view'
 import { countAllEndorsements } from '@/app/endorsements/actions'
 import { getErrorMessage, response } from '@/lib/api'
 import fetcher from '@/lib/fetcher'
@@ -44,7 +45,7 @@ export const GET = async (
 
       case 'site':
         const views = await countAllViews()
-        const reactions = await countAllReactions()
+        const reactions = await countReactions()
 
         return response({ views, reactions })
 

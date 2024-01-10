@@ -1,10 +1,6 @@
 import type { NextRequest } from 'next/server'
 
-import {
-  countContentViews,
-  countUserViews,
-  createView,
-} from '@/app/(collections)/actions'
+import { countContentViews, countUserViews, createView } from '@/actions/view'
 import { MAX_VIEWS_PER_SESSION } from '@/data/app'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/lib/server'

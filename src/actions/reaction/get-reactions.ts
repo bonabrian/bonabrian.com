@@ -2,17 +2,7 @@ import type { Prisma, ReactionType } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 
-interface CreateReactionParams {
-  slug: string
-  sessionId: string
-  type: ReactionType
-  count: number
-}
-
-interface GetReactionsParams {
-  slug: string
-  sessionId?: string
-}
+import type { GetReactionsParams } from './types'
 
 const mapReactions = (
   reactions: (Prisma.PickEnumerable<
@@ -40,28 +30,7 @@ const mapReactions = (
   return records
 }
 
-export const createReaction = async ({
-  slug,
-  sessionId,
-  type,
-  count,
-}: CreateReactionParams): Promise<void> => {
-  await prisma.reaction.create({
-    data: {
-      sessionId,
-      type,
-      count,
-      content: {
-        connectOrCreate: {
-          where: { slug },
-          create: { slug },
-        },
-      },
-    },
-  })
-}
-
-export const getReactions = async ({
+const getReactions = async ({
   slug,
   sessionId,
 }: GetReactionsParams): Promise<Record<ReactionType, number>> => {
@@ -82,10 +51,4 @@ export const getReactions = async ({
   return mapReactions(reactions)
 }
 
-export const countAllReactions = async (): Promise<number> => {
-  const count = await prisma.reaction.aggregate({
-    _sum: { count: true },
-  })
-
-  return count._sum.count ?? 0
-}
+export default getReactions
