@@ -1,5 +1,5 @@
-import type { Snippet } from 'contentlayer/generated'
-import { allSnippets } from 'contentlayer/generated'
+import type { Note } from 'contentlayer/generated'
+import { allNotes } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 import ContentMeta from '@/app/(content)/components/content-meta'
@@ -12,25 +12,26 @@ import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
 
-interface SnippetPageProps extends RequestContext<{ slug?: string }> {}
+interface NotePageProps extends RequestContext<{ slug?: string }> {}
 
-const findSnippetBySlug = (slug?: string): Snippet | undefined =>
-  allSnippets
-    .filter((post: Snippet) => post.published)
-    .find((post: Snippet) => post.slug === slug)
+const findNoteBySlug = (slug?: string): Note | undefined =>
+  allNotes
+    .filter((post: Note) => post.published)
+    .find((post: Note) => post.slug === slug)
 
-export const generateMetadata = async ({ params }: SnippetPageProps) => {
-  const snippet = findSnippetBySlug(params?.slug)
+export const generateMetadata = async ({ params }: NotePageProps) => {
+  const note = findNoteBySlug(params?.slug)
 
-  if (!snippet) return
+  if (!note) return
 
-  const { title, description, date } = snippet
+  const { title, description, date } = note
   const publishedDate = formatDate(date)
 
   return seo({
     title,
     description,
     keywords: [
+      'note',
       'snippet',
       'code',
       'collection',
@@ -42,16 +43,16 @@ export const generateMetadata = async ({ params }: SnippetPageProps) => {
       type: 'article',
       publishedTime: publishedDate,
     },
-    url: `${ROUTES.snippets}/${snippet.slug}`,
+    url: `${ROUTES.notes}/${note.slug}`,
   })
 }
 
-const SnippetPage = async ({ params }: SnippetPageProps) => {
-  const snippet = findSnippetBySlug(params?.slug)
+const NotePage = async ({ params }: NotePageProps) => {
+  const note = findNoteBySlug(params?.slug)
 
-  if (!snippet) return notFound()
+  if (!note) return notFound()
 
-  const { title, slug, description, date, readingTime } = snippet
+  const { title, slug, description, date, readingTime } = note
 
   return (
     <>
@@ -64,7 +65,7 @@ const SnippetPage = async ({ params }: SnippetPageProps) => {
       />
       <Container>
         <div className={cn('prose max-w-full', 'dark:prose-dark')}>
-          <Mdx code={snippet?.body?.code} />
+          <Mdx code={note?.body?.code} />
         </div>
         <Engagement slug={slug} />
       </Container>
@@ -77,7 +78,7 @@ const SnippetPage = async ({ params }: SnippetPageProps) => {
             headline: title,
             datePublished: date,
             dateModified: date,
-            url: `${BASE_URL}/snippet/${snippet.slug}`,
+            url: `${BASE_URL}${ROUTES.notes}/${note.slug}`,
           }),
         }}
         key="post-jsonld"
@@ -86,4 +87,4 @@ const SnippetPage = async ({ params }: SnippetPageProps) => {
   )
 }
 
-export default SnippetPage
+export default NotePage

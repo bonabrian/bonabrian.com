@@ -32,7 +32,7 @@ interface FooterIconLink {
 export const ROUTES = {
   blog: '/blog',
   projects: '/projects',
-  snippets: '/snippets',
+  notes: '/notes',
   tags: '/tags',
   endorsements: '/endorsements',
   guestbook: '/guestbook',
@@ -63,8 +63,8 @@ export const footerLinks = [
       url: ROUTES.todayILearned,
     },
     {
-      title: 'Snippets',
-      url: ROUTES.snippets,
+      title: 'Notes',
+      url: ROUTES.notes,
     },
   ],
   [
@@ -122,8 +122,8 @@ export const navLinks: NavLink[] = [
     icon: <Layers />,
   },
   {
-    path: ROUTES.snippets,
-    label: 'Snippets',
+    path: ROUTES.notes,
+    label: 'Notes',
     icon: <CodeBracket />,
     onlyShowOnDropdownMenu: true,
   },

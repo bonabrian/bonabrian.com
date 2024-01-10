@@ -103,7 +103,7 @@ Deploy to Vercel, Netlify, etc
 - `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/static` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
-- `content` - replace with your blog posts, projects, and snippets.
+- `content` - replace with your blog posts, projects, and notes.
 - `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains. 
 
 ## Stack

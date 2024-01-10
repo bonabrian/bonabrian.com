@@ -11,9 +11,9 @@ const computedFields: ComputedFields = {
   },
 }
 
-const Snippet = defineDocumentType(() => ({
-  name: 'Snippet',
-  filePathPattern: 'snippets/*.mdx',
+const Note = defineDocumentType(() => ({
+  name: 'Note',
+  filePathPattern: 'notes/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -25,4 +25,4 @@ const Snippet = defineDocumentType(() => ({
   computedFields,
 }))
 
-export default Snippet
+export default Note

@@ -1,5 +1,5 @@
-import type { Snippet } from 'contentlayer/generated'
-import { allSnippets } from 'contentlayer/generated'
+import type { Note } from 'contentlayer/generated'
+import { allNotes } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 
 import PageHeader from '@/components/page-header'
@@ -9,14 +9,16 @@ import { seo } from '@/data/meta'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 
-const snippets = allSnippets
+const notes = allNotes
   .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-  .filter((snippet: Snippet) => snippet.published)
+  .filter((note: Note) => note.published)
 
 export const metadata: Metadata = seo({
-  title: 'Snippets',
-  description: 'A collection of code snippets',
+  title: 'Notes',
+  description:
+    'A collection of my personal brief notes, tips, short form posts, or snippets I use throughout my projects.',
   keywords: [
+    'notes',
     'snippets',
     'code',
     'collection',
@@ -24,19 +26,19 @@ export const metadata: Metadata = seo({
     'shorthand',
     'scripts',
   ],
-  url: ROUTES.snippets,
+  url: ROUTES.notes,
 })
 
-const SnippetsPage = async () => {
+const NotesPage = async () => {
   return (
     <>
       <PageHeader
-        title="Snippets"
-        description="A repository of previously utilized and saved code snippets which can be copied and pasted."
+        title="Notes"
+        description="A collection of my personal brief notes, tips, short form posts, or snippets I use throughout my projects."
       />
       <div id="content">
         <Container>
-          {snippets.length ? (
+          {notes.length ? (
             <div
               className={cn(
                 'grid grid-flow-row auto-rows-auto grid-cols-1 gap-4',
@@ -44,13 +46,13 @@ const SnippetsPage = async () => {
                 'lg:grid-cols-3',
               )}
             >
-              {snippets.map(({ slug, title, description, date }) => {
+              {notes.map(({ slug, title, description, date }) => {
                 const timestamp = formatDate(date)
 
                 return (
                   <Link
                     key={slug}
-                    href={`${ROUTES.snippets}/${slug}`}
+                    href={`${ROUTES.notes}/${slug}`}
                     className={cn(
                       'flex flex-col justify-between rounded-md bg-card p-6',
                     )}
@@ -78,7 +80,7 @@ const SnippetsPage = async () => {
               })}
             </div>
           ) : (
-            <EmptyState message="No snippets." />
+            <EmptyState message="Empty notes." />
           )}
         </Container>
       </div>
@@ -86,4 +88,4 @@ const SnippetsPage = async () => {
   )
 }
 
-export default SnippetsPage
+export default NotesPage
