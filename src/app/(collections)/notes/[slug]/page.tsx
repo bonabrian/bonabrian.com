@@ -2,8 +2,6 @@ import type { Note } from 'contentlayer/generated'
 import { allNotes } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentMeta from '@/app/(collections)/components/content-meta'
-import Engagement from '@/app/(collections)/components/engagement'
 import Mdx from '@/components/mdx'
 import { Container } from '@/components/ui'
 import { BASE_URL, ROUTES } from '@/data/app'
@@ -11,6 +9,9 @@ import { buildJsonLd, seo } from '@/data/meta'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
+
+import ContentMeta from '../../_components/content-meta'
+import Engagement from '../../_components/engagement'
 
 interface NotePageProps extends RequestContext<{ slug?: string }> {}
 

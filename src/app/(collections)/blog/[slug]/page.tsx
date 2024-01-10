@@ -1,9 +1,6 @@
 import { allPosts, type Post } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
-import ContentMeta from '@/app/(collections)/components/content-meta'
-import Engagement from '@/app/(collections)/components/engagement'
-import Tag from '@/app/(collections)/components/tag'
 import Mdx, { Image } from '@/components/mdx'
 import { Container } from '@/components/ui'
 import { BASE_URL, ROUTES } from '@/data/app'
@@ -11,6 +8,10 @@ import { buildJsonLd, seo } from '@/data/meta'
 import cn from '@/lib/cn'
 import { formatDate } from '@/lib/utils'
 import type { RequestContext } from '@/types/request'
+
+import ContentMeta from '../../_components/content-meta'
+import Engagement from '../../_components/engagement'
+import Tag from '../../_components/tag'
 
 interface PostPageProps extends RequestContext<{ slug?: string }> {}
 
