@@ -1,0 +1,38 @@
+@tailwind components;
+
+@layer components {
+  .bg-pattern {
+    @apply relative z-0;
+
+    &::before {
+      @apply grid-pattern-black/5 absolute inset-0 z-[-1] content-[''];
+      @apply dark:grid-pattern-white/5;
+      mask-image: linear-gradient(transparent, black, transparent);
+    }
+  }
+
+  .equalizer {
+    @apply h-3 flex items-center gap-0.5;
+
+    .bar {
+      @apply w-0.5 h-4 rounded-md;
+      @apply animate-equalize;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+    }
+  }
+}

@@ -45,12 +45,13 @@ export default {
           default: 'hsl(var(--code))',
         },
         input: 'hsl(var(--input))',
+        border: 'hsl(var(--border))',
         spotify: '#1DB954',
       },
       fontFamily: {
-        sans: ['var(--font-plus-jakarta)', ...fontFamily.sans],
-        inter: ['var(--font-inter)', ...fontFamily.sans],
-        'fira-code': ['var(--font-fira-code)', ...fontFamily.sans],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+        cal: ['var(--font-cal)'],
       },
       backgroundImage: {
         'rainbow-gradient':

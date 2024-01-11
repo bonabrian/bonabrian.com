@@ -1,0 +1,95 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --primary: 255 100% 75%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 240 4.8% 92.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 92.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --popover: 0, 0%, 98%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 202 24% 9%;
+
+    --code: 0 0% 100%;
+
+    --input: 240 5.9% 90%;
+    --border: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --primary: 265 100% 87%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --code: 220 13% 18%;
+
+    --input: 240 3.7% 15.9%;
+    --border: 240 3.7% 15.9%;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #__next,
+  #__app {
+    @apply min-h-screen;
+  }
+
+  #__app {
+    @apply flex flex-col font-sans;
+  }
+
+  body {
+    @apply antialiased bg-background text-foreground;
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-[3px] bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-[3px] border-2 bg-neutral-600 dark:bg-neutral-400;
+  }
+}
