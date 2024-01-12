@@ -46,6 +46,7 @@ export default {
         },
         input: 'hsl(var(--input))',
         border: 'hsl(var(--border))',
+        ring: 'hsl(var(--ring))',
         spotify: '#1DB954',
       },
       fontFamily: {

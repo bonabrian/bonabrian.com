@@ -1,10 +1,13 @@
-import { Spinner } from '@/components/ui'
+import { Container, Skeleton } from '@/components/ui'
 import cn from '@/utils/cn'
 
 const Loading = () => {
   return (
-    <div className={cn('flex min-h-screen items-center justify-center')}>
-      <Spinner />
+    <div className={cn('py-16', 'lg:py-20')}>
+      <Container>
+        <Skeleton className={cn('mb-4 h-10 w-full', 'md:w-3/4')} />
+        <Skeleton className={cn('mb-4 h-10 w-full', 'md:w-3/4')} />
+      </Container>
     </div>
   )
 }
