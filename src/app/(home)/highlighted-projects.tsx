@@ -85,7 +85,7 @@ const HighlightedProjects = () => {
           </div>
         </>
       ) : (
-        <EmptyState message="The projects are probably off having a party somewhere without us!." />
+        <EmptyState message="The projects are probably off having a party somewhere without us!" />
       )}
     </m.div>
   )
