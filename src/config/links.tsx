@@ -13,6 +13,7 @@ import {
   RSS,
 } from '@/components/icons'
 
+import { GITHUB_ACCOUNT } from './github'
 import site from './site'
 
 interface NavLink {
@@ -141,7 +142,7 @@ export const FOOTER_LINKS = [
 export const FOOTER_ICON_LINKS: FooterIconLink[] = [
   {
     title: 'GitHub',
-    url: site.author.github,
+    url: GITHUB_ACCOUNT.url,
     icon: <GitHub />,
     className: 'hover:text-current',
   },

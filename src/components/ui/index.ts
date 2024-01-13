@@ -4,6 +4,7 @@ import EmptyState from './empty-state'
 import IncrementCounter from './increment-counter'
 import Input from './input'
 import Link from './link'
+import Progress from './progress'
 import Separator from './separator'
 import Skeleton from './skeleton'
 import Spinner from './spinner'
@@ -16,6 +17,7 @@ export {
   IncrementCounter,
   Input,
   Link,
+  Progress,
   Separator,
   Skeleton,
   Spinner,

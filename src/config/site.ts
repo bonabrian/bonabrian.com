@@ -3,7 +3,6 @@ interface Author {
   url: string
   avatar: string
   email: string
-  github: string
   linkedIn: string
   twitter?: string
 }
@@ -32,7 +31,6 @@ const site: Site = {
     name: 'Bona Brian Siagian',
     url: 'https://bonabrian.com',
     email: 'bonabrian.dev@gmail.com',
-    github: 'https://github.com/bonabrian',
     linkedIn: 'https://www.linkedin.com/in/bonabrian',
     avatar:
       'https://res.cloudinary.com/dg48wbt00/image/upload/v1695023059/avatar.jpg',
