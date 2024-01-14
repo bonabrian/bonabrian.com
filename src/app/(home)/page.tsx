@@ -1,9 +1,17 @@
+import type { Metadata } from 'next'
+
 import { Container } from '@/components/ui'
+import { seo } from '@/lib/meta'
 import cn from '@/utils/cn'
 
 import Hero from './hero'
 import HighlightedProjects from './highlighted-projects'
 import LatestPosts from './latest-posts'
+
+export const metadata: Metadata = seo({
+  title: 'Full-stack Engineer',
+  url: '/',
+})
 
 const HomePage = () => {
   return (

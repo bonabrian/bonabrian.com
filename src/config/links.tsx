@@ -69,6 +69,7 @@ export const NAV_LINKS: NavLink[] = [
     path: ROUTES.notes,
     label: 'Notes',
     icon: <CodeBracket />,
+    onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.todayILearned,
@@ -77,15 +78,14 @@ export const NAV_LINKS: NavLink[] = [
     onlyShowOnDropdownMenu: true,
   },
   {
-    path: ROUTES.endorsements,
-    label: 'Endorsements',
-    icon: <Medal />,
-  },
-  {
     path: ROUTES.guestbook,
     label: 'Guestbook',
     icon: <BookOpenText />,
-    onlyShowOnDropdownMenu: true,
+  },
+  {
+    path: ROUTES.endorsements,
+    label: 'Endorsements',
+    icon: <Medal />,
   },
   {
     path: ROUTES.about,
