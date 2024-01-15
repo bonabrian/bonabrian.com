@@ -1,6 +1,7 @@
 'use client'
 
 import { m } from 'framer-motion'
+import Link from 'next/link'
 
 import site from '@/config/site'
 import useOnScroll from '@/hooks/use-on-scroll'
@@ -10,7 +11,7 @@ import Logo from '../../public/static/images/logo.svg'
 import MobileNav from './mobile-nav'
 import Navbar from './navbar'
 import ThemeSwitch from './theme-switch'
-import { Container, Link, Separator } from './ui'
+import { Container, Separator } from './ui'
 
 const Header = () => {
   const isScrolled = useOnScroll()

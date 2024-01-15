@@ -2,12 +2,13 @@
 
 import { Menu } from '@headlessui/react'
 import { m } from 'framer-motion'
+import Link from 'next/link'
 
 import { NAV_LINKS } from '@/config/links'
 import cn from '@/utils/cn'
 
 import { Hamburger } from './icons'
-import { Button, Link } from './ui'
+import { Button } from './ui'
 
 const animation = {
   hide: { opacity: 0, y: 16 },

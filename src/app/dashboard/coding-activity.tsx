@@ -2,10 +2,11 @@
 
 import { formatDistanceToNow } from 'date-fns'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { WakaTime as WakaTimeIcon } from '@/components/icons'
-import { Link, Progress } from '@/components/ui'
+import { Progress } from '@/components/ui'
 import type { WakaTime } from '@/types/wakatime'
 import cn from '@/utils/cn'
 import { formatDate } from '@/utils/date'
@@ -82,7 +83,6 @@ const CodingActivity = () => {
           target="_blank"
           passHref
           className={cn('text-sm text-muted-foreground', 'hover:underline')}
-          showExternalLinkIcon={false}
         >
           Last modified:{' '}
           {formattedLastModifiedDate ? (

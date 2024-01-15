@@ -1,12 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import cn from '@/utils/cn'
 
 import { ArrowLeftCircle } from '../icons'
 import Container from './container'
-import Link from './link'
 
 interface BackButtonProps {
   href?: string
@@ -22,12 +22,7 @@ const BackButton = ({ href }: BackButtonProps) => {
     <Container className={cn('mt-4', 'md:mt-8')}>
       <div className={cn('w-fit')}>
         {href ? (
-          <Link
-            href={href}
-            passHref
-            showExternalLinkIcon={false}
-            className={cn(className)}
-          >
+          <Link href={href} passHref className={cn(className)}>
             <ArrowLeftCircle />
             <span>Back</span>
           </Link>

@@ -2,43 +2,44 @@
 
 import { Menu } from '@headlessui/react'
 import type { ShareType } from '@prisma/client'
-import { m } from 'framer-motion'
+import { m, useAnimationControls } from 'framer-motion'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import type { PropsWithChildren, Ref } from 'react'
-import { forwardRef } from 'react'
+import { useEffect } from 'react'
 
 import { LinkSimple, Share, Twitter } from '@/components/icons'
-import { Counter, Link } from '@/components/ui'
+import { Counter } from '@/components/ui'
 import { BASE_URL } from '@/config/site'
 import useShares from '@/hooks/use-shares'
 import cn from '@/utils/cn'
 
-interface ShareItemLinkProps extends PropsWithChildren {
+interface ShareItemLinkProps {
   href: string
   onClick: () => void
   active: boolean
+  children: React.ReactNode
 }
 
-const ShareItemLink = forwardRef(
-  (
-    { href, onClick, active, children }: ShareItemLinkProps,
-    ref: Ref<HTMLButtonElement>,
-  ) => (
+const ShareItemLink = ({
+  href,
+  onClick,
+  active,
+  children,
+}: ShareItemLinkProps) => {
+  return (
     <Link
       href={href}
-      ref={ref}
       className={cn(
         'flex items-center gap-3 px-4 py-2 text-sm',
         'hover:bg-accent hover:text-accent-foreground',
         active && 'bg-accent',
       )}
       onClick={onClick}
-      showExternalLinkIcon={false}
     >
       {children}
     </Link>
-  ),
-)
+  )
+}
 
 const animation = {
   hide: { opacity: 0, y: 16 },
@@ -53,7 +54,23 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
   const pathname = usePathname()
   const currentUrl = `${BASE_URL}${pathname}`
 
-  const { shares, addShare } = useShares(slug)
+  const { shares, addShare, loading } = useShares(slug)
+
+  const controls = useAnimationControls()
+
+  useEffect(() => {
+    if (!loading) {
+      controls.start({
+        y: 0,
+        opacity: 1,
+        pointerEvents: 'auto',
+        transition: {
+          delay: 0.2,
+          duration: 0.15,
+        },
+      })
+    }
+  }, [controls, loading])
 
   const handleItemClick = (type: ShareType) => {
     addShare(type)
@@ -70,7 +87,15 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
   }
 
   return (
-    <div className={cn('flex flex-col items-center gap-2')}>
+    <m.div
+      className={cn('flex flex-col items-center gap-2')}
+      initial={{
+        y: 16,
+        opacity: 0,
+        pointerEvents: 'none',
+      }}
+      animate={controls}
+    >
       <Menu>
         {({ open }) => (
           <>
@@ -135,7 +160,7 @@ const ShareButton = ({ slug }: ShareButtonProps) => {
         )}
       </Menu>
       <Counter count={shares?.total ?? 0} />
-    </div>
+    </m.div>
   )
 }
 

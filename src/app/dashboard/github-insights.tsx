@@ -1,7 +1,8 @@
 'use client'
 
+import Link from 'next/link'
+
 import { GitHub } from '@/components/icons'
-import { Link } from '@/components/ui'
 import { GITHUB_ACCOUNT } from '@/config/github'
 import type { GitHubUserContributionsCollection } from '@/types/github'
 import cn from '@/utils/cn'
@@ -52,7 +53,6 @@ const GitHubInsights = () => {
             'font-mono text-sm text-muted-foreground',
             'hover:text-foreground',
           )}
-          showExternalLinkIcon={false}
         >
           @{GITHUB_ACCOUNT.username}
         </Link>

@@ -1,11 +1,10 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { NAV_LINKS } from '@/config/links'
 import cn from '@/utils/cn'
-
-import { Link } from './ui'
 
 const Navbar = () => {
   const pathname = usePathname()
