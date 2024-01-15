@@ -46,6 +46,8 @@ const Footer = () => (
                 'text-muted-foreground transition-colors duration-200 ease-out',
                 className,
               )}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {icon}
             </Link>

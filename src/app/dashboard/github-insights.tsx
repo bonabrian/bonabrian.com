@@ -48,6 +48,7 @@ const GitHubInsights = () => {
         <Link
           href={GITHUB_ACCOUNT.url}
           target="_blank"
+          rel="noopener noreferrer"
           passHref
           className={cn(
             'font-mono text-sm text-muted-foreground',

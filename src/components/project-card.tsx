@@ -47,6 +47,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
       className={cn(
         'group rounded-xl bg-card shadow-border transition-colors duration-200',
       )}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <div
         className={cn(

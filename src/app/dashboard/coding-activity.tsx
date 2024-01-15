@@ -81,6 +81,7 @@ const CodingActivity = () => {
         <Link
           href="https://wakatime.com/@bonabrian"
           target="_blank"
+          rel="noopener noreferrer"
           passHref
           className={cn('text-sm text-muted-foreground', 'hover:underline')}
         >
