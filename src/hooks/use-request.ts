@@ -7,7 +7,7 @@ interface SwrData<T = unknown> {
   data?: T
   loading: boolean
   error?: string | Error | null
-  mutate?: (
+  mutate: (
     data?: T | Promise<T> | MutatorCallback<T> | any,
     shouldRevalidate?: boolean,
   ) => Promise<T | undefined>

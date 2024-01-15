@@ -1,7 +1,11 @@
 import type { NextRequest } from 'next/server'
 
-import { countContentViews, countUserViews, createView } from '@/actions/views'
-import { MAX_VIEWS_PER_SESSION } from '@/config/engagements'
+import {
+  countContentShares,
+  countUserShares,
+  createShare,
+} from '@/actions/shares'
+import { MAX_SHARES_PER_SESSION } from '@/config/engagements'
 import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
 import { getSessionId } from '@/utils/session'
@@ -12,9 +16,8 @@ export const GET = async (
 ) => {
   try {
     const { slug } = params
-
-    const total = await countContentViews({ slug })
-    return response<{ total: number }>({ total })
+    const total = await countContentShares({ slug })
+    return response({ total })
   } catch (err) {
     return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
@@ -28,10 +31,13 @@ export const POST = async (
     const { slug } = params
     const sessionId = getSessionId(req)
 
-    const currentViews = await countUserViews({ slug, sessionId })
+    const body = await req.json()
+    const { type } = body
 
-    if (currentViews < MAX_VIEWS_PER_SESSION) {
-      await createView({ slug, sessionId })
+    const currentShares = await countUserShares({ slug, sessionId, type })
+
+    if (currentShares < MAX_SHARES_PER_SESSION) {
+      await createShare({ slug, sessionId, type })
       return response({}, 201)
     }
 

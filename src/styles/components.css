@@ -35,4 +35,17 @@
       }
     }
   }
+
+  [data-rmiz-modal-overlay='visible'] {
+    @apply backdrop-blur backdrop-saturate-100 transform-gpu;
+    @apply !bg-background/70;
+  }
+
+  [data-rmiz-btn-unzoom] {
+    visibility: hidden;
+  }
+
+  [data-rmiz-modal-img] {
+    @apply rounded-xl;
+  }
 }
