@@ -9,7 +9,7 @@ import { Container } from './ui'
 const Footer = () => (
   <footer className={cn('bg-pattern mb-10 mt-24 pt-16 text-sm')}>
     <Container>
-      <nav className={cn('mb-4 grid grid-cols-2 gap-y-2', 'sm:grid-cols-3')}>
+      <nav className={cn('mb-8 grid grid-cols-2 gap-y-2', 'sm:grid-cols-3')}>
         {FOOTER_LINKS.map((groups, index) => (
           <div
             key={`group-${index}`}

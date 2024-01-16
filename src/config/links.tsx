@@ -108,15 +108,15 @@ export const FOOTER_LINKS = [
       title: 'Dashboard',
       url: ROUTES.dashboard,
     },
+    {
+      title: 'Projects',
+      url: ROUTES.projects,
+    },
   ],
   [
     {
       title: 'Blog',
       url: ROUTES.blog,
-    },
-    {
-      title: 'Projects',
-      url: ROUTES.projects,
     },
     {
       title: 'Notes',
