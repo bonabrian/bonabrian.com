@@ -11,6 +11,8 @@ import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 import type { SkillCategory } from '@/types/skill'
 
+export const dynamic = 'force-dynamic'
+
 export const GET = async () => {
   try {
     const endorsements = await getEndorsements()
