@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 }
 
 const fontCal = localFont({
-  src: '../../public/static/fonts/CalSans-Semibold.woff2',
+  src: '../../public/static/fonts/CalSans-SemiBold.woff2',
   variable: '--font-cal',
 })
 
