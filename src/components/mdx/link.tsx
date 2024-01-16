@@ -13,7 +13,7 @@ const Link = ({ href, children, ...props }: LinkProps) => {
   const className = cn(
     'bg-[linear-gradient(rgb(0,0,0,0)70%,rgb(216,189,255)0)] text-foreground no-underline',
     'hover:text-foreground hover:no-underline',
-    'dark:bg-[linear-gradient(rgb(0,0,0,0)75%,rgb(196,166,239)0)]',
+    'dark:bg-[linear-gradient(rgb(0,0,0,0)75%,rgb(164,133,208)0)]',
   )
 
   if (isExternal) {

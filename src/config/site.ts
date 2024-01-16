@@ -32,8 +32,7 @@ const site: Site = {
     url: 'https://bonabrian.com',
     email: 'bonabrian.dev@gmail.com',
     linkedIn: 'https://www.linkedin.com/in/bonabrian',
-    avatar:
-      'https://res.cloudinary.com/dg48wbt00/image/upload/v1695023059/avatar.jpg',
+    avatar: '/media/bonabrian/bonabrian.jpg',
     twitter: '@bonabrian_',
   },
   keywords: [
