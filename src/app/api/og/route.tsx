@@ -8,12 +8,12 @@ export const runtime = 'edge'
 
 const getCalFont = async (): Promise<SatoriOptions['fonts'] | undefined> => {
   const fontCalSansUrl = new URL(
-    '../../../../public/static/fonts/CalSans-SemiBold.ttf',
+    '../../../assets/fonts/CalSans-SemiBold.ttf',
     import.meta.url,
   )
 
   const fontPlusJakartaSansUrl = new URL(
-    '../../../../public/static/fonts/PlusJakartaSans-Regular.ttf',
+    '../../../assets/fonts/PlusJakartaSans-Regular.ttf',
     import.meta.url,
   )
 

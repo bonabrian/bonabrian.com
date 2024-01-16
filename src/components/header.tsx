@@ -7,7 +7,7 @@ import site from '@/config/site'
 import useOnScroll from '@/hooks/use-on-scroll'
 import cn from '@/utils/cn'
 
-import Logo from '../../public/static/images/logo.svg'
+import Logo from '../assets/images/logo.svg'
 import MobileNav from './mobile-nav'
 import Navbar from './navbar'
 import ThemeSwitch from './theme-switch'
