@@ -10,7 +10,7 @@ import Guestbook from './guestbook'
 export const metadata: Metadata = seo({
   title: 'Guestbook',
   description:
-    'Leave suggestions, appreciation, questions, or anything else on your mind.',
+    'Feel free to share your suggestions, appreciation, questions, or anything else on your mind.',
   url: ROUTES.guestbook,
 })
 
@@ -19,7 +19,7 @@ const GuestbookPage = () => {
     <>
       <PageHeader
         title="Guestbook"
-        description="Leave suggestions, appreciation, questions, or anything else on your mind."
+        description="Feel free to share your suggestions, appreciation, questions, or anything else on your mind."
       />
       <Container>
         <Guestbook />
