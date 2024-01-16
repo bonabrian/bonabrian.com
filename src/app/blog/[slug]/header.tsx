@@ -9,7 +9,6 @@ import StickyTitle from '@/components/sticky-title'
 import { BackButton, Container } from '@/components/ui'
 import useView from '@/hooks/use-view'
 import cn from '@/utils/cn'
-import { formatDate } from '@/utils/date'
 
 interface HeaderProps {
   title: string
@@ -26,7 +25,6 @@ const Header = ({
   slug,
   description,
 }: HeaderProps) => {
-  const publishedDate = formatDate(date)
   const { views } = useView({ slug, trackView: true })
   const pageHeaderRef = useRef<HTMLDivElement | null>(null)
 
@@ -44,8 +42,8 @@ const Header = ({
         >
           <div>
             Published on
-            <time dateTime={publishedDate} className={cn('px-1')}>
-              {publishedDate}
+            <time dateTime={date} className={cn('px-1')}>
+              {date}
             </time>
           </div>
           <div className={cn('flex items-center gap-4')}>

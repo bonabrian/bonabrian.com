@@ -8,7 +8,8 @@ import ImageZoom from '@/components/image-zoom'
 import Mdx from '@/components/mdx'
 import { Container } from '@/components/ui'
 import { ROUTES } from '@/config/links'
-import { seo } from '@/lib/meta'
+import { BASE_URL } from '@/config/site'
+import { buildJsonLd, seo } from '@/lib/meta'
 import type { RequestContext } from '@/types/request'
 import cn from '@/utils/cn'
 import { formatDate } from '@/utils/date'
@@ -57,11 +58,13 @@ const PostPage = async ({ params }: PostPageProps) => {
       }
     : {}
 
+  const publishedDate = formatDate(date)
+
   return (
     <>
       <Header
         title={title}
-        date={date}
+        date={publishedDate}
         readingTime={readingTime}
         slug={slug}
         description={excerpt}
@@ -89,6 +92,20 @@ const PostPage = async ({ params }: PostPageProps) => {
         <Mdx code={body?.code} />
         <Engagements slug={slug} />
       </Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: buildJsonLd({
+            title,
+            description: excerpt,
+            headline: title,
+            datePublished: publishedDate,
+            dateModified: publishedDate,
+            url: `${BASE_URL}${ROUTES.blog}/${slug}`,
+          }),
+        }}
+        key="post-jsonld"
+      />
     </>
   )
 }
