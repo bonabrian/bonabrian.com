@@ -11,8 +11,8 @@ const useView = ({
 }) => {
   const { data, loading } = useRequest<{ total: number }>(`/api/views/${slug}`)
 
-  const registerView = (slug: string) => {
-    fetch(`/api/views/${slug}`, { method: 'POST' })
+  const registerView = async (slug: string) => {
+    await fetch(`/api/views/${slug}`, { method: 'POST' })
   }
 
   useEffect(() => {
