@@ -13,6 +13,8 @@ import Providers from '@/components/providers'
 import { DEFAULT_METADATA, seo } from '@/lib/meta'
 import cn from '@/utils/cn'
 
+import WidgetButton from './guestbook/widget-button'
+
 export const metadata: Metadata = seo({
   ...DEFAULT_METADATA,
 })
@@ -48,6 +50,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Header />
             <main>{children}</main>
             <Footer />
+            <WidgetButton />
             <NowPlaying />
           </div>
           <Analytics />
