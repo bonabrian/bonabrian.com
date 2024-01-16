@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
-
 import { GitHub } from '@/components/icons'
+import { Link } from '@/components/ui'
 import { GITHUB_ACCOUNT } from '@/config/github'
 import type { GitHubUserContributionsCollection } from '@/types/github'
 import cn from '@/utils/cn'
@@ -47,8 +46,6 @@ const GitHubInsights = () => {
       appendix={
         <Link
           href={GITHUB_ACCOUNT.url}
-          target="_blank"
-          rel="noopener noreferrer"
           passHref
           className={cn(
             'font-mono text-sm text-muted-foreground',

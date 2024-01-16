@@ -2,12 +2,11 @@
 
 import { allProjects } from 'contentlayer/generated'
 import { m, useInView } from 'framer-motion'
-import Link from 'next/link'
 import { useRef } from 'react'
 
 import { ChevronRight } from '@/components/icons'
 import ProjectCard from '@/components/project-card'
-import { Button, EmptyState } from '@/components/ui'
+import { Button, EmptyState, Link } from '@/components/ui'
 import { ROUTES } from '@/config/links'
 import cn from '@/utils/cn'
 

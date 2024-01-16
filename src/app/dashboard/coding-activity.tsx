@@ -2,11 +2,10 @@
 
 import { formatDistanceToNow } from 'date-fns'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { WakaTime as WakaTimeIcon } from '@/components/icons'
-import { Progress } from '@/components/ui'
+import { Link, Progress } from '@/components/ui'
 import type { WakaTime } from '@/types/wakatime'
 import cn from '@/utils/cn'
 import { formatDate } from '@/utils/date'
@@ -80,8 +79,6 @@ const CodingActivity = () => {
       appendix={
         <Link
           href="https://wakatime.com/@bonabrian"
-          target="_blank"
-          rel="noopener noreferrer"
           passHref
           className={cn('text-sm text-muted-foreground', 'hover:underline')}
         >

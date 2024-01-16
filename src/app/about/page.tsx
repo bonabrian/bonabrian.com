@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import NextLink from 'next/link'
 
 import { GitHub, LinkedIn, Mail } from '@/components/icons'
-import { Link } from '@/components/mdx'
 import PageHeader from '@/components/page-header'
-import { Container } from '@/components/ui'
+import { Container, Link } from '@/components/ui'
 import { GITHUB_ACCOUNT } from '@/config/github'
 import { ROUTES } from '@/config/links'
 import site from '@/config/site'
@@ -50,29 +48,25 @@ const AboutPage = () => {
               <div
                 className={cn('my-2 flex items-center justify-center gap-4')}
               >
-                <NextLink
+                <Link
                   href={GITHUB_ACCOUNT.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={cn(
                     'text-muted-foreground transition-colors duration-200',
                     'hover:text-foreground',
                   )}
                 >
                   <GitHub className={cn('h-6 w-6')} />
-                </NextLink>
-                <NextLink
+                </Link>
+                <Link
                   href={site.author.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={cn(
                     'text-muted-foreground transition-colors duration-200',
                     'hover:text-foreground',
                   )}
                 >
                   <LinkedIn className={cn('h-6 w-6')} />
-                </NextLink>
-                <NextLink
+                </Link>
+                <Link
                   href={`mailto:${site.author.email}`}
                   className={cn(
                     'text-muted-foreground transition-colors duration-200',
@@ -80,7 +74,7 @@ const AboutPage = () => {
                   )}
                 >
                   <Mail className={cn('h-6 w-6')} />
-                </NextLink>
+                </Link>
               </div>
             </div>
           </div>

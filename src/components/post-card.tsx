@@ -2,7 +2,6 @@
 
 import type { Post } from 'contentlayer/generated'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
 import { ROUTES } from '@/config/links'
@@ -10,7 +9,7 @@ import useView from '@/hooks/use-view'
 import cn from '@/utils/cn'
 import { formatDate } from '@/utils/date'
 
-import { IncrementCounter, Spinner } from './ui'
+import { IncrementCounter, Link, Spinner } from './ui'
 
 const PostCard = ({ post }: { post: Post }) => {
   const { _id, title, slug, date, excerpt, readingTime, image, imageMeta } =

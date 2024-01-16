@@ -1,11 +1,10 @@
 'use client'
 
 import { m, useInView } from 'framer-motion'
-import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 
-import { Button, Spinner } from '@/components/ui'
+import { Button, Link, Spinner } from '@/components/ui'
 import type { SkillCategory } from '@/types/skill'
 import cn from '@/utils/cn'
 

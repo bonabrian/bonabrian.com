@@ -1,10 +1,8 @@
-import Link from 'next/link'
-
 import { FOOTER_ICON_LINKS, FOOTER_LINKS } from '@/config/links'
 import site from '@/config/site'
 import cn from '@/utils/cn'
 
-import { Container } from './ui'
+import { Container, Link } from './ui'
 
 const Footer = () => (
   <footer className={cn('bg-pattern mb-10 mt-24 pt-16 text-sm')}>
@@ -46,8 +44,6 @@ const Footer = () => (
                 'text-muted-foreground transition-colors duration-200 ease-out',
                 className,
               )}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               {icon}
             </Link>

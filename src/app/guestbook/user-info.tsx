@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
 
+import { Link } from '@/components/ui'
 import cn from '@/utils/cn'
 
 interface UserInfoProps {

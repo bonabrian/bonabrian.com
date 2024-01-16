@@ -3,12 +3,11 @@
 import { Menu } from '@headlessui/react'
 import type { ShareType } from '@prisma/client'
 import { m, useAnimationControls } from 'framer-motion'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { LinkSimple, Share, Twitter } from '@/components/icons'
-import { Counter } from '@/components/ui'
+import { Counter, Link } from '@/components/ui'
 import { BASE_URL } from '@/config/site'
 import useShares from '@/hooks/use-shares'
 import cn from '@/utils/cn'

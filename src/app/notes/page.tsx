@@ -1,9 +1,8 @@
 import { allNotes } from 'contentlayer/generated'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 import PageHeader from '@/components/page-header'
-import { Container, EmptyState } from '@/components/ui'
+import { Container, EmptyState, Link } from '@/components/ui'
 import { ROUTES } from '@/config/links'
 import { seo } from '@/lib/meta'
 import cn from '@/utils/cn'

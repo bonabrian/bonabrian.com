@@ -1,10 +1,9 @@
 'use client'
 
 import { m } from 'framer-motion'
-import Link from 'next/link'
 
 import { ChevronRight } from '@/components/icons'
-import { Button, Container } from '@/components/ui'
+import { Button, Container, Link } from '@/components/ui'
 import { ROUTES } from '@/config/links'
 import cn from '@/utils/cn'
 

@@ -2,14 +2,13 @@
 
 import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
 import { ROUTES } from '@/config/links'
 import { STACKS } from '@/constants/stacks'
 import cn from '@/utils/cn'
 
-import { Tooltip } from './ui'
+import { Link, Tooltip } from './ui'
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const {
@@ -48,7 +47,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
         'group rounded-xl bg-card shadow-border transition-colors duration-200',
       )}
       target="_blank"
-      rel="noopener noreferrer"
     >
       <div
         className={cn(

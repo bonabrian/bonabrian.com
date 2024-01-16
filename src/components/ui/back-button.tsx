@@ -1,12 +1,12 @@
 'use client'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import cn from '@/utils/cn'
 
 import { ArrowLeftCircle } from '../icons'
 import Container from './container'
+import Link from './link'
 
 interface BackButtonProps {
   href?: string
