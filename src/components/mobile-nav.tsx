@@ -15,9 +15,9 @@ const animation = {
   show: { opacity: 1, transition: { duration: 0.18 } },
 }
 
-const MobileNav = () => {
+const MobileNav = ({ sticky = false }: { sticky?: boolean }) => {
   return (
-    <div className={cn('flex', 'md:hidden')}>
+    <div className={cn('flex', !sticky && 'md:hidden')}>
       <div className={cn('flex items-center text-sm')}>
         <div className={cn('relative')}>
           <Menu>
