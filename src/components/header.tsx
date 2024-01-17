@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <m.header
       className={cn(
-        'saturate-110 sticky top-0 z-50 flex h-16 bg-background/90 backdrop-blur-[10px]',
+        'saturate-110 sticky top-0 z-50 flex h-16 bg-background',
         isScrolled ? 'shadow-sm' : '',
       )}
       initial={{ y: -100 }}

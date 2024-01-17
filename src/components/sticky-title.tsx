@@ -74,7 +74,7 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
               <Container>
                 <div
                   className={cn(
-                    'flex h-16 items-center justify-between bg-background shadow-sm backdrop-blur',
+                    'flex h-16 items-center justify-between bg-background',
                   )}
                 >
                   <h1
