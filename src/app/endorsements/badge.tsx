@@ -75,7 +75,7 @@ const Badge = ({ skill, user, currentUserId }: BadgeProps) => {
           <>
             {isMySelf ? (
               <Button variant="ghost">
-                <Heart className={cn('fill-red-500')} />
+                <Heart className={cn('fill-red-500 text-red-500')} />
               </Button>
             ) : (
               <>
