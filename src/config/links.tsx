@@ -1,16 +1,16 @@
 import {
   AtSign,
-  BarChart,
   BookOpenText,
-  CodeBracket,
+  Dashboard,
+  FileCode,
   GitHub,
   Home,
-  Layers,
   LightBulb,
   LinkedIn,
   Medal,
   Pencil,
   RSS,
+  Shapes,
 } from '@/components/icons'
 
 import { GITHUB_ACCOUNT } from './github'
@@ -47,50 +47,50 @@ export const NAV_LINKS: NavLink[] = [
   {
     path: '/',
     label: 'Home',
-    icon: <Home />,
+    icon: <Home className="h-5 w-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.blog,
     label: 'Blog',
-    icon: <Pencil />,
+    icon: <Pencil className="h-5 w-5" />,
   },
   {
     path: ROUTES.projects,
     label: 'Projects',
-    icon: <Layers />,
+    icon: <Shapes className="h-5 w-5" />,
   },
   {
     path: ROUTES.dashboard,
     label: 'Dashboard',
-    icon: <BarChart />,
+    icon: <Dashboard className="h-5 w-5" />,
   },
   {
     path: ROUTES.notes,
     label: 'Notes',
-    icon: <CodeBracket />,
+    icon: <FileCode className="h-5 w-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.todayILearned,
     label: 'T.I.L',
-    icon: <LightBulb />,
+    icon: <LightBulb className="h-5 w-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.guestbook,
     label: 'Guestbook',
-    icon: <BookOpenText />,
+    icon: <BookOpenText className="h-5 w-5" />,
   },
   {
     path: ROUTES.endorsements,
     label: 'Endorsements',
-    icon: <Medal />,
+    icon: <Medal className="h-5 w-5" />,
   },
   {
     path: ROUTES.about,
     label: 'About',
-    icon: <AtSign />,
+    icon: <AtSign className="h-5 w-5" />,
   },
 ]
 
