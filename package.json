@@ -46,6 +46,7 @@
     "react-medium-image-zoom": "^5.1.10",
     "rss": "^1.2.2",
     "swr": "^2.2.4",
+    "tailwindcss-animate": "^1.0.7",
     "ts-deepmerge": "^6.2.0",
     "zod": "^3.22.4"
   },

@@ -3,6 +3,7 @@ import svgDataUri from 'mini-svg-data-uri'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import type { PluginAPI } from 'tailwindcss/types/config'
+import animate from 'tailwindcss-animate'
 
 const {
   default: flattenColorPalette,
@@ -69,9 +70,19 @@ export default {
             height: '0.75rem',
           },
         },
+        'marquee-left': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
+        'marquee-up': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+        },
       },
       animation: {
         equalize: 'equalize 0.8s infinite',
+        'marquee-left': 'marquee-left var(--duration, 50s) linear infinite',
+        'marquee-up': 'marquee-up var(--duration, 50s) linear infinite',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
@@ -211,5 +222,6 @@ export default {
       )
     },
     typography,
+    animate,
   ],
 } satisfies Config

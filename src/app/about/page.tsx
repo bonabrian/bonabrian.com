@@ -1,14 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
-import { GitHub, LinkedIn, Mail } from '@/components/icons'
+import { Document, GitHub, LinkedIn, Mail } from '@/components/icons'
 import PageHeader from '@/components/page-header'
-import { Container, Link } from '@/components/ui'
+import { Button, Container, Link } from '@/components/ui'
 import { GITHUB_ACCOUNT } from '@/config/github'
 import { ROUTES } from '@/config/links'
 import site from '@/config/site'
+import { env } from '@/env'
 import { seo } from '@/lib/meta'
 import cn from '@/utils/cn'
+
+import AvailableForHire from './available-for-hire'
+import TechStack from './tech-stack'
 
 export const metadata: Metadata = seo({
   title: 'About',
@@ -18,6 +22,8 @@ export const metadata: Metadata = seo({
 })
 
 const AboutPage = () => {
+  const isAvailableForHire = env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE
+
   return (
     <>
       <PageHeader title="About" description="A short story of me." />
@@ -39,44 +45,15 @@ const AboutPage = () => {
               placeholder="blur"
               blurDataURL="/media/bonabrian/bonabrian-small.jpg"
               className={cn('rounded-full object-cover', 'xl:rounded-xl')}
+              quality={100}
             />
-            <div className={cn('flex flex-col items-center py-4')}>
+            <div className={cn('flex flex-col items-center py-2')}>
               <h3 className={cn('font-cal text-xl')}>{site.author.name}</h3>
               <h4 className={cn('font-cal text-muted-foreground')}>
                 Full-stack Engineer
               </h4>
-              <div
-                className={cn('my-2 flex items-center justify-center gap-4')}
-              >
-                <Link
-                  href={GITHUB_ACCOUNT.url}
-                  className={cn(
-                    'text-muted-foreground transition-colors duration-200',
-                    'hover:text-foreground',
-                  )}
-                >
-                  <GitHub className={cn('h-6 w-6')} />
-                </Link>
-                <Link
-                  href={site.author.linkedIn}
-                  className={cn(
-                    'text-muted-foreground transition-colors duration-200',
-                    'hover:text-foreground',
-                  )}
-                >
-                  <LinkedIn className={cn('h-6 w-6')} />
-                </Link>
-                <Link
-                  href={`mailto:${site.author.email}`}
-                  className={cn(
-                    'text-muted-foreground transition-colors duration-200',
-                    'hover:text-foreground',
-                  )}
-                >
-                  <Mail className={cn('h-6 w-6')} />
-                </Link>
-              </div>
             </div>
+            <AvailableForHire isAvailable={isAvailableForHire} />
           </div>
 
           <div
@@ -86,6 +63,7 @@ const AboutPage = () => {
               'xl:col-span-3',
             )}
           >
+            <h2 className={cn('font-cal text-2xl', 'lg:text-3xl')}>About Me</h2>
             <p>
               Hi there! Thanks for visiting my digital home on the internet.
             </p>
@@ -149,8 +127,61 @@ const AboutPage = () => {
             <p>
               If you're interested in learning more about my professional
               background and qualifications, I encourage you to review{' '}
-              <Link href={ROUTES.resume}>my resume.</Link>
             </p>
+            <Link href={ROUTES.resume} className={cn('text-inherit')}>
+              <Button variant="shadow" className={cn('gap-x-1')}>
+                <Document className={cn('h-5 w-5')} /> My Resume
+              </Button>
+            </Link>
+
+            <h2 className={cn('font-cal text-2xl', 'lg:text-3xl')}>
+              Tech Stack
+            </h2>
+            <TechStack />
+
+            <h2 className={cn('font-cal text-2xl', 'lg:text-3xl')}>
+              Let's Connect
+            </h2>
+            <p>
+              Questions or collaborations? Reach out to me at{' '}
+              <Link
+                href={`mailto:${site.author.email}?subject=Hi Bona!`}
+                className={cn('underline')}
+              >
+                {site.author.email}
+              </Link>{' '}
+              or connect through social media. Let's build something amazing
+              together!
+            </p>
+            <div className={cn('my-2 flex items-center gap-4')}>
+              <Link
+                href={GITHUB_ACCOUNT.url}
+                className={cn(
+                  'text-muted-foreground transition-colors duration-200',
+                  'hover:text-foreground',
+                )}
+              >
+                <GitHub className={cn('h-5 w-5')} />
+              </Link>
+              <Link
+                href={site.author.linkedIn}
+                className={cn(
+                  'text-muted-foreground transition-colors duration-200',
+                  'hover:text-foreground',
+                )}
+              >
+                <LinkedIn className={cn('h-5 w-5')} />
+              </Link>
+              <Link
+                href={`mailto:${site.author.email}?subject=Hi Bona!`}
+                className={cn(
+                  'text-muted-foreground transition-colors duration-200',
+                  'hover:text-foreground',
+                )}
+              >
+                <Mail className={cn('h-5 w-5')} />
+              </Link>
+            </div>
           </div>
         </div>
       </Container>
