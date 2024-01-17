@@ -58,7 +58,7 @@ const MessagePanel = ({
           autoFocus
         />
         <Button htmlType="submit" disabled={isSending || !message.trim()}>
-          <PaperPlane />
+          <PaperPlane className={cn('h-5 w-5')} />
         </Button>
       </form>
       <UserInfo isWidget={isWidget} />

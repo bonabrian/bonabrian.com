@@ -41,7 +41,7 @@ const GitHubInsights = () => {
   return (
     <Section
       title="GitHub Insights"
-      icon={<GitHub />}
+      icon={<GitHub className={cn('h-5 w-5')} />}
       description="A Quick Look at Followers, Stars, and Contributions Activity from last year."
       appendix={
         <Link

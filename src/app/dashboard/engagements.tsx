@@ -17,7 +17,7 @@ const Engagements = () => {
   return (
     <Section
       title="Engagements"
-      icon={<BarChart />}
+      icon={<BarChart className={cn('h-5 w-5')} />}
       description="Discover the numbers behind views, reactions, and endorsements."
       loading={loading}
     >

@@ -74,7 +74,7 @@ const CodingActivity = () => {
   return (
     <Section
       title="Weekly Coding Activities"
-      icon={<WakaTimeIcon />}
+      icon={<WakaTimeIcon className={cn('h-5 w-5')} />}
       description="My WakaTime last 7 days stats."
       appendix={
         <Link

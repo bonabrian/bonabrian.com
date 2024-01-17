@@ -595,7 +595,7 @@ export const Clock = ({ className, ...rest }: ComponentProps<'svg'>) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn('h-6 w-6', className)}
@@ -612,7 +612,7 @@ export const Eye = ({ className, ...rest }: ComponentProps<'svg'>) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn('h-6 w-6', className)}
@@ -629,7 +629,7 @@ export const Copy = ({ className, ...rest }: ComponentProps<'svg'>) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn('h-6 w-6', className)}

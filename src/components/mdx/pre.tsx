@@ -58,7 +58,7 @@ const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
         >
           Copied!
         </div>
-        <Copy />
+        <Copy className={cn('h-5 w-5')} />
       </Button>
     </>
   )

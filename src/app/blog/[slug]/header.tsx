@@ -48,11 +48,11 @@ const Header = ({
           </div>
           <div className={cn('flex items-center gap-4')}>
             <div className={cn('flex items-center gap-1')}>
-              <Clock />
+              <Clock className={cn('h-5 w-5')} />
               <span title="Estimated read time">{readingTime?.text}</span>
             </div>
             <div className={cn('flex items-center gap-1')}>
-              <Eye />
+              <Eye className={cn('h-5 w-5')} />
               <span title="Number of view(s)">{views?.total ?? '-'} views</span>
             </div>
           </div>
