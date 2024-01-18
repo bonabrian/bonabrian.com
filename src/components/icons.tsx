@@ -4,7 +4,6 @@ import cn from '@/utils/cn'
 
 export const TypeScript = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -18,7 +17,6 @@ export const TypeScript = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const JavaScript = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -32,7 +30,6 @@ export const JavaScript = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const NextJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -46,7 +43,6 @@ export const NextJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const ReactJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -60,7 +56,6 @@ export const ReactJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const VueJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -74,7 +69,6 @@ export const VueJs = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const TailwindCss = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -88,7 +82,6 @@ export const TailwindCss = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Bootstrap = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -102,7 +95,6 @@ export const Bootstrap = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const HTML5 = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -116,7 +108,6 @@ export const HTML5 = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const CSS3 = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -130,7 +121,6 @@ export const CSS3 = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Markdown = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -144,7 +134,6 @@ export const Markdown = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Kotlin = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -158,7 +147,6 @@ export const Kotlin = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Spring = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -172,7 +160,6 @@ export const Spring = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const PHP = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -186,7 +173,6 @@ export const PHP = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Laravel = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -200,7 +186,6 @@ export const Laravel = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const RabbitMq = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -214,7 +199,6 @@ export const RabbitMq = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Redis = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -228,7 +212,6 @@ export const Redis = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const JQuery = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -242,7 +225,6 @@ export const JQuery = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Android = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -256,7 +238,6 @@ export const Android = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const MySQL = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -270,7 +251,6 @@ export const MySQL = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Prisma = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -284,7 +264,6 @@ export const Prisma = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const PlanetScale = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -298,7 +277,6 @@ export const PlanetScale = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Git = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -312,7 +290,6 @@ export const Git = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const GitHub = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -326,7 +303,6 @@ export const GitHub = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Google = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -340,7 +316,6 @@ export const Google = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const LinkedIn = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -354,7 +329,6 @@ export const LinkedIn = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Twitter = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     className={cn('h-6 w-6', className)}
@@ -380,7 +354,6 @@ export const Mail = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Spotify = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -487,7 +460,6 @@ export const RSS = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const WakaTime = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -1017,7 +989,6 @@ export const LightBulb = ({ className, ...rest }: ComponentProps<'svg'>) => (
 
 export const Jest = ({ className, ...rest }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     className={cn('h-6 w-6', className)}

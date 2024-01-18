@@ -20,11 +20,9 @@ const components: MDXComponents = {
     const { alt, ...rest } = props
 
     return (
-      <>
-        <ImageZoom>
-          <Image alt={alt} {...rest} />
-        </ImageZoom>
-      </>
+      <ImageZoom>
+        <Image alt={alt} {...rest} />
+      </ImageZoom>
     )
   },
   pre: Pre,

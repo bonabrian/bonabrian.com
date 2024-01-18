@@ -21,7 +21,7 @@ const NowPlayingBar = ({
   devices?: Device[]
   onOpenSongUrl: (url?: string) => void
 }) => {
-  const activeDevice = devices && devices?.find((device) => device.is_active)
+  const activeDevice = devices?.find((device) => device.is_active)
 
   const [showPlayingInfo, setShowPlayingInfo] = useState(false)
   const [showDeviceList, setShowDeviceList] = useState(false)

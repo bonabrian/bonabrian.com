@@ -1,7 +1,11 @@
 'use client'
 
-import { type DetailedHTMLProps, type HTMLAttributes } from 'react'
-import { useRef, useState } from 'react'
+import {
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+  useRef,
+  useState,
+} from 'react'
 
 import cn from '@/utils/cn'
 

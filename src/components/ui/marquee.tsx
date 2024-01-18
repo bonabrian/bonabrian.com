@@ -19,6 +19,9 @@ const Marquee = ({
   className,
   loopSize = 2,
 }: MarqueeProps) => {
+  const linearGradientDirectionClass =
+    direction === 'left' ? 'to right' : 'to bottom'
+
   return (
     <div
       className={cn(
@@ -28,14 +31,10 @@ const Marquee = ({
       )}
       style={{
         maskImage: fade
-          ? `linear-gradient(${
-              direction === 'left' ? 'to right' : 'to bottom'
-            }, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`
+          ? `linear-gradient(${linearGradientDirectionClass}, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`
           : undefined,
         WebkitMaskImage: fade
-          ? `linear-gradient(${
-              direction === 'left' ? 'to right' : 'to bottom'
-            }, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`
+          ? `linear-gradient(${linearGradientDirectionClass}, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`
           : undefined,
       }}
     >

@@ -15,7 +15,7 @@ export const response = <T>(data: T, status: number = 200) => {
   })
 }
 
-export const getErrorMessage = (error: string | Error | any): string => {
+export const getErrorMessage = (error: string | Error | unknown): string => {
   if (error instanceof Error) {
     return error?.message
   }
