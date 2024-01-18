@@ -7,7 +7,7 @@ const robots = (): MetadataRoute.Robots => ({
     {
       userAgent: '*',
       allow: ['/'],
-      disallow: ['/404', '/500', '/api/*'],
+      disallow: ['/404', '/500', '/resume', '/api/*'],
     },
   ],
   sitemap: `${BASE_URL}/sitemap.xml`,
