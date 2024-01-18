@@ -1,5 +1,4 @@
-
-<img width="1439" alt="bonabrian com" src="https://github.com/bonabrian/bonabrian.com/assets/14372275/81289141-065e-4b0d-9a8a-b658d48ac2db">
+![bonabrian.com](https://github.com/bonabrian/bonabrian.com/assets/14372275/dc7014cc-7d69-4008-beed-d4f759fcf723)
 
 <h1 align="center">
   My Own Digital Home on the Internet
