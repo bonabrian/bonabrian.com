@@ -3,6 +3,7 @@ import svgDataUri from 'mini-svg-data-uri'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import type { PluginAPI } from 'tailwindcss/types/config'
+import animate from 'tailwindcss-animate'
 
 const {
   default: flattenColorPalette,
@@ -45,12 +46,14 @@ export default {
           default: 'hsl(var(--code))',
         },
         input: 'hsl(var(--input))',
+        border: 'hsl(var(--border))',
+        ring: 'hsl(var(--ring))',
         spotify: '#1DB954',
       },
       fontFamily: {
-        sans: ['var(--font-plus-jakarta)', ...fontFamily.sans],
-        inter: ['var(--font-inter)', ...fontFamily.sans],
-        'fira-code': ['var(--font-fira-code)', ...fontFamily.sans],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+        cal: ['var(--font-cal)'],
       },
       backgroundImage: {
         'rainbow-gradient':
@@ -67,9 +70,55 @@ export default {
             height: '0.75rem',
           },
         },
+        'marquee-left': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
+        'marquee-up': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+        },
+        glitch: {
+          '2%, 64%': {
+            transform: 'translate(2px, 0) skew(0deg)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 0) skew(0deg)',
+          },
+          '62%': {
+            transform: 'translate(0, 0) skew(5deg)',
+          },
+        },
+        'glitch-top': {
+          '2%, 64%': {
+            transform: 'translate(2px, -2px)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 2px)',
+          },
+          '62%': {
+            transform: 'translate(13px, -1px) skew(-13deg)',
+          },
+        },
+        'glitch-bottom': {
+          '2%, 64%': {
+            transform: 'translate(-2px, 0)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 0)',
+          },
+          '62%': {
+            transform: 'translate(-22px, 5px) skew(21deg)',
+          },
+        },
       },
       animation: {
         equalize: 'equalize 0.8s infinite',
+        'marquee-left': 'marquee-left var(--duration, 50s) linear infinite',
+        'marquee-up': 'marquee-up var(--duration, 50s) linear infinite',
+        glitch: 'glitch 1s linear infinite',
+        'glitch-top': 'glitch-top 1s linear infinite',
+        'glitch-bottom': 'glitch-bottom 1.5s linear infinite',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
@@ -94,14 +143,12 @@ export default {
             'code, pre code': {
               fontFamily: 'var(--font-fira-code)',
             },
-            '[data-rehype-pretty-code-fragment]': {
+            'code[data-theme*=" "], code[data-theme*=" "] span': {
+              color: 'var(--shiki-light)',
+              backgroundColor: 'var(--shiki-light-bg)',
+            },
+            '[data-rehype-pretty-code-figure]': {
               position: 'relative',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
-              display: 'none !important',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
-              display: 'block !important',
             },
             ':not(pre) > code': {
               padding: '0.12em 0.25em',
@@ -173,11 +220,9 @@ export default {
         },
         dark: {
           css: {
-            '[data-rehype-pretty-code-fragment] > [data-theme="light"]': {
-              display: 'none !important',
-            },
-            '[data-rehype-pretty-code-fragment] > [data-theme="dark"]': {
-              display: 'block !important',
+            'code[data-theme*=" "], code[data-theme*=" "] span': {
+              color: 'var(--shiki-dark)',
+              backgroundColor: 'var(--shiki-dark-bg)',
             },
             pre: {
               border: '1px solid hsl(var(--border))',
@@ -213,5 +258,6 @@ export default {
       )
     },
     typography,
+    animate,
   ],
 } satisfies Config

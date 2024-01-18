@@ -1,65 +1,57 @@
-import { footerIconLinks, footerLinks, siteConfig } from '@/data/app'
-import cn from '@/lib/cn'
+import { FOOTER_ICON_LINKS, FOOTER_LINKS } from '@/config/links'
+import site from '@/config/site'
+import cn from '@/utils/cn'
 
 import { Container, Link } from './ui'
 
-const Footer = () => {
-  return (
-    <footer className={cn('bg-pattern mb-8 mt-24 pt-16 text-sm')}>
-      <Container>
-        <nav
-          className={cn(
-            'mb-4 flex flex-col justify-between gap-6',
-            'sm:flex-row sm:gap-4',
-          )}
-        >
-          {footerLinks.map((groups, index) => (
-            <div
-              key={`group-${index}`}
-              className={cn('flex flex-col space-y-4', 'md:items-start')}
-            >
-              {groups.map(({ title, url }) => (
-                <Link
-                  key={title}
-                  href={url}
-                  className={cn(
-                    'mx-0 text-muted-foreground transition-colors duration-100',
-                    'hover:text-foreground',
-                  )}
-                >
-                  {title}
-                </Link>
-              ))}
-            </div>
-          ))}
-          <div className={cn('flex flex-row gap-4')}>
-            {footerIconLinks.map(({ title, url, icon, colorClass }) => (
+const Footer = () => (
+  <footer className={cn('bg-pattern mb-10 mt-24 pt-16 text-sm')}>
+    <Container>
+      <nav className={cn('mb-8 grid grid-cols-2 gap-y-2', 'sm:grid-cols-3')}>
+        {FOOTER_LINKS.map((groups, index) => (
+          <div
+            key={`group-${index}`}
+            className={cn('flex flex-col items-start gap-2')}
+          >
+            {groups.map(({ title, url }) => (
               <Link
                 key={title}
                 href={url}
-                showExternalLinkIcon={false}
-                title={title}
                 className={cn(
-                  'text-muted-foreground transition-all duration-150 ease-in-out',
-                  colorClass,
+                  'font-medium text-muted-foreground transition-colors duration-200',
+                  'hover:text-foreground',
                 )}
               >
-                {icon}
+                {title}
               </Link>
             ))}
           </div>
-        </nav>
-        <div className={cn('mt-4')}>
-          <div className={cn('flex items-center space-x-2 py-8')}>
-            <div>Copyright {`© 2022 - ${new Date().getFullYear()}`}</div>
-            <Link href="/" className={cn('font-semibold text-primary')}>
-              {siteConfig.author.name}
-            </Link>
-          </div>
+        ))}
+      </nav>
+      <div className={cn('flex items-center justify-between gap-4')}>
+        <div className={cn('font-medium')}>
+          &copy; {new Date().getFullYear()}{' '}
+          <Link href="/">{site.author.name}</Link> ——{' '}
+          <em className={cn('text-muted-foreground')}>Jakarta, Indonesia</em>
         </div>
-      </Container>
-    </footer>
-  )
-}
+        <div className={cn('flex gap-4')}>
+          {FOOTER_ICON_LINKS.map(({ title, url, icon, className }) => (
+            <Link
+              key={title}
+              href={url}
+              title={title}
+              className={cn(
+                'text-muted-foreground transition-colors duration-200 ease-out',
+                className,
+              )}
+            >
+              {icon}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </footer>
+)
 
 export default Footer

@@ -1,88 +1,49 @@
 'use client'
 
-import type { ImageProps as NextImageProps } from 'next/image'
 import NextImage from 'next/image'
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 
-import cn from '@/lib/cn'
-import { getDomainFromUrl } from '@/lib/utils'
+import cn from '@/utils/cn'
 
-import { Link } from '../ui'
-import ImageZoom from './image-zoom'
-
-type BaseImageProps = Omit<NextImageProps, 'width' | 'height' | 'fill'>
-type SizeProps = BaseImageProps & { size?: number }
-type DimensionProps = BaseImageProps & {
-  width?: number
-  height?: number
-  fill?: boolean
+interface ImageProps extends React.ComponentPropsWithRef<typeof NextImage> {
+  lazy?: boolean
 }
 
-type ImageProps = (SizeProps | DimensionProps) & {
-  zoomableImage?: boolean
-  source?: string
-}
+const Image = forwardRef<HTMLDivElement, ImageProps>(
+  (
+    { src, alt, className, lazy = true, width = 1920, height = 1024, ...rest },
+    ref,
+  ) => {
+    const [isLoading, setIsLoading] = useState(true)
 
-const Image = ({
-  zoomableImage = true,
-  source,
-  className,
-  ...props
-}: ImageProps) => {
-  const { size = 0, ...otherProps } = props as SizeProps
-  const {
-    width = size,
-    height = size,
-    fill = true,
-    ...rest
-  } = otherProps as DimensionProps
-
-  const [zoomed, setZoomed] = useState(false)
-  const [isLoading, setLoading] = useState(true)
-
-  const zoomImage = () => {
-    if (zoomableImage) setZoomed(true)
-  }
-
-  return (
-    <figure>
+    return (
       <div
         className={cn(
-          fill ? 'relative aspect-video' : '',
+          'overflow-hidden',
           isLoading && 'animate-pulse',
           className,
         )}
+        ref={ref}
       >
         <NextImage
-          width={fill ? undefined : width}
-          height={fill ? undefined : height}
-          loading={props.priority ? undefined : props.loading || 'lazy'}
-          decoding="async"
           className={cn(
-            'rounded-xl object-cover',
-            'transition-[scale,filter] duration-700',
-            isLoading && 'scale-[1.01] blur-xl grayscale',
-            zoomableImage && 'cursor-zoom-in',
+            'rounded-xl transition-[scale,filter] duration-700',
+            isLoading && 'scale-[1.02] blur-xl grayscale',
           )}
-          onClick={zoomImage}
-          onLoad={() => setLoading(false)}
-          fill={fill}
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={lazy ? 'lazy' : undefined}
+          priority={!lazy}
+          quality={100}
+          onLoad={() => setIsLoading(false)}
+          data-zoomable
           {...rest}
         />
-        {zoomed && <ImageZoom unZoom={() => setZoomed(false)} {...rest} />}
       </div>
-      {source && (
-        <figcaption className={cn('mt-1 text-sm')}>
-          <span className={cn('flex items-center justify-center gap-1')}>
-            <span className={cn('text-muted-foreground')}>Source:</span>{' '}
-            <Link href={source ?? ''} className={cn('hover:underline')}>
-              {getDomainFromUrl(source)}
-            </Link>
-          </span>
-        </figcaption>
-      )}
-    </figure>
-  )
-}
+    )
+  },
+)
 
 export default Image

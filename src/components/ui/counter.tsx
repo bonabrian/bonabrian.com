@@ -3,7 +3,7 @@
 import { m, useAnimationControls } from 'framer-motion'
 import { useEffect } from 'react'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 interface CounterProps {
   count: number

@@ -4,13 +4,15 @@ import type { Project } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
 
-import { ROUTES, STACKS } from '@/data/app'
-import cn from '@/lib/cn'
+import { ROUTES } from '@/config/links'
+import { STACKS } from '@/constants/stacks'
+import cn from '@/utils/cn'
 
 import { Link, Tooltip } from './ui'
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const {
+    _id,
     title,
     slug,
     description,
@@ -28,6 +30,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         blurDataURL?: string
       }
     }
+
     return {}
   }, [image, imageMeta])
 
@@ -37,16 +40,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const [isLoadingImage, setIsLoadingImage] = useState(true)
 
   return (
-    <div
+    <Link
+      key={_id}
+      href={projectUrl}
       className={cn(
-        'group flex h-full min-w-0 flex-col break-words rounded-md bg-card',
+        'group rounded-xl bg-card shadow-border transition-colors duration-200',
       )}
+      target="_blank"
     >
-      <Link
-        href={projectUrl}
-        showExternalLinkIcon={false}
+      <div
         className={cn(
-          'relative aspect-video overflow-hidden rounded-t-md',
+          'relative aspect-video w-full overflow-hidden bg-cover bg-no-repeat',
           isLoadingImage && 'animate-pulse',
         )}
       >
@@ -56,7 +60,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={title}
           fill
           className={cn(
-            'rounded-t-md object-cover transition duration-200 ease-in-out group-hover:scale-105',
+            'rounded-xl object-cover transition duration-200 ease-in-out',
             isLoadingImage && 'scale-[1.01] blur-xl grayscale',
           )}
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -64,25 +68,32 @@ const ProjectCard = ({ project }: { project: Project }) => {
           priority
           {...extraImageProps}
         />
-      </Link>
-      <div className={cn('flex flex-col p-6')}>
-        <Link href={projectUrl} showExternalLinkIcon={false}>
-          <h2 className={cn('mb-1 text-lg font-semibold text-card-foreground')}>
-            {title}
-          </h2>
-        </Link>
-        <p className={cn('text-muted-foreground')}>{description}</p>
-        {stacks?.length && (
-          <div className={cn('mt-4 flex flex-wrap items-center gap-2')}>
-            {stacks?.map((stack) => (
-              <Tooltip key={stack} title={stack}>
-                {STACKS[stack]}
-              </Tooltip>
-            ))}
-          </div>
-        )}
       </div>
-    </div>
+      <div
+        className={cn(
+          'flex flex-col p-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5',
+        )}
+      >
+        <h2
+          className={cn(
+            'font-cal text-lg font-bold text-card-foreground',
+            'md:text-xl',
+          )}
+        >
+          {title}
+        </h2>
+        <p className={cn('mt-2 text-muted-foreground')}>{description}</p>
+      </div>
+      {stacks?.length && (
+        <div className={cn('mt-2 flex flex-wrap items-center gap-2 px-4 pb-4')}>
+          {stacks.map((stack) => (
+            <Tooltip key={stack} title={stack}>
+              {STACKS[stack]}
+            </Tooltip>
+          ))}
+        </div>
+      )}
+    </Link>
   )
 }
 

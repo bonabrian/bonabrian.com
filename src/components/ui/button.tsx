@@ -1,21 +1,23 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
-import cn from '@/lib/cn'
-import { ariaAttr } from '@/lib/utils'
+import { ariaAttr } from '@/utils/aria'
+import cn from '@/utils/cn'
 
 export type HTMLButtonType = 'button' | 'submit' | 'reset'
 
 const buttonVariants = cva(
-  'duration-normal relative inline-flex select-none appearance-none items-center justify-center whitespace-nowrap rounded-md align-middle text-sm font-semibold leading-tight -tracking-tighter outline-none outline-offset-2 transition-all disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+  'duration-normal relative inline-flex select-none appearance-none items-center justify-center whitespace-nowrap rounded-md align-middle text-sm font-medium outline-none outline-offset-2 transition-all disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-primary/90',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        outline:
+        shadow:
           'border border-secondary-foreground bg-background shadow-[3px_3px_rgb(0_0_0_/_20%)] hover:bg-primary hover:text-primary-foreground dark:shadow-[3px_3px_rgb(255_255_255_/_40%)]',
+        outline:
+          'border border-input hover:bg-accent hover:text-accent-foreground',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
       },

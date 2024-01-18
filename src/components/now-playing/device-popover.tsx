@@ -1,11 +1,9 @@
-'use client'
-
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
-import { PAIR_DEVICES } from '@/data/app'
-import cn from '@/lib/cn'
+import { PAIR_DEVICES } from '@/constants/devices'
 import type { Device } from '@/types/spotify'
+import cn from '@/utils/cn'
 
 import { CPU as DeviceIcon } from '../icons'
 
@@ -17,7 +15,7 @@ interface DevicePopoverProps {
 const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
   const availableDevices = devices?.map((device) => ({
     ...device,
-    icon: PAIR_DEVICES[device?.type]?.icon || <DeviceIcon />,
+    icon: PAIR_DEVICES[device?.type]?.icon ?? <DeviceIcon />,
   }))
 
   return (
@@ -42,16 +40,16 @@ const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
               key={device.name}
               className={cn('flex w-full items-center justify-between gap-3')}
             >
-              <div className={cn('text-foreground')}>{device?.icon}</div>
+              <div className={cn('text-foreground')}>{device.icon}</div>
               <div className={cn('flex flex-grow flex-col pl-0.5 pr-2')}>
                 <span className={cn('font-medium text-foreground')}>
-                  {device?.name}
+                  {device.name}
                 </span>
                 <span className={cn('text-xs text-muted-foreground')}>
-                  {device?.model}
+                  {device.model}
                 </span>
               </div>
-              {device?.is_active ? (
+              {device.is_active && (
                 <div className={cn('equalizer')}>
                   <span className={cn('bar bg-foreground')} />
                   <span className={cn('bar bg-foreground')} />
@@ -59,7 +57,7 @@ const DevicePopover = ({ show, devices }: DevicePopoverProps) => {
                   <span className={cn('bar bg-foreground')} />
                   <span className={cn('bar bg-foreground')} />
                 </div>
-              ) : null}
+              )}
             </div>
           ))}
         </div>

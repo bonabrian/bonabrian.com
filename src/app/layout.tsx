@@ -1,44 +1,19 @@
-import '@/styles/app.css'
+import '@/styles/global.css'
 
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata, Viewport } from 'next'
-import {
-  Fira_Code as FiraCode,
-  Inter,
-  Plus_Jakarta_Sans as PlusJakartaSans,
-} from 'next/font/google'
+import localFont from 'next/font/local'
 
 import Analytics from '@/components/analytics'
 import Footer from '@/components/footer'
-import Navigation from '@/components/navigation'
+import Header from '@/components/header'
 import NowPlaying from '@/components/now-playing'
 import Providers from '@/components/providers'
-import { DEFAULT_METADATA, seo } from '@/data/meta'
-import cn from '@/lib/cn'
+import { DEFAULT_METADATA, seo } from '@/lib/meta'
+import cn from '@/utils/cn'
 
-import GuestbookWidgetButton from './guestbook/components/guestbook-widget-button'
-
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-const fontPlusJakarta = PlusJakartaSans({
-  subsets: ['latin'],
-  variable: '--font-plus-jakarta',
-  display: 'fallback',
-  weight: ['400', '500', '600', '700', '800'],
-})
-
-const fontInter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  weight: ['900'],
-})
-
-const firaCode = FiraCode({
-  subsets: ['latin'],
-  variable: '--font-fira-code',
-  display: 'swap',
-})
+import WidgetButton from './guestbook/widget-button'
 
 export const metadata: Metadata = seo({
   ...DEFAULT_METADATA,
@@ -52,24 +27,30 @@ export const viewport: Viewport = {
   width: 'device-width',
 }
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const fontCal = localFont({
+  src: '../assets/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-cal',
+})
+
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={cn(
-        firaCode.variable,
-        fontInter.variable,
-        fontPlusJakarta.variable,
+        GeistSans.variable,
+        GeistMono.variable,
+        fontCal.variable,
+        'scroll-smooth',
       )}
     >
       <body>
         <Providers>
           <div id="__app">
-            <Navigation />
+            <Header />
             <main>{children}</main>
             <Footer />
-            <GuestbookWidgetButton />
+            <WidgetButton />
             <NowPlaying />
           </div>
           <Analytics />

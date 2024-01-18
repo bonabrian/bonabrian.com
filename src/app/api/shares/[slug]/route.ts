@@ -4,10 +4,11 @@ import {
   countContentShares,
   countUserShares,
   createShare,
-} from '@/app/(content)/actions'
-import { MAX_SHARES_PER_SESSION } from '@/data/app'
+} from '@/actions/shares'
+import { MAX_SHARES_PER_SESSION } from '@/config/engagements'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
-import { getSessionId } from '@/lib/server'
+import { getSessionId } from '@/utils/session'
 
 export const GET = async (
   _req: NextRequest,
@@ -18,7 +19,7 @@ export const GET = async (
     const total = await countContentShares({ slug })
     return response({ total })
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }
 
@@ -41,8 +42,8 @@ export const POST = async (
     }
 
     // conflict exceeded maximum limit
-    return response({ message: 'Maximum limit exceeded' }, 409)
+    return response<MessageResponse>({ message: 'Maximum limit exceeded' }, 409)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }

@@ -2,12 +2,13 @@ import { allPosts } from 'contentlayer/generated'
 import { NextResponse } from 'next/server'
 import RSS from 'rss'
 
-import { BASE_URL, ROUTES, siteConfig } from '@/data/app'
+import { ROUTES } from '@/config/links'
+import site, { BASE_URL } from '@/config/site'
 
 export const GET = () => {
   const feed = new RSS({
-    title: siteConfig.author.name,
-    description: siteConfig.description,
+    title: site.name,
+    description: site.description,
     site_url: BASE_URL,
     feed_url: `${BASE_URL}/feed.xml`,
     image_url: `${BASE_URL}/static/images/logo.svg`,
@@ -21,7 +22,7 @@ export const GET = () => {
         description: longExcerpt ?? excerpt,
         url: `${BASE_URL}${ROUTES.blog}/${slug}`,
         date,
-        author: siteConfig.author.name,
+        author: site.author.name,
       })
     })
 

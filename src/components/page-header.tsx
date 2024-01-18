@@ -3,7 +3,7 @@
 import { m } from 'framer-motion'
 import { forwardRef } from 'react'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 import { Container } from './ui'
 
@@ -14,14 +14,14 @@ interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
-  ({ title, description, centered }: PageHeaderProps, ref) => {
+  ({ title, description, centered, ...props }, ref) => {
     const animation = {
       hide: centered ? { y: 32, opacity: 0 } : { x: -32, opacity: 0 },
       show: centered ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 },
     }
 
     return (
-      <div className={cn('bg-pattern py-12', 'md:py-16', 'lg:py-20')} ref={ref}>
+      <div className={cn('bg-pattern py-16', 'lg:py-20')} ref={ref} {...props}>
         <Container
           className={cn(
             'pointer-events-none select-none overflow-hidden',
@@ -35,9 +35,9 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           >
             <h1
               className={cn(
-                'text-4xl font-extrabold leading-tight',
-                'md:text-5xl md:leading-tight',
-                'lg:text-6xl lg:leading-tight',
+                'pb-2 font-cal text-4xl font-bold',
+                'md:text-5xl',
+                'lg:text-6xl',
               )}
             >
               {title}
@@ -49,7 +49,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               animate={animation.show}
               transition={{ delay: 0.2 }}
             >
-              <p className={cn('mt-4 text-lg')}>{description}</p>
+              <p className={cn('mt-2 font-cal text-lg')}>{description}</p>
             </m.div>
           )}
         </Container>

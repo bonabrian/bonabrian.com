@@ -1,46 +1,30 @@
-import type { LinkProps as NextLinkProps } from 'next/link'
 import NextLink from 'next/link'
-import { forwardRef } from 'react'
+import type { ComponentProps } from 'react'
 
-import cn from '@/lib/cn'
-
-import { ExternalLink } from '../icons'
-
-type LinkProps = {
+interface LinkProps extends ComponentProps<typeof NextLink> {
   href: string
-  children: React.ReactNode
-  showExternalLinkIcon?: boolean
-} & React.ComponentPropsWithoutRef<'a'> &
-  NextLinkProps
+}
 
-const Link = forwardRef<any, LinkProps>(
-  (
-    { href, children, className, showExternalLinkIcon = true, ...rest },
-    ref,
-  ) => {
-    const isExternal =
-      href && (href.startsWith('https') || href.startsWith('http'))
+const isLocalLink = (href: string) =>
+  href && (href.startsWith('/') || href.startsWith('#'))
 
-    return (
-      <NextLink
-        href={href}
-        target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noopener' : undefined}
-        ref={ref}
-        className={cn(
-          'transition-all duration-200',
-          showExternalLinkIcon && isExternal ? 'inline-flex items-center' : '',
-          className,
-        )}
-        {...rest}
-      >
-        {children}
-        {showExternalLinkIcon && isExternal && (
-          <ExternalLink className={cn('ml-0.5 inline-block h-3 w-3')} />
-        )}
-      </NextLink>
-    )
-  },
-)
+const Link = ({ href, ...rest }: LinkProps) => {
+  const openInNewTab = !isLocalLink(href)
+
+  const LinkComponent = href.includes('#') ? 'a' : NextLink
+
+  return (
+    <LinkComponent
+      href={href}
+      {...(openInNewTab
+        ? {
+            target: '_blank',
+            rel: `${rest.rel || ''} noopener noreferrer`.trim(),
+          }
+        : {})}
+      {...rest}
+    />
+  )
+}
 
 export default Link

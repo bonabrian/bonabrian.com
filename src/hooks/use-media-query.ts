@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
-import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect'
+import useIsomorphicLayoutEffect from './use-isomorphic-layout-effect'
 
 const getMatch = (query: string): MediaQueryList => window.matchMedia(query)
 
 const parseQueryString = (query: string): string =>
   query.replaceAll('@media only screen and', '').trim()
 
-export const useMediaQuery = (query: string, defaultState = false) => {
+const useMediaQuery = (query: string, defaultState = false) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s))
   const [state, setState] = useState<boolean>(defaultState)
 
@@ -41,3 +41,5 @@ export const useMediaQuery = (query: string, defaultState = false) => {
 
   return state
 }
+
+export default useMediaQuery

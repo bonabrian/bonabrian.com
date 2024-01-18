@@ -1,10 +1,11 @@
 import type { ReactionType } from '@prisma/client'
 import type { NextRequest } from 'next/server'
 
-import { createReaction, getReactions } from '@/app/(content)/actions'
-import { MAX_REACTIONS_PER_SESSION } from '@/data/app'
+import { createReaction, getReactions } from '@/actions/reactions'
+import { MAX_REACTIONS_PER_SESSION } from '@/config/engagements'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
-import { getSessionId } from '@/lib/server'
+import { getSessionId } from '@/utils/session'
 
 export const GET = async (
   req: NextRequest,
@@ -36,7 +37,7 @@ export const GET = async (
       200,
     )
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }
 
@@ -66,10 +67,7 @@ export const POST = async (
 
       return response({}, 201)
     }
-
-    // conflict exceeded maximum limit
-    return response({ message: 'Maximum limit exceeded' }, 409)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }

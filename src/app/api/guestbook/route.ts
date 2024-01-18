@@ -1,17 +1,18 @@
 import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
-import { addEntry, getGuestbookEntries } from '@/app/guestbook/actions'
+import { addEntry, getGuestbookEntries } from '@/actions/guestbook'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
+import type { GuestbookEntry } from '@/types/guestbook'
 
 export const GET = async () => {
   try {
     const entries = await getGuestbookEntries()
-
-    return response(entries)
+    return response<GuestbookEntry[] | undefined>(entries)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }
 
@@ -20,7 +21,7 @@ export const POST = async (req: NextRequest) => {
     const session = await getServerSession(authOptions)
 
     if (!session) {
-      return response({ message: 'Unauthenticated' }, 401)
+      return response<MessageResponse>({ message: 'Unauthenticated' }, 401)
     }
 
     const body = await req.json()
@@ -30,6 +31,6 @@ export const POST = async (req: NextRequest) => {
 
     return response({}, 201)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }

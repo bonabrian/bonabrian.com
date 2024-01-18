@@ -1,53 +1,42 @@
 'use client'
 
 import type { Post } from 'contentlayer/generated'
-import { m } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
-import { ListBullets, Search, SquaresFour } from '@/components/icons'
-import { Button, Container, EmptyState, Input } from '@/components/ui'
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
+import { Search } from './icons'
 import PostCard from './post-card'
-
-type LayoutOption = 'list' | 'grid'
+import { EmptyState, Input } from './ui'
 
 interface PostsProps {
-  posts: Array<Post>
+  posts: Post[]
 }
 
 const filterPosts = (
-  posts: Array<Post> | undefined,
+  posts: Post[] | undefined,
   query: string | undefined | null = null,
-): Array<Post> => {
+): Post[] => {
   if (!posts) return []
 
   const filteredPosts = !query
     ? posts
-    : posts?.filter((post) => {
+    : posts.filter((post) => {
         const searchContent =
           post?.title + post?.excerpt + post?.tags?.join(' ')
+
         return searchContent.toLocaleLowerCase().includes(query.toLowerCase())
       })
 
   return filteredPosts
 }
 
-const animation = {
-  hide: { opacity: 0, scale: 0.8 },
-  show: { opacity: 1, scale: 1 },
-}
-
 const Posts = ({ posts }: PostsProps) => {
   const [search, setSearch] = useState('')
-  const [layoutOption, setLayoutOption] = useState<LayoutOption>('list')
 
   const filteredPosts = useMemo(() => {
     return filterPosts(posts, search)
   }, [posts, search])
-
-  const isListView = layoutOption === 'list'
-  const isGridView = layoutOption === 'grid'
 
   const renderSearchComponent = () => {
     return (
@@ -68,57 +57,29 @@ const Posts = ({ posts }: PostsProps) => {
   }
 
   return (
-    <Container>
-      <div className={cn('flex items-center justify-between gap-4')}>
-        {renderSearchComponent()}
-        <div className={cn('hidden gap-2 px-1', 'md:flex')}>
-          <Button
-            variant="ghost"
-            className={cn(
-              'text-muted-foreground',
-              isListView && 'bg-accent text-accent-foreground',
-            )}
-            onClick={() => setLayoutOption('list')}
-          >
-            <ListBullets />
-          </Button>
-          <Button
-            variant="ghost"
-            className={cn(
-              'text-muted-foreground',
-              isGridView && 'bg-accent text-accent-foreground',
-            )}
-            onClick={() => setLayoutOption('grid')}
-          >
-            <SquaresFour />
-          </Button>
-        </div>
-      </div>
+    <>
+      {renderSearchComponent()}
       {filteredPosts.length ? (
         <div
           className={cn(
-            'my-8 gap-8',
-            isListView ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2',
-            'md:my-12',
+            'my-8 grid grid-cols-1 gap-8',
+            'md:my-12 md:grid-cols-2',
           )}
         >
-          {filteredPosts.map((post, index) => (
-            <m.div
-              key={`${post.slug}.${layoutOption}}`}
-              initial={animation.hide}
-              animate={animation.show}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
-            >
-              <PostCard post={post} layout={layoutOption} />
-            </m.div>
+          {filteredPosts.map((post) => (
+            <PostCard key={post._id} post={post} />
           ))}
         </div>
       ) : (
         <EmptyState
-          message={`No posts for "${search}". Try searching another keyword.`}
+          message={
+            search
+              ? `No posts for "${search}" Perhaps the little guy is too busy running in the wheel of code.`
+              : "The posts are playing hide and seek – we just can't find them!"
+          }
         />
       )}
-    </Container>
+    </>
   )
 }
 

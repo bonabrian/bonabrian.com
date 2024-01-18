@@ -1,6 +1,6 @@
 export type AccountType = 'personal' | 'work'
 
-export interface GithubAccount {
+export interface GitHubAccount {
   username: string
   endpoint: string
   token?: string
@@ -26,14 +26,14 @@ export interface ContributionCalendar {
   }[]
 }
 
-export interface GithubUserContributionsCollection {
+export interface GitHubUserContributionsCollection {
   contributionsCollection: {
     contributionCalendar: ContributionCalendar
   }
 }
 
-export interface GithubUserContributionsResponse {
+export interface GitHubUserContributionsResponse {
   data?: {
-    user?: GithubUserContributionsCollection
+    user?: GitHubUserContributionsCollection
   }
 }

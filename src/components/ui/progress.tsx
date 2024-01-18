@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 interface ProgressProps {
   data: { name: string; percent?: number }
@@ -33,8 +33,8 @@ const Progress = ({ data, className }: ProgressProps) => {
           animate="animate"
           variants={variants}
           className={cn(
-            className,
             'absolute left-0 top-0 h-3 rounded-full px-3',
+            className,
           )}
         >
           &ensp;

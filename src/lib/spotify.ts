@@ -1,5 +1,5 @@
-import { PAIR_DEVICES } from '@/data/app'
-import { env } from '@/data/env'
+import { PAIR_DEVICES } from '@/constants/devices'
+import { env } from '@/env'
 import type {
   AccessTokenResponse,
   AvailableDevicesResponse,
@@ -19,22 +19,6 @@ const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 const NOW_PLAYING_ENDPOINT = `${BASE_URL}/me/player/currently-playing`
 const AVAILABLE_DEVICES_ENDPOINT = `${BASE_URL}/me/player/devices`
 
-export const getAccessToken = async (): Promise<AccessTokenResponse> => {
-  const response = await fetcher<AccessTokenResponse>(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${TOKEN}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: REFRESH_TOKEN || '',
-    }),
-  })
-
-  return response
-}
-
 const nowPlayingDataMapper = (context: ContextResponse): NowPlaying => {
   const { item, is_playing } = context
 
@@ -48,6 +32,22 @@ const nowPlayingDataMapper = (context: ContextResponse): NowPlaying => {
     songUrl: item?.external_urls?.spotify ?? '',
     title: item?.name ?? '',
   }
+}
+
+export const getAccessToken = async (): Promise<AccessTokenResponse> => {
+  const response = await fetcher<AccessTokenResponse>(TOKEN_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${TOKEN}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: REFRESH_TOKEN ?? '',
+    }),
+  })
+
+  return response
 }
 
 export const getNowPlaying = async (): Promise<NowPlaying> => {

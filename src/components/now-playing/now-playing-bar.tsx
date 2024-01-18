@@ -4,8 +4,8 @@ import { Popover } from '@headlessui/react'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import cn from '@/lib/cn'
 import type { Device, NowPlaying } from '@/types/spotify'
+import cn from '@/utils/cn'
 
 import { Speaker, Spotify } from '../icons'
 import AnimatedBars from './animated-bars'
@@ -30,7 +30,8 @@ const NowPlayingBar = ({
     <div className={cn('fixed bottom-0 z-[999] w-full')}>
       <div
         className={cn(
-          'flex justify-between bg-spotify px-4 py-1 text-sm text-neutral-800 dark:text-neutral-900',
+          'flex justify-between bg-spotify px-4 py-1 text-sm text-neutral-800',
+          'dark:text-neutral-900',
         )}
       >
         {playingData?.songUrl ? (
@@ -67,7 +68,7 @@ const NowPlayingBar = ({
                       onClick={() => onOpenSongUrl(playingData.songUrl)}
                     >
                       <div className={cn('inline-flex')}>
-                        <span>{playingData?.artist} - </span>
+                        <span>{playingData?.artist}</span> -{' '}
                         <span>{playingData?.title}</span>
                       </div>
                     </div>

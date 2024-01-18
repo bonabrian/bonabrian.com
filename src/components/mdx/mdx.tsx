@@ -1,10 +1,11 @@
 import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
-import { Link } from '../ui'
+import ImageZoom from '../image-zoom'
 import Image from './image'
+import Link from './link'
 import Pre from './pre'
 
 interface MdxProps {
@@ -12,19 +13,29 @@ interface MdxProps {
   className?: string
 }
 
-const components = {
-  Link,
+const components: MDXComponents = {
   a: Link,
+  Link,
+  Image: (props: React.ComponentPropsWithoutRef<typeof Image>) => {
+    const { alt, ...rest } = props
+
+    return (
+      <ImageZoom>
+        <Image alt={alt} {...rest} />
+      </ImageZoom>
+    )
+  },
   pre: Pre,
-  Image,
 }
 
 const Mdx = ({ code, className }: MdxProps) => {
-  const MdxComponent = useMDXComponent(code)
+  const Component = useMDXComponent(code)
 
   return (
-    <div className={cn('mdx', className)}>
-      <MdxComponent components={{ ...components } as MDXComponents} />
+    <div
+      className={cn('prose w-full max-w-none', 'dark:prose-dark', className)}
+    >
+      <Component components={{ ...components }} />
     </div>
   )
 }

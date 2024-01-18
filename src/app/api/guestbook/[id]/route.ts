@@ -1,8 +1,9 @@
 import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
-import { deleteEntry, findEntryById } from '@/app/guestbook/actions'
-import { siteConfig } from '@/data/app'
+import { deleteEntry, findEntryById } from '@/actions/guestbook'
+import site from '@/config/site'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
 
@@ -14,26 +15,26 @@ export const DELETE = async (
     const session = await getServerSession(authOptions)
 
     if (!session) {
-      return response({ message: 'Unauthenticated' }, 401)
+      return response<MessageResponse>({ message: 'Unauthenticated' }, 401)
     }
 
-    const guestbook = await findEntryById({ id: parseInt(params.id) })
+    const guestbook = await findEntryById({ id: Number(params.id) })
 
     if (!guestbook) {
       return response({ message: 'Not Found' }, 404)
     }
 
-    const isAuthor = session?.user?.email === siteConfig.author.email
+    const isAuthor = session?.user?.email === site.author.email
     const isBelongToUser = session?.user?.email === guestbook.user?.email
 
     if (!isBelongToUser && !isAuthor) {
       return response({ message: 'Forbidden' }, 403)
     }
 
-    await deleteEntry({ id: parseInt(params.id) })
+    await deleteEntry({ id: Number(params.id) })
 
     return response(null, 204)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }

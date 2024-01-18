@@ -2,8 +2,8 @@
 
 import { m, useMotionValue, useTransform } from 'framer-motion'
 
-import { useTheme } from '@/hooks'
-import cn from '@/lib/cn'
+import useTheme from '@/hooks/use-theme'
+import cn from '@/utils/cn'
 
 import { Button } from './ui'
 

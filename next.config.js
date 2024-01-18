@@ -8,6 +8,7 @@ const appHeaders = require('./config/next/headers')
 const redirects = require('./config/next/redirects')
 
 const { withContentlayer } = require('next-contentlayer')
+const million = require('million/compiler')
 
 const nextConfig = {
   swcMinify: true,
@@ -16,15 +17,15 @@ const nextConfig = {
   crossOrigin: 'anonymous',
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: [
+    remotePatterns: [
       // google avatar
-      'lh3.googleusercontent.com',
+      { hostname: 'lh3.googleusercontent.com' },
       // github avatar
-      'avatars.githubusercontent.com',
-      'i.scdn.co',
-      'spotify.com',
-      'res.cloudinary.com',
-      'ui-avatars.com',
+      { hostname: 'avatars.githubusercontent.com' },
+      { hostname: 'i.scdn.co' },
+      { hostname: 'spotify.com' },
+      { hostname: 'res.cloudinary.com' },
+      { hostname: 'ui-avatars.com' },
     ],
   },
   webpack: (config) => {
@@ -55,6 +56,17 @@ const nextConfig = {
   },
 }
 
+const millionConfig = {
+  mute: true,
+  auto: { rsc: true },
+}
+
 module.exports = isDevelopment
-  ? withContentlayer(nextConfig)
-  : withSentryConfig(withContentlayer(nextConfig), SentryWebpackPluginOptions)
+  ? million.next(withContentlayer(nextConfig), millionConfig)
+  : million.next(
+      withSentryConfig(
+        withContentlayer(nextConfig),
+        SentryWebpackPluginOptions,
+      ),
+      millionConfig,
+    )

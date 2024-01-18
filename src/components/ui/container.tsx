@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   wide?: boolean
@@ -11,9 +11,9 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <div
         className={cn(
-          'mx-auto flex w-full flex-col px-4',
+          'mx-auto flex w-full flex-col px-8',
           'sm:px-12 md:px-10 lg:px-16 xl:px-6',
-          wide ? 'max-w-12xl' : 'max-w-6xl',
+          wide ? 'max-w-12xl' : 'max-w-5xl',
           className,
         )}
         {...props}

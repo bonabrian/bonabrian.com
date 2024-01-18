@@ -2,9 +2,10 @@
 
 import { useRouter } from 'next/navigation'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 import { ArrowLeftCircle } from '../icons'
+import Container from './container'
 import Link from './link'
 
 interface BackButtonProps {
@@ -15,27 +16,24 @@ const BackButton = ({ href }: BackButtonProps) => {
   const router = useRouter()
 
   const className =
-    'flex gap-2 w-max hover:gap-3 items-center mb-4 transition-all duration-200 font-medium cursor-pointer'
+    'flex gap-2 w-max hover:gap-3 items-center transition-all duration-200 font-medium cursor-pointer'
 
   return (
-    <div className={cn('w-fit')}>
-      {href ? (
-        <Link
-          href={href}
-          passHref
-          showExternalLinkIcon={false}
-          className={cn(className)}
-        >
-          <ArrowLeftCircle />
-          <span>Back</span>
-        </Link>
-      ) : (
-        <div className={cn(className)} onClick={() => router.back()}>
-          <ArrowLeftCircle />
-          <span>Back</span>
-        </div>
-      )}
-    </div>
+    <Container className={cn('mt-4', 'md:mt-8')}>
+      <div className={cn('w-fit')}>
+        {href ? (
+          <Link href={href} passHref className={cn(className)}>
+            <ArrowLeftCircle />
+            <span>Back</span>
+          </Link>
+        ) : (
+          <div className={cn(className)} onClick={() => router.back()}>
+            <ArrowLeftCircle />
+            <span>Back</span>
+          </div>
+        )}
+      </div>
+    </Container>
   )
 }
 

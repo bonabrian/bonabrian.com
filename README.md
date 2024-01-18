@@ -1,5 +1,4 @@
-
-<img width="1439" alt="bonabrian com" src="https://github.com/bonabrian/bonabrian.com/assets/14372275/81289141-065e-4b0d-9a8a-b658d48ac2db">
+![bonabrian.com](https://github.com/bonabrian/bonabrian.com/assets/14372275/dc7014cc-7d69-4008-beed-d4f759fcf723)
 
 <h1 align="center">
   My Own Digital Home on the Internet
@@ -97,13 +96,15 @@ Deploy to Vercel, Netlify, etc
 
 ## Files to customize
 
-- `data/app/site.ts` - update `siteConfig` with yours.
-- `app/(bio)/about/page.tsx` - update with yours.
-- `app/(bio)resume/page.tsx` - (optional) update with your resume or you can remove it.
+- `config/site.ts` - update `site` with yours.
+- `config/github.ts` - update `GITHUB_ACCOUNT` with yours.
+- `constants/experiences.ts` - update with your cool experiences.
+- `app/about/page.tsx` - update with yours.
+- `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
-- `public/static` - store assets such as images and favicons.
+- `public/media/*` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
-- `content` - replace with your blog posts, projects, and snippets.
+- `content` - replace with your blog posts, projects, and notes.
 - `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains. 
 
 ## Stack

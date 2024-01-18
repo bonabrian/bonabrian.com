@@ -3,16 +3,12 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
-import cn from '@/lib/cn'
 import type { NowPlaying } from '@/types/spotify'
+import cn from '@/utils/cn'
+import { trim } from '@/utils/string'
 
 import { ChevronRight, Spotify } from '../icons'
 import AnimatedBars from './animated-bars'
-
-const trimString = (text?: string, maxLength: number = 20): string =>
-  (text &&
-    text?.slice(0, maxLength) + (text?.length > maxLength ? '...' : '')) ??
-  ''
 
 const NowPlayingCard = ({
   playingData,
@@ -25,8 +21,8 @@ const NowPlayingCard = ({
 }) => {
   const [expanded, setExpanded] = useState(isExpanded)
 
-  const trimmedSongTitle = trimString(playingData?.title, 40)
-  const trimmedSongArtist = trimString(playingData?.artist)
+  const trimmedSongTitle = trim(playingData?.title, 40)
+  const trimmedSongArtist = trim(playingData?.artist)
 
   if (!playingData?.songUrl) return null
 
@@ -66,7 +62,8 @@ const NowPlayingCard = ({
             )}
             <div
               className={cn(
-                'flex flex-col hover:cursor-pointer hover:underline',
+                'flex flex-col',
+                'hover:cursor-pointer hover:underline',
               )}
               onClick={() => onOpenSongUrl(playingData?.songUrl)}
             >

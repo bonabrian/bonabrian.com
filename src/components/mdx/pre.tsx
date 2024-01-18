@@ -1,9 +1,13 @@
 'use client'
 
-import type { DetailedHTMLProps, HTMLAttributes } from 'react'
-import { useRef, useState } from 'react'
+import {
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+  useRef,
+  useState,
+} from 'react'
 
-import cn from '@/lib/cn'
+import cn from '@/utils/cn'
 
 import { Copy } from '../icons'
 import { Button } from '../ui'
@@ -23,10 +27,11 @@ const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
     try {
       const content = textInput.current?.textContent ?? ''
       await navigator.clipboard.writeText(content)
+
       setCopied(true)
 
-      setTimeout(() => setCopied(false), 1000)
-    } catch (err) {
+      setTimeout(() => setCopied(false), 300)
+    } catch {
       setCopied(false)
     }
   }
@@ -43,7 +48,7 @@ const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
         title="Copy to Clipboard"
         variant="ghost"
         className={cn(
-          'absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-none p-1',
+          'absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border-none p-1',
           'hover:bg-neutral-100',
           'dark:hover:bg-gray-700',
         )}
@@ -52,12 +57,12 @@ const Pre = ({ children, 'data-theme': dataTheme = '' }: PreProps) => {
         <div
           className={cn(
             'pointer-events-none absolute right-10 -mr-1 w-16 translate-x-2 rounded-md px-2 py-1 text-xs font-bold opacity-0 transition',
-            copied ? 'translate-x-0 opacity-100' : '',
+            copied && 'translate-x-0 opacity-100',
           )}
         >
           Copied!
         </div>
-        <Copy />
+        <Copy className={cn('h-5 w-5')} />
       </Button>
     </>
   )

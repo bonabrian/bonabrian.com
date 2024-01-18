@@ -1,44 +1,32 @@
-import { Link } from '@/components/ui'
-import cn from '@/lib/cn'
-
-import FourZeroFourImage from '../../assets/images/404.svg'
+import { Button, Container, Link } from '@/components/ui'
+import cn from '@/utils/cn'
 
 const FourZeroFour = () => {
   return (
     <>
       <title>Page Not Found</title>
-      <div className={cn('my-4 flex flex-col items-center justify-center')}>
-        <div className={cn('py-4')}>
-          <FourZeroFourImage className={cn('w-full fill-current')} />
-          <h1
-            className={cn(
-              'mb-4 mt-10 text-center text-6xl font-extrabold leading-9 tracking-tight',
-            )}
-          >
-            404
-          </h1>
-        </div>
-        <p
+      <Container
+        className={cn(
+          'h-[calc(100vh-272px)] items-center justify-center font-cal',
+        )}
+      >
+        <h1
+          title="404"
           className={cn(
-            'mb-4 text-center text-lg leading-normal text-gray-500',
-            'dark:text-gray-400',
+            'animate-glitch text-7xl',
+            'before:absolute before:left-0 before:animate-glitch-top before:content-[attr(title)] before:[clip-path:polygon(0%_0%,100%_0%,100%_33%,0%_33%)]',
+            'after:absolute after:left-0 after:animate-glitch-bottom after:content-[attr(title)] after:[clip-path:polygon(0%_67%,100%_67%,100%_100%,0%_100%)]',
           )}
         >
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Unfortunately, the page you're looking for doesn't exist or has been
-          moved. But dont worry, you can find plenty of other things on our
-          homepage.
-        </p>
-        <Link
-          href="/"
-          className={cn(
-            'inline rounded-lg border border-transparent px-4 py-2 font-medium text-white shadow',
-            '',
-          )}
-        >
-          Go back home
+          404
+        </h1>
+        <h2 className={cn('animate-pulse text-center text-xl')}>
+          Oops! This page went on vacation without telling us. 🏖️
+        </h2>
+        <Link href="/" className={cn('mt-4')}>
+          <Button variant="secondary">Go back</Button>
         </Link>
-      </div>
+      </Container>
     </>
   )
 }

@@ -1,13 +1,10 @@
 import type { NextRequest } from 'next/server'
 
-import {
-  countContentViews,
-  countUserViews,
-  createView,
-} from '@/app/(content)/actions'
-import { MAX_VIEWS_PER_SESSION } from '@/data/app'
+import { countContentViews, countUserViews, createView } from '@/actions/views'
+import { MAX_VIEWS_PER_SESSION } from '@/config/engagements'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
-import { getSessionId } from '@/lib/server'
+import { getSessionId } from '@/utils/session'
 
 export const GET = async (
   _req: NextRequest,
@@ -17,9 +14,9 @@ export const GET = async (
     const { slug } = params
 
     const total = await countContentViews({ slug })
-    return response({ total })
+    return response<{ total: number }>({ total })
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }
 
@@ -39,8 +36,8 @@ export const POST = async (
     }
 
     // conflict exceeded maximum limit
-    return response({ message: 'Maximum limit exceeded' }, 409)
+    return response<MessageResponse>({ message: 'Maximum limit exceeded' }, 409)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }

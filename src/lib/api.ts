@@ -1,17 +1,24 @@
 import { NextResponse } from 'next/server'
 
-export const getErrorMessage = (error: unknown): string => {
-  // @ts-ignore
-  return error?.message || error?.stackTrace.toString() || 'Unexpected error'
+export interface MessageResponse {
+  message: string
 }
 
-const headers: HeadersInit = {
-  'Content-Type': 'application/json',
-}
+export const response = <T>(data: T, status: number = 200) => {
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  }
 
-export const response = (data: any, status: number = 200) => {
   return new NextResponse(data === null ? null : JSON.stringify(data), {
     status,
     headers,
   })
+}
+
+export const getErrorMessage = (error: string | Error | unknown): string => {
+  if (error instanceof Error) {
+    return error?.message
+  }
+
+  return 'Unexpected error'
 }

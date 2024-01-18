@@ -4,8 +4,8 @@ import { Popover, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { Fragment } from 'react'
 
-import cn from '@/lib/cn'
 import type { NowPlaying } from '@/types/spotify'
+import cn from '@/utils/cn'
 
 interface PlayerPopoverProps {
   show: boolean
@@ -27,7 +27,11 @@ const PlayerPopover = ({ show, playing }: PlayerPopoverProps) => {
       leaveTo="opacity-0 translate-y-1"
     >
       <Popover.Panel className={cn('absolute bottom-10 left-0 z-20 w-60')}>
-        <div className="ring-opacity/5 flex flex-col gap-5 overflow-hidden rounded-lg bg-card p-4 shadow-lg ring-1 ring-card">
+        <div
+          className={cn(
+            'flex flex-col gap-5 overflow-hidden rounded-lg bg-card p-4 shadow-lg ring-1 ring-card ring-opacity-5',
+          )}
+        >
           {albumImageUrl && (
             <Image
               className={cn('rounded-lg')}

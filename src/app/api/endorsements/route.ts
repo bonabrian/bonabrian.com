@@ -1,19 +1,32 @@
+import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 
 import {
   createEndorsement,
   getEndorsements,
   isEndorsed,
-} from '@/app/(insights)/endorsements/actions'
+} from '@/actions/endorsements'
+import type { MessageResponse } from '@/lib/api'
 import { getErrorMessage, response } from '@/lib/api'
 import { authOptions } from '@/lib/auth'
+import type { SkillCategory } from '@/types/skill'
 
-export const POST = async (req: Request) => {
+export const dynamic = 'force-dynamic'
+
+export const GET = async () => {
+  try {
+    const endorsements = await getEndorsements()
+    return response<SkillCategory[]>(endorsements)
+  } catch (err) {
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
+  }
+}
+export const POST = async (req: NextRequest) => {
   try {
     const session = await getServerSession(authOptions)
 
     if (!session) {
-      return response({ message: 'Unauthenticated' }, 401)
+      return response<MessageResponse>({ message: 'Unauthenticated' }, 401)
     }
 
     const body = await req.json()
@@ -25,7 +38,10 @@ export const POST = async (req: Request) => {
     })
 
     if (alreadyEndorsed) {
-      return response({ message: 'You already endorse this skill' }, 409)
+      return response<MessageResponse>(
+        { message: 'You already endorse this skill' },
+        409,
+      )
     }
 
     await createEndorsement({
@@ -35,16 +51,6 @@ export const POST = async (req: Request) => {
 
     return response({}, 201)
   } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
-  }
-}
-
-export const GET = async () => {
-  try {
-    const endorsements = await getEndorsements()
-
-    return response(endorsements)
-  } catch (err) {
-    return response({ message: getErrorMessage(err) }, 500)
+    return response<MessageResponse>({ message: getErrorMessage(err) }, 500)
   }
 }
