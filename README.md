@@ -97,11 +97,13 @@ Deploy to Vercel, Netlify, etc
 
 ## Files to customize
 
-- `data/app/site.ts` - update `siteConfig` with yours.
+- `config/site.ts` - update `site` with yours.
+- `config/github.ts` - update `GITHUB_ACCOUNT` with yours.
+- `constants/experiences.ts` - update with your cool experiences.
 - `app/about/page.tsx` - update with yours.
 - `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
-- `public/static` - store assets such as images and favicons.
+- `public/media/*` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
 - `content` - replace with your blog posts, projects, and notes.
 - `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains. 
