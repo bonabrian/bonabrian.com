@@ -78,11 +78,47 @@ export default {
           from: { transform: 'translateY(0)' },
           to: { transform: 'translateY(calc(-100% - var(--gap)))' },
         },
+        glitch: {
+          '2%, 64%': {
+            transform: 'translate(2px, 0) skew(0deg)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 0) skew(0deg)',
+          },
+          '62%': {
+            transform: 'translate(0, 0) skew(5deg)',
+          },
+        },
+        'glitch-top': {
+          '2%, 64%': {
+            transform: 'translate(2px, -2px)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 2px)',
+          },
+          '62%': {
+            transform: 'translate(13px, -1px) skew(-13deg)',
+          },
+        },
+        'glitch-bottom': {
+          '2%, 64%': {
+            transform: 'translate(-2px, 0)',
+          },
+          '4%, 60%': {
+            transform: 'translate(-2px, 0)',
+          },
+          '62%': {
+            transform: 'translate(-22px, 5px) skew(21deg)',
+          },
+        },
       },
       animation: {
         equalize: 'equalize 0.8s infinite',
         'marquee-left': 'marquee-left var(--duration, 50s) linear infinite',
         'marquee-up': 'marquee-up var(--duration, 50s) linear infinite',
+        glitch: 'glitch 1s linear infinite',
+        'glitch-top': 'glitch-top 1s linear infinite',
+        'glitch-bottom': 'glitch-bottom 1.5s linear infinite',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
