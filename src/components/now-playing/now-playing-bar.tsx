@@ -1,5 +1,3 @@
-'use client'
-
 import { Popover } from '@headlessui/react'
 import Image from 'next/image'
 import { useState } from 'react'
