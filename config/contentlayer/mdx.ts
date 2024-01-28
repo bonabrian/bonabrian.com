@@ -4,12 +4,12 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
 import { prettyCode } from './rehype/code'
-import imageMetaData from './rehype/image-metadata'
+import imageBlurMetadata from './rehype/image-metadata'
 
 const mdx: MDXOptions = {
   remarkPlugins: [remarkGfm],
   rehypePlugins: [
-    imageMetaData,
+    imageBlurMetadata,
     rehypeSlug,
     // @ts-expect-error idk
     prettyCode,

@@ -1,19 +1,14 @@
 // Code based on https://github.com/nikolovlazar/nikolovlazar.com/blob/main/src/utils/plugins/image-metadata.ts
 import { readFile } from 'node:fs/promises'
 
-import imageSize from 'image-size'
-import type { ISizeCalculationResult } from 'image-size/dist/types/interface'
 import path from 'path'
 import { getPlaiceholder } from 'plaiceholder'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
-import { promisify } from 'util'
-
-const sizeOf = promisify(imageSize)
 
 interface ImageNode {
-  name: string
-  type: 'element' | string
+  name: 'img' | string
+  type: 'mdxJsxFlowElement' | 'element' | string
   tagName: 'img' | string
   properties: {
     src: string
@@ -24,113 +19,160 @@ interface ImageNode {
     loading?: 'lazy' | 'eager'
   } & Record<string, unknown>
   attributes?: Array<{
-    type: string
-    name: string
-    value: {
-      type: string
-      value: unknown
-    }
+    type: 'mdxJsxFlowElement' | string
+    name: 'src' | string
+    value: unknown
   }>
   children?: Array<ImageNode>
   parent?: ImageNode
 }
 
-const isImageNode = (node: Node): node is ImageNode => {
-  const img = node as ImageNode
-  return (
-    img.type === 'element' &&
-    img.tagName === 'img' &&
-    img.properties &&
-    typeof img.properties.src === 'string'
-  )
+interface BlurResult {
+  width: number
+  height: number
+  placeholder?: 'blur' | 'empty'
+  blurDataURL?: string
 }
 
-interface BlurResult {
-  size: {
-    width: number
-    height: number
+const getNodeType = (node: Node): { jsx?: boolean; img?: boolean } => {
+  const img = node as ImageNode
+  const isJsxImage =
+    img.type === 'mdxJsxFlowElement' &&
+    (img.name === 'img' || img.name === 'Image')
+
+  if (isJsxImage) {
+    return {
+      jsx: Boolean(img.attributes?.find((it) => it.name === 'src')?.value),
+    }
   }
-  blur64?: string
+
+  const isNormalImage = img.type === 'element' && img.tagName === 'img'
+
+  return {
+    img:
+      isNormalImage && img.properties && typeof img.properties.src === 'string',
+  }
+}
+
+const isImageNode = (node: Node): node is ImageNode => {
+  const { jsx, img } = getNodeType(node)
+  return jsx === true || img === true
 }
 
 export const getBlurData = async (
   imageSource?: string,
   placeholderSize: number = 12,
+  defaultWidth: number = 0,
+  defaultHeight: number = 0,
 ): Promise<BlurResult | null> => {
   if (!imageSource) return null
 
   const isExternal = imageSource.startsWith('http')
-  let res: ISizeCalculationResult | undefined
-  let blur64: string
 
-  if (!isExternal) {
-    const filePath = path.join(process.cwd(), 'public', imageSource)
-    res = await sizeOf(filePath)
-    const imageBuffer = await readFile(filePath)
-    const plaiceholderResult = await getPlaiceholder(imageBuffer, {
+  try {
+    let imageBuffer: Buffer | undefined = undefined
+    if (!isExternal) {
+      const filePath = path.join(process.cwd(), 'public', imageSource)
+      imageBuffer = await readFile(filePath)
+    } else {
+      const imageRes = await fetch(imageSource)
+      const arrayBuffer = await imageRes.arrayBuffer()
+      imageBuffer = Buffer.from(arrayBuffer)
+    }
+
+    const blur = await getPlaiceholder(imageBuffer, {
       size: placeholderSize,
     })
 
-    res = {
-      ...res,
-      width: plaiceholderResult.metadata.width,
-      height: plaiceholderResult.metadata.height,
+    return {
+      width:
+        defaultWidth > 0
+          ? Math.min(defaultWidth, blur.metadata.width)
+          : blur.metadata.width || defaultWidth,
+      height:
+        defaultHeight > 0
+          ? Math.min(defaultHeight, blur.metadata.height)
+          : blur.metadata.height || defaultHeight,
+      blurDataURL: blur.base64,
+      placeholder: 'blur',
     }
+  } catch (err) {
+    return null
+  }
+}
 
-    blur64 = plaiceholderResult.base64
-  } else {
-    const imageRes = await fetch(imageSource)
-    const arrayBuffer = await imageRes.arrayBuffer()
-    const buffer = Buffer.from(arrayBuffer)
+const getSrcFromImageNode = (
+  node?: ImageNode,
+): { src: string; width?: number; height?: number } | null => {
+  if (!node) return null
 
-    res = await imageSize(buffer)
+  const { jsx, img } = getNodeType(node)
 
-    const plaiceholderResult = await getPlaiceholder(buffer, {
-      size: placeholderSize,
-    })
+  let src = ''
+  let w = 0
+  let h = 0
 
-    res = {
-      ...res,
-      width: plaiceholderResult.metadata.width,
-      height: plaiceholderResult.metadata.height,
-    }
-
-    blur64 = plaiceholderResult.base64
+  if (jsx === true) {
+    src =
+      node.attributes?.find((it) => it.name === 'src')?.value?.toString() ?? ''
+    w = Number(
+      node.attributes?.find((it) => it.name === 'width')?.value?.toString() ??
+        '0',
+    )
+    h = Number(
+      node.attributes?.find((it) => it.name === 'height')?.value?.toString ??
+        '0',
+    )
+  } else if (img === true) {
+    src = node.properties.src
+    w = node.properties.width ?? 0
+    h = node.properties.height ?? 0
   }
 
-  if (!res) throw Error(`Invalid image with src "${imageSource}"`)
   return {
-    size: { width: res.width || 0, height: res.height || 0 },
-    blur64,
+    src: src.replace(/["']/g, '').replace(/%22/g, ''),
+    width: w,
+    height: h,
   }
 }
 
 const addProps = async (node: ImageNode): Promise<ImageNode> => {
-  const src = node.properties.src.replace(/["']/g, '').replace(/%22/g, '')
-  const res = await getBlurData(src).catch(() => null)
+  const { src, width, height } = getSrcFromImageNode(node) ?? {}
+  if (!src) return node
 
+  const res = await getBlurData(src, 10, width, height).catch(() => null)
   if (!res) return node
 
-  node.properties = {
-    ...node.properties,
-    width: res.size.width,
-    height: res.size.height,
-    blurDataURL: res.blur64,
-    placeholder: 'blur',
-    loading: 'lazy',
+  const { jsx, img } = getNodeType(node)
+  if (jsx === true) {
+    node.name = 'Image'
+    const newProps = Object.keys(res).map((prop) => ({
+      type: 'mdxJsxFlowElement',
+      name: prop,
+      value: res[prop as keyof typeof res],
+    })) as ImageNode['attributes']
+
+    const unique = [...(node.attributes ?? []), ...(newProps ?? [])].reduce(
+      (prev, o) =>
+        prev?.some((x) => x.name === o.name) ? prev : [...(prev ?? []), o],
+      [] as ImageNode['attributes'],
+    )
+
+    node.attributes = unique
+  } else if (img === true) {
+    node.properties = { ...(node.properties ?? {}), ...res }
   }
 
   return node
 }
 
-const imageMetaData = () => {
+const imageBlurMetadata = () => {
   return async (tree: Node) => {
     const images: ImageNode[] = []
 
-    visit(tree, 'element', (node) => {
-      if (isImageNode(node)) {
-        images.push(node)
-      }
+    visit(tree, ['mdxJsxFlowElement', 'element'], (node) => {
+      const typedNode = node as ImageNode
+      if (typedNode && isImageNode(typedNode)) images.push(typedNode)
     })
 
     for (const image of images) {
@@ -141,4 +183,4 @@ const imageMetaData = () => {
   }
 }
 
-export default imageMetaData
+export default imageBlurMetadata

@@ -78,7 +78,6 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "file-loader": "^6.2.0",
     "husky": "^8.0.3",
-    "image-size": "^1.1.1",
     "lint-staged": "^15.2.0",
     "million": "^2.6.4",
     "mini-svg-data-uri": "^1.4.4",
