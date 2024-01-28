@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/config/site'
-import { env } from '@/env'
+import { env } from '@/lib/env'
 
 /**
  * Helper function to determine the hostname for the given environment,

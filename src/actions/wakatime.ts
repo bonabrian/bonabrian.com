@@ -1,4 +1,4 @@
-import { env } from '@/env'
+import { env } from '@/lib/env'
 import fetcher from '@/lib/fetcher'
 import type {
   WakaTimeAllTimeSinceToday,

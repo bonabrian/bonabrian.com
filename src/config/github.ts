@@ -1,4 +1,4 @@
-import { env } from '@/env'
+import { env } from '@/lib/env'
 
 export const GITHUB_ACCOUNT = {
   username: 'bonabrian',

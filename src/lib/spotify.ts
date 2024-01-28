@@ -1,5 +1,5 @@
 import { PAIR_DEVICES } from '@/constants/devices'
-import { env } from '@/env'
+import { env } from '@/lib/env'
 import type {
   AccessTokenResponse,
   AvailableDevicesResponse,

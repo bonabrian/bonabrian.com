@@ -3,7 +3,7 @@ import type { NextAuthOptions } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 
-import { env } from '@/env'
+import { env } from '@/lib/env'
 import prisma from '@/lib/prisma'
 
 export const authOptions: NextAuthOptions = {

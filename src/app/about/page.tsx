@@ -7,7 +7,7 @@ import { Button, Container, Link } from '@/components/ui'
 import { GITHUB_ACCOUNT } from '@/config/github'
 import { ROUTES } from '@/config/links'
 import site from '@/config/site'
-import { env } from '@/env'
+import { env } from '@/lib/env'
 import { seo } from '@/lib/meta'
 import cn from '@/utils/cn'
 
