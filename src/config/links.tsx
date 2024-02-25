@@ -47,50 +47,50 @@ export const NAV_LINKS: NavLink[] = [
   {
     path: '/',
     label: 'Home',
-    icon: <Home className="h-5 w-5" />,
+    icon: <Home className="size-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.blog,
     label: 'Blog',
-    icon: <Pencil className="h-5 w-5" />,
+    icon: <Pencil className="size-5" />,
   },
   {
     path: ROUTES.projects,
     label: 'Projects',
-    icon: <Shapes className="h-5 w-5" />,
+    icon: <Shapes className="size-5" />,
   },
   {
     path: ROUTES.dashboard,
     label: 'Dashboard',
-    icon: <Dashboard className="h-5 w-5" />,
+    icon: <Dashboard className="size-5" />,
   },
   {
     path: ROUTES.notes,
     label: 'Notes',
-    icon: <FileCode className="h-5 w-5" />,
+    icon: <FileCode className="size-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.todayILearned,
     label: 'T.I.L',
-    icon: <LightBulb className="h-5 w-5" />,
+    icon: <LightBulb className="size-5" />,
     onlyShowOnDropdownMenu: true,
   },
   {
     path: ROUTES.guestbook,
     label: 'Guestbook',
-    icon: <BookOpenText className="h-5 w-5" />,
+    icon: <BookOpenText className="size-5" />,
   },
   {
     path: ROUTES.endorsements,
     label: 'Endorsements',
-    icon: <Medal className="h-5 w-5" />,
+    icon: <Medal className="size-5" />,
   },
   {
     path: ROUTES.about,
     label: 'About',
-    icon: <AtSign className="h-5 w-5" />,
+    icon: <AtSign className="size-5" />,
   },
 ]
 
