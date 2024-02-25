@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import merge from 'ts-deepmerge'
 
 import { buildOgImageURL } from './builder'
 import { DEFAULT_METADATA } from './default'
@@ -46,5 +45,8 @@ export const seo = ({ url, date, ...metadata }: SeoProps = {}): Metadata => {
     }
   }
 
-  return merge(DEFAULT_METADATA, metadata)
+  return {
+    ...DEFAULT_METADATA,
+    ...metadata,
+  }
 }
