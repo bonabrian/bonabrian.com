@@ -3,6 +3,4 @@
 @import 'tailwindcss/components';
 @import './components.css';
 
-@import './nprogress.css';
-
 @import 'tailwindcss/utilities';
