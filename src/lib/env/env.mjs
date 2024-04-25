@@ -48,6 +48,7 @@ export const env = createEnv({
   server: {
     /** database */
     DATABASE_URL: z.string().url(),
+    DIRECT_URL: z.string().url(),
 
     /** next-auth */
     NEXTAUTH_URL: z.string().url(),
@@ -105,6 +106,7 @@ export const env = createEnv({
 
     /** database */
     DATABASE_URL: process.env.DATABASE_URL,
+    DIRECT_URL: process.env.DIRECT_URL,
 
     /** next-auth */
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
