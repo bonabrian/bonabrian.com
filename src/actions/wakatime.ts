@@ -18,6 +18,7 @@ const ALLOWED_LANGUAGES = [
   'Vue.js',
   'React.js',
   'Java',
+  'Ruby',
 ]
 
 export const getAllTimeSinceToday = async (): Promise<
