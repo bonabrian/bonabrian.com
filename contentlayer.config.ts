@@ -1,10 +1,10 @@
 import { makeSource } from 'contentlayer/source-files'
 
-import mdx from './config/contentlayer/mdx'
-import Note from './config/contentlayer/note'
-import Post from './config/contentlayer/post'
-import Project from './config/contentlayer/project'
-import TIL from './config/contentlayer/til'
+import mdx from './scripts/contentlayer/mdx'
+import Note from './scripts/contentlayer/note'
+import Post from './scripts/contentlayer/post'
+import Project from './scripts/contentlayer/project'
+import TIL from './scripts/contentlayer/til'
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
