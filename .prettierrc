@@ -3,5 +3,6 @@
   "quoteProps": "as-needed",
   "trailingComma": "all",
   "singleQuote": true,
-  "semi": true
+  "semi": true,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
