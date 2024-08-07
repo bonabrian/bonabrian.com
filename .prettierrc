@@ -3,5 +3,5 @@
   "quoteProps": "as-needed",
   "trailingComma": "all",
   "singleQuote": true,
-  "semi": false
+  "semi": true
 }

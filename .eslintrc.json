@@ -10,7 +10,7 @@
       {
         "singleQuote": true,
         "endOfLine": "auto",
-        "semi": false
+        "semi": true
       }
     ]
   },
@@ -39,7 +39,7 @@
           {
             "singleQuote": true,
             "endOfLine": "auto",
-            "semi": false
+            "semi": true
           }
         ],
         "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
