@@ -1,12 +1,12 @@
-import typography from '@tailwindcss/typography'
-import svgDataUri from 'mini-svg-data-uri'
-import type { Config } from 'tailwindcss'
-import type { PluginAPI } from 'tailwindcss/types/config'
-import animate from 'tailwindcss-animate'
+import typography from '@tailwindcss/typography';
+import svgDataUri from 'mini-svg-data-uri';
+import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
+import animate from 'tailwindcss-animate';
 
 const {
   default: flattenColorPalette,
-} = require('tailwindcss/lib/util/flattenColorPalette')
+} = require('tailwindcss/lib/util/flattenColorPalette');
 
 export default {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
@@ -255,9 +255,9 @@ export default {
           values: flattenColorPalette(theme('backgroundColor')),
           type: 'color',
         },
-      )
+      );
     },
     typography,
     animate,
   ],
-} satisfies Config
+} satisfies Config;

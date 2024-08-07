@@ -1,7 +1,7 @@
 import {
   type ComputedFields,
   defineDocumentType,
-} from 'contentlayer/source-files'
+} from 'contentlayer/source-files';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -12,7 +12,7 @@ const computedFields: ComputedFields = {
     type: 'list',
     resolve: (doc) => doc?.tags ?? [],
   },
-}
+};
 
 const TIL = defineDocumentType(() => ({
   name: 'TIL',
@@ -22,6 +22,6 @@ const TIL = defineDocumentType(() => ({
     date: { type: 'string', required: true },
   },
   computedFields,
-}))
+}));
 
-export default TIL
+export default TIL;

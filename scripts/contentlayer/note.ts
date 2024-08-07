@@ -1,6 +1,6 @@
-import type { ComputedFields } from 'contentlayer/source-files'
-import { defineDocumentType } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
+import type { ComputedFields } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -9,7 +9,7 @@ const computedFields: ComputedFields = {
     // eslint-disable-next-line no-underscore-dangle
     resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
   },
-}
+};
 
 const Note = defineDocumentType(() => ({
   name: 'Note',
@@ -23,6 +23,6 @@ const Note = defineDocumentType(() => ({
     stacks: { type: 'list', of: { type: 'string' } },
   },
   computedFields,
-}))
+}));
 
-export default Note
+export default Note;

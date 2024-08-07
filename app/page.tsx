@@ -13,7 +13,7 @@ const HomePage = () => {
         Architecto, officiis odit.
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

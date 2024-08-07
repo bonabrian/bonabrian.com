@@ -1,9 +1,9 @@
-import type { ComputedFields } from 'contentlayer/source-files'
-import { defineDocumentType } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
+import type { ComputedFields } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
 
-import { getBlurData } from './rehype/image-metadata'
-import { getActualImageUrl } from './utils'
+import { getBlurData } from './rehype/image-metadata';
+import { getActualImageUrl } from './utils';
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -20,7 +20,7 @@ const computedFields: ComputedFields = {
     type: 'json',
     resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
   },
-}
+};
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
@@ -40,6 +40,6 @@ const Project = defineDocumentType(() => ({
     playStoreUrl: { type: 'string' },
   },
   computedFields,
-}))
+}));
 
-export default Project
+export default Project;

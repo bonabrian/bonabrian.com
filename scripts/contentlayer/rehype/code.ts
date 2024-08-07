@@ -1,6 +1,6 @@
-import rehypePrettyCode from 'rehype-pretty-code'
+import rehypePrettyCode from 'rehype-pretty-code';
 
-import type { RehypeElement } from './types'
+import type { RehypeElement } from './types';
 
 export const prettyCode = [
   rehypePrettyCode,
@@ -16,24 +16,24 @@ export const prettyCode = [
       objKey: 'meta.object-literal.key',
     },
     onVisitLine(node?: RehypeElement | null) {
-      if (!node) return
+      if (!node) return;
       // Prevent lines from collapsing in `display: grid` mode, and
       // allow empty lines to be copy/pasted
       if (node.children?.length === 0) {
         node.children = [
           { type: 'text', value: ' ', properties: { className: [] } },
-        ]
+        ];
       }
     },
     // Feel free to add classNames that suit your docs
     onVisitHighlightedLine(node?: RehypeElement | null) {
-      if (!node) return
-      node.properties?.className?.push('line--highlighted')
+      if (!node) return;
+      node.properties?.className?.push('line--highlighted');
     },
     onVisitHighlightedWord(node?: RehypeElement | null) {
-      if (!node) return
+      if (!node) return;
       // eslint-disable-next-line no-param-reassign
-      node.properties.className = ['word']
+      node.properties.className = ['word'];
     },
   },
-]
+];

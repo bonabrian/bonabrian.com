@@ -1,10 +1,10 @@
-import type { ComputedFields } from 'contentlayer/source-files'
-import { defineDocumentType } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
-import removeMarkdown from 'remove-markdown'
+import type { ComputedFields } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
+import removeMarkdown from 'remove-markdown';
 
-import { getBlurData } from './rehype/image-metadata'
-import { getActualImageUrl } from './utils'
+import { getBlurData } from './rehype/image-metadata';
+import { getActualImageUrl } from './utils';
 
 const getPostExcerpt = (
   content?: string | null,
@@ -13,9 +13,9 @@ const getPostExcerpt = (
   minCharacters: number = 70,
   maxCharacters: number = 150,
 ): string => {
-  if (defaultExcerpt) return defaultExcerpt
+  if (defaultExcerpt) return defaultExcerpt;
 
-  if (!content) return defaultExcerpt ?? ''
+  if (!content) return defaultExcerpt ?? '';
 
   const text = content
     ?.split(/[\r\n]+/gm)
@@ -26,43 +26,43 @@ const getPostExcerpt = (
     ?.filter((it: string) => it?.length)
     ?.map((it: string) =>
       removeMarkdown(it, { gfm: true, useImgAltText: true }),
-    )
+    );
 
-  let excerpt = ''
+  let excerpt = '';
   if (text) {
-    let lastIndex = 0
+    let lastIndex = 0;
     while (excerpt.length < maxCharacters) {
-      excerpt += `${text[lastIndex]} `
-      lastIndex += 1
+      excerpt += `${text[lastIndex]} `;
+      lastIndex += 1;
     }
   }
 
   if (trimLength) {
-    const allWords = excerpt.split(' ')
-    excerpt = ''
-    let lastIndex = 0
+    const allWords = excerpt.split(' ');
+    excerpt = '';
+    let lastIndex = 0;
     while (excerpt.length < maxCharacters) {
-      const word = allWords[lastIndex]
-      excerpt += `${word} `
+      const word = allWords[lastIndex];
+      excerpt += `${word} `;
       if (
         word.endsWith('.') &&
         !word.endsWith('etc.') &&
         excerpt.length > minCharacters
       ) {
-        break
+        break;
       }
-      lastIndex += 1
+      lastIndex += 1;
     }
   }
 
-  excerpt = excerpt.trim()
+  excerpt = excerpt.trim();
 
   if (excerpt.length > 0) {
-    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
+    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`;
   }
 
-  return defaultExcerpt ?? ''
-}
+  return defaultExcerpt ?? '';
+};
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -96,7 +96,7 @@ const computedFields: ComputedFields = {
     type: 'json',
     resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
   },
-}
+};
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -115,6 +115,6 @@ const Post = defineDocumentType(() => ({
     pinned: { type: 'boolean', default: false },
   },
   computedFields,
-}))
+}));
 
-export default Post
+export default Post;

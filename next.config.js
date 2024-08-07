@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
-const { withSentryConfig } = require('@sentry/nextjs')
+const { withSentryConfig } = require('@sentry/nextjs');
 
-const SentryWebpackPluginOptions = { silent: true }
+const SentryWebpackPluginOptions = { silent: true };
 
-const isDevelopment = process.env.NODE_ENV === 'development'
-const appHeaders = require('./scripts/next/headers')
-const redirects = require('./scripts/next/redirects')
+const isDevelopment = process.env.NODE_ENV === 'development';
+const appHeaders = require('./scripts/next/headers');
+const redirects = require('./scripts/next/redirects');
 
-const { withContentlayer } = require('next-contentlayer')
-const million = require('million/compiler')
+const { withContentlayer } = require('next-contentlayer');
+const million = require('million/compiler');
 
 const nextConfig = {
   swcMinify: true,
@@ -40,27 +40,27 @@ const nextConfig = {
           },
         },
       ],
-    })
+    });
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
-    })
+    });
 
-    return config
+    return config;
   },
   async headers() {
-    return appHeaders
+    return appHeaders;
   },
   async redirects() {
-    return redirects
+    return redirects;
   },
-}
+};
 
 const millionConfig = {
   mute: true,
   auto: { rsc: true },
   rsc: true,
-}
+};
 
 module.exports = isDevelopment
   ? million.next(withContentlayer(nextConfig), millionConfig)
@@ -70,4 +70,4 @@ module.exports = isDevelopment
         SentryWebpackPluginOptions,
       ),
       millionConfig,
-    )
+    );
