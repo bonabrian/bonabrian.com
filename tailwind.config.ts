@@ -10,8 +10,14 @@ const {
 } = require('tailwindcss/lib/util/flattenColorPalette')
 
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   darkMode: 'class',
+  /**
+   * Fix dark mode not working
+   *
+   * https://github.com/shadcn-ui/ui/issues/313#issuecomment-1929054475
+   */
+  safelist: ['dark'],
   theme: {
     extend: {
       colors: {
