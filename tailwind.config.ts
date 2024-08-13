@@ -8,9 +8,9 @@ const {
   default: flattenColorPalette,
 } = require('tailwindcss/lib/util/flattenColorPalette');
 
-export default {
+const config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
-  darkMode: 'class',
+  darkMode: ['class'],
   /**
    * Fix dark mode not working
    *
@@ -18,9 +18,18 @@ export default {
    */
   safelist: ['dark'],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       colors: {
-        // change your color schema here
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
@@ -30,6 +39,10 @@ export default {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -50,9 +63,6 @@ export default {
         code: {
           default: 'hsl(var(--code))',
         },
-        input: 'hsl(var(--input))',
-        border: 'hsl(var(--border))',
-        ring: 'hsl(var(--ring))',
         spotify: '#1DB954',
       },
       backgroundImage: {
@@ -60,6 +70,11 @@ export default {
           'linear-gradient(to right, #d25778, #ec585c, #e7d155, #56a8c6)',
         'rainbow-gradient-inverse':
           'linear-gradient(to right, #56a8c6, #e7d155, #ec585c, #d25778)',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
         equalize: {
@@ -111,6 +126,14 @@ export default {
             transform: 'translate(-22px, 5px) skew(21deg)',
           },
         },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
       },
       animation: {
         equalize: 'equalize 0.8s infinite',
@@ -119,6 +142,8 @@ export default {
         glitch: 'glitch 1s linear infinite',
         'glitch-top': 'glitch-top 1s linear infinite',
         'glitch-bottom': 'glitch-bottom 1.5s linear infinite',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
@@ -261,3 +286,5 @@ export default {
     animate,
   ],
 } satisfies Config;
+
+export default config;
