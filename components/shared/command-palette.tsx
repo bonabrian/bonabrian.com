@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import { Fragment, useContext, useEffect, useState } from 'react';
 
 import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants';
@@ -19,13 +20,14 @@ import {
   CommandList,
   CommandSeparator,
 } from '../ui';
-import { Command as CommandIcon } from './icons';
+import { Command as CommandIcon, Moon, Sun } from './icons';
 
 const CommandPalette = () => {
   const { isOpen, setIsOpen } = useContext(CommandPaletteContext);
   const pathname = usePathname();
   const router = useRouter();
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const { resolvedTheme: theme, setTheme } = useTheme();
 
   const placeholders = [
     'Type a command or search',
@@ -76,7 +78,7 @@ const CommandPalette = () => {
     };
   }, [placeholderIndex]);
 
-  const groups = [
+  const groups: Array<{ title: string; options: CommandMenu[] }> = [
     {
       title: 'Pages',
       options: COMMAND_PAGES,
@@ -84,6 +86,20 @@ const CommandPalette = () => {
     {
       title: 'Social',
       options: COMMAND_SOCIAL_MEDIA,
+    },
+    {
+      title: 'Appearance',
+      options: [
+        {
+          label: `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`,
+          href: '#',
+          icon: theme === 'dark' ? <Moon /> : <Sun />,
+          isExternal: false,
+          eventName: `Appearance: Switch ${theme === 'dark' ? 'Light' : 'Dark'}`,
+          type: 'APPEARANCE',
+          onClick: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
+        },
+      ],
     },
   ];
 
@@ -109,7 +125,7 @@ const CommandPalette = () => {
                   <CommandItem
                     key={option.label}
                     className={cn(
-                      'group flex items-center justify-between [&:not(:last-child)]:mb-0.5',
+                      'group flex cursor-pointer items-center justify-between [&:not(:last-child)]:mb-0.5',
                       {
                         'bg-accent':
                           option.type === 'PAGE' && isActiveRoute(option.href),

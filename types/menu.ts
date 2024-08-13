@@ -10,7 +10,7 @@ export interface CommandMenu {
   href: string;
   icon: JSX.Element;
   isExternal: boolean;
-  type: 'PAGE' | 'LINK' | 'CONTACT';
+  type: 'PAGE' | 'LINK' | 'CONTACT' | 'APPEARANCE';
   eventName?: string;
   onClick?: () => void;
   closeOnSelect?: boolean;

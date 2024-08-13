@@ -11,6 +11,7 @@ import Logo from '../../assets/images/logo.svg';
 import { Separator } from '../ui';
 import CommandPalette from './command-palette';
 import Container from './container';
+import ThemeSwitch from './theme-switch';
 
 const Header = () => {
   const isScrolled = useScroll();
@@ -67,8 +68,9 @@ const Header = () => {
               </ul>
             </nav>
           </div>
-          <div className={cn('flex items-center gap-2')}>
+          <div className={cn('flex items-center gap-1')}>
             <Separator orientation="vertical" className={cn('h-6')} />
+            <ThemeSwitch />
             <CommandPalette />
           </div>
         </div>
