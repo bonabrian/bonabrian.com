@@ -11,6 +11,7 @@ import Logo from '../../assets/images/logo.svg';
 import { Separator } from '../ui';
 import CommandPalette from './command-palette';
 import Container from './container';
+import MobileMenu from './mobile-menu';
 import ThemeSwitch from './theme-switch';
 
 const Header = () => {
@@ -72,6 +73,7 @@ const Header = () => {
             <Separator orientation="vertical" className={cn('h-6')} />
             <ThemeSwitch />
             <CommandPalette />
+            <MobileMenu />
           </div>
         </div>
       </Container>
