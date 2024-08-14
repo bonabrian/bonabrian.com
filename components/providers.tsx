@@ -13,6 +13,7 @@ import { createContext, useState } from 'react';
 import useMounted from '@/hooks/use-mounted';
 
 import { RenderIf } from './shared';
+import { TooltipProvider } from './ui';
 
 interface CommandPaletteContextProps {
   isOpen: boolean;
@@ -40,7 +41,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
           >
             <SessionProvider>
               <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
-                {children}
+                <TooltipProvider>{children}</TooltipProvider>
               </CommandPaletteContext.Provider>
             </SessionProvider>
           </ThemeProvider>

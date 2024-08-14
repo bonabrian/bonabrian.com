@@ -1,17 +1,18 @@
+import type { Metadata } from 'next';
+
+import { Hero } from '@/components/home';
+import { seo } from '@/lib/meta';
+import { cn } from '@/lib/utils';
+
+export const metadata: Metadata = seo({
+  title: 'Full-stack Engineer',
+  url: '/',
+});
+
 const HomePage = () => {
   return (
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quas sed
-        id, laboriosam inventore reprehenderit tempora sunt quisquam dolores
-        omnis, quidem atque quaerat qui ipsa nulla nemo excepturi et alias?
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id vitae,
-        suscipit incidunt praesentium velit quisquam non similique voluptatem.
-        Officiis illo repellendus esse aliquam minima suscipit deserunt rem.
-        Architecto, officiis odit.
-      </p>
+    <div className={cn('flex flex-col')}>
+      <Hero />
     </div>
   );
 };

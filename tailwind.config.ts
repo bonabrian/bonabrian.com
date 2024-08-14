@@ -1,6 +1,7 @@
 import typography from '@tailwindcss/typography';
 import svgDataUri from 'mini-svg-data-uri';
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 import type { PluginAPI } from 'tailwindcss/types/config';
 import animate from 'tailwindcss-animate';
 
@@ -64,6 +65,11 @@ const config = {
           default: 'hsl(var(--code))',
         },
         spotify: '#1DB954',
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
+        cal: ['var(--font-cal)'],
       },
       backgroundImage: {
         'rainbow-gradient':
