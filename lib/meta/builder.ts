@@ -1,5 +1,6 @@
-import { BASE_URL } from '@/config/site';
-import { env } from '@/lib/env';
+import { BASE_URL } from '@/constants';
+
+import { env } from '../env';
 
 /**
  * Helper function to determine the hostname for the given environment,
@@ -7,7 +8,8 @@ import { env } from '@/lib/env';
  * @return the hostname for the given environment.
  */
 export const appHost = (includeProtocol: boolean = true): string => {
-  let host: string = '';
+  let host = '';
+
   if (env.NEXT_PUBLIC_APP_URL) {
     host = env.NEXT_PUBLIC_APP_URL;
   } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {

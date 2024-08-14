@@ -1,3 +1,5 @@
+import { env } from '@/lib/env';
+
 interface Author {
   name: string;
   url: string;
@@ -18,7 +20,7 @@ interface Site {
 }
 
 export const BASE_URL =
-  process.env.NODE_ENV === 'production'
+  env.NODE_ENV === 'production'
     ? 'https://bonabrian.com'
     : 'http://localhost:3000';
 
