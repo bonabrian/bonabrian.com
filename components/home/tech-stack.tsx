@@ -127,7 +127,7 @@ const TechStack = () => {
         initial="hide"
         animate="show"
         transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-        className={cn('flex flex-wrap gap-1')}
+        className={cn('flex flex-wrap gap-2')}
       >
         {stacks.map(({ title, colorClass, icon }) => (
           <Tooltip key={title}>
