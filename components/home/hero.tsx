@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 import { Container, FlipWords } from '../shared';
 import { Button } from '../ui';
-import TechStack from './tech-stack';
+import CurrentTechStack from './current-tech-stack';
 
 const Hero = () => {
   return (
@@ -68,7 +68,7 @@ const Hero = () => {
         </div>
 
         <div className={cn('mt-16', 'lg:mt-20')}>
-          <TechStack />
+          <CurrentTechStack />
         </div>
       </Container>
     </div>

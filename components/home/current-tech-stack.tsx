@@ -107,7 +107,7 @@ const stacks: Stack[] = [
   },
 ];
 
-const TechStack = () => {
+const CurrentTechStack = () => {
   const animation = {
     hide: { x: -8, opacity: 0 },
     show: { x: 0, opacity: 1 },
@@ -150,4 +150,4 @@ const TechStack = () => {
   );
 };
 
-export default TechStack;
+export default CurrentTechStack;

@@ -1,4 +1,4 @@
+import CurrentTechStack from './current-tech-stack';
 import Hero from './hero';
-import TechStack from './tech-stack';
 
-export { Hero, TechStack };
+export { CurrentTechStack, Hero };
