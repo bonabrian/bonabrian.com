@@ -1,10 +1,5 @@
 'use client';
 
-import {
-  domAnimation,
-  LazyMotion,
-  MotionConfig as MotionProvider,
-} from 'framer-motion';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import type { Dispatch, SetStateAction } from 'react';
@@ -31,22 +26,18 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <RenderIf isTrue={mounted}>
-      <MotionProvider reducedMotion="user">
-        <LazyMotion strict features={domAnimation}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <SessionProvider>
-              <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
-                <TooltipProvider>{children}</TooltipProvider>
-              </CommandPaletteContext.Provider>
-            </SessionProvider>
-          </ThemeProvider>
-        </LazyMotion>
-      </MotionProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <SessionProvider>
+          <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
+            <TooltipProvider>{children}</TooltipProvider>
+          </CommandPaletteContext.Provider>
+        </SessionProvider>
+      </ThemeProvider>
     </RenderIf>
   );
 };

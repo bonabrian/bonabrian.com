@@ -1,6 +1,6 @@
 'use client';
 
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -115,15 +115,15 @@ const CurrentTechStack = () => {
 
   return (
     <>
-      <m.p
+      <motion.p
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.4 }}
         className={cn('mb-2 text-sm text-muted-foreground')}
       >
         Tech Stack and Tools
-      </m.p>
-      <m.div
+      </motion.p>
+      <motion.div
         initial="hide"
         animate="show"
         transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
@@ -132,7 +132,7 @@ const CurrentTechStack = () => {
         {stacks.map(({ title, colorClass, icon }) => (
           <Tooltip key={title}>
             <TooltipTrigger asChild>
-              <m.div
+              <motion.div
                 className={cn(
                   'size-6 text-muted-foreground transition duration-200',
                   colorClass,
@@ -140,12 +140,12 @@ const CurrentTechStack = () => {
                 variants={animation}
               >
                 {icon}
-              </m.div>
+              </motion.div>
             </TooltipTrigger>
             <TooltipContent>{title}</TooltipContent>
           </Tooltip>
         ))}
-      </m.div>
+      </motion.div>
     </>
   );
 };

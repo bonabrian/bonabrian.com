@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -33,7 +33,7 @@ const FlipWords = ({
 
   return (
     <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
-      <m.div
+      <motion.div
         initial={{
           opacity: 0,
           y: 10,
@@ -59,7 +59,7 @@ const FlipWords = ({
         key={currentWord}
       >
         {currentWord.split('').map((letter, index) => (
-          <m.span
+          <motion.span
             key={currentWord + index}
             initial={{ opacity: 0, y: 10, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -70,9 +70,9 @@ const FlipWords = ({
             className="inline-block"
           >
             {letter}
-          </m.span>
+          </motion.span>
         ))}
-      </m.div>
+      </motion.div>
     </AnimatePresence>
   );
 };

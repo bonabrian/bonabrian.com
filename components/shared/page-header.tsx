@@ -1,6 +1,6 @@
 'use client';
 
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -31,7 +31,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
             'text-center': centered,
           })}
         >
-          <m.div
+          <motion.div
             initial={animation.hide}
             animate={animation.show}
             transition={{ delay: 0.1 }}
@@ -45,15 +45,15 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
             >
               {title}
             </h1>
-          </m.div>
+          </motion.div>
           {description && (
-            <m.div
+            <motion.div
               initial={animation.hide}
               animate={animation.show}
               transition={{ delay: 0.2 }}
             >
               <p className={cn('mt-2 font-cal text-lg')}>{description}</p>
-            </m.div>
+            </motion.div>
           )}
         </Container>
       </div>
