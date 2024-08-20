@@ -7,6 +7,7 @@ import MobileMenu from './mobile-menu';
 import PageHeader from './page-header';
 import RenderIf from './render-if';
 import ThemeSwitch from './theme-switch';
+import TracingBeam from './tracing-beam';
 
 export {
   CommandPalette,
@@ -18,4 +19,5 @@ export {
   PageHeader,
   RenderIf,
   ThemeSwitch,
+  TracingBeam,
 };
