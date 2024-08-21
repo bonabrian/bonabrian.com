@@ -1,13 +1,19 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
+import { EXPERIENCES } from '@/constants';
 import { calculateDuration, cn, formatDate } from '@/lib/utils';
 
 import { Document } from '../shared/icons';
 import { Button, Tooltip, TooltipContent, TooltipTrigger } from '../ui';
-import { EXPERIENCES } from '@/constants';
-import Image from 'next/image';
 
 const CareerJourney = () => {
+  const lastUpdated = formatDate(new Date('2024-01-06'), {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+
   return (
     <>
       <div className={cn('mb-12', 'md:mb-16')}>
@@ -128,6 +134,14 @@ const CareerJourney = () => {
             },
           )}
         </ol>
+        <div className={cn('mt-12')}>
+          <p className={cn('text-muted-foreground')}>
+            Last updated at{' '}
+            <time dateTime={lastUpdated} className={cn('font-cal')}>
+              {lastUpdated}
+            </time>
+          </p>
+        </div>
       </div>
     </>
   );
