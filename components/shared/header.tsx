@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTheme } from 'next-themes';
 
 import { NAV_LINKS } from '@/constants';
 import useScroll from '@/hooks/use-scroll';
 import { cn } from '@/lib/utils';
 
-import Logo from '../../assets/images/logo.svg';
+import LogoDark from '../../assets/images/logo-dark.svg';
+import LogoLight from '../../assets/images/logo-light.svg';
 import { Separator } from '../ui';
 import CommandPalette from './command-palette';
 import Container from './container';
@@ -17,6 +19,7 @@ import ThemeSwitch from './theme-switch';
 const Header = () => {
   const isScrolled = useScroll();
   const pathname = usePathname();
+  const { resolvedTheme: theme } = useTheme();
 
   return (
     <header
@@ -32,7 +35,11 @@ const Header = () => {
               href="/"
               className={cn('flex items-center justify-center gap-2')}
             >
-              <Logo className={cn('h-8')} />
+              {theme === 'dark' ? (
+                <LogoDark className={cn('h-7')} />
+              ) : (
+                <LogoLight className={cn('h-7')} />
+              )}
               <span
                 className={cn(
                   'hidden font-extrabold tracking-tight',
