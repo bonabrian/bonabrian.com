@@ -90,7 +90,7 @@ const Biography = () => {
       </p>
       <div className={cn('my-2 flex items-center gap-4')}>
         <Link
-          href={SITE.author.github}
+          href={SITE.author.github.url}
           className={cn(
             'text-muted-foreground transition-colors duration-200',
             'hover:text-foreground',

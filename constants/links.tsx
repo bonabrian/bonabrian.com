@@ -158,7 +158,7 @@ export const COMMAND_SOCIAL_MEDIA: CommandMenu[] = [
   },
   {
     label: 'GitHub',
-    href: SITE.author.github,
+    href: SITE.author.github.url,
     icon: <GitHub />,
     isExternal: true,
     eventName: 'Social: GitHub',

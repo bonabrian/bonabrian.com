@@ -6,7 +6,10 @@ interface Author {
   avatar: string;
   email: string;
   linkedIn: string;
-  github: string;
+  github: {
+    username: string;
+    url: string;
+  };
   twitter?: string;
 }
 
@@ -35,7 +38,10 @@ export const SITE: Site = {
     url: 'https://bonabrian.com',
     email: 'bonabrian.dev@gmail.com',
     linkedIn: 'https://www.linkedin.com/in/bonabrian',
-    github: 'https://www.github.com/bonabrian',
+    github: {
+      username: 'bonabrian',
+      url: 'https://www.github.com/bonabrian',
+    },
     avatar: '/media/bonabrian/bonabrian.jpg',
     twitter: '@bonabrian_',
   },

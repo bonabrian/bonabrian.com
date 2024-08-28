@@ -1,18 +1,15 @@
+import { differenceInMonths, differenceInYears, format } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { EXPERIENCES } from '@/constants';
-import { calculateDuration, cn, formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 
 import { Document } from '../shared/icons';
 import { Button, Tooltip, TooltipContent, TooltipTrigger } from '../ui';
 
 const CareerJourney = () => {
-  const lastUpdated = formatDate(new Date('2024-01-06'), {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  const lastUpdated = formatDate('2024-01-06');
 
   return (
     <>
@@ -34,15 +31,20 @@ const CareerJourney = () => {
               stacks,
               accomplishments,
             }) => {
-              const { years, months } = calculateDuration(startDate, endDate);
+              const start = new Date(startDate);
+              const end = endDate ? new Date(endDate) : new Date();
+
+              const durationInYears = differenceInYears(end, start);
+              const durationInMonths = differenceInMonths(end, start) % 12;
+
               let durationText = '';
 
-              if (years > 0) {
-                durationText += `${years} yr${years > 1 ? 's' : ''} `;
+              if (durationInYears > 0) {
+                durationText += `${durationInYears} yr${durationInYears > 1 ? 's' : ''} `;
               }
 
-              if (months > 0 || years === 0) {
-                durationText += `${months} mo${months > 1 ? 's' : ''}`;
+              if (durationInMonths > 0 || durationInYears === 0) {
+                durationText += `${durationInMonths} mo${durationInMonths > 1 ? 's' : ''}`;
               }
 
               return (
@@ -87,11 +89,9 @@ const CareerJourney = () => {
                       </div>
                       <div className={cn('flex gap-1 text-muted-foreground')}>
                         <div className={cn('flex gap-1')}>
-                          <span>{formatDate(new Date(startDate))}</span> -{' '}
+                          <span>{format(start, 'MMM yyyy')}</span> -{' '}
                           <span>
-                            {endDate
-                              ? formatDate(new Date(endDate))
-                              : 'Present'}
+                            {endDate ? format(endDate, 'MMM yyyy') : 'Present'}
                           </span>
                         </div>
                         <span>&middot;</span>

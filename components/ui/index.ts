@@ -4,4 +4,5 @@ export * from './command';
 export * from './dialog';
 export * from './dropdown-menu';
 export * from './separator';
+export * from './skeleton';
 export * from './tooltip';
