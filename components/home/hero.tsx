@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
+import Container from '@/components/shared/container';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import { Container, FlipWords } from '../shared';
+import { FlipWords } from '../shared';
 import { Button } from '../ui';
 import CurrentTechStack from './current-tech-stack';
 

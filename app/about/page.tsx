@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import { Biography, OpenForHire } from '@/components/about';
-import { Container, PageHeader } from '@/components/shared';
+import { PageHeader } from '@/components/shared';
+import Container from '@/components/shared/container';
 import { ROUTES, SITE } from '@/constants';
 import { env } from '@/lib/env';
 import { seo } from '@/lib/meta';

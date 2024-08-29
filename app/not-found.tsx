@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Container } from '@/components/shared';
+import Container from '@/components/shared/container';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 

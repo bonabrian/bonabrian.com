@@ -1,4 +1,3 @@
-import Container from './container';
 import FlipWords from './flip-words';
 import Header from './header';
 import IncrementCounter from './increment-counter';
@@ -11,7 +10,6 @@ import ThemeSwitch from './theme-switch';
 import TracingBeam from './tracing-beam';
 
 export {
-  Container,
   FlipWords,
   Header,
   IncrementCounter,

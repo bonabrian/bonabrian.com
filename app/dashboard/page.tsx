@@ -5,7 +5,8 @@ import {
   Engagements,
   GitHubInsights,
 } from '@/components/dashboard';
-import { Container, PageHeader } from '@/components/shared';
+import { PageHeader } from '@/components/shared';
+import Container from '@/components/shared/container';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';
 
