@@ -1,4 +1,3 @@
-import CommandPalette from './command-palette';
 import Container from './container';
 import FlipWords from './flip-words';
 import Header from './header';
@@ -12,7 +11,6 @@ import ThemeSwitch from './theme-switch';
 import TracingBeam from './tracing-beam';
 
 export {
-  CommandPalette,
   Container,
   FlipWords,
   Header,
