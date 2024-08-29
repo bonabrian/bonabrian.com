@@ -1,6 +1,6 @@
+import RenderIf from '@/components/shared/render-if';
 import { cn } from '@/lib/utils';
 
-import { RenderIf } from '../shared';
 import { Button } from '../ui';
 
 const OpenForHire = ({ isOpenForHire }: { isOpenForHire: boolean }) => (

@@ -7,7 +7,7 @@ import { createContext, useState } from 'react';
 
 import useMounted from '@/hooks/use-mounted';
 
-import { RenderIf } from './shared';
+import RenderIf from './shared/render-if';
 import { TooltipProvider } from './ui';
 
 interface CommandPaletteContextProps {
