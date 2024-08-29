@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
+import Marquee from '@/components/shared/marquee';
 import { STACKS } from '@/constants';
 import { cn } from '@/lib/utils';
-
-import { Marquee } from '../shared';
 
 const TechStacks = () => {
   const [shuffledStacks, setShuffledStacks] = useState<
