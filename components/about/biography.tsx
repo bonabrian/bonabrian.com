@@ -4,7 +4,7 @@ import { ROUTES, SITE } from '@/constants';
 import { cn } from '@/lib/utils';
 
 import { Document, Email, GitHub, LinkedIn } from '../shared/icons';
-import { Button } from '../ui';
+import { Button } from '../ui/button';
 import TechStacks from './tech-stacks';
 
 const Biography = () => {

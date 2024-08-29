@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Container from '@/components/shared/container';
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const NotFoundPage = () => (

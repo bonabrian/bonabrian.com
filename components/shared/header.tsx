@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 
 import LogoDark from '../../assets/images/logo-dark.svg';
 import LogoLight from '../../assets/images/logo-light.svg';
-import { Separator } from '../ui';
+import { Separator } from '../ui/separator';
 import CommandPalette from './command-palette';
 import Container from './container';
 import MobileMenu from './mobile-menu';

@@ -6,13 +6,13 @@ import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
+import { Button } from '../ui/button';
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui';
+} from '../ui/dropdown-menu';
 import { MenuKebab } from './icons';
 
 const MobileMenu = () => {

@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import RenderIf from '@/components/shared/render-if';
 import { cn } from '@/lib/utils';
 
-import { Skeleton } from '../ui';
+import { Skeleton } from '../ui/skeleton';
 
 interface SectionProps {
   title: string;

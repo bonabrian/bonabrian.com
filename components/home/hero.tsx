@@ -9,7 +9,7 @@ import FlipWords from '@/components/shared/flip-words';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import { Button } from '../ui';
+import { Button } from '../ui/button';
 import CurrentTechStack from './current-tech-stack';
 
 const Hero = () => {

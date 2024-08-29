@@ -9,9 +9,9 @@ import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 
 import { CommandPaletteContext } from '../providers';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
 import {
-  Badge,
-  Button,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -19,7 +19,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '../ui';
+} from '../ui/command';
 import { Command as CommandIcon, Moon, Sun } from './icons';
 
 const CommandPalette = () => {

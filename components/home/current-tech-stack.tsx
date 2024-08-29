@@ -21,7 +21,7 @@ import {
   TypeScript,
   VueJS,
 } from '../shared/icons';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface Stack {
   title: string;

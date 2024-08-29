@@ -6,7 +6,8 @@ import { EXPERIENCES } from '@/constants';
 import { cn, formatDate } from '@/lib/utils';
 
 import { Document } from '../shared/icons';
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from '../ui';
+import { Button } from '../ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 const CareerJourney = () => {
   const lastUpdated = formatDate('2024-01-06');
