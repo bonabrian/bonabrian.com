@@ -5,12 +5,12 @@ import { fromZonedTime, toZonedTime } from 'date-fns-tz';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import Progress from '@/components/shared/progress';
 import useStats from '@/hooks/use-stats';
 import { cn, formatDate } from '@/lib/utils';
 import type { CodingActivityStats } from '@/types/stats';
 import type { WakaTimeSummary } from '@/types/wakatime';
 
-import { Progress } from '../shared';
 import { WakaTime } from '../shared/icons';
 import OverviewCard from './overview-card';
 import Section from './section';
