@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils';
 import useMounted from '@/hooks/use-mounted';
+import { cn } from '@/lib/utils';
+
 import RenderIf from './render-if';
 
 const Progress = ({

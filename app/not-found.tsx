@@ -9,7 +9,7 @@ const NotFoundPage = () => (
     <title>Page Not Found</title>
     <Container
       className={cn(
-        'font-cal h-[calc(100vh-272px)] items-center justify-center',
+        'h-[calc(100vh-272px)] items-center justify-center font-cal',
       )}
     >
       <h1

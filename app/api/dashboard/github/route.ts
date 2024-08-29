@@ -4,8 +4,8 @@ import {
   getGitHubUserRepositories,
 } from '@/actions/github';
 import { response } from '@/lib/server';
-import { APIErrorResponse, APISingleResponse } from '@/types/server';
-import { GitHubStats } from '@/types/stats';
+import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import type { GitHubStats } from '@/types/stats';
 
 export const dynamic = 'force-dynamic';
 
