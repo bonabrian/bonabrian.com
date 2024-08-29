@@ -10,6 +10,7 @@ import {
   LinkedIn,
   Medal,
   Pencil,
+  RSS,
   Twitter,
 } from '@/components/shared/icons';
 import type { CommandMenu, NavLink } from '@/types/menu';
@@ -182,3 +183,69 @@ export const COMMAND_SOCIAL_MEDIA: CommandMenu[] = [
   },
 ];
 export const COMMAND_APPEARANCE = [];
+
+export const FOOTER_LINKS = [
+  [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'About',
+      path: ROUTES.about,
+    },
+    {
+      title: 'Dashboard',
+      path: ROUTES.dashboard,
+    },
+    {
+      title: 'Projects',
+      path: ROUTES.projects,
+    },
+  ],
+  [
+    {
+      title: 'Blog',
+      path: ROUTES.blog,
+    },
+    {
+      title: 'Notes',
+      path: ROUTES.notes,
+    },
+    // {
+    //   title: 'T.I.L',
+    //   path: ROUTES.todayILearned,
+    // },
+  ],
+  [
+    {
+      title: 'Guestbook',
+      path: ROUTES.guestbook,
+    },
+    {
+      title: 'Endorsements',
+      path: ROUTES.endorsements,
+    },
+  ],
+];
+
+export const FOOTER_ICON_LINKS = [
+  {
+    title: 'GitHub',
+    url: SITE.author.github.url,
+    icon: <GitHub className="size-4" />,
+    className: 'hover:text-current',
+  },
+  {
+    title: 'LinkedIn',
+    url: SITE.author.linkedIn,
+    icon: <LinkedIn className="size-4" />,
+    className: 'hover:text-[#0A66C2]',
+  },
+  {
+    title: 'RSS Feed',
+    url: '/feed.xml',
+    icon: <RSS className="size-4" />,
+    className: 'hover:text-[#FFA500]',
+  },
+];
