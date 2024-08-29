@@ -7,6 +7,7 @@ import {
 } from 'next/font/google';
 import localFont from 'next/font/local';
 
+import Analytics from '@/components/analytics';
 import Providers from '@/components/providers';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
@@ -51,6 +52,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
           <main>{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </Providers>
     </body>
   </html>
