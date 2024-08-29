@@ -1,4 +1,3 @@
-import Header from './header';
 import IncrementCounter from './increment-counter';
 import Marquee from './marquee';
 import MobileMenu from './mobile-menu';
@@ -9,7 +8,6 @@ import ThemeSwitch from './theme-switch';
 import TracingBeam from './tracing-beam';
 
 export {
-  Header,
   IncrementCounter,
   Marquee,
   MobileMenu,

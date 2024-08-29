@@ -8,7 +8,7 @@ import {
 import localFont from 'next/font/local';
 
 import Providers from '@/components/providers';
-import { Header } from '@/components/shared';
+import Header from '@/components/shared/header';
 import { DEFAULT_METADATA, seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 
