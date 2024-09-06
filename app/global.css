@@ -66,6 +66,18 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+
+  ::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-[3px] bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-[3px] border-2 bg-neutral-200 dark:bg-neutral-700;
+  }
 }
 
 @layer components {

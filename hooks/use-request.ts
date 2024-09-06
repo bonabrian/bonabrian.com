@@ -1,6 +1,7 @@
-import defaultFetcher from '@/lib/fetcher';
 import type { Fetcher, Key, KeyedMutator, SWRConfiguration } from 'swr';
 import useSWR from 'swr';
+
+import defaultFetcher from '@/lib/fetcher';
 
 interface UseRequestResponse<R = unknown, E = unknown> {
   data?: R;
@@ -14,11 +15,7 @@ const useRequest = <R extends unknown, E extends unknown>(
   fetcher: Fetcher<R> = defaultFetcher,
   options: SWRConfiguration<R, E> = {},
 ): UseRequestResponse<R, E> => {
-  const { data, error, isValidating, mutate } = useSWR<R, E>(
-    key,
-    fetcher,
-    options,
-  );
+  const { data, error, mutate } = useSWR<R, E>(key, fetcher, options);
 
   const isLoading = !data && !error;
 

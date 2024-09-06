@@ -1,27 +1,27 @@
-import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
-import { Trash } from '@/components/icons'
-import site from '@/config/site'
-import type { GuestbookEntry } from '@/types/guestbook'
-import cn from '@/utils/cn'
+import { Trash } from '@/components/icons';
+import site from '@/config/site';
+import type { GuestbookEntry } from '@/types/guestbook';
+import cn from '@/utils/cn';
 
-import Timestamp from './timestamp'
+import Timestamp from './timestamp';
 
 interface EntryProps {
-  entry: GuestbookEntry
-  onDelete: (id: string) => Promise<void>
+  entry: GuestbookEntry;
+  onDelete: (id: string) => Promise<void>;
 }
 
 const Entry = ({ entry, onDelete }: EntryProps) => {
-  const { id, body, createdAt, user } = entry
-  const { name, email, image } = user
-  const { data: session } = useSession()
+  const { id, body, createdAt, user } = entry;
+  const { name, email, image } = user;
+  const { data: session } = useSession();
 
-  const authorEmail = site.author.email
-  const isAuthor = email === authorEmail
+  const authorEmail = site.author.email;
+  const isAuthor = email === authorEmail;
 
-  const pattern = /@([^:]+):/g
+  const pattern = /@([^:]+):/g;
 
   const modifiedMessage = body?.split(pattern)?.map((message, index) => {
     if (index % 2 === 1) {
@@ -29,11 +29,11 @@ const Entry = ({ entry, onDelete }: EntryProps) => {
         <span key={index} className={cn('text-sm font-semibold text-primary')}>
           @{message}
         </span>
-      )
+      );
     }
 
-    return <span key={index}>{message}</span>
-  })
+    return <span key={index}>{message}</span>;
+  });
 
   return (
     <div className={cn('flex items-start gap-3 px-3')}>
@@ -93,7 +93,7 @@ const Entry = ({ entry, onDelete }: EntryProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Entry
+export default Entry;

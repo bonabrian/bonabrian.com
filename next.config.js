@@ -58,7 +58,7 @@ const nextConfig = {
 
 const millionConfig = {
   mute: true,
-  auto: { rsc: true },
+  // auto: { rsc: true },
   rsc: true,
 };
 
