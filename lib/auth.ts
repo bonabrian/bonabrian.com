@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: '/auth/login',
+    signIn: '/authentication',
   },
   callbacks: {
     session: async ({ session, user }) => {
