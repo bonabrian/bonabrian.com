@@ -52,7 +52,7 @@ const AboutPage = () => {
             <div className={cn('flex flex-col items-center py-2')}>
               <h3 className={cn('font-cal text-xl')}>{SITE.author.name}</h3>
               <h4 className={cn('font-cal text-muted-foreground')}>
-                Full-stack Engineer
+                Software Engineer
               </h4>
             </div>
             <OpenForHire isOpenForHire={isAvailableForHire} />

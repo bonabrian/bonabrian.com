@@ -32,7 +32,7 @@ export const SITE: Site = {
   name: "bonabrian's portfolio",
   title: 'Bona Brian Siagian',
   description:
-    'Passionate Full-stack engineer who focused on solving problems with digital products.',
+    'Passionate Software engineer who focused on solving problems with digital products.',
   author: {
     name: 'Bona Brian Siagian',
     url: 'https://bonabrian.com',
@@ -55,5 +55,6 @@ export const SITE: Site = {
     'full-stack',
     'back-end',
     'front-end',
+    'software engineer',
   ],
 };

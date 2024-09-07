@@ -5,7 +5,7 @@ import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = seo({
-  title: 'Full-stack Engineer',
+  title: 'Software Engineer',
   url: '/',
 });
 

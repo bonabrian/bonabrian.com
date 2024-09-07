@@ -12,7 +12,7 @@ const Biography = () => {
     <>
       <p>Hi there! Thanks for visiting my digital home on the internet.</p>
       <p>
-        I'm Bona Brian Siagian, a Full-stack Engineer with a focus on delivery
+        I'm Bona Brian Siagian, a Software Engineer with a focus on delivery
         innovative digital solutions that drive business value. I am currently
         working at <Link href="https://investree.id">Investree</Link>, a
         well-regarded company located in{' '}
@@ -40,7 +40,7 @@ const Biography = () => {
         organizations.
       </p>
       <p>
-        In my role as a Full-Stack Engineer, I take a charge of designing,
+        In my role as a Software Engineer, I take a charge of designing,
         developing, and maintaining software that meets both technical
         specifications and business requirements. I understand the importance of
         delivering high-quality products that not only meet technical
