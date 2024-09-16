@@ -7,8 +7,8 @@ import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
 import { Close, Expand, Minus } from '../shared/icons';
-import { Button } from '../ui/button';
 import RenderIf from '../shared/render-if';
+import { Button } from '../ui/button';
 
 const WidgetHeader = ({ onClose }: { onClose: () => void }) => {
   const { data: session } = useSession();
