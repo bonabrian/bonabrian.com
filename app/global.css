@@ -90,4 +90,21 @@
       mask-image: linear-gradient(transparent, black, transparent);
     }
   }
+
+  .equalizer {
+    @apply relative flex justify-between size-[13px];
+
+    span {
+      @apply w-[3px] h-full rounded-sm content-[""] bg-white animate-equalizer;
+      transform-origin: bottom;
+
+      &:nth-of-type(2) {
+        animation-delay: -2.2s;
+      }
+
+      &:nth-of-type(3) {
+        animation-delay: -3.7s;
+      }
+    }
+  }
 }

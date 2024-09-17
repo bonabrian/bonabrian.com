@@ -12,6 +12,7 @@ import { GuestbookWidget } from '@/components/guestbook';
 import Providers from '@/components/providers';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
+import NowPlaying from '@/components/shared/now-playing';
 import { Toaster } from '@/components/ui/toaster';
 import { DEFAULT_METADATA, seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
@@ -19,6 +20,14 @@ import { cn } from '@/lib/utils';
 export const metadata: Metadata = seo({
   ...DEFAULT_METADATA,
 });
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  width: 'device-width',
+};
 
 const fontCal = localFont({
   src: '../assets/fonts/CalSans-SemiBold.woff2',
@@ -35,14 +44,6 @@ const fontMono = FiraCode({
   variable: '--font-mono',
 });
 
-export const viewport: Viewport = {
-  initialScale: 1,
-  minimumScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  width: 'device-width',
-};
-
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
   <html lang="en" suppressHydrationWarning>
     <body
@@ -54,6 +55,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
           <main>{children}</main>
           <Footer />
           <GuestbookWidget />
+          <NowPlaying />
         </div>
         <Analytics />
         <Toaster />

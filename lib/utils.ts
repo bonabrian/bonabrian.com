@@ -9,3 +9,7 @@ export const formatDate = (
   date: string,
   dateFormat: string = 'MMMM dd, yyyy',
 ) => format(toZonedTime(parseISO(date), 'Asia/Jakarta'), dateFormat);
+
+export const trim = (text?: string, maxLength: number = 20): string =>
+  (text && text.slice(0, maxLength) + (text.length > maxLength ? '...' : '')) ??
+  '';

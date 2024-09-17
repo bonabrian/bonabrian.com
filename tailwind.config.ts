@@ -87,13 +87,12 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
-        equalize: {
-          '0%, 100%': {
-            height: '0px',
-          },
-          '50%': {
-            height: '0.75rem',
-          },
+        equalizer: {
+          '10%': { transform: 'scaleY(0.3)' },
+          '30%': { transform: 'scaleY(1)' },
+          '60%': { transform: 'scaleY(0.5)' },
+          '80%': { transform: 'scaleY(0.75)' },
+          '100%': { transform: 'scaleY(0.6)' },
         },
         'marquee-left': {
           from: { transform: 'translateX(0)' },
@@ -146,7 +145,7 @@ const config = {
         },
       },
       animation: {
-        equalize: 'equalize 0.8s infinite',
+        equalizer: 'equalizer 2.2s ease infinite alternate',
         'marquee-left': 'marquee-left var(--duration, 50s) linear infinite',
         'marquee-up': 'marquee-up var(--duration, 50s) linear infinite',
         glitch: 'glitch 1s linear infinite',
