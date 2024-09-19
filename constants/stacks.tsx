@@ -1,7 +1,10 @@
 import {
+  Android,
+  Bootstrap,
   Git,
   JavaScript,
   Jest,
+  JQuery,
   Kotlin,
   Laravel,
   Markdown,
@@ -17,6 +20,7 @@ import {
   Ruby,
   RubyOnRails,
   Spring,
+  Supabase,
   TailwindCSS,
   TypeScript,
   VueJS,
@@ -48,4 +52,8 @@ export const STACKS: Stack = {
   RabbitMQ: <RabbitMQ className={cn('size-4 fill-[#FF6600]')} />,
   Jest: <Jest className={cn('size-4 fill-[#C21325]')} />,
   Git: <Git className={cn('size-4 fill-[#F05032]')} />,
+  Supabase: <Supabase className={cn('size-4 fill-[#3FCF8E]')} />,
+  JQuery: <JQuery className={cn('size-4 fill-[#0769AD]')} />,
+  Bootstrap: <Bootstrap className={cn('size-4 fill-[#7952B3]')} />,
+  Android: <Android className={cn('size-4 fill-[#34A853]')} />,
 };
