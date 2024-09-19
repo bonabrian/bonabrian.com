@@ -13,3 +13,10 @@ export const formatDate = (
 export const trim = (text?: string, maxLength: number = 20): string =>
   (text && text.slice(0, maxLength) + (text.length > maxLength ? '...' : '')) ??
   '';
+
+export const getContentImagePath = (path: string, image?: string): string => {
+  if (image)
+    return image.startsWith('http') ? image : `/media/${path}/${image}`;
+
+  return '';
+};
