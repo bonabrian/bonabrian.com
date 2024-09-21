@@ -29,6 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --code: 0 0% 95%;
   }
 
   .dark {
@@ -56,6 +57,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --code: 0 0% 15%;
   }
 }
 
@@ -63,6 +65,12 @@
   * {
     @apply border-border;
   }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
@@ -106,5 +114,18 @@
         animation-delay: -3.7s;
       }
     }
+  }
+
+  [data-rmiz-modal-overlay='visible'] {
+    @apply backdrop-blur backdrop-saturate-100 transform-gpu;
+    @apply !bg-background/70;
+  }
+
+  [data-rmiz-btn-unzoom] {
+    visibility: hidden;
+  }
+
+  [data-rmiz-modal-img] {
+    @apply rounded-lg;
   }
 }

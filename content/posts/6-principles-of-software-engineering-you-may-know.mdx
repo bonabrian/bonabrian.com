@@ -2,19 +2,32 @@
 title: "6 Principles of Software Engineering You May Know But Don't Use"
 excerpt: 'The art of writing clean code is not just a task, but an essential skill that every programmer should passionately embrace.'
 date: '2023-06-16T17:21:00.000Z'
-keywords: [clean code, kotlin, developer, code, typescript, programming, quality, agile, solid principle, dry principle, kiss principle, yagni principle]
+keywords:
+  [
+    clean code,
+    kotlin,
+    developer,
+    code,
+    typescript,
+    programming,
+    quality,
+    agile,
+    solid principle,
+    dry principle,
+    kiss principle,
+    yagni principle,
+  ]
 tags: [code, principle]
 pinned: false
 image: 6-principles-of-software-engineering-you-may-know/cover.png
 ---
 
 ## Introduction
+
 The art of writing clean code is not just a task, but an essential skill that every software engineer should passionately embrace.
 Have you ever realized that becoming a programmer is not as difficult as you imagine? However, becoming a programmer who can create powerful applications with highly efficient code may be challenging.
 
-<blockquote>
-  Writing Code is Easy. Being a Great Developer is Hard.
-</blockquote>
+<blockquote>Writing Code is Easy. Being a Great Developer is Hard.</blockquote>
 
 <Image
   src="/media/blog/6-principles-of-software-engineering-you-may-know/bad-code.png"
@@ -24,26 +37,28 @@ Have you ever realized that becoming a programmer is not as difficult as you ima
 How can we develop code that is easily maintainable, readable, and comprehensible to others? What steps can we take to maximize the effectiveness of our code?
 
 ### 1. Keep It Simple, Stupid (KISS)
+
 The KISS principle encourages developers to keep things simple when writing code. Instead of overcomplicating things or show off by turning your code into lengthy paragraphs.
 If you can write the code in a single line, go ahead and write it as a single line.
 
 Example without following the KISS principle:
+
 ```ts title="example.ts"
 const calculateAverage = (numbers: number[]): number => {
-  let sum = 0
+  let sum = 0;
 
   for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i]
+    sum += numbers[i];
   }
 
-  const average = sum / numbers.length
-  return parseFloat(average.toFixed(2))
-}
+  const average = sum / numbers.length;
+  return parseFloat(average.toFixed(2));
+};
 
-const numbers = [1,2,3,4,5]
-const average = calculateAverage(numbers)
+const numbers = [1, 2, 3, 4, 5];
+const average = calculateAverage(numbers);
 
-console.log(average)
+console.log(average);
 ```
 
 The KISS principle is violated by unnecessarily introducing complexity.
@@ -53,46 +68,49 @@ This added complexity can lead to confusion, potential bugs, and difficulties in
 Let's make a change
 
 Example with following the KISS principle:
+
 ```ts title="example.ts"
 const calculateAverage = (numbers: number[]): number => {
-  const sum = numbers.reduce((acc, curr) => acc + curr, 0)
-  return sum / numbers.length
-}
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+  return sum / numbers.length;
+};
 
-const numbers = [1,2,3,4,5]
-const average = calculateAverage(numbers)
+const numbers = [1, 2, 3, 4, 5];
+const average = calculateAverage(numbers);
 
-console.log(average)
+console.log(average);
 ```
 
 The KISS principle is followed by using a simple and concise approach to calculate the average of a list of numbers.
 The **reduce** method is leveraged to compute the sum, and then the average is calculated by dividing the sum by the length of the array.
 The code is clear, readable, and achieves the desired result without unnecessary complexity.
 
-
 ### 2. Don't Repeat Yourself (DRY)
+
 The essence of this principle is not to repeat the same thing.
 Imagine you have a piece of functionality in your software that is used in multiple places.
 Instead of copying and pasting the same code snippet in each location, the DRY principle suggests creating a reusable components, functions, classes, or modules that encapsulates that functionality.
 
 <blockquote>
-Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+  Every piece of knowledge must have a single, unambiguous, authoritative
+  representation within a system.
 </blockquote>
 
 Example without following the DRY principle:
+
 ```ts title="example.ts"
-const number1 = 1
-const number2 = 2
-const sum1 = number1 + number2
-console.log(sum1)
+const number1 = 1;
+const number2 = 2;
+const sum1 = number1 + number2;
+console.log(sum1);
 
 // ...
 
-const number3 = 3
-const number4 = 4
-const sum2 = number3 + number4
+const number3 = 3;
+const number4 = 4;
+const sum2 = number3 + number4;
 
-console.log(sum2)
+console.log(sum2);
 ```
 
 The DRY principle is violated by duplicating the addition logic in multiple places.
@@ -105,16 +123,17 @@ Although it might seem harmless in this simple case, duplicating code can lead t
 What if we change it to be like this?
 
 Example with following the DRY principle:
+
 ```ts {1-3} title="example.ts"
 const calculateSum = (a: number, b: number): number => {
-  return a + b
-}
+  return a + b;
+};
 
-const sum1 = (1, 2)
-const sum2 = (3, 4)
+const sum1 = (1, 2);
+const sum2 = (3, 4);
 
-console.log(sum1)
-console.log(sum2)
+console.log(sum1);
+console.log(sum2);
 ```
 
 The DRY principle is followed by creating a reusable function **calculateSum** that takes two numbers as input and returns their sum.
@@ -126,6 +145,7 @@ It saves time, reduces the risk of introducing bugs, and promotes a more efficie
 Embracing the DRY principle allows you to write clean, concise, and reusable code, making your software more robust and your development workflow more efficient.
 
 ### 3. You Aren't Gonna Need It (YAGNI)
+
 This is a guiding principle in software development that emphasizes avoiding unnecessary features or functionalities.
 It suggests that developers should only implement what is currently required, rather than speculating and building features that may or may not be needed in the future.
 
@@ -139,6 +159,7 @@ Instead, you focus on delivering a minimal viable product (MVP) that fulfills th
 You recognize that including unnecessary features would increase the development time, complexity, and potential for bugs without providing immediate value to the users.
 
 ### 4. SOLID
+
 The SOLID principles are a set of five fundamental principles in software development that provide guidelines for designing and developing maintainable and flexible code.
 Each principle focuses on a specific aspect of software design and encourages developers to write code that is modular, extensible, and easy to understand.
 
@@ -152,11 +173,13 @@ Each principle focuses on a specific aspect of software design and encourages de
 />
 
 #### S - Single Responsibility Principle (SRP)
+
 The SRP states that a class or module should have a single responsibility or reason to change.
 It promotes the idea that a class should only have one primary purpose, making it easier to understand, maintain, and test.
 By separating concerns and avoiding bloated classes, we enhance code readability and achieve better maintainability.
 
 Example without following the SRP principle:
+
 ```kotlin title="Example.kt"
 class TaskManager {
   fun manipulateTask(task: Task, action: String) {
@@ -177,6 +200,7 @@ class TaskManager {
 ```
 
 Example with following the SRP principle:
+
 ```kotlin title="Example.kt"
 class TaskManager {
   fun addTask(task: Task) {
@@ -199,11 +223,13 @@ class TaskManager {
 ```
 
 #### O - Open/Closed Principle (OCP)
+
 The OCP emphasizes that software entities (classes, modules, functions) should be open for extension but closed for modification.
 This means that we should design our code in a way that allows new functionality to be added without modifying existing code.
 By relying on abstractions, interfaces, and polymorphism, we can introduce new behaviors without impacting the existing codebase.
 
 Example without following the OCP principle:
+
 ```kotlin title="Example.kt"
 class PaymentProcessor {
   fun processPayment(paymentMethod: String) {
@@ -222,6 +248,7 @@ class PaymentProcessor {
 ```
 
 Example with following the OCP principle:
+
 ```kotlin title="Example.kt"
 interface PaymentProcessor {
   fun processPayment()
@@ -247,11 +274,13 @@ class PaypalProcessor: PaymentProcessor {
 ```
 
 #### L - Liskov Substitution Principle (LSP)
+
 The LSP states that subtypes must be substitutable for their base types without affecting the correctness of the program.
 In simpler terms, this principle ensures that derived classes should be able to replace their base classes seamlessly, without breaking the expected behavior.
 Adhering to the LSP allows for better code reusability and interchangeability of objects.
 
 Example without following the LSP principle:
+
 ```kotlin title="Example.kt"
 class Vehicle {
   fun startEngine() {
@@ -278,6 +307,7 @@ class Motorcycle: Vehicle {
 ```
 
 Example with following the LSP principle:
+
 ```kotlin title="Example.kt"
 abstract class Vehicle {
   abstract fun startEngine() {
@@ -305,11 +335,13 @@ class Motorcycle: Vehicle {
 ```
 
 #### I - Interface Segregation Principle (ISP)
+
 The ISP suggests that clients should not be forced to depend on interfaces they do not use.
 It advises creating specific, focused interfaces instead of having a single large interface.
 By segregating interfaces based on specific client needs, we prevent unnecessary dependencies and achieve better modularity and flexibility in our code.
 
 Example without following the ISP principle:
+
 ```kotlin title="Example.kt"
 interface PrintAndScan {
   fun print()
@@ -333,6 +365,7 @@ class AllInOnePrinter: PrintAndScan {
 ```
 
 Example with following the ISP principle:
+
 ```kotlin title="Example.kt"
 interface Printer {
   fun print()
@@ -359,11 +392,13 @@ class AllInOnePrinter: Printer, Scanner {
 ```
 
 #### D - Dependency Inversion Principle (DIP)
+
 The DIP states that high-level modules should not depend on low-level modules both should depend on abstractions.
 It encourages the use of abstractions and dependency injection to decouple modules and promote loose coupling between different components.
 By depending on abstractions, we can easily substitute implementations and achieve more flexible and testable code.
 
 Example without following the DIP principle:
+
 ```kotlin title="Example.kt"
 class EmailService {
   fun sendEmail(message: String) {
@@ -386,6 +421,7 @@ class NotificationService {
 ```
 
 Example with following the DIP principle:
+
 ```kotlin title="Example.kt"
 interface Notifier {
   fun notify(message: String)
@@ -420,6 +456,7 @@ By understanding and applying the SOLID principles, developers can create code t
 Following these principles leads to code that is easier to read, test, and extend, resulting in more robust and flexible software systems.
 
 ### 5. Separation of Concerns (SOC)
+
 The Separation of Concerns (SoC) principle is a fundamental concept in software engineering that promotes dividing a software system into distinct and independent parts, where each part addresses a specific concern or responsibility.
 The goal is to keep different concerns separate to achieve modularity, maintainability, and reusability in the codebase.
 
@@ -431,10 +468,12 @@ Applying the SoC principle in software development is similar.
 Instead of having a monolithic and tightly-coupled codebase, we break down the system into separate modules, classes, or functions, with each one addressing a specific concern.
 
 ### 6. Continuous Learning and Adaptability
+
 The field of software engineering is a rapidly evolving landscape, where new technologies and practices emerge with regularity.
 A good software engineer understands the significance of continuous learning and embraces adaptability to remain relevant in this ever-changing industry.
 By proactively staying abreast of the latest trends and consistently enhancing their skills, software engineers can confidently deliver cutting-edge and innovative solutions.
 
 ## Final Thoughts
+
 By understanding and incorporating these principles and concepts into your software development journey, you can elevate the quality of your code, enhance collaboration, and build robust and scalable software systems that stand the test of time.
 Remember, mastering these principles requires practice and experience, so keep exploring, learning, and applying them in your projects. Happy coding 🌻

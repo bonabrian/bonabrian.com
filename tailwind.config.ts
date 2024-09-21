@@ -66,7 +66,7 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
         code: {
-          default: 'hsl(var(--code))',
+          DEFAULT: 'hsl(var(--code))',
         },
         spotify: '#1DB954',
       },
@@ -183,6 +183,8 @@ const config = {
             },
             '[data-rehype-pretty-code-figure]': {
               position: 'relative',
+              marginTop: '1em',
+              marginBottom: '1em',
             },
             ':not(pre) > code': {
               padding: '0.12em 0.25em',
@@ -198,7 +200,7 @@ const config = {
             },
             pre: {
               background: 'hsl(var(--code))',
-              padding: '1.5rem 0',
+              padding: '1rem 0',
               lineHeight: 2,
               '[data-line-numbers]': {
                 '[data-line]::before': {
@@ -215,24 +217,15 @@ const config = {
                 display: 'grid',
                 counterReset: 'lineNumber',
                 '> [data-line]': {
-                  padding: '0 2.5rem 0 1.5rem',
+                  padding: '0 1rem 0 1rem',
                   borderLeft: '2px solid transparent',
+                  lineHeight: 1.5,
                 },
                 '> [data-highlighted-line]': {
                   borderLeftColor: theme('colors.red.300'),
                   background: 'hsl(var(--primary) / 0.2)',
                 },
               },
-            },
-            '[data-rehype-pretty-code-title]': {
-              backgroundColor: '#f3f3f3',
-              color: '#24292e',
-              borderTopLeftRadius: '0.5rem',
-              borderTopRightRadius: '0.5rem',
-              padding: '0.75rem 1.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem',
             },
             '[data-rehype-pretty-code-title] ~ pre': {
               marginTop: 0,
@@ -265,10 +258,6 @@ const config = {
                   background: 'hsl(var(--primary) / 0.1)',
                 },
               },
-            },
-            '[data-rehype-pretty-code-title]': {
-              backgroundColor: '#21252b',
-              color: '#d8d9d9',
             },
           },
         },
