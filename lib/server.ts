@@ -1,3 +1,5 @@
+import { createHash } from 'crypto';
+import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export const response = <T>(
@@ -13,4 +15,14 @@ export const response = <T>(
     status,
     ...options,
   });
+};
+
+export const getSessionId = (req: NextRequest): string => {
+  const ipAddress = req.headers.get('x-forwarded-for') ?? 'localhost';
+
+  const sessionId = createHash('sha256')
+    .update(ipAddress, 'utf-8')
+    .digest('hex');
+
+  return sessionId;
 };
