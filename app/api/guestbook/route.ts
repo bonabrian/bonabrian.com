@@ -5,7 +5,11 @@ import { addGuestbookEntry, getGuestbookEntries } from '@/actions/guestbook';
 import { authOptions } from '@/lib/auth';
 import { response } from '@/lib/server';
 import type { Guestbook } from '@/types/guestbook';
-import type { APIErrorResponse, APIListResponse } from '@/types/server';
+import type {
+  APIErrorResponse,
+  APIListResponse,
+  APISingleResponse,
+} from '@/types/server';
 
 export const GET = async () => {
   try {
@@ -36,7 +40,7 @@ export const POST = async (req: NextRequest) => {
 
     await addGuestbookEntry({ message, userId: session.id as string });
 
-    return response({}, 201);
+    return response<APISingleResponse<{}>>({ data: {} }, 201);
   } catch (error) {
     return response<APIErrorResponse>({
       message: error instanceof Error ? error.message : 'Internal Server Error',
