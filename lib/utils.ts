@@ -20,3 +20,6 @@ export const getContentImagePath = (path: string, image?: string): string => {
 
   return '';
 };
+
+export const randomBetween = (min: number, max: number): number =>
+  Math.random() * (max - min) + min;

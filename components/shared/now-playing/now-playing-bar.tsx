@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { PAIR_DEVICES } from '@/constants/devices';
+import { PAIR_DEVICES } from '@/constants';
 import { cn } from '@/lib/utils';
 import type { Device, NowPlaying } from '@/types/spotify';
 

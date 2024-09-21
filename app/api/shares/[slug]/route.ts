@@ -1,11 +1,11 @@
 import type { NextRequest } from 'next/server';
 
 import {
-  countViewsBySlug,
-  countViewsBySlugAndSessionId,
-  createView,
-} from '@/actions/views';
-import { MAX_VIEWS_PER_SESSION } from '@/constants';
+  countSharesBySlug,
+  countUserShares,
+  createShare,
+} from '@/actions/shares';
+import { MAX_SHARES_PER_SESSION } from '@/constants';
 import { getSessionId, response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';
 
@@ -15,7 +15,7 @@ export const GET = async (
 ) => {
   try {
     const { slug } = params;
-    const total = await countViewsBySlug(slug);
+    const total = await countSharesBySlug(slug);
 
     return response<APISingleResponse<{ total: number }>>({ data: { total } });
   } catch (error) {
@@ -33,14 +33,15 @@ export const POST = async (
     const { slug } = params;
     const sessionId = getSessionId(req);
 
-    const currentViews = await countViewsBySlugAndSessionId(slug, sessionId);
+    const body = await req.json();
+    const { type } = body;
 
-    if (currentViews < MAX_VIEWS_PER_SESSION) {
-      await createView(slug, sessionId);
-      return response<APISingleResponse<{}>>({ data: {} }, 201);
+    const currentShares = await countUserShares(slug, sessionId, type);
+
+    if (currentShares < MAX_SHARES_PER_SESSION) {
+      await createShare(slug, sessionId, type);
+      return response<APISingleResponse<{}>>({ data: {} });
     }
-
-    // Conflict exceeded maximum views per session
     return response<APIErrorResponse>(
       {
         message: 'Conflict',

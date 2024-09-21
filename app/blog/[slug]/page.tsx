@@ -6,6 +6,7 @@ import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
 import { PostHeader } from '@/components/blog';
 import Container from '@/components/shared/container';
+import Engagements from '@/components/shared/engagements';
 import Mdx from '@/components/shared/mdx';
 import { BASE_URL, ROUTES } from '@/constants';
 import { buildJsonLd, seo } from '@/lib/meta';
@@ -74,6 +75,7 @@ const PostPage = async ({ params }: { params: { slug?: string } }) => {
       </figure>
       <Container>
         <Mdx className={cn('mt-8')} code={body.code} />
+        <Engagements />
       </Container>
       <script
         type="application/ld+json"

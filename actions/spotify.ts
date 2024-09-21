@@ -1,6 +1,6 @@
 'use server';
 
-import { PAIR_DEVICES } from '@/constants/devices';
+import { PAIR_DEVICES } from '@/constants';
 import { env } from '@/lib/env';
 import fetcher from '@/lib/fetcher';
 import type {

@@ -1,5 +1,5 @@
-import { UserContributionsCollection } from './github';
-import { WakaTimeAllTimeSinceToday, WakaTimeStats } from './wakatime';
+import type { UserContributionsCollection } from './github';
+import type { WakaTimeAllTimeSinceToday, WakaTimeStats } from './wakatime';
 
 export interface EngagementStats {
   views: number;
