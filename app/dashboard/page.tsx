@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 
-import {
-  CodingActivity,
-  Engagements,
-  GitHubInsights,
-} from '@/components/dashboard';
+import CodingActivity from '@/components/dashboard/coding-activity';
+import Engagements from '@/components/dashboard/engagements';
+import GitHubInsights from '@/components/dashboard/github-insights';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
