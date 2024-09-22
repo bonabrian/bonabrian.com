@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
 
-import { AuthenticationCard } from '@/components/auth';
+import AuthenticationCard from '@/components/auth/authentication-card';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { authOptions } from '@/lib/auth';
