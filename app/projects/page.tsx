@@ -2,7 +2,7 @@ import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
 import { allProjects } from '@/.contentlayer/generated';
-import { ProjectList } from '@/components/projects';
+import ProjectList from '@/components/projects/project-list';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';

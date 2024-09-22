@@ -10,7 +10,7 @@ import { allProjects, type Project } from '@/.contentlayer/generated';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import { ProjectCard } from '../projects';
+import ProjectCard from '../projects/project-card';
 import EmptyState from '../shared/empty-state';
 import { Button } from '../ui/button';
 
