@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Hero, HighlightedProjects } from '@/components/home';
+import { Hero, HighlightedProjects, LatestPosts } from '@/components/home';
 import Container from '@/components/shared/container';
 import { SITE } from '@/constants';
 import { seo } from '@/lib/meta';
@@ -17,6 +17,7 @@ const HomePage = () => {
       <Hero />
       <Container className={cn('gap-12')}>
         <HighlightedProjects />
+        <LatestPosts />
       </Container>
     </div>
   );
