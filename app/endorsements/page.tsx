@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { getEndorsements } from '@/actions/endorsements';
-import { Endorsements } from '@/components/endorsements';
+import Endorsements from '@/components/endorsements/endorsements';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
