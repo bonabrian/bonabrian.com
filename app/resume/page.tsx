@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { CareerJourney } from '@/components/resume';
+import CareerJourney from '@/components/resume/career-journey';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
