@@ -70,7 +70,7 @@ const GitHubInsights = () => {
             >
               Contributions
             </p>
-            <div className={cn('grid gap-3 p-2', 'md:grid-cols-4')}>
+            <div className={cn('grid gap-3 px-2 pt-4', 'md:grid-cols-4')}>
               <OverviewCard label="Total" value={totalContributions} />
               <OverviewCard
                 label="This Week"
