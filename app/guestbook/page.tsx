@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Guestbook } from '@/components/guestbook';
+import Guestbook from '@/components/guestbook/guestbook';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
