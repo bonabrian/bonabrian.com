@@ -143,6 +143,10 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'border-gradient': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
       },
       animation: {
         equalizer: 'equalizer 2.2s ease infinite alternate',
@@ -153,6 +157,7 @@ const config = {
         'glitch-bottom': 'glitch-bottom 1.5s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'border-gradient': 'border-gradient ease infinite',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {

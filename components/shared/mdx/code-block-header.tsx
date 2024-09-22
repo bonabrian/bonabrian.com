@@ -40,7 +40,7 @@ const CodeBlockHeader = ({
     <figcaption
       data-language={dataLanguage}
       className={cn(
-        'flex items-center gap-2 rounded-t-md border-b border-foreground/10 bg-card px-4 py-3 font-mono text-foreground',
+        'flex items-center gap-2 rounded-t-md border border-foreground/10 border-b-transparent bg-card px-4 py-3 font-mono text-foreground',
         className,
       )}
       {...props}

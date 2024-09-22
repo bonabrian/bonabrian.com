@@ -20,7 +20,7 @@ import { SITE } from './site';
 export const ROUTES = {
   blog: '/blog',
   projects: '/projects',
-  notes: '/notes',
+  snippets: '/snippets',
   tags: '/tags',
   endorsements: '/endorsements',
   guestbook: '/guestbook',
@@ -53,8 +53,8 @@ export const NAV_LINKS: NavLink[] = [
     icon: <Dashboard />,
   },
   {
-    path: ROUTES.notes,
-    label: 'Notes',
+    path: ROUTES.snippets,
+    label: 'Snippets',
     icon: <FileCode />,
     onlyShowOnDropdownMenu: true,
   },
@@ -112,11 +112,11 @@ export const COMMAND_PAGES: CommandMenu[] = [
     closeOnSelect: true,
   },
   {
-    label: 'Notes',
-    href: ROUTES.notes,
+    label: 'Snippets',
+    href: ROUTES.snippets,
     icon: <FileCode />,
     isExternal: false,
-    eventName: 'Pages: Notes',
+    eventName: 'Pages: Snippets',
     type: 'PAGE',
     closeOnSelect: true,
   },
@@ -209,8 +209,8 @@ export const FOOTER_LINKS = [
       path: ROUTES.blog,
     },
     {
-      title: 'Notes',
-      path: ROUTES.notes,
+      title: 'Snippets',
+      path: ROUTES.snippets,
     },
     // {
     //   title: 'T.I.L',

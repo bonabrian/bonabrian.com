@@ -15,7 +15,7 @@ import PostCard from '../blog/post-card';
 import EmptyState from '../shared/empty-state';
 import { Button } from '../ui/button';
 
-const MAX_DISPLAY = 2;
+const MAX_DISPLAY = 4;
 
 const getLatestPosts = (maxDisplay: number = MAX_DISPLAY): Array<Post> =>
   allPosts

@@ -2,30 +2,31 @@
 title: useMounted
 description: Avoid weird SSR issues whether you're rendering on the client or server
 date: 2022-09-11T00:00:00.000Z
+tags: ['react', 'typescript']
 ---
 
 ```ts
 export const useMounted = () => {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  return mounted
-}
+  return mounted;
+};
 ```
 
 ## Usage
 
 ```tsx {2,4-6}
 const SomeClientSideOnlyComponent = () => {
-  const mounted = useMounted()
+  const mounted = useMounted();
 
   if (!mounted) {
-    return null
+    return null;
   }
 
-  return <div>This is client only!</div>
-}
+  return <div>This is client only!</div>;
+};
 ```

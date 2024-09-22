@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { allPosts, allProjects } from '@/.contentlayer/generated';
+import { allPosts, allProjects, allSnippets } from '@/.contentlayer/generated';
 import { BASE_URL, ROUTES } from '@/constants';
 
 const sitemap = (): MetadataRoute.Sitemap => {
@@ -11,11 +11,18 @@ const sitemap = (): MetadataRoute.Sitemap => {
       lastModified: post.date.split('T')[0],
     }));
 
+  const snippets = allSnippets
+    .filter((snippet) => snippet.published)
+    .map((snippet) => ({
+      url: `${BASE_URL}${ROUTES.snippets}/${snippet.slug}`,
+      lastModified: snippet.date.split('T')[0],
+    }));
+
   const routes = [
     '',
     ROUTES.blog,
     ROUTES.projects,
-    // ROUTES.notes,
+    ROUTES.snippets,
     ROUTES.tags,
     ROUTES.endorsements,
     ROUTES.guestbook,
@@ -31,7 +38,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...posts];
+  return [...routes, ...posts, ...snippets];
 };
 
 export default sitemap;

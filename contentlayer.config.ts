@@ -3,12 +3,11 @@ import { makeSource } from 'contentlayer/source-files';
 import mdx from './config/contentlayer/mdx';
 import Post from './config/contentlayer/post';
 import Project from './config/contentlayer/project';
-import Note from './scripts/contentlayer/note';
-import TIL from './scripts/contentlayer/til';
+import Snippet from './config/contentlayer/snippet';
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Project, Note, TIL],
+  documentTypes: [Post, Project, Snippet],
   mdx,
 });
 

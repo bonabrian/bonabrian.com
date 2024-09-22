@@ -11,15 +11,15 @@
 <br/>
 <div align="center">
 
-  <a href="https://bonabrian.com" target="_blank">![View Demo](https://img.shields.io/badge/View%20Demo-8865ff?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=" target="_blank">![Report Bug](https://img.shields.io/badge/Report%20Bug-ff5432?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=&template=feature_request.md&title=" target="_blank">![Request Feature](https://img.shields.io/badge/Request%20Feature-96d117?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/fork" target="_blank">![Forks](https://img.shields.io/github/forks/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/stargazers" target="_blank">![Stars](https://img.shields.io/github/stars/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a>
+<a href="https://bonabrian.com" target="_blank">![View Demo](https://img.shields.io/badge/View%20Demo-8865ff?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=" target="_blank">![Report Bug](https://img.shields.io/badge/Report%20Bug-ff5432?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/issues/new?assignees=&labels=&template=feature_request.md&title=" target="_blank">![Request Feature](https://img.shields.io/badge/Request%20Feature-96d117?style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/fork" target="_blank">![Forks](https://img.shields.io/github/forks/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a> <a href="https://github.com/bonabrian/bonabrian.com/stargazers" target="_blank">![Stars](https://img.shields.io/github/stars/bonabrian/bonabrian.com?color=8865ff&style=for-the-badge)</a>
 
 </div>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/bonabrian/bonabrian.com/badge)](https://www.codefactor.io/repository/github/bonabrian/bonabrian.com)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=bugs)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=bonabrian_bonabrian.com&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=bonabrian_bonabrian.com)
 
-
 ## Features
+
 - 🔥 [Next.js](https://nextjs.org/docs/app) with app router directory structure
 - ⚛️ [React](https://react.dev/)
 - ⚡️ [Typescript](https://www.typescriptlang.org/)
@@ -32,6 +32,7 @@
 - 🤖 [Conventional Commit Lint](https://github.com/conventional-changelog/conventional-changelog)
 
 ## Running Locally
+
 1. Clone this repository
    ```bash
    git clone https://github.com/bonabrian/bonabrian.com.git
@@ -45,6 +46,7 @@
    yarn install
    ```
 4. Create a `.env` file similar to [`.env.example`](https://github.com/bonabrian/bonabrian.com/blob/main/.env.example) and input environment variables
+
    ```txt
     # Client
 
@@ -90,6 +92,7 @@
    ```
 
 ## Deployment
+
 Deploy to Vercel, Netlify, etc
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/bonabrian/bonabrian.com) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bonabrian/bonabrian.com)
@@ -104,10 +107,11 @@ Deploy to Vercel, Netlify, etc
 - `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/media/*` - store assets such as images and favicons.
 - `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
-- `content` - replace with your blog posts, projects, and notes.
-- `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains. 
+- `content` - replace with your blog posts, projects, and snippets.
+- `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains.
 
 ## Stack
+
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Database**: [PlanetScale](https://planetscale.com)

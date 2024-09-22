@@ -14,7 +14,7 @@ import ProjectCard from '../projects/project-card';
 import EmptyState from '../shared/empty-state';
 import { Button } from '../ui/button';
 
-const MAX_DISPLAY = 4;
+const MAX_DISPLAY = 2;
 
 const getHighlightedProjects = (
   maxDisplay: number = MAX_DISPLAY,
