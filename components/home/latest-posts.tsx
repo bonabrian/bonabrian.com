@@ -11,7 +11,7 @@ import { allPosts } from '@/.contentlayer/generated';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import { PostCard } from '../blog';
+import PostCard from '../blog/post-card';
 import EmptyState from '../shared/empty-state';
 import { Button } from '../ui/button';
 

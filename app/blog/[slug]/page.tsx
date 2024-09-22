@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
-import { PostHeader } from '@/components/blog';
+import PostHeader from '@/components/blog/post-header';
 import Container from '@/components/shared/container';
 import Engagements from '@/components/shared/engagements';
 import Mdx from '@/components/shared/mdx';
