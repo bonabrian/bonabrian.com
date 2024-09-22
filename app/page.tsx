@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
-import { Hero, HighlightedProjects, LatestPosts } from '@/components/home';
+import Hero from '@/components/home/hero';
+import HighlightedProjects from '@/components/home/highlighted-projects';
+import LatestPosts from '@/components/home/latest-posts';
 import Container from '@/components/shared/container';
 import { SITE } from '@/constants';
 import { seo } from '@/lib/meta';
