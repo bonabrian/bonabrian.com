@@ -2,13 +2,17 @@
 
 import { compareDesc } from 'date-fns';
 import { motion, useInView } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import { useRef } from 'react';
 
 import { allProjects, type Project } from '@/.contentlayer/generated';
+import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
 import { ProjectCard } from '../projects';
 import EmptyState from '../shared/empty-state';
+import { Button } from '../ui/button';
 
 const MAX_DISPLAY = 4;
 
@@ -72,6 +76,13 @@ const HighlightedProjects = () => {
               <ProjectCard key={project._id} project={project} />
             ))}
           </motion.div>
+          <div className={cn('my-4 flex items-center justify-center')}>
+            <Link href={ROUTES.projects}>
+              <Button variant="outline">
+                See all projects <ChevronRight />
+              </Button>
+            </Link>
+          </div>
         </>
       ) : (
         <EmptyState message="The projects are probably off having a party somewhere without us!" />
