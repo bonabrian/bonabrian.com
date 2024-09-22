@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <div className={cn('flex flex-col')}>
       <Hero />
-      <Container className={cn('gap-12')}>
+      <Container className={cn('gap-8')}>
         <HighlightedProjects />
         <LatestPosts />
         <GetInTouch />

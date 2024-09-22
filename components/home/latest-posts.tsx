@@ -65,8 +65,8 @@ const LatestPosts = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
             className={cn(
-              'my-4 grid auto-cols-fr grid-cols-1 gap-8',
-              'md:my-8 md:grid-cols-2',
+              'grid auto-cols-fr grid-cols-1 gap-4',
+              'md:grid-cols-2',
             )}
           >
             {posts.map((post) => (

@@ -52,15 +52,10 @@ const Posts = ({ posts }: { posts: Array<Post> }) => {
   };
 
   return (
-    <>
+    <div className={cn('space-y-8')}>
       {renderSearchComponent()}
       {filteredPosts.length ? (
-        <div
-          className={cn(
-            'my-8 grid grid-cols-1 gap-8',
-            'md:my-12 md:grid-cols-2',
-          )}
-        >
+        <div className={cn('grid grid-cols-1 gap-4', 'md:grid-cols-2')}>
           {filteredPosts.map((post) => (
             <PostCard key={post._id} post={post} />
           ))}
@@ -74,7 +69,7 @@ const Posts = ({ posts }: { posts: Array<Post> }) => {
           }
         />
       )}
-    </>
+    </div>
   );
 };
 

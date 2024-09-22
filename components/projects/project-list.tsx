@@ -10,8 +10,8 @@ const ProjectList = ({ projects }: { projects: Array<Project> }) => {
       {projects.length ? (
         <div
           className={cn(
-            'my-8 grid w-full auto-cols-fr grid-cols-1 gap-8',
-            'md:my-12 md:grid-cols-2',
+            'grid w-full auto-cols-fr grid-cols-1 gap-4',
+            'md:grid-cols-2',
           )}
         >
           {projects.map((project) => (
