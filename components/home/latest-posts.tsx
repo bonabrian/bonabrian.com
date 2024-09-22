@@ -2,17 +2,18 @@
 
 import { compareDesc } from 'date-fns';
 import { motion, useInView } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import { useRef } from 'react';
 
 import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
-import { cn } from '@/lib/utils';
-import EmptyState from '../shared/empty-state';
-import { PostCard } from '../blog';
-import Link from 'next/link';
 import { ROUTES } from '@/constants';
+import { cn } from '@/lib/utils';
+
+import { PostCard } from '../blog';
+import EmptyState from '../shared/empty-state';
 import { Button } from '../ui/button';
-import { ChevronRight } from 'lucide-react';
 
 const MAX_DISPLAY = 2;
 
