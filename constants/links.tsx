@@ -151,7 +151,7 @@ export const COMMAND_PAGES: CommandMenu[] = [
 export const COMMAND_SOCIAL_MEDIA: CommandMenu[] = [
   {
     label: 'Email',
-    href: `mailto:${SITE.author.email}`,
+    href: `mailto:${SITE.author.email}?subject=Hi Bona!`,
     icon: <Email />,
     isExternal: true,
     eventName: 'Contact: Email',

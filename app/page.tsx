@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import GetInTouch from '@/components/home/get-in-touch';
 import Hero from '@/components/home/hero';
 import HighlightedProjects from '@/components/home/highlighted-projects';
 import LatestPosts from '@/components/home/latest-posts';
@@ -20,6 +21,7 @@ const HomePage = () => {
       <Container className={cn('gap-12')}>
         <HighlightedProjects />
         <LatestPosts />
+        <GetInTouch />
       </Container>
     </div>
   );
