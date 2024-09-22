@@ -20,6 +20,8 @@ interface CodeBlockProps
 const CodeBlock = ({
   children,
   'data-theme': dataTheme = '',
+  className,
+  ...props
 }: CodeBlockProps) => {
   const codeBlockRef = useRef<HTMLPreElement>(null);
 
@@ -48,7 +50,12 @@ const CodeBlock = ({
 
   return (
     <>
-      <pre ref={codeBlockRef} data-theme={dataTheme}>
+      <pre
+        ref={codeBlockRef}
+        data-theme={dataTheme}
+        className={cn('border-none', className)}
+        {...props}
+      >
         {children}
       </pre>
       <div className={cn('absolute right-0.5 top-0.5')}>
