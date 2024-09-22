@@ -121,7 +121,7 @@ const CurrentTechStack = () => {
         transition={{ delay: 0.4 }}
         className={cn('mb-2 text-sm text-muted-foreground')}
       >
-        Tech Stack and Tools
+        Tech stack and tools
       </motion.p>
       <motion.div
         initial="hide"

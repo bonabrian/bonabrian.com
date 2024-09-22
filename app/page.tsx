@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-import { Hero } from '@/components/home';
+import { Hero, HighlightedProjects } from '@/components/home';
+import Container from '@/components/shared/container';
 import { SITE } from '@/constants';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
@@ -14,6 +15,9 @@ const HomePage = () => {
   return (
     <div className={cn('flex flex-col')}>
       <Hero />
+      <Container className={cn('gap-12')}>
+        <HighlightedProjects />
+      </Container>
     </div>
   );
 };

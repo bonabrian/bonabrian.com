@@ -49,7 +49,7 @@ const OGImage = ({
           </RenderIf>
         </div>
       </div>
-      <div tw="absolute bottom-0 left-0 right-0 bg-[#cabdff] h-3" />
+      <div tw="absolute bottom-0 left-0 right-0 bg-[#8566ff] h-3" />
     </div>
   );
 };
