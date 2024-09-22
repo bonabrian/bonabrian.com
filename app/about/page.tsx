@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
-import { Biography, OpenForHire } from '@/components/about';
+import Biography from '@/components/about/biography';
+import OpenForHire from '@/components/about/open-for-hire';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES, SITE } from '@/constants';
