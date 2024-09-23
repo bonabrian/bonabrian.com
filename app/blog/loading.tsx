@@ -12,9 +12,7 @@ const Loading = () => {
         </div>
       </div>
       <Skeleton className={cn('h-10 w-full')} />
-      <div
-        className={cn('my-8 grid grid-cols-1 gap-8', 'md:my-12 md:grid-cols-2')}
-      >
+      <div className={cn('my-8 grid grid-cols-1 gap-4', 'md:grid-cols-2')}>
         {Array.from({ length: 2 }).map((_, index) => (
           <Skeleton key={index} className={cn('h-[472px] w-full rounded-xl')} />
         ))}
