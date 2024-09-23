@@ -29,7 +29,6 @@ const sitemap = (): MetadataRoute.Sitemap => {
     ROUTES.about,
     ROUTES.dashboard,
     ROUTES.resume,
-    // ROUTES.todayILearned,
     ...allProjects
       .filter((project) => project.published)
       .map((project) => `${ROUTES.projects}/${project.slug}`),

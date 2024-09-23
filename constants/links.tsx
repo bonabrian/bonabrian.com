@@ -27,7 +27,6 @@ export const ROUTES = {
   about: '/about',
   dashboard: '/dashboard',
   resume: '/resume',
-  todayILearned: '/today-i-learned',
 };
 
 export const NAV_LINKS: NavLink[] = [
@@ -212,10 +211,6 @@ export const FOOTER_LINKS = [
       title: 'Snippets',
       path: ROUTES.snippets,
     },
-    // {
-    //   title: 'T.I.L',
-    //   path: ROUTES.todayILearned,
-    // },
   ],
   [
     {
