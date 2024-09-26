@@ -5,10 +5,8 @@ import type { BuiltInProviderType } from 'next-auth/providers';
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
-
-import RenderIf from '../shared/render-if';
-import { Button } from '../ui/button';
+import RenderIf from '@/components/shared/render-if';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -16,10 +14,12 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '../ui/dialog';
+} from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
+
 import ProviderButton from './provider-button';
 
-const AuthenticationCard = ({
+const AuthCard = ({
   providers,
 }: {
   providers: Record<
@@ -79,4 +79,4 @@ const AuthenticationCard = ({
   );
 };
 
-export default AuthenticationCard;
+export default AuthCard;

@@ -3,11 +3,12 @@ import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
 
-import AuthenticationCard from '@/components/auth/authentication-card';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { authOptions } from '@/lib/auth';
 import { seo } from '@/lib/meta';
+
+import AuthCard from './auth-card';
 
 export const metadata: Metadata = seo({
   title: 'Authentication',
@@ -30,7 +31,7 @@ const AuthenticationPage = async () => {
         description="Please sign in using one of the following providers"
       />
       <Container>
-        <AuthenticationCard providers={providers} />
+        <AuthCard providers={providers} />
       </Container>
     </>
   );

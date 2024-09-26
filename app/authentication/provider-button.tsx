@@ -3,10 +3,9 @@
 import { useSearchParams } from 'next/navigation';
 import { type ClientSafeProvider, signIn } from 'next-auth/react';
 
+import { GitHub, Google } from '@/components/shared/icons';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
-import { GitHub, Google } from '../shared/icons';
-import { Button } from '../ui/button';
 
 interface StyleGuide {
   logo: JSX.Element;
