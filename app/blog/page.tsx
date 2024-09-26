@@ -2,7 +2,7 @@ import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
 import { allPosts } from '@/.contentlayer/generated';
-import Posts from '@/components/blog/posts';
+import FilteredPosts from '@/components/filtered-posts';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
@@ -38,7 +38,7 @@ const BlogPage = () => {
         description="The place where I share my thoughts, ideas and experiences about software development."
       />
       <Container>
-        <Posts posts={posts} />
+        <FilteredPosts posts={posts} />
       </Container>
     </>
   );

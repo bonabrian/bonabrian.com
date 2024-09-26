@@ -6,9 +6,9 @@ import { useMemo, useState } from 'react';
 import type { Post } from '@/.contentlayer/generated';
 import { cn } from '@/lib/utils';
 
-import EmptyState from '../shared/empty-state';
-import { Input } from '../ui/input';
 import PostCard from './post-card';
+import EmptyState from './shared/empty-state';
+import { Input } from './ui/input';
 
 const filterPosts = (
   posts: Array<Post>,
@@ -27,7 +27,7 @@ const filterPosts = (
   return filteredPosts;
 };
 
-const Posts = ({ posts }: { posts: Array<Post> }) => {
+const FilteredPosts = ({ posts }: { posts: Array<Post> }) => {
   const [query, setQuery] = useState('');
 
   const filteredPosts = useMemo(
@@ -73,4 +73,4 @@ const Posts = ({ posts }: { posts: Array<Post> }) => {
   );
 };
 
-export default Posts;
+export default FilteredPosts;

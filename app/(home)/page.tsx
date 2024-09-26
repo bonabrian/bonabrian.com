@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 
-import GetInTouch from '@/components/home/get-in-touch';
-import Hero from '@/components/home/hero';
-import HighlightedProjects from '@/components/home/highlighted-projects';
-import LatestPosts from '@/components/home/latest-posts';
 import Container from '@/components/shared/container';
 import { SITE } from '@/constants';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
+
+import GetInTouch from './get-in-touch';
+import Hero from './hero';
+import HighlightedProjects from './highlighted-projects';
+import LatestPosts from './latest-posts';
 
 export const metadata: Metadata = seo({
   title: SITE.title,

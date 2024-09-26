@@ -5,11 +5,11 @@ import { ChevronRight } from 'lucide-react';
 
 import Container from '@/components/shared/container';
 import FlipWords from '@/components/shared/flip-words';
+import Link from '@/components/shared/link';
+import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import Link from '../shared/link';
-import { Button } from '../ui/button';
 import CurrentTechStack from './current-tech-stack';
 
 const Hero = () => {

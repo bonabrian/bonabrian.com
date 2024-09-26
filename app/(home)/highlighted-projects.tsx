@@ -6,13 +6,12 @@ import { ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 
 import { allProjects, type Project } from '@/.contentlayer/generated';
+import ProjectCard from '@/components/projects/project-card';
+import EmptyState from '@/components/shared/empty-state';
+import Link from '@/components/shared/link';
+import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
-
-import ProjectCard from '../projects/project-card';
-import EmptyState from '../shared/empty-state';
-import Link from '../shared/link';
-import { Button } from '../ui/button';
 
 const MAX_DISPLAY = 2;
 

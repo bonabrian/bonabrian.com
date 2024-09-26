@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils';
-
 import {
   JavaScript,
   Kotlin,
@@ -20,8 +18,13 @@ import {
   TailwindCSS,
   TypeScript,
   VueJS,
-} from '../shared/icons';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+} from '@/components/shared/icons';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
 
 interface Stack {
   title: string;
