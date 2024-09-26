@@ -2,13 +2,13 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants';
 import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 
-import { CommandPaletteContext } from '../providers';
+import { useCommandPaletteContext } from '../providers/command-palette-provider';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import {
@@ -23,7 +23,7 @@ import {
 import { Command as CommandIcon, Moon, Sun } from './icons';
 
 const CommandPalette = () => {
-  const { isOpen, setIsOpen } = useContext(CommandPaletteContext);
+  const { isOpen, setIsOpen } = useCommandPaletteContext();
   const pathname = usePathname();
   const router = useRouter();
   const [placeholderIndex, setPlaceholderIndex] = useState(0);

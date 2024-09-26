@@ -9,7 +9,7 @@ import localFont from 'next/font/local';
 
 import Analytics from '@/components/analytics';
 import GuestbookWidget from '@/components/guestbook/guestbook-widget';
-import Providers from '@/components/providers';
+import AppProvider from '@/components/providers/app-provider';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 import NowPlaying from '@/components/shared/now-playing';
@@ -49,7 +49,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
     <body
       className={cn(fontSans.variable, fontMono.variable, fontCal.variable)}
     >
-      <Providers>
+      <AppProvider>
         <div id="__app" className={cn('flex min-h-screen flex-col')}>
           <Header />
           <main>{children}</main>
@@ -59,7 +59,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
         </div>
         <Analytics />
         <Toaster />
-      </Providers>
+      </AppProvider>
     </body>
   </html>
 );
