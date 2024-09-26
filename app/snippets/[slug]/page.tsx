@@ -3,13 +3,15 @@ import { notFound } from 'next/navigation';
 
 import type { Snippet } from '@/.contentlayer/generated';
 import { allSnippets } from '@/.contentlayer/generated';
+import SnippetProvider from '@/components/providers/snippet-provider';
 import Container from '@/components/shared/container';
 import Engagements from '@/components/shared/engagements';
 import Mdx from '@/components/shared/mdx';
-import SnippetHeader from '@/components/snippets/snippet-header';
 import { BASE_URL, ROUTES } from '@/constants';
 import { buildJsonLd, seo } from '@/lib/meta';
 import { cn, formatDate } from '@/lib/utils';
+
+import Header from './header';
 
 const findSnippetBySlug = (slug?: string): Snippet | undefined =>
   allSnippets
@@ -53,18 +55,12 @@ const SnippetPage = ({ params }: { params: { slug?: string } }) => {
 
   if (!snippet) return notFound();
 
-  const { title, slug, description, date, body, readingTime } = snippet;
+  const { title, slug, description, date, body } = snippet;
   const publishedDate = formatDate(date);
 
   return (
-    <>
-      <SnippetHeader
-        title={title}
-        description={description}
-        readingTime={readingTime}
-        date={publishedDate}
-        slug={slug}
-      />
+    <SnippetProvider snippet={snippet}>
+      <Header />
       <Container>
         <Mdx className={cn('mt-8')} code={body.code} />
         <Engagements />
@@ -83,7 +79,7 @@ const SnippetPage = ({ params }: { params: { slug?: string } }) => {
         }}
         key="snippet-jsonld"
       />
-    </>
+    </SnippetProvider>
   );
 };
 

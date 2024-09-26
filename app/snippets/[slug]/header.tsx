@@ -1,32 +1,19 @@
 'use client';
 
 import { Clock, Eye } from 'lucide-react';
-import type { IReadTimeResults } from 'reading-time';
 
+import BackButton from '@/components/back-button';
+import { useSnippetContext } from '@/components/providers/snippet-provider';
+import Container from '@/components/shared/container';
+import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import useViews from '@/hooks/use-views';
-import { cn } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 
-import BackButton from '../back-button';
-import Container from '../shared/container';
-import PageHeader from '../shared/page-header';
-
-interface SnippetHeaderProps {
-  title: string;
-  date: string;
-  readingTime: IReadTimeResults;
-  slug: string;
-  description: string;
-}
-
-const SnippetHeader = ({
-  title,
-  date,
-  readingTime,
-  slug,
-  description,
-}: SnippetHeaderProps) => {
+const Header = () => {
+  const { slug, title, description, date, readingTime } = useSnippetContext();
   const { views } = useViews({ slug, trackView: true });
+  const publishedDate = formatDate(date);
 
   return (
     <>
@@ -41,8 +28,8 @@ const SnippetHeader = ({
         >
           <span>
             Published on{' '}
-            <time dateTime={date} className={cn('px-1')}>
-              {date}
+            <time dateTime={publishedDate} className={cn('px-1')}>
+              {publishedDate}
             </time>
           </span>
           <div className={cn('flex items-center gap-4')}>
@@ -61,4 +48,4 @@ const SnippetHeader = ({
   );
 };
 
-export default SnippetHeader;
+export default Header;
