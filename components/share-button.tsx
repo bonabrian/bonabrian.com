@@ -17,9 +17,9 @@ import useShares from '@/hooks/use-shares';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
-import Counter from '../counter';
-import { Twitter } from '../icons';
-import Link from '../link';
+import Counter from './shared/counter';
+import { Twitter } from './shared/icons';
+import Link from './shared/link';
 
 const ShareItemLink = ({
   href,
@@ -44,12 +44,9 @@ const ShareItemLink = ({
   );
 };
 
-const ShareButton = () => {
+const ShareButton = ({ slug }: { slug: string }) => {
   const pathname = usePathname();
   const currentUrl = `${BASE_URL}${pathname}`;
-
-  const splitUrl = currentUrl.split('/');
-  const slug = splitUrl[splitUrl.length - 1];
 
   const { toast } = useToast();
 

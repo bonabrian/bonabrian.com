@@ -3,7 +3,13 @@ import { cn } from '@/lib/utils';
 import Reactions from './reactions';
 import ShareButton from './share-button';
 
-const Engagements = ({ className }: { className?: string }) => {
+const ContentEngagements = ({
+  slug,
+  className,
+}: {
+  slug: string;
+  className?: string;
+}) => {
   return (
     <div
       className={cn(
@@ -17,11 +23,11 @@ const Engagements = ({ className }: { className?: string }) => {
           'relative flex w-full items-center justify-between gap-4 rounded-xl bg-card p-4 shadow-border',
         )}
       >
-        <Reactions />
-        <ShareButton />
+        <Reactions slug={slug} />
+        <ShareButton slug={slug} />
       </div>
     </div>
   );
 };
 
-export default Engagements;
+export default ContentEngagements;

@@ -2,24 +2,16 @@
 
 import type { ReactionType } from '@prisma/client';
 import { motion, useAnimationControls } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { BASE_URL } from '@/constants';
 import { MAX_REACTIONS_PER_SESSION } from '@/constants';
 import useReactions from '@/hooks/use-reactions';
 import { cn } from '@/lib/utils';
 
-import Counter from '../counter';
+import Counter from '../shared/counter';
 import EmojiReaction from './emoji-reaction';
 
-const Reactions = () => {
-  const pathname = usePathname();
-  const currentUrl = `${BASE_URL}${pathname}`;
-
-  const splitUrl = currentUrl.split('/');
-  const slug = splitUrl[splitUrl.length - 1];
-
+const Reactions = ({ slug }: { slug: string }) => {
   const { reactions, addReaction, isLoading } = useReactions(slug);
   const controls = useAnimationControls();
 

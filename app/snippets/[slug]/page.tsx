@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 
 import type { Snippet } from '@/.contentlayer/generated';
 import { allSnippets } from '@/.contentlayer/generated';
+import ContentEngagements from '@/components/content-engagements';
 import SnippetProvider from '@/components/providers/snippet-provider';
 import Container from '@/components/shared/container';
-import Engagements from '@/components/shared/engagements';
 import Mdx from '@/components/shared/mdx';
 import { BASE_URL, ROUTES } from '@/constants';
 import { buildJsonLd, seo } from '@/lib/meta';
@@ -63,7 +63,7 @@ const SnippetPage = ({ params }: { params: { slug?: string } }) => {
       <Header />
       <Container>
         <Mdx className={cn('mt-8')} code={body.code} />
-        <Engagements />
+        <ContentEngagements slug={slug} />
       </Container>
       <script
         type="application/ld+json"
@@ -73,6 +73,7 @@ const SnippetPage = ({ params }: { params: { slug?: string } }) => {
             description,
             headline: title,
             datePublished: publishedDate,
+            // TODO: add dateModified
             dateModified: publishedDate,
             url: `${BASE_URL}${ROUTES.snippets}/${slug}`,
           }),
