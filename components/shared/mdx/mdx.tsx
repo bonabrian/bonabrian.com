@@ -5,12 +5,12 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { cn } from '@/lib/utils';
 
+import Link from '../link';
 import BlurImage from './blur-image';
 import CodeBlock from './code-block';
 import CodeBlockHeader from './code-block-header';
 import Heading from './heading';
 import ImageZoom from './image-zoom';
-import Link from './link';
 
 const components: MDXComponents = {
   h2: (props: React.ComponentPropsWithoutRef<'h2'>) => (
@@ -37,7 +37,6 @@ const components: MDXComponents = {
       </ImageZoom>
     );
   },
-  // @ts-ignore-line
   a: Link,
   pre: CodeBlock,
   figcaption: CodeBlockHeader,
