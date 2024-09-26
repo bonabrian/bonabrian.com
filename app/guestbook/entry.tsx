@@ -4,16 +4,15 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
+import { Trash } from '@/components/shared/icons';
+import RenderIf from '@/components/shared/render-if';
+import Timestamp from '@/components/shared/timestamp';
+import { Button } from '@/components/ui/button';
+import { ToastAction } from '@/components/ui/toast';
 import { SITE } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import type { Guestbook } from '@/types/guestbook';
-
-import { Trash } from '../shared/icons';
-import RenderIf from '../shared/render-if';
-import Timestamp from '../shared/timestamp';
-import { Button } from '../ui/button';
-import { ToastAction } from '../ui/toast';
 
 const Entry = ({
   entry,

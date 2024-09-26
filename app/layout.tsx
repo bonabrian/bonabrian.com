@@ -8,7 +8,7 @@ import {
 import localFont from 'next/font/local';
 
 import Analytics from '@/components/analytics';
-import GuestbookWidget from '@/components/guestbook/guestbook-widget';
+import GuestbookWidget from '@/components/guestbook-widget';
 import AppProvider from '@/components/providers/app-provider';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';

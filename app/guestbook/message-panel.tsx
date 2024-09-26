@@ -3,12 +3,12 @@
 import type { FormEvent } from 'react';
 import { useRef, useState } from 'react';
 
+import { PaperPlane } from '@/components/shared/icons';
+import { Button } from '@/components/ui/button';
+import { ToastAction } from '@/components/ui/toast';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
-import { PaperPlane } from '../shared/icons';
-import { Button } from '../ui/button';
-import { ToastAction } from '../ui/toast';
 import UserInfo from './user-info';
 
 const MessagePanel = ({

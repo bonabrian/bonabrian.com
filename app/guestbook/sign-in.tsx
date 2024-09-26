@@ -1,11 +1,10 @@
 import { signIn } from 'next-auth/react';
 
+import { GitHub, Google } from '@/components/shared/icons';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-import { GitHub, Google } from '../shared/icons';
-import { Button } from '../ui/button';
-
-const GuestbookAuth = () => {
+const SignIn = () => {
   return (
     <div className={cn('flex flex-col border-t border-muted')}>
       <div className={cn('space-y-3 p-4')}>
@@ -39,4 +38,4 @@ const GuestbookAuth = () => {
   );
 };
 
-export default GuestbookAuth;
+export default SignIn;

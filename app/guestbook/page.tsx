@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 
-import Guestbook from '@/components/guestbook/guestbook';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';
+
+import Guestbook from './guestbook';
 
 export const metadata: Metadata = seo({
   title: 'Guestbook',

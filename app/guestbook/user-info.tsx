@@ -2,10 +2,9 @@
 
 import { signOut, useSession } from 'next-auth/react';
 
+import Link from '@/components/shared/link';
+import RenderIf from '@/components/shared/render-if';
 import { cn } from '@/lib/utils';
-
-import Link from '../shared/link';
-import RenderIf from '../shared/render-if';
 
 const UserInfo = ({ isWidget }: { isWidget?: boolean }) => {
   const { data: session } = useSession();
