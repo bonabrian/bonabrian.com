@@ -1,8 +1,8 @@
 import type { Project } from '@/.contentlayer/generated';
 import { cn } from '@/lib/utils';
 
-import EmptyState from '../shared/empty-state';
 import ProjectCard from './project-card';
+import EmptyState from './shared/empty-state';
 
 const ProjectList = ({ projects }: { projects: Array<Project> }) => {
   return (

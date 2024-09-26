@@ -5,9 +5,9 @@ import type { Project } from '@/.contentlayer/generated';
 import { ROUTES, STACKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import Link from '../shared/link';
-import RenderIf from '../shared/render-if';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+import Link from './shared/link';
+import RenderIf from './shared/render-if';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const {

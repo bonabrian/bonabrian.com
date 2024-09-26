@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 
 import { allProjects, type Project } from '@/.contentlayer/generated';
-import ProjectCard from '@/components/projects/project-card';
+import ProjectCard from '@/components/project-card';
 import EmptyState from '@/components/shared/empty-state';
 import Link from '@/components/shared/link';
 import { Button } from '@/components/ui/button';
