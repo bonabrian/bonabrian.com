@@ -3,14 +3,14 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 
+import Link from '@/components/shared/link';
+import RenderIf from '@/components/shared/render-if';
+import Spinner from '@/components/shared/spinner';
+import { Button } from '@/components/ui/button';
 import useEndorsements from '@/hooks/use-endorsements';
 import { cn } from '@/lib/utils';
 import type { SkillCategory } from '@/types/skill';
 
-import Link from '../shared/link';
-import RenderIf from '../shared/render-if';
-import Spinner from '../shared/spinner';
-import { Button } from '../ui/button';
 import Badge from './badge';
 
 const Endorsements = ({ fallbackData }: { fallbackData: SkillCategory[] }) => {

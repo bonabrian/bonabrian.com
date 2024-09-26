@@ -13,16 +13,15 @@ import type { DefaultSession } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 
+import { Medal } from '@/components/shared/icons';
+import RenderIf from '@/components/shared/render-if';
+import Spinner from '@/components/shared/spinner';
+import { Button } from '@/components/ui/button';
+import { ToastAction } from '@/components/ui/toast';
 import { SITE } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import type { Skill } from '@/types/skill';
-
-import { Medal } from '../shared/icons';
-import RenderIf from '../shared/render-if';
-import Spinner from '../shared/spinner';
-import { Button } from '../ui/button';
-import { ToastAction } from '../ui/toast';
 
 interface BadgeProps {
   skill: Skill;

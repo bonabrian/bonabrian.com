@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 
 import { getEndorsements } from '@/actions/endorsements';
-import Endorsements from '@/components/endorsements/endorsements';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';
+
+import Endorsements from './endorsements';
 
 export const metadata: Metadata = seo({
   title: 'Endorsements',
