@@ -2,39 +2,26 @@
 
 import { Clock, Eye } from 'lucide-react';
 import { useRef } from 'react';
-import type { IReadTimeResults } from 'reading-time';
 
+import BackButton from '@/components/back-button';
+import { usePostContext } from '@/components/providers/post-provider';
+import Container from '@/components/shared/container';
+import PageHeader from '@/components/shared/page-header';
+import StickyTitle from '@/components/sticky-title';
 import { ROUTES } from '@/constants';
 import useViews from '@/hooks/use-views';
-import { cn } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 
-import BackButton from '../back-button';
-import Container from '../shared/container';
-import PageHeader from '../shared/page-header';
-import StickyTitle from '../sticky-title';
-
-interface PostHeaderProps {
-  title: string;
-  date: string;
-  readingTime: IReadTimeResults;
-  slug: string;
-  description?: string;
-}
-
-const PostHeader = ({
-  title,
-  date,
-  readingTime,
-  slug,
-  description,
-}: PostHeaderProps) => {
+const Header = () => {
+  const { slug, title, excerpt, date, readingTime } = usePostContext();
   const { views } = useViews({ slug, trackView: true });
   const pageHeaderRef = useRef<HTMLDivElement>(null);
+  const publishedDate = formatDate(date);
 
   return (
     <>
       <BackButton href={ROUTES.blog} />
-      <PageHeader title={title} description={description} ref={pageHeaderRef} />
+      <PageHeader title={title} description={excerpt} ref={pageHeaderRef} />
       <StickyTitle title={title} elementRef={pageHeaderRef} />
       <Container>
         <div
@@ -45,8 +32,8 @@ const PostHeader = ({
         >
           <span>
             Published on{' '}
-            <time dateTime={date} className={cn('px-1')}>
-              {date}
+            <time dateTime={publishedDate} className={cn('px-1')}>
+              {publishedDate}
             </time>
           </span>
           <div className={cn('flex items-center gap-4')}>
@@ -65,4 +52,4 @@ const PostHeader = ({
   );
 };
 
-export default PostHeader;
+export default Header;
