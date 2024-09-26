@@ -3,10 +3,12 @@ import type { Metadata } from 'next';
 
 import { allSnippets } from '@/.contentlayer/generated';
 import Container from '@/components/shared/container';
+import EmptyState from '@/components/shared/empty-state';
 import PageHeader from '@/components/shared/page-header';
-import SnippetList from '@/components/snippets/snippet-list';
+import SnippetCard from '@/components/snippet-card';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = seo({
   title: 'Snippets',
@@ -35,7 +37,20 @@ const SnippetsPage = () => {
         description="A curated collection of snippets I frequently use in my projects."
       />
       <Container>
-        <SnippetList snippets={snippets} />
+        {snippets.length ? (
+          <div
+            className={cn(
+              'grid grid-flow-row auto-rows-auto grid-cols-1 gap-4',
+              'md:grid-cols-2',
+            )}
+          >
+            {snippets.map((snippet) => (
+              <SnippetCard key={snippet._id} snippet={snippet} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState message="The snippets are probably off having a party somewhere without us!" />
+        )}
       </Container>
     </>
   );

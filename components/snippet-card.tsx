@@ -2,8 +2,8 @@ import type { Snippet } from '@/.contentlayer/generated';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import Link from '../shared/link';
-import RenderIf from '../shared/render-if';
+import Link from './shared/link';
+import RenderIf from './shared/render-if';
 
 const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
   const { _id, slug, title, description, tags } = snippet;
