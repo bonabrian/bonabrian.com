@@ -4,9 +4,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 import RenderIf from '@/components/shared/render-if';
+import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
-
-import { Skeleton } from '../ui/skeleton';
 
 interface SectionProps {
   title: string;

@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 
-import CodingActivity from '@/components/dashboard/coding-activity';
-import Engagements from '@/components/dashboard/engagements';
-import GitHubInsights from '@/components/dashboard/github-insights';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';
+
+import CodingActivity from './coding-activity';
+import Engagements from './engagements';
+import GitHubInsights from './github-insights';
 
 export const metadata: Metadata = seo({
   title: 'Dashboard',

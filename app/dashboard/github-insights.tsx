@@ -1,12 +1,12 @@
 'use client';
 
+import { GitHub } from '@/components/shared/icons';
+import Link from '@/components/shared/link';
 import { SITE } from '@/constants';
 import useStats from '@/hooks/use-stats';
 import { cn } from '@/lib/utils';
 import type { GitHubStats } from '@/types/stats';
 
-import { GitHub } from '../shared/icons';
-import Link from '../shared/link';
 import Contributions from './contributions';
 import OverviewCard from './overview-card';
 import Section from './section';

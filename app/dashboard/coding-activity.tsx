@@ -4,14 +4,14 @@ import { formatDistanceToNow } from 'date-fns';
 import { fromZonedTime, toZonedTime } from 'date-fns-tz';
 import { useEffect, useState } from 'react';
 
+import { WakaTime } from '@/components/shared/icons';
+import Link from '@/components/shared/link';
 import Progress from '@/components/shared/progress';
 import useStats from '@/hooks/use-stats';
 import { cn, formatDate } from '@/lib/utils';
 import type { CodingActivityStats } from '@/types/stats';
 import type { WakaTimeSummary } from '@/types/wakatime';
 
-import { WakaTime } from '../shared/icons';
-import Link from '../shared/link';
 import OverviewCard from './overview-card';
 import Section from './section';
 

@@ -1,10 +1,10 @@
 'use client';
 
+import { BarChart } from '@/components/shared/icons';
 import useStats from '@/hooks/use-stats';
 import { cn } from '@/lib/utils';
 import type { EngagementStats } from '@/types/stats';
 
-import { BarChart } from '../shared/icons';
 import OverviewCard from './overview-card';
 import Section from './section';
 
