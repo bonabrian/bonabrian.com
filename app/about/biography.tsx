@@ -1,9 +1,9 @@
+import { Document, Email, GitHub, LinkedIn } from '@/components/shared/icons';
+import Link from '@/components/shared/link';
+import { Button } from '@/components/ui/button';
 import { ROUTES, SITE } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import { Document, Email, GitHub, LinkedIn } from '../shared/icons';
-import Link from '../shared/link';
-import { Button } from '../ui/button';
 import TechStacks from './tech-stacks';
 
 const Biography = () => {
