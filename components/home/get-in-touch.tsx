@@ -1,9 +1,9 @@
 import { Rocket } from 'lucide-react';
-import Link from 'next/link';
 
 import { SITE } from '@/constants';
 import { cn } from '@/lib/utils';
 
+import Link from '../shared/link';
 import { Button } from '../ui/button';
 
 const GetInTouch = () => {

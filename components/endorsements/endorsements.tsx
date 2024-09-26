@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 
@@ -8,6 +7,7 @@ import useEndorsements from '@/hooks/use-endorsements';
 import { cn } from '@/lib/utils';
 import type { SkillCategory } from '@/types/skill';
 
+import Link from '../shared/link';
 import RenderIf from '../shared/render-if';
 import Spinner from '../shared/spinner';
 import { Button } from '../ui/button';

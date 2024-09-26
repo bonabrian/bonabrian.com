@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { cloneElement, useMemo } from 'react';
 
 import type { Project } from '@/.contentlayer/generated';
 import { ROUTES, STACKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
+import Link from '../shared/link';
 import RenderIf from '../shared/render-if';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
@@ -43,7 +43,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
       className={cn(
         'group rounded-xl bg-card shadow-border transition-colors duration-200',
       )}
-      target={`${projectUrl.startsWith('http') ? '_blank' : '_self'}`}
     >
       <div
         className={cn(

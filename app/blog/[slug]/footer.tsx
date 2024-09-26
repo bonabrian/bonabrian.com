@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-
 import { usePostContext } from '@/components/providers/post-provider';
 import Container from '@/components/shared/container';
+import Link from '@/components/shared/link';
 import { cn, formatDate } from '@/lib/utils';
 
 const Footer = () => {
@@ -15,7 +14,9 @@ const Footer = () => {
   return (
     <Container>
       <div className={cn('my-8 flex justify-between')}>
-        <Link href={editUrl}>Edit on GitHub</Link>
+        <Link href={editUrl} variant="muted">
+          Edit on GitHub
+        </Link>
         <div className={cn('text-muted-foreground')}>
           Last updated: {modifiedTime}
         </div>

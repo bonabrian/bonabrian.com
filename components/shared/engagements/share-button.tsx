@@ -2,7 +2,6 @@
 
 import { motion, useAnimationControls } from 'framer-motion';
 import { CheckCircle2, Link as LinkIcon, Share } from 'lucide-react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -20,6 +19,7 @@ import { cn } from '@/lib/utils';
 
 import Counter from '../counter';
 import { Twitter } from '../icons';
+import Link from '../link';
 
 const ShareItemLink = ({
   href,
@@ -38,8 +38,6 @@ const ShareItemLink = ({
         'hover:bg-accent',
       )}
       onClick={onClick}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       {children}
     </Link>

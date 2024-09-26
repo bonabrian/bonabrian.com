@@ -1,12 +1,12 @@
 'use client';
 
 import { ArrowLeftCircle } from 'lucide-react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
 import Container from './shared/container';
+import Link from './shared/link';
 
 const BackButton = ({ href }: { href?: string }) => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const BackButton = ({ href }: { href?: string }) => {
     <Container className={cn('pt-4', 'md:pt-8')}>
       <div className={cn('w-fit')}>
         {href ? (
-          <Link href={href} passHref className={cn(className)}>
+          <Link href={href} className={cn(className)}>
             <ArrowLeftCircle />
             <span>Back</span>
           </Link>

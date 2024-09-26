@@ -1,11 +1,11 @@
 import { differenceInMonths, differenceInYears, format } from 'date-fns';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { EXPERIENCES } from '@/constants';
 import { cn, formatDate } from '@/lib/utils';
 
 import { Document } from '../shared/icons';
+import Link from '../shared/link';
 import { Button } from '../ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 

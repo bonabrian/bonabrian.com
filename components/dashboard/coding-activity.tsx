@@ -2,7 +2,6 @@
 
 import { formatDistanceToNow } from 'date-fns';
 import { fromZonedTime, toZonedTime } from 'date-fns-tz';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import Progress from '@/components/shared/progress';
@@ -12,6 +11,7 @@ import type { CodingActivityStats } from '@/types/stats';
 import type { WakaTimeSummary } from '@/types/wakatime';
 
 import { WakaTime } from '../shared/icons';
+import Link from '../shared/link';
 import OverviewCard from './overview-card';
 import Section from './section';
 
@@ -85,12 +85,10 @@ const CodingActivity = () => {
       appendix={
         <Link
           href="https://wakatime.com/@bonabrian"
-          passHref
           className={cn(
             'text-sm text-muted-foreground transition-all duration-200',
             'hover:underline',
           )}
-          target="_blank"
         >
           Last modified:{' '}
           {formattedLastModifiedDate ? (

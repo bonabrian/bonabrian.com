@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
@@ -13,6 +12,7 @@ import LogoLight from '../../assets/images/logo-light.svg';
 import { Separator } from '../ui/separator';
 import CommandPalette from './command-palette';
 import Container from './container';
+import Link from './link';
 import MobileMenu from './mobile-menu';
 import ThemeSwitch from './theme-switch';
 

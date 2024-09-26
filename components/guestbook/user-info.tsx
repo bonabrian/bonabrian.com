@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 
 import { cn } from '@/lib/utils';
 
+import Link from '../shared/link';
 import RenderIf from '../shared/render-if';
 
 const UserInfo = ({ isWidget }: { isWidget?: boolean }) => {

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { NAV_LINKS } from '@/constants';
@@ -14,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 import { MenuKebab } from './icons';
+import Link from './link';
 
 const MobileMenu = () => {
   const pathname = usePathname();

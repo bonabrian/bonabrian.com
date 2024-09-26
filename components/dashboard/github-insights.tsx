@@ -1,13 +1,12 @@
 'use client';
 
-import Link from 'next/link';
-
 import { SITE } from '@/constants';
 import useStats from '@/hooks/use-stats';
 import { cn } from '@/lib/utils';
 import type { GitHubStats } from '@/types/stats';
 
 import { GitHub } from '../shared/icons';
+import Link from '../shared/link';
 import Contributions from './contributions';
 import OverviewCard from './overview-card';
 import Section from './section';
@@ -40,12 +39,10 @@ const GitHubInsights = () => {
       appendix={
         <Link
           href={SITE.author.github.url}
-          passHref
           className={cn(
             'font-mono text-sm text-muted-foreground transition-colors duration-200',
             'hover:text-foreground',
           )}
-          target="_blank"
         >
           @{SITE.author.github.username}
         </Link>

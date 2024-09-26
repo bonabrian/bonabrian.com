@@ -3,7 +3,6 @@
 import { compareDesc } from 'date-fns';
 import { motion, useInView } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import Link from 'next/link';
 import { useRef } from 'react';
 
 import type { Post } from '@/.contentlayer/generated';
@@ -13,6 +12,7 @@ import { cn } from '@/lib/utils';
 
 import PostCard from '../blog/post-card';
 import EmptyState from '../shared/empty-state';
+import Link from '../shared/link';
 import { Button } from '../ui/button';
 
 const MAX_DISPLAY = 4;

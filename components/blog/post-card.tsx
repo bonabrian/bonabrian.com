@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useMemo } from 'react';
 
 import type { Post } from '@/.contentlayer/generated';
@@ -10,6 +9,7 @@ import useViews from '@/hooks/use-views';
 import { cn, formatDate } from '@/lib/utils';
 
 import IncrementCounter from '../shared/increment-counter';
+import Link from '../shared/link';
 import Spinner from '../shared/spinner';
 
 const PostCard = ({ post }: { post: Post }) => {
