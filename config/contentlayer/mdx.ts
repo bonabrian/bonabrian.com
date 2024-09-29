@@ -1,10 +1,10 @@
-import type { MDXOptions } from 'contentlayer/core'
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
-import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
+import type { MDXOptions } from 'contentlayer/core';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 
-import { prettyCode } from './rehype/code'
-import imageBlurMetadata from './rehype/image-metadata'
+import { imageBlurMetadata } from '../rehype/blur';
+import { prettyCode } from '../rehype/code';
 
 const mdx: MDXOptions = {
   remarkPlugins: [remarkGfm],
@@ -15,6 +15,6 @@ const mdx: MDXOptions = {
     prettyCode,
     rehypeAccessibleEmojis,
   ],
-}
+};
 
-export default mdx
+export default mdx;

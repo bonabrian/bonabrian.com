@@ -1,21 +1,40 @@
-import typography from '@tailwindcss/typography'
-import svgDataUri from 'mini-svg-data-uri'
-import type { Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
-import type { PluginAPI } from 'tailwindcss/types/config'
-import animate from 'tailwindcss-animate'
+import typography from '@tailwindcss/typography';
+import svgDataUri from 'mini-svg-data-uri';
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
+import type { PluginAPI } from 'tailwindcss/types/config';
+import animate from 'tailwindcss-animate';
 
 const {
   default: flattenColorPalette,
-} = require('tailwindcss/lib/util/flattenColorPalette')
+} = require('tailwindcss/lib/util/flattenColorPalette');
 
-export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
+const config = {
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './constants/**/*.{ts,tsx}',
+  ],
+  darkMode: ['class'],
+  /**
+   * Fix dark mode not working
+   *
+   * https://github.com/shadcn-ui/ui/issues/313#issuecomment-1929054475
+   */
+  safelist: ['dark'],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       colors: {
-        // change your color schema here
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
@@ -25,6 +44,10 @@ export default {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -43,16 +66,13 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         code: {
-          default: 'hsl(var(--code))',
+          DEFAULT: 'hsl(var(--code))',
         },
-        input: 'hsl(var(--input))',
-        border: 'hsl(var(--border))',
-        ring: 'hsl(var(--ring))',
         spotify: '#1DB954',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
-        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
         cal: ['var(--font-cal)'],
       },
       backgroundImage: {
@@ -61,14 +81,18 @@ export default {
         'rainbow-gradient-inverse':
           'linear-gradient(to right, #56a8c6, #e7d155, #ec585c, #d25778)',
       },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
       keyframes: {
-        equalize: {
-          '0%, 100%': {
-            height: '0px',
-          },
-          '50%': {
-            height: '0.75rem',
-          },
+        equalizer: {
+          '10%': { transform: 'scaleY(0.3)' },
+          '30%': { transform: 'scaleY(1)' },
+          '60%': { transform: 'scaleY(0.5)' },
+          '80%': { transform: 'scaleY(0.75)' },
+          '100%': { transform: 'scaleY(0.6)' },
         },
         'marquee-left': {
           from: { transform: 'translateX(0)' },
@@ -111,14 +135,29 @@ export default {
             transform: 'translate(-22px, 5px) skew(21deg)',
           },
         },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'border-gradient': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
       },
       animation: {
-        equalize: 'equalize 0.8s infinite',
+        equalizer: 'equalizer 2.2s ease infinite alternate',
         'marquee-left': 'marquee-left var(--duration, 50s) linear infinite',
         'marquee-up': 'marquee-up var(--duration, 50s) linear infinite',
         glitch: 'glitch 1s linear infinite',
         'glitch-top': 'glitch-top 1s linear infinite',
         'glitch-bottom': 'glitch-bottom 1.5s linear infinite',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'border-gradient': 'border-gradient ease infinite',
       },
       typography: (theme: (value: string) => void) => ({
         DEFAULT: {
@@ -149,6 +188,8 @@ export default {
             },
             '[data-rehype-pretty-code-figure]': {
               position: 'relative',
+              marginTop: '1em',
+              marginBottom: '1em',
             },
             ':not(pre) > code': {
               padding: '0.12em 0.25em',
@@ -164,7 +205,7 @@ export default {
             },
             pre: {
               background: 'hsl(var(--code))',
-              padding: '1.5rem 0',
+              padding: '1rem 0',
               lineHeight: 2,
               '[data-line-numbers]': {
                 '[data-line]::before': {
@@ -181,24 +222,18 @@ export default {
                 display: 'grid',
                 counterReset: 'lineNumber',
                 '> [data-line]': {
-                  padding: '0 2.5rem 0 1.5rem',
+                  padding: '0 1rem 0 1rem',
                   borderLeft: '2px solid transparent',
+                  lineHeight: 1.5,
                 },
                 '> [data-highlighted-line]': {
                   borderLeftColor: theme('colors.red.300'),
                   background: 'hsl(var(--primary) / 0.2)',
+                  '> span': {
+                    backgroundColor: 'transparent',
+                  },
                 },
               },
-            },
-            '[data-rehype-pretty-code-title]': {
-              backgroundColor: '#f3f3f3',
-              color: '#24292e',
-              borderTopLeftRadius: '0.5rem',
-              borderTopRightRadius: '0.5rem',
-              padding: '0.75rem 1.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem',
             },
             '[data-rehype-pretty-code-title] ~ pre': {
               marginTop: 0,
@@ -232,10 +267,6 @@ export default {
                 },
               },
             },
-            '[data-rehype-pretty-code-title]': {
-              backgroundColor: '#21252b',
-              color: '#d8d9d9',
-            },
           },
         },
       }),
@@ -255,9 +286,11 @@ export default {
           values: flattenColorPalette(theme('backgroundColor')),
           type: 'color',
         },
-      )
+      );
     },
     typography,
     animate,
   ],
-} satisfies Config
+} satisfies Config;
+
+export default config;

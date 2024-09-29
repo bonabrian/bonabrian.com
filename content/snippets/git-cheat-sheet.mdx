@@ -1,0 +1,170 @@
+---
+title: 'Git Cheat Sheet'
+description: 'Boost your Git proficiency effortlessly with this essential Git cheat sheet, designed to rescue you from command-related headaches.'
+date: '2023-09-07T15:30:00.000Z'
+tags: ['git', 'cheatsheet']
+---
+
+## Global Setup
+
+User Information Configuration for Universal Application Across Local Repositories
+
+```bash
+git config --global user.name "[firstname lastname]"
+# set a name globally to associate your name with your Git commits
+```
+
+```bash
+git config --global user.email "[valid email]"
+# set an email address that will be associated with each history maker
+```
+
+```bash
+git config --global color.ui auto
+# set automatic command line to improve the readability of Git's output by color-coding different types of information,
+# such as branch names, status indicators, and more.
+```
+
+## Initializing
+
+Initializing and cloning repositories
+
+```bash
+git init
+# initialize an existing directory as a Git repository
+```
+
+```bash
+git clone [url]
+# retrieve repository from a hosted location via url
+```
+
+## Stage & Snapshot
+
+Working with snapshots and Git staging area
+
+```bash
+git status
+# show modified files in your working directory
+```
+
+```bash
+git add [file]
+# add a file to the staging area in Git
+```
+
+```bash
+git reset [file]
+# unstage a file from Git staging area
+```
+
+```bash
+git diff
+# display the differences (or "diffs") between the changes in working directory
+# and the last committed version of the files in your Git repository
+```
+
+```bash
+git diff --staged
+# display the differences (or "diffs") between the changes that are staged (added to the Git staging area)
+# and the last committed version of the files in your Git repository
+```
+
+```bash
+git commit -m [descriptive message]
+# create a new commit in Git with a descriptive message, this command captures the changes that are
+# currently staged (added to the Git staging area) and saves them as a new commit in the Git history
+```
+
+## Branch & Merge
+
+Isolating work in branches, and integrating changes
+
+```bash
+git branch
+# show modified files in your working directory
+```
+
+```bash
+git branch [branch-name]
+# to create a new branch in a Git repository with the specified branch-name, or alternatively
+git checkout -b [branch-name]
+```
+
+```bash
+git checkout
+# switch to another branch and check it out into working directory
+```
+
+```bash
+git merge [branch-name]
+# to merge changes from one branch into another branch in Git. Specifically,
+# it merges the branch specified by [branch-name] into the current branch
+```
+
+```bash
+git log
+# display a chronological log of commits in a Git repository
+```
+
+## Share & Update
+
+Retrieving updates from another repository and updating local repository
+
+```bash
+git remote add [alias] [url]
+# add a remote repository to your Git configuration with a specified alias
+```
+
+```bash
+git fetch [alias]
+# fetch updates from a remote repository associated with the specified alias without merging the changes into your local branches
+```
+
+```bash
+git push [remote] [branch]
+# transmit local branch commits to the remote repository branch
+```
+
+```bash
+git pull
+# fetch and merge any commits from the tracking remote branch
+```
+
+## Rewrite History
+
+Rewriting branches, updating commits and clearing history
+
+```bash
+git rebase [branch]
+# apply any commits of current branch ahead of specified one
+```
+
+```bash
+git reset --hard [commit]
+# clear staging area, rewrite working tree from specified commit
+```
+
+## Temporary Commits
+
+Temporarily store modified, tracked files in order to change branches
+
+```bash
+git stash
+# temporarily save changes in your working directory that are not yet committed but that you don't want to commit at the moment
+```
+
+```bash
+git stash list
+# show a list of stashes that you've created in your Git repository
+```
+
+```bash
+git stash pop
+# apply the most recent stash in your Git repository and remove it from the stash list
+```
+
+```bash
+git stash drop
+# remove the most recent stash from the stash list in your Git repository
+```

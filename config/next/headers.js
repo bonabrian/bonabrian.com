@@ -1,7 +1,7 @@
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
   worker-src 'self' blob:;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
   style-src 'self' *.googleapis.com 'unsafe-inline' 'unsafe-eval';
   img-src 'self' *.gstatic.com * blob: data:;
   object-src 'none';
@@ -9,7 +9,7 @@ const ContentSecurityPolicy = `
   media-src 'self';
   connect-src *;
   font-src 'self' *.gstatic.com data:;
-`
+`;
 
 const securityHeaders = [
   {
@@ -40,11 +40,20 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-]
+];
 
 module.exports = [
   {
     source: '/(.*)',
     headers: securityHeaders,
   },
-]
+  {
+    source: '/feed.xml',
+    headers: [
+      {
+        key: 'Content-Type',
+        value: 'application/rss+xml;charset=utf-8',
+      },
+    ],
+  },
+];

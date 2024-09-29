@@ -1,68 +1,65 @@
-import type { ComputedFields } from 'contentlayer/source-files'
-import { defineDocumentType } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
-import removeMarkdown from 'remove-markdown'
+import type { ComputedFields } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
+import removeMd from 'remove-markdown';
 
-import { getBlurData } from './rehype/image-metadata'
-import { getActualImageUrl } from './utils'
+import { getContentImagePath } from '../../lib/utils';
+import { getBlurData } from '../rehype/blur';
 
-const getPostExcerpt = (
-  content?: string | null,
-  defaultExcerpt?: string | null,
-  trimLength?: boolean | null,
-  minCharacters: number = 70,
-  maxCharacters: number = 150,
-): string => {
-  if (defaultExcerpt) return defaultExcerpt
+const getPostExcerpt = ({
+  content,
+  defaultExcerpt,
+  trimLength,
+  min = 70,
+  max = 150,
+}: {
+  content?: string | null;
+  defaultExcerpt?: string;
+  trimLength?: boolean;
+  min?: number;
+  max?: number;
+}): string => {
+  if (defaultExcerpt) return defaultExcerpt;
 
-  if (!content) return defaultExcerpt ?? ''
+  if (!content) return defaultExcerpt ?? '';
 
   const text = content
-    ?.split(/[\r\n]+/gm)
-    ?.filter((it: string) => !it.startsWith('#'))
-    ?.join('\n')
-    ?.split('\n')
-    ?.map((it: string) => (it ?? '').trim())
-    ?.filter((it: string) => it?.length)
-    ?.map((it: string) =>
-      removeMarkdown(it, { gfm: true, useImgAltText: true }),
-    )
+    .split(/\r?\n/g) // Split lines for both \n and \r\n
+    .filter((line) => !line.startsWith('#')) // Filter lines starting with '#'
+    .map((line) => removeMd(line.trim(), { gfm: true, useImgAltText: true })) // Remove Markdown and trim
+    .filter(Boolean);
 
-  let excerpt = ''
+  let excerpt = '';
+
   if (text) {
-    let lastIndex = 0
-    while (excerpt.length < maxCharacters) {
-      excerpt += `${text[lastIndex]} `
-      lastIndex += 1
+    let lastIndex = 0;
+    while (excerpt.length < max) {
+      excerpt += `${text[lastIndex]}`;
+      lastIndex += 1;
     }
   }
 
   if (trimLength) {
-    const allWords = excerpt.split(' ')
-    excerpt = ''
-    let lastIndex = 0
-    while (excerpt.length < maxCharacters) {
-      const word = allWords[lastIndex]
-      excerpt += `${word} `
-      if (
-        word.endsWith('.') &&
-        !word.endsWith('etc.') &&
-        excerpt.length > minCharacters
-      ) {
-        break
-      }
-      lastIndex += 1
+    const allWords = excerpt.split(' ');
+    excerpt = '';
+    let lastIndex = 0;
+    while (excerpt.length < max) {
+      const word = allWords[lastIndex];
+      excerpt += `${word} `;
+
+      if (word.endsWith('.') && !word.endsWith('etc.') && excerpt.length > min)
+        break;
+      lastIndex += 1;
     }
   }
 
-  excerpt = excerpt.trim()
+  excerpt = excerpt.trim();
 
-  if (excerpt.length > 0) {
-    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`
-  }
+  if (excerpt.length > 0)
+    return `${excerpt}${excerpt.endsWith('.') ? '..' : '...'}`;
 
-  return defaultExcerpt ?? ''
-}
+  return defaultExcerpt ?? '';
+};
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -72,7 +69,7 @@ const computedFields: ComputedFields = {
   },
   image: {
     type: 'string',
-    resolve: (doc) => getActualImageUrl('blog', doc.image),
+    resolve: (doc) => getContentImagePath('blog', doc.image),
   },
   keywords: {
     type: 'list',
@@ -81,12 +78,19 @@ const computedFields: ComputedFields = {
   excerpt: {
     type: 'string',
     resolve: (doc) =>
-      getPostExcerpt(doc.body.raw, doc.excerpt || doc.description, true),
+      getPostExcerpt({
+        content: doc.body.raw,
+        defaultExcerpt: doc.excerpt || doc.description,
+        trimLength: true,
+      }),
   },
   longExcerpt: {
     type: 'string',
     resolve: (doc) =>
-      getPostExcerpt(doc.body.raw, doc.excerpt || doc.description),
+      getPostExcerpt({
+        content: doc.body.raw,
+        defaultExcerpt: doc.excerpt || doc.description,
+      }),
   },
   tags: {
     type: 'list',
@@ -94,9 +98,10 @@ const computedFields: ComputedFields = {
   },
   imageMeta: {
     type: 'json',
-    resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
+    resolve: async (doc) =>
+      await getBlurData(getContentImagePath('blog', doc.image)),
   },
-}
+};
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -104,7 +109,8 @@ const Post = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    date: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    modifiedDate: { type: 'date', required: true },
     excerpt: { type: 'string' },
     keywords: { type: 'list', of: { type: 'string' } },
     tags: { type: 'list', of: { type: 'string' } },
@@ -115,6 +121,6 @@ const Post = defineDocumentType(() => ({
     pinned: { type: 'boolean', default: false },
   },
   computedFields,
-}))
+}));
 
-export default Post
+export default Post;

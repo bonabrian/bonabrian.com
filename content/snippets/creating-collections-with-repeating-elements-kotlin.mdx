@@ -1,0 +1,29 @@
+---
+title: Creating Collections with Repeating Elements in Kotlin
+description: Learn how to create different collections such as Lists, MutableLists, or even Arrays with repeating elements in them
+date: 2023-10-18T00:00:00.000Z
+tags: ['kotlin']
+---
+
+Use:
+
+```kotlin title="ListTest.kt"
+val list = List(50) { index -> "Something" }
+assertThat(list).hasSize(50)
+```
+
+Since **index** is unused, you could omit it:
+
+```kotlin
+val list = List(50) { "Something" }
+```
+
+Or, even using data class:
+
+```kotlin
+data class Something (
+  val id: Long? = null
+)
+
+val somethings = List(3) { Something() }
+```

@@ -1,7 +1,8 @@
 ---
 title: 'Building My Website: A Journey of Discovering New Tools and Technologies'
-excerpt: 'I thought I would set myself a challenge to recreate my own personal website to centralised place for all of my work.'
-date: '2023-02-10T00:00:00.000Z'
+excerpt: I thought I would set myself a challenge to recreate my own personal website to centralised place for all of my work.
+date: 2023-02-10T00:00:00.000Z
+modifiedDate: 2023-02-10T00:00:00.000Z
 keywords: [website, portfolio, next.js, typescript, tailwind]
 tags: [portfolio, website]
 pinned: false
@@ -9,7 +10,8 @@ image: building-my-website/cover.jpg
 ---
 
 ## Get Started
-Building a personal website was always a dream of mine, as a Full-stack Engineer.
+
+Building a personal website was always a dream of mine, as a Software Engineer.
 I wanted to create a platform that would serve as a one-stop-shop for all my work-related activities and personal projects.
 I envisioned a place where I could showcase my skills, accomplishments, and writings in a centralised location, where I could easily keep everything up to date and in one place.
 The idea behind this platform was to create a hub for my work, where people with similar interests could easily find me and my work.
@@ -30,37 +32,46 @@ I wanted to make sure that the website was not only easy to navigate but also vi
 I used the following technology stack to build my new website:
 
 ### TypeScript
-I found [TypeScript](https://www.typescriptlang.org/) to be a great language to work with, especially for a Full-stack Engineer like myself who needs to deal with both front-end and back-end coding.
+
+I found [TypeScript](https://www.typescriptlang.org/) to be a great language to work with, especially for a Software Engineer like myself who needs to deal with both front-end and back-end coding.
 
 ### Next.js
+
 I choose [Next.js](https://nextjs.org/) for its simplicity and ease of use.
 It provides a lot of useful features, such as automatic code splitting, optimized performance, and server-side rendering, which made it an ideal choice for building my website.
 
 ### Authentication
+
 I used [next-auth](https://next-auth.js.org/) for authentication, as it provides an easy way to add authentication to your Next.js application.
 With next-auth, I was able to add authentication to my website with ease, and I didn't have to worry about the complex underlying details.
 
 ### PlanetScale
+
 [PlanetScale](https://planetscale.com/) is a serverless database platform that is gaining popularity among hobbyists in the industry.
 PlanetScale offers a generous free tier,an exciting [database branching model](https://planetscale.com/docs/concepts/branching), and the possibility of scaling, which makes it a great choice for building a personal website.
 
 ### Prisma
+
 [Prisma](https://www.prisma.io/) is a collection of tools that abstract away the complex work when working with a database.
 It provides features such as migrations and safe-typing, which made it a great complementary tool to work with TypeScript.
 
 ### Tailwind CSS
+
 [Tailwind CSS](https://tailwindcss.com/) makes it easy to break down styles into small reusable components.
 Tailwind CSS provides a lot of useful utility classes, which made it easy for me to quickly style my website.
 
 ### Hosting
+
 I choose [Vercel](https://vercel.com/) for hosting my website, as it provides fast and secure hosting for Next.js applications.
 Vercel is easy to use and provides a lot of useful features, such as automatic SSL certificates and continuous deployment.
 
 ### Vercel Analytics
+
 I integrated my website with [Vercel Analytics](https://vercel.com/analytics), as it provides valuable insights into how users interact with my website.
 With Vercel Analytics, I can track user behaviour, such as pageviews and bounce rates, which helps me understand what is working and what needs improvement.
 
 ### Monitoring with Sentry
+
 [Sentry](https://sentry.io) is a developer-first error tracking and performance monitoring platform that helps developers see what actually matters, solve quicker, and learn continuously about their applications.
 The steps are:
 
@@ -68,11 +79,12 @@ The steps are:
 - Add Sentry integration to Vercel.
 - Install package
 
-```shell
+```shell title="~"
 yarn add @sentry/nextjs
 ```
 
 In this case, I only want Sentry in production and I do this
+
 ```js title="next.config.js"
 const { withSentryConfig } = require('@sentry/nextjs')
 
@@ -90,6 +102,7 @@ module.exports = isDevelopment
 ```
 
 ## Conclusion
+
 Building this website was a great learning experience for me, and I am proud of the outcome.
 I learned a lot from other people and was able to put my own spin on the design and functionality.
 I hope that future updates will be even better, with more original ideas and features.

@@ -1,26 +1,26 @@
-import type { ComputedFields } from 'contentlayer/source-files'
-import { defineDocumentType } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
+import type { ComputedFields } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
 
-import { getBlurData } from './rehype/image-metadata'
-import { getActualImageUrl } from './utils'
+import { getContentImagePath } from '../../lib/utils';
+import { getBlurData } from '../rehype/blur';
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
     type: 'string',
-    // eslint-disable-next-line no-underscore-dangle
     resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
   },
   image: {
     type: 'string',
-    resolve: (doc) => getActualImageUrl('projects', doc.image),
+    resolve: (doc) => getContentImagePath('projects', doc.image),
   },
   imageMeta: {
     type: 'json',
-    resolve: async (doc) => getBlurData(getActualImageUrl(doc.image)),
+    resolve: async (doc) =>
+      await getBlurData(getContentImagePath('projects', doc.image)),
   },
-}
+};
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
@@ -29,7 +29,7 @@ const Project = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
-    date: { type: 'string', required: true },
+    date: { type: 'date', required: true },
     published: { type: 'boolean', default: true },
     highlight: { type: 'boolean', default: false },
     stacks: { type: 'list', of: { type: 'string' } },
@@ -40,6 +40,6 @@ const Project = defineDocumentType(() => ({
     playStoreUrl: { type: 'string' },
   },
   computedFields,
-}))
+}));
 
-export default Project
+export default Project;

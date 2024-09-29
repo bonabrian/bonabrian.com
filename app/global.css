@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 97%;
+    --card-foreground: 0 0% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 252 100% 70%;
+    --primary-foreground: 230 75% 20%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --code: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 252 100% 87%;
+    --primary-foreground: 230 75% 2%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --code: 220 13% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-[3px] bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-[3px] border-2 bg-neutral-200 dark:bg-neutral-700;
+  }
+}
+
+@layer components {
+  .bg-grid {
+    @apply relative z-0;
+
+    &::before {
+      @apply grid-pattern-black/[0.05] absolute inset-0 z-[-1] content-[''];
+      @apply dark:grid-pattern-white/[0.05];
+      mask-image: linear-gradient(transparent, black, transparent);
+    }
+  }
+
+  .equalizer {
+    @apply relative flex justify-between size-[13px];
+
+    span {
+      @apply w-[3px] h-full rounded-sm content-[""] bg-white animate-equalizer;
+      transform-origin: bottom;
+
+      &:nth-of-type(2) {
+        animation-delay: -2.2s;
+      }
+
+      &:nth-of-type(3) {
+        animation-delay: -3.7s;
+      }
+    }
+  }
+
+  [data-rmiz-modal-overlay='visible'] {
+    @apply backdrop-blur backdrop-saturate-100 transform-gpu;
+    @apply !bg-background/70;
+  }
+
+  [data-rmiz-btn-unzoom] {
+    visibility: hidden;
+  }
+
+  [data-rmiz-modal-img] {
+    @apply rounded-lg;
+  }
+}

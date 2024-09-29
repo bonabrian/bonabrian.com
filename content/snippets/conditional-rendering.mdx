@@ -1,0 +1,37 @@
+---
+title: 'Conditional Rendering'
+description: 'Trick for writing cleaner conditional rendering'
+date: '2022-09-03T00:00:00.000Z'
+tags: ['react', 'typescript']
+---
+
+```tsx showLineNumbers title="RenderIf.tsx"
+type Props = {
+  children: React.ReactNode;
+  isTrue: boolean;
+};
+
+export const RenderIf = ({ children, isTrue }: Props) => {
+  return <>{isTrue ? children : null}</>;
+};
+```
+
+## Usage
+
+```tsx showLineNumbers {10-12}
+import { useState } from 'react';
+import { RenderIf } from '@/components/RenderIf';
+
+function App() {
+  const [value, setValue] = useState(4);
+
+  return (
+    <>
+      <p>Current value: {value}</p>
+      <RenderIf isTrue={value === 4}>
+        <h1>Value is 4! I will rendered</h1>
+      </RenderIf>
+    </>
+  );
+}
+```
