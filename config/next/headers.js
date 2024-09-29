@@ -1,7 +1,7 @@
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
   worker-src 'self' blob:;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
   style-src 'self' *.googleapis.com 'unsafe-inline' 'unsafe-eval';
   img-src 'self' *.gstatic.com * blob: data:;
   object-src 'none';
@@ -46,5 +46,14 @@ module.exports = [
   {
     source: '/(.*)',
     headers: securityHeaders,
+  },
+  {
+    source: '/feed.xml',
+    headers: [
+      {
+        key: 'Content-Type',
+        value: 'application/rss+xml;charset=utf-8',
+      },
+    ],
   },
 ];
