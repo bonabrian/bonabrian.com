@@ -229,6 +229,9 @@ const config = {
                 '> [data-highlighted-line]': {
                   borderLeftColor: theme('colors.red.300'),
                   background: 'hsl(var(--primary) / 0.2)',
+                  '> span': {
+                    backgroundColor: 'transparent',
+                  },
                 },
               },
             },
