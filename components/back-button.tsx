@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 
 import Container from './shared/container';
 import Link from './shared/link';
+import { Button } from './ui/button';
 
 const BackButton = ({ href }: { href?: string }) => {
   const router = useRouter();
@@ -23,10 +24,17 @@ const BackButton = ({ href }: { href?: string }) => {
             <span>Back</span>
           </Link>
         ) : (
-          <div className={cn(className)} onClick={() => router.back()}>
+          <Button
+            variant="ghost"
+            className={cn(
+              'hover:bg-transparent focus:bg-transparent',
+              className,
+            )}
+            onClick={() => router.back()}
+          >
             <ArrowLeftCircle />
             <span>Back</span>
-          </div>
+          </Button>
         )}
       </div>
     </Container>
