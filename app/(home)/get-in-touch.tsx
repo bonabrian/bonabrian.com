@@ -24,7 +24,7 @@ const GetInTouch = () => {
         collaborations. Feel free to email me, and let's discuss how we can work
         together!
       </p>
-      <Button asChild className={cn('mt-4')}>
+      <Button asChild className={cn('mt-4')} variant="shadow">
         <Link href={`mailto:${SITE.author.email}?subject=Hi Bona!`}>
           Get in touch
         </Link>
