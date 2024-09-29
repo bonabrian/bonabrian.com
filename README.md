@@ -1,4 +1,6 @@
-![bonabrian.com](https://github.com/bonabrian/bonabrian.com/assets/14372275/dc7014cc-7d69-4008-beed-d4f759fcf723)
+# bonabrian.com
+
+![bonabrian.com](https://github.com/user-attachments/assets/7ce3cd40-f728-4e45-b6e2-98a4be21bc82)
 
 <h1 align="center">
   My Own Digital Home on the Internet
@@ -99,8 +101,7 @@ Deploy to Vercel, Netlify, etc
 
 ## Files to customize
 
-- `config/site.ts` - update `site` with yours.
-- `config/github.ts` - update `GITHUB_ACCOUNT` with yours.
+- `constants/site.ts` - update `site` with yours.
 - `constants/experiences.ts` - update with your cool experiences.
 - `app/about/page.tsx` - update with yours.
 - `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
