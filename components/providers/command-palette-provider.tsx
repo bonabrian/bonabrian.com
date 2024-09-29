@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 interface CommandPaletteContextProps {
   isOpen: boolean;
@@ -30,8 +30,10 @@ const CommandPaletteProvider = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const value = useMemo(() => ({ isOpen, setIsOpen }), [isOpen, setIsOpen]);
+
   return (
-    <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
+    <CommandPaletteContext.Provider value={value}>
       {children}
     </CommandPaletteContext.Provider>
   );
