@@ -29,6 +29,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
     ROUTES.about,
     ROUTES.dashboard,
     ROUTES.resume,
+    ROUTES.uses,
     ...allProjects
       .filter((project) => project.published)
       .map((project) => `${ROUTES.projects}/${project.slug}`),

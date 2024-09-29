@@ -6,11 +6,13 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { cn } from '@/lib/utils';
 
 import Link from '../link';
+import AppsGrid from './apps-grid';
 import BlurImage from './blur-image';
 import CodeBlock from './code-block';
 import CodeBlockHeader from './code-block-header';
 import Heading from './heading';
 import ImageZoom from './image-zoom';
+import Workstation from './workstation';
 
 const components: MDXComponents = {
   h2: (props: React.ComponentPropsWithoutRef<'h2'>) => (
@@ -40,6 +42,8 @@ const components: MDXComponents = {
   a: Link,
   pre: CodeBlock,
   figcaption: CodeBlockHeader,
+  AppsGrid,
+  Workstation,
 };
 
 const Mdx = ({ code, className }: { code: string; className?: string }) => {
