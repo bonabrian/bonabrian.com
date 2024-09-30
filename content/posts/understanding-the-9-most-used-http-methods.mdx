@@ -1,0 +1,121 @@
+---
+title: Understanding the 9 Most Used HTTP Methods
+excerpt: The HTTP protocol operates by allowing clients to send requests to servers, which in turn respond with the necessary data or actions.
+date: 2024-09-30T14:29:00.000Z
+modifiedDate: 2024-09-30T14:29:00.000Z
+keywords: [http, protocol, request, response, http methods, http verbs]
+pinned: false
+image: understanding-the-9-most-used-http-methods/cover.png
+---
+
+## Leveraging HTTP Methods in RESTful API Development
+
+REST, which stands for Representational State Transfer, is an architectural style that guides the design of web services. When web services adhere to REST principles, they are referred to as RESTful web services. These services are widely adopted by application developers due to their simplicity in facilitating communication between servers across different machines.
+
+One of the primary advantages of REST is its ability to facilitate seamless data exchange between clients and servers. RESTful applications utilize various HTTP methods—such as GET, POST, DELETE, and PUT—to perform essential CRUD (Create, Read, Update, Delete) operations.
+
+## 9 Most Used HTTP Methods You Need to Know
+
+At this point, you have a solid understanding of how the HTTP protocol operates, the various methods it offers, and their significance in web development. In this section, we’ll take a closer look at each method individually. Let’s kick things off with GET, the most commonly used HTTP method in practice!
+
+### GET
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/GET.png"
+  alt="GET Method"
+/>
+
+Retrieves data from the server and returns it to the client.
+This method is commonly used to retrieve information from a server, such as retrieving a users, products or fetching data from a database.
+GET requests are typically used to retrieve data from a server, but they can also be used to perform other actions, such as searching for data or updating data.
+
+It should only retrieve data and should have no other effect on the data.
+
+If the resource is accessible, the server should respond with a 200 status code, indicating that the request was successful.
+
+### POST
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/POST.png"
+  alt="POST Method"
+/>
+
+Sends data to the server and returns a response to the client.
+This method is commonly used to send data to a server, such as creating a new product or updating an existing product.
+
+When you make a POST request to a server, you can typically expect the following outcomes:
+
+- If the POST request successfully creates a new resource, the server should respond with a 201 status code, indicating that the resource has been created.
+- In certain scenarios, if the POST request does not yield a resource at the specified URL, you may receive a 204 status code, which signifies that there is no content to return.
+
+### PUT
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/PUT.png"
+  alt="PUT Method"
+/>
+
+Updates an existing resource on the server.
+This method is commonly used to update an existing resource, such as updating a user's profile or updating a product's information.
+
+When you make a PUT request to a server, you can typically expect the following outcomes:
+
+- If the PUT request successfully updates an existing resource, the server should respond with a 200 status code, indicating that the resource has been updated.
+- If the PUT request does not update the resource, the server should respond with a 404 status code, indicating that the resource does not exist.
+
+### PATCH
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/PATCH.png"
+  alt="PATCH Method"
+/>
+
+PATCH is an HTTP method that tends to be less frequently utilized. Like PUT, PATCH is used to update resources, but it does so in a partial manner rather than completely. For instance, if you were to use the request PUT products/:productId, it would replace all fields in the Products entity of the specified resource entirely.
+However, the PATCH method does update the provided fields of the product entity.
+
+### DELETE
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/DELETE.png"
+  alt="DELETE Method"
+/>
+
+Deletes a resource from the server.
+This method is commonly used to delete a resource, such as deleting a user's profile or deleting a product.
+
+### HEAD
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/HEAD.png"
+  alt="HEAD Method"
+/>
+
+HEAD is a method that is used to retrieve the headers of a resource. It is often used to check if a resource exists or to get the size of a resource.
+
+### OPTIONS
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/OPTIONS.png"
+  alt="OPTIONS Method"
+/>
+
+OPTIONS is a method that is used to retrieve the HTTP methods that are allowed for a particular resource. It is often used to check if a resource exists or to get the size of a resource.
+
+### TRACE
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/TRACE.png"
+  alt="TRACE Method"
+/>
+
+The TRACE method serves diagnostic functions by performing a loop-back test that echoes back the exact request body previously sent by the client to the server. When successful, it returns a 200 OK response code.
+However, the TRACE method poses security risks, as it can potentially expose sensitive information, such as credentials. An attacker could exploit this vulnerability through client-side attacks to capture authentication headers and other confidential data.
+
+### CONNECT
+
+<Image
+  src="/media/blog/understanding-the-9-most-used-http-methods/CONNECT.png"
+  alt="CONNECT Method"
+/>
+
+The CONNECT method is designed to create a direct connection between a client and a server, effectively establishing a tunnel for two-way communication. This capability is particularly useful for securely transmitting large files from the client to the server.
