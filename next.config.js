@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const appHeaders = require('./config/next/headers');
 const redirects = require('./config/next/redirects');
 
-const { withContentlayer } = require('next-contentlayer');
+const { withContentlayer } = require('next-contentlayer2');
 const million = require('million/compiler');
 
 const nextConfig = {

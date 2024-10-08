@@ -1,4 +1,6 @@
-import { makeSource } from 'contentlayer/source-files';
+// move to contentlayer2 to fix issue with contentlayer
+// see https://github.com/contentlayerdev/contentlayer/issues/558
+import { makeSource } from 'contentlayer2/source-files';
 
 import mdx from './config/contentlayer/mdx';
 import Page from './config/contentlayer/page';

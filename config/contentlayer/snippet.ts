@@ -1,5 +1,5 @@
-import type { ComputedFields } from 'contentlayer/source-files';
-import { defineDocumentType } from 'contentlayer/source-files';
+import type { ComputedFields } from 'contentlayer2/source-files';
+import { defineDocumentType } from 'contentlayer2/source-files';
 import readingTime from 'reading-time';
 
 const computedFields: ComputedFields = {

@@ -1,7 +1,7 @@
 'use client';
 
 import type { MDXComponents } from 'mdx/types';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 import { cn } from '@/lib/utils';
 

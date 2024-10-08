@@ -1,4 +1,4 @@
-import type { MDXOptions } from 'contentlayer/core';
+import type { MDXOptions } from 'contentlayer2/core';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
