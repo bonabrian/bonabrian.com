@@ -38,9 +38,9 @@
     "contentlayer2": "^0.5.1",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
-    "framer-motion": "^11.11.4",
+    "framer-motion": "^11.11.7",
     "lucide-react": "^0.451.0",
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "next-auth": "4.24.8",
     "next-contentlayer2": "^0.5.1",
     "next-themes": "^0.3.0",
@@ -70,12 +70,12 @@
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.6",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.14",
+    "eslint-config-next": "^14.2.15",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-tailwindcss": "^3.17.4",
+    "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-unused-imports": "^4.1.4",
     "file-loader": "^6.2.0",
     "husky": "^9.1.6",
@@ -99,6 +99,7 @@
     "shiki": "^1.22.0",
     "tailwind-merge": "^2.5.3",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
-  }
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
 }
