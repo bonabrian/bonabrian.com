@@ -33,7 +33,7 @@ const Hero = () => {
             </span>
             <span>Software Engineer</span>
           </motion.h1>
-          <motion.p
+          <motion.div
             className={cn(
               'bg-gradient-to-b from-foreground via-foreground/90 to-foreground/70 to-90% bg-clip-text font-bold text-transparent',
               'md:text-xl',
@@ -45,7 +45,7 @@ const Hero = () => {
               className={cn('font-black text-primary')}
             />{' '}
             things with code. I also talk and write about those things.
-          </motion.p>
+          </motion.div>
         </div>
 
         <div className={cn('mt-6', 'md:mt-8')}>
