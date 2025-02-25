@@ -10,7 +10,9 @@ import AppsGrid from './apps-grid';
 import BlurImage from './blur-image';
 import CodeBlock from './code-block';
 import CodeBlockHeader from './code-block-header';
+import CoreStack from './core-stack';
 import Heading from './heading';
+import ImageComparison from './image-comparison';
 import ImageZoom from './image-zoom';
 import Workstation from './workstation';
 
@@ -44,6 +46,8 @@ const components: MDXComponents = {
   figcaption: CodeBlockHeader,
   AppsGrid,
   Workstation,
+  ImageComparison,
+  CoreStack,
 };
 
 const Mdx = ({ code, className }: { code: string; className?: string }) => {

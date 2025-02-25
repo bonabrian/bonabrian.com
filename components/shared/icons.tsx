@@ -478,7 +478,7 @@ export const RubyOnRails = ({ ...props }: ComponentProps<'svg'>) => (
   </svg>
 );
 
-export const Markdown = ({ ...props }: ComponentProps<'svg'>) => (
+export const MDX = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
     role="img"
     viewBox="0 0 24 24"
@@ -486,8 +486,8 @@ export const Markdown = ({ ...props }: ComponentProps<'svg'>) => (
     fill="currentColor"
     {...props}
   >
-    <title>Markdown</title>
-    <path d="M22.27 19.385H1.73A1.73 1.73 0 010 17.655V6.345a1.73 1.73 0 011.73-1.73h20.54A1.73 1.73 0 0124 6.345v11.308a1.73 1.73 0 01-1.73 1.731zM5.769 15.923v-4.5l2.308 2.885 2.307-2.885v4.5h2.308V8.078h-2.308l-2.307 2.885-2.308-2.885H3.46v7.847zM21.232 12h-2.309V8.077h-2.307V12h-2.308l3.461 4.039z" />
+    <title>MDX</title>
+    <path d="M.79 7.12h22.42c.436 0 .79.355.79.792v8.176c0 .436-.354.79-.79.79H.79a.79.79 0 0 1-.79-.79V7.912a.79.79 0 0 1 .79-.791V7.12Zm2.507 7.605v-3.122l1.89 1.89L7.12 11.56v3.122h1.055v-5.67l-2.99 2.99L2.24 9.056v5.67h1.055v-.001Zm8.44-1.845-1.474-1.473-.746.746 2.747 2.747 2.745-2.747-.746-.746-1.473 1.473v-4h-1.054v4Zm10.041.987-2.175-2.175 2.22-2.22-.746-.746-2.22 2.22-2.22-2.22-.747.746 2.22 2.22-2.176 2.177.746.746 2.177-2.177 2.176 2.175.745-.746Z" />
   </svg>
 );
 
@@ -636,13 +636,37 @@ export const RSS = ({ ...props }: ComponentProps<'svg'>) => (
     role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     fill="currentColor"
     {...props}
   >
     <title>RSS</title>
     <path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z" />
+  </svg>
+);
+
+export const FramerMotion = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    {...props}
+  >
+    <title>Framer</title>
+    <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
+  </svg>
+);
+
+export const Vercel = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    {...props}
+  >
+    <title>Vercel</title>
+    <path d="M24 22.525H0l12-21.05 12 21.05z" />
   </svg>
 );
 
@@ -659,6 +683,19 @@ export const Close = ({ ...props }: ComponentProps<'svg'>) => (
   >
     <path d="M18 6 6 18" />
     <path d="m6 6 12 12" />
+  </svg>
+);
+
+export const ShadcnUI = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    {...props}
+  >
+    <title>shadcn/ui</title>
+    <path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z" />
   </svg>
 );
 
@@ -855,5 +892,64 @@ export const MoodSad = ({ ...props }: ComponentProps<'svg'>) => (
       <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0" />
       <path d="M14.5 16.05a3.5 3.5 0 0 0-5 0m-1-4.55L10 10L8.5 8.5m7 3L14 10l1.5-1.5" />
     </g>
+  </svg>
+);
+
+export const Refresh = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <polyline points="23 4 23 10 17 10"></polyline>
+    <polyline points="1 20 1 14 7 14"></polyline>
+    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+  </svg>
+);
+
+export const Minimize = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <polyline points="4 14 10 14 10 20"></polyline>
+    <polyline points="20 10 14 10 14 4"></polyline>
+    <line x1="14" y1="10" x2="21" y2="3"></line>
+    <line x1="3" y1="21" x2="10" y2="14"></line>
+  </svg>
+);
+
+export const Maximize = ({ ...props }: ComponentProps<'svg'>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <polyline points="9 21 3 21 3 15"></polyline>
+    <line x1="21" y1="3" x2="14" y2="10"></line>
+    <line x1="3" y1="21" x2="10" y2="14"></line>
   </svg>
 );

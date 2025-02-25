@@ -1,13 +1,14 @@
 import {
   Android,
   Bootstrap,
+  FramerMotion,
   Git,
   JavaScript,
   Jest,
   JQuery,
   Kotlin,
   Laravel,
-  Markdown,
+  MDX,
   MySQL,
   NextJS,
   NuxtJS,
@@ -19,10 +20,12 @@ import {
   Redis,
   Ruby,
   RubyOnRails,
+  ShadcnUI,
   Spring,
   Supabase,
   TailwindCSS,
   TypeScript,
+  Vercel,
   VueJS,
 } from '@/components/shared/icons';
 import { cn } from '@/lib/utils';
@@ -42,7 +45,7 @@ export const STACKS: Stack = {
   Spring: <Spring className={cn('size-4 fill-[#6DB33F]')} />,
   'Ruby on Rails': <RubyOnRails className={cn('size-4 fill-[#D30001]')} />,
   'Tailwind CSS': <TailwindCSS className={cn('size-4 fill-[#06B6D4]')} />,
-  Markdown: <Markdown className={cn('size-4 fill-black', 'dark:fill-white')} />,
+  MDX: <MDX className={cn('size-4 fill-black', 'dark:fill-white')} />,
   MySQL: <MySQL className={cn('size-4 fill-[#4479A1]')} />,
   PostgreSQL: <PostgreSQL className={cn('size-4 fill-[#4169E1]')} />,
   Redis: <Redis className={cn('size-4 fill-[#FF4438]')} />,
@@ -57,3 +60,43 @@ export const STACKS: Stack = {
   Bootstrap: <Bootstrap className={cn('size-4 fill-[#7952B3]')} />,
   Android: <Android className={cn('size-4 fill-[#34A853]')} />,
 };
+
+export const CORE_STACKS: {
+  name: string;
+  icon: JSX.Element;
+  link: string;
+}[] = [
+  { name: 'Next.js', icon: <NextJS />, link: 'https://nextjs.org' },
+  { name: 'React.js', icon: <ReactJS />, link: 'https://react.dev' },
+  {
+    name: 'Tailwind CSS',
+    icon: <TailwindCSS />,
+    link: 'https://tailwindcss.com',
+  },
+  { name: 'MDX', icon: <MDX />, link: 'https://mdxjs.com' },
+  {
+    name: 'Framer Motion',
+    icon: <FramerMotion />,
+    link: 'https://www.framer.com/motion',
+  },
+  {
+    name: 'TypeScript',
+    icon: <TypeScript />,
+    link: 'https://www.typescriptlang.org',
+  },
+  {
+    name: 'Vercel',
+    icon: <Vercel />,
+    link: 'https://vercel.com',
+  },
+  {
+    name: 'shadcn/ui',
+    icon: <ShadcnUI />,
+    link: 'https://ui.shadcn.com',
+  },
+  {
+    name: 'Prisma',
+    icon: <Prisma />,
+    link: 'https://www.prisma.io',
+  },
+];

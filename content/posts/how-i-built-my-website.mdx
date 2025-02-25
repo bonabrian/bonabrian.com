@@ -1,0 +1,89 @@
+---
+title: 'How I Built My Website: 2024 Edition'
+excerpt: 'A completely revamped version of this website has just launched, designed to elevate your experience with a fresh look and exciting new features!'
+date: 2024-11-25T11:44:00.000Z
+modifiedDate: 2024-11-25T11:44:00.000Z
+keywords: [website, portfolio, next.js, typescript, tailwind]
+tags: [portfolio, website]
+image: how-i-built-my-website/cover.png
+published: false
+---
+
+After months of tinkering and coding magic, I’m excited to announce the launch of a completely new version of this website!
+Just a couple of weeks ago, I made it live, and it feels great to see it come together.
+
+Visually, the design keeps the same vibe, but I think it has been refined for a more polished, modern look.
+Completing the migration was a significant challenge, but it turned out to be an invaluable learning experience.
+There’s always room for improvement, and I see my website as the perfect playground to put into action all the cool things I’ve been learning, both on the job and in my free time.
+
+<ImageComparison
+  images={[
+    {
+      title: 'Home Page (Old)',
+      imageUrl: {
+        dark: '/media/blog/how-i-built-my-website/homepage_old_dark.png',
+        light: '/media/blog/how-i-built-my-website/homepage_old_light.png',
+      },
+    },
+    {
+      title: 'Home Page (New)',
+      imageUrl: {
+        dark: '/media/blog/how-i-built-my-website/homepage_new_dark.png',
+        light: '/media/blog/how-i-built-my-website/homepage_new_light.png',
+      },
+    },
+  ]}
+/>
+
+### The Journey
+
+My journey with [Next.js](https://nextjs.org) began three years ago when a friend invited me to join a side project.
+At that time, I still had no prior experience with [Next.js](https://nextjs.org)--but wait, life's about challenges, right?
+So, despite of my lack of experience _(and a tiny bit of panic)_, I thought "Why not"? It was the perfect chance to level up my skills and an exciting opportunity to learn something new.
+Armed with nothing but my _"learning by doing"_ mindset and a cup of **strong coffee** ☕, I decided to take on the challenge.
+
+At first, I felt pretty overwhelmed because I had to learn a ton of new things in such a short time.
+Even though I had experience with [Vue.js](https://vuejs.org), [Next.js](https://nextjs.org) came with all these new concepts that were quite different, especially with its rich ecosystem and server-side rendering approach.
+There were so many things I hadn’t encountered in [Vue.js](https://vuejs.org), so I had to adapt quickly.
+But, as time went on, these challenges actually became my motivation to keep pushing myself and learning more.
+
+With my [Vue.js](https://vuejs.org) background, I dove into the [Next.js](https://nextjs.org) documentation, hunted for relevant tutorials, and tackled tasks related to the project.
+My experience with [Vue.js](https://vuejs.org) helped me understand some similar JavaScript concepts, but I still had to adjust to the different structure and features that [Next.js](https://nextjs.org) offered.
+Slowly but surely, I began to feel more confident, and what once felt daunting turned into an exciting journey of growth.
+
+### Exploring the Tech Stack
+
+In this blog post, I’ll take you through the new tech stack and highlight some of the details!
+If you’re interested in exploring the technologies I’ve utilize, this post should provide you with useful information!
+
+<CoreStack />
+
+- [Next.js](https://nextjs.org): As the foundation of my website, Its offers a perfect balance of server-side rendering, static site generation, and a robust developer experience. Another key reason I chose [Next.js](https://nextjs.org) is that my other main project also uses it. By sticking to the same framework, I reduce context-switching friction, which helps me stay productive and consistent across projects.
+- [TypeScript](https://www.typescriptlang.org): I rely on [TypeScript](https://www.typescriptlang.org) for its type safety, which helps me catch potential bugs early and prevents runtime errors. It also provides a better developer experience, as it helps me write cleaner and more maintainable code.
+- [Tailwind CSS](https://tailwindcss.com): For styling, [Tailwind CSS](https://tailwindcss.com) is my go-to. Its utility-first approach allows me to create responsive, aesthetically pleasing layouts quickly while maintaining design consistency. It eliminates the hassle of naming classes and writing custom CSS from scratch.
+- [shadcn/ui](https://ui.shadcn.com): I chose [shadcn/ui](https://ui.shadcn.com) for its reusable, accessible, and customizable components, which speed up development without sacrificing design flexibility.
+- [Framer Motion](https://www.framer.com/motion): Adding smooth animations and transitions is effortless with [Framer Motion](https://www.framer.com/motion). It gives my website a polished, interactive feel while maintaining performance.
+- [MDX](https://mdxjs.com): One of the standout tools in my stack is [MDX](https://mdxjs.com). It combines the simplicity of Markdown with the power of JSX, allowing me to embed React components directly into my content. Why [MDX](https://mdxjs.com)? Traditional Markdown is great, but it felt limiting when I wanted to include custom elements or interactive components. With MDX, I can create dynamic, reusable components and integrate them seamlessly into my blog posts. It's an absolute game-changer, and it’s significantly more powerful than traditional Markdown or even rich-text solutions managed through a CMS.
+
+### What changed?
+
+#### Now Playing's widget
+
+<ImageComparison
+  images={[
+    {
+      title: 'Now Playing (Old)',
+      imageUrl: {
+        dark: '/media/blog/how-i-built-my-website/widget_old.png',
+        light: '/media/blog/how-i-built-my-website/widget_old.png',
+      },
+    },
+    {
+      title: 'Now Playing (New)',
+      imageUrl: {
+        dark: '/media/blog/how-i-built-my-website/widget_new.png',
+        light: '/media/blog/how-i-built-my-website/widget_new.png',
+      },
+    },
+  ]}
+/>

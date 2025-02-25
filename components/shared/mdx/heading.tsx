@@ -1,4 +1,4 @@
-import { LinkIcon } from 'lucide-react';
+import { HashIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -19,17 +19,30 @@ const Heading = <T extends As = 'h1'>({
 }: HeadingProps<T>) => {
   const Tag = as ?? 'h1';
   return (
-    <Tag className={cn('scroll-m-32', className)} id={id} {...props}>
-      <a href={`#${id}`} className={cn('not-prose group')}>
-        {children}
-        <LinkIcon
+    <Tag
+      className={cn(
+        'group relative scroll-m-32 text-pretty break-words font-extrabold text-primary',
+        className,
+      )}
+      id={id}
+      {...props}
+    >
+      <a
+        href={`#${id}`}
+        className={cn(
+          'absolute -left-4 bottom-0 top-0 my-auto hidden -translate-x-2/4 flex-col items-center justify-center text-inherit transition-transform delay-200 will-change-transform',
+          'lg:flex',
+        )}
+      >
+        <HashIcon
           aria-label="Link to section"
           className={cn(
-            'ml-2 inline size-4 text-muted-foreground opacity-0 transition-opacity',
+            'inline size-min opacity-0 transition-opacity',
             'group-hover:opacity-100',
           )}
         />
       </a>
+      {children}
     </Tag>
   );
 };
