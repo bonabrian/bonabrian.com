@@ -4779,31 +4779,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@t3-oss/env-core@npm:0.11.1":
-  version: 0.11.1
-  resolution: "@t3-oss/env-core@npm:0.11.1"
+"@t3-oss/env-core@npm:0.12.0":
+  version: 0.12.0
+  resolution: "@t3-oss/env-core@npm:0.12.0"
   peerDependencies:
     typescript: ">=5.0.0"
-    zod: ^3.0.0
+    valibot: ^1.0.0-beta.7 || ^1.0.0
+    zod: ^3.24.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/1b59ff54b3f1541b35f5e415eb694daa3e37267d91db7c0654b07839d968b80251a965a7e5d8b913ed518027660c371cc8a5cd11b72c7e6b093569b3b5a6ad9a
+    valibot:
+      optional: true
+    zod:
+      optional: true
+  checksum: 10c0/b79d2c291b8996b008ef77fa9b3afb8fd7c4c59e271b65039a52a504a9cdb7492ec88b414e6b5691dc4c2c93077abfac85a5cea00dcfdd083ad94912efc5464b
   languageName: node
   linkType: hard
 
-"@t3-oss/env-nextjs@npm:^0.11.1":
-  version: 0.11.1
-  resolution: "@t3-oss/env-nextjs@npm:0.11.1"
+"@t3-oss/env-nextjs@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "@t3-oss/env-nextjs@npm:0.12.0"
   dependencies:
-    "@t3-oss/env-core": "npm:0.11.1"
+    "@t3-oss/env-core": "npm:0.12.0"
   peerDependencies:
     typescript: ">=5.0.0"
-    zod: ^3.0.0
+    valibot: ^1.0.0-beta.7 || ^1.0.0
+    zod: ^3.24.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/3b74fc44706c9a80b8de378c41d9d55ac6913672b6358cc2a1d8e3eb73d9817422dc39d8881d3efba560eac8ddc095294d3482d53038b844971ec4772d46f3db
+    valibot:
+      optional: true
+    zod:
+      optional: true
+  checksum: 10c0/f39cae67353c09818b13836cf1f0ab8186058f6fd2f5e8983f43c8601f1cd6948d3a159a2f166420049080ca56e73ba69e483229f21593aba0d6d8f4cf79ef32
   languageName: node
   linkType: hard
 
@@ -5667,7 +5677,7 @@ __metadata:
     "@radix-ui/react-tooltip": "npm:^1.1.8"
     "@sentry/nextjs": "npm:^8.33.1"
     "@svgr/webpack": "npm:^8.1.0"
-    "@t3-oss/env-nextjs": "npm:^0.11.1"
+    "@t3-oss/env-nextjs": "npm:^0.12.0"
     "@tailwindcss/typography": "npm:^0.5.15"
     "@types/node": "npm:^22.7.5"
     "@types/react": "npm:^18.3.11"
@@ -5729,7 +5739,7 @@ __metadata:
     tailwindcss: "npm:^3.4.13"
     tailwindcss-animate: "npm:^1.0.7"
     typescript: "npm:^5.7.3"
-    zod: "npm:^3.22.4"
+    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -14245,6 +14255,13 @@ __metadata:
   version: 3.23.8
   resolution: "zod@npm:3.23.8"
   checksum: 10c0/8f14c87d6b1b53c944c25ce7a28616896319d95bc46a9660fe441adc0ed0a81253b02b5abdaeffedbeb23bdd25a0bf1c29d2c12dd919aef6447652dd295e3e69
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.24.2":
+  version: 3.24.2
+  resolution: "zod@npm:3.24.2"
+  checksum: 10c0/c638c7220150847f13ad90635b3e7d0321b36cce36f3fc6050ed960689594c949c326dfe2c6fa87c14b126ee5d370ccdebd6efb304f41ef5557a4aaca2824565
   languageName: node
   linkType: hard
 
