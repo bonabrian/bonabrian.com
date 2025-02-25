@@ -5722,7 +5722,7 @@ __metadata:
     prisma: "npm:^6.4.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-medium-image-zoom: "npm:^5.2.10"
+    react-medium-image-zoom: "npm:^5.2.14"
     reading-time: "npm:^1.5.0"
     rehype: "npm:^13.0.2"
     rehype-accessible-emojis: "npm:^0.3.2"
@@ -12126,13 +12126,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-medium-image-zoom@npm:^5.2.10":
-  version: 5.2.10
-  resolution: "react-medium-image-zoom@npm:5.2.10"
+"react-medium-image-zoom@npm:^5.2.14":
+  version: 5.2.14
+  resolution: "react-medium-image-zoom@npm:5.2.14"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/80e84ef7a87fea7f82ef93c54ac6cc9811da15f4d7526e99fba6deabfc7b7236cb16c0b0f03d3f0ec3c2626fdbbef59891deb1f8cd16b634cdf0cde22d43a1c3
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/016cf62e01c930bc773bc856f5f3c5e4b0ebb3df0760d0549dda9d60e80e7716b094b11729b6f8e8edbd096d0f5cecefa749161ec48e53c94a464ab9791fd025
   languageName: node
   linkType: hard
 
