@@ -16,7 +16,7 @@ import { Separator } from './ui/separator';
 
 interface StickyTitleProps {
   title: string;
-  elementRef: React.RefObject<HTMLDivElement>;
+  elementRef: React.RefObject<HTMLDivElement | null>;
   gap?: number;
 }
 

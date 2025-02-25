@@ -24,9 +24,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
           <CommandPaletteProvider>
             <TooltipProvider>{children}</TooltipProvider>
           </CommandPaletteProvider>
-          {/* <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
-            <TooltipProvider>{children}</TooltipProvider>
-          </CommandPaletteContext.Provider> */}
         </SessionProvider>
       </ThemeProvider>
     </RenderIf>

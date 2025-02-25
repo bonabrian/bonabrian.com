@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
+import type { JSX } from 'react';
 import { useRef } from 'react';
 
 import RenderIf from '@/components/shared/render-if';

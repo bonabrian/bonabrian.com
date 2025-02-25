@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { type ClientSafeProvider, signIn } from 'next-auth/react';
+import type { JSX } from 'react';
 
 import { GitHub, Google } from '@/components/shared/icons';
 import { Button } from '@/components/ui/button';
