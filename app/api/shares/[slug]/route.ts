@@ -40,7 +40,7 @@ export const POST = async (
 
     if (currentShares < MAX_SHARES_PER_SESSION) {
       await createShare(slug, sessionId, type);
-      return response<APISingleResponse<{}>>({ data: {} });
+      return response<APISingleResponse<null>>({ data: null }, 201);
     }
     return response<APIErrorResponse>(
       {

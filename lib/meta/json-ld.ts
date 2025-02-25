@@ -8,9 +8,9 @@ interface JsonLdEntity {
   url?: string;
 }
 
-interface JsonLdAuthor extends JsonLdEntity {}
+type JsonLdAuthor = JsonLdEntity;
 
-interface JsonLdPublisher extends JsonLdEntity {}
+type JsonLdPublisher = JsonLdEntity;
 
 interface JsonLd {
   title: string;

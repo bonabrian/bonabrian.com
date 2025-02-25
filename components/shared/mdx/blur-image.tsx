@@ -59,4 +59,6 @@ const BlurImage = forwardRef<HTMLImageElement, BlurImageProps>(
   },
 );
 
+BlurImage.displayName = 'BlurImage';
+
 export default BlurImage;

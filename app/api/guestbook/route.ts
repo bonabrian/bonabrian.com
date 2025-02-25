@@ -40,7 +40,7 @@ export const POST = async (req: NextRequest) => {
 
     await addGuestbookEntry({ message, userId: session.id as string });
 
-    return response<APISingleResponse<{}>>({ data: {} }, 201);
+    return response<APISingleResponse<null>>({ data: null }, 201);
   } catch (error) {
     return response<APIErrorResponse>({
       message: error instanceof Error ? error.message : 'Internal Server Error',

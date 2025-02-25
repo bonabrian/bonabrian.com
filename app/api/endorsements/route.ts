@@ -61,9 +61,9 @@ export const POST = async (req: NextRequest) => {
 
     await createEndorsement({ skillId, userId });
 
-    return response<APISingleResponse<{}>>(
+    return response<APISingleResponse<null>>(
       {
-        data: {},
+        data: null,
       },
       201,
     );

@@ -37,7 +37,7 @@ export const POST = async (
 
     if (currentViews < MAX_VIEWS_PER_SESSION) {
       await createView(slug, sessionId);
-      return response<APISingleResponse<{}>>({ data: {} }, 201);
+      return response<APISingleResponse<null>>({ data: null }, 201);
     }
 
     // Conflict exceeded maximum views per session

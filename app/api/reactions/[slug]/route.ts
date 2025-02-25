@@ -65,7 +65,7 @@ export const POST = async (
 
       await addReaction({ slug, sessionId, type, count: quota });
 
-      return response<APISingleResponse<{}>>({ data: {} });
+      return response<APISingleResponse<null>>({ data: null }, 201);
     }
 
     return response<APIErrorResponse>(

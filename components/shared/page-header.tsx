@@ -61,4 +61,6 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
   },
 );
 
+PageHeader.displayName = 'PageHeader';
+
 export default PageHeader;
