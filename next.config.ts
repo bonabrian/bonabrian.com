@@ -1,17 +1,16 @@
-/** @type {import('next').NextConfig} */
-const { withSentryConfig } = require('@sentry/nextjs');
+import MillionLint from '@million/lint';
+import { withSentryConfig } from '@sentry/nextjs';
+import type { NextConfig } from 'next';
+import { withContentlayer } from 'next-contentlayer2';
+
+import appHeaders from './config/next/headers';
+import redirects from './config/next/redirects';
 
 const SentryWebpackPluginOptions = { silent: true };
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-const appHeaders = require('./config/next/headers');
-const redirects = require('./config/next/redirects');
 
-const { withContentlayer } = require('next-contentlayer2');
-const million = require('million/compiler');
-
-const nextConfig = {
-  swcMinify: true,
+const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   crossOrigin: 'anonymous',
@@ -45,7 +44,6 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-
     return config;
   },
   async headers() {
@@ -62,12 +60,11 @@ const millionConfig = {
   rsc: true,
 };
 
-module.exports = isDevelopment
-  ? million.next(withContentlayer(nextConfig), millionConfig)
-  : million.next(
-      withSentryConfig(
+export default MillionLint.next(millionConfig)(
+  isDevelopment
+    ? withContentlayer(nextConfig)
+    : withSentryConfig(
         withContentlayer(nextConfig),
         SentryWebpackPluginOptions,
       ),
-      millionConfig,
-    );
+);

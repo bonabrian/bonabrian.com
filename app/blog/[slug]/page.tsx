@@ -21,9 +21,10 @@ const findPostBySlug = (slug?: string): Post | undefined =>
 export const generateMetadata = async ({
   params,
 }: {
-  params: { slug?: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> => {
-  const post = findPostBySlug(params?.slug);
+  const { slug } = await params;
+  const post = findPostBySlug(slug);
 
   if (!post) return;
 
@@ -44,12 +45,13 @@ export const generateMetadata = async ({
   });
 };
 
-const PostPage = async ({ params }: { params: { slug?: string } }) => {
-  const post = findPostBySlug(params?.slug);
+const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = findPostBySlug(slug);
 
   if (!post) return notFound();
 
-  const { title, excerpt, date, modifiedDate, slug, body } = post;
+  const { title, excerpt, date, modifiedDate, body } = post;
 
   const datePublished = formatDate(date);
   const dateModified = formatDate(modifiedDate);

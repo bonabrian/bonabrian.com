@@ -11,10 +11,10 @@ import type { APIErrorResponse, APISingleResponse } from '@/types/server';
 
 export const GET = async (
   _req: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) => {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const total = await countSharesBySlug(slug);
 
     return response<APISingleResponse<{ total: number }>>({ data: { total } });
@@ -27,10 +27,10 @@ export const GET = async (
 
 export const POST = async (
   req: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) => {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const sessionId = getSessionId(req);
 
     const body = await req.json();

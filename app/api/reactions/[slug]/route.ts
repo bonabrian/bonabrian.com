@@ -9,10 +9,10 @@ import type { APIErrorResponse, APISingleResponse } from '@/types/server';
 
 export const GET = async (
   req: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) => {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const sessionId = getSessionId(req);
 
     const contentReactions = await getReactions(slug);
@@ -44,10 +44,10 @@ export const GET = async (
 
 export const POST = async (
   req: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) => {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const body = await req.json();
     const sessionId = getSessionId(req);
 

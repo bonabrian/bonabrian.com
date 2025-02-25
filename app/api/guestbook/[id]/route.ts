@@ -9,9 +9,10 @@ import type { APIErrorResponse } from '@/types/server';
 
 export const DELETE = async (
   _req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) => {
   try {
+    const { id } = await params;
     const session = await getServerSession(authOptions);
 
     if (!session) {
@@ -23,7 +24,7 @@ export const DELETE = async (
       );
     }
 
-    const entry = await findEntryById(Number(params.id));
+    const entry = await findEntryById(Number(id));
 
     if (!entry) {
       return response<APIErrorResponse>(
@@ -42,7 +43,7 @@ export const DELETE = async (
       return response<APIErrorResponse>({ message: 'Forbidden' }, 403);
     }
 
-    await deleteEntry(Number(params.id));
+    await deleteEntry(Number(id));
 
     return response(null, 204);
   } catch (error) {
