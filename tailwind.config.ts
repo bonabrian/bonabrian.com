@@ -2,12 +2,10 @@ import typography from '@tailwindcss/typography';
 import svgDataUri from 'mini-svg-data-uri';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
+// @ts-expect-error: idk why could not find a declaration file for module 'tailwindcss/lib/util/flattenColorPalette'.
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 import type { PluginAPI } from 'tailwindcss/types/config';
 import animate from 'tailwindcss-animate';
-
-const {
-  default: flattenColorPalette,
-} = require('tailwindcss/lib/util/flattenColorPalette');
 
 const config = {
   content: [
