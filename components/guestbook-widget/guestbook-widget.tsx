@@ -24,7 +24,7 @@ const GuestbookWidget = () => {
         <PopoverTrigger
           asChild
           className={cn(
-            'fixed bottom-10 right-5 hidden items-center',
+            'fixed bottom-10 right-5 z-10 hidden items-center',
             'md:flex',
           )}
         >

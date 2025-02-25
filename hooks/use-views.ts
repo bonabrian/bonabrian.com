@@ -16,7 +16,7 @@ const useViews = ({
     APIErrorResponse
   >(`/api/views/${slug}`);
 
-  const views = data?.data.total ?? 0;
+  const views = data?.data?.total ?? 0;
 
   const registerView = async (id: string) => {
     await fetch(`/api/views/${id}`, { method: 'POST' });

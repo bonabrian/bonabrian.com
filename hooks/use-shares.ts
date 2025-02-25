@@ -10,7 +10,7 @@ const useShares = (slug: string) => {
     APIErrorResponse
   >(`/api/shares/${slug}`);
 
-  const shares = data?.data.total ?? 0;
+  const shares = data?.data?.total ?? 0;
 
   const addShare = (type: ShareType) => {
     // optimistic update
