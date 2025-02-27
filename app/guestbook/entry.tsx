@@ -36,7 +36,7 @@ const Entry = ({
   const modifiedMessage = body.split(pattern).map((message, index) => {
     if (index % 2 === 1) {
       return (
-        <span key={index} className={cn('text-sm font-semibold text-primary')}>
+        <span key={index} className={cn('text-primary text-sm font-semibold')}>
           @{message}
         </span>
       );
@@ -93,7 +93,7 @@ const Entry = ({
             <RenderIf isTrue={isAuthor}>
               <div
                 className={cn(
-                  'rounded-full bg-primary/10 px-1.5 py-0.5 font-cal text-xs text-primary',
+                  'bg-primary/10 font-cal text-primary rounded-full px-1.5 py-0.5 text-xs',
                   'dark:bg-primary/20',
                 )}
               >
@@ -108,7 +108,7 @@ const Entry = ({
         <div className={cn('group flex items-center gap-3')}>
           <p
             className={cn(
-              'w-fit rounded-xl rounded-tl-none bg-muted px-3 py-2',
+              'bg-muted w-fit rounded-xl rounded-tl-none px-3 py-2',
             )}
           >
             {modifiedMessage}
@@ -123,13 +123,13 @@ const Entry = ({
               <Button
                 size="icon"
                 variant="ghost"
-                className={cn('p-0 hover:bg-background')}
+                className={cn('hover:bg-background p-0')}
                 onClick={async () => await onDeleteMessage(id)}
                 disabled={isDeleting}
               >
                 <Trash
                   className={cn(
-                    'hidden size-6 cursor-pointer text-destructive',
+                    'text-destructive hidden size-6 cursor-pointer',
                     'group-hover:flex',
                   )}
                 />

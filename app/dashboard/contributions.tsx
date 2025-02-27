@@ -37,7 +37,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
   const contributionColors = data?.colors ?? [];
 
   return (
-    <div className={cn('rounded-md bg-card p-3')}>
+    <div className={cn('bg-card rounded-md p-3')}>
       <div
         className={cn(
           'relative mb-4 flex flex-col justify-center overflow-hidden',
@@ -79,7 +79,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
                         },
                       }}
                       className={cn(
-                        'my-[2px] block h-[14.85px] w-[14.85px] rounded-sm bg-muted',
+                        'bg-muted my-[2px] block h-[14.85px] w-[14.85px] rounded-sm',
                       )}
                       style={backgroundColor ? { backgroundColor } : undefined}
                       onMouseEnter={() =>
@@ -103,7 +103,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
         <div className={cn('flex items-center gap-2 text-xs')}>
           <span className={cn('text-muted-foreground')}>Less</span>
           <ul className={cn('flex gap-1')}>
-            <motion.li className={cn('size-3 rounded-sm bg-muted')} />
+            <motion.li className={cn('bg-muted size-3 rounded-sm')} />
             {contributionColors.map((color, index) => (
               <motion.li
                 key={color}
@@ -126,7 +126,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
         <div
           className={cn(
             selectedContribution?.date ? 'opacity-100' : 'opacity-0',
-            'rounded bg-background p-1.5 font-cal text-xs',
+            'bg-background font-cal rounded p-1.5 text-xs',
           )}
         >
           {selectedContribution?.count} contributions on{' '}

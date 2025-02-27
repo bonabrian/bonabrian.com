@@ -24,8 +24,8 @@ const Endorsements = ({ fallbackData }: { fallbackData: SkillCategory[] }) => {
     <>
       <div
         className={cn(
-          'relative max-w-lg rounded-lg border border-transparent bg-background p-3',
-          'after:absolute after:-inset-1 after:-z-10 after:rounded-[calc(8px+3px)] after:bg-rainbow-gradient after:content-[""]',
+          'bg-background relative max-w-lg rounded-lg border border-transparent p-3',
+          'after:bg-rainbow-gradient after:absolute after:-inset-1 after:-z-10 after:rounded-[calc(8px+3px)] after:content-[""]',
         )}
       >
         {session?.user ? (
@@ -57,7 +57,7 @@ const Endorsements = ({ fallbackData }: { fallbackData: SkillCategory[] }) => {
             <h2 className={cn('font-cal font-bold')}>
               Please log in to provide your valuable endorsements.
             </h2>
-            <p className={cn('text-sm text-muted-foreground')}>
+            <p className={cn('text-muted-foreground text-sm')}>
               Your information, including your name and profile picture, will
               only be utilized to properly display your identity as an endorser.
             </p>
@@ -89,7 +89,7 @@ const Endorsements = ({ fallbackData }: { fallbackData: SkillCategory[] }) => {
                 <div key={category.name}>
                   <h4
                     className={cn(
-                      'my-4 font-cal text-lg font-bold leading-5 text-accent-foreground',
+                      'font-cal text-accent-foreground my-4 text-lg leading-5 font-bold',
                       'md:text-xl',
                     )}
                   >

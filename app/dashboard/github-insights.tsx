@@ -40,7 +40,7 @@ const GitHubInsights = () => {
         <Link
           href={SITE.author.github.url}
           className={cn(
-            'font-mono text-sm text-muted-foreground transition-colors duration-200',
+            'text-muted-foreground font-mono text-sm transition-colors duration-200',
             'hover:text-foreground',
           )}
         >
@@ -56,13 +56,13 @@ const GitHubInsights = () => {
         </div>
         <div
           className={cn(
-            'relative my-3 flex flex-1 flex-col gap-2 rounded-xl bg-rainbow-gradient-inverse p-0.5',
+            'bg-rainbow-gradient-inverse relative my-3 flex flex-1 flex-col gap-2 rounded-xl p-0.5',
           )}
         >
-          <div className={cn('h-full w-full rounded-xl bg-background')}>
+          <div className={cn('bg-background h-full w-full rounded-xl')}>
             <p
               className={cn(
-                'absolute -top-3 left-3 bg-background px-2 font-cal',
+                'bg-background font-cal absolute -top-3 left-3 px-2',
               )}
             >
               Contributions

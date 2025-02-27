@@ -12,7 +12,7 @@ const CoreStack = () => {
   return (
     <ul
       className={cn(
-        'relative grid list-none grid-flow-dense grid-cols-3 items-center justify-center gap-y-10 overflow-hidden bg-repeat px-4 py-8 [background-image:radial-gradient(hsl(var(--foreground))_1px,_transparent_1px)] [background-size:1rem_1rem]',
+        'relative grid list-none grid-flow-dense grid-cols-3 items-center justify-center gap-y-10 overflow-hidden [background-image:radial-gradient(hsl(var(--foreground))_1px,_transparent_1px)] [background-size:1rem_1rem] bg-repeat px-4 py-8',
         'md:[background-size:1.25rem_1.25rem]',
         'lg:[background-size:1.5rem_1.5rem]',
       )}
@@ -21,7 +21,7 @@ const CoreStack = () => {
         <li
           key={stack.name}
           className={cn(
-            'm-auto flex max-w-14 flex-row items-center justify-center bg-background',
+            'bg-background m-auto flex max-w-14 flex-row items-center justify-center',
           )}
         >
           <Tooltip>

@@ -31,7 +31,7 @@ const AppsGrid = ({ apps }: AppsGridProps) => {
               <Link
                 href={app.url}
                 className={cn(
-                  'group/apps flex flex-col items-center rounded-md pb-1 text-foreground transition',
+                  'group/apps text-foreground flex flex-col items-center rounded-md pb-1 transition',
                   'hover:text-foreground hover:underline',
                   'focus:text-foreground focus:underline',
                   'md:gap-1',
@@ -43,7 +43,7 @@ const AppsGrid = ({ apps }: AppsGridProps) => {
                   width={72}
                   height={72}
                   className={cn(
-                    'max-w-12 scale-95 border-none shadow-primary/30 drop-shadow-[0_1px_3px_var(--tw-shadow-color)] transition',
+                    'shadow-primary/30 max-w-12 scale-95 border-none drop-shadow-[0_1px_3px_var(--tw-shadow-color)] transition',
                     'group-hover/apps:scale-100',
                     'sm:max-w-14',
                     'md:max-w-16',

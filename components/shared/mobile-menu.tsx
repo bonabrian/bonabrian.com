@@ -30,7 +30,7 @@ const MobileMenu = () => {
           <DropdownMenuItem
             key={path}
             className={cn(
-              'rounded px-2 py-1.5 text-sm font-semibold text-muted-foreground transition-colors duration-150',
+              'text-muted-foreground rounded px-2 py-1.5 text-sm font-semibold transition-colors duration-150',
               'hover:bg-accent hover:text-accent-foreground',
               '[&:not(:last-child)]:mb-0.5',
               {

@@ -21,7 +21,7 @@ const Workstation = ({ items }: WorkstationProps) => {
         <Link
           key={`${item.name}-${index}`}
           className={cn(
-            'group/workstation flex min-h-24 flex-row items-center gap-1.5 overflow-hidden rounded-xl border border-dashed py-1.5 pl-0.5 pr-1.5 text-foreground transition',
+            'group/workstation text-foreground flex min-h-24 flex-row items-center gap-1.5 overflow-hidden rounded-xl border border-dashed py-1.5 pr-1.5 pl-0.5 transition',
             'hover:text-foreground',
             'focus:text-foreground',
           )}
@@ -33,7 +33,7 @@ const Workstation = ({ items }: WorkstationProps) => {
             width={320}
             height={320}
             className={cn(
-              'max-w-[4.5rem] scale-95 select-none p-2 shadow-primary/30 drop-shadow-[0_1px_3px_var(--tw-shadow-color)] transition',
+              'shadow-primary/30 max-w-[4.5rem] scale-95 p-2 drop-shadow-[0_1px_3px_var(--tw-shadow-color)] transition select-none',
               'md:max-w-[5rem]',
               'lg:max-w-[5.5rem]',
               'group-hover/workstation:scale-100',
@@ -42,14 +42,14 @@ const Workstation = ({ items }: WorkstationProps) => {
           <div className={cn('flex w-full flex-col gap-0.5 py-0.5')}>
             <p
               className={cn(
-                'm-0 text-xs font-medium text-foreground transition',
+                'text-foreground m-0 text-xs font-medium transition',
                 'group-hover/workstation:underline',
               )}
             >
               {item.name}
             </p>
             <RenderIf isTrue={Boolean(item.description)}>
-              <span className={cn('text-xs font-normal text-muted-foreground')}>
+              <span className={cn('text-muted-foreground text-xs font-normal')}>
                 {item.description}
               </span>
             </RenderIf>

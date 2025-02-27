@@ -38,7 +38,7 @@ const NowPlayingBar = ({
     <div className={cn('fixed bottom-0 z-[999] w-full')}>
       <div
         className={cn(
-          'flex justify-between bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 px-4 py-1 font-cal text-sm tracking-tight text-white',
+          'font-cal flex justify-between bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 px-4 py-1 text-sm tracking-tight text-white',
         )}
       >
         {track?.songUrl ? (
@@ -88,7 +88,7 @@ const NowPlayingBar = ({
                 align="start"
                 alignOffset={-4}
                 className={cn(
-                  'flex w-60 flex-col overflow-hidden rounded-lg bg-card p-0 shadow-lg',
+                  'bg-card flex w-60 flex-col overflow-hidden rounded-lg p-0 shadow-lg',
                 )}
               >
                 <RenderIf isTrue={Boolean(track.albumImageUrl)}>
@@ -108,7 +108,7 @@ const NowPlayingBar = ({
                       {track.artist}
                     </div>
                   </div>
-                  <div className={cn('flex gap-1 text-muted-foreground')}>
+                  <div className={cn('text-muted-foreground flex gap-1')}>
                     <span>Album:</span>
                     <span>{track.album}</span>
                   </div>
@@ -139,7 +139,7 @@ const NowPlayingBar = ({
                 align="end"
                 alignOffset={-4}
                 className={cn(
-                  'flex w-max flex-col overflow-hidden rounded-lg bg-card shadow-lg',
+                  'bg-card flex w-max flex-col overflow-hidden rounded-lg shadow-lg',
                 )}
               >
                 {availableDevices.map((device, idx) => (
@@ -152,10 +152,10 @@ const NowPlayingBar = ({
                     <div className={cn('text-foreground')}>{device.icon}</div>
                     <div
                       className={cn(
-                        'flex flex-grow flex-col pl-0.5 pr-2 text-sm',
+                        'flex flex-grow flex-col pr-2 pl-0.5 text-sm',
                       )}
                     >
-                      <span className={cn('font-medium text-foreground')}>
+                      <span className={cn('text-foreground font-medium')}>
                         {device.name}
                       </span>
                       <span className={cn('text-muted-foreground')}>
@@ -163,7 +163,7 @@ const NowPlayingBar = ({
                       </span>
                     </div>
                     <RenderIf isTrue={device.isActive}>
-                      <Spotify className={cn('animate-pulse fill-spotify')} />
+                      <Spotify className={cn('fill-spotify animate-pulse')} />
                     </RenderIf>
                   </div>
                 ))}
@@ -172,7 +172,7 @@ const NowPlayingBar = ({
           </>
         ) : (
           <div className={cn('flex items-center gap-2')}>
-            <Spotify className={cn('size-4 fill-spotify')} />
+            <Spotify className={cn('fill-spotify size-4')} />
             Not Playing
           </div>
         )}

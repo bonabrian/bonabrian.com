@@ -81,10 +81,10 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
                 transition: { duration: 0.5 },
               }}
               className={cn(
-                'w-full flex-1 origin-[center_center] bg-background will-change-transform',
+                'bg-background w-full flex-1 origin-[center_center] will-change-transform',
               )}
             >
-              <h3 className={cn('mt-0 font-cal text-lg')}>{item.title}</h3>
+              <h3 className={cn('font-cal mt-0 text-lg')}>{item.title}</h3>
               <Image
                 src={src}
                 alt={item.title}
@@ -101,7 +101,7 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
         })}
       </div>
       <RenderIf isTrue={Boolean(caption)}>
-        <p className={cn('my-0 text-sm italic text-muted-foreground')}>
+        <p className={cn('text-muted-foreground my-0 text-sm italic')}>
           {caption}
         </p>
       </RenderIf>

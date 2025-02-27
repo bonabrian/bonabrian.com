@@ -28,14 +28,14 @@ const Counter = ({
   return (
     <div
       className={cn(
-        'relative flex h-6 items-center gap-1 overflow-hidden rounded-full bg-accent px-2 py-1',
+        'bg-accent relative flex h-6 items-center gap-1 overflow-hidden rounded-full px-2 py-1',
         className,
       )}
     >
       {count === 0 ? (
         <span
           className={cn(
-            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
+            'text-accent-foreground flex flex-col font-mono text-sm font-bold',
           )}
         >
           <span className={cn('flex h-5 items-center')}>0</span>
@@ -43,7 +43,7 @@ const Counter = ({
       ) : (
         <motion.span
           className={cn(
-            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
+            'text-accent-foreground flex flex-col font-mono text-sm font-bold',
           )}
           animate={controls}
         >

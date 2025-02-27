@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 flex h-16 bg-background transition-colors duration-200',
+        'bg-background sticky top-0 z-50 flex h-16 transition-colors duration-200',
         isScrolled ? 'shadow-sm' : 'saturate-110',
       )}
     >
@@ -62,7 +62,7 @@ const Header = () => {
                       <Link
                         href={path}
                         className={cn(
-                          'flex items-center rounded px-2.5 py-1.5 text-sm font-medium transition-colors duration-200 hover:text-foreground',
+                          'hover:text-foreground flex items-center rounded px-2.5 py-1.5 text-sm font-medium transition-colors duration-200',
                           isActive
                             ? 'text-foreground'
                             : 'text-muted-foreground hover:text-foreground',

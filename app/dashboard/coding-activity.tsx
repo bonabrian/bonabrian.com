@@ -86,7 +86,7 @@ const CodingActivity = () => {
         <Link
           href="https://wakatime.com/@bonabrian"
           className={cn(
-            'text-sm text-muted-foreground transition-all duration-200',
+            'text-muted-foreground text-sm transition-all duration-200',
             'hover:underline',
           )}
         >
@@ -121,10 +121,10 @@ const CodingActivity = () => {
                 activity.className,
               )}
             >
-              <div className={cn('size-full rounded-xl bg-background')}>
+              <div className={cn('bg-background size-full rounded-xl')}>
                 <p
                   className={cn(
-                    'absolute -top-3 left-3 bg-background px-2 font-cal',
+                    'bg-background font-cal absolute -top-3 left-3 px-2',
                   )}
                 >
                   {activity.title}

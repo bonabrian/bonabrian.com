@@ -36,8 +36,8 @@ const NowPlayingCard = ({
       {!expanded ? (
         <Button
           className={cn(
-            'cursor-pointer rounded-full bg-transparent text-spotify transition-all duration-200',
-            'hover:bg-transparent hover:text-spotify',
+            'text-spotify cursor-pointer rounded-full bg-transparent transition-all duration-200',
+            'hover:text-spotify hover:bg-transparent',
           )}
           onClick={() => setExpanded(!expanded)}
           size="icon"
@@ -64,7 +64,7 @@ const NowPlayingCard = ({
             </RenderIf>
             <div
               className={cn(
-                'flex flex-col font-cal text-white',
+                'font-cal flex flex-col text-white',
                 'hover:cursor-pointer hover:underline',
               )}
               onClick={() => onOpenSongUrl?.(track.songUrl)}

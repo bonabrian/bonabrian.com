@@ -31,7 +31,7 @@ const ProviderButton = ({ provider }: { provider: ClientSafeProvider }) => {
       key={provider.id}
       variant="shadow"
       className={cn(
-        'flex items-center gap-3 border-foreground text-sm font-medium',
+        'border-foreground flex items-center gap-3 text-sm font-medium',
       )}
       onClick={() => signIn(provider.id, { callbackUrl })}
     >

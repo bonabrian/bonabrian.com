@@ -25,7 +25,7 @@ const CareerJourney = () => {
         </Button>
       </div>
       <div className={cn('prose max-w-none px-4', 'dark:prose-dark')}>
-        <ol className={cn('list-none space-y-4 border-l border-border pl-10')}>
+        <ol className={cn('border-border list-none space-y-4 border-l pl-10')}>
           {EXPERIENCES.map(
             ({
               company,
@@ -54,7 +54,7 @@ const CareerJourney = () => {
               return (
                 <li key={company.name} className={cn('relative h-full')}>
                   <div
-                    className={cn('absolute -left-[60px] bottom-0 mt-0 h-full')}
+                    className={cn('absolute bottom-0 -left-[60px] mt-0 h-full')}
                   >
                     <div className={cn('sticky top-20 flex items-start')}>
                       <Image
@@ -73,10 +73,10 @@ const CareerJourney = () => {
                     )}
                   >
                     <div className={cn('flex flex-col space-y-1 leading-snug')}>
-                      <h2 className={cn('my-0 font-cal text-lg')}>{role}</h2>
+                      <h2 className={cn('font-cal my-0 text-lg')}>{role}</h2>
                       <div
                         className={cn(
-                          'flex items-center gap-1 text-muted-foreground',
+                          'text-muted-foreground flex items-center gap-1',
                         )}
                       >
                         <Link
@@ -91,7 +91,7 @@ const CareerJourney = () => {
                         <span>&middot;</span>
                         <span>{company.jobType}</span>
                       </div>
-                      <div className={cn('flex gap-1 text-muted-foreground')}>
+                      <div className={cn('text-muted-foreground flex gap-1')}>
                         <div className={cn('flex gap-1')}>
                           <span>{format(start, 'MMM yyyy')}</span> -{' '}
                           <span>
@@ -103,7 +103,7 @@ const CareerJourney = () => {
                       </div>
                       <div
                         className={cn(
-                          'flex items-center gap-1 text-muted-foreground',
+                          'text-muted-foreground flex items-center gap-1',
                         )}
                       >
                         <span>{company.location}</span>
@@ -116,7 +116,7 @@ const CareerJourney = () => {
                     {stacks.map(({ name, icon }) => (
                       <Tooltip key={name}>
                         <TooltipTrigger asChild>
-                          <div className={cn('rounded-lg bg-card p-1.5')}>
+                          <div className={cn('bg-card rounded-lg p-1.5')}>
                             {icon}
                           </div>
                         </TooltipTrigger>

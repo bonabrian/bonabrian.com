@@ -19,7 +19,7 @@ const Hero = () => {
         <div className={cn('font-cal')}>
           <motion.h1
             className={cn(
-              'mb-4 flex flex-col justify-center gap-1 bg-gradient-to-b from-foreground via-foreground/90 to-foreground/70 to-90% bg-clip-text pb-2 text-4xl font-bold text-transparent',
+              'from-foreground via-foreground/90 to-foreground/70 mb-4 flex flex-col justify-center gap-1 bg-gradient-to-b to-90% bg-clip-text pb-2 text-4xl font-bold text-transparent',
               'sm:text-5xl',
               'lg:text-6xl',
             )}
@@ -35,14 +35,14 @@ const Hero = () => {
           </motion.h1>
           <motion.div
             className={cn(
-              'bg-gradient-to-b from-foreground via-foreground/90 to-foreground/70 to-90% bg-clip-text font-bold text-transparent',
+              'from-foreground via-foreground/90 to-foreground/70 bg-gradient-to-b to-90% bg-clip-text font-bold text-transparent',
               'md:text-xl',
             )}
           >
             I like to build{' '}
             <FlipWords
               words={['interactive', 'amazing', 'fantastic', 'beautiful']}
-              className={cn('font-black text-primary')}
+              className={cn('text-primary font-black')}
             />{' '}
             things with code. I also talk and write about those things.
           </motion.div>

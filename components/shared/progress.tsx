@@ -32,7 +32,7 @@ const Progress = ({
         <div className={cn('w-24')}>{name}</div>
         <div
           className={cn(
-            'relative flex h-3 flex-1 justify-center rounded-full bg-muted',
+            'bg-muted relative flex h-3 flex-1 justify-center rounded-full',
           )}
         >
           <motion.span
@@ -40,7 +40,7 @@ const Progress = ({
             animate="animate"
             variants={variants}
             className={cn(
-              'absolute left-0 top-0 h-3 rounded-full px-3',
+              'absolute top-0 left-0 h-3 rounded-full px-3',
               className,
             )}
           >

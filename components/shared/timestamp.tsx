@@ -27,7 +27,7 @@ const Timestamp = ({
   }, [datetime]);
 
   return (
-    <div className={cn('text-xs text-muted-foreground', className)}>
+    <div className={cn('text-muted-foreground text-xs', className)}>
       {isToday(new Date(datetime))
         ? formatted
         : format(new Date(datetime), 'dd MMM yyyy HH:mm')}

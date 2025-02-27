@@ -123,7 +123,7 @@ const CurrentTechStack = () => {
         initial={animation.hide}
         animate={animation.show}
         transition={{ delay: 0.4 }}
-        className={cn('mb-2 text-sm text-muted-foreground')}
+        className={cn('text-muted-foreground mb-2 text-sm')}
       >
         Tech stack and tools
       </motion.p>
@@ -138,7 +138,7 @@ const CurrentTechStack = () => {
             <TooltipTrigger asChild>
               <motion.div
                 className={cn(
-                  'size-6 text-muted-foreground transition duration-200',
+                  'text-muted-foreground size-6 transition duration-200',
                   colorClass,
                 )}
                 variants={animation}

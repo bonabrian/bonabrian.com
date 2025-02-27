@@ -17,7 +17,7 @@ const WidgetHeader = ({ onClose }: { onClose: () => void }) => {
   return (
     <div
       className={cn(
-        'flex items-center justify-between border-muted px-4 py-3 font-medium',
+        'border-muted flex items-center justify-between px-4 py-3 font-medium',
       )}
     >
       <div className={cn('flex items-center gap-4')}>

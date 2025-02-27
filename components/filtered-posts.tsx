@@ -46,7 +46,7 @@ const FilteredPosts = ({ posts }: { posts: Array<Post> }) => {
           placeholder="Search posts"
           className={cn('pl-10')}
         />
-        <Search className={cn('absolute left-2 top-1/2 -translate-y-1/2')} />
+        <Search className={cn('absolute top-1/2 left-2 -translate-y-1/2')} />
       </div>
     );
   };

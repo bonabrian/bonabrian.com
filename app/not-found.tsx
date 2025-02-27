@@ -8,15 +8,15 @@ const NotFoundPage = () => (
     <title>Page Not Found</title>
     <Container
       className={cn(
-        'h-[calc(100vh-272px)] items-center justify-center font-cal',
+        'font-cal h-[calc(100vh-272px)] items-center justify-center',
       )}
     >
       <h1
         title="404"
         className={cn(
           'animate-glitch text-7xl',
-          'before:absolute before:left-0 before:animate-glitch-top before:content-[attr(title)] before:[clip-path:polygon(0%_0%,100%_0%,100%_33%,0%_33%)]',
-          'after:absolute after:left-0 after:animate-glitch-bottom after:content-[attr(title)] after:[clip-path:polygon(0%_67%,100%_67%,100%_100%,0%_100%)]',
+          'before:animate-glitch-top before:absolute before:left-0 before:content-[attr(title)] before:[clip-path:polygon(0%_0%,100%_0%,100%_33%,0%_33%)]',
+          'after:animate-glitch-bottom after:absolute after:left-0 after:content-[attr(title)] after:[clip-path:polygon(0%_67%,100%_67%,100%_100%,0%_100%)]',
         )}
       >
         404

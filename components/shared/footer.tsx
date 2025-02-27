@@ -6,7 +6,7 @@ import Link from './link';
 
 const Footer = () => {
   return (
-    <footer className={cn('bg-grid mb-10 mt-24 pt-16 text-sm')}>
+    <footer className={cn('bg-grid mt-24 mb-10 pt-16 text-sm')}>
       <Container>
         <nav className={cn('mb-8 grid grid-cols-2 gap-y-2', 'sm:grid-cols-3')}>
           {FOOTER_LINKS.map((groups, index) => (
@@ -19,7 +19,7 @@ const Footer = () => {
                   key={path}
                   href={path}
                   className={cn(
-                    'font-medium text-muted-foreground transition-colors duration-200',
+                    'text-muted-foreground font-medium transition-colors duration-200',
                     'hover:text-foreground',
                   )}
                 >

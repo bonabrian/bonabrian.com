@@ -13,19 +13,19 @@ const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
       key={_id}
       href={`${ROUTES.snippets}/${slug}`}
       className={cn(
-        'relative w-full animate-border-gradient rounded-xl bg-gradient-to-r from-pink-400 via-blue-500 to-purple-600 bg-[length:400%_400%] p-0.5 transition [animation-duration:_6s]',
+        'animate-border-gradient relative w-full rounded-xl bg-gradient-to-r from-pink-400 via-blue-500 to-purple-600 bg-[length:400%_400%] p-0.5 transition [animation-duration:_6s]',
         'hover:shadow-sm',
       )}
     >
       <div
         className={cn(
-          'flex h-full flex-col justify-between rounded-[10px] bg-card p-4',
+          'bg-card flex h-full flex-col justify-between rounded-[10px] p-4',
         )}
       >
         <div className={cn('mb-4 flex flex-col')}>
           <h2
             className={cn(
-              'font-cal text-lg font-bold text-card-foreground',
+              'font-cal text-card-foreground text-lg font-bold',
               'md:text-xl',
             )}
           >
@@ -39,7 +39,7 @@ const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
               <span
                 key={`${tag}-${idx}`}
                 className={cn(
-                  'whitespace-nowrap rounded-full bg-primary px-2.5 py-1 font-cal text-xs leading-tight text-background',
+                  'bg-primary font-cal text-background rounded-full px-2.5 py-1 text-xs leading-tight whitespace-nowrap',
                 )}
               >
                 {tag}

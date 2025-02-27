@@ -11,7 +11,7 @@ const Thumbnail = () => {
   return (
     <figure
       className={cn(
-        'saturate-125 pointer-events-none absolute -left-[calc(100vw_-_100%)] -right-[calc(100vw_-_100%)] top-0 -z-[1] max-w-[calc(100vw_+_calc(100vw_-_100%))] overflow-hidden opacity-40 blur transition',
+        'pointer-events-none absolute top-0 -right-[calc(100vw_-_100%)] -left-[calc(100vw_-_100%)] -z-[1] max-w-[calc(100vw_+_calc(100vw_-_100%))] overflow-hidden opacity-40 blur saturate-125 transition',
         'dark:opacity-65',
       )}
       style={{ height: '85vh', maxHeight: 380, width: '100vw' }}

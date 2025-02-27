@@ -48,12 +48,12 @@ const HighlightedProjects = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <h2 className={cn('font-cal font-bold text-primary')}>
+        <h2 className={cn('font-cal text-primary font-bold')}>
           Highlighted Projects
         </h2>
         <p
           className={cn(
-            'font-cal text-xl text-secondary-foreground',
+            'font-cal text-secondary-foreground text-xl',
             'md:text-2xl',
           )}
         >

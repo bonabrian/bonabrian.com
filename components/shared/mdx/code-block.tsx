@@ -54,7 +54,7 @@ const CodeBlock = ({
         ref={codeBlockRef}
         data-theme={dataTheme}
         className={cn(
-          'border border-foreground/10 border-t-transparent',
+          'border-foreground/10 border border-t-transparent',
           // 'dark:border-none',
           className,
         )}
@@ -62,7 +62,7 @@ const CodeBlock = ({
       >
         {children}
       </pre>
-      <div className={cn('absolute right-0.5 top-0.5')}>
+      <div className={cn('absolute top-0.5 right-0.5')}>
         <Button
           aria-label="Copy to clipboard"
           type="button"

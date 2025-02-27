@@ -47,10 +47,10 @@ const LatestPosts = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <h2 className={cn('font-cal font-bold text-primary')}>Writing</h2>
+        <h2 className={cn('font-cal text-primary font-bold')}>Writing</h2>
         <p
           className={cn(
-            'font-cal text-xl text-secondary-foreground',
+            'font-cal text-secondary-foreground text-xl',
             'md:text-2xl',
           )}
         >

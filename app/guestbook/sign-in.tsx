@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const SignIn = () => {
   return (
-    <div className={cn('flex flex-col border-t border-muted')}>
+    <div className={cn('border-muted flex flex-col border-t')}>
       <div className={cn('space-y-3 p-4')}>
         <p className={cn('text-center text-sm')}>
           Kindly login to start a conversation.
@@ -15,7 +15,7 @@ const SignIn = () => {
           <Button
             variant="ghost"
             className={cn(
-              'flex items-center gap-3 border border-foreground text-sm font-medium',
+              'border-foreground flex items-center gap-3 border text-sm font-medium',
             )}
             onClick={() => signIn('github')}
           >
@@ -25,7 +25,7 @@ const SignIn = () => {
           <Button
             variant="ghost"
             className={cn(
-              'flex items-center gap-3 border border-foreground text-sm font-medium',
+              'border-foreground flex items-center gap-3 border text-sm font-medium',
             )}
             onClick={() => signIn('google')}
           >

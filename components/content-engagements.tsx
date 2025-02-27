@@ -20,7 +20,7 @@ const ContentEngagements = ({
     >
       <div
         className={cn(
-          'relative flex w-full items-center justify-between gap-4 rounded-xl bg-card p-4 shadow-border',
+          'bg-card shadow-border relative flex w-full items-center justify-between gap-4 rounded-xl p-4',
         )}
       >
         <Reactions slug={slug} />

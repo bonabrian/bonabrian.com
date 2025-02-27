@@ -41,7 +41,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       key={_id}
       href={projectUrl}
       className={cn(
-        'group rounded-xl bg-card shadow-border transition-colors duration-200',
+        'group bg-card shadow-border rounded-xl transition-colors duration-200',
       )}
     >
       <div
@@ -68,13 +68,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
       >
         <h2
           className={cn(
-            'font-cal text-lg font-bold text-card-foreground',
+            'font-cal text-card-foreground text-lg font-bold',
             'md:text-xl',
           )}
         >
           {title}
         </h2>
-        <p className={cn('mt-2 text-muted-foreground')}>{description}</p>
+        <p className={cn('text-muted-foreground mt-2')}>{description}</p>
       </div>
       <RenderIf isTrue={Boolean(stacks?.length)}>
         <div className={cn('mt-2 flex flex-wrap items-end gap-2 px-4 pb-4')}>

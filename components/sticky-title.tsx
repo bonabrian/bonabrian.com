@@ -5,7 +5,7 @@ import { useLayoutEffect, useState } from 'react';
 
 import useMediaQuery from '@/hooks/use-media-query';
 import useScroll from '@/hooks/use-scroll';
-import { min } from '@/lib/screen';
+import { min } from '@/lib/breakpoints';
 import { cn } from '@/lib/utils';
 
 import CommandPalette from './shared/command-palette';
@@ -70,16 +70,16 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
             animate="animate"
             variants={variants}
             transition={transition}
-            className={cn('fixed left-0 right-0 top-0 z-50')}
+            className={cn('fixed top-0 right-0 left-0 z-50')}
           >
             <Container>
               <div
                 className={cn(
-                  'flex h-16 items-center justify-between bg-background',
+                  'bg-background flex h-16 items-center justify-between',
                 )}
               >
                 <h1
-                  className={cn('cursor-pointer font-cal text-lg')}
+                  className={cn('font-cal cursor-pointer text-lg')}
                   onClick={scrollToTop}
                 >
                   {title}
@@ -96,12 +96,12 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           <motion.div
             initial={{ opacity: 0, y: gap }}
             transition={transition}
-            className={cn('fixed left-0 right-0 top-0 z-50')}
+            className={cn('fixed top-0 right-0 left-0 z-50')}
           >
             <Container>
               <div
                 className={cn(
-                  'flex h-16 items-center justify-between bg-background text-center shadow-sm backdrop-blur',
+                  'bg-background flex h-16 items-center justify-between text-center shadow-sm backdrop-blur',
                 )}
               >
                 <h1 className={cn('font-cal text-lg')}>{title}</h1>

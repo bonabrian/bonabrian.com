@@ -28,7 +28,7 @@ const AboutPage = () => {
         <div
           className={cn(
             'items-start space-y-2',
-            'xl:grid xl:grid-cols-4 xl:gap-x-6 xl:space-y-0',
+            'xl:grid xl:grid-cols-4 xl:space-y-0 xl:gap-x-6',
           )}
         >
           <div

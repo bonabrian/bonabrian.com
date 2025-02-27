@@ -100,7 +100,7 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
   return (
     <div
       className={cn(
-        'flex flex-col flex-nowrap items-stretch gap-4 rounded-xl bg-card p-4 shadow-border',
+        'bg-card shadow-border flex flex-col flex-nowrap items-stretch gap-4 rounded-xl p-4',
       )}
     >
       <div className={cn('flex items-center justify-between')}>
@@ -165,12 +165,12 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
                     whiteSpace: 'nowrap',
                   }}
                   className={cn(
-                    'absolute -left-full -top-12 z-50 flex translate-x-full flex-col items-center justify-center rounded-md bg-background px-4 py-2 text-xs shadow-xl',
+                    'bg-background absolute -top-12 -left-full z-50 flex translate-x-full flex-col items-center justify-center rounded-md px-4 py-2 text-xs shadow-xl',
                   )}
                 >
                   <div className="absolute inset-x-10 -bottom-px z-30 h-px w-1/5 bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
-                  <div className="absolute -bottom-px left-8 z-30 h-px w-2/5 bg-gradient-to-r from-transparent via-primary to-transparent" />
-                  <div className="relative z-30 text-sm font-bold text-foreground">
+                  <div className="via-primary absolute -bottom-px left-8 z-30 h-px w-2/5 bg-gradient-to-r from-transparent to-transparent" />
+                  <div className="text-foreground relative z-30 text-sm font-bold">
                     {user.name}
                   </div>
                 </motion.div>
@@ -186,7 +186,7 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
               }
               alt={user.name}
               className={cn(
-                'relative !m-0 size-10 rounded-full border-2 border-card object-cover object-top !p-0 transition duration-500',
+                'border-card relative !m-0 size-10 rounded-full border-2 object-cover object-top !p-0 transition duration-500',
                 'group-hover:z-30 group-hover:scale-105',
               )}
             />

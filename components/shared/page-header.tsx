@@ -27,7 +27,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
         ref={ref}
       >
         <Container
-          className={cn('pointer-events-none select-none overflow-hidden', {
+          className={cn('pointer-events-none overflow-hidden select-none', {
             'text-center': centered,
           })}
         >
@@ -38,7 +38,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           >
             <h1
               className={cn(
-                'pb-2 font-cal text-4xl font-bold',
+                'font-cal pb-2 text-4xl font-bold',
                 'md:text-5xl',
                 'lg:text-6xl',
               )}
@@ -52,7 +52,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               animate={animation.show}
               transition={{ delay: 0.2 }}
             >
-              <p className={cn('mt-2 font-cal text-lg')}>{description}</p>
+              <p className={cn('font-cal mt-2 text-lg')}>{description}</p>
             </motion.div>
           )}
         </Container>

@@ -58,11 +58,11 @@ const AuthCard = ({
             </DialogTitle>
           </DialogHeader>
           <div className={cn('text-center')}>
-            <p className={cn('text-sm text-muted-foreground')}>
+            <p className={cn('text-muted-foreground text-sm')}>
               An unexpected problem occurred while I&apos;m trying to log you
               in. Please try with another providers.
             </p>
-            <code className={cn('text-sm text-destructive')}>
+            <code className={cn('text-destructive text-sm')}>
               Error: {searchParams.get('error')}
             </code>
           </div>

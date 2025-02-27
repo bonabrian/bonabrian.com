@@ -26,7 +26,7 @@ const TechStacks = () => {
           <div
             key={`${index}-${stackIndex}`}
             className={cn(
-              'flex items-center gap-4 rounded-lg bg-card p-3 shadow-border',
+              'bg-card shadow-border flex items-center gap-4 rounded-lg p-3',
             )}
           >
             {icon}

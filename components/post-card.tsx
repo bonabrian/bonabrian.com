@@ -36,7 +36,7 @@ const PostCard = ({ post }: { post: Post }) => {
       key={_id}
       href={`${ROUTES.blog}/${slug}`}
       className={cn(
-        'group rounded-xl bg-card shadow-border transition-colors duration-200',
+        'group bg-card shadow-border rounded-xl transition-colors duration-200',
       )}
     >
       <div
@@ -57,7 +57,7 @@ const PostCard = ({ post }: { post: Post }) => {
       </div>
       <div
         className={cn(
-          'flex items-center justify-between gap-2 px-4 pt-4 text-sm text-muted-foreground',
+          'text-muted-foreground flex items-center justify-between gap-2 px-4 pt-4 text-sm',
         )}
       >
         <time dateTime={publishedAt}>{publishedAt}</time>
@@ -83,13 +83,13 @@ const PostCard = ({ post }: { post: Post }) => {
       >
         <h2
           className={cn(
-            'font-cal text-lg font-bold text-card-foreground',
+            'font-cal text-card-foreground text-lg font-bold',
             'md:text-xl',
           )}
         >
           {title}
         </h2>
-        <p className={cn('mt-2 text-muted-foreground')}>{excerpt}</p>
+        <p className={cn('text-muted-foreground mt-2')}>{excerpt}</p>
       </div>
     </Link>
   );

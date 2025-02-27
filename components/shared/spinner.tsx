@@ -5,7 +5,7 @@ const Spinner = ({ className }: { className?: string }) => (
     <svg
       aria-hidden="true"
       className={cn(
-        'inline h-4 w-4 animate-spin fill-primary text-muted-foreground',
+        'fill-primary text-muted-foreground inline h-4 w-4 animate-spin',
         className,
       )}
       viewBox="0 0 100 101"

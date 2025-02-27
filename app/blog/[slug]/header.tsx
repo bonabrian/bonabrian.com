@@ -26,7 +26,7 @@ const Header = () => {
       <Container>
         <div
           className={cn(
-            'mt-4 flex flex-col justify-between gap-2 text-sm font-medium text-muted-foreground',
+            'text-muted-foreground mt-4 flex flex-col justify-between gap-2 text-sm font-medium',
             'sm:flex-row',
           )}
         >

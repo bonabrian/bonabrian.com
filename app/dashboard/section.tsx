@@ -54,7 +54,7 @@ const Section = ({
       ref={sectionRef}
     >
       <div
-        className={cn('flex items-center gap-1 font-cal text-xl font-medium')}
+        className={cn('font-cal flex items-center gap-1 text-xl font-medium')}
       >
         {icon}
         <h2 className={cn('capitalize')}>{title}</h2>
