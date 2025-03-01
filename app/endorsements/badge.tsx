@@ -45,7 +45,7 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
   const [state, setState] = useState(STATE.IDLE);
   const { toast } = useToast();
 
-  const [hoveredKey, setHoveredKey] = useState('');
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0);
 
@@ -142,10 +142,10 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
             className={cn('group relative -mr-4')}
             key={`${user.id}-${index}`}
             onMouseEnter={() => setHoveredKey(`${user.id}-${index}`)}
-            onMouseLeave={() => setHoveredKey('')}
+            onMouseLeave={() => setHoveredKey(null)}
           >
             <AnimatePresence mode="popLayout">
-              <RenderIf isTrue={hoveredKey === `${user.id}-${index}`}>
+              {hoveredKey === `${user.id}-${index}` && (
                 <motion.div
                   initial={{ opacity: 0, y: 20, scale: 0.6 }}
                   animate={{
@@ -159,14 +159,8 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
                     },
                   }}
                   exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                  style={{
-                    translateX: translateX,
-                    rotate: rotate,
-                    whiteSpace: 'nowrap',
-                  }}
-                  className={cn(
-                    'bg-background absolute -top-12 -left-full z-50 flex translate-x-full flex-col items-center justify-center rounded-md px-4 py-2 text-xs shadow-xl',
-                  )}
+                  style={{ translateX, rotate, whiteSpace: 'nowrap' }}
+                  className="bg-background absolute -top-12 -left-full z-50 flex flex-col items-center justify-center rounded-md px-4 py-2 text-xs shadow-xl"
                 >
                   <div className="absolute inset-x-10 -bottom-px z-30 h-px w-1/5 bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
                   <div className="via-primary absolute -bottom-px left-8 z-30 h-px w-2/5 bg-gradient-to-r from-transparent to-transparent" />
@@ -174,7 +168,7 @@ const Badge = ({ skill, user, currentUserId, onEndorse }: BadgeProps) => {
                     {user.name}
                   </div>
                 </motion.div>
-              </RenderIf>
+              )}
             </AnimatePresence>
             <Image
               onMouseMove={handleMouseMove}
