@@ -6,8 +6,8 @@ import { useMemo, useState } from 'react';
 import type { Post } from '@/.contentlayer/generated';
 import { cn } from '@/lib/utils';
 
+import EmptyState from './empty-state';
 import PostCard from './post-card';
-import EmptyState from './shared/empty-state';
 import { Input } from './ui/input';
 
 const filterPosts = (

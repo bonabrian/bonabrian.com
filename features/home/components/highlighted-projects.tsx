@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { useRef } from 'react';
 
 import { allProjects, type Project } from '@/.contentlayer/generated';
+import EmptyState from '@/components/empty-state';
 import ProjectCard from '@/components/project-card';
-import EmptyState from '@/components/shared/empty-state';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
 

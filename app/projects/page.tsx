@@ -2,9 +2,9 @@ import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
 import { allProjects } from '@/.contentlayer/generated';
+import EmptyState from '@/components/empty-state';
 import ProjectCard from '@/components/project-card';
 import Container from '@/components/shared/container';
-import EmptyState from '@/components/shared/empty-state';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';

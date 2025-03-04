@@ -7,8 +7,8 @@ import { useRef } from 'react';
 
 import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
+import EmptyState from '@/components/empty-state';
 import PostCard from '@/components/post-card';
-import EmptyState from '@/components/shared/empty-state';
 import Link from '@/components/shared/link';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants';
