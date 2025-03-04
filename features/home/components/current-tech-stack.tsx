@@ -12,9 +12,7 @@ import {
   NuxtJS,
   PHP,
   PostgreSQL,
-  RabbitMQ,
   ReactJS,
-  Redis,
   Spring,
   TailwindCSS,
   TypeScript,
@@ -29,117 +27,108 @@ import { cn } from '@/lib/utils';
 
 interface Stack {
   title: string;
-  colorClass: string;
+  className: string;
   icon: JSX.Element;
 }
 
 const stacks: Stack[] = [
   {
     title: 'TypeScript',
-    colorClass: 'hover:text-[#3178C6]',
+    className: 'hover:text-[#3178C6]',
     icon: <TypeScript />,
   },
   {
     title: 'JavaScript',
-    colorClass: 'hover:text-[#F7DF1E]',
+    className: 'hover:text-[#F7DF1E]',
     icon: <JavaScript />,
   },
   {
     title: 'PHP',
-    colorClass: 'hover:text-[#777BB4]',
+    className: 'hover:text-[#777BB4]',
     icon: <PHP />,
   },
   {
     title: 'Kotlin',
-    colorClass: 'hover:text-[#7F52FF]',
+    className: 'hover:text-[#7F52FF]',
     icon: <Kotlin />,
   },
   {
     title: 'Next.js',
-    colorClass: 'hover:text-black dark:hover:text-white',
+    className: 'hover:text-black dark:hover:text-white',
     icon: <NextJS />,
   },
   {
     title: 'React.js',
-    colorClass: 'hover:text-[#61DAFB]',
+    className: 'hover:text-[#61DAFB]',
     icon: <ReactJS />,
   },
   {
     title: 'Nuxt.js',
-    colorClass: 'hover:text-[#00DC82]',
+    className: 'hover:text-[#00DC82]',
     icon: <NuxtJS />,
   },
   {
     title: 'Vue.js',
-    colorClass: 'hover:text-[#4FC08D]',
+    className: 'hover:text-[#4FC08D]',
     icon: <VueJS />,
   },
   {
     title: 'Laravel',
-    colorClass: 'hover:text-[#FF2D20]',
+    className: 'hover:text-[#FF2D20]',
     icon: <Laravel />,
   },
   {
     title: 'Spring',
-    colorClass: 'hover:text-[#6DB33F]',
+    className: 'hover:text-[#6DB33F]',
     icon: <Spring />,
   },
   {
     title: 'Tailwind CSS',
-    colorClass: 'hover:text-[#06B6D4]',
+    className: 'hover:text-[#06B6D4]',
     icon: <TailwindCSS />,
   },
   {
     title: 'MySQL',
-    colorClass: 'hover:text-[#4479A1]',
+    className: 'hover:text-[#4479A1]',
     icon: <MySQL />,
   },
   {
     title: 'PostgreSQL',
-    colorClass: 'hover:text-[#4169E1]',
+    className: 'hover:text-[#4169E1]',
     icon: <PostgreSQL />,
-  },
-  {
-    title: 'Redis',
-    colorClass: 'hover:text-[#FF4438]',
-    icon: <Redis />,
-  },
-  {
-    title: 'RabbitMQ',
-    colorClass: 'hover:text-[#FF6600]',
-    icon: <RabbitMQ />,
   },
 ];
 
-const CurrentTechStack = () => {
-  const animation = {
-    hide: { x: -8, opacity: 0 },
-    show: { x: 0, opacity: 1 },
-  };
+const animation = {
+  hide: { x: -8, opacity: 0 },
+  show: { x: 0, opacity: 1, transition: { staggerChildren: 0.1 } },
+};
 
+const CurrentTechStack = () => {
   return (
     <>
       <motion.p
-        initial={animation.hide}
-        animate={animation.show}
-        transition={{ delay: 0.4 }}
-        className={cn('text-muted-foreground mb-2 text-sm')}
+        initial="hide"
+        animate="show"
+        variants={animation}
+        transition={{ delay: 0.2 }}
+        className="font-cal mb-2 text-sm"
       >
-        Tech stack and tools
+        Tech stack
       </motion.p>
       <motion.div
         initial="hide"
         animate="show"
-        transition={{ delayChildren: 0.5, staggerChildren: 0.015 }}
-        className={cn('flex flex-wrap gap-2')}
+        variants={animation}
+        className="flex flex-wrap gap-1"
       >
-        {stacks.map(({ title, colorClass, icon }) => (
+        {stacks.map(({ title, className, icon }) => (
           <Tooltip key={title}>
             <TooltipTrigger asChild>
               <motion.div
                 className={cn(
                   'text-muted-foreground size-6 transition duration-200',
-                  colorClass,
+                  className,
                 )}
                 variants={animation}
               >
