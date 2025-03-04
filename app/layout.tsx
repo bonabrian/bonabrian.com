@@ -45,9 +45,10 @@ const fontMono = FiraCode({
 });
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
-  <html lang="en" suppressHydrationWarning>
+  <html lang="en">
     <body
       className={cn(fontSans.variable, fontMono.variable, fontCal.variable)}
+      suppressHydrationWarning
     >
       <AppProvider>
         <div id="__app" className={cn('flex min-h-screen flex-col')}>
