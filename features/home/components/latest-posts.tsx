@@ -2,21 +2,22 @@
 
 import { compareDesc } from 'date-fns';
 import { motion, useInView } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRightIcon } from 'lucide-react';
+import Link from 'next/link';
 import { useRef } from 'react';
 
 import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
 import EmptyState from '@/components/empty-state';
 import PostCard from '@/components/post-card';
-import Link from '@/components/shared/link';
 import { Button } from '@/components/ui/button';
-import { ROUTES } from '@/constants';
-import { cn } from '@/lib/utils';
+import { ROUTES } from '@/constants/routes';
 
-const MAX_DISPLAY = 4;
+import { MAX_LATEST_POSTS_DISPLAY } from '../constants';
 
-const getLatestPosts = (maxDisplay: number = MAX_DISPLAY): Array<Post> =>
+const getLatestPosts = (
+  maxDisplay: number = MAX_LATEST_POSTS_DISPLAY,
+): Array<Post> =>
   allPosts
     .filter((post) => post.published)
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -39,21 +40,18 @@ const LatestPosts = () => {
       variants={variants}
       ref={postsRef}
       transition={{ duration: 0.5 }}
-      className={cn('will-change-[transform, opacity]')}
+      className="will-change-[transform,opacity]"
     >
       <motion.div
-        className={cn('mb-4 flex flex-col')}
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
+        className="mb-4 flex flex-col"
       >
-        <h2 className={cn('font-cal text-primary font-bold')}>Writing</h2>
-        <p
-          className={cn(
-            'font-cal text-secondary-foreground text-xl',
-            'md:text-2xl',
-          )}
-        >
+        <h2 className="font-cal text-primary text-sm tracking-wide md:text-base">
+          Writing
+        </h2>
+        <p className="font-cal text-secondary-foreground md:text-xl">
           Latest posts
         </p>
       </motion.div>
@@ -63,21 +61,18 @@ const LatestPosts = () => {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className={cn(
-              'grid auto-cols-fr grid-cols-1 gap-4',
-              'md:grid-cols-2',
-            )}
+            className="grid auto-cols-fr grid-cols-1 gap-4 md:grid-cols-2"
           >
             {posts.map((post) => (
               <PostCard key={post._id} post={post} />
             ))}
           </motion.div>
-          <div className={cn('my-4 flex items-center justify-center')}>
-            <Link href={ROUTES.blog}>
-              <Button variant="outline">
-                See all posts <ChevronRight />
-              </Button>
-            </Link>
+          <div className="my-8 flex items-center justify-center">
+            <Button asChild variant="outline">
+              <Link href={ROUTES.projects}>
+                See all posts <ChevronRightIcon />
+              </Link>
+            </Button>
           </div>
         </>
       ) : (

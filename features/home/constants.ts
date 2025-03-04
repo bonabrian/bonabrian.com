@@ -1,1 +1,2 @@
 export const MAX_HIGHLIGHTED_PROJECTS_DISPLAY = 2;
+export const MAX_LATEST_POSTS_DISPLAY = 4;
