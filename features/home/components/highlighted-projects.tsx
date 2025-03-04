@@ -66,7 +66,7 @@ const HighlightedProjects = () => {
               <ProjectCard key={project._id} project={project} />
             ))}
           </motion.div>
-          <div className="my-4 flex items-center justify-center">
+          <div className="my-8 flex items-center justify-center">
             <Button asChild variant="outline">
               <Link href={ROUTES.projects}>
                 See all projects <ChevronRightIcon />
