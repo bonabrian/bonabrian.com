@@ -12,8 +12,8 @@ import GuestbookWidget from '@/components/guestbook-widget';
 import AppProvider from '@/components/providers/app-provider';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
-import NowPlaying from '@/components/shared/now-playing';
 import { Toaster } from '@/components/ui/toaster';
+import NowPlaying from '@/features/now-playing/components/now-playing';
 import { DEFAULT_METADATA, seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 

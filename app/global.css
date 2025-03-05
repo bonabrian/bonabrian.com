@@ -94,6 +94,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-spotify: #1ed760;
 
   --font-sans: var(--font-sans), sans-serif;
   --font-mono: var(--font-mono);

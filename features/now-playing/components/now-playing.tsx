@@ -1,10 +1,10 @@
 'use client';
 
-import useDevices from '@/hooks/use-devices';
 import useMediaQuery from '@/hooks/use-media-query';
-import useNowPlaying from '@/hooks/use-now-playing';
 import { max } from '@/lib/breakpoints';
 
+import { useDevices } from '../hooks/use-devices';
+import { useNowPlaying } from '../hooks/use-now-playing';
 import NowPlayingBar from './now-playing-bar';
 import NowPlayingCard from './now-playing-card';
 

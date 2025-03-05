@@ -783,57 +783,6 @@ export const Spotify = ({ ...props }: ComponentProps<'svg'>) => (
   </svg>
 );
 
-export const Laptop = ({ ...props }: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 256 256"
-    width="1em"
-    height="1em"
-    {...props}
-  >
-    <path d="M232,168h-8V72a24,24,0,0,0-24-24H56A24,24,0,0,0,32,72v96H24a8,8,0,0,0-8,8v16a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V176A8,8,0,0,0,232,168ZM48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8v96H48ZM224,192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8v-8H224ZM152,88a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,88Z"></path>
-  </svg>
-);
-
-export const Smartphone = ({ ...props }: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-    <path d="M12 18h.01" />
-  </svg>
-);
-
-export const Speaker = ({ ...props }: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <rect width="16" height="20" x="4" y="2" rx="2" />
-    <path d="M12 6h.01" />
-    <circle cx="12" cy="14" r="4" />
-    <path d="M12 14h.01" />
-  </svg>
-);
-
 export const Monitor = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

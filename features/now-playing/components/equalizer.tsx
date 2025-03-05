@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-const AnimatedBars = ({ className }: { className?: string }) => (
+const Equalizer = ({ className }: { className?: string }) => (
   <div className={cn('equalizer', className)}>
     <span />
     <span />
@@ -8,4 +8,4 @@ const AnimatedBars = ({ className }: { className?: string }) => (
   </div>
 );
 
-export default AnimatedBars;
+export default Equalizer;

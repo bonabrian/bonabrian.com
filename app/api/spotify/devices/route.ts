@@ -1,7 +1,7 @@
-import { getDevices } from '@/actions/spotify';
+import { getDevices } from '@/features/now-playing/server/get-devices';
+import type { Device } from '@/features/now-playing/types';
 import { response } from '@/lib/server';
 import type { APIErrorResponse, APIListResponse } from '@/types/server';
-import type { Device } from '@/types/spotify';
 
 export const fetchCache = 'force-no-store';
 export const dynamic = 'force-dynamic';
