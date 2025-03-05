@@ -120,14 +120,14 @@ const CurrentTechStack = () => {
         initial="hide"
         animate="show"
         variants={animation}
-        className="flex flex-wrap gap-1"
+        className="flex flex-wrap gap-2 md:gap-3"
       >
         {stacks.map(({ title, className, icon }) => (
           <Tooltip key={title}>
             <TooltipTrigger asChild>
               <motion.div
                 className={cn(
-                  'text-muted-foreground size-6 transition duration-200',
+                  'text-muted-foreground size-5 rounded-md transition-transform duration-200 hover:scale-110 md:size-6',
                   className,
                 )}
                 variants={animation}
