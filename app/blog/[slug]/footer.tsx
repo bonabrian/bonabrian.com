@@ -1,7 +1,7 @@
 'use client';
 
+import Container from '@/components/container';
 import { usePostContext } from '@/components/providers/post-provider';
-import Container from '@/components/shared/container';
 import Link from '@/components/shared/link';
 import { cn, formatDate } from '@/lib/utils';
 

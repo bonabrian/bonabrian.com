@@ -8,8 +8,8 @@ import useScroll from '@/hooks/use-scroll';
 import { min } from '@/lib/breakpoints';
 import { cn } from '@/lib/utils';
 
+import Container from './container';
 import CommandPalette from './shared/command-palette';
-import Container from './shared/container';
 import RenderIf from './shared/render-if';
 import ThemeSwitch from './shared/theme-switch';
 import { Separator } from './ui/separator';

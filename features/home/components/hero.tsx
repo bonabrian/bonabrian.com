@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 
+import Container from '@/components/container';
 import FlipWords from '@/components/flip-words';
-import Container from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
 

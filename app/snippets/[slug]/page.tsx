@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 
 import type { Snippet } from '@/.contentlayer/generated';
 import { allSnippets } from '@/.contentlayer/generated';
+import Container from '@/components/container';
 import ContentEngagements from '@/components/content-engagements';
 import SnippetProvider from '@/components/providers/snippet-provider';
-import Container from '@/components/shared/container';
 import Mdx from '@/components/shared/mdx';
 import { BASE_URL, ROUTES } from '@/constants';
 import { buildJsonLd, seo } from '@/lib/meta';

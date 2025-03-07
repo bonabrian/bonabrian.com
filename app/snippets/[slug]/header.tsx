@@ -3,8 +3,8 @@
 import { Clock, Eye } from 'lucide-react';
 
 import BackButton from '@/components/back-button';
+import Container from '@/components/container';
 import { useSnippetContext } from '@/components/providers/snippet-provider';
-import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import useViews from '@/hooks/use-views';

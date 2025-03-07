@@ -4,8 +4,8 @@ import { Clock, Eye } from 'lucide-react';
 import { useRef } from 'react';
 
 import BackButton from '@/components/back-button';
+import Container from '@/components/container';
 import { usePostContext } from '@/components/providers/post-provider';
-import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import StickyTitle from '@/components/sticky-title';
 import { ROUTES } from '@/constants';

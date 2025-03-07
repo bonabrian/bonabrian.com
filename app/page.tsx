@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Container from '@/components/shared/container';
+import Container from '@/components/container';
 import { SITE } from '@/constants';
 import GetInTouch from '@/features/home/components/get-in-touch';
 import Hero from '@/features/home/components/hero';

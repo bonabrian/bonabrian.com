@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Container from '@/components/shared/container';
+import Container from '@/components/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
 import { seo } from '@/lib/meta';

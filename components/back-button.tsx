@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
-import Container from './shared/container';
+import Container from './container';
 import Link from './shared/link';
 import { Button } from './ui/button';
 

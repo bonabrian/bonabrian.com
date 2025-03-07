@@ -2,8 +2,8 @@ import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
 import { allSnippets } from '@/.contentlayer/generated';
+import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import SnippetCard from '@/components/snippet-card';
 import { ROUTES } from '@/constants';
