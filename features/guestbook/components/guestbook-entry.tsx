@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
-import Timestamp from '@/components/shared/timestamp';
+import Timestamp from '@/components/timestamp';
 import { Button } from '@/components/ui/button';
 import { ToastAction } from '@/components/ui/toast';
 import { SITE } from '@/constants';
