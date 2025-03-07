@@ -1,8 +1,11 @@
 import type { NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth';
 
-import { deleteEntry, findEntryById } from '@/actions/guestbook';
 import { SITE } from '@/constants';
+import {
+  countGuestbook,
+  deleteEntry,
+} from '@/features/guestbook/server/actions';
 import { authOptions } from '@/lib/auth';
 import { response } from '@/lib/server';
 import type { APIErrorResponse } from '@/types/server';
@@ -24,9 +27,9 @@ export const DELETE = async (
       );
     }
 
-    const entry = await findEntryById(Number(id));
+    const isExists = (await countGuestbook({ id: Number(id) })) > 0;
 
-    if (!entry) {
+    if (!isExists) {
       return response<APIErrorResponse>(
         {
           message: 'Not found',
@@ -35,9 +38,14 @@ export const DELETE = async (
       );
     }
 
+    const isBelongToUser =
+      (await countGuestbook({
+        id: Number(id),
+        userId: session.id,
+      })) > 0;
+
     const isAuthorOrBelongToUser =
-      session.user.email === SITE.author.email ||
-      session.user.email === entry.user?.email;
+      session.user.email === SITE.author.email || isBelongToUser;
 
     if (!isAuthorOrBelongToUser) {
       return response<APIErrorResponse>({ message: 'Forbidden' }, 403);

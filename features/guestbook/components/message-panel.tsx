@@ -1,22 +1,25 @@
 'use client';
 
+import { SendHorizontalIcon } from 'lucide-react';
+import type { Session } from 'next-auth';
+import { signOut } from 'next-auth/react';
 import type { FormEvent } from 'react';
 import { useRef, useState } from 'react';
 
-import { PaperPlane } from '@/components/shared/icons';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { ToastAction } from '@/components/ui/toast';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
-import UserInfo from './user-info';
-
 const MessagePanel = ({
-  onSendMessage,
   isWidget,
+  session,
+  onSendMessage,
 }: {
-  onSendMessage: (message: string) => Promise<void>;
   isWidget?: boolean;
+  session: Session;
+  onSendMessage: (message: string) => Promise<void>;
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState('');
@@ -60,35 +63,53 @@ const MessagePanel = ({
   return (
     <>
       <form
-        className={cn('border-muted flex items-center gap-x-2 border-t p-4')}
+        className="border-muted flex items-center gap-x-2 border-t p-4"
         onSubmit={handleSendMessage}
       >
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          value={message}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setMessage(e.target.value)
-          }
-          className={cn(
-            'border-input bg-background ring-offset-background flex w-full flex-grow rounded-md border px-3 py-2 text-sm',
-            'placeholder:text-muted-foreground',
-            'focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none',
-            'disabled:cursor-not-allowed disabled:opacity-50',
-          )}
-          disabled={isSending}
+        <Input
           ref={inputRef}
+          className="ring-offset-background focus-visible:ring-input grow transition-all duration-200 focus-visible:ring-1 focus-visible:outline-none"
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+          disabled={isSending}
           autoFocus
+          placeholder="Type your message here..."
         />
         <Button
           type="submit"
           disabled={isSending || !message.trim()}
-          size="icon"
+          className="py-1.5"
         >
-          <PaperPlane />
+          <SendHorizontalIcon className="size-5" />
         </Button>
       </form>
-      <UserInfo isWidget={isWidget} />
+      <div
+        className={cn(
+          'flex flex-col items-start gap-2 px-4 md:flex-row md:items-center',
+          isWidget ? 'pb-3 text-xs' : 'text-sm',
+        )}
+      >
+        <div className="flex flex-wrap items-center gap-2">
+          <p>
+            You are currently logged in as{' '}
+            <span className={cn('font-cal')}>{session.user.name}</span>
+          </p>
+          {!isWidget && (
+            <Button
+              variant="link"
+              className="h-auto p-0 font-semibold underline"
+              onClick={async (e) => {
+                e.preventDefault();
+                await signOut();
+              }}
+            >
+              Sign out
+            </Button>
+          )}
+        </div>
+      </div>
     </>
   );
 };

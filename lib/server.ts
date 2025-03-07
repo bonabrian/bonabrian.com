@@ -7,7 +7,7 @@ export const response = <T>(
   status: number = 200,
   options?: ResponseInit,
 ) => {
-  return new NextResponse(JSON.stringify(data), {
+  return new NextResponse(data === null ? null : JSON.stringify(data), {
     headers: {
       ...options?.headers,
       'Content-Type': 'application/json',

@@ -1,9 +1,9 @@
-import type { Guestbook } from '@/types/guestbook';
-import type { APIErrorResponse, APIListResponse } from '@/types/server';
+import useRequest from '@/hooks/use-request';
+import type { APIErrorResponse, APIListResponse } from '@/types/api';
 
-import useRequest from './use-request';
+import type { Guestbook } from '../types';
 
-const useGuestbook = () => {
+export const useGuestbook = () => {
   const { data, error, mutate, isLoading } = useRequest<
     APIListResponse<Guestbook>,
     APIErrorResponse
@@ -13,7 +13,7 @@ const useGuestbook = () => {
 
   const addEntry = async (message: string) => {
     try {
-      const response = await fetch('api/guestbook', {
+      const response = await fetch('/api/guestbook', {
         method: 'POST',
         body: JSON.stringify({ message }),
       });
@@ -50,13 +50,5 @@ const useGuestbook = () => {
     }
   };
 
-  return {
-    entries,
-    isLoading,
-    error,
-    addEntry,
-    deleteEntry,
-  };
+  return { entries, isLoading, error, addEntry, deleteEntry };
 };
-
-export default useGuestbook;

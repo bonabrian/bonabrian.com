@@ -2,25 +2,23 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { cn } from '@/lib/utils';
-import type { Guestbook } from '@/types/guestbook';
+import { GUESTBOOK_HEIGHT_GAP, GUESTBOOK_WIDGET_HEIGHT } from '../constants';
+import type { Guestbook } from '../types';
+import GuestbookEntry from './guestbook-entry';
 
-import Entry from './entry';
-
-interface EntriesProps {
+const GuestbookEntries = ({
+  entries,
+  onDeleteMessage,
+  isWidget,
+}: {
   entries: Guestbook[];
   onDeleteMessage: (id: string) => Promise<void>;
   isWidget?: boolean;
-}
-
-const WIDGET_HEIGHT = 480;
-const HEIGHT_GAP = 256;
-
-const Entries = ({ entries, onDeleteMessage, isWidget }: EntriesProps) => {
+}) => {
   const entriesRef = useRef<HTMLDivElement>(null);
   const [hasScrolledUp, setHasScrolledUp] = useState(false);
   const [entriesHeight, setEntriesHeight] = useState(
-    WIDGET_HEIGHT - HEIGHT_GAP,
+    GUESTBOOK_WIDGET_HEIGHT - GUESTBOOK_HEIGHT_GAP,
   );
 
   useEffect(() => {
@@ -35,7 +33,6 @@ const Entries = ({ entries, onDeleteMessage, isWidget }: EntriesProps) => {
     };
 
     const currentEntriesRef = entriesRef.current;
-
     currentEntriesRef?.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -51,7 +48,10 @@ const Entries = ({ entries, onDeleteMessage, isWidget }: EntriesProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      const height = isWidget ? WIDGET_HEIGHT : window.innerHeight - HEIGHT_GAP;
+      const height = isWidget
+        ? GUESTBOOK_WIDGET_HEIGHT
+        : window.innerHeight - GUESTBOOK_HEIGHT_GAP;
+
       setEntriesHeight(height);
     };
 
@@ -65,31 +65,31 @@ const Entries = ({ entries, onDeleteMessage, isWidget }: EntriesProps) => {
   }, [isWidget]);
 
   return (
-    <div className={cn('px-1')}>
+    <div className="px-1">
       <div
-        className={cn('space-y-4 overflow-hidden overflow-y-auto py-4')}
+        className="space-y-4 overflow-hidden overflow-y-auto py-4"
         style={{ height: entriesHeight }}
         ref={entriesRef}
       >
         {entries.length ? (
           <>
             {entries.map((entry) => (
-              <Entry key={entry.id} entry={entry} onDelete={onDeleteMessage} />
+              <GuestbookEntry
+                key={entry.id}
+                entry={entry}
+                onDelete={onDeleteMessage}
+              />
             ))}
           </>
         ) : (
-          <div
-            className={cn(
-              'flex h-full flex-col justify-center space-y-4 px-3 text-center',
-            )}
-          >
+          <div className="flex h-full flex-col justify-center space-y-4 px-3 text-center">
             <p>
               If you come across this, you might just be the first to share your
               suggestions, ask questions, or contribute in any way you see fit.
             </p>
             <p>
-              Simply <span className={cn('font-semibold')}>log in</span> to get
-              started. :)
+              Simply <span className="font-cal font-semibold">log in</span> to
+              get started. :)
             </p>
           </div>
         )}
@@ -98,4 +98,4 @@ const Entries = ({ entries, onDeleteMessage, isWidget }: EntriesProps) => {
   );
 };
 
-export default Entries;
+export default GuestbookEntries;

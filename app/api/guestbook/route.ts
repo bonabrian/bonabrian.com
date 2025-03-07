@@ -1,10 +1,13 @@
 import type { NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth';
 
-import { addGuestbookEntry, getGuestbookEntries } from '@/actions/guestbook';
+import {
+  createEntry,
+  getGuestbookEntries,
+} from '@/features/guestbook/server/actions';
+import type { Guestbook } from '@/features/guestbook/types';
 import { authOptions } from '@/lib/auth';
 import { response } from '@/lib/server';
-import type { Guestbook } from '@/types/guestbook';
 import type {
   APIErrorResponse,
   APIListResponse,
@@ -38,7 +41,7 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json();
     const { message } = body;
 
-    await addGuestbookEntry({ message, userId: session.id as string });
+    await createEntry({ message, userId: session.id as string });
 
     return response<APISingleResponse<null>>({ data: null }, 201);
   } catch (error) {
