@@ -8,7 +8,7 @@ import type { Guestbook } from '../types';
 
 export const getGuestbookEntries = async (): Promise<Guestbook[]> => {
   const entries = await db.guestbook.findMany({
-    orderBy: { created_at: 'desc' },
+    orderBy: { created_at: 'asc' },
     select: { id: true, body: true, created_at: true, user: true },
   });
 
