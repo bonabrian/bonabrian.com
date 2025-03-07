@@ -1,6 +1,5 @@
 import { BASE_URL } from '@/constants';
-
-import { env } from '../env';
+import env from '@/env';
 
 /**
  * Helper function to determine the hostname for the given environment,

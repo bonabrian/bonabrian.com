@@ -1,6 +1,6 @@
 'use server';
 
-import { env } from '@/lib/env';
+import env from '@/env';
 import fetcher from '@/lib/fetcher';
 import type {
   WakaTimeAllTimeSinceToday,
@@ -24,7 +24,7 @@ const ALLOWED_LANGUAGES = [
 ];
 
 const generateBasicAuthorizationBase64 = (): string =>
-  `Basic ${Buffer.from(env.WAKATIME_API_KEY ?? '').toString('base64')}`;
+  `Basic ${Buffer.from(env.WAKATIME_API_KEY).toString('base64')}`;
 
 export const getAllTimeSinceToday =
   async (): Promise<WakaTimeAllTimeSinceToday> => {

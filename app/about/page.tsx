@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Container from '@/components/shared/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES, SITE } from '@/constants';
-import { env } from '@/lib/env';
+import env from '@/env';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 

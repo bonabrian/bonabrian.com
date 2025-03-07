@@ -1,4 +1,4 @@
-import { env } from '@/lib/env';
+import env from '@/env';
 
 export const API_SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 export const SPOTIFY_CLIENT_ID = env.SPOTIFY_CLIENT_ID;

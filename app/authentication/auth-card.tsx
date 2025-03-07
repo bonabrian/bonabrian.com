@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import type { BuiltInProviderType } from 'next-auth/providers';
+import type { BuiltInProviderType } from 'next-auth/providers/index';
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 

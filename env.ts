@@ -1,23 +1,7 @@
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
-/**
- * Transform an empty string to undefined
- */
-const emptyStringToUndefined = z.literal('').transform(() => undefined);
-
-/**
- * An optional string type that is at least one character long, or transformed
- * to undefined
- */
-const optionalString = z
-  .string()
-  .trim()
-  .min(1)
-  .optional()
-  .or(emptyStringToUndefined);
-
-export const env = createEnv({
+const env = createEnv({
   /**
    * Environment variables available on the client (and server).
 
@@ -29,7 +13,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_APP_URL: z.string().url(),
-    NEXT_PUBLIC_GOOGLE_ANALYTICS: optionalString,
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: z.string().optional(),
     NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
     NEXT_PUBLIC_AVAILABLE_FOR_HIRE: z
       .string()
@@ -56,24 +40,24 @@ export const env = createEnv({
 
     /** sentry */
     SENTRY_DSN: z.string().url().optional(),
-    SENTRY_AUTH_TOKEN: optionalString,
+    SENTRY_AUTH_TOKEN: z.string().optional(),
 
     /** google */
-    GOOGLE_ID: optionalString,
-    GOOGLE_SECRET: optionalString,
+    GOOGLE_ID: z.string(),
+    GOOGLE_SECRET: z.string(),
 
     /** github */
-    GITHUB_ID: optionalString,
-    GITHUB_SECRET: optionalString,
-    GITHUB_READ_USER_TOKEN_PERSONAL: optionalString,
+    GITHUB_ID: z.string(),
+    GITHUB_SECRET: z.string(),
+    GITHUB_READ_USER_TOKEN_PERSONAL: z.string(),
 
     /** spotify */
-    SPOTIFY_CLIENT_ID: optionalString,
-    SPOTIFY_CLIENT_SECRET: optionalString,
-    SPOTIFY_CLIENT_REFRESH_TOKEN: optionalString,
+    SPOTIFY_CLIENT_ID: z.string(),
+    SPOTIFY_CLIENT_SECRET: z.string(),
+    SPOTIFY_CLIENT_REFRESH_TOKEN: z.string(),
 
     /** wakatime */
-    WAKATIME_API_KEY: optionalString,
+    WAKATIME_API_KEY: z.string(),
   },
 
   /**
@@ -83,18 +67,9 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(['development', 'production', 'test'])
       .default('development'),
-    GITHUB_READ_USER_TOKEN_PERSONAL: optionalString,
+    GITHUB_READ_USER_TOKEN_PERSONAL: z.string(),
   },
 
-  /**
-   * Due to how Next.js (>= 13.4.4) bundles environment variables on the Client,
-   * we need to manually destructure them to make sure all are included in bundle.
-   *
-   * Means you can't destruct `process.env` as a regular object during the Next.js edge
-   * runtime (e.g. with middleware) or client-side, so we need to destruct it manually.
-   *
-   * 💡 You'll get type errors if not all variables from `client` are included here.
-   */
   runtimeEnv: {
     /** Client */
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
@@ -133,5 +108,10 @@ export const env = createEnv({
 
     /** wakatime */
     WAKATIME_API_KEY: process.env.WAKATIME_API_KEY,
+
+    /** Shared */
+    NODE_ENV: process.env.NODE_ENV,
   },
 });
+
+export default env;

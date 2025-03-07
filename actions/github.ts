@@ -1,7 +1,7 @@
 'use server';
 
 import { SITE } from '@/constants';
-import { env } from '@/lib/env';
+import env from '@/env';
 import fetcher from '@/lib/fetcher';
 import type {
   GitHubRepository,
@@ -13,7 +13,7 @@ const GITHUB_USERNAME = SITE.author.github.username;
 
 const GITHUB_USER_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
 const GITHUB_USER_GRAPHQL_URL = `https://api.github.com/graphql`;
-const PERSONAL_ACCESS_TOKEN = env.GITHUB_READ_USER_TOKEN_PERSONAL ?? '';
+const PERSONAL_ACCESS_TOKEN = env.GITHUB_READ_USER_TOKEN_PERSONAL;
 
 const GITHUB_USER_QUERY = `query($username: String!) {
   user(login: $username) {
