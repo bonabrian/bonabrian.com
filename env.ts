@@ -16,10 +16,8 @@ const env = createEnv({
     NEXT_PUBLIC_GOOGLE_ANALYTICS: z.string().optional(),
     NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
     NEXT_PUBLIC_AVAILABLE_FOR_HIRE: z
-      .string()
-      .refine((val) => val === 'true' || val === 'false')
-      .transform((val) => val === 'true')
-      .default('false'),
+      .preprocess((val) => val === 'true', z.boolean())
+      .default(false),
   },
 
   /**
@@ -67,7 +65,6 @@ const env = createEnv({
     NODE_ENV: z
       .enum(['development', 'production', 'test'])
       .default('development'),
-    GITHUB_READ_USER_TOKEN_PERSONAL: z.string(),
   },
 
   runtimeEnv: {
