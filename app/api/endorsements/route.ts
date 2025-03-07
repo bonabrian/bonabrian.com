@@ -2,10 +2,11 @@ import type { NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth';
 
 import {
+  countEndorsement,
   createEndorsement,
   getEndorsements,
-  isEndorsed,
-} from '@/actions/endorsements';
+} from '@/features/endorsements/server/actions';
+import type { SkillCategory } from '@/features/endorsements/types';
 import { authOptions } from '@/lib/auth';
 import { response } from '@/lib/server';
 import type {
@@ -13,7 +14,6 @@ import type {
   APIListResponse,
   APISingleResponse,
 } from '@/types/server';
-import type { SkillCategory } from '@/types/skill';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,8 +45,8 @@ export const POST = async (req: NextRequest) => {
     const { skillId } = body;
     const userId = session.id as string;
 
-    const alreadyEndorsed = await isEndorsed({
-      skillId,
+    const alreadyEndorsed = await countEndorsement({
+      skill_id: skillId,
       userId,
     });
 
