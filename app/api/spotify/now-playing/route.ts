@@ -1,4 +1,4 @@
-import { getNowPlaying } from '@/features/now-playing/server/get-now-playing';
+import { getNowPlaying } from '@/features/now-playing/server/actions';
 import type { NowPlaying } from '@/features/now-playing/types';
 import { response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';

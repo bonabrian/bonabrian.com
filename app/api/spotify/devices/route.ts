@@ -1,4 +1,4 @@
-import { getDevices } from '@/features/now-playing/server/get-devices';
+import { getDevices } from '@/features/now-playing/server/actions';
 import type { Device } from '@/features/now-playing/types';
 import { response } from '@/lib/server';
 import type { APIErrorResponse, APIListResponse } from '@/types/server';
