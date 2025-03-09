@@ -2,11 +2,12 @@
 
 import env from '@/env';
 import fetcher from '@/lib/fetcher';
+import type { APISingleResponse } from '@/types/api';
+
 import type {
   WakaTimeAllTimeSinceToday,
-  WakaTimeResponse,
   WakaTimeStats,
-} from '@/types/wakatime';
+} from '../types/wakatime';
 
 const ALL_TIME_SINCE_TODAY_ENDPOINT =
   'https://wakatime.com/api/v1/users/current/all_time_since_today';
@@ -30,7 +31,7 @@ export const getAllTimeSinceToday =
   async (): Promise<WakaTimeAllTimeSinceToday> => {
     try {
       const response = await fetcher<
-        WakaTimeResponse<WakaTimeAllTimeSinceToday>
+        APISingleResponse<WakaTimeAllTimeSinceToday>
       >(ALL_TIME_SINCE_TODAY_ENDPOINT, {
         method: 'GET',
         headers: {
@@ -46,7 +47,7 @@ export const getAllTimeSinceToday =
 
 export const getLastSevenDaysStats = async (): Promise<WakaTimeStats> => {
   try {
-    const response = await fetcher<WakaTimeResponse<WakaTimeStats>>(
+    const response = await fetcher<APISingleResponse<WakaTimeStats>>(
       `${STATS_ENDPOINT}/last_7_days`,
       {
         method: 'GET',

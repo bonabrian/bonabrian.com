@@ -1,9 +1,9 @@
 import { countAllReactions } from '@/actions/reactions';
 import { countAllViews } from '@/actions/views';
+import type { EngagementStats } from '@/features/dashboard/types/stats';
 import { countAllEndorsements } from '@/features/endorsements/server/actions';
 import { response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';
-import type { EngagementStats } from '@/types/stats';
 
 export const dynamic = 'force-dynamic';
 

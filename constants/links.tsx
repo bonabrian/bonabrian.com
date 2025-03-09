@@ -1,6 +1,7 @@
+import { BookOpenTextIcon } from 'lucide-react';
+
 import {
   AtSign,
-  BookOpenText,
   Coffee,
   Dashboard,
   Email,
@@ -62,7 +63,7 @@ export const NAV_LINKS: NavLink[] = [
   {
     path: ROUTES.guestbook,
     label: 'Guestbook',
-    icon: <BookOpenText />,
+    icon: <BookOpenTextIcon />,
   },
   {
     path: ROUTES.endorsements,
@@ -124,7 +125,7 @@ export const COMMAND_PAGES: CommandMenu[] = [
   {
     label: 'Guestbook',
     href: ROUTES.guestbook,
-    icon: <BookOpenText />,
+    icon: <BookOpenTextIcon />,
     isExternal: false,
     eventName: 'Pages: Guestbook',
     type: 'PAGE',

@@ -1,5 +1,3 @@
-import type { APISingleResponse } from './server';
-
 export interface WakaTimeSummary {
   name: string;
   total_seconds: number;
@@ -15,15 +13,15 @@ export interface WakaTimeMachine extends WakaTimeSummary {
   machine_name_id: string;
 }
 
-export interface WakaTimeCategory extends WakaTimeSummary {}
+export type WakaTimeCategory = WakaTimeSummary;
 
-export interface WakaTimeLanguage extends WakaTimeSummary {}
+export type WakaTimeLanguage = WakaTimeSummary;
 
-export interface WakaTimeOperatingSystem extends WakaTimeSummary {}
+export type WakaTimeOperatingSystem = WakaTimeSummary;
 
-export interface WakaTimeEditor extends WakaTimeSummary {}
+export type WakaTimeEditor = WakaTimeSummary;
 
-export interface WakaTimeProject extends WakaTimeSummary {}
+export type WakaTimeProject = WakaTimeSummary;
 
 export interface WakaTimeBestDay {
   id: string;
@@ -94,5 +92,3 @@ export interface WakaTimeStats {
   is_coding_activity_visible?: boolean;
   is_other_usage_visible?: boolean;
 }
-
-export interface WakaTimeResponse<D> extends APISingleResponse<D> {}

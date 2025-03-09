@@ -230,11 +230,25 @@
 }
 
 @utility bg-rainbow-gradient {
-  background: linear-gradient(to right, #d25778, #ec585c, #e7d155, #56a8c6);
+  background: linear-gradient(
+    to right,
+    #d86683,
+    #ef6d6f,
+    #ebd85a,
+    #60b1cf,
+    var(--primary)
+  );
 }
 
 @utility bg-rainbow-gradient-inverse {
-  background: linear-gradient(to right, #56a8c6, #e7d155, #ec585c, #d25778);
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    #60b1cf,
+    #ebd85a,
+    #ef6d6f,
+    #d86683
+  );
 }
 
 @layer base {
@@ -248,7 +262,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans;
   }
 
   ::-webkit-scrollbar {

@@ -2,10 +2,10 @@ import {
   getGitHubUser,
   getGitHubUserContributions,
   getGitHubUserRepositories,
-} from '@/actions/github';
+} from '@/features/dashboard/server/github';
+import type { GitHubStats } from '@/features/dashboard/types/stats';
 import { response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';
-import type { GitHubStats } from '@/types/stats';
 
 export const dynamic = 'force-dynamic';
 

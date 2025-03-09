@@ -121,21 +121,6 @@ export const FileCode = (props: ComponentProps<'svg'>) => (
   </svg>
 );
 
-export const BookOpenText = (props: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 256 256"
-    {...props}
-  >
-    <path
-      fill="currentColor"
-      d="M232 48h-72a40 40 0 0 0-32 16a40 40 0 0 0-32-16H24a8 8 0 0 0-8 8v144a8 8 0 0 0 8 8h72a24 24 0 0 1 24 24a8 8 0 0 0 16 0a24 24 0 0 1 24-24h72a8 8 0 0 0 8-8V56a8 8 0 0 0-8-8M96 192H32V64h64a24 24 0 0 1 24 24v112a39.8 39.8 0 0 0-24-8m128 0h-64a39.8 39.8 0 0 0-24 8V88a24 24 0 0 1 24-24h64ZM160 88h40a8 8 0 0 1 0 16h-40a8 8 0 0 1 0-16m48 40a8 8 0 0 1-8 8h-40a8 8 0 0 1 0-16h40a8 8 0 0 1 8 8m0 32a8 8 0 0 1-8 8h-40a8 8 0 0 1 0-16h40a8 8 0 0 1 8 8"
-    />
-  </svg>
-);
-
 export const Medal = (props: ComponentProps<'svg'>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -604,18 +589,6 @@ export const Document = ({ ...props }: ComponentProps<'svg'>) => (
   </svg>
 );
 
-export const BarChart = ({ ...props }: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    {...props}
-  >
-    <path fill="currentColor" d="M3 22V8h4v14zm7 0V2h4v20zm7 0v-8h4v8z" />
-  </svg>
-);
-
 export const WakaTime = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
     role="img"
@@ -731,27 +704,6 @@ export const Monitor = ({ ...props }: ComponentProps<'svg'>) => (
     <rect width="20" height="14" x="2" y="3" rx="2" />
     <line x1="8" x2="16" y1="21" y2="21" />
     <line x1="12" x2="12" y1="17" y2="21" />
-  </svg>
-);
-
-export const DeviceX = ({ ...props }: ComponentProps<'svg'>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    {...props}
-  >
-    <g
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1"
-    >
-      <path d="M14 20a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v4" />
-      <path d="M18 8V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9m3-9h2m4 13l-5-5m0 5l5-5" />
-    </g>
   </svg>
 );
 

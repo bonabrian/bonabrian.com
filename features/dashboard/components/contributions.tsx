@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
-import type { ContributionCalendar } from '@/types/github';
+
+import type { ContributionCalendar } from '../types/github';
 
 const Contributions = ({ data }: { data?: ContributionCalendar }) => {
   const [selectedContribution, setSelectedContribution] = useState<{
@@ -37,14 +38,10 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
   const contributionColors = data?.colors ?? [];
 
   return (
-    <div className={cn('bg-card rounded-md p-3')}>
-      <div
-        className={cn(
-          'relative mb-4 flex flex-col justify-center overflow-hidden',
-        )}
-      >
-        <div className={cn('flex flex-col overflow-x-auto')}>
-          <ul className={cn('flex justify-start gap-1 text-xs')}>
+    <div className="bg-card rounded-lg p-3">
+      <div className="relative mb-4 flex flex-col justify-center overflow-hidden">
+        <div className="flex flex-col overflow-x-auto">
+          <ul className="flex justify-start gap-1 text-xs">
             {months.map((month) => (
               <li
                 key={month.firstDay}
@@ -56,7 +53,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
             ))}
           </ul>
 
-          <div className={cn('flex justify-start gap-[3px]')}>
+          <div className="flex justify-start gap-[3px]">
             {weeks.map((week) => (
               <div key={week.firstDay}>
                 {week.contributionDays.map((contribution) => {
@@ -78,9 +75,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
                           transition: { delay: getRandomDelayAnimate },
                         },
                       }}
-                      className={cn(
-                        'bg-muted my-[2px] block h-[14.85px] w-[14.85px] rounded-sm',
-                      )}
+                      className="bg-muted my-0.5 block size-[14.85px] rounded-sm"
                       style={backgroundColor ? { backgroundColor } : undefined}
                       onMouseEnter={() =>
                         setSelectedContribution({
@@ -99,11 +94,12 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
           </div>
         </div>
       </div>
-      <div className={cn('flex flex-wrap items-center justify-between gap-2')}>
-        <div className={cn('flex items-center gap-2 text-xs')}>
-          <span className={cn('text-muted-foreground')}>Less</span>
-          <ul className={cn('flex gap-1')}>
-            <motion.li className={cn('bg-muted size-3 rounded-sm')} />
+
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-2 text-xs">
+          <span className="text-muted-foreground">Less</span>
+          <ul className="flex gap-1">
+            <motion.li className="bg-muted size-3 rounded-sm" />
             {contributionColors.map((color, index) => (
               <motion.li
                 key={color}
@@ -116,9 +112,9 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
                     transition: { delay: index * 0.3 },
                   },
                 }}
-                className={cn('size-3 rounded-sm')}
+                className="size-3 rounded-sm"
                 style={{ backgroundColor: color }}
-              />
+              ></motion.li>
             ))}
           </ul>
           <span>More</span>
@@ -126,7 +122,7 @@ const Contributions = ({ data }: { data?: ContributionCalendar }) => {
         <div
           className={cn(
             selectedContribution?.date ? 'opacity-100' : 'opacity-0',
-            'bg-background font-cal rounded p-1.5 text-xs',
+            'font-cal rounded-sm p-1.5 text-xs',
           )}
         >
           {selectedContribution?.count} contributions on{' '}
