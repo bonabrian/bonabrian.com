@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-import Marquee from '@/components/shared/marquee';
+import Marquee from '@/components/marquee';
 import { STACKS } from '@/constants';
-import { cn } from '@/lib/utils';
 
 const TechStacks = () => {
   const [shuffledStacks, setShuffledStacks] = useState<
@@ -25,9 +24,7 @@ const TechStacks = () => {
         {stackSliders.map(([title, icon], stackIndex) => (
           <div
             key={`${index}-${stackIndex}`}
-            className={cn(
-              'bg-card shadow-border flex items-center gap-4 rounded-lg p-3',
-            )}
+            className="bg-card shadow-border flex items-center gap-4 rounded-full px-4 py-1.5"
           >
             {icon}
             <span>{title}</span>
@@ -37,7 +34,7 @@ const TechStacks = () => {
     );
   });
 
-  return <div className={cn('space-y-4 overflow-hidden')}>{sliders}</div>;
+  return <div className="space-y-4 overflow-hidden">{sliders}</div>;
 };
 
 export default TechStacks;

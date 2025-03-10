@@ -177,8 +177,8 @@
     }
   }
 
-  --animate-marquee-left: marquee-left var(--duration, 50s) linear infinite;
-  --animate-marquee-up: marquee-up var(--duration, 50s) linear infinite;
+  --animate-marquee-left: marquee-left var(--duration, 100s) linear infinite;
+  --animate-marquee-up: marquee-up var(--duration, 100s) linear infinite;
   @keyframes marquee-left {
     from {
       transform: translateX(0);
