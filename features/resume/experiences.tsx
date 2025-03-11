@@ -117,7 +117,7 @@ export const EXPERIENCES: Experience[] = [
     },
     role: 'Full-stack Engineer',
     startDate: '2020-11',
-    endDate: null,
+    endDate: '2024-03',
     stacks: [
       {
         name: 'Spring',
