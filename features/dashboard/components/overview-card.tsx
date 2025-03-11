@@ -1,4 +1,4 @@
-import IncrementCounter from '@/components/shared/increment-counter';
+import IncrementCounter from '@/components/increment-counter';
 
 interface OverviewCardProps {
   label: string;

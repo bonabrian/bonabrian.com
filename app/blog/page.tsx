@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 
 import { allPosts } from '@/.contentlayer/generated';
 import Container from '@/components/container';
-import FilteredPosts from '@/components/filtered-posts';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
+import FilteredPosts from '@/features/posts/components/filtered-posts';
 import { seo } from '@/lib/meta';
 
 export const metadata: Metadata = seo({

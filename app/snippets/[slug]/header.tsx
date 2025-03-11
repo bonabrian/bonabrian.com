@@ -7,7 +7,7 @@ import Container from '@/components/container';
 import { useSnippetContext } from '@/components/providers/snippet-provider';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
-import useViews from '@/hooks/use-views';
+import { useViews } from '@/features/content/hooks/use-views';
 import { cn, formatDate } from '@/lib/utils';
 
 const Header = () => {

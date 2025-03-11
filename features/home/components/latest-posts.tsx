@@ -9,9 +9,9 @@ import { useRef } from 'react';
 import type { Post } from '@/.contentlayer/generated';
 import { allPosts } from '@/.contentlayer/generated';
 import EmptyState from '@/components/empty-state';
-import PostCard from '@/components/post-card';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
+import PostCard from '@/features/posts/components/post-card';
 
 import { MAX_LATEST_POSTS_DISPLAY } from '../constants';
 
