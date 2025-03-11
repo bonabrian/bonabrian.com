@@ -1,31 +1,42 @@
-import { differenceInMonths, differenceInYears, format } from 'date-fns';
+import { differenceInMonths, differenceInYears } from 'date-fns';
+import { format } from 'date-fns-tz';
+import { FileTextIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { Document } from '@/components/shared/icons';
-import Link from '@/components/shared/link';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { EXPERIENCES } from '@/constants';
-import { cn, formatDate } from '@/lib/utils';
+import { ROUTES } from '@/constants/routes';
+import { formatDate } from '@/lib/utils';
+
+import { EXPERIENCES } from '../experiences';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // 24 hours
 
 const CareerJourney = () => {
-  const lastUpdated = formatDate('2024-01-06');
+  const lastUpdated = formatDate('2025-03-10');
 
   return (
     <>
-      <div className={cn('mb-12', 'md:mb-16')}>
-        <Button asChild variant="shadow" className={cn('gap-x-1')}>
-          <Link href="/resume/download" target="_blank">
-            <Document /> Download resume
+      <div className="flex items-center justify-end">
+        <Button asChild variant="shadow">
+          <Link
+            href={`${ROUTES.resume}/download`}
+            target="_blank"
+            className="gap-x-1"
+          >
+            <FileTextIcon />
+            Download resume
           </Link>
         </Button>
       </div>
-      <div className={cn('prose max-w-none px-4', 'dark:prose-dark')}>
-        <ol className={cn('border-border list-none space-y-4 border-l pl-10')}>
+      <div className="prose dark:prose-dark max-w-none px-4">
+        <ol className="border-border list-none space-y-4 border-l pl-10">
           {EXPERIENCES.map(
             ({
               company,
@@ -52,47 +63,37 @@ const CareerJourney = () => {
               }
 
               return (
-                <li key={company.name} className={cn('relative h-full')}>
-                  <div
-                    className={cn('absolute bottom-0 -left-[60px] mt-0 h-full')}
-                  >
-                    <div className={cn('sticky top-20 flex items-start')}>
+                <li
+                  key={`${company.name}-${role}-${startDate}`}
+                  className="relative h-full"
+                >
+                  <div className="absolute bottom-0 -left-[60px] mt-0 h-full">
+                    <div className="sticky top-20 flex items-start">
                       <Image
                         src={company.logo}
                         alt={company.name}
                         width={40}
                         height={40}
-                        className={cn('ml-0 rounded-full')}
+                        className="ml-0 rounded-full"
                       />
                     </div>
                   </div>
-                  <div
-                    className={cn(
-                      'flex flex-col items-start gap-1',
-                      'md:flex-row',
-                    )}
-                  >
-                    <div className={cn('flex flex-col space-y-1 leading-snug')}>
-                      <h2 className={cn('font-cal my-0 text-lg')}>{role}</h2>
-                      <div
-                        className={cn(
-                          'text-muted-foreground flex items-center gap-1',
-                        )}
-                      >
+                  <div className="flex flex-col items-start gap-1 md:flex-row">
+                    <div className="flex flex-col space-y-1 leading-snug">
+                      <h2 className="font-cal my-0 text-lg">{role}</h2>
+                      <div className="text-muted-foreground flex items-center gap-1">
                         <Link
                           href={company.url}
-                          className={cn(
-                            'text-muted-foreground underline',
-                            'hover:text-foreground',
-                          )}
+                          target="_blank"
+                          className="text-muted-foreground hover:text-foreground underline"
                         >
                           {company.name}
                         </Link>
                         <span>&middot;</span>
                         <span>{company.jobType}</span>
                       </div>
-                      <div className={cn('text-muted-foreground flex gap-1')}>
-                        <div className={cn('flex gap-1')}>
+                      <div className="text-muted-foreground flex gap-1">
+                        <div className="flex gap-1">
                           <span>{format(start, 'MMM yyyy')}</span> -{' '}
                           <span>
                             {endDate ? format(endDate, 'MMM yyyy') : 'Present'}
@@ -101,33 +102,27 @@ const CareerJourney = () => {
                         <span>&middot;</span>
                         <span>{durationText}</span>
                       </div>
-                      <div
-                        className={cn(
-                          'text-muted-foreground flex items-center gap-1',
-                        )}
-                      >
+                      <div className="text-muted-foreground flex items-center gap-1">
                         <span>{company.location}</span>
                         <span>&middot;</span>
-                        <span>{company.workplaceType}</span>
+                        <span>{company.workingArrangement}</span>
                       </div>
                     </div>
                   </div>
-                  <div className={cn('my-4 flex flex-row flex-wrap gap-1')}>
+                  <div className="my-4 flex flex-row flex-wrap gap-1">
                     {stacks.map(({ name, icon }) => (
                       <Tooltip key={name}>
                         <TooltipTrigger asChild>
-                          <div className={cn('bg-card rounded-lg p-1.5')}>
-                            {icon}
-                          </div>
+                          <div className="bg-card rounded-lg p-1.5">{icon}</div>
                         </TooltipTrigger>
                         <TooltipContent>{name}</TooltipContent>
                       </Tooltip>
                     ))}
                   </div>
-                  <ul className={cn('pl-0')}>
+                  <ul className="pl-0">
                     {accomplishments.map((accomplishment, index) => (
-                      <li key={index} className={cn('my-1 leading-snug')}>
-                        <span className={cn('text-muted-foreground')}>
+                      <li key={index} className="my-1 leading-snug">
+                        <span className="text-muted-foreground">
                           {accomplishment}
                         </span>
                       </li>
@@ -138,10 +133,10 @@ const CareerJourney = () => {
             },
           )}
         </ol>
-        <div className={cn('mt-12')}>
-          <p className={cn('text-muted-foreground')}>
+        <div className="mt-12">
+          <p className="text-muted-foreground">
             Last updated at{' '}
-            <time dateTime={lastUpdated} className={cn('font-cal')}>
+            <time dateTime={lastUpdated} className="font-cal">
               {lastUpdated}
             </time>
           </p>

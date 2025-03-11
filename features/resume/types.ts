@@ -5,7 +5,7 @@ export interface Company {
   logo: string;
   url: string;
   location: string;
-  workplaceType: 'Remote' | 'Hybrid' | 'On-Site';
+  workingArrangement: 'Remote' | 'Hybrid' | 'On-Site';
   jobType: 'Full-time' | 'Freelance';
 }
 

@@ -4,6 +4,7 @@ import {
   Kotlin,
   Laravel,
   NextJS,
+  NuxtJS,
   PHP,
   RabbitMQ,
   ReactJS,
@@ -13,17 +14,53 @@ import {
   TypeScript,
   VueJS,
 } from '@/components/shared/icons';
-import { cn } from '@/lib/utils';
-import type { Experience } from '@/types/experience';
+
+import type { Experience } from './types';
 
 export const EXPERIENCES: Experience[] = [
+  {
+    company: {
+      name: 'Mekari - Sign',
+      logo: '/media/resume/mekari.png',
+      url: 'https://mekarisign.com',
+      location: 'Jakarta',
+      workingArrangement: 'Hybrid',
+      jobType: 'Full-time',
+    },
+    role: 'Front-end Engineer',
+    startDate: '2024-03',
+    endDate: null,
+    stacks: [
+      {
+        name: 'TypeScript',
+        icon: <TypeScript className="size-5 fill-[#3178C6]" />,
+      },
+      {
+        name: 'Nuxt.js',
+        icon: <NuxtJS className="size-5 fill-[#00DC82]" />,
+      },
+      {
+        name: 'Jest',
+        icon: <Jest className="size-5 fill-[#C21325]" />,
+      },
+    ],
+    accomplishments: [
+      'Enhanced digital signing UI/UX to support document signing, approvals, and interactions, with a responsive design ensuring seamless accessibility across devices.',
+      'Reduced document load times and improved performance by implementing efficient rendering techniques for large PDFs.',
+      'Maintained and refined the in-house Design System Language to ensure consistent UI/UX across all features.',
+      'Developed reusable, high-quality UI components for document management and collaboration, boosting maintainability and scalability.',
+      'Built real-time document collaboration with pinned comments, optimizing event handling and state management for smooth concurrent interactions.',
+      'Integrated OneDrive for seamless document uploads.',
+      'Implemented comprehensive unit tests, achieving over 80% test coverage.',
+    ],
+  },
   {
     company: {
       name: 'Yummy Bros',
       logo: '/media/resume/yummybros.png',
       url: 'https://yummybros.com',
       location: 'Singapore',
-      workplaceType: 'Remote',
+      workingArrangement: 'Remote',
       jobType: 'Freelance',
     },
     role: 'Full-stack Engineer',
@@ -32,31 +69,31 @@ export const EXPERIENCES: Experience[] = [
     stacks: [
       {
         name: 'Next.js',
-        icon: <NextJS className={cn('size-5 fill-black', 'dark:fill-white')} />,
+        icon: <NextJS className="size-5 fill-black dark:fill-white" />,
       },
       {
         name: 'React.js',
-        icon: <ReactJS className={cn('size-5 fill-[#61DAFB]')} />,
+        icon: <ReactJS className="size-5 fill-[#61DAFB]" />,
       },
       {
         name: 'TypeScript',
-        icon: <TypeScript className={cn('size-5 fill-[#3178C6]')} />,
+        icon: <TypeScript className="size-5 fill-[#3178C6]" />,
       },
       {
         name: 'JavaScript',
-        icon: <JavaScript className={cn('size-5 fill-[#F7DF1E]')} />,
+        icon: <JavaScript className="size-5 fill-[#F7DF1E]" />,
       },
       {
         name: 'Tailwind CSS',
-        icon: <TailwindCSS className={cn('size-5 fill-[#06B6D4]')} />,
+        icon: <TailwindCSS className="size-5 fill-[#06B6D4]" />,
       },
       {
         name: 'Laravel',
-        icon: <Laravel className={cn('size-5 fill-[#FF2D20]')} />,
+        icon: <Laravel className="size-5 fill-[#FF2D20]" />,
       },
       {
         name: 'PHP',
-        icon: <PHP className={cn('size-5 fill-[#777BB4]')} />,
+        icon: <PHP className="size-5 fill-[#777BB4]" />,
       },
     ],
     accomplishments: [
@@ -75,7 +112,7 @@ export const EXPERIENCES: Experience[] = [
       logo: '/media/resume/investree.png',
       url: 'https://investree.id',
       location: 'Jakarta',
-      workplaceType: 'Hybrid',
+      workingArrangement: 'Hybrid',
       jobType: 'Full-time',
     },
     role: 'Full-stack Engineer',
@@ -84,39 +121,39 @@ export const EXPERIENCES: Experience[] = [
     stacks: [
       {
         name: 'Spring',
-        icon: <Spring className={cn('size-5 fill-[#6DB33F]')} />,
+        icon: <Spring className="size-5 fill-[#6DB33F]" />,
       },
       {
         name: 'Kotlin',
-        icon: <Kotlin className={cn('size-5 fill-[#7F52FF]')} />,
+        icon: <Kotlin className="size-5 fill-[#7F52FF]" />,
       },
       {
         name: 'Vue.js',
-        icon: <VueJS className={cn('size-5 fill-[#4FC08D]')} />,
+        icon: <VueJS className="size-5 fill-[#4FC08D]" />,
       },
       {
         name: 'JavaScript',
-        icon: <JavaScript className={cn('size-5 fill-[#F7DF1E]')} />,
+        icon: <JavaScript className="size-5 fill-[#F7DF1E]" />,
       },
       {
         name: 'Jest',
-        icon: <Jest className={cn('size-5 fill-[#C21325]')} />,
+        icon: <Jest className="size-5 fill-[#C21325]" />,
       },
       {
         name: 'Laravel',
-        icon: <Laravel className={cn('size-5 fill-[#FF2D20]')} />,
+        icon: <Laravel className="size-5 fill-[#FF2D20]" />,
       },
       {
         name: 'PHP',
-        icon: <PHP className={cn('size-5 fill-[#777BB4]')} />,
+        icon: <PHP className="size-5 fill-[#777BB4]" />,
       },
       {
         name: 'Redis',
-        icon: <Redis className={cn('size-5 fill-[#DC382D]')} />,
+        icon: <Redis className="size-5 fill-[#DC382D]" />,
       },
       {
         name: 'RabbitMQ',
-        icon: <RabbitMQ className={cn('size-5 fill-[#FF6600]')} />,
+        icon: <RabbitMQ className="size-5 fill-[#FF6600]" />,
       },
     ],
     accomplishments: [
@@ -142,7 +179,7 @@ export const EXPERIENCES: Experience[] = [
       logo: '/media/resume/varnion.png',
       url: 'https://varnion.com',
       location: 'Jakarta',
-      workplaceType: 'On-Site',
+      workingArrangement: 'On-Site',
       jobType: 'Full-time',
     },
     role: 'Full-stack Engineer',
@@ -151,23 +188,23 @@ export const EXPERIENCES: Experience[] = [
     stacks: [
       {
         name: 'Laravel',
-        icon: <Laravel className={cn('size-5 fill-[#FF2D20]')} />,
+        icon: <Laravel className="size-5 fill-[#FF2D20]" />,
       },
       {
         name: 'PHP',
-        icon: <PHP className={cn('size-5 fill-[#777BB4]')} />,
+        icon: <PHP className="size-5 fill-[#777BB4]" />,
       },
       {
         name: 'Vue.js',
-        icon: <VueJS className={cn('size-5 fill-[#4FC08D]')} />,
+        icon: <VueJS className="size-5 fill-[#4FC08D]" />,
       },
       {
         name: 'React.js',
-        icon: <ReactJS className={cn('size-5 fill-[#61DAFB]')} />,
+        icon: <ReactJS className="size-5 fill-[#61DAFB]" />,
       },
       {
         name: 'JavaScript',
-        icon: <JavaScript className={cn('size-5 fill-[#F7DF1E]')} />,
+        icon: <JavaScript className="size-5 fill-[#F7DF1E]" />,
       },
     ],
     accomplishments: [

@@ -3,9 +3,8 @@ import type { Metadata } from 'next';
 import Container from '@/components/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
+import CareerJourney from '@/features/resume/components/career-journey';
 import { seo } from '@/lib/meta';
-
-import CareerJourney from './career-journey';
 
 export const metadata: Metadata = seo({
   title: 'Resume',
