@@ -30,17 +30,14 @@ const PostCard = ({ post }: { post: Post }) => {
   const publishedAt = formatDate(date);
 
   return (
-    <Link
-      href={`${ROUTES.blog}/${slug}`}
-      className="group bg-card rounded-lg transition-all duration-200"
-    >
-      <div className="relative aspect-video w-full overflow-hidden bg-cover bg-no-repeat">
+    <Link href={`${ROUTES.blog}/${slug}`} className="group bg-card rounded-lg">
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-cover bg-no-repeat">
         <div className="absolute size-full" />
         <Image
           src={image as string}
           alt={title}
           fill
-          className="rounded-t-md object-cover"
+          className="rounded-t-lg object-cover transition-transform group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
           {...extraImageProps}
@@ -62,7 +59,7 @@ const PostCard = ({ post }: { post: Post }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col space-y-2 p-4 pt-0 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5">
+      <div className="flex flex-col space-y-2 p-4 pt-0">
         <h2 className="font-cal text-card-foreground text-lg md:text-xl">
           {title}
         </h2>
