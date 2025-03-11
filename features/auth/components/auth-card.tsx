@@ -5,7 +5,6 @@ import type { BuiltInProviderType } from 'next-auth/providers/index';
 import type { ClientSafeProvider, LiteralUnion } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
-import RenderIf from '@/components/shared/render-if';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -15,7 +14,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
 
 import ProviderButton from './provider-button';
 
@@ -29,6 +27,7 @@ const AuthCard = ({
 }) => {
   const [isShowError, setIsShowError] = useState(false);
   const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
 
   useEffect(() => {
     setIsShowError(searchParams.has('error'));
@@ -36,33 +35,34 @@ const AuthCard = ({
 
   return (
     <>
-      <div
-        className={cn(
-          'flex flex-col items-center justify-items-center space-y-2 will-change-[transform,opacity]',
-          'xl:space-y-0',
-        )}
-      >
-        <div className={cn('flex flex-col items-center justify-between gap-4')}>
-          <RenderIf isTrue={Boolean(providers)}>
-            {Object.values(providers!).map((provider) => (
-              <ProviderButton key={provider.name} provider={provider} />
-            ))}
-          </RenderIf>
+      <div className="flex flex-col items-center justify-items-center space-y-2 will-change-[transform,opacity] xl:space-y-0">
+        <div className="flex flex-col items-center justify-between gap-4">
+          {providers && (
+            <>
+              {Object.values(providers).map((provider) => (
+                <ProviderButton
+                  key={provider.id}
+                  provider={provider}
+                  callbackUrl={callbackUrl}
+                />
+              ))}
+            </>
+          )}
         </div>
       </div>
       <Dialog open={isShowError} onOpenChange={setIsShowError}>
         <DialogContent>
-          <DialogHeader className={cn('pt-4')}>
+          <DialogHeader>
             <DialogTitle>
               Oops! Something went wrong while authenticating your account.
             </DialogTitle>
           </DialogHeader>
-          <div className={cn('text-center')}>
-            <p className={cn('text-muted-foreground text-sm')}>
+          <div className="space-y-4 text-center">
+            <p className="text-muted-foreground">
               An unexpected problem occurred while I&apos;m trying to log you
               in. Please try with another providers.
             </p>
-            <code className={cn('text-destructive text-sm')}>
+            <code className="bg-destructive/50 text-destructive-foreground rounded-lg p-2 font-mono text-sm">
               Error: {searchParams.get('error')}
             </code>
           </div>

@@ -5,19 +5,19 @@ import { getProviders } from 'next-auth/react';
 
 import Container from '@/components/container';
 import PageHeader from '@/components/shared/page-header';
+import { SITE } from '@/constants';
+import AuthCard from '@/features/auth/components/auth-card';
 import { authOptions } from '@/lib/auth';
 import { seo } from '@/lib/meta';
 
-import AuthCard from './auth-card';
-
 export const metadata: Metadata = seo({
-  title: 'Authentication',
-  description: 'Authentication',
+  title: 'Auth',
+  description: `Sign in to ${SITE.name}`,
   url: '/auth/signin',
   robots: { index: false, follow: false },
 });
 
-const AuthenticationPage = async () => {
+const AuthPage = async () => {
   const session = await getServerSession(authOptions);
 
   if (session) redirect('/');
@@ -27,7 +27,7 @@ const AuthenticationPage = async () => {
   return (
     <>
       <PageHeader
-        title="Authentication"
+        title="Auth"
         description="Please sign in using one of the following providers"
       />
       <Container>
@@ -37,4 +37,4 @@ const AuthenticationPage = async () => {
   );
 };
 
-export default AuthenticationPage;
+export default AuthPage;
