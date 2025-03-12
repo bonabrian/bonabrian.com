@@ -13,6 +13,8 @@ export const metadata: Metadata = seo({
   url: ROUTES.endorsements,
 });
 
+export const dynamic = 'force-dynamic';
+
 const EndorsementsPage = async () => {
   return (
     <>
