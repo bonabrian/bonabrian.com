@@ -10,9 +10,9 @@ import { allProjects, type Project } from '@/.contentlayer/generated';
 import EmptyState from '@/components/empty-state';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
-import ProjectCard from '@/features/projects/components/project-card';
 
 import { MAX_HIGHLIGHTED_PROJECTS_DISPLAY } from '../constants';
+import ProjectCard from './project-card';
 
 const getHighlightedProjects = (
   maxDisplay: number = MAX_HIGHLIGHTED_PROJECTS_DISPLAY,

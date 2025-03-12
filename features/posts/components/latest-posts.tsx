@@ -11,9 +11,9 @@ import { allPosts } from '@/.contentlayer/generated';
 import EmptyState from '@/components/empty-state';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
-import PostCard from '@/features/posts/components/post-card';
 
 import { MAX_LATEST_POSTS_DISPLAY } from '../constants';
+import PostCard from './post-card';
 
 const getLatestPosts = (
   maxDisplay: number = MAX_LATEST_POSTS_DISPLAY,
