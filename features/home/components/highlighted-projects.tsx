@@ -8,9 +8,9 @@ import { useRef } from 'react';
 
 import { allProjects, type Project } from '@/.contentlayer/generated';
 import EmptyState from '@/components/empty-state';
-import ProjectCard from '@/components/project-card';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
+import ProjectCard from '@/features/projects/components/project-card';
 
 import { MAX_HIGHLIGHTED_PROJECTS_DISPLAY } from '../constants';
 

@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 import { allProjects } from '@/.contentlayer/generated';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import ProjectCard from '@/components/project-card';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';
+import ProjectCard from '@/features/projects/components/project-card';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 
