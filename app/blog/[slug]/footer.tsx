@@ -1,8 +1,8 @@
 'use client';
 
 import Container from '@/components/container';
-import { usePostContext } from '@/components/providers/post-provider';
 import Link from '@/components/shared/link';
+import { usePostContext } from '@/features/posts/components/post-provider';
 import { cn, formatDate } from '@/lib/utils';
 
 const Footer = () => {

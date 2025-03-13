@@ -1,10 +1,13 @@
 'use client';
 
 import { motion, useAnimationControls } from 'framer-motion';
-import { CheckCircle2, Link as LinkIcon, Share } from 'lucide-react';
+import { CheckCircleIcon, LinkIcon, ShareIcon } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
+import Counter from '@/components/counter';
+import { Twitter } from '@/components/shared/icons';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -13,32 +16,21 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { BASE_URL, SITE } from '@/constants';
-import useShares from '@/hooks/use-shares';
 import { useToast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
 
-import Counter from './shared/counter';
-import { Twitter } from './shared/icons';
-import Link from './shared/link';
+import { useShares } from '../hooks/use-shares';
 
 const ShareItemLink = ({
   href,
-  onClick,
   children,
+  onClick,
 }: {
   href: string;
-  onClick: () => void;
   children: React.ReactNode;
+  onClick: () => void;
 }) => {
   return (
-    <Link
-      href={href}
-      className={cn(
-        'flex items-center gap-1.5 rounded-sm px-2 py-2.5 text-sm',
-        'hover:bg-accent',
-      )}
-      onClick={onClick}
-    >
+    <Link href={href} className="flex items-center gap-2" onClick={onClick}>
       {children}
     </Link>
   );
@@ -49,9 +41,7 @@ const ShareButton = ({ slug }: { slug: string }) => {
   const currentUrl = `${BASE_URL}${pathname}`;
 
   const { toast } = useToast();
-
   const { shares, addShare, isLoading } = useShares(slug);
-
   const controls = useAnimationControls();
 
   const onCopyToClipboard = async () => {
@@ -59,15 +49,15 @@ const ShareButton = ({ slug }: { slug: string }) => {
       await navigator.clipboard.writeText(currentUrl);
       toast({
         description: (
-          <span className={cn('flex items-center gap-2')}>
-            <CheckCircle2 /> Copied to clipboard!
+          <span className="flex items-center gap-2">
+            <CheckCircleIcon /> Copied to clipboard!
           </span>
         ),
         className: 'p-4',
       });
       addShare('CLIPBOARD');
     } catch {
-      console.error('Failed to copy to clipboard');
+      console.error('Failed to copy to clipboard.');
     }
   };
 
@@ -87,7 +77,7 @@ const ShareButton = ({ slug }: { slug: string }) => {
 
   return (
     <motion.div
-      className={cn('flex flex-col items-center gap-2')}
+      className="flex flex-col items-center gap-2"
       initial={{ y: 16, opacity: 0, pointerEvents: 'none' }}
       animate={controls}
     >
@@ -96,29 +86,25 @@ const ShareButton = ({ slug }: { slug: string }) => {
           <Button
             variant="ghost"
             size="icon"
-            className={cn('hover:bg-background/60')}
+            className="focus-visible:ring-0 focus-visible:ring-offset-0"
           >
-            <Share className={cn('size-4')} />
+            <ShareIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className={cn('w-56')} side="top">
+        <DropdownMenuContent className="w-56">
           <DropdownMenuItem
-            className={cn(
-              'flex cursor-pointer items-center gap-1.5 px-2 py-2.5',
-            )}
             onClick={onCopyToClipboard}
+            className="cursor-pointer"
           >
-            <LinkIcon className={cn('size-5')} />
+            <LinkIcon />
             Copy link
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
+          <DropdownMenuItem>
             <ShareItemLink
-              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                currentUrl,
-              )}&via=${SITE.author.twitter?.replace('@', '')}`}
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&via=${SITE.author.twitter?.replace('@', '')}`}
               onClick={() => addShare('TWITTER')}
             >
-              <Twitter className={cn('size-5')} /> Share on X
+              <Twitter /> Share on X
             </ShareItemLink>
           </DropdownMenuItem>
         </DropdownMenuContent>

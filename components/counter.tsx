@@ -33,23 +33,17 @@ const Counter = ({
       )}
     >
       {count === 0 ? (
-        <span
-          className={cn(
-            'text-accent-foreground flex flex-col font-mono text-sm font-bold',
-          )}
-        >
-          <span className={cn('flex h-5 items-center')}>0</span>
+        <span className="text-accent-foreground flex flex-col font-mono text-sm font-bold">
+          <span className="flex h-5 items-center">0</span>
         </span>
       ) : (
         <motion.span
-          className={cn(
-            'text-accent-foreground flex flex-col font-mono text-sm font-bold',
-          )}
+          className="text-accent-foreground flex flex-col font-mono text-sm font-bold"
           animate={controls}
         >
-          <span className={cn('flex h-5 items-center')}>&nbsp;</span>
-          <span className={cn('flex h-5 items-center')}>{count}</span>
-          <span className={cn('flex h-5 items-center')}>{count - 1}</span>
+          <span className="flex h-5 items-center">&nbsp;</span>
+          <span className="flex h-5 items-center">{count}</span>
+          <span className="flex h-5 items-center">{count - 1}</span>
         </motion.span>
       )}
     </div>

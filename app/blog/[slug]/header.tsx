@@ -5,11 +5,11 @@ import { useRef } from 'react';
 
 import BackButton from '@/components/back-button';
 import Container from '@/components/container';
-import { usePostContext } from '@/components/providers/post-provider';
 import PageHeader from '@/components/shared/page-header';
 import StickyTitle from '@/components/sticky-title';
 import { ROUTES } from '@/constants';
 import { useViews } from '@/features/content/hooks/use-views';
+import { usePostContext } from '@/features/posts/components/post-provider';
 import { cn, formatDate } from '@/lib/utils';
 
 const Header = () => {

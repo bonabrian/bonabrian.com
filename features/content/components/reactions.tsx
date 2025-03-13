@@ -4,11 +4,10 @@ import type { ReactionType } from '@prisma/client';
 import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect } from 'react';
 
-import { MAX_REACTIONS_PER_SESSION } from '@/constants';
-import useReactions from '@/hooks/use-reactions';
-import { cn } from '@/lib/utils';
+import Counter from '@/components/counter';
 
-import Counter from '../shared/counter';
+import { MAX_REACTIONS_PER_SESSION } from '../constants';
+import { useReactions } from '../hooks/use-reactions';
 import EmojiReaction from './emoji-reaction';
 
 const Reactions = ({ slug }: { slug: string }) => {
@@ -21,10 +20,7 @@ const Reactions = ({ slug }: { slug: string }) => {
         y: 0,
         opacity: 1,
         pointerEvents: 'auto',
-        transition: {
-          delay: 0.5,
-          duration: 0.15,
-        },
+        transition: { delay: 0.5, duration: 0.15 },
       });
     }
   }, [controls, isLoading]);
@@ -35,7 +31,7 @@ const Reactions = ({ slug }: { slug: string }) => {
   const { LIKED = 0, CLAPPING = 0, LOVED = 0, THINKING = 0 } = contentReactions;
 
   const getRemainingQuota = (type: ReactionType): number =>
-    MAX_REACTIONS_PER_SESSION - (userReactions[type] ?? 0);
+    MAX_REACTIONS_PER_SESSION - userReactions[type];
 
   const isReachMaximumQuota = (type: ReactionType): boolean =>
     getRemainingQuota(type) <= 0;
@@ -77,11 +73,11 @@ const Reactions = ({ slug }: { slug: string }) => {
 
   return (
     <motion.div
-      className={cn('pointer-events-none relative flex items-center')}
+      className="pointer-events-none relative flex items-center"
       initial={{ y: 16, opacity: 0, pointerEvents: 'none' }}
       animate={controls}
     >
-      <div className={cn('flex items-center gap-4')}>
+      <div className="flex items-center gap-4">
         {emojiReactions.map(
           ({
             title,
@@ -91,16 +87,14 @@ const Reactions = ({ slug }: { slug: string }) => {
             type,
             counter,
           }) => (
-            <div key={title} className={cn('flex flex-col items-center gap-2')}>
+            <div key={title} className="flex flex-col items-center gap-2">
               <EmojiReaction
                 title={title}
                 defaultEmoji={defaultEmoji}
                 animatedEmoji={animatedEmoji}
                 disabledEmoji={disabledEmoji}
                 disabled={isReachMaximumQuota(type as ReactionType)}
-                onClick={() => {
-                  addReaction(type as ReactionType);
-                }}
+                onClick={() => addReaction(type as ReactionType)}
               />
               {counter}
             </div>

@@ -1,6 +1,6 @@
 import type { ReactionType } from '@prisma/client';
 
-type ReactionsCount = Record<ReactionType, number>;
+export type ReactionsCount = Record<ReactionType, number>;
 
 interface ContentReactions {
   reactions: ReactionsCount;

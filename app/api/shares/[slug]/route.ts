@@ -5,7 +5,7 @@ import {
   countUserShares,
   createShare,
 } from '@/actions/shares';
-import { MAX_SHARES_PER_SESSION } from '@/constants';
+import { MAX_SHARES_PER_SESSION } from '@/features/content/constants';
 import { getSessionId, response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';
 

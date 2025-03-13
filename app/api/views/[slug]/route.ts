@@ -5,7 +5,7 @@ import {
   countViewsBySlugAndSessionId,
   createView,
 } from '@/actions/views';
-import { MAX_VIEWS_PER_SESSION } from '@/constants';
+import { MAX_VIEWS_PER_SESSION } from '@/features/content/constants';
 import { getSessionId, response } from '@/lib/server';
 import type { APIErrorResponse, APISingleResponse } from '@/types/server';
 

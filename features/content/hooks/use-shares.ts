@@ -1,10 +1,9 @@
 import type { ShareType } from '@prisma/client';
 
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import useRequest from '@/hooks/use-request';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
-import useRequest from './use-request';
-
-const useShares = (slug: string) => {
+export const useShares = (slug: string) => {
   const { data, mutate, isLoading } = useRequest<
     APISingleResponse<{ total: number }>,
     APIErrorResponse
@@ -31,5 +30,3 @@ const useShares = (slug: string) => {
 
   return { shares, addShare, isLoading };
 };
-
-export default useShares;

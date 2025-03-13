@@ -1,10 +1,8 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { cn, randomBetween } from '@/lib/utils';
+import { randomBetween } from '@/lib/utils';
 
 interface EmojiReactionProps {
   title: string;
@@ -87,10 +85,7 @@ const EmojiReaction = ({
         setEmoji(disabled ? disabledEmoji : defaultEmoji);
       }}
       onClick={handleClick}
-      className={cn(
-        'relative cursor-pointer select-none',
-        'disabled:cursor-not-allowed',
-      )}
+      className="relative cursor-pointer select-none disabled:cursor-not-allowed"
     >
       {history.map(({ x, y, duration, key }) => (
         <motion.div
@@ -102,7 +97,7 @@ const EmojiReaction = ({
             // remove from DOM
             setHistory((prev) => prev.filter((el) => el.key !== key));
           }}
-          className={cn('pointer-events-none absolute size-10 select-none')}
+          className="pointer-events-none absolute size-10 select-none"
         >
           <Image
             src={animatedEmoji}
@@ -111,22 +106,19 @@ const EmojiReaction = ({
             height={48}
             unoptimized
             priority
-            className={cn('size-full')}
+            className="size-full"
           />
         </motion.div>
       ))}
-      <motion.div
-        className={cn('pointer-events-none size-10')}
-        variants={variants}
-      >
+      <motion.div className="pointer-events-none size-10" variants={variants}>
         <Image
-          className={cn('size-full')}
           alt={title}
           src={emoji}
           width={48}
           height={48}
           unoptimized
           priority
+          className="size-full"
         />
       </motion.div>
     </motion.button>

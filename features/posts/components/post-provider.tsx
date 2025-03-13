@@ -16,7 +16,7 @@ export const usePostContext = () => {
   return context;
 };
 
-const PostProvider = ({
+export const PostProvider = ({
   children,
   post,
 }: {
@@ -25,5 +25,3 @@ const PostProvider = ({
 }) => {
   return <PostContext.Provider value={post}>{children}</PostContext.Provider>;
 };
-
-export default PostProvider;

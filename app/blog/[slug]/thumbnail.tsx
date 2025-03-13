@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { usePostContext } from '@/components/providers/post-provider';
+import { usePostContext } from '@/features/posts/components/post-provider';
 import { cn } from '@/lib/utils';
 
 const Thumbnail = () => {

@@ -1,5 +1,5 @@
-import { countAllReactions } from '@/actions/reactions';
 import { countAllViews } from '@/actions/views';
+import { countAllReactions } from '@/features/content/server/actions';
 import type { EngagementStats } from '@/features/dashboard/types/stats';
 import { countAllEndorsements } from '@/features/endorsements/server/actions';
 import { response } from '@/lib/server';

@@ -1,10 +1,10 @@
 import type { ReactionType } from '@prisma/client';
 import { useRef } from 'react';
 
-import type { Reactions } from '@/types/reaction';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import useRequest from '@/hooks/use-request';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
-import useRequest from './use-request';
+import type { Reactions, ReactionsCount } from '../types/reactions';
 
 const reactionTypes: ReactionType[] = [
   'LIKED',
@@ -17,19 +17,19 @@ const initialValue: Reactions = {
   content: {
     reactions: reactionTypes.reduce(
       (acc, type) => ({ ...acc, [type]: 0 }),
-      {} as Record<ReactionType, number>,
+      {} as ReactionsCount,
     ),
     total: 0,
   },
   user: {
     reactions: reactionTypes.reduce(
       (acc, type) => ({ ...acc, [type]: 0 }),
-      {} as Record<ReactionType, number>,
+      {} as ReactionsCount,
     ),
   },
 };
 
-const useReactions = (slug: string) => {
+export const useReactions = (slug: string) => {
   const timer = useRef<Record<ReactionType, NodeJS.Timeout | undefined>>(
     reactionTypes.reduce(
       (acc, type) => ({ ...acc, [type]: undefined }),
@@ -37,10 +37,10 @@ const useReactions = (slug: string) => {
     ),
   );
 
-  const count = useRef<Record<ReactionType, number>>(
+  const count = useRef<ReactionsCount>(
     reactionTypes.reduce(
       (acc, type) => ({ ...acc, [type]: 0 }),
-      {} as Record<ReactionType, number>,
+      {} as ReactionsCount,
     ),
   );
 
@@ -62,14 +62,14 @@ const useReactions = (slug: string) => {
           content: {
             reactions: {
               ...reactions.content.reactions,
-              [type]: (reactions.content.reactions[type] ?? 0) + 1,
+              [type]: reactions.content.reactions[type] + 1,
             },
-            total: (reactions.content.total ?? 0) + 1,
+            total: reactions.content.total + 1,
           },
           user: {
             reactions: {
               ...reactions.user.reactions,
-              [type]: (reactions.user.reactions[type] ?? 0) + 1,
+              [type]: reactions.user.reactions[type] + 1,
             },
           },
         },
@@ -92,11 +92,5 @@ const useReactions = (slug: string) => {
     }, 500);
   };
 
-  return {
-    reactions,
-    addReaction,
-    isLoading,
-  };
+  return { reactions, addReaction, isLoading };
 };
-
-export default useReactions;
