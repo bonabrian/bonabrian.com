@@ -3,11 +3,11 @@
 import type { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
 
+import BlurImage from '@/components/blur-image';
 import { cn } from '@/lib/utils';
 
 import Link from '../link';
 import AppsGrid from './apps-grid';
-import BlurImage from './blur-image';
 import CodeBlock from './code-block';
 import CodeBlockHeader from './code-block-header';
 import CoreStack from './core-stack';
