@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { allPages } from '@/.contentlayer/generated';
+import allPages from '@/.content-collections/generated/allPages';
 import Container from '@/components/container';
 import Mdx from '@/components/shared/mdx';
 import PageHeader from '@/components/shared/page-header';
@@ -38,7 +38,7 @@ const UsesPage = () => {
         description="A list of the tools, apps and hardware I use on a regular basis."
       />
       <Container>
-        <Mdx code={uses?.body.code} />
+        <Mdx code={uses.code} />
       </Container>
     </>
   );
