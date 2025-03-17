@@ -4,7 +4,7 @@ import { motion, useAnimationControls } from 'framer-motion';
 import { CheckCircleIcon, LinkIcon, ShareIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import Counter from '@/components/counter';
 import { Twitter } from '@/components/shared/icons';
@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { BASE_URL, SITE } from '@/constants';
+import { useCopyButton } from '@/hooks/use-copy-button';
 import { useToast } from '@/hooks/use-toast';
 
 import { useShares } from '../hooks/use-shares';
@@ -44,7 +45,7 @@ const ShareButton = ({ slug }: { slug: string }) => {
   const { shares, addShare, isLoading } = useShares(slug);
   const controls = useAnimationControls();
 
-  const onCopyToClipboard = async () => {
+  const onCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(currentUrl);
       toast({
@@ -59,7 +60,9 @@ const ShareButton = ({ slug }: { slug: string }) => {
     } catch {
       console.error('Failed to copy to clipboard.');
     }
-  };
+  }, [addShare, currentUrl, toast]);
+
+  const [, onClick] = useCopyButton(onCopy);
 
   useEffect(() => {
     if (!isLoading) {
@@ -92,10 +95,7 @@ const ShareButton = ({ slug }: { slug: string }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuItem
-            onClick={onCopyToClipboard}
-            className="cursor-pointer"
-          >
+          <DropdownMenuItem onClick={onClick} className="cursor-pointer">
             <LinkIcon />
             Copy link
           </DropdownMenuItem>
