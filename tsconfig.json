@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      // "contentlayer/generated": ["./.contentlayer/generated"],
       "content-collections": ["./.content-collections/generated"]
     },
     "plugins": [
@@ -32,7 +31,6 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.ts",
-    "./.contentlayer/generated",
     "./.content-collections/generated",
     ".next/types/**/*.ts"
   ]

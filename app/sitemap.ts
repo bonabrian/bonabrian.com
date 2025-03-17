@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
-import { allPosts } from '@/.content-collections/generated';
-import { allProjects, allSnippets } from '@/.contentlayer/generated';
+import { allPosts, allProjects } from '@/.content-collections/generated';
+import { allSnippets } from '@/.contentlayer/generated';
 import { BASE_URL, ROUTES } from '@/constants';
 
 const sitemap = (): MetadataRoute.Sitemap => {

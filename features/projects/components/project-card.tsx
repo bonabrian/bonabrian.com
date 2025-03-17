@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cloneElement, useMemo } from 'react';
 
-import type { Project } from '@/.contentlayer/generated';
+import type { Project } from '@/.content-collections/generated';
 import {
   Tooltip,
   TooltipContent,
@@ -26,16 +26,26 @@ const ProjectCard = ({ project }: { project: Project }) => {
     stacks,
   } = project;
 
+  const parsedImageMeta: {
+    width: number;
+    height: number;
+    placeholder?: 'blur' | 'empty';
+    blurDataURL?: string;
+  } = JSON.parse(imageMeta);
+
   const extraImageProps = useMemo(() => {
-    if (image && imageMeta?.blur64) {
-      return { placeholder: 'blur', blurDataURL: imageMeta?.blur64 } as {
+    if (image && parsedImageMeta?.blurDataURL) {
+      return {
+        placeholder: 'blur',
+        blurDataURL: parsedImageMeta.blurDataURL,
+      } as {
         placeholder: 'blur' | 'empty';
         blurDataURL?: string;
       };
     }
 
     return {};
-  }, [image, imageMeta]);
+  }, [image, parsedImageMeta.blurDataURL]);
 
   let projectUrl = url ?? `${ROUTES.projects}/${slug}`;
   if (playStoreUrl) projectUrl = playStoreUrl;

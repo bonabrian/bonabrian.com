@@ -6,7 +6,8 @@ import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-import { allProjects, type Project } from '@/.contentlayer/generated';
+import type { Project } from '@/.content-collections/generated';
+import allProjects from '@/.content-collections/generated/allProjects';
 import EmptyState from '@/components/empty-state';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
