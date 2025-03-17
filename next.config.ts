@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       // google avatar
       { hostname: 'lh3.googleusercontent.com' },
       // github avatar
-      { hostname: 'avatars.githubusercontent.com' },
+      { hostname: 'avatars.githubusercontent.com', protocol: 'https' },
       { hostname: 'i.scdn.co' },
       { hostname: 'spotify.com' },
       { hostname: 'res.cloudinary.com' },
@@ -41,10 +41,10 @@ const nextConfig: NextConfig = {
         },
       ],
     });
-    // config.module.rules.push({
-    //   test: /\.svg$/,
-    //   use: ['@svgr/webpack'],
-    // });
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
     return config;
   },
   async headers() {
@@ -61,11 +61,10 @@ const millionConfig = {
   rsc: true,
 };
 
-export default MillionLint.next(millionConfig)(
-  isDevelopment
-    ? withContentCollections(nextConfig)
-    : withSentryConfig(
-        withContentCollections(nextConfig),
-        SentryWebpackPluginOptions,
+export default isDevelopment
+  ? withContentCollections(MillionLint.next(millionConfig)(nextConfig))
+  : withContentCollections(
+      MillionLint.next(millionConfig)(
+        withSentryConfig(nextConfig, SentryWebpackPluginOptions),
       ),
-);
+    );
