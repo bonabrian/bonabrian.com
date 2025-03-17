@@ -1,45 +1,47 @@
 'use server';
 
+import type { ShareType } from '@prisma/client';
+
 import db from '@/lib/db';
 
-export const countAllViews = async (): Promise<number> => {
-  return await db.view.count();
-};
-
-export const countViewsBySlug = async (slug: string): Promise<number> => {
+export const countSharesBySlug = async (slug: string): Promise<number> => {
   const result = await db.contentMeta.findFirst({
     where: { slug },
     include: {
       _count: {
-        select: { views: true },
+        select: { shares: true },
       },
     },
   });
 
-  return result?._count.views ?? 0;
+  return result?._count.shares ?? 0;
 };
 
-export const countViewsBySlugAndSessionId = async (
+export const countUserShares = async (
   slug: string,
   sessionId: string,
+  type: ShareType,
 ): Promise<number> => {
-  const result = await db.view.count({
+  const count = await db.share.count({
     where: {
       sessionId,
+      type,
       content: { slug },
     },
   });
 
-  return result ?? 0;
+  return count ?? 0;
 };
 
-export const createView = async (
+export const addShare = async (
   slug: string,
   sessionId: string,
+  type: ShareType,
 ): Promise<void> => {
-  await db.view.create({
+  await db.share.create({
     data: {
       sessionId,
+      type,
       content: {
         connectOrCreate: {
           where: { slug },
