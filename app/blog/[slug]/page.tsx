@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Post as PostDB } from '@/.contentlayer/generated';
-import { allPosts } from '@/.contentlayer/generated';
+import type { Post as PostDB } from '@/.content-collections/generated';
+import { allPosts } from '@/.content-collections/generated';
 import { BASE_URL, ROUTES } from '@/constants';
 import Post from '@/features/posts/components/post';
 import { PostProvider } from '@/features/posts/components/post-provider';

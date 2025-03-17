@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from 'react';
 
-import type { Post } from '@/.contentlayer/generated';
+import type { Post } from '@/.content-collections/generated';
 
 export const PostContext = createContext<Post | null>(null);
 

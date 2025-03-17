@@ -1,7 +1,7 @@
 import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
-import { allPosts } from '@/.contentlayer/generated';
+import { allPosts } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import PageHeader from '@/components/shared/page-header';
 import { ROUTES } from '@/constants';

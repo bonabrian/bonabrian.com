@@ -1,7 +1,8 @@
+// import { withContentlayer } from 'next-contentlayer2';
+import { withContentCollections } from '@content-collections/next';
 import MillionLint from '@million/lint';
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
-import { withContentlayer } from 'next-contentlayer2';
 
 import appHeaders from './config/next/headers';
 import redirects from './config/next/redirects';
@@ -40,10 +41,10 @@ const nextConfig: NextConfig = {
         },
       ],
     });
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
+    // config.module.rules.push({
+    //   test: /\.svg$/,
+    //   use: ['@svgr/webpack'],
+    // });
     return config;
   },
   async headers() {
@@ -62,9 +63,9 @@ const millionConfig = {
 
 export default MillionLint.next(millionConfig)(
   isDevelopment
-    ? withContentlayer(nextConfig)
+    ? withContentCollections(nextConfig)
     : withSentryConfig(
-        withContentlayer(nextConfig),
+        withContentCollections(nextConfig),
         SentryWebpackPluginOptions,
       ),
 );

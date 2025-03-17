@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import type { Post } from '@/.contentlayer/generated';
+import type { Post } from '@/.content-collections/generated';
 import IncrementCounter from '@/components/increment-counter';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ROUTES } from '@/constants/routes';
@@ -15,17 +15,26 @@ const PostCard = ({ post }: { post: Post }) => {
   const { title, slug, date, excerpt, readingTime, image, imageMeta } = post;
 
   const { views, isLoading: isLoadViews } = useViews({ slug });
+  const parsedImageMeta: {
+    width: number;
+    height: number;
+    placeholder?: 'blur' | 'empty';
+    blurDataURL?: string;
+  } = JSON.parse(imageMeta);
 
   const extraImageProps = useMemo(() => {
-    if (imageMeta?.blur64) {
-      return { placeholder: 'blur', blurDataURL: imageMeta.blur64 } as {
+    if (parsedImageMeta?.blurDataURL) {
+      return {
+        placeholder: 'blur',
+        blurDataURL: parsedImageMeta?.blurDataURL,
+      } as {
         placeholder: 'blur' | 'empty';
         blurDataURL?: string;
       };
     }
 
     return {};
-  }, [imageMeta]);
+  }, [parsedImageMeta?.blurDataURL]);
 
   const publishedAt = formatDate(date);
 
@@ -46,7 +55,7 @@ const PostCard = ({ post }: { post: Post }) => {
       <div className="text-muted-foreground flex items-center justify-between gap-2 p-4 text-sm">
         <time dateTime={publishedAt}>{publishedAt}</time>
         <div className="flex gap-2">
-          <div title="Estimated read time">{readingTime?.text}</div>
+          <div title="Estimated read time">{readingTime}</div>
           <span>&middot;</span>
           <div className="inline-flex gap-1">
             {isLoadViews ? (

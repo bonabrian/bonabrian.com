@@ -38,6 +38,7 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
+.content-collections
 
 public/*.xml
 public/**/*/raw.png

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import RSS from 'rss';
 
-import { allPosts } from '@/.contentlayer/generated';
+import { allPosts } from '@/.content-collections/generated';
 import { BASE_URL, ROUTES, SITE } from '@/constants';
 
 export const GET = () => {

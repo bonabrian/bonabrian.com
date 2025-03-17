@@ -38,7 +38,7 @@ const PostHeader = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
               <ClockIcon className="size-5" />
-              <span title="Estimated read time">{readingTime?.text}</span>
+              <span title="Estimated read time">{readingTime}</span>
             </div>
             <div className="flex items-center gap-1" title="Number of view(s)">
               <EyeIcon className="size-5" />

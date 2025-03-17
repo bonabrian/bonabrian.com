@@ -1,4 +1,4 @@
-import '../../shiki.css';
+import './shiki.css';
 
 import { useMDXComponent } from '@content-collections/mdx/react';
 import type { MDXComponents } from 'mdx/types';
