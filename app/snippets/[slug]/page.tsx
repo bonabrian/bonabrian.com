@@ -5,9 +5,9 @@ import type { Snippet } from '@/.content-collections/generated';
 import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import SnippetProvider from '@/components/providers/snippet-provider';
-import Mdx from '@/components/shared/mdx';
 import { BASE_URL, ROUTES } from '@/constants';
 import ContentEngagements from '@/features/content/components/content-engagements';
+import Mdx from '@/features/content/components/mdx/mdx';
 import { buildJsonLd, seo } from '@/lib/meta';
 import { cn, formatDate } from '@/lib/utils';
 

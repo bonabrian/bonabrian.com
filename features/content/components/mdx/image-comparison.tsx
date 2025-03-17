@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Maximize2Icon, MinusIcon, RefreshCwIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
@@ -12,9 +13,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
-
-import { Maximize, Minimize, Refresh } from '../icons';
-import RenderIf from '../render-if';
 
 interface ImageComparisonProps {
   images: {
@@ -46,12 +44,8 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
   };
 
   return (
-    <div
-      className={cn(
-        'flex flex-col items-center space-y-3 rounded-md border px-6 py-3',
-      )}
-    >
-      <div className={cn('relative flex w-full')}>
+    <div className="flex flex-col items-center space-y-3 rounded-md border px-6 py-3">
+      <div className="relative flex w-full">
         {images.map((item, index) => {
           // Determine the source based on whether it's a string or an object
           const src =
@@ -80,11 +74,9 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
                   : 'scale(1) translate(0%, 0%)',
                 transition: { duration: 0.5 },
               }}
-              className={cn(
-                'bg-background w-full flex-1 origin-[center_center] will-change-transform',
-              )}
+              className="bg-background w-full flex-1 origin-[center_center] will-change-transform"
             >
-              <h3 className={cn('font-cal mt-0 text-lg')}>{item.title}</h3>
+              <h3 className="font-cal mt-0 text-lg">{item.title}</h3>
               <Image
                 src={src}
                 alt={item.title}
@@ -100,12 +92,10 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
           );
         })}
       </div>
-      <RenderIf isTrue={Boolean(caption)}>
-        <p className={cn('text-muted-foreground my-0 text-sm italic')}>
-          {caption}
-        </p>
-      </RenderIf>
-      <div className={cn('flex gap-2')}>
+      {caption && (
+        <p className="text-muted-foreground my-0 text-sm italic">{caption}</p>
+      )}
+      <div className="flex gap-2">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
@@ -114,7 +104,7 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
               onClick={handleToggle}
               disabled={isExpanded}
             >
-              <Refresh className={cn('size-4')} />
+              <RefreshCwIcon className="size-4" />
             </Button>
           </TooltipTrigger>
           <TooltipContent>Toggle</TooltipContent>
@@ -125,12 +115,12 @@ const ImageComparison = ({ images = [], caption }: ImageComparisonProps) => {
               variant="ghost"
               size="icon"
               onClick={handleExpand}
-              className={cn('hidden', 'md:inline-flex')}
+              className="hidden md:inline-flex"
             >
               {isExpanded ? (
-                <Minimize className={cn('size-4')} />
+                <MinusIcon className="size-4" />
               ) : (
-                <Maximize className={cn('size-4')} />
+                <Maximize2Icon className="size-4" />
               )}
             </Button>
           </TooltipTrigger>

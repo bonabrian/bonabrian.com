@@ -7,9 +7,13 @@ import BlurImage from '@/components/blur-image';
 import { cn } from '@/lib/utils';
 
 import Anchor from './anchor';
+import AppsGrid from './apps-grid';
 import { CodeBlock, Pre } from './code-block';
+import CoreStack from './core-stack';
 import Heading from './heading';
+import ImageComparison from './image-comparison';
 import ImageZoom from './image-zoom';
+import Workstation from './workstation';
 
 const components: MDXComponents = {
   h1: (props: React.ComponentPropsWithoutRef<'h1'>) => (
@@ -41,6 +45,12 @@ const components: MDXComponents = {
       <Pre>{props.children}</Pre>
     </CodeBlock>
   ),
+
+  // Custom components
+  AppsGrid,
+  Workstation,
+  CoreStack,
+  ImageComparison,
 };
 
 const Mdx = ({ code, className }: { code: string; className?: string }) => {
