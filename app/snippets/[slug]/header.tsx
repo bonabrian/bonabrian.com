@@ -35,7 +35,7 @@ const Header = () => {
           <div className={cn('flex items-center gap-4')}>
             <div className={cn('flex items-center gap-1')}>
               <Clock className={cn('size-4')} />
-              <span title="Estimated read time">{readingTime?.text}</span>
+              <span title="Estimated read time">{readingTime}</span>
             </div>
             <div className={cn('flex items-center gap-1')}>
               <Eye className={cn('size-4')} />

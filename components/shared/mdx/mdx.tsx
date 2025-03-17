@@ -1,8 +1,8 @@
 'use client';
 
 import type { MDXComponents } from 'mdx/types';
-import { useMDXComponent } from 'next-contentlayer2/hooks';
 
+// import { useMDXComponent } from 'next-contentlayer2/hooks';
 import BlurImage from '@/components/blur-image';
 import { cn } from '@/lib/utils';
 
@@ -16,6 +16,7 @@ import ImageComparison from './image-comparison';
 import ImageZoom from './image-zoom';
 import Workstation from './workstation';
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const components: MDXComponents = {
   h2: (props: React.ComponentPropsWithoutRef<'h2'>) => (
     <Heading as="h2" {...props} />
@@ -50,14 +51,14 @@ const components: MDXComponents = {
   CoreStack,
 };
 
-const Mdx = ({ code, className }: { code: string; className?: string }) => {
-  const Component = useMDXComponent(code);
+const Mdx = ({ code: _, className }: { code: string; className?: string }) => {
+  // const Component = useMDXComponent(code);
 
   return (
     <div
       className={cn('prose w-full max-w-none', 'dark:prose-dark', className)}
     >
-      <Component components={{ ...components }} />
+      {/* <Component components={{ ...components }} /> */}
     </div>
   );
 };

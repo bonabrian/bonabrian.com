@@ -26,7 +26,7 @@
 - ⚛️ [React](https://react.dev/)
 - ⚡️ [Typescript](https://www.typescriptlang.org/)
 - 💅 [Tailwind CSS](https://tailwindcss.com/)
-- 🧩 [Contentlayer](https://www.contentlayer.dev/) with MDX plugins
+- 🧩 [Content collections](https://www.content-collections.dev/)
 - ⚙️ SEO metadata
 - 📏 [ESLint](https://eslint.org/) — Find and fix problems in your code
 - 💖 [Prettier](https://prettier.io/) — Format your code consistently
@@ -119,7 +119,7 @@ Deploy to Vercel, Netlify, etc
 - **ORM**: [Prisma](https://prisma.io/)
 - **Authentication**: [NextAuth.js](https://next-auth.js.org/)
 - **Deployment**: [Vercel](https://vercel.com)
-- **Content**: [MDX](https://github.com/mdx-js/mdx), [contentlayer](https://github.com/contentlayerdev/contentlayer)
+- **Content**: [MDX](https://github.com/mdx-js/mdx), [Content Collections](https://www.content-collections.dev/)
 - **Monitoring**: [Sentry](https://sentry.io)
 
 ## License

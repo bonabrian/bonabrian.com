@@ -1,4 +1,4 @@
-import type { Snippet } from '@/.contentlayer/generated';
+import type { Snippet } from '@/.content-collections/generated';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
 

@@ -1,4 +1,3 @@
-// import { withContentlayer } from 'next-contentlayer2';
 import { withContentCollections } from '@content-collections/next';
 import MillionLint from '@million/lint';
 import { withSentryConfig } from '@sentry/nextjs';

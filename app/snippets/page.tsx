@@ -1,7 +1,7 @@
 import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
-import { allSnippets } from '@/.contentlayer/generated';
+import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import PageHeader from '@/components/shared/page-header';

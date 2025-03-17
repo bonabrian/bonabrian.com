@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Snippet } from '@/.contentlayer/generated';
-import { allSnippets } from '@/.contentlayer/generated';
+import type { Snippet } from '@/.content-collections/generated';
+import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import SnippetProvider from '@/components/providers/snippet-provider';
 import Mdx from '@/components/shared/mdx';
@@ -61,14 +61,14 @@ const SnippetPage = async ({
 
   if (!snippet) return notFound();
 
-  const { title, description, date, body } = snippet;
+  const { title, description, date, code } = snippet;
   const publishedDate = formatDate(date);
 
   return (
     <SnippetProvider snippet={snippet}>
       <Header />
       <Container>
-        <Mdx className={cn('mt-8')} code={body.code} />
+        <Mdx className={cn('mt-8')} code={code} />
         <ContentEngagements slug={slug} />
       </Container>
       <script
