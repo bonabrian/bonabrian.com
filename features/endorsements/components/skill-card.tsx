@@ -25,7 +25,6 @@ import {
 import { ToastAction } from '@/components/ui/toast';
 import { SITE } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
 
 import { MAX_ENDORSERS_DISPLAY } from '../constants';
 import type { Skill } from '../types';
@@ -144,13 +143,8 @@ const SkillCard = ({
           </>
         )}
       </div>
-      <div
-        className={cn(
-          'flex items-center',
-          totalEndorsements > MAX_ENDORSERS_DISPLAY ? 'gap-x-2' : 'gap-x-6',
-        )}
-      >
-        <div className="flex shrink-0 flex-wrap items-center gap-y-4">
+      <div className="flex items-center gap-x-2">
+        <div className="flex w-40 shrink-0 flex-wrap items-center gap-y-4">
           {endorsers.slice(0, MAX_ENDORSERS_DISPLAY).map((endorser) => (
             <div
               key={`${endorser.id}-${skillId}`}
