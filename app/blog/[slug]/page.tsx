@@ -53,14 +53,6 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   return (
     <PostProvider post={post}>
       <Post />
-      {/* <div className={cn('relative')}>
-        <Header />
-        <Thumbnail />
-        <Container>
-          <Mdx className={cn('mt-8')} code={body.code} />
-          <ContentEngagements slug={slug} />
-        </Container>
-        <Footer /> */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -75,7 +67,6 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
         }}
         key="post-jsonld"
       />
-      {/* </div> */}
     </PostProvider>
   );
 };
