@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 import type { Post } from '@/.content-collections/generated';
 
@@ -23,5 +23,6 @@ export const PostProvider = ({
   children: React.ReactNode;
   post: Post;
 }) => {
-  return <PostContext.Provider value={post}>{children}</PostContext.Provider>;
+  const value = useMemo(() => post, [post]);
+  return <PostContext.Provider value={value}>{children}</PostContext.Provider>;
 };
