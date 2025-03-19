@@ -28,7 +28,7 @@ const PostHeader = () => {
       <PageHeader title={title} description={excerpt} ref={pageHeaderRef} />
       <StickyTitle title={title} elementRef={pageHeaderRef} />
       <Container>
-        <div className="text-muted-foreground mt-4 flex flex-col justify-between gap-2 text-sm sm:flex-row">
+        <div className="mt-4 flex flex-col justify-between gap-2 text-sm sm:flex-row">
           <span>
             Published on{' '}
             <time dateTime={publishedDate} className="px-1">
