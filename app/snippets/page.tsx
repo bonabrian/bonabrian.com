@@ -5,8 +5,8 @@ import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import PageHeader from '@/components/shared/page-header';
-import SnippetCard from '@/components/snippet-card';
 import { ROUTES } from '@/constants';
+import SnippetCard from '@/features/snippets/components/snippet-card';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 
@@ -38,12 +38,7 @@ const SnippetsPage = () => {
       />
       <Container>
         {snippets.length ? (
-          <div
-            className={cn(
-              'grid grid-flow-row auto-rows-auto grid-cols-1 gap-4',
-              'md:grid-cols-2',
-            )}
-          >
+          <div className={cn('grid')}>
             {snippets.map((snippet) => (
               <SnippetCard key={snippet._id} snippet={snippet} />
             ))}
