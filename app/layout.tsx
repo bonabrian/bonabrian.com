@@ -8,9 +8,9 @@ import {
 import localFont from 'next/font/local';
 
 import Analytics from '@/components/analytics';
+import AppProvider from '@/components/app-provider';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import AppProvider from '@/components/providers/app-provider';
 import { Toaster } from '@/components/ui/toaster';
 import GuestbookWidget from '@/features/guestbook/components/guestbook-widget';
 import NowPlaying from '@/features/now-playing/components/now-playing';

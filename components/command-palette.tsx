@@ -2,14 +2,21 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { Fragment, useEffect, useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import {
+  createContext,
+  Fragment,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants/links';
 import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 
 import { Command as CommandIcon, Moon, Sun } from './icons';
-import { useCommandPaletteContext } from './providers/command-palette-provider';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import {
@@ -22,7 +29,45 @@ import {
   CommandSeparator,
 } from './ui/command';
 
-const CommandPalette = () => {
+interface CommandPaletteContextProps {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export const CommandPaletteContext = createContext<CommandPaletteContextProps>({
+  isOpen: false,
+  setIsOpen: () => {},
+});
+
+export const useCommandPaletteContext = () => {
+  const context = useContext(CommandPaletteContext);
+
+  if (!context) {
+    throw new Error(
+      'useCommandPaletteContext must be used within a CommandPaletteProvider',
+    );
+  }
+
+  return context;
+};
+
+export const CommandPaletteProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const value = useMemo(() => ({ isOpen, setIsOpen }), [isOpen, setIsOpen]);
+
+  return (
+    <CommandPaletteContext.Provider value={value}>
+      {children}
+    </CommandPaletteContext.Provider>
+  );
+};
+
+export const CommandPalette = () => {
   const { isOpen, setIsOpen } = useCommandPaletteContext();
   const pathname = usePathname();
   const router = useRouter();
@@ -157,5 +202,3 @@ const CommandPalette = () => {
     </>
   );
 };
-
-export default CommandPalette;

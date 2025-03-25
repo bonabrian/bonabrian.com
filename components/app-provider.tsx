@@ -5,8 +5,8 @@ import { ThemeProvider } from 'next-themes';
 
 import useMounted from '@/hooks/use-mounted';
 
-import { TooltipProvider } from '../ui/tooltip';
-import CommandPaletteProvider from './command-palette-provider';
+import { CommandPaletteProvider } from './command-palette';
+import { TooltipProvider } from './ui/tooltip';
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const isMounted = useMounted();

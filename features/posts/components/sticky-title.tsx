@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLayoutEffect, useState } from 'react';
 
-import CommandPalette from '@/components/command-palette';
+import { CommandPalette } from '@/components/command-palette';
 import Container from '@/components/container';
 import ThemeSwitch from '@/components/theme-switch';
 import { Separator } from '@/components/ui/separator';
