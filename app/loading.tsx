@@ -1,4 +1,4 @@
-import Spinner from '@/components/shared/spinner';
+import Spinner from '@/components/spinner';
 import { cn } from '@/lib/utils';
 
 const Loading = () => {
