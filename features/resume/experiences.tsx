@@ -51,7 +51,7 @@ export const EXPERIENCES: Experience[] = [
       'Developed reusable, high-quality UI components for document management and collaboration, boosting maintainability and scalability.',
       'Built real-time document collaboration with pinned comments, optimizing event handling and state management for smooth concurrent interactions.',
       'Integrated OneDrive for seamless document uploads.',
-      'Implemented comprehensive unit tests, achieving over 80% test coverage.',
+      'Implemented comprehensive unit tests, achieving over 75% test coverage.',
     ],
   },
   {
