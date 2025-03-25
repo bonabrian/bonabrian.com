@@ -1,5 +1,5 @@
 import useRequest from '@/hooks/use-request';
-import type { APIErrorResponse, APIListResponse } from '@/types/server';
+import type { APIErrorResponse, APIListResponse } from '@/types/api';
 
 import type { Device } from '../types';
 

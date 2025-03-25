@@ -4,7 +4,7 @@ import {
 } from '@/features/dashboard/server/wakatime';
 import type { CodingActivityStats } from '@/features/dashboard/types/stats';
 import { response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const dynamic = 'force-dynamic';
 

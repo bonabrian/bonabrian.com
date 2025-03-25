@@ -7,7 +7,7 @@ import {
   countViewsBySlugAndSessionId,
 } from '@/features/content/server/views';
 import { getSessionId, response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const GET = async (
   _req: NextRequest,

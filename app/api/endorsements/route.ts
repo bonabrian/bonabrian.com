@@ -13,7 +13,7 @@ import type {
   APIErrorResponse,
   APIListResponse,
   APISingleResponse,
-} from '@/types/server';
+} from '@/types/api';
 
 export const dynamic = 'force-dynamic';
 

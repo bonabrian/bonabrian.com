@@ -8,7 +8,7 @@ import {
 } from '@/features/guestbook/server/actions';
 import { authOptions } from '@/lib/auth';
 import { response } from '@/lib/server';
-import type { APIErrorResponse } from '@/types/server';
+import type { APIErrorResponse } from '@/types/api';
 
 export const DELETE = async (
   _req: NextRequest,

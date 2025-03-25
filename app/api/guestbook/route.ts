@@ -12,7 +12,7 @@ import type {
   APIErrorResponse,
   APIListResponse,
   APISingleResponse,
-} from '@/types/server';
+} from '@/types/api';
 
 export const GET = async () => {
   try {
