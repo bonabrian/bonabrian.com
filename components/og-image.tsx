@@ -1,7 +1,5 @@
 import { BASE_URL, SITE } from '@/constants';
 
-import RenderIf from './shared/render-if';
-
 const OGImage = ({
   title,
   caption,
@@ -26,11 +24,11 @@ const OGImage = ({
       <h2 tw={getTitleFontSize()} style={{ fontFamily: 'Cal Sans' }}>
         {title}
       </h2>
-      <RenderIf isTrue={Boolean(caption)}>
+      {caption && (
         <p tw="text-xl" style={{ fontFamily: 'Cal Sans' }}>
           {caption}
         </p>
-      </RenderIf>
+      )}
       <div tw="absolute bottom-16 left-12 flex items-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -41,12 +39,12 @@ const OGImage = ({
         />
         <div tw="ml-2 flex items-center">
           <div tw="flex text-xl">{SITE.author.github.username}</div>
-          <RenderIf isTrue={Boolean(date)}>
+          {date && (
             <div tw="flex items-center" style={{ fontFamily: 'Cal Sans' }}>
               <div tw="ml-2.5 mr-0.5">&middot;</div>
               <div tw="ml-2 mt-1 flex">{date}</div>
             </div>
-          </RenderIf>
+          )}
         </div>
       </div>
       <div tw="absolute bottom-0 left-0 right-0 bg-[#8566ff] h-3" />
