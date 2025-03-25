@@ -3,15 +3,13 @@
 import { motion } from 'framer-motion';
 import { useLayoutEffect, useState } from 'react';
 
+import Container from '@/components/container';
+import CommandPalette from '@/components/shared/command-palette';
+import ThemeSwitch from '@/components/shared/theme-switch';
+import { Separator } from '@/components/ui/separator';
 import useMediaQuery from '@/hooks/use-media-query';
 import useScroll from '@/hooks/use-scroll';
 import { min } from '@/lib/breakpoints';
-
-import Container from './container';
-import CommandPalette from './shared/command-palette';
-import RenderIf from './shared/render-if';
-import ThemeSwitch from './shared/theme-switch';
-import { Separator } from './ui/separator';
 
 interface StickyTitleProps {
   title: string;
@@ -60,8 +58,8 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
     }
   };
 
-  return (
-    <RenderIf isTrue={isMinMd}>
+  if (isMinMd) {
+    return (
       <>
         {isScrolled ? (
           <motion.div
@@ -101,8 +99,10 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           </motion.div>
         )}
       </>
-    </RenderIf>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default StickyTitle;

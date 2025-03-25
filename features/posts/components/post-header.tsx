@@ -6,11 +6,11 @@ import { useRef } from 'react';
 import Container from '@/components/container';
 import IncrementCounter from '@/components/increment-counter';
 import PageHeader from '@/components/page-header';
-import StickyTitle from '@/components/sticky-title';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ROUTES } from '@/constants/routes';
 import BackButton from '@/features/content/components/back-button';
 import { useViews } from '@/features/content/hooks/use-views';
+import StickyTitle from '@/features/posts/components/sticky-title';
 import { formatDate } from '@/lib/utils';
 
 import { usePostContext } from './post-provider';
