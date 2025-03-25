@@ -43,7 +43,7 @@ const PostHeader = () => {
             <div className="flex items-center gap-1" title="Number of view(s)">
               <EyeIcon className="size-5" />
               {isLoadViews ? (
-                <Skeleton className="w-16" />
+                <Skeleton className="h-5 w-16" />
               ) : (
                 <>
                   <IncrementCounter to={views} /> views
