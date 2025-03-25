@@ -2,8 +2,8 @@ import { FOOTER_ICON_LINKS, FOOTER_LINKS } from '@/constants/links';
 import { SITE } from '@/constants/site';
 import { cn } from '@/lib/utils';
 
-import Container from '../container';
-import Link from '../link';
+import Container from './container';
+import Link from './link';
 
 const Footer = () => {
   return (
