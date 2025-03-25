@@ -1,19 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Snippet } from '@/.content-collections/generated';
+import type { Snippet as SnippetDB } from '@/.content-collections/generated';
 import { allSnippets } from '@/.content-collections/generated';
-import Container from '@/components/container';
-import SnippetProvider from '@/components/providers/snippet-provider';
 import { BASE_URL, ROUTES } from '@/constants';
-import ContentEngagements from '@/features/content/components/content-engagements';
-import Mdx from '@/features/content/components/mdx/mdx';
+import Snippet from '@/features/snippets/components/snippet';
+import { SnippetProvider } from '@/features/snippets/components/snippet-provider';
 import { buildJsonLd, seo } from '@/lib/meta';
-import { cn, formatDate } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
-import Header from './header';
-
-const findSnippetBySlug = (slug?: string): Snippet | undefined =>
+const findSnippetBySlug = (slug?: string): SnippetDB | undefined =>
   allSnippets
     .filter((snippet) => snippet.published)
     .find((snippet) => snippet.slug === slug);
@@ -61,16 +57,12 @@ const SnippetPage = async ({
 
   if (!snippet) return notFound();
 
-  const { title, description, date, code } = snippet;
+  const { title, description, date } = snippet;
   const publishedDate = formatDate(date);
 
   return (
     <SnippetProvider snippet={snippet}>
-      <Header />
-      <Container>
-        <Mdx className={cn('mt-8')} code={code} />
-        <ContentEngagements slug={slug} />
-      </Container>
+      <Snippet />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

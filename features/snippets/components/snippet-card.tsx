@@ -9,7 +9,7 @@ const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
   return (
     <Link
       href={`${ROUTES.snippets}/${slug}`}
-      className="group/snippet hover:bg-primary/5 relative -mx-3 flex w-[calc(100%+1.5rem)] flex-col place-items-stretch items-center space-y-2 self-start rounded-lg bg-transparent p-2.5 transition-colors lg:items-start"
+      className="group/snippet hover:bg-primary/5 relative flex flex-col place-items-stretch items-start space-y-2 self-start rounded-lg bg-transparent p-2.5 transition-colors lg:-mx-3 lg:w-[calc(100%+1.5rem)]"
       title={title}
     >
       <div className="flex flex-col gap-0.5">

@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 import type { Snippet } from '@/.content-collections/generated';
 
@@ -16,18 +16,16 @@ export const useSnippetContext = () => {
   return context;
 };
 
-const SnippetProvider = ({
+export const SnippetProvider = ({
   children,
   snippet,
 }: {
   children: React.ReactNode;
   snippet: Snippet;
 }) => {
+  const value = useMemo(() => snippet, [snippet]);
+
   return (
-    <SnippetContext.Provider value={snippet}>
-      {children}
-    </SnippetContext.Provider>
+    <SnippetContext.Provider value={value}>{children}</SnippetContext.Provider>
   );
 };
-
-export default SnippetProvider;
