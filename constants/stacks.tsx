@@ -29,7 +29,7 @@ import {
   TypeScript,
   Vercel,
   VueJS,
-} from '@/components/shared/icons';
+} from '@/components/icons';
 
 export const STACKS: { [key: string]: JSX.Element } = {
   TypeScript: <TypeScript className="size-5 fill-[#3178C6]" />,

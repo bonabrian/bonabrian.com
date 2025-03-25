@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { GitHub } from '@/components/shared/icons';
+import { GitHub } from '@/components/icons';
 import { SITE } from '@/constants';
 
 import { useStats } from '../hooks/use-stats';

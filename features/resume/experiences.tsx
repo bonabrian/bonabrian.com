@@ -13,7 +13,7 @@ import {
   TailwindCSS,
   TypeScript,
   VueJS,
-} from '@/components/shared/icons';
+} from '@/components/icons';
 
 import type { Experience } from './types';
 

@@ -4,7 +4,7 @@ import { ChevronDownIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { Spotify } from '@/components/shared/icons';
+import { Spotify } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { cn, trim } from '@/lib/utils';
 

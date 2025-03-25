@@ -1,4 +1,4 @@
-import { MoodSad } from './shared/icons';
+import { MoodSad } from './icons';
 
 const EmptyState = ({ message }: { message: string }) => {
   return (

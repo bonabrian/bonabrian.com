@@ -14,7 +14,7 @@ import {
   Pencil,
   RSS,
   Twitter,
-} from '@/components/shared/icons';
+} from '@/components/icons';
 import type { CommandMenu, NavLink } from '@/types/menu';
 
 import { SITE } from './site';

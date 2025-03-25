@@ -4,7 +4,7 @@ import { MinusIcon, XIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
 
-import { Expand } from '@/components/shared/icons';
+import { Expand } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
 import { cn } from '@/lib/utils';

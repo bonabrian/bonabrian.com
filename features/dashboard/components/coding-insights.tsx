@@ -5,8 +5,8 @@ import { fromZonedTime, toZonedTime } from 'date-fns-tz';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import { WakaTime } from '@/components/icons';
 import Progress from '@/components/progress';
-import { WakaTime } from '@/components/shared/icons';
 import { cn, formatDate } from '@/lib/utils';
 
 import { useStats } from '../hooks/use-stats';

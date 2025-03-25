@@ -8,8 +8,8 @@ import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants';
 import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 
+import { Command as CommandIcon, Moon, Sun } from './icons';
 import { useCommandPaletteContext } from './providers/command-palette-provider';
-import { Command as CommandIcon, Moon, Sun } from './shared/icons';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import {

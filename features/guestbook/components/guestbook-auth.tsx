@@ -1,6 +1,6 @@
 import { signIn } from 'next-auth/react';
 
-import { GitHub, Google } from '@/components/shared/icons';
+import { GitHub, Google } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 
 const GuestbookAuth = () => {

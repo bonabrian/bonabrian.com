@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
+import { MenuKebab } from './icons';
 import Link from './link';
-import { MenuKebab } from './shared/icons';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
