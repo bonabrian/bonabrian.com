@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
+import Link from '../link';
 import { Button } from '../ui/button';
 import {
   DropdownMenu,
@@ -13,7 +14,6 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 import { MenuKebab } from './icons';
-import Link from './link';
 
 const MobileMenu = () => {
   const pathname = usePathname();
