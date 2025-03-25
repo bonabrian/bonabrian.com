@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import Marquee from '@/components/marquee';
-import { STACKS } from '@/constants';
+import { STACKS } from '@/constants/stacks';
 
 const TechStacks = () => {
   const [shuffledStacks, setShuffledStacks] = useState<

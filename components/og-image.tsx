@@ -1,4 +1,4 @@
-import { BASE_URL, SITE } from '@/constants';
+import { BASE_URL, SITE } from '@/constants/site';
 
 const OGImage = ({
   title,

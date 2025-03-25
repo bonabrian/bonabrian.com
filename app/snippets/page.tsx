@@ -5,7 +5,7 @@ import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import PageHeader from '@/components/page-header';
-import { ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
 import SnippetCard from '@/features/snippets/components/snippet-card';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';

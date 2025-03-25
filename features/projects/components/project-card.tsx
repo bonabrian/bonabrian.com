@@ -10,8 +10,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { STACKS } from '@/constants';
 import { ROUTES } from '@/constants/routes';
+import { STACKS } from '@/constants/stacks';
 import { cn } from '@/lib/utils';
 
 const ProjectCard = ({ project }: { project: Project }) => {

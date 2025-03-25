@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import allPages from '@/.content-collections/generated/allPages';
 import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
-import { ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
 import Mdx from '@/features/content/components/mdx/mdx';
 import { seo } from '@/lib/meta';
 

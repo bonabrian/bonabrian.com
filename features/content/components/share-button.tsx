@@ -15,7 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { BASE_URL, SITE } from '@/constants';
+import { BASE_URL, SITE } from '@/constants/site';
 import { useCopyButton } from '@/hooks/use-copy-button';
 import { useToast } from '@/hooks/use-toast';
 

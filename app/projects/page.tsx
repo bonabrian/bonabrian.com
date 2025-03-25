@@ -5,7 +5,7 @@ import allProjects from '@/.content-collections/generated/allProjects';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import PageHeader from '@/components/page-header';
-import { ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
 import ProjectCard from '@/features/projects/components/project-card';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';

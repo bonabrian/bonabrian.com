@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
-import { NAV_LINKS } from '@/constants';
+import { NAV_LINKS } from '@/constants/links';
 import useScroll from '@/hooks/use-scroll';
 import { cn } from '@/lib/utils';
 

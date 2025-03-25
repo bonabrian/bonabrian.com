@@ -3,7 +3,8 @@ import Image from 'next/image';
 
 import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
-import { ROUTES, SITE } from '@/constants';
+import { ROUTES } from '@/constants/routes';
+import { SITE } from '@/constants/site';
 import env from '@/env';
 import Biography from '@/features/about/components/biography';
 import OpenForHire from '@/features/about/components/open-for-hire';

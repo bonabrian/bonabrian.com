@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
-import { ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
 import CodingInsights from '@/features/dashboard/components/coding-insights';
 import Engagements from '@/features/dashboard/components/engagements';
 import GitHubInsights from '@/features/dashboard/components/github-insights';

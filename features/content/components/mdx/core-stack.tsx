@@ -3,7 +3,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { CORE_STACKS } from '@/constants';
+import { CORE_STACKS } from '@/constants/stacks';
 
 import Anchor from './anchor';
 

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 import { GitHub } from '@/components/icons';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 
 import { useStats } from '../hooks/use-stats';
 import type { GitHubStats } from '../types/stats';

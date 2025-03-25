@@ -1,6 +1,6 @@
 'use server';
 
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import env from '@/env';
 import fetcher from '@/lib/fetcher';
 

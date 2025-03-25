@@ -1,4 +1,5 @@
-import { FOOTER_ICON_LINKS, FOOTER_LINKS, SITE } from '@/constants';
+import { FOOTER_ICON_LINKS, FOOTER_LINKS } from '@/constants/links';
+import { SITE } from '@/constants/site';
 import { cn } from '@/lib/utils';
 
 import Container from '../container';

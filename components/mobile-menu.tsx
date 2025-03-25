@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 
-import { NAV_LINKS } from '@/constants';
+import { NAV_LINKS } from '@/constants/links';
 import { cn } from '@/lib/utils';
 
 import { MenuKebab } from './icons';

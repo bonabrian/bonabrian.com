@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/constants';
+import { BASE_URL } from '@/constants/site';
 import env from '@/env';
 
 /**

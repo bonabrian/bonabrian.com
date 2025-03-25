@@ -23,7 +23,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { ToastAction } from '@/components/ui/toast';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import { useToast } from '@/hooks/use-toast';
 
 import { MAX_ENDORSERS_DISPLAY } from '../constants';

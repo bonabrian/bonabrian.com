@@ -5,7 +5,7 @@ import { getProviders } from 'next-auth/react';
 
 import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import AuthCard from '@/features/auth/components/auth-card';
 import { authOptions } from '@/lib/auth';
 import { seo } from '@/lib/meta';

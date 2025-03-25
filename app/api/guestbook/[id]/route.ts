@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth';
 
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import {
   countGuestbook,
   deleteEntry,

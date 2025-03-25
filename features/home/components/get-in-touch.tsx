@@ -2,7 +2,7 @@ import { ChevronRightIcon, RocketIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 
 const GetInTouch = () => {
   return (

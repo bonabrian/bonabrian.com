@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { allPosts } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
-import { ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
 import FilteredPosts from '@/features/posts/components/filtered-posts';
 import { seo } from '@/lib/meta';
 

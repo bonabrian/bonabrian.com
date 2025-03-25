@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Container from '@/components/container';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import GetInTouch from '@/features/home/components/get-in-touch';
 import Hero from '@/features/home/components/hero';
 import LatestPosts from '@/features/posts/components/latest-posts';

@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 
 import type { Snippet as SnippetDB } from '@/.content-collections/generated';
 import { allSnippets } from '@/.content-collections/generated';
-import { BASE_URL, ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
+import { BASE_URL } from '@/constants/site';
 import Snippet from '@/features/snippets/components/snippet';
 import { SnippetProvider } from '@/features/snippets/components/snippet-provider';
 import { buildJsonLd, seo } from '@/lib/meta';

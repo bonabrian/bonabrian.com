@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { Fragment, useEffect, useState } from 'react';
 
-import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants';
+import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants/links';
 import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 

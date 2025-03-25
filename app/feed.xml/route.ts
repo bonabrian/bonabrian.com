@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import RSS from 'rss';
 
 import { allPosts } from '@/.content-collections/generated';
-import { BASE_URL, ROUTES, SITE } from '@/constants';
+import { ROUTES } from '@/constants/routes';
+import { BASE_URL, SITE } from '@/constants/site';
 
 export const GET = () => {
   const feed = new RSS({

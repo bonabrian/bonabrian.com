@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { ToastAction } from '@/components/ui/toast';
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 import { useToast } from '@/hooks/use-toast';
 
 import type { Guestbook } from '../types';

@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 
 import type { Post as PostDB } from '@/.content-collections/generated';
 import { allPosts } from '@/.content-collections/generated';
-import { BASE_URL, ROUTES } from '@/constants';
+import { ROUTES } from '@/constants/routes';
+import { BASE_URL } from '@/constants/site';
 import Post from '@/features/posts/components/post';
 import { PostProvider } from '@/features/posts/components/post-provider';
 import { buildJsonLd, seo } from '@/lib/meta';
