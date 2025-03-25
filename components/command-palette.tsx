@@ -8,9 +8,10 @@ import { COMMAND_PAGES, COMMAND_SOCIAL_MEDIA } from '@/constants';
 import { cn } from '@/lib/utils';
 import type { CommandMenu } from '@/types/menu';
 
-import { useCommandPaletteContext } from '../providers/command-palette-provider';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
+import { useCommandPaletteContext } from './providers/command-palette-provider';
+import { Command as CommandIcon, Moon, Sun } from './shared/icons';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import {
   CommandDialog,
   CommandEmpty,
@@ -19,8 +20,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '../ui/command';
-import { Command as CommandIcon, Moon, Sun } from './icons';
+} from './ui/command';
 
 const CommandPalette = () => {
   const { isOpen, setIsOpen } = useCommandPaletteContext();
