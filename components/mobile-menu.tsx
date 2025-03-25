@@ -5,15 +5,15 @@ import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/constants';
 import { cn } from '@/lib/utils';
 
-import Link from '../link';
-import { Button } from '../ui/button';
+import Link from './link';
+import { MenuKebab } from './shared/icons';
+import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
-import { MenuKebab } from './icons';
+} from './ui/dropdown-menu';
 
 const MobileMenu = () => {
   const pathname = usePathname();

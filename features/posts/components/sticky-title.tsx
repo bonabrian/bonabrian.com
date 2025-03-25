@@ -5,7 +5,7 @@ import { useLayoutEffect, useState } from 'react';
 
 import Container from '@/components/container';
 import CommandPalette from '@/components/shared/command-palette';
-import ThemeSwitch from '@/components/shared/theme-switch';
+import ThemeSwitch from '@/components/theme-switch';
 import { Separator } from '@/components/ui/separator';
 import useMediaQuery from '@/hooks/use-media-query';
 import useScroll from '@/hooks/use-scroll';

@@ -11,9 +11,9 @@ import LogoDark from '../../assets/images/logo-dark.svg';
 import LogoLight from '../../assets/images/logo-light.svg';
 import Container from '../container';
 import Link from '../link';
+import ThemeSwitch from '../theme-switch';
 import { Separator } from '../ui/separator';
 import CommandPalette from './command-palette';
-import ThemeSwitch from './theme-switch';
 
 const Header = () => {
   const isScrolled = useScroll();
