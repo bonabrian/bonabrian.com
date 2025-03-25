@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
-import Container from '../container';
+import Container from './container';
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -38,7 +38,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           >
             <h1
               className={cn(
-                'font-cal pb-2 text-4xl font-bold',
+                'font-cal text-4xl font-bold',
                 'md:text-5xl',
                 'lg:text-6xl',
               )}
@@ -52,7 +52,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               animate={animation.show}
               transition={{ delay: 0.2 }}
             >
-              <p className={cn('font-cal mt-2 text-lg')}>{description}</p>
+              <p className={cn('mt-2 md:text-lg')}>{description}</p>
             </motion.div>
           )}
         </Container>

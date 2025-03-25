@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
 
 import Container from '@/components/container';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { SITE } from '@/constants';
 import AuthCard from '@/features/auth/components/auth-card';
 import { authOptions } from '@/lib/auth';

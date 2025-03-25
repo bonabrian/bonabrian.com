@@ -5,7 +5,7 @@ import { useRef } from 'react';
 
 import Container from '@/components/container';
 import IncrementCounter from '@/components/increment-counter';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import StickyTitle from '@/components/sticky-title';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ROUTES } from '@/constants/routes';

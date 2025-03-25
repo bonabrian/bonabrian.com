@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Container from '@/components/container';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { ROUTES } from '@/constants';
 import Guestbook from '@/features/guestbook/components/guestbook';
 import { seo } from '@/lib/meta';

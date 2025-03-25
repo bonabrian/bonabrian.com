@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Container from '@/components/container';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { ROUTES } from '@/constants';
 import CodingInsights from '@/features/dashboard/components/coding-insights';
 import Engagements from '@/features/dashboard/components/engagements';

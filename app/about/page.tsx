@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import Container from '@/components/container';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { ROUTES, SITE } from '@/constants';
 import env from '@/env';
 import Biography from '@/features/about/components/biography';

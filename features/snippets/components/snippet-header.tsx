@@ -4,7 +4,7 @@ import { ClockIcon, EyeIcon } from 'lucide-react';
 
 import Container from '@/components/container';
 import IncrementCounter from '@/components/increment-counter';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ROUTES } from '@/constants/routes';
 import BackButton from '@/features/content/components/back-button';

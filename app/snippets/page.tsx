@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { allSnippets } from '@/.content-collections/generated';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import PageHeader from '@/components/shared/page-header';
+import PageHeader from '@/components/page-header';
 import { ROUTES } from '@/constants';
 import SnippetCard from '@/features/snippets/components/snippet-card';
 import { seo } from '@/lib/meta';
