@@ -7,13 +7,13 @@ import { NAV_LINKS } from '@/constants/links';
 import useScroll from '@/hooks/use-scroll';
 import { cn } from '@/lib/utils';
 
-import LogoDark from '../../assets/images/logo-dark.svg';
-import LogoLight from '../../assets/images/logo-light.svg';
-import CommandPalette from '../command-palette';
-import Container from '../container';
-import Link from '../link';
-import ThemeSwitch from '../theme-switch';
-import { Separator } from '../ui/separator';
+import LogoDark from '../assets/images/logo-dark.svg';
+import LogoLight from '../assets/images/logo-light.svg';
+import CommandPalette from './command-palette';
+import Container from './container';
+import Link from './link';
+import ThemeSwitch from './theme-switch';
+import { Separator } from './ui/separator';
 
 const Header = () => {
   const isScrolled = useScroll();
