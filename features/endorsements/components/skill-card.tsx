@@ -148,6 +148,7 @@ const SkillCard = ({
           {endorsers.slice(0, MAX_ENDORSERS_DISPLAY).map((endorser) => (
             <div
               key={`${endorser.id}-${skillId}`}
+              role="presentation"
               className="group relative -mr-4"
               onMouseEnter={() => setHoveredKey(`${endorser.id}-${skillId}`)}
               onMouseLeave={() => setHoveredKey(null)}
