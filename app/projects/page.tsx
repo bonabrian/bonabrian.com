@@ -1,12 +1,12 @@
 import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
-import { allProjects } from '@/.contentlayer/generated';
-import ProjectCard from '@/components/project-card';
-import Container from '@/components/shared/container';
-import EmptyState from '@/components/shared/empty-state';
-import PageHeader from '@/components/shared/page-header';
-import { ROUTES } from '@/constants';
+import allProjects from '@/.content-collections/generated/allProjects';
+import Container from '@/components/container';
+import EmptyState from '@/components/empty-state';
+import PageHeader from '@/components/page-header';
+import { ROUTES } from '@/constants/routes';
+import ProjectCard from '@/features/projects/components/project-card';
 import { seo } from '@/lib/meta';
 import { cn } from '@/lib/utils';
 

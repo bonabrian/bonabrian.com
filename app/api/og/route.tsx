@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import OGImage from '@/components/og-image';
-import type { APIErrorResponse } from '@/types/server';
+import type { APIErrorResponse } from '@/types/api';
 
 export const runtime = 'edge';
 

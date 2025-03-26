@@ -1,7 +1,7 @@
-import { getNowPlaying } from '@/actions/spotify';
+import { getNowPlaying } from '@/features/now-playing/server/actions';
+import type { NowPlaying } from '@/features/now-playing/types';
 import { response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
-import type { NowPlaying } from '@/types/spotify';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const fetchCache = 'force-no-store';
 export const dynamic = 'force-dynamic';

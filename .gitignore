@@ -36,8 +36,8 @@ yarn-error.log*
 *.tsbuildinfo
 
 
-# Contentlayer
-.contentlayer
+# content-collections
+.content-collections
 
 public/*.xml
 public/**/*/raw.png

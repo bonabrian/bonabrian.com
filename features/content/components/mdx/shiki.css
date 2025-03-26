@@ -1,0 +1,68 @@
+.shiki span {
+  color: var(--shiki-light);
+}
+
+.dark .shiki span {
+  color: var(--shiki-dark);
+}
+
+/* Highlighted, Diff */
+.shiki .highlighted,
+.shiki .diff {
+  margin: 0 -16px;
+  padding: 0 16px;
+  display: inline-block;
+  min-width: calc(100% + 32px);
+  line-height: 20px;
+}
+
+.shiki .highlighted {
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+}
+
+/* Diff */
+.shiki code .diff.remove {
+  background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+}
+
+.shiki code .diff::before {
+  position: absolute;
+  left: 4px;
+}
+
+.shiki code .diff.remove::before {
+  content: '-';
+  color: var(--destructive);
+}
+
+.shiki code .diff.add {
+  background-color: color-mix(in oklab, var(--success) 20%, transparent);
+}
+
+.shiki code .diff.add::before {
+  content: '+';
+  color: var(--success);
+}
+
+/* Highlighted word */
+.shiki .highlighted-word {
+  padding: 1px 2px;
+  margin: -1px -3px;
+  border: 1px solid color-mix(in oklab, var(--primary) 50%, transparent);
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+  border-radius: 2px;
+}
+
+/* Focus */
+.shiki.has-focused .line:not(.focused) {
+  opacity: 0.7;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
+  filter: blur(0.095rem);
+}
+
+.shiki.has-focused:hover .line:not(.focused) {
+  filter: blur(0);
+  opacity: 1;
+}

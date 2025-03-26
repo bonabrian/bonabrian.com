@@ -1,13 +1,13 @@
 import type { NextRequest } from 'next/server';
 
+import { MAX_VIEWS_PER_SESSION } from '@/features/content/constants';
 import {
+  addView,
   countViewsBySlug,
   countViewsBySlugAndSessionId,
-  createView,
-} from '@/actions/views';
-import { MAX_VIEWS_PER_SESSION } from '@/constants';
+} from '@/features/content/server/views';
 import { getSessionId, response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const GET = async (
   _req: NextRequest,
@@ -36,7 +36,7 @@ export const POST = async (
     const currentViews = await countViewsBySlugAndSessionId(slug, sessionId);
 
     if (currentViews < MAX_VIEWS_PER_SESSION) {
-      await createView(slug, sessionId);
+      await addView(slug, sessionId);
       return response<APISingleResponse<null>>({ data: null }, 201);
     }
 

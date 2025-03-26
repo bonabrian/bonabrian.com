@@ -1,0 +1,1 @@
+export const MAX_LATEST_POSTS_DISPLAY = 4;

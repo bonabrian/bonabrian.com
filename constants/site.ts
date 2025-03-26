@@ -1,3 +1,5 @@
+import env from '@/env';
+
 interface Author {
   name: string;
   url: string;
@@ -20,10 +22,7 @@ interface Site {
   keywords?: string[];
 }
 
-export const BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://bonabrian.com'
-    : 'http://localhost:3000';
+export const BASE_URL = env.NEXT_PUBLIC_APP_URL;
 
 export const SITE: Site = {
   url: BASE_URL,

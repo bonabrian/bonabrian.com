@@ -1,13 +1,13 @@
 import type { NextRequest } from 'next/server';
 
+import { MAX_SHARES_PER_SESSION } from '@/features/content/constants';
 import {
+  addShare,
   countSharesBySlug,
   countUserShares,
-  createShare,
-} from '@/actions/shares';
-import { MAX_SHARES_PER_SESSION } from '@/constants';
+} from '@/features/content/server/shares';
 import { getSessionId, response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const GET = async (
   _req: NextRequest,
@@ -39,7 +39,7 @@ export const POST = async (
     const currentShares = await countUserShares(slug, sessionId, type);
 
     if (currentShares < MAX_SHARES_PER_SESSION) {
-      await createShare(slug, sessionId, type);
+      await addShare(slug, sessionId, type);
       return response<APISingleResponse<null>>({ data: null }, 201);
     }
     return response<APIErrorResponse>(

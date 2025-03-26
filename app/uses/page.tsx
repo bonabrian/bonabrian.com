@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { allPages } from '@/.contentlayer/generated';
-import Container from '@/components/shared/container';
-import Mdx from '@/components/shared/mdx';
-import PageHeader from '@/components/shared/page-header';
-import { ROUTES } from '@/constants';
+import allPages from '@/.content-collections/generated/allPages';
+import Container from '@/components/container';
+import PageHeader from '@/components/page-header';
+import { ROUTES } from '@/constants/routes';
+import Mdx from '@/features/content/components/mdx/mdx';
 import { seo } from '@/lib/meta';
 
 export const metadata: Metadata = seo({
@@ -38,7 +38,7 @@ const UsesPage = () => {
         description="A list of the tools, apps and hardware I use on a regular basis."
       />
       <Container>
-        <Mdx code={uses?.body.code} />
+        <Mdx code={uses.code} />
       </Container>
     </>
   );

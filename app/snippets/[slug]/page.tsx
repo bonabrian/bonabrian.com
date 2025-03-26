@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Snippet } from '@/.contentlayer/generated';
-import { allSnippets } from '@/.contentlayer/generated';
-import ContentEngagements from '@/components/content-engagements';
-import SnippetProvider from '@/components/providers/snippet-provider';
-import Container from '@/components/shared/container';
-import Mdx from '@/components/shared/mdx';
-import { BASE_URL, ROUTES } from '@/constants';
+import type { Snippet as SnippetDB } from '@/.content-collections/generated';
+import { allSnippets } from '@/.content-collections/generated';
+import { ROUTES } from '@/constants/routes';
+import { BASE_URL } from '@/constants/site';
+import Snippet from '@/features/snippets/components/snippet';
+import { SnippetProvider } from '@/features/snippets/components/snippet-provider';
 import { buildJsonLd, seo } from '@/lib/meta';
-import { cn, formatDate } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
-import Header from './header';
-
-const findSnippetBySlug = (slug?: string): Snippet | undefined =>
+const findSnippetBySlug = (slug?: string): SnippetDB | undefined =>
   allSnippets
     .filter((snippet) => snippet.published)
     .find((snippet) => snippet.slug === slug);
@@ -61,16 +58,12 @@ const SnippetPage = async ({
 
   if (!snippet) return notFound();
 
-  const { title, description, date, body } = snippet;
+  const { title, description, date } = snippet;
   const publishedDate = formatDate(date);
 
   return (
     <SnippetProvider snippet={snippet}>
-      <Header />
-      <Container>
-        <Mdx className={cn('mt-8')} code={body.code} />
-        <ContentEngagements slug={slug} />
-      </Container>
+      <Snippet />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -79,7 +72,6 @@ const SnippetPage = async ({
             description,
             headline: title,
             datePublished: publishedDate,
-            // TODO: add dateModified
             dateModified: publishedDate,
             url: `${BASE_URL}${ROUTES.snippets}/${slug}`,
           }),

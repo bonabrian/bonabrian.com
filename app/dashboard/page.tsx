@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 
-import Container from '@/components/shared/container';
-import PageHeader from '@/components/shared/page-header';
-import { ROUTES } from '@/constants';
+import Container from '@/components/container';
+import PageHeader from '@/components/page-header';
+import { ROUTES } from '@/constants/routes';
+import CodingInsights from '@/features/dashboard/components/coding-insights';
+import Engagements from '@/features/dashboard/components/engagements';
+import GitHubInsights from '@/features/dashboard/components/github-insights';
 import { seo } from '@/lib/meta';
-
-import CodingActivity from './coding-activity';
-import Engagements from './engagements';
-import GitHubInsights from './github-insights';
 
 export const metadata: Metadata = seo({
   title: 'Dashboard',
@@ -27,7 +26,7 @@ const DashboardPage = () => {
       <Container>
         <div className="flex flex-col gap-8">
           <Engagements />
-          <CodingActivity />
+          <CodingInsights />
           <GitHubInsights />
         </div>
       </Container>

@@ -1,6 +1,7 @@
+import { BookOpenTextIcon } from 'lucide-react';
+
 import {
   AtSign,
-  BookOpenText,
   Coffee,
   Dashboard,
   Email,
@@ -13,23 +14,11 @@ import {
   Pencil,
   RSS,
   Twitter,
-} from '@/components/shared/icons';
+} from '@/components/icons';
 import type { CommandMenu, NavLink } from '@/types/menu';
 
+import { ROUTES } from './routes';
 import { SITE } from './site';
-
-export const ROUTES = {
-  blog: '/blog',
-  projects: '/projects',
-  snippets: '/snippets',
-  tags: '/tags',
-  endorsements: '/endorsements',
-  guestbook: '/guestbook',
-  about: '/about',
-  dashboard: '/dashboard',
-  resume: '/resume',
-  uses: '/uses',
-};
 
 export const NAV_LINKS: NavLink[] = [
   {
@@ -62,7 +51,7 @@ export const NAV_LINKS: NavLink[] = [
   {
     path: ROUTES.guestbook,
     label: 'Guestbook',
-    icon: <BookOpenText />,
+    icon: <BookOpenTextIcon />,
   },
   {
     path: ROUTES.endorsements,
@@ -124,7 +113,7 @@ export const COMMAND_PAGES: CommandMenu[] = [
   {
     label: 'Guestbook',
     href: ROUTES.guestbook,
-    icon: <BookOpenText />,
+    icon: <BookOpenTextIcon />,
     isExternal: false,
     eventName: 'Pages: Guestbook',
     type: 'PAGE',

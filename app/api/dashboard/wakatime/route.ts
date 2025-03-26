@@ -1,10 +1,10 @@
 import {
   getAllTimeSinceToday,
   getLastSevenDaysStats,
-} from '@/actions/wakatime';
+} from '@/features/dashboard/server/wakatime';
+import type { CodingActivityStats } from '@/features/dashboard/types/stats';
 import { response } from '@/lib/server';
-import type { APIErrorResponse, APISingleResponse } from '@/types/server';
-import type { CodingActivityStats } from '@/types/stats';
+import type { APIErrorResponse, APISingleResponse } from '@/types/api';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 
-import { getEndorsements } from '@/actions/endorsements';
-import Container from '@/components/shared/container';
-import PageHeader from '@/components/shared/page-header';
-import { ROUTES } from '@/constants';
+import Container from '@/components/container';
+import PageHeader from '@/components/page-header';
+import { ROUTES } from '@/constants/routes';
+import Endorsements from '@/features/endorsements/components/endorsements';
 import { seo } from '@/lib/meta';
-
-import Endorsements from './endorsements';
 
 export const metadata: Metadata = seo({
   title: 'Endorsements',
@@ -15,9 +13,9 @@ export const metadata: Metadata = seo({
   url: ROUTES.endorsements,
 });
 
-const EndorsementsPage = async () => {
-  const endorsements = await getEndorsements();
+export const dynamic = 'force-dynamic';
 
+const EndorsementsPage = async () => {
   return (
     <>
       <PageHeader
@@ -25,7 +23,7 @@ const EndorsementsPage = async () => {
         description="Kindly consider supporting my technical skills and capabilities by providing an endorsement based on your firsthand experience collaborating with me. Your valued endorsement is highly appreciated and will contribute significantly to showcasing my proficiency."
       />
       <Container>
-        <Endorsements fallbackData={endorsements} />
+        <Endorsements />
       </Container>
     </>
   );

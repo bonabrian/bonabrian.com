@@ -1,21 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Post } from '@/.contentlayer/generated';
-import { allPosts } from '@/.contentlayer/generated';
-import ContentEngagements from '@/components/content-engagements';
-import PostProvider from '@/components/providers/post-provider';
-import Container from '@/components/shared/container';
-import Mdx from '@/components/shared/mdx';
-import { BASE_URL, ROUTES } from '@/constants';
+import type { Post as PostDB } from '@/.content-collections/generated';
+import { allPosts } from '@/.content-collections/generated';
+import { ROUTES } from '@/constants/routes';
+import { BASE_URL } from '@/constants/site';
+import Post from '@/features/posts/components/post';
+import { PostProvider } from '@/features/posts/components/post-provider';
 import { buildJsonLd, seo } from '@/lib/meta';
-import { cn, formatDate } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
-import Footer from './footer';
-import Header from './header';
-import Thumbnail from './thumbnail';
-
-const findPostBySlug = (slug?: string): Post | undefined =>
+const findPostBySlug = (slug?: string): PostDB | undefined =>
   allPosts.filter((post) => post.published).find((post) => post.slug === slug);
 
 export const generateMetadata = async ({
@@ -51,36 +46,28 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   if (!post) return notFound();
 
-  const { title, excerpt, date, modifiedDate, body } = post;
+  const { title, excerpt, date, modifiedDate } = post;
 
   const datePublished = formatDate(date);
   const dateModified = formatDate(modifiedDate);
 
   return (
     <PostProvider post={post}>
-      <div className={cn('relative')}>
-        <Header />
-        <Thumbnail />
-        <Container>
-          <Mdx className={cn('mt-8')} code={body.code} />
-          <ContentEngagements slug={slug} />
-        </Container>
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: buildJsonLd({
-              title,
-              description: excerpt,
-              headline: title,
-              datePublished,
-              dateModified,
-              url: `${BASE_URL}${ROUTES.blog}/${slug}`,
-            }),
-          }}
-          key="post-jsonld"
-        />
-      </div>
+      <Post />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: buildJsonLd({
+            title,
+            description: excerpt,
+            headline: title,
+            datePublished,
+            dateModified,
+            url: `${BASE_URL}${ROUTES.blog}/${slug}`,
+          }),
+        }}
+        key="post-jsonld"
+      />
     </PostProvider>
   );
 };

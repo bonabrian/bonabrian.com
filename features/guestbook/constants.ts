@@ -1,0 +1,2 @@
+export const GUESTBOOK_WIDGET_HEIGHT = 480;
+export const GUESTBOOK_HEIGHT_GAP = 256;

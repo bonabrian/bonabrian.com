@@ -1,4 +1,4 @@
-import Container from '@/components/shared/container';
+import Container from '@/components/container';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 

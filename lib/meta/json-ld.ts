@@ -1,4 +1,4 @@
-import { SITE } from '@/constants';
+import { SITE } from '@/constants/site';
 
 import { buildOgImageURL } from './builder';
 

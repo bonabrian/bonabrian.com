@@ -1,11 +1,11 @@
 import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 
-import { allPosts } from '@/.contentlayer/generated';
-import FilteredPosts from '@/components/filtered-posts';
-import Container from '@/components/shared/container';
-import PageHeader from '@/components/shared/page-header';
-import { ROUTES } from '@/constants';
+import { allPosts } from '@/.content-collections/generated';
+import Container from '@/components/container';
+import PageHeader from '@/components/page-header';
+import { ROUTES } from '@/constants/routes';
+import FilteredPosts from '@/features/posts/components/filtered-posts';
 import { seo } from '@/lib/meta';
 
 export const metadata: Metadata = seo({
