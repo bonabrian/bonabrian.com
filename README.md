@@ -102,14 +102,13 @@ Deploy to Vercel, Netlify, etc
 ## Files to customize
 
 - `constants/site.ts` - update `site` with yours.
-- `constants/experiences.ts` - update with your cool experiences.
+- `features/resume/experiences.tsx` - update with your cool experiences.
 - `app/about/page.tsx` - update with yours.
 - `app/resume/page.tsx` - (optional) update with your resume or you can remove it.
 - `public/share/resume.pdf` - (optional) replace with your best resume.
 - `public/media/*` - store assets such as images and favicons.
-- `tailwind.config.js` - contains the tailwind styles, and modify as you like to change overall look and feel to the site.
 - `content` - replace with your blog posts, projects, and snippets.
-- `next.config.js` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains.
+- `next.config.ts` - configuration related to Next.js. You need to adapt the Content Security Policy if you want to load scripts, images etc. from other domains.
 
 ## Stack
 
