@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 const Spinner = ({ className }: { className?: string }) => (
-  <div role="status">
+  <div>
     <svg
       aria-hidden="true"
       className={cn(

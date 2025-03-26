@@ -7,8 +7,8 @@ import {
   transformerNotationWordHighlight,
 } from '@shikijs/transformers';
 import type { Root } from 'hast';
-import type { BuiltinTheme } from 'shiki';
 import {
+  type BuiltinTheme,
   bundledLanguages,
   createOnigurumaEngine,
   getSingletonHighlighter,

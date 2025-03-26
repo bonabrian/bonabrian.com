@@ -11,7 +11,7 @@ interface AppsGridProps {
 }
 
 const AppsGrid = ({ apps }: AppsGridProps) => {
-  const sortedApps = apps.sort((a, b) => a.name.localeCompare(b.name));
+  const sortedApps = apps.toSorted((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="bg-grid rounded-xl border-2 border-dashed">

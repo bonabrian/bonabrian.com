@@ -2,8 +2,13 @@
 
 import type { ScrollAreaViewportProps } from '@radix-ui/react-scroll-area';
 import { CheckIcon, CopyIcon } from 'lucide-react';
-import type { ButtonHTMLAttributes } from 'react';
-import { forwardRef, type HTMLAttributes, useCallback, useRef } from 'react';
+import {
+  type ButtonHTMLAttributes,
+  forwardRef,
+  type HTMLAttributes,
+  useCallback,
+  useRef,
+} from 'react';
 
 import { Button } from '@/components/ui/button';
 import {

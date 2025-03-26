@@ -167,7 +167,6 @@ export const GitHub = (props: ComponentProps<'svg'>) => (
 
 export const Google = (props: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -196,7 +195,6 @@ export const LinkedIn = (props: ComponentProps<'svg'>) => (
 
 export const Twitter = (props: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -280,7 +278,6 @@ export const Kotlin = (props: ComponentProps<'svg'>) => (
 
 export const Ruby = (props: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -317,7 +314,6 @@ export const MySQL = (props: ComponentProps<'svg'>) => (
 
 export const PostgreSQL = (props: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -378,7 +374,6 @@ export const ReactJS = (props: ComponentProps<'svg'>) => (
 
 export const Redis = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -427,7 +422,6 @@ export const TypeScript = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const NuxtJS = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -452,7 +446,6 @@ export const VueJS = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const RubyOnRails = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -465,7 +458,6 @@ export const RubyOnRails = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const MDX = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -478,7 +470,6 @@ export const MDX = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Prisma = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -491,7 +482,6 @@ export const Prisma = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Jest = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -504,7 +494,6 @@ export const Jest = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Git = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -517,7 +506,6 @@ export const Git = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Supabase = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -530,7 +518,6 @@ export const Supabase = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const JQuery = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -543,7 +530,6 @@ export const JQuery = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Bootstrap = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -556,7 +542,6 @@ export const Bootstrap = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Android = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -591,7 +576,6 @@ export const Document = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const WakaTime = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -606,7 +590,6 @@ export const WakaTime = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const RSS = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -619,7 +602,6 @@ export const RSS = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const FramerMotion = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -632,7 +614,6 @@ export const FramerMotion = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Vercel = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -645,7 +626,6 @@ export const Vercel = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const ShadcnUI = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -675,7 +655,6 @@ export const Expand = ({ ...props }: ComponentProps<'svg'>) => (
 
 export const Spotify = ({ ...props }: ComponentProps<'svg'>) => (
   <svg
-    role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
