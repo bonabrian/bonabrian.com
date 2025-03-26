@@ -72,7 +72,6 @@ const SnippetPage = async ({
             description,
             headline: title,
             datePublished: publishedDate,
-            // TODO: add dateModified
             dateModified: publishedDate,
             url: `${BASE_URL}${ROUTES.snippets}/${slug}`,
           }),

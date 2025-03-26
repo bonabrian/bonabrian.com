@@ -158,7 +158,7 @@ const addProps = async (node: ImageNode): Promise<ImageNode> => {
 
     node.attributes = unique;
   } else if (img === true) {
-    node.properties = { ...(node.properties ?? {}), ...res };
+    node.properties = { ...node.properties, ...res };
   }
 
   return node;

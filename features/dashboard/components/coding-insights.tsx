@@ -42,7 +42,6 @@ const CodingInsights = () => {
     formatLastModified();
   }, [stats]);
 
-  // TODO: will fix later
   // const startDate = data?.start ? formatDate(data?.start) : 'N/A';
   // const endDate = data?.end ? formatDate(data?.end) : 'N/A';
   const dailyAverage =
