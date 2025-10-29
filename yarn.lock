@@ -6198,7 +6198,7 @@ __metadata:
     lint-staged: "npm:^15.5.0"
     lucide-react: "npm:^0.483.0"
     next: "npm:15.2.4"
-    next-auth: "npm:4.24.11"
+    next-auth: "npm:4.24.12"
     next-themes: "npm:^0.4.6"
     plaiceholder: "npm:^3.0.0"
     postcss: "npm:^8.5.3"
@@ -11303,9 +11303,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:4.24.11":
-  version: 4.24.11
-  resolution: "next-auth@npm:4.24.11"
+"next-auth@npm:4.24.12":
+  version: 4.24.12
+  resolution: "next-auth@npm:4.24.12"
   dependencies:
     "@babel/runtime": "npm:^7.20.13"
     "@panva/hkdf": "npm:^1.0.2"
@@ -11318,8 +11318,8 @@ __metadata:
     uuid: "npm:^8.3.2"
   peerDependencies:
     "@auth/core": 0.34.2
-    next: ^12.2.5 || ^13 || ^14 || ^15
-    nodemailer: ^6.6.5
+    next: ^12.2.5 || ^13 || ^14 || ^15 || ^16
+    nodemailer: ^7.0.7
     react: ^17.0.2 || ^18 || ^19
     react-dom: ^17.0.2 || ^18 || ^19
   peerDependenciesMeta:
@@ -11327,7 +11327,7 @@ __metadata:
       optional: true
     nodemailer:
       optional: true
-  checksum: 10c0/56142678cfb8e751ae24f1396b3659aac7b1831f4f2283bcb2035224ebfd7ae82b62839383cf4029835d511cec339aad9665afcd1e711a631359fe123d970c0d
+  checksum: 10c0/345346f89c161ddbc55605a419d909f664d081b21327590b2d8bdc831e3062219be81d743bbe7ef4b99cc67f23cb698261fc161520db4774a99710c0e913e912
   languageName: node
   linkType: hard
 
